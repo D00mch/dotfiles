@@ -26,7 +26,7 @@ PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
 
 # For telegram-cli
 export CFLAGS="-I/usr/local/include -I/usr/local/Cellar/readline/6.3.8/include"
-exPort CPPFLAGS="-I/usr/local/opt/openssl/include"
+export CPPFLAGS="-I/usr/local/opt/openssl/include"
 export LDFLAGS="-L/usr/local/opt/openssl/lib -L/usr/local/lib -L/usr/local/Cellar/readline/6.3.8/lib"
 
 export PATH
