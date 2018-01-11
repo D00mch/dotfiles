@@ -104,7 +104,7 @@ alias idearc='vim /Users/dumchev/.ideavimrc'
 
 
 # autoru start
-alias apk='cd ~/AndroidStudioProjects/mobile-autoru-client-android-3/app/build/outputs/apk'
+alias apk='cd ~/AndroidStudioProjects/mobile-autoru-client-android-3/app/build/outputs/apk/dev/debug'
 alias auto='cd ~/AndroidStudioProjects/mobile-autoru-client-android-3/'
 
 # remove debug auto
