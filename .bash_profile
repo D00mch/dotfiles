@@ -43,7 +43,7 @@ alias ..='cd ../'
 alias ...='cd ../../'
 alias ~='cd ~'
 alias home='cd ~'
-alias video="open $1 -a VLC"
+alias video="open $1 -a Elmedia\ Player"
 alias f="find . -name $1"
 alias ip="ifconfig | grep 'inet' | grep -Fv 127.0.0.1 | awk '{print $2}'"
 
@@ -75,6 +75,7 @@ lock(){
 
 # navigation commands start
 alias notes="cd ~/Documents/sublime"
+
 alias vimhome="cd /usr/local/share/vim/vim80"
 alias delegates="cd ~/AndroidStudioProjects/other/DelegateAdapters/"
 
@@ -84,6 +85,7 @@ alias delegates="cd ~/AndroidStudioProjects/other/DelegateAdapters/"
 
 # android commands start
 alias apkinstall="adb devices | tail -n +2 | cut -sf 1 | xargs -I X adb -s X install -r $1"
+alias ai="apkinstall"
 alias rmapp="adb devices | tail -n +2 | cut -sf 1 | xargs -I X adb -s X uninstall $1"
 alias clearappcache='adb shell pm clear $1'
 # android commands end
@@ -105,6 +107,7 @@ alias idearc='vim /Users/dumchev/.ideavimrc'
 
 # autoru start
 alias apk='cd ~/AndroidStudioProjects/mobile-autoru-client-android-3/app/build/outputs/apk/dev/debug'
+alias apkT='cd /Users/dumchev/AndroidStudioProjects/auto-test/app/build/outputs/apk/dev/debug'
 alias auto='cd ~/AndroidStudioProjects/mobile-autoru-client-android-3/'
 
 # remove debug auto
@@ -121,6 +124,16 @@ cda(){
 # clear release auto
 cra(){
    adb shell pm clear 'ru.auto.ara'
+}
+
+# open debug auto
+oda(){
+   adb shell am start -n 'ru.auto.ara.debug/ru.auto.ara.SplashActivity'
+}
+
+# open release auto
+ora(){
+   adb shell am start -n 'ru.auto.ara/ru.auto.ara.SplashActivity'
 }
 
 a(){
@@ -163,6 +176,7 @@ alias gc=./gradlew clean
 	alias gst='git status'
 	alias gp='git pull'
 	alias git-uncommit='git reset --soft HEAD~'
+        alias dcheck='./gradlew detektCheck'
 
         # remove all branches
         alias grb='git branch | grep -v "master" | xargs git branch -D'

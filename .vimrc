@@ -9,18 +9,18 @@ execute pathogen#infect()
 filetype plugin indent on
 
 "{{{ russian mapping
-"set keymap=russian-jcukenmac
-"set iminsert=0
-"set imsearch=0
-"highlight lCursor guifg=NONE guibg=Cyan
-"
-"inoremap <c-l> <c-^>
+set keymap=russian-jcukenmac
+set iminsert=0
+set imsearch=0
+highlight lCursor guifg=NONE guibg=Cyan
+
+inoremap <c-l> <c-^>
 "}}}
 
 "{{{ syntax
 :syntax on
-":set background=dark
-colorscheme donbass 
+:set background=dark
+"colorscheme donbass 
 
 :command FormatJson %!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), ensure_ascii=False, indent=4)"
 "}}}
@@ -51,10 +51,6 @@ nnoremap r<tab> <nop>
 
 "{{{ positioning
 nmap <space> <nop>
-noremap <space>b zb
-noremap <space>d zt
-noremap <space>k H
-noremap <space>j L
 map J 13jzz
 map K 13kzz
 map H 15h
@@ -75,10 +71,13 @@ noremap ˚ 4k
 "alt + q
 noremap œ @
 
-nnoremap <expr> m '"'.nr2char(getchar()).'y'
-vnoremap <expr> m '"'.nr2char(getchar()).'y'
-nnoremap <expr> <space>r '"'.nr2char(getchar()).'p'
-vnoremap <expr> <space>r '"'.nr2char(getchar()).'p'
+"nnoremap <expr> m '"'.nr2char(getchar()).'y'
+"vnoremap <expr> m '"'.nr2char(getchar()).'y'
+"nnoremap <expr> <space>r '"'.nr2char(getchar()).'p'
+"vnoremap <expr> <space>r '"'.nr2char(getchar()).'p'
+
+"delete all line without putting it in registers
+noremap D V"_d
 "}}}
 
 "{{{ making habitual hotkeys work in vim
