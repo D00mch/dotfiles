@@ -1,0 +1,173 @@
+*TclShell.txt* Tcl Shell for Vim
+                             For Vim version 7.x.
+                  Last Changed: Mon Mar 19 09:41 AM 2012 EDT
+                   https://github.com/LStinson/TclShell-Vim
+             http://www.vim.org/scripts/script.php?script_id=3750
+                             http://wiki.tcl.tk/28782
+                        By Lorance Stinson AT Gmail...
+
+Contents:					*tclshell* *tclshell-vim*
+	Description				|tclshell-description|
+	Installation				|tclshell-installation|
+	Commands				|tclshell-commands|
+	Mappings				|tclshell-mappings|
+	Settings				|tclshell-settings|
+	Tcl Evaluation				|tclshell-evaluation|
+
+==============================================================================
+DESCRIPTION					*tclshell-description*
+
+A Tcl Shell for Vim using the integrated |tcl| interpreter.
+
+Creates a new buffer and window that resembles a shell. Tcl code can be
+entered and is executed once Enter is pressed. The window has key mappings
+that make it behave like a normal shell on a terminal.
+
+Note:	Only one line of code can be entered. Once Enter is pressed the code is
+	executed. You can still enter multiple statements separated by a
+	semicolon ';'.
+
+Requires Vim 7 or later compiled with the |+tcl| feature. If TclShell does not
+appear to work use |:version| to make sure the |+tcl| feature is present.
+
+Based on Shell.vim: http://www.vim.org/scripts/script.php?script_id=118
+
+==============================================================================
+INSTALLATION					*tclshell-installation*
+
+Copy the files to your ~/.vim or ~/vimfiles directory.
+If using a package manager like pathogen place the whole directory in the
+bundle directory.
+
+==============================================================================
+COMMANDS					*tclshell-commands*
+
+Commands created for user use.
+
+:TclShell					*:TclShell*
+	Open the Tcl Shell window.
+
+:TclEval
+	Opents the Tcl Shell window and evaluates TCL code.
+	By default will source the current file.
+	Will operate on a range or visual selection.
+	Note: TclEval operates on whole lines only.
+	Tcl can be passed in, without quotes.
+	Examples: >
+	" Execute Tcl code.
+	:TclEval info vars
+	" Execute the current file.
+	:TclEval
+	" Execute the fist five lines of the file.
+	:1,5TclEval
+<
+
+==============================================================================
+MAPPINGS					*tclshell-mappings*
+
+There is a single mapping to start Tcl Shell. See |tclshell-settings| to
+change/disable this mapping.
+
+
+<Leader>tcl					|:TclShell|
+	Opens the Tcl Shell window.
+	In visual mode opens the window and executes the highlighted TCL code.
+
+Note:	The |Leader| key is normally set to "\".
+
+The following mappings are defined only in the TclShell Window.
+See 'g:TclShellDisableExtMap' in |tclshell-settings| to disable these mapping.
+
+Note:	The ALT key mappings may not work in all terminals. See |:map-alt-keys|
+	for details.
+
+ALT-B		Move backward one word.
+ALT-D		Delete the word under the cursor.
+ALT-F		Move forward one word.
+
+CTRL-B		Move backward one character.
+CTRL-D		Close the Tcl Shell Window.
+CTRL-E		Move to the end of the line.
+CTRL-F		Move forward one character.
+CTRL-K		Delete from the cursor to the end of the line.
+CTRL-L		Clear the Tcl Shell Window, like CTRL-L on a terminal.
+CTRL-N		Move down in history to to newer entries.
+CTRL-T		Transpose the character under the cursor with the previous
+		character.
+CTRL-P		Move up in history to to older entries.
+
+==============================================================================
+SETTINGS					*tclshell-settings*
+
+g:loadedTclShell
+	To completey disable the plugin set this to 1. >
+                 let :loadedTclShell = 0
+<
+
+ig:TclShellPrompt
+	The prompt to display in the Tcl Shell Window.
+	Defaults to "Tcl Shell # ".
+	Note: Once the Tcl Shell is opened changes to this variable will not
+	be recognized. >
+		let g:TclShellPrompt = "Tcl Shell # "
+<
+
+g:TclShellInsert
+	When set to 1 enters insert mode when opening the Tcl Shell window.
+	Defaults to 1. >
+		let g:TclShellInsert = 0
+<
+
+g:TclShellKey
+	Sets the key mappings to open the Tcl Shell window.
+	If set to '' will not create the key mappings.
+	Defaults to '<Leader>tcl'. >
+		let g:TclShellKey = '<Leader>tcl'
+<
+
+g:TclShellDisableExtMap
+	When set to 1 disables the extended mappings in the Tcl Shell Window.
+	Defaults to 0. >
+		let g:TclShellDisableExtMap = 0
+>
+
+g:TclShellHistMax
+	Sets the maximum number of commands to store in the history. 
+	Defaults to 50. >
+		let g:TclShellHistMax = 50
+>
+
+==============================================================================
+EVALUATION					*tclshell-evaluation*
+
+The Tcl code entered into the shell is evaluated in a 'catch { uplevel 1 }'
+block. The result is appended to the bottom of the Tcl Shell Window. All Tcl
+procedures and variables used by Tcl Shell start with "_TclShell". There are
+some changes to normal Tcl evaluation as noted below.
+
+Variables: 
+	If a variable is entered (eg. '$VARNAME') then the input is changed to
+	'return $VARNAME'. If this is not the desired action either wrap the
+	variable in an eval or precede the '$' with a space.
+
+Output with "puts":
+	The "puts" command is overridden with a different procedure when code
+	is executed. If "puts" does not have a channel or uses "stdout" then
+	the output is saved and appended to the Tcl Shell Window before the
+	result. Any other channel is passed to the real "puts". This is to
+	capture output that Vim would normally grab and display in the status
+	area. To get the Vim default action use the channel "vimout". See
+	|tcl-output| for more information. This does not affect code run via
+	the ':tcl' command. The replacement is only in place while evaluating
+	Tcl Shell input.
+
+exit:
+	Vim overrides the "exit" command to only exit the Tcl interpreter. Tcl
+	Shell makes the, possibly bad, assumption that as long as the Tcl
+	Shell buffer exists the same interpreter is running. When the buffer
+	is created or opened from being hidden the buffer and the interpreter
+	are initialized. So if exit is called it would be best to delete the
+	Tcl Shell buffer using the |:bdelete| command. Once it is reopened Tcl
+	Shell will function properly.
+
+ vim:ts=8:sw=8:sts=8:noet:tw=78:ft=help:
