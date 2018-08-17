@@ -8,6 +8,8 @@ set clipboard+=unnamed  " use the clipboards of vim and win
 execute pathogen#infect()
 filetype plugin indent on
 
+:let g:notes_directories = ['/Users/dumchev/Yandex.Disk.localized/notes/vim']
+
 "{{{ russian mapping
 set keymap=russian-jcukenmac
 set iminsert=0
