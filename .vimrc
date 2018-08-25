@@ -21,8 +21,8 @@ inoremap <c-l> <c-^>
 
 "{{{ syntax
 :syntax on
-:set background=dark
-"colorscheme donbass 
+:set background=light
+colorscheme one
 
 :command FormatJson %!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), ensure_ascii=False, indent=4)"
 "}}}
