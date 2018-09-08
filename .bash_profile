@@ -31,6 +31,8 @@ export LDFLAGS="-L/usr/local/opt/openssl/lib -L/usr/local/lib -L/usr/local/Cella
 
 export PATH
 
+export CLICOLOR=1
+
 source ~/git-completion.bash
 
 
@@ -74,14 +76,17 @@ lock(){
 
 
 # navigation commands start
-alias notes="cd ~/Documents/sublime"
+alias notes="cd ~/Yandex.Disk.localized/notes/vim"
 
 alias vimhome="cd /usr/local/share/vim/vim80"
 alias delegates="cd ~/AndroidStudioProjects/other/DelegateAdapters/"
-
 # navigation commands end
 
-
+# notes
+fuz() {
+        sh ~/Yandex.Disk.localized/notes/fuz.sh $@
+}
+#
 
 # android commands start
 alias apkinstall="adb devices | tail -n +2 | cut -sf 1 | xargs -I X adb -s X install -r $1"
@@ -98,10 +103,10 @@ alias р='trans ru:en'
 
 
 # settings files start
-alias bashrc='vim /Users/dumchev/.bash_profile'
-alias vimrc='vim /Users/dumchev/.vimrc'
-alias inputrc='vim /Users/dumchev/.inputrc'
-alias idearc='vim /Users/dumchev/.ideavimrc'
+alias bashrc='vim ~/.bash_profile'
+alias vimrc='vim ~/.vimrc'
+alias inputrc='vim ~/.inputrc'
+alias idearc='vim ~/.ideavimrc'
 # settings files end
 
 
@@ -144,7 +149,7 @@ ssha(){
 	~ && ssh 'dumchev-01-sas.dev.vertis.yandex.net'
 }
 
-sh(){
+sshm(){
 	~ && ssh 'android-build-02-sas.dev.vertis.yandex.net'
 }
 
@@ -153,7 +158,7 @@ sshpassport(){
 }
 
 mf(){
-    ./mainframer-init.sh 'dumchev-01-sas.dev.vertis.yandex.net' '/home/dumchev/mobile-autoru-client-android-3/app' 
+    ./mainframer-init.sh 'dumchev-02-sas.dev.vertis.yandex.net' '/home/dumchev/mobile-autoru-client-android-3/app' 
 }
 # autoru end
 

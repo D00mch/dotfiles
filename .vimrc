@@ -8,7 +8,7 @@ set clipboard+=unnamed  " use the clipboards of vim and win
 execute pathogen#infect()
 filetype plugin indent on
 
-:let g:notes_directories = ['/Users/dumchev/Yandex.Disk.localized/notes/vim']
+:let g:notes_directories = ['~/Yandex.Disk.localized/notes/vim']
 
 "{{{ russian mapping
 set keymap=russian-jcukenmac
@@ -25,6 +25,8 @@ inoremap <c-l> <c-^>
 colorscheme one
 
 :command FormatJson %!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), ensure_ascii=False, indent=4)"
+
+au BufRead,BufNewFile *.lib set filetype=sh
 "}}}
 
 set nocompatible
