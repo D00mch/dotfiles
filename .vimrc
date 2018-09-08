@@ -21,8 +21,8 @@ inoremap <c-l> <c-^>
 
 "{{{ syntax
 :syntax on
-:set background=light
-colorscheme one
+:set background=dark
+colorscheme parsec
 
 :command FormatJson %!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), ensure_ascii=False, indent=4)"
 
@@ -85,14 +85,23 @@ noremap D V"_d
 "}}}
 
 "{{{ making habitual hotkeys work in vim
-"alt + d
+"alt + d  -> copy and paste the line
 nnoremap ∂ Yp
-"alt + a
+
+"alt + a  -> select all
 nnoremap å ggVG
-"alt + s
+
+"alt + s  -> save
 nnoremap ß :w<Enter>
-"alt + p
-nnoremap π "0p
+
+"alt + x  -> save and quit
+nnoremap ≈ :x<Enter>
+
+"alt + q  -> quit
+nnoremap œ :q<Enter>
+
+"alt + Q  -> force quit
+nnoremap Œ :q<Enter>
 "}}}
 
 "{{{ editing
