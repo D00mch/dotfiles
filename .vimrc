@@ -101,7 +101,7 @@ nnoremap ≈ :x<Enter>
 nnoremap œ :q<Enter>
 
 "alt + Q  -> force quit
-nnoremap Œ :q<Enter>
+nnoremap Œ :q!<Enter>
 "}}}
 
 "{{{ editing
