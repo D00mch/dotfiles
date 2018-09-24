@@ -10,3 +10,12 @@
 [submodule ".vim/pack/plugins/start/fzf"]
 	path = .vim/pack/plugins/start/fzf
 	url = https://github.com/junegunn/fzf.git
+[submodule ".vim/pack/plugins/start/ack.vim"]
+	path = .vim/pack/plugins/start/ack.vim
+	url = https://github.com/mileszs/ack.vim.git
+[submodule ".vim/pack/plugins/start/vim-notes"]
+	path = .vim/pack/plugins/start/vim-notes
+	url = https://github.com/xolox/vim-notes.git
+[submodule ".vim/pack/plugins/start/vim-misc"]
+	path = .vim/pack/plugins/start/vim-misc
+	url = https://github.com/xolox/vim-misc.git

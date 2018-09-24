@@ -1,4 +1,0 @@
-p	vim.macros
-Test	java.effectiveJava	java_effectiveJava_effectiveJava
-SuppressWarnings("unchecked	java.effectiveJava	java_effectiveJava_effectiveJava
-Override	java.effectiveJava	java_effectiveJava_effectiveJava
