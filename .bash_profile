@@ -83,7 +83,7 @@ alias delegates="cd ~/AndroidStudioProjects/other/DelegateAdapters/"
 # navigation commands end
 
 # notes
-fuz() {
+fz(){
         sh ~/Yandex.Disk.localized/notes/fuz.sh $@
 }
 #
