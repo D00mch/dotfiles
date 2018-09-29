@@ -9,6 +9,12 @@ filetype plugin indent on
 
 :let g:notes_directories = ['~/Yandex.Disk.localized/notes/vim']
 
+"{{{ spelling
+"set spellfile=~/.vim/spell/{language}.{encoding}.add
+nnoremap <silent> <leader>se :setlocal spell! spelllang=en<cr>
+nnoremap <silent> <leader>sr :setlocal spell! spelllang=ru<cr>
+"}}}
+
 "{{{ russian mapping
 set keymap=russian-jcukenmac
 set iminsert=0
@@ -20,8 +26,8 @@ inoremap <c-l> <c-^>
 
 "{{{ syntax
 :syntax on
-set background=light
-colorscheme one
+set background=dark
+colorscheme torte
 
 :command FormatJson %!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), ensure_ascii=False, indent=4)"
 
