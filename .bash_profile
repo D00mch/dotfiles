@@ -77,6 +77,7 @@ lock(){
 
 # navigation commands start
 alias notes="cd ~/Yandex.Disk.localized/notes/vim"
+alias book="cd ~/Yandex.Disk.localized/notes/wiki"
 
 alias vimhome="cd /usr/local/share/vim/vim80"
 alias delegates="cd ~/AndroidStudioProjects/other/DelegateAdapters/"

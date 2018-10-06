@@ -1,13 +1,19 @@
+"set nocompatible
 set backspace=indent,eol,start
 set relativenumber
 set number
 set autoindent
 set clipboard+=unnamed  " use the clipboards of vim and win
+set foldmethod=syntax
 
 " manage plugins
 filetype plugin indent on
 
+" vim-notes
 :let g:notes_directories = ['~/Yandex.Disk.localized/notes/vim']
+" vim-wiki
+let g:vimwiki_list = [{'path':'~/Yandex.Disk.localized/notes/wiki', 'path_html':'~/Yandex.Disk.localized/notes/export/xml'}]
+
 
 "{{{ spelling
 "set spellfile=~/.vim/spell/{language}.{encoding}.add
