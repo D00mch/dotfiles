@@ -70,16 +70,22 @@ map J 13jzz
 map K 13kzz
 map H 15h
 map L 15l
-map <space>h ^
-map <space>l $
+map <space>h g^
+map <space>l g$
+
+noremap  <buffer> <silent> k gk
+noremap  <buffer> <silent> j gj
+noremap  <buffer> <silent> 0 g0
+noremap  <buffer> <silent> $ g$
+
 "alt + l
 noremap ¬ 7l
 "alt + h
 noremap ˙ 7h
 "alt + j
-noremap ∆ 4j
+noremap ∆ 4gj
 "alt + k
-noremap ˚ 4k
+noremap ˚ 4gk
 "}}}
 
 "{{{ reg 
