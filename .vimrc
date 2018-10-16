@@ -13,6 +13,7 @@ filetype plugin indent on
 :let g:notes_directories = ['~/Yandex.Disk.localized/notes/vim']
 " vim-wiki
 let g:vimwiki_list = [{'path':'~/Yandex.Disk.localized/notes/wiki', 'path_html':'~/Yandex.Disk.localized/notes/export/xml'}]
+let g:vimwiki_folding='syntax'
 
 
 "{{{ spelling
@@ -32,8 +33,8 @@ inoremap <c-l> <c-^>
 
 "{{{ syntax
 :syntax on
-set background=dark
-colorscheme torte
+set background=light
+colorscheme one
 
 :command FormatJson %!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), ensure_ascii=False, indent=4)"
 
