@@ -109,8 +109,8 @@ nnoremap ∂ Yp
 "alt + a  -> select all
 nnoremap å ggVG
 
-"alt + s  -> save
-nnoremap ß :w<Enter>
+"alt + w  -> save
+nnoremap ∑ :w<Enter>
 
 "alt + x  -> save and quit
 nnoremap ≈ :x<Enter>
