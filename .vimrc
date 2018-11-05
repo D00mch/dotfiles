@@ -15,6 +15,12 @@ filetype plugin indent on
 let g:vimwiki_list = [{'path':'~/Yandex.Disk.localized/notes/wiki', 'path_html':'~/Yandex.Disk.localized/notes/export/xml'}]
 let g:vimwiki_folding='syntax'
 
+" tslime {{{
+let g:tslime_ensure_trailing_newlines = 1
+let g:tslime_normal_mapping = '<localleader>t'
+let g:tslime_visual_mapping = '<localleader>t'
+let g:tslime_vars_mapping = '<localleader>T'
+" }}}
 
 "{{{ spelling
 "set spellfile=~/.vim/spell/{language}.{encoding}.add
@@ -33,8 +39,8 @@ inoremap <c-l> <c-^>
 
 "{{{ syntax
 :syntax on
-set background=light
-colorscheme one
+set background=dark
+colorscheme blackGood
 
 :command FormatJson %!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), ensure_ascii=False, indent=4)"
 
