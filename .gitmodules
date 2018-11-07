@@ -34,3 +34,6 @@
 [submodule ".vim/pack/plugins/start/terminus"]
 	path = .vim/pack/plugins/start/terminus
 	url = https://github.com/wincent/terminus.git
+[submodule ".vim/pack/plugins/start/vim-sexp"]
+	path = .vim/pack/plugins/start/vim-sexp
+	url = https://github.com/guns/vim-sexp.git
