@@ -31,3 +31,6 @@
 [submodule ".vim/pack/plugins/start/rainbow"]
 	path = .vim/pack/plugins/start/rainbow
 	url = https://github.com/luochen1990/rainbow.git
+[submodule ".vim/pack/plugins/start/terminus"]
+	path = .vim/pack/plugins/start/terminus
+	url = https://github.com/wincent/terminus.git
