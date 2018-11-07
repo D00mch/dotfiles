@@ -28,3 +28,6 @@
 [submodule ".vim/pack/plugins/start/tslime.vim"]
 	path = .vim/pack/plugins/start/tslime.vim
 	url = https://github.com/sjl/tslime.vim.git
+[submodule ".vim/pack/plugins/start/rainbow"]
+	path = .vim/pack/plugins/start/rainbow
+	url = https://github.com/luochen1990/rainbow.git
