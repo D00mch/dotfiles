@@ -40,3 +40,6 @@
 [submodule ".vim/pack/plugins/start/vim-autoformat"]
 	path = .vim/pack/plugins/start/vim-autoformat
 	url = https://github.com/Chiel92/vim-autoformat.git
+[submodule ".vim/pack/plugins/start/vim-slime"]
+	path = .vim/pack/plugins/start/vim-slime
+	url = https://github.com/jpalardy/vim-slime.git

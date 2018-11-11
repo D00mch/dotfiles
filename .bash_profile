@@ -4,7 +4,7 @@ export GRADLE_HOME=/usr/local/opt/gradle
 export ANDROID_HOME=/Users/dumchev/Library/Android/sdk
 export ANDROID_NDK_HOME=/Users/dumchev/Library/Android/sdk/ndk-bundle
 
-# export JAVA_HOME="/usr/libexec/java_home" #wrong path
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_191`
 
 export PATH=$ANT_HOME/bin:$PATH
 export PATH=$MAVEN_HOME/bin:$PATH
@@ -18,7 +18,6 @@ export PATH=$PATH:/usr/local/opt/android-sdk/ndk-bundle
 source /usr/local/git/contrib/completion/git-completion.bash
 GIT_PS1_SHOWDIRTYSTATE=true
 export PS1='[\u@mbp \w$(__git_ps1)]\$ '
-
 
 # Setting PATH for Python 3.6
 # The original version is saved in .bash_profile.pysave
@@ -35,186 +34,13 @@ export CLICOLOR=1
 
 source ~/git-completion.bash
 
-
-#----------------------------------
-#----------------------------------
-
-# help commands start
-alias s='source ~/.bash_profile'
-alias ..='cd ../'
-alias ...='cd ../../'
-alias ~='cd ~'
-alias home='cd ~'
-alias video="open $1 -a Elmedia\ Player"
-alias f="find . -name $1"
-alias ip="ifconfig | grep 'inet' | grep -Fv 127.0.0.1 | awk '{print $2}'"
-
-md () { mkdir -p "$@" && cd "$@"; }
-
-calc () {
-    bc -l «< "$@"
-}
-
-eye() {
-  defaults write com.apple.finder AppleShowAllFiles YES
-        killall Finder
-}
-
-noeye(){
-  defaults write com.apple.finder AppleShowAllFiles NO
-        killall Finder
-}
-
-c(){
- 	clear
-}
-
-lock(){
-	/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend
-}
-# help commands end
-
-
-# navigation commands start
-alias notes="cd ~/Yandex.Disk.localized/notes/vim"
-alias book="cd ~/Yandex.Disk.localized/notes/wiki"
-
-alias vimhome="cd /usr/local/share/vim/vim80"
-alias delegates="cd ~/AndroidStudioProjects/other/DelegateAdapters/"
-# navigation commands end
-
-# notes
-fz(){
-        sh ~/Yandex.Disk.localized/notes/fuz.sh $@
-}
-#
-
-# android commands start
-alias apkinstall="adb devices | tail -n +2 | cut -sf 1 | xargs -I X adb -s X install -r $1"
-alias ai="apkinstall"
-alias rmapp="adb devices | tail -n +2 | cut -sf 1 | xargs -I X adb -s X uninstall $1"
-alias clearappcache='adb shell pm clear $1'
-# android commands end
-
-
-# translation start
-alias e='trans en:ru'
-alias р='trans ru:en'
-# translation end
-
-
-# settings files start
-alias bashrc='vim ~/.bash_profile'
-alias vimrc='vim ~/.vimrc'
-alias inputrc='vim ~/.inputrc'
-alias idearc='vim ~/.ideavimrc'
-# settings files end
-
-
-# autoru start
-alias apk='cd ~/AndroidStudioProjects/mobile-autoru-client-android-3/app/build/outputs/apk/dev/debug'
-alias apkT='cd /Users/dumchev/AndroidStudioProjects/auto-test/app/build/outputs/apk/dev/debug'
-alias auto='cd ~/AndroidStudioProjects/mobile-autoru-client-android-3/'
-
-# remove debug auto
-alias rda='adb devices | tail -n +2 | cut -sf 1 | xargs -I X adb -s X uninstall ru.auto.ara.debug'
-
-# remove release auto
-alias rpa='adb devices | tail -n +2 | cut -sf 1 | xargs -I X adb -s X uninstall ru.auto.ara'
-
-# clear debug auto
-cda(){
-   adb shell pm clear 'ru.auto.ara.debug'
-}
-
-# clear release auto
-cra(){
-   adb shell pm clear 'ru.auto.ara'
-}
-
-# open debug auto
-oda(){
-   adb shell am start -n 'ru.auto.ara.debug/ru.auto.ara.SplashActivity'
-}
-
-# open release auto
-ora(){
-   adb shell am start -n 'ru.auto.ara/ru.auto.ara.SplashActivity'
-}
-
-a(){
-   auto && git status	
-}
-
-ssha(){
-	~ && ssh 'dumchev-01-sas.dev.vertis.yandex.net'
-}
-
-sshm(){
-	~ && ssh 'android-build-02-sas.dev.vertis.yandex.net'
-}
-
-sshpassport(){
-        ~ && ssh 'passport-api-01-sas.test.vertis.yandex.net'
-}
-
-mf(){
-    ./mainframer-init.sh 'dumchev-02-sas.dev.vertis.yandex.net' '/home/dumchev/mobile-autoru-client-android-3/app' 
-}
-# autoru end
+# read non-local shit
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
 # telegram in terminal start
 alias tlg='cd ~/tg/dumch && ./telegram-cli -k tg-server.pub -c telegram.config'
 alias telegram='cd ~/tg/dumch && sudo nc_telegram'
 # telegram in terminal end
-
-# gradle start
-alias stop='./gradlew --stop'
-alias gc=./gradlew clean
-# gradle end
-
-
-#----------------------------------
-#----------------------------------
-# git start
-
-	# some good aliases and functions start
-	alias gst='git status'
-	alias gp='git pull'
-	alias git-uncommit='git reset --soft HEAD~'
-        alias dcheck='./gradlew detektCheck'
-
-        # remove all branches
-        alias grb='git branch | grep -v "master" | xargs git branch -D'
-
-	amend(){
-		git commit -a --amend --no-edit
-	}
-	# some good aliases and functions end
-
-	# show current branch start
-	function git-current-branch {
-    	git branch --no-color 2> /dev/null | grep \* | colrm 1 2
-	}
-
-	function set_prompt_line {
-	    local        BLUE="\[\033[0;34m\]"
-
-	    # OPTIONAL - if you want to use any of these other colors:
-	    local         RED="\[\033[0;31m\]"
-	    local   LIGHT_RED="\[\033[1;31m\]"
-	    local       GREEN="\[\033[0;32m\]"
-	    local LIGHT_GREEN="\[\033[1;32m\]"
-	    local       WHITE="\[\033[1;37m\]"
-	    local  LIGHT_GRAY="\[\033[0;37m\]"
-	    # END OPTIONAL
-	    local     DEFAULT="\[\033[0m\]"
-	    export PS1="$BLUE\w $LIGHT_RED[\$(git-current-branch)]$DEFAULT \$ "
-	}
-
-	set_prompt_line
-	# show current branch end
-
-# git end
-
 

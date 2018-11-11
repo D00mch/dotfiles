@@ -15,11 +15,24 @@ filetype plugin indent on
 let g:vimwiki_list = [{'path':'~/Yandex.Disk.localized/notes/wiki', 'path_html':'~/Yandex.Disk.localized/notes/export/xml'}]
 let g:vimwiki_folding='syntax'
 
-" tslime {{{
+"{{{ slime 
+"alt + r
+xmap ® <Plug>SlimeRegionSend
+nmap ® <Plug>SlimeParagraphSend
+"}}}
+
+"{{{ tslime
 let g:tslime_ensure_trailing_newlines = 1
 let g:tslime_normal_mapping = '<localleader>t'
 let g:tslime_visual_mapping = '<localleader>t'
 let g:tslime_vars_mapping = '<localleader>T'
+"}}}
+
+vnoremap <silent> <Leader>t :<C-u>call islime2#iTermSendOperator(visualmode(), 1)<CR>
+
+"inoremap <leader>t <Esc>vip:<C-u>call islime2#iTermSendOperator(visualmode(), 1)<CR>
+"vnoremap <leader>t :<C-u>call islime2#iTermSendOperator(visualmode(), 1)<CR>
+"nnoremap <leader>t vip:<C-u>call islime2#iTermSendOperator(visualmode(), 1)<CR>
 " }}}
 
 "{{{ spelling
@@ -137,6 +150,9 @@ nnoremap / /\v
 vnoremap / /\v
 "}}}
 
+
+"WORKING WITH CODE 
+
 "{{{ to color parentheses | :RainbowToggle
 let g:rainbow_conf = {
 \	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
@@ -161,3 +177,9 @@ let g:rainbow_conf = {
 \	}
 \}
 "}}}
+
+"{{{ closing brace
+"inoremap { {<CR>}<Esc>ko
+"inoremap ( ()<C-G>U<Left>
+"}}}
+
