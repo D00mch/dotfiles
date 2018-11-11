@@ -37,3 +37,6 @@
 [submodule ".vim/pack/plugins/start/vim-sexp"]
 	path = .vim/pack/plugins/start/vim-sexp
 	url = https://github.com/guns/vim-sexp.git
+[submodule ".vim/pack/plugins/start/vim-autoformat"]
+	path = .vim/pack/plugins/start/vim-autoformat
+	url = https://github.com/Chiel92/vim-autoformat.git
