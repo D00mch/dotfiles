@@ -3,6 +3,7 @@ set backspace=indent,eol,start
 set relativenumber
 set number
 set autoindent
+set autochdir
 set clipboard+=unnamed  " use the clipboards of vim and win
 set foldmethod=syntax
 
