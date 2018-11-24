@@ -1,4 +1,4 @@
-"set nocompatible
+set nocompatible
 set backspace=indent,eol,start
 set relativenumber
 set number
@@ -76,13 +76,17 @@ set shiftwidth=4 smarttab expandtab
 set path+=**
 set tags=./tags,tags;$HOME
 
-"{{{escaping to the normal mode with Tab.
-" See there why this takes place: http://vim.wikia.com/wiki/Avoid_the_escape_key
-vnoremap <tab> <esc>
-inoremap <tab> <esc>
-inoremap <S-tab> <space><space><space><space>
+"{{{Tab.
 nmap <tab> :noh<Enter>:echom ""<Enter>
-nnoremap r<tab> <nop>
+
+function! Tab_Or_Complete()
+  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+    return "\<C-N>"
+  else
+    return "\<Tab>"
+  endif
+endfunction
+inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 "}}}
 
 "{{{ positioning
@@ -155,6 +159,7 @@ vnoremap / /\v
 "WORKING WITH CODE 
 
 "{{{ to color parentheses | :RainbowToggle
+let g:rainbow_active = 1
 let g:rainbow_conf = {
 \	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
 \	'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
