@@ -7,6 +7,16 @@ set autochdir
 set clipboard+=unnamed  " use the clipboards of vim and win
 set foldmethod=syntax
 
+
+"{{{ russian mapping
+set keymap=russian-jcukenmac
+set iminsert=0
+set imsearch=0
+highlight lCursor guifg=NONE guibg=Cyan
+
+inoremap <c-l> <c-^>
+"}}}
+
 " manage plugins
 filetype plugin indent on
 
@@ -42,19 +52,10 @@ nnoremap <silent> <leader>se :setlocal spell! spelllang=en<cr>
 nnoremap <silent> <leader>sr :setlocal spell! spelllang=ru<cr>
 "}}}
 
-"{{{ russian mapping
-set keymap=russian-jcukenmac
-set iminsert=0
-set imsearch=0
-highlight lCursor guifg=NONE guibg=Cyan
-
-inoremap <c-l> <c-^>
-"}}}
-
 "{{{ syntax
 :syntax on
 set background=dark
-colorscheme blackGood
+colorscheme xoria256
 
 :command FormatJson %!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), ensure_ascii=False, indent=4)"
 
@@ -153,10 +154,13 @@ nnoremap <space>o o<Esc>
 "{{{ search, replace, regex 
 nnoremap / /\v
 vnoremap / /\v
+
+nnoremap ƒ :FZF<Enter>
 "}}}
 
 
 "WORKING WITH CODE 
+set path=$PWD/**  " to be able to search on files through path
 
 "{{{ to color parentheses | :RainbowToggle
 let g:rainbow_active = 1
