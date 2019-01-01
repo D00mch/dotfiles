@@ -52,3 +52,12 @@
 [submodule ".vim/pack/plugins/start/cljfold.vim"]
 	path = .vim/pack/plugins/start/cljfold.vim
 	url = https://github.com/gberenfield/cljfold.vim.git
+[submodule ".vim/pack/plugins/start/vim-sexp-mappings-for-regular-people"]
+	path = .vim/pack/plugins/start/vim-sexp-mappings-for-regular-people
+	url = https://github.com/tpope/vim-sexp-mappings-for-regular-people.git
+[submodule ".vim/pack/plugins/start/vim-repeat"]
+	path = .vim/pack/plugins/start/vim-repeat
+	url = git://github.com/tpope/vim-repeat.git
+[submodule ".vim/pack/plugins/start/vim-surround"]
+	path = .vim/pack/plugins/start/vim-surround
+	url = git://github.com/tpope/vim-surround.git
