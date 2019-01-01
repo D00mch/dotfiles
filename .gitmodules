@@ -61,3 +61,6 @@
 [submodule ".vim/pack/plugins/start/vim-surround"]
 	path = .vim/pack/plugins/start/vim-surround
 	url = git://github.com/tpope/vim-surround.git
+[submodule ".vim/pack/plugins/start/vim-fireplace"]
+	path = .vim/pack/plugins/start/vim-fireplace
+	url = https://github.com/tpope/vim-fireplace.git

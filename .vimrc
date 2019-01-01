@@ -6,12 +6,8 @@ set autoindent
 set autochdir
 set clipboard+=unnamed  " use the clipboards of vim and win
 
-" configure clojure folding
-set foldmethod=syntax
-let g:clojure_foldwords = "def,defn,defmacro,defmethod,defschema,defprotocol,defrecord"
-
 "{{{ russian mapping
-set keymap=russian-jcukenmac
+"set keymap=russian-jcukenmac
 set iminsert=0
 set imsearch=0
 highlight lCursor guifg=NONE guibg=Cyan
@@ -131,13 +127,13 @@ noremap D V"_d
 
 "{{{ making habitual hotkeys work in vim
 "alt + d  -> copy and paste the line
-nnoremap ∂ Yp
+ nnoremap ∂ Yp
 
 "alt + a  -> select all
 nnoremap å ggVG
 
-"alt + w  -> save
-nnoremap ∑ :w<Enter>
+"alt + s  -> save
+nnoremap ß :w<Enter>
 
 "alt + x  -> save and quit
 nnoremap ≈ :x<Enter>
@@ -162,6 +158,27 @@ nnoremap ƒ :FZF<Enter>
 
 
 "WORKING WITH CODE 
+
+"{{{ fireplace
+nnoremap ∂ K
+"}}}
+
+"{{{ configure clojure folding
+set foldmethod=syntax
+let g:clojure_foldwords = "def,defn,defmacro,defmethod,defschema,defprotocol,defrecord"
+"}}}
+
+"{{{ syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+"}}}
+
 set path=$PWD/**  " to be able to search on files through path
 
 "{{{ to color parentheses | :RainbowToggle
