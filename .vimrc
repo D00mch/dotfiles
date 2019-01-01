@@ -5,8 +5,10 @@ set number
 set autoindent
 set autochdir
 set clipboard+=unnamed  " use the clipboards of vim and win
-set foldmethod=syntax
 
+" configure clojure folding
+set foldmethod=syntax
+let g:clojure_foldwords = "def,defn,defmacro,defmethod,defschema,defprotocol,defrecord"
 
 "{{{ russian mapping
 set keymap=russian-jcukenmac

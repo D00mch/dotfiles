@@ -49,3 +49,6 @@
 [submodule ".vim/pack/plugins/start/vim-fugitive"]
 	path = .vim/pack/plugins/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule ".vim/pack/plugins/start/cljfold.vim"]
+	path = .vim/pack/plugins/start/cljfold.vim
+	url = https://github.com/gberenfield/cljfold.vim.git
