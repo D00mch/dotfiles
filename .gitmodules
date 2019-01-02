@@ -64,3 +64,9 @@
 [submodule ".vim/pack/plugins/start/vim-fireplace"]
 	path = .vim/pack/plugins/start/vim-fireplace
 	url = https://github.com/tpope/vim-fireplace.git
+[submodule ".vim/pack/plugins/start/vim-clojure-static"]
+	path = .vim/pack/plugins/start/vim-clojure-static
+	url = https://github.com/guns/vim-clojure-static.git
+[submodule ".vim/pack/plugins/start/vim-clojure-highlight"]
+	path = .vim/pack/plugins/start/vim-clojure-highlight
+	url = https://github.com/guns/vim-clojure-highlight.git
