@@ -153,7 +153,11 @@ nnoremap <space>o o<Esc>
 nnoremap / /\v
 vnoremap / /\v
 
+"alt + f - run :FZF
 nnoremap ƒ :FZF<Enter>
+
+"alt + F - write current file and run :FZF
+nnoremap Ï :w<Enter>:FZF<Enter>
 "}}}
 
 
