@@ -77,20 +77,13 @@ set path+=**
 set tags=./tags,tags;$HOME
 
 "completion
-set omnifunc=syntaxcomplete#Complete
 
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif "autoclose
 "{{{Tab.
-nmap <tab> :noh<Enter>:echom ""<Enter>
+set omnifunc=syntaxcomplete#Complete
+"autoclose
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif 
 
-function! Tab_Or_Complete()
-  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
-    return "\<C-N>"
-  else
-    return "\<Tab>"
-  endif
-endfunction
-inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
+nmap <tab> :noh<Enter>:echom ""<Enter>
 "}}}
 
 "{{{ positioning
