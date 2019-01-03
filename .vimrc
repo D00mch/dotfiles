@@ -3,11 +3,11 @@ set backspace=indent,eol,start
 set relativenumber
 set number
 set autoindent
-set autochdir
+"set autochdir " change curernt working directory after changing buffer
 set clipboard+=unnamed  " use the clipboards of vim and win
 
 "{{{ russian mapping
-"set keymap=russian-jcukenmac
+set keymap=russian-jcukenmac
 set iminsert=0
 set imsearch=0
 highlight lCursor guifg=NONE guibg=Cyan
