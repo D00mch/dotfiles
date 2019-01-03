@@ -16,6 +16,7 @@ inoremap <c-l> <c-^>
 "}}}
 
 " manage plugins
+filetype plugin on
 filetype plugin indent on
 
 " vim-notes
@@ -75,6 +76,10 @@ set shiftwidth=4 smarttab expandtab
 set path+=**
 set tags=./tags,tags;$HOME
 
+"completion
+set omnifunc=syntaxcomplete#Complete
+
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif "autoclose
 "{{{Tab.
 nmap <tab> :noh<Enter>:echom ""<Enter>
 
