@@ -6,6 +6,11 @@ set autoindent
 "set autochdir " change curernt working directory after changing buffer
 set clipboard+=unnamed  " use the clipboards of vim and win
 
+"{{{ clojure-highlight
+" Evaluate Clojure buffers on load
+autocmd BufRead *.clj try | silent! Require | catch /^Fireplace/ | endtry
+"}}}
+
 "{{{ russian mapping
 set keymap=russian-jcukenmac
 set iminsert=0
@@ -162,17 +167,13 @@ nnoremap Ï :w<Enter>:FZF<Enter>
 "WORKING WITH CODE 
 
 "{{{ fireplace
+"alt + d - check docs 
 nnoremap ∂ K
 "}}}
 
 "{{{ configure clojure folding
 set foldmethod=syntax
 let g:clojure_foldwords = "def,defn,defmacro,defmethod,defschema,defprotocol,defrecord"
-"}}}
-
-"{{{ clojure-highlight
-" Evaluate Clojure buffers on load
-autocmd BufRead *.clj try | silent! Require | catch /^Fireplace/ | endtry
 "}}}
 
 "{{{ syntastic
