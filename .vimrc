@@ -6,6 +6,8 @@ set autoindent
 "set autochdir " change curernt working directory after changing buffer
 set clipboard+=unnamed  " use the clipboards of vim and win
 
+let g:airline#extensions#keymap#enabled = 0
+
 "{{{ clojure-highlight
 " Evaluate Clojure buffers on load
 autocmd BufRead *.clj try | silent! Require | catch /^Fireplace/ | endtry
