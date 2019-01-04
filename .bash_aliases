@@ -35,6 +35,12 @@ lock(){
 }
 # help commands end
 
+#sicp start
+alias sicp='cd ~/Yandex.Disk.localized/notes/wiki/sicp'
+alias sicpread='zathura ~/Desktop/sicp.pdf'
+alias sicpreadrus='zathura ~/Desktop/sicp_rus.pdf'
+#sicp end
+
 # navigation commands start
 alias notes="cd ~/Yandex.Disk.localized/notes/vim"
 alias book="cd ~/Yandex.Disk.localized/notes/wiki"
@@ -57,10 +63,12 @@ alias clearappcache='adb shell pm clear $1'
 # android commands end
 
 
-# translation start
-alias e='trans en:ru'
-alias р='trans ru:en'
-# translation end
+#translation start
+alias p='~/scripts/trans -b ru:en'
+alias e='trans en:ru -brief'
+alias eng='trans en:ru'
+#translation end
+
 
 
 # settings files start
@@ -82,10 +90,9 @@ slime1(){
 }
 slime2(){
     screen -ls | grep Attached | cut -f2
-}
-slime3(){
     screen -X eval "msgwait 0"
 }
+
 # work with panes end
 
 #----------------------------------
