@@ -5,6 +5,7 @@ set number
 set autoindent
 "set autochdir " change curernt working directory after changing buffer
 set clipboard+=unnamed  " use the clipboards of vim and win
+set encoding=utf-8
 
 let g:airline#extensions#keymap#enabled = 0
 
@@ -60,8 +61,8 @@ nnoremap <silent> <leader>sr :setlocal spell! spelllang=ru<cr>
 
 "{{{ syntax
 :syntax on
-set background=dark
-colorscheme xoria256
+set background=light
+colorscheme one " xoria256
 
 :command FormatJson %!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), ensure_ascii=False, indent=4)"
 
@@ -192,7 +193,7 @@ let g:syntastic_check_on_wq = 0
 set path=$PWD/**  " to be able to search on files through path
 
 "{{{ to color parentheses | :RainbowToggle
-let g:rainbow_active = 1
+let g:rainbow_active = 0
 let g:rainbow_conf = {
 \	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
 \	'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
