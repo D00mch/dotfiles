@@ -64,7 +64,7 @@ alias clearappcache='adb shell pm clear $1'
 
 
 #translation start
-alias p='~/scripts/trans -b ru:en'
+alias р='trans -b ru:en'
 alias e='trans en:ru -brief'
 alias eng='trans en:ru'
 #translation end
