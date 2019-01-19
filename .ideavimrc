@@ -1,3 +1,4 @@
+" see all commands for mapping with :actionlist
 set backspace=indent,eol,start
 set relativenumber
 set number
@@ -92,3 +93,17 @@ nnoremap <space>o o<Esc><Esc>
 
 "{{{ search, replace, regex 
 "}}}
+
+"{{{cursive
+nmap <Leader>w :action :cursive.actions.paredit/wrap-paren<cr>
+
+nmap <Leader>] :action :cursive.actions.paredit/wrap-square<cr>
+nmap <Leader>[ :action :cursive.actions.paredit/wrap-square<cr>
+
+nmap <Leader>" :action :cursive.actions.paredit/wrap-quotes<cr>
+
+nmap <Leader>} :action :cursive.actions.paredit/wrap-curly<cr>
+nmap <Leader>{ :action :cursive.actions.paredit/wrap-curly<cr>
+
+nmap <Leader>o :action :cursive.actions.paredit/raise<cr>
+"cursive}}}
