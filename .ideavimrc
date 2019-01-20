@@ -96,14 +96,21 @@ nnoremap <space>o o<Esc><Esc>
 
 "{{{cursive
 nmap <Leader>w :action :cursive.actions.paredit/wrap-paren<cr>
+vnoremap <Leader>w :action :cursive.actions.paredit/wrap-paren<cr>
 
 nmap <Leader>] :action :cursive.actions.paredit/wrap-square<cr>
 nmap <Leader>[ :action :cursive.actions.paredit/wrap-square<cr>
+vnoremap <Leader>] :action :cursive.actions.paredit/wrap-square<cr>
+vnoremap <Leader>[ :action :cursive.actions.paredit/wrap-square<cr>
 
 nmap <Leader>" :action :cursive.actions.paredit/wrap-quotes<cr>
+vnoremap <Leader>" :action :cursive.actions.paredit/wrap-quotes<cr>
 
 nmap <Leader>} :action :cursive.actions.paredit/wrap-curly<cr>
 nmap <Leader>{ :action :cursive.actions.paredit/wrap-curly<cr>
+vnoremap <Leader>} :action :cursive.actions.paredit/wrap-curly<cr>
+vnoremap <Leader>{ :action :cursive.actions.paredit/wrap-curly<cr>
 
 nmap <Leader>o :action :cursive.actions.paredit/raise<cr>
-"cursive}}}
+vnoremap <Leader>o :action :cursive.actions.paredit/raise<cr>
+"}}}
