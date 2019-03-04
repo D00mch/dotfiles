@@ -482,11 +482,12 @@ before packages are loaded."
   (spacemacs/toggle-evil-cleverparens-on)
   (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
   (setq org-agenda-files (list "~/Dropbox/org/todos.org"))
+  (setq google-translate-default-target-language "ru")
 
   ;; open shell in the same buffer
   (push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
 
-  ;; fix relative-line numbers on filding
+  ;; fix relative-line numbers on folding
   (setq-default display-line-numbers 'visual)
   )
 
