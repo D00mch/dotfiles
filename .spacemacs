@@ -482,6 +482,12 @@ before packages are loaded."
   (spacemacs/toggle-evil-cleverparens-on)
   (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
   (setq org-agenda-files (list "~/Dropbox/org/todos.org"))
+
+  ;; open shell in the same buffer
+  (push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
+
+  ;; fix relative-line numbers on filding
+  (setq-default display-line-numbers 'visual)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -501,12 +507,3 @@ before packages are loaded."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-;; vim
-;(global-set-key (kbd "M-w") 'copy-to-clipboard)
-
-;; open shell in the same window
-(push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
-
-;; fix relative-line numbers on filding
-(setq-default display-line-numbers 'visual)
