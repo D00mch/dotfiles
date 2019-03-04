@@ -371,7 +371,7 @@ It should only modify the values of Spacemacs settings."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers 'relative
+   dotspacemacs-line-numbers nil ;'relative
 
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
@@ -507,3 +507,6 @@ before packages are loaded."
 
 ;; open shell in the same window
 (push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
+
+;; fix relative-line numbers on filding
+(setq-default display-line-numbers 'visual)
