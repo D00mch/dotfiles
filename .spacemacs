@@ -482,13 +482,30 @@ before packages are loaded."
   (spacemacs/toggle-evil-cleverparens-on)
   (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
   (setq org-agenda-files (list "~/Dropbox/org/todos.org"))
+
   (setq google-translate-default-target-language "ru")
+  (setq google-translate-default-source-language "auto")
+
+  ;; fix tkk error due to firewall
+  (defun google-translate--search-tkk () "Search TKK." (list 430675 2721866130))
 
   ;; open shell in the same buffer
   (push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
 
   ;; fix relative-line numbers on folding
   (setq-default display-line-numbers 'visual)
+
+  ;; (with-eval-after-load 'tex
+  ;;   (add-to-list 'TeX-view-program-selection
+  ;;                '(output-pdf "Zathura")))
+
+  ;; (setq TeX-view-program-list
+  ;;       '(
+  ;;         ("Zathura"
+  ;;          ("zathura %o"
+  ;;           (mode-io-correlate
+  ;;            " --synctex-forward %n:0:%b -x \"emacsclient +%{line} %{input}\""))
+  ;;          "zathura")))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
