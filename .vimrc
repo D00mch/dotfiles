@@ -4,7 +4,8 @@ set relativenumber
 set number
 set autoindent
 "set autochdir " change curernt working directory after changing buffer
-set clipboard+=unnamed  " use the clipboards of vim and win
+" set clipboard+=unnamed  "for osx
+set clipboard=unnamedplus
 set encoding=utf-8
 
 let g:airline#extensions#keymap#enabled = 0
@@ -61,7 +62,7 @@ nnoremap <silent> <leader>sr :setlocal spell! spelllang=ru<cr>
 
 "{{{ syntax
 :syntax on
-set background=light
+set background=dark
 colorscheme one " xoria256
 
 :command FormatJson %!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), ensure_ascii=False, indent=4)"
@@ -216,10 +217,4 @@ let g:rainbow_conf = {
 \		'css': 0,
 \	}
 \}
-"}}}
-
-"{{{ closing brace
-"inoremap { {<CR>}<Esc>ko
-"inoremap ( ()<C-G>U<Left>
-"}}}
 
