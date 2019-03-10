@@ -498,6 +498,16 @@ before packages are loaded."
 
   (setq geiser-chicken-binary "chicken-csi")
 
+  ;; add buffers, opened by a projectile, in the current layout
+  (defun spacemacs//add-project-buffers-to-persp (persp _persp-hash)
+    (if-let ((buffers (and (projectile-project-p)
+                           (projectile-project-buffers))))
+        (persp-add-buffer buffers persp nil nil)))
+  (add-hook 'persp-created-functions #'spacemacs//add-project-buffers-to-persp)
+
+  ;; use bashrc in the sell-command
+  (setq shell-command-switch "-ic")
+
   ;; (with-eval-after-load 'tex
   ;;   (add-to-list 'TeX-view-program-selection
   ;;                '(output-pdf "Zathura")))
