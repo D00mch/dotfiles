@@ -63,11 +63,13 @@ nnoremap <silent> <leader>sr :setlocal spell! spelllang=ru<cr>
 "{{{ syntax
 :syntax on
 set background=dark
-colorscheme one " xoria256
+colorscheme xoria256
 
 :command FormatJson %!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), ensure_ascii=False, indent=4)"
 
 au BufRead,BufNewFile *.lib set filetype=sh
+
+set guifont=Monospace\ 14 "default font for gVim 
 "}}}
 
 set nocompatible
