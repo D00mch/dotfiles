@@ -86,7 +86,6 @@ This function should only modify configuration layer settings."
    dotspacemacs-additional-packages
    '(
      org-alert ;; shit doesn work
-     ;; fzf
      )
 
    ;; A list of packages that cannot be updated.
@@ -465,6 +464,9 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+
+  ;; enable vim-like search
+  (setq-default evil-search-module 'evil-search)
   )
 
 (defun dotspacemacs/user-load ()
@@ -507,18 +509,6 @@ before packages are loaded."
 
   ;; use bashrc in the sell-command
   (setq shell-command-switch "-ic")
-
-  ;; (with-eval-after-load 'tex
-  ;;   (add-to-list 'TeX-view-program-selection
-  ;;                '(output-pdf "Zathura")))
-
-  ;; (setq TeX-view-program-list
-  ;;       '(
-  ;;         ("Zathura"
-  ;;          ("zathura %o"
-  ;;           (mode-io-correlate
-  ;;            " --synctex-forward %n:0:%b -x \"emacsclient +%{line} %{input}\""))
-  ;;          "zathura")))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
