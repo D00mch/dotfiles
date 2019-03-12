@@ -1,5 +1,7 @@
-#----------------------------------
-#----------------------------------
+#
+# ~/.bash_aliases
+#
+
 # help commands start
 alias s='source ~/.bash_profile'
 alias ..='cd ../'
@@ -9,6 +11,8 @@ alias home='cd ~'
 alias video="open $1 -a Elmedia\ Player"
 alias f="find . -name $1"
 alias ip="ifconfig | grep 'inet' | grep -Fv 127.0.0.1 | awk '{print $2}'"
+alias sleep="sudo systemctl hybrid-sleep"
+alias csi="chicken-csi"
 
 md () { mkdir -p "$@" && cd "$@"; }
 
@@ -36,14 +40,14 @@ lock(){
 # help commands end
 
 #sicp start
-alias sicp='cd ~/Yandex.Disk.localized/notes/wiki/sicp'
+alias sicp='cd ~/Yandex.Disk/notes/wiki/sicp'
 alias sicpread='zathura ~/Desktop/sicp.pdf'
 alias sicpreadrus='zathura ~/Desktop/sicp_rus.pdf'
 #sicp end
 
 # navigation commands start
-alias notes="cd ~/Yandex.Disk.localized/notes/vim"
-alias book="cd ~/Yandex.Disk.localized/notes/wiki"
+alias notes="cd ~/Yandex.Disk/notes/vim"
+alias book="cd ~/Yandex.Disk/notes/wiki"
 
 alias vimhome="cd /usr/local/share/vim/vim80"
 alias delegates="cd ~/AndroidStudioProjects/other/DelegateAdapters/"
@@ -51,7 +55,7 @@ alias delegates="cd ~/AndroidStudioProjects/other/DelegateAdapters/"
 
 # notes
 fz(){
-        sh ~/Yandex.Disk.localized/notes/fuz.sh $@
+        bash ~/Yandex.Disk/notes/fuz.sh $@
 }
 #
 
@@ -81,7 +85,7 @@ alias zathurarc='vim ~/.config/zathura/zathurarc'
 
 # gradle start
 alias stop='./gradlew --stop'
-alias gc=./gradlew clean
+alias gc='./gradlew clean'
 # gradle end
 
 # work with panes start
