@@ -220,3 +220,10 @@ let g:rainbow_conf = {
 \	}
 \}
 
+
+"{{{ emacs-like commands
+
+"close/exit with <C-g>
+map! <C-g> <Esc>
+xmap <C-g> <Esc>
+"}}}
