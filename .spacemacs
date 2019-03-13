@@ -509,6 +509,8 @@ before packages are loaded."
 
   ;; use bashrc in the sell-command
   (setq shell-command-switch "-ic")
+
+  (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
