@@ -517,6 +517,9 @@ before packages are loaded."
   (setq shell-command-switch "-ic")
 
   (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
+
+  ;; fix projectile unknown error https://github.com/syl20bnr/spacemacs/issues/11507
+  (setq projectile-indexing-method 'native)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
