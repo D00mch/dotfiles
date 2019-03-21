@@ -12,6 +12,7 @@ alias video="open $1 -a Elmedia\ Player"
 alias f="find . -name $1"
 alias ip="ifconfig | grep 'inet' | grep -Fv 127.0.0.1 | awk '{print $2}'"
 alias sleep="sudo systemctl hybrid-sleep"
+alias hibernate="sudo systemctl hibernate"
 alias csi="chicken-csi"
 
 md () { mkdir -p "$@" && cd "$@"; }
@@ -141,3 +142,7 @@ slime2(){
 	# show current branch end
 
 # git end
+
+# Local Variables:
+# mode: sh
+# End:
