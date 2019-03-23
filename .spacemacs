@@ -34,6 +34,7 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     pdf-tools
      shell-scripts
      vimscript
      search-engine
@@ -485,6 +486,11 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
+  ;; pdf with blak theme
+  (add-hook 'pdf-tools-enabled-hook 'pdf-view-midnight-minor-mode)
+  (custom-set-variables
+   '(pdf-view-midnight-colors (quote ("#b7b7b7" . "#1a1a1a"))))
+
   ;; smali
   ;; load the smali/baksmali mode
   (load-file "~/.emacs.d/private/smali-mode/smali-mode.el")
@@ -538,7 +544,7 @@ before packages are loaded."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (company-emacs-eclim eclim clojure-snippets cider-eval-sexp-fu cider clojure-mode gmail-message-mode ham-mode html-to-markdown flymd edit-server geiser insert-shebang fish-mode company-shell vimrc-mode dactyl-mode engine-mode fzf xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help evil-cleverparens smeargle orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download mmm-mode markdown-toc markdown-mode magit-gitflow htmlize helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md fuzzy flyspell-correct-helm flyspell-correct evil-magit magit-popup magit transient git-commit with-editor lv diff-hl company-statistics company-quickhelp company auto-yasnippet auto-dictionary ac-ispell auto-complete clj-refactor inflections edn multiple-cursors paredit yasnippet peg sesman queue flycheck-pos-tip pos-tip flycheck spinner evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state iedit evil-exchange evil-ediff evil-args evil-anzu anzu evil undo-tree adaptive-wrap ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smartparens restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-unimpaired evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-escape goto-chg eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
+    (pdf-tools tablist company-emacs-eclim eclim clojure-snippets cider-eval-sexp-fu cider clojure-mode gmail-message-mode ham-mode html-to-markdown flymd edit-server geiser insert-shebang fish-mode company-shell vimrc-mode dactyl-mode engine-mode fzf xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help evil-cleverparens smeargle orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download mmm-mode markdown-toc markdown-mode magit-gitflow htmlize helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md fuzzy flyspell-correct-helm flyspell-correct evil-magit magit-popup magit transient git-commit with-editor lv diff-hl company-statistics company-quickhelp company auto-yasnippet auto-dictionary ac-ispell auto-complete clj-refactor inflections edn multiple-cursors paredit yasnippet peg sesman queue flycheck-pos-tip pos-tip flycheck spinner evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state iedit evil-exchange evil-ediff evil-args evil-anzu anzu evil undo-tree adaptive-wrap ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smartparens restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-unimpaired evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-escape goto-chg eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
  '(paradox-github-token t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
