@@ -2,6 +2,11 @@
 # ~/.bash_aliases
 #
 
+export ANDROID_HOME=/opt/android-sdk
+export PATH=$ANDROID_HOME/build-tools/28.0.3:$PATH
+
+TERM=xterm-256color
+
 # help commands start
 alias s='source ~/.bash_profile'
 alias ..='cd ../'
