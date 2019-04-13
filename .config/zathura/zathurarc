@@ -55,5 +55,4 @@ set render-loading-bg           "#1A1A1A" # base02
 set recolor                     true
 set recolor-lightcolor          "#1A1A1A" # base02
 set recolor-darkcolor           "#93a1a1" # base1
-# set recolor-keephue             true      # keep original color
 #}}}

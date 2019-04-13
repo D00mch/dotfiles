@@ -19,6 +19,7 @@ alias ip="ifconfig | grep 'inet' | grep -Fv 127.0.0.1 | awk '{print $2}'"
 alias sleep="sudo systemctl hybrid-sleep"
 alias hib="sudo systemctl hibernate"
 alias csi="chicken-csi"
+alias theme="clojure ~/changetheme.clj $1"
 
 md () { mkdir -p "$@" && cd "$@"; }
 
