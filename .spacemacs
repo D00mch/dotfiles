@@ -504,6 +504,7 @@ before packages are loaded."
   (evil-define-key 'insert cider-repl-mode-map
     (kbd "<down>") 'cider-repl-next-input
     (kbd "<up>") 'cider-repl-previous-input)
+  (setq cider-font-lock-dynamically '(macro core function var))
 
   (setq org-agenda-files (list "~/Dropbox/org/todos.org"))
 
