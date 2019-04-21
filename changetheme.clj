@@ -106,9 +106,9 @@
         keys-dark-toggle [KeyEvent/VK_SHIFT KeyEvent/VK_ALT KeyEvent/VK_D]
         keys-exit-chrome [KeyEvent/VK_CONTROL KeyEvent/VK_Q]]
     (.exec runtime "google-chrome-stable")
-    (.delay robot 400)
+    (.delay robot 700)
     (robot-hot-keys keys-dark-toggle)
-    (.delay robot 900)
+    (.delay robot 1000)
     (robot-hot-keys keys-exit-chrome)))
 
 ;; apply themes
