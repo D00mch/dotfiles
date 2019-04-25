@@ -97,62 +97,13 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 nmap <tab> :noh<Enter>:echom ""<Enter>
 "}}}
 
-"{{{ positioning
-nmap <space> <nop>
-map J 13jzz
-map K 13kzz
-map H 15h
-map L 15l
-map <space>h g^
-map <space>l g$
-
 noremap  <buffer> <silent> k gk
 noremap  <buffer> <silent> j gj
 noremap  <buffer> <silent> 0 g0
 noremap  <buffer> <silent> $ g$
 
-"alt + l
-noremap ¬ 7l
-"alt + h
-noremap ˙ 7h
-"alt + j
-noremap ∆ 4gj
-"alt + k
-noremap ˚ 4gk
-"}}}
-
-"{{{ reg 
-"alt + q
-noremap œ @
-
-"nnoremap <expr> m '"'.nr2char(getchar()).'y'
-"vnoremap <expr> m '"'.nr2char(getchar()).'y'
-"nnoremap <expr> <space>r '"'.nr2char(getchar()).'p'
-"vnoremap <expr> <space>r '"'.nr2char(getchar()).'p'
-
-"delete all line without putting it in registers
-noremap D V"_d
-"}}}
-
-"{{{ making habitual hotkeys work in vim
-"alt + d  -> copy and paste the line
- nnoremap ∂ Yp
-
 "alt + a  -> select all
 nnoremap å ggVG
-
-"alt + s  -> save
-nnoremap ß :w<Enter>
-
-"alt + x  -> save and quit
-nnoremap ≈ :x<Enter>
-
-"alt + q  -> quit
-nnoremap œ :q<Enter>
-
-"alt + Q  -> force quit
-nnoremap Œ :q!<Enter>
-"}}}
 
 "{{{ editing
 nnoremap <space>o o<Esc>
@@ -161,14 +112,6 @@ nnoremap <space>o o<Esc>
 "{{{ search, replace, regex 
 nnoremap / /\v
 vnoremap / /\v
-
-"alt + f - run :FZF
-nnoremap ƒ :FZF<Enter>
-
-"alt + F - write current file and run :FZF
-nnoremap Ï :w<Enter>:FZF<Enter>
-"}}}
-
 
 "WORKING WITH CODE 
 

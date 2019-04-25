@@ -39,59 +39,11 @@ nmap <tab> :noh<Enter>:echom ""<Enter>
 nnoremap r<tab> <nop>
 "}}}
 
-
-"{{{ positioning
-nmap <space> <nop>
-noremap J 13jzz
-noremap K 13kzz
-noremap H 15h
-noremap L 15l
-noremap <space>h ^
-noremap <space>l $
-"alt + l
-noremap ¬ 7l
-"alt + h
-noremap ˙ 7h
-"alt + j
-noremap ∆ 4j
-"alt + k
-noremap ˚ 4k
-"}}}
-"
-"{{{ reg 
 "alt + q
 noremap œ @
-
-"nnoremap <expr> m '"'.nr2char(getchar()).'y'
-"vnoremap <expr> m '"'.nr2char(getchar()).'y'
-"nnoremap <expr> <space>r '"'.nr2char(getchar()).'p'
-"vnoremap <expr> <space>r '"'.nr2char(getchar()).'p'
-
-"delete all line without putting it in registers
-noremap D V"_d
-"}}}
-
-"{{{ reg 
-"alt + q
-noremap œ @
-"}}}
-
-"{{{ making habitual hotkeys work in vim
-"alt + d
-nnoremap ∂ Yp
-"alt + a
-nnoremap å ggVG
-"alt + s
-nnoremap ß :w<Enter>
-"alt + p
-nnoremap π "0p
-"}}}
 
 "{{{ editing
 nnoremap <space>o o<Esc><Esc>
-"}}}
-
-"{{{ search, replace, regex 
 "}}}
 
 "{{{cursive
