@@ -76,3 +76,6 @@
 [submodule ".vim/pack/plugins/start/kotlin-vim"]
 	path = .vim/pack/plugins/start/kotlin-vim
 	url = https://github.com/udalov/kotlin-vim.git
+[submodule ".emacs.d/private/clojure-lint"]
+	path = .emacs.d/private/clojure-lint
+	url = https://github.com/n2o/clojure-lint-spacemacs-layer
