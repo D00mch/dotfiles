@@ -1,0 +1,15 @@
+{:known-macros
+  [clojure.test.check.generators/let
+   mount.core/defstate 
+   rum.core/defc
+   rum.core/defcc
+   rum.core/defcs]
+ :known-namespaces
+   [clojure.string clojure.set]
+ :known-tags
+   []
+ :ignored-unused-namespaces
+   [clojure.spec.alpha clojure.test]
+ :rules
+   {:if-without-else true
+    :no-forms-threading true}}
