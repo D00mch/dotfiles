@@ -89,6 +89,23 @@
                 line)))
        (write-lines spacemacs)))
 
+;; vim
+
+(def vim (expand-home "~/dotfiles/.vimrc"))
+
+(defn vim-bg [light?] (if light? "light" "dark"))
+(defn vim-theme [light?] (if light? "one" "xoria256"))
+
+(defn vim-set-theme [light?]
+  (->> (file-by-lines vim)
+       (map (fn [line]
+              (cond (.contains line "colorscheme")
+                    (str "colorscheme " (vim-theme light?)),
+                    (.contains line "set background")
+                    (str "set background=" (vim-bg light?)),
+                    :else line)))
+       (write-lines vim)))
+
 ;; desktop theme
 
 (use '[clojure.java.shell :only [sh]])
@@ -113,20 +130,22 @@
 
 ;; apply themes
 
-(def input (first *command-line-args*))
+(def input (delay (first *command-line-args*)))
 
-(cond (= input "b")
+(cond (= @input "b")
       (do (zathura-uncomment-colors)
           (spacemacs-set-theme spacemacs-dark)
           (desktop-set-theme "Matcha-dark-sea")
           (chrome-toggle-dark-mode-plugin)
+          (vim-set-theme false)
           )
 
-      (= input "w")
+      (= @input "w")
       (do (zathura-comment-colors)
           (spacemacs-set-theme spacemacs-light)
           (desktop-set-theme "Mist")
           (chrome-toggle-dark-mode-plugin)
+          (vim-set-theme true)
           )
 
       :else
