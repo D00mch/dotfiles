@@ -23,6 +23,8 @@ alias sleep="sudo systemctl hybrid-sleep"
 alias hib="sudo systemctl hibernate"
 alias csi="chicken-csi"
 alias theme="clojure ~/changetheme.clj $1"
+alias lrun="lein run <&- &"
+alias lfigwheel="lein figwheel <&- &"
 
 md () { mkdir -p "$@" && cd "$@"; }
 
