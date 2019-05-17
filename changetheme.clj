@@ -110,11 +110,12 @@
 
 (use '[clojure.java.shell :only [sh]])
 
-(defn desktop-set-theme [theme]
+(defn desktop-set-theme [& {:keys [property theme]}]
+  {:pre [(#{"ThemeName" "IconThemeName"} property)]}
   (clojure.java.shell/sh
    "sh"
    "-c"
-   (str "xfconf-query -c xsettings -p /Net/ThemeName -s " theme)))
+   (format "xfconf-query -c xsettings -p /Net/%s -s %s" property theme)))
 
 ;; chrome dark-mode plugin
 
@@ -135,7 +136,8 @@
 (cond (= @input "b")
       (do (zathura-uncomment-colors)
           (spacemacs-set-theme spacemacs-dark)
-          (desktop-set-theme "Matcha-dark-sea")
+          (desktop-set-theme :property "ThemeName" :theme "Arc-Maia-Dark")
+          (desktop-set-theme :property "IconThemeName" :theme "Paper")
           (chrome-toggle-dark-mode-plugin)
           (vim-set-theme false)
           )
@@ -143,7 +145,8 @@
       (= @input "w")
       (do (zathura-comment-colors)
           (spacemacs-set-theme spacemacs-light)
-          (desktop-set-theme "Mist")
+          (desktop-set-theme :property "ThemeName" :theme "Mist")
+          (desktop-set-theme :property "IconThemeName" :theme "Paper-Mono-Dark")
           (chrome-toggle-dark-mode-plugin)
           (vim-set-theme true)
           )
