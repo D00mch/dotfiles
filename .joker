@@ -3,9 +3,10 @@
    mount.core/defstate 
    rum.core/defc
    rum.core/defcc
-   rum.core/defcs]
+   rum.core/defcs
+   reagent.core/with-let]
  :known-namespaces
-   [clojure.string clojure.set]
+   [clojure.string clojure.set clojure.core]
  :known-tags
    []
  :ignored-unused-namespaces
