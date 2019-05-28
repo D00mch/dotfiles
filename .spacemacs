@@ -65,7 +65,7 @@ values."
             shell-default-shell 'shell
             shell-default-position 'full
             shell-default-full-span 'nil)
-     spell-checking
+     ;; spell-checking
      syntax-checking)
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -350,6 +350,7 @@ you should place your code here."
   (setq geiser-chicken-binary "chicken-csi")
 
   (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
+  (global-set-key (kbd "TAB") 'self-insert-command);
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
