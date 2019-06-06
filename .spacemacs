@@ -342,7 +342,22 @@ you should place your code here."
     (kbd "<up>") 'cider-repl-previous-input)
   (setq cider-font-lock-dynamically '(macro core function var))
 
+  ;; org
   (setq org-agenda-files (list "~/Dropbox/org/todos.org"))
+  (setq org-bullets-bullet-list '("①" "②" "③ " "④" "⑤" "⑥" "⑦" "⑧"))
+  (setq org-todo-keywords
+        '((sequence "TODO(t!)"
+                    "CANDIDATE(c!)"
+                    "PROGRESS(p!)"
+                    "|"
+                    "REMOVED(r!)"
+                    "DONE(d!)")))
+  (setq org-todo-keyword-faces
+        '(("TODO" . org-warning)
+          ("PROGRESS" . "#E35DBF")
+          ("REMOVED" . (:foreground "white" :background "#4d4d4d" :weight bold))
+          ("CANDIDATE" . "pink")
+          ("DONE" . "#008080")))
 
   ;; open shell in the same buffer
   (push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
