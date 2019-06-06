@@ -4,7 +4,13 @@
    rum.core/defc
    rum.core/defcc
    rum.core/defcs
-   reagent.core/with-let]
+   clojure.core/add-watch
+   reagent.core/with-let
+   clojure.core.logic/run*
+   clojure.core.logic/fresh
+   clojure.spec.alpha/fdef
+   clojure.spec/&
+   ]
  :known-namespaces
    [clojure.string clojure.set clojure.core]
  :known-tags
