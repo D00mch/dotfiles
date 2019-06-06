@@ -365,7 +365,7 @@ you should place your code here."
   (setq geiser-chicken-binary "chicken-csi")
 
   (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
-  (global-set-key (kbd "TAB") 'self-insert-command)
+  ;; (global-set-key (kbd "TAB") 'self-insert-command)
 
   ;; save file when switching buffers
   (defadvice switch-to-buffer (before save-buffer-now activate)
