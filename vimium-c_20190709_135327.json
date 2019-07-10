@@ -1,12 +1,28 @@
 {
 	"name": "Vimium C",
-	"@time": "6/21/2019, 10:47:03 AM",
-	"time": 1561103223931,
+	"@time": "7/9/2019, 1:53:27 PM",
+	"time": 1562669607654,
 	"environment": {
-		"extension": "1.75.7",
+		"extension": "1.76.0",
 		"platform": "linux",
 		"chrome": 75
 	},
+	"grabBackFocus": true,
+	"exclusionRules": [
+		{
+			"pattern": "^https?://mail.google.com/",
+			"passKeys": ""
+		},
+		{
+			"pattern": ":http://klavogonki.ru/",
+			"passKeys": ""
+		},
+		{
+			"pattern": "^https?://experilous\\.com/",
+			"passKeys": ""
+		}
+	],
+	"newTabUrl": "chrome-extension://mfgdmpfihlmdekaclngibpjhdebndhdj/newtab.html",
 	"showAdvancedCommands": true,
 	"keyMappings": [
 		"# RUSSIAN",
@@ -99,24 +115,34 @@
 		"map F LinkHints.activateModeToOpenInNewTab mapKey",
 		"mapKey а f",
 		"",
-		"mapKey Ф A",
-		"mapKey Ы S",
-		"mapKey В D",
-		"mapKey А F",
-		"mapKey П G",
-		"mapKey Р H",
-		"mapKey О J",
-		"mapKey Л K",
-		"mapKey Д L",
+		"mapKey ф a",
+		"mapKey ы s",
+		"mapKey в d",
+		"mapKey п g",
+		"mapKey р h",
+		"mapKey о j",
+		"mapKey л k",
+		"mapKey д l",
+		"",
+		"mapKey й q",
+		"mapKey ц w",
+		"mapKey у e",
+		"mapKey к r",
+		"mapKey е t",
+		"mapKey н y",
+		"mapKey г u",
+		"mapKey ш i",
+		"mapKey щ o",
+		"mapKey з p",
 		""
 	],
-	"grabBackFocus": true,
 	"vomnibarOptions": {
 		"maxMatches": 10,
 		"queryInterval": 500,
 		"styles": ""
 	},
 	"scrollStepSize": 50,
+	"focusNewTabContent": false,
 	"searchEngines": [
 		"w: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia",
 		"",
@@ -141,7 +167,6 @@
 		"# qw: https://www.qwant.com/?q=%s Qwant",
 		""
 	],
-	"linkHintCharacters": "asdghjkl",
-	"newTabUrl": "chrome-extension://mfgdmpfihlmdekaclngibpjhdebndhdj/newtab.html",
+	"linkHintCharacters": "asdghjklqwertyuiop",
 	"showAdvancedOptions": true
 }
