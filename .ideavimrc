@@ -1,4 +1,5 @@
 " see all commands for mapping with :actionlist
+
 set backspace=indent,eol,start
 set relativenumber
 set number
@@ -46,6 +47,8 @@ noremap œ @
 nnoremap <space>o o<Esc><Esc>
 "}}}
 
+let mapleader=","
+
 "{{{cursive
 nmap <Leader>w :action :cursive.actions.paredit/wrap-paren<cr>
 vnoremap <Leader>w :action :cursive.actions.paredit/wrap-paren<cr>
@@ -66,3 +69,41 @@ vnoremap <Leader>{ :action :cursive.actions.paredit/wrap-curly<cr>
 nmap <Leader>o :action :cursive.actions.paredit/raise<cr>
 vnoremap <Leader>o :action :cursive.actions.paredit/raise<cr>
 "}}}
+
+"{{{spacemacs
+nnoremap <space>bb :action RecentFiles<cr>
+nnoremap <space>pt :action ActivateProjectToolWindow<cr>
+nnoremap fu :action FindUsages<cr>
+
+vnoremap <space>kw :action :cursive.actions.paredit/wrap-paren<cr>
+nnoremap <space>kw :action :cursive.actions.paredit/wrap-paren<cr>
+nnoremap <space>kr :action :cursive.actions.paredit/raise<cr>
+nnoremap <space>kB :action :cursive.actions.paredit/barf-backwards<cr>
+nnoremap <space>kb :action :cursive.actions.paredit/barf-forwards<cr>
+nnoremap <space>kdx :action :cursive.actions.paredit/kill-sexp<cr>
+nnoremap <space>kS :action :cursive.actions.paredit/slurp-backwards<cr>
+nnoremap <space>ks :action :cursive.actions.paredit/slurp-forwards<cr>
+nnoremap <space>ke :action :cursive.actions.paredit/splice-killing-backwards<cr>
+nnoremap <space>kE :action :cursive.actions.paredit/splice-killing-forwards<cr>
+
+nnoremap <C-c><C-c> :action :cursive.repl.actions/interrupt<cr>
+nnoremap <Leader>rtf :action :cursive.actions.paredit/thread-form<cr>
+nnoremap <Leader>sp :action :cursive.repl.actions/jump-to-output<cr>
+nnoremap <Leader>ss :action :cursive.repl.actions/jump-to-repl<cr>
+nnoremap <Leader>sb :action :cursive.repl.actions/load-file<cr>
+nnoremap <Leader>em :action :cursive.repl.actions/macroexpansion<cr>
+nnoremap <Leader>se :action :cursive.repl.actions/run-last-sexp<cr>
+nnoremap <Leader>sf :action :cursive.repl.actions/run-top-sexp<cr>
+nnoremap <Leader>sn :action :cursive.repl.actions/switch-namespace<cr>
+nnoremap <Leader>sx :action :cursive.repl.actions/sync-files<cr>
+nnoremap <Leader>tx :action :cursive.testing.actions/remove-test-markers<cr>
+nnoremap <Leader>tr :action :cursive.testing.actions/rerun-last-test <cr>
+nnoremap <Leader>ta :action :cursive.testing.actions/run-ns-tests <cr>
+nnoremap <Leader>tt :action :cursive.testing.actions/run-single-test<cr>
+nnoremap <Leader>hh :action QuickJavaDoc<cr>
+nnoremap <Leader>rfu :action FindUsages<cr>
+nnoremap <Leader>= :action ReformatCode<cr>
+
+ "cant use ' in vim
+nnoremap <Leader>k :action Run<cr>
+}}}"
