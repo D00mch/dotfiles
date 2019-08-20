@@ -8,6 +8,8 @@ set autoindent
 set clipboard=unnamedplus
 set encoding=utf-8
 
+let mapleader=","
+
 let g:airline#extensions#keymap#enabled = 0
 
 "{{{ clojure-highlight

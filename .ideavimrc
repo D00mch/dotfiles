@@ -1,4 +1,5 @@
 " see all commands for mapping with :actionlist
+" to update idea, type              :source ~/.ideavimrc
 
 set backspace=indent,eol,start
 set relativenumber
@@ -73,8 +74,11 @@ vnoremap <Leader>o :action :cursive.actions.paredit/raise<cr>
 "{{{spacemacs
 nnoremap <space>bb :action RecentFiles<cr>
 nnoremap <space>pt :action ActivateProjectToolWindow<cr>
+nnoremap <space>bd :q<cr>
+nnoremap <space>wu :action ReopenClosedTab<cr>
+nnoremap <space>pf :action GotoFile<cr>
+nnoremap <space>pa :action GotoSymbol<cr>
 nnoremap fu :action FindUsages<cr>
-
 vnoremap <space>kw :action :cursive.actions.paredit/wrap-paren<cr>
 nnoremap <space>kw :action :cursive.actions.paredit/wrap-paren<cr>
 nnoremap <space>kr :action :cursive.actions.paredit/raise<cr>
@@ -85,7 +89,9 @@ nnoremap <space>kS :action :cursive.actions.paredit/slurp-backwards<cr>
 nnoremap <space>ks :action :cursive.actions.paredit/slurp-forwards<cr>
 nnoremap <space>ke :action :cursive.actions.paredit/splice-killing-backwards<cr>
 nnoremap <space>kE :action :cursive.actions.paredit/splice-killing-forwards<cr>
+"}}}
 
+"{{{Cider
 nnoremap <C-c><C-c> :action :cursive.repl.actions/interrupt<cr>
 nnoremap <Leader>rtf :action :cursive.actions.paredit/thread-form<cr>
 nnoremap <Leader>sp :action :cursive.repl.actions/jump-to-output<cr>
@@ -106,4 +112,5 @@ nnoremap <Leader>= :action ReformatCode<cr>
 
  "cant use ' in vim
 nnoremap <Leader>k :action Run<cr>
-}}}"
+nnoremap <Leader>sq :action Stop<cr>
+"}}}
