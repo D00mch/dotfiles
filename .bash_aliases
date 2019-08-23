@@ -50,6 +50,10 @@ lock(){
 	/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend
 }
 # help commands end
+ 
+#ssh alias
+alias sshp='ssh root@104.248.88.134'
+#ssh alias
 
 #sicp start
 alias sicp='cd ~/Yandex.Disk/notes/wiki/sicp'
