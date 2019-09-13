@@ -5,6 +5,7 @@ set backspace=indent,eol,start
 set relativenumber
 set number
 set clipboard=unnamed
+set ideajoin
 
 "{{{ russian mapping
 set keymap=russian-jcukenmac
@@ -78,7 +79,7 @@ nnoremap <space>bd :q<cr>
 nnoremap <space>wu :action ReopenClosedTab<cr>
 nnoremap <space>pf :action GotoFile<cr>
 nnoremap <space>pa :action GotoSymbol<cr>
-nnoremap fu :action FindUsages<cr>
+nnoremap <space>; :action CommentByLineComment<cr>
 vnoremap <space>kw :action :cursive.actions.paredit/wrap-paren<cr>
 nnoremap <space>kw :action :cursive.actions.paredit/wrap-paren<cr>
 nnoremap <space>kr :action :cursive.actions.paredit/raise<cr>
@@ -89,6 +90,7 @@ nnoremap <space>kS :action :cursive.actions.paredit/slurp-backwards<cr>
 nnoremap <space>ks :action :cursive.actions.paredit/slurp-forwards<cr>
 nnoremap <space>ke :action :cursive.actions.paredit/splice-killing-backwards<cr>
 nnoremap <space>kE :action :cursive.actions.paredit/splice-killing-forwards<cr>
+nnoremap <space><tab> :action Back<cr>
 "}}}
 
 "{{{Cider
@@ -106,6 +108,7 @@ nnoremap <Leader>tx :action :cursive.testing.actions/remove-test-markers<cr>
 nnoremap <Leader>tr :action :cursive.testing.actions/rerun-last-test <cr>
 nnoremap <Leader>ta :action :cursive.testing.actions/run-ns-tests <cr>
 nnoremap <Leader>tt :action :cursive.testing.actions/run-single-test<cr>
+nnoremap <Leader>db :action ToggleLineBreakpoint<cr>
 nnoremap <Leader>hh :action QuickJavaDoc<cr>
 nnoremap <Leader>rfu :action FindUsages<cr>
 nnoremap <Leader>= :action ReformatCode<cr>
