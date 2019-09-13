@@ -52,7 +52,7 @@ lock(){
 # help commands end
  
 #ssh alias
-alias sshp='ssh root@104.248.88.134'
+alias sshp='ssh root@142.93.153.152'
 #ssh alias
 
 #sicp start
