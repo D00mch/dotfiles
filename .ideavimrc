@@ -72,6 +72,11 @@ nmap <Leader>o :action :cursive.actions.paredit/raise<cr>
 vnoremap <Leader>o :action :cursive.actions.paredit/raise<cr>
 "}}}
 
+"vim{{{
+nnoremap gh :action PreviousTab<cr>
+nnoremap gl :action NextTab<cr>
+"}}}
+
 "{{{spacemacs
 nnoremap <space>bb :action RecentFiles<cr>
 nnoremap <space>pt :action ActivateProjectToolWindow<cr>
