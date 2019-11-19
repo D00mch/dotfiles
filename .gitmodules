@@ -79,3 +79,6 @@
 [submodule ".emacs.d/private/clojure-lint"]
 	path = .emacs.d/private/clojure-lint
 	url = https://github.com/n2o/clojure-lint-spacemacs-layer
+[submodule ".vim/pack/plugins/start/ghost-text.vim"]
+	path = .vim/pack/plugins/start/ghost-text.vim
+	url = https://github.com/pandysong/ghost-text.vim.git
