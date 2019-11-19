@@ -2,8 +2,9 @@
 # ~/.bash_aliases
 #
 
-export ANDROID_HOME=/opt/android-sdk
-export PATH=$ANDROID_HOME/build-tools/28.0.3:$PATH
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=/opt/flutter/bin:$PATH
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
