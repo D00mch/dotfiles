@@ -106,6 +106,7 @@ nnoremap <Leader>ss :action :cursive.repl.actions/jump-to-repl<cr>
 nnoremap <Leader>sb :action :cursive.repl.actions/load-file<cr>
 nnoremap <Leader>em :action :cursive.repl.actions/macroexpansion<cr>
 nnoremap <Leader>se :action :cursive.repl.actions/run-last-sexp<cr>
+nnoremap <Leader>eb :action Flutter.Toolbar.ReloadAction<cr>
 nnoremap <Leader>sf :action :cursive.repl.actions/run-top-sexp<cr>
 nnoremap <Leader>sn :action :cursive.repl.actions/switch-namespace<cr>
 nnoremap <Leader>sx :action :cursive.repl.actions/sync-files<cr>

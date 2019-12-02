@@ -4,7 +4,7 @@
 
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=/opt/flutter/bin:$PATH
+export PATH=~/Android/flutter/bin:$PATH
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
@@ -72,7 +72,7 @@ alias delegates="cd ~/AndroidStudioProjects/other/DelegateAdapters/"
 
 # notes
 fz(){
-        bash ~/Yandex.Disk/notes/fuz.sh $@
+        bash ~/dotfiles/fuz.sh $@
 }
 #
 
