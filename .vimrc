@@ -98,6 +98,10 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 nmap <tab> :noh<Enter>:echom ""<Enter>
 "}}}
+"{{{Tabs
+nmap gh gT
+nmap gl gt
+"}}}
 
 noremap  <buffer> <silent> k gk
 noremap  <buffer> <silent> j gj
