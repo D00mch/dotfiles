@@ -45,6 +45,7 @@ values."
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-enable-sort-by-usage t)
      (clojure :variables
+              clojure-enable-fancify-symbols t
               clojure-enable-clj-refactor t)
      clojure-lint
      (git :variables
@@ -332,6 +333,14 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
+  ;; keys
+  (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
+  ;; (global-set-key (kbd "TAB") 'self-insert-command)
+  ;;(spacemacs/declare-prefix "]" "bracket-prefix")
+  (spacemacs/set-leader-keys "pa" 'helm-projectile-ag)
+  (define-key evil-normal-state-map (kbd ",[") 'paredit-wrap-square)
+  (define-key evil-normal-state-map (kbd ",{") 'paredit-wrap-curly)
+  (define-key evil-normal-state-map (kbd ",c") 'clojure-couser/mment)
 
   ;; fix relative-line numbers on folding
   (setq-default display-line-numbers 'visual)
@@ -380,14 +389,6 @@ you should place your code here."
 
   (setq geiser-chicken-binary "chicken-csi")
 
-  ;; keys
-  (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
-  ;; (global-set-key (kbd "TAB") 'self-insert-command)
-  ;;(spacemacs/declare-prefix "]" "bracket-prefix")
-  (spacemacs/set-leader-keys "pa" 'helm-projectile-ag)
-  (define-key evil-normal-state-map (kbd ",[") 'paredit-wrap-square)
-  (define-key evil-normal-state-map (kbd "{") 'paredit-wrap-curly)
-
   ;; save file when switching buffers
   (defadvice switch-to-buffer (before save-buffer-now activate)
     (when buffer-file-name (save-buffer)))
@@ -396,6 +397,46 @@ you should place your code here."
   (defadvice other-frame (before other-frame-now activate)
     (when buffer-file-name (save-buffer)))
   )
+
+(defun clojure-comment ()
+  (interactive)
+  (cond
+   ((not current-prefix-arg)
+    (save-mark-and-excursion
+      (if (equal "#_" (buffer-substring-no-properties (point) (+ 2 (point))))
+          (while (equal "#_" (buffer-substring-no-properties (point) (+ 2 (point))))
+            (delete-char 2))
+        (progn
+          (unless (or (equal (char-after) 40)
+                      (equal (char-after) 91)
+                      (equal (char-after) 123))
+            (backward-up-list))
+          (if (string-suffix-p "#_" (buffer-substring-no-properties (line-beginning-position) (point)))
+              (while (string-suffix-p "#_" (buffer-substring-no-properties (line-beginning-position) (point)))
+                (delete-char -2))
+            (insert "#_"))))))
+
+   ((numberp current-prefix-arg)
+    (let* ((curr-sym (symbol-at-point))
+           (curr-sym-name (symbol-name curr-sym))
+           (line (buffer-substring-no-properties (point) (line-end-position)))
+           (i 0))
+      (save-mark-and-excursion
+        (when curr-sym
+          (unless (string-prefix-p curr-sym-name line)
+            (backward-sexp))
+          (while (< i current-prefix-arg)
+            (insert "#_")
+            (setq i (1+ i)))))))
+
+   ((equal '(4) current-prefix-arg)
+    (save-mark-and-excursion
+      (unless (and (equal (char-after) 40)
+                   (equal (point) (line-beginning-position)))
+        (beginning-of-defun)
+        (if (equal "#_" (buffer-substring-no-properties (point) (+ 2 (point))))
+            (delete-char 2)
+          (insert "#_")))))))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
