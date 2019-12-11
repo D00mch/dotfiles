@@ -3,7 +3,7 @@
    #_DEPS is same format as deps.edn. Multiline is okay.
    DEPS='
    {:deps
-   	{cli-matic {:mvn/version "0.3.3"}}}
+   	{cli-matic {:mvn/version "0.3.11"}}}
    '
 
    #_You can put other options here

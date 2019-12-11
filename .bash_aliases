@@ -5,6 +5,7 @@
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=~/Android/flutter/bin:$PATH
+export GRAAL_HOME=/usr/lib/jvm/java-8-graalvm/bin/
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
