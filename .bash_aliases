@@ -3,6 +3,7 @@
 #
 
 export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$ANDROID_HOME/build-tools/29.0.0:$PATH
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=~/Android/flutter/bin:$PATH
 export GRAAL_HOME=/usr/lib/jvm/java-8-graalvm/bin/
