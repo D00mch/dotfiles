@@ -1,17 +1,17 @@
 #
 # ~/.bash_aliases
 #
-
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$ANDROID_HOME/build-tools/29.0.0:$PATH
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=~/Android/flutter/bin:$PATH
-export GRAAL_HOME=/usr/lib/jvm/java-8-graalvm/bin/
+export TERM="xterm-256color"
+export PS1='\[\e[0;33m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;34m\]\w\[\e[0m\]\$ '
+export CLICOLOR=1
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-TERM=xterm-256color
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$ANDROID_HOME/tools:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+export PATH=$ANDROID_HOME/build-tools/29.0.3:$PATH
 
 # help commands start
 alias s='source ~/.bash_profile'
