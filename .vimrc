@@ -4,8 +4,8 @@ set relativenumber
 set number
 set autoindent
 "set autochdir " change curernt working directory after changing buffer
-" set clipboard+=unnamed  "for osx
-set clipboard=unnamedplus
+set clipboard+=unnamed  "for osx
+"set clipboard=unnamedplus
 set encoding=utf-8
 
 let mapleader=","
