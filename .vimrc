@@ -31,9 +31,9 @@ filetype plugin on
 filetype plugin indent on
 
 " vim-notes
-:let g:notes_directories = ['~/Yandex.Disk/notes/vim']
+:let g:notes_directories = ['~/Yandex.Disk.localized/notes/vim']
 " vim-wiki
-let g:vimwiki_list = [{'path':'~/Yandex.Disk/notes/wiki', 'path_html':'~/Yandex.Disk.localized/notes/export/xml'}]
+let g:vimwiki_list = [{'path':'~/Yandex.Disk.localized/notes/wiki', 'path_html':'~/Yandex.Disk.localized/notes/export/xml'}]
 let g:vimwiki_folding='syntax'
 
 "{{{ slime 
