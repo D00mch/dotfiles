@@ -64,5 +64,6 @@ plugins=(
     git
     adb
     gradle
+    vi-mode
 )
 source $ZSH/oh-my-zsh.sh
