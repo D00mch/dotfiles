@@ -61,7 +61,7 @@ values."
      helm
      emacs-lisp
      (shell :variables
-            shell-default-shell 'shell
+            shell-default-shell 'eshell
             shell-default-position 'full
             shell-default-full-span 'nil)
      ;; spell-checking
