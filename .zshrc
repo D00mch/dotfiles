@@ -7,7 +7,7 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$ANDROID_HOME/tools:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 export PATH=$ANDROID_HOME/build-tools/29.0.3:$PATH
-export ANDROID_NDK=~/android-ndk-r21
+export ANDROID_NDK=~/android-ndk-r20b
 
 export EDITOR='vim'
 bindkey -v
@@ -40,6 +40,7 @@ alias apkinstall="adb devices | tail -n +2 | cut -sf 1 | xargs -I X adb -s X ins
 alias ai="apkinstall"
 alias rmapp="adb devices | tail -n +2 | cut -sf 1 | xargs -I X adb -s X uninstall $1"
 alias clearappcache='adb shell pm clear $1'
+alias adb_root_remount_shell="adb root; adb remount; adb shell"
 # android commands end
 
 #translation start
@@ -69,3 +70,5 @@ plugins=(
     vi-mode
 )
 source $ZSH/oh-my-zsh.sh
+
+source ~/.sber.sh
