@@ -107,7 +107,7 @@ nnoremap <Leader>rr :action RenameElement<cr>
 nnoremap <Leader>k :action Run<cr>
 nnoremap <Leader>dr :action Debug<cr>
 nnoremap <Leader>sq :action Stop<cr>
-nnoremap <Leader>sg :action Synchronize<cr>
+nnoremap <Leader>sg :action Android.SyncProject<cr>
 }}}"
 
 "{{{Cider
