@@ -8,6 +8,9 @@
 (def system-osx?
   (= "Mac OS X" (System/getProperty "os.name")))
 
+(defn open-app! [app-name]
+  (sh "sh" "-c" (str "open -a " app-name)))
+
 ;; robot
 
 (def robot (Robot.))
@@ -25,9 +28,9 @@
           :let [code (int byte)
                 code (if (< 96 code 123) (- code 32) code)]]
     (doto ^Robot robot
-      (.delay 50)
+      (.delay 70)
       (.keyPress code)
-      (.delay 10)
+      (.delay 20)
       (.keyRelease code))))
 
 (defn robot-type! [^Integer i]
@@ -49,12 +52,6 @@
 (defn robot-mouse-move!
   ([[x y]] (robot-mouse-move! x y))
   ([x y] (.mouseMove ^Robot robot x y)))
-
-(defn robot-mac-open! [app-name]
-  (do
-    (robot-hot-keys! [KeyEvent/VK_META KeyEvent/VK_SPACE])
-    (.delay ^Robot robot 100)
-    (robot-print! (str app-name "\n"))))
 
 ;; file help functions
 
@@ -99,7 +96,7 @@
 (def spacemacs-dark  "doom-tomorrow-night")
 
 (defn spacemacs-opened? []
-  (let [shell-oputput (clojure.java.shell/sh "sh" "-c" "ps ax | grep emacs")
+  (let [shell-oputput (sh "sh" "-c" "ps ax | grep emacs")
         shell-res     (:out shell-oputput)]
     (.contains ^String shell-res "/Emacs.app")))
 
@@ -113,16 +110,16 @@
            (write-lines spacemacs))
     (when (and system-osx? (spacemacs-opened?))
       (do
-        (robot-mac-open! "emacs")
+        (open-app! "emacs")
         (.delay ^Robot robot 100)
         (robot-type! KeyEvent/VK_ESCAPE)
-        (.delay ^Robot robot 100)
+        (.delay ^Robot robot 150)
         (robot-type! KeyEvent/VK_SPACE)
-        (.delay ^Robot robot 100)
+        (.delay ^Robot robot 150)
         (robot-type! KeyEvent/VK_SPACE)
-        (.delay ^Robot robot 100)
+        (.delay ^Robot robot 150)
         (robot-print! (str "load-theme\n"))
-        (.delay ^Robot robot 100)
+        (.delay ^Robot robot 150)
         (robot-print! (str theme "\n"))
         (.delay ^Robot robot 150)
         (robot-type! KeyEvent/VK_ENTER)))))
@@ -175,8 +172,8 @@
         keys-dark-toggle [KeyEvent/VK_ALT KeyEvent/VK_SHIFT KeyEvent/VK_D]
         keys-exit-chrome [KeyEvent/VK_CONTROL KeyEvent/VK_Q]]
     (if system-osx?
-      (do (robot-mac-open! "chrome")
-          (.delay ^Robot robot 200)
+      (do (open-app! "Google\\ Chrome.app")
+          (.delay ^Robot robot 1200)
           (robot-hot-keys! keys-dark-toggle))
       (do
         (.exec runtime "google-chrome-stable")
@@ -189,10 +186,10 @@
 
 ;; TODO: parse pixel patterns or find api
 (defn telegram-toggle-dark-mode! []
-  (robot-mac-open! "telegram")
-  (.delay ^Robot robot 100)
+  (open-app! "telegram")
+  (.delay ^Robot robot 200)
   (robot-mouse-move! 26 70)
-  (.delay ^Robot robot 250)
+  (.delay ^Robot robot 350)
   (robot-mouse-click!)
   (.delay ^Robot robot 400)
   (robot-mouse-move! 238 433)
@@ -222,4 +219,4 @@
   (chrome-toggle-dark-mode-plugin!)
   (telegram-toggle-dark-mode!)
 
-  (System/exit 0) (comment due to https://dev.clojure.org/jira/browse/CLJ-959))
+  #_(System/exit 0) (comment due to https://dev.clojure.org/jira/browse/CLJ-959))
