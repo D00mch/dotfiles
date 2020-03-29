@@ -62,6 +62,11 @@ nnoremap <silent> <leader>se :setlocal spell! spelllang=en<cr>
 nnoremap <silent> <leader>sr :setlocal spell! spelllang=ru<cr>
 "}}}
 
+"{{{ emacs-like syntax
+nnoremap <space><tab> :e#<cr>
+nnoremap <space>pt :NERDTree<cr>
+"}}}
+
 "{{{ syntax
 :syntax on
 set background=dark

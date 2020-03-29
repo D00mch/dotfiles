@@ -96,7 +96,7 @@ nnoremap <space>kS :action :cursive.actions.paredit/slurp-backwards<cr>
 nnoremap <space>ks :action :cursive.actions.paredit/slurp-forwards<cr>
 nnoremap <space>ke :action :cursive.actions.paredit/splice-killing-backwards<cr>
 nnoremap <space>kE :action :cursive.actions.paredit/splice-killing-forwards<cr>
-nnoremap <space><tab> :action Back<cr>
+nnoremap <space><tab> :e#<cr>
 nnoremap ]s :action GotoNextError<cr>
 nnoremap [s :action GotoPreviousError<cr>
 nnoremap <space>bm :action CloseAllEditors<cr>
