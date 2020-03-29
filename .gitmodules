@@ -1,9 +1,6 @@
 [submodule ".vim/pack/plugins/start/nerdtree"]
 	path = .vim/pack/plugins/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule ".vim/pack/plugins/start/vim-multiple-cursors"]
-	path = .vim/pack/plugins/start/vim-multiple-cursors
-	url = https://github.com/terryma/vim-multiple-cursors.git
 [submodule ".vim/pack/plugins/start/fzf.vim"]
 	path = .vim/pack/plugins/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
@@ -25,12 +22,6 @@
 [submodule ".vim/pack/plugins/start/vimwiki"]
 	path = .vim/pack/plugins/start/vimwiki
 	url = https://github.com/vimwiki/vimwiki.git
-[submodule ".vim/pack/plugins/start/tslime.vim"]
-	path = .vim/pack/plugins/start/tslime.vim
-	url = https://github.com/sjl/tslime.vim.git
-[submodule ".vim/pack/plugins/start/rainbow"]
-	path = .vim/pack/plugins/start/rainbow
-	url = https://github.com/luochen1990/rainbow.git
 [submodule ".vim/pack/plugins/start/terminus"]
 	path = .vim/pack/plugins/start/terminus
 	url = https://github.com/wincent/terminus.git
@@ -40,15 +31,9 @@
 [submodule ".vim/pack/plugins/start/vim-autoformat"]
 	path = .vim/pack/plugins/start/vim-autoformat
 	url = https://github.com/Chiel92/vim-autoformat.git
-[submodule ".vim/pack/plugins/start/vim-slime"]
-	path = .vim/pack/plugins/start/vim-slime
-	url = https://github.com/jpalardy/vim-slime.git
 [submodule ".vim/pack/plugins/start/vim-airline"]
 	path = .vim/pack/plugins/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
-[submodule ".vim/pack/plugins/start/vim-fugitive"]
-	path = .vim/pack/plugins/start/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
 [submodule ".vim/pack/plugins/start/cljfold.vim"]
 	path = .vim/pack/plugins/start/cljfold.vim
 	url = https://github.com/gberenfield/cljfold.vim.git
