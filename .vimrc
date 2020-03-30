@@ -44,7 +44,9 @@ nnoremap <silent> <leader>sr :setlocal spell! spelllang=ru<cr>
 
 "{{{ emacs-like syntax
 nnoremap <space><tab> :e#<cr>
-nnoremap <space>pt :NERDTree<cr>
+nnoremap <space>pt :NERDTreeFind<cr>
+nnoremap <space>bd :bd<cr>
+nnoremap <space>pf :FZF<cr>
 "}}}
 
 "{{{ syntax

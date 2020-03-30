@@ -1,3 +1,4 @@
+--- Actions ---
 $Copy                                              <M-C>
 $Cut                                               <M-X> <S-Del>
 $Delete                                            <Del> <BS> <M-BS>
@@ -1462,7 +1463,7 @@ SearchEverywhereActions
 SelectAllOccurrences                               <M-C-G>
 SelectBuildVariant
 SelectIn                                           <A-F1>
-SelectInProjectView
+SelectInProjectView                                <A-S-L>
 SelectNextOccurrence                               <C-G>
 SendEOF                                            <M-D>
 SendFeedback

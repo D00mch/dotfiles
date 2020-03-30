@@ -80,7 +80,7 @@ nnoremap gl :action NextTab<cr>
 "{{{spacemacs
 nnoremap <space>bb :action RecentFiles<cr>
 nnoremap <space>pb :action RecentFiles<cr>
-nnoremap <space>pt :action ActivateProjectToolWindow<cr>
+nnoremap <space>pt :action SelectInProjectView<cr>
 nnoremap <space>bd :q<cr>
 nnoremap <space>wu :action ReopenClosedTab<cr>
 nnoremap <space>pf :action GotoFile<cr>
