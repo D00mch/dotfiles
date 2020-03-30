@@ -219,4 +219,4 @@
   (chrome-toggle-dark-mode-plugin!)
   (telegram-toggle-dark-mode!)
 
-  #_(System/exit 0) (comment due to https://dev.clojure.org/jira/browse/CLJ-959))
+  (System/exit 0) (comment due to https://dev.clojure.org/jira/browse/CLJ-959))
