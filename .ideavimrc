@@ -103,10 +103,14 @@ nnoremap <space>bm :action CloseAllEditors<cr>
 nnoremap <Leader>rr :action RenameElement<cr>
 "}}}
 
-"{{{ android complements
+"{{{ idea complements
 nnoremap <Leader>k :action Run<cr>
 nnoremap <Leader>dr :action Debug<cr>
+nnoremap <Leader>de :action EvaluateExpression<cr>
 nnoremap <Leader>sq :action Stop<cr>
+"}}}"
+
+"{{{ android complements
 nnoremap <Leader>sg :action Android.SyncProject<cr>
 }}}"
 
