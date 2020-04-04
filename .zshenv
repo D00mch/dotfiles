@@ -23,3 +23,5 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/a18385139/.oh-my-zsh"
 
+# For fzf
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
