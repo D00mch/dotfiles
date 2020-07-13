@@ -51,4 +51,4 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 
-source ~/.sber.sh
+source ~/asp/logs/.aliases.sh
