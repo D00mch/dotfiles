@@ -10,6 +10,10 @@ alias hib="sudo systemctl hibernate"
 alias theme="java -jar ~/dotfiles/clj_scripts/theme/target/uberjar/theme-0.1.0-SNAPSHOT-standalone.jar $1"
 alias c="clear"
 
+# python on mac
+alias python=/usr/local/bin/python3.8
+alias pip=/usr/local/bin/pip3.8
+
 # android commands start
 alias apkinstall="adb devices | tail -n +2 | cut -sf 1 | xargs -I X adb -s X install -r $1"
 alias ai="apkinstall"
@@ -43,6 +47,7 @@ plugins=(
     adb
     gradle
     vi-mode
+    python
 )
 source $ZSH/oh-my-zsh.sh
 
