@@ -8,6 +8,7 @@ alias ip="ifconfig | grep 'inet' | grep -Fv 127.0.0.1 | awk '{print $2}'"
 alias sleep="sudo systemctl hybrid-sleep"
 alias hib="sudo systemctl hibernate"
 alias theme="java -jar ~/dotfiles/clj_scripts/theme/target/uberjar/theme-0.1.0-SNAPSHOT-standalone.jar $1"
+alias trutenko_standup="java -jar ~/dotfiles/clj_scripts/trutenko/target/uberjar/trutenko-0.1.0-SNAPSHOT-standalone.jar"
 alias c="clear"
 
 # python on mac
