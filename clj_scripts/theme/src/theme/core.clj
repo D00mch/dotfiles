@@ -1,9 +1,8 @@
 (ns theme.core
   (:gen-class)
   (:require [clojure.string :as str]
-            [clojure.java.shell :use [sh]])
-  (:import (java.awt ^Robot Robot MouseInfo)
-           (java.awt.event InputEvent KeyEvent)))
+            [clojure.java.shell :use [sh]]
+            [robot.core :as r]))
 
 (def system-osx?
   (= "Mac OS X" (System/getProperty "os.name")))
@@ -12,47 +11,6 @@
   (sh "sh" "-c" (str "open -a " app-name)))
 
 ;; robot
-
-(def robot (Robot.))
-
-(defn robot-hot-keys! [keys]
-  (doseq [key keys]
-    (doto ^Robot robot
-      (.keyPress key)
-      (.delay 10)))
-  (.delay ^Robot robot 100)
-  (doseq [key (reverse keys)] (.keyRelease ^Robot robot key)))
-
-(defn robot-print! [^String s]
-  (doseq [byte (.getBytes s)
-          :let [code (int byte)
-                code (if (< 96 code 123) (- code 32) code)]]
-    (doto ^Robot robot
-      (.delay 70)
-      (.keyPress code)
-      (.delay 20)
-      (.keyRelease code))))
-
-(defn robot-type! [^Integer i]
-  (doto ^Robot robot
-    (.delay 40)
-    (.keyPress i)
-    (.keyRelease i)))
-
-(defn robot-mouse-click! []
-  (doto ^Robot robot
-    (.mousePress InputEvent/BUTTON1_DOWN_MASK)
-    (.delay 70)
-    (.mouseRelease InputEvent/BUTTON1_DOWN_MASK)))
-
-(defn robot-mouse-pos []
-  (let [mouse-info (.. MouseInfo getPointerInfo getLocation)]
-    [(. mouse-info x) (. mouse-info y)]))
-
-(defn robot-mouse-move!
-  ([[x y]] (robot-mouse-move! x y))
-  ([x y] (.mouseMove ^Robot robot x y)))
-
 ;; file help functions
 
 (defn expand-home [s]
@@ -111,18 +69,18 @@
     (when (and system-osx? (spacemacs-opened?))
       (do
         (open-app! "emacs")
-        (.delay ^Robot robot 100)
-        (robot-type! KeyEvent/VK_ESCAPE)
-        (.delay ^Robot robot 150)
-        (robot-type! KeyEvent/VK_SPACE)
-        (.delay ^Robot robot 150)
-        (robot-type! KeyEvent/VK_SPACE)
-        (.delay ^Robot robot 150)
-        (robot-print! (str "load-theme\n"))
-        (.delay ^Robot robot 150)
-        (robot-print! (str theme "\n"))
-        (.delay ^Robot robot 150)
-        (robot-type! KeyEvent/VK_ENTER)))))
+        (r/sleep 100)
+        (r/type! :esc)
+        (r/sleep 150)
+        (r/type! :space)
+        (r/sleep 150)
+        (r/type! :space)
+        (r/sleep 150)
+        (r/type-text! (str "load-theme\n"))
+        (r/sleep 150)
+        (r/type-text! (str theme "\n"))
+        (r/sleep 150)
+        (r/type! :enter)))))
 
 ;; vim
 
@@ -169,31 +127,31 @@
 
 (defn chrome-toggle-dark-mode-plugin! []
   (let [runtime          (Runtime/getRuntime)
-        keys-dark-toggle [KeyEvent/VK_ALT KeyEvent/VK_SHIFT KeyEvent/VK_D]
-        keys-exit-chrome [KeyEvent/VK_CONTROL KeyEvent/VK_Q]]
+        keys-dark-toggle [:alt :shift :d]
+        keys-exit-chrome [:ctrl :q]]
     (if system-osx?
       (do (open-app! "Google\\ Chrome.app")
-          (.delay ^Robot robot 1200)
-          (robot-hot-keys! keys-dark-toggle))
+          (r/sleep 1200)
+          (r/hot-keys! keys-dark-toggle))
       (do
         (.exec runtime "google-chrome-stable")
-        (.delay ^Robot robot 700)
-        (robot-hot-keys! keys-dark-toggle)
-        (.delay ^Robot robot 1000)
-        (robot-hot-keys! keys-exit-chrome)))))
+        (r/sleep 700)
+        (r/hot-keys! keys-dark-toggle)
+        (r/sleep 1000)
+        (r/hot-keys! keys-exit-chrome)))))
 
 ;; telegram
 
 ;; TODO: parse pixel patterns or find api
 (defn telegram-toggle-dark-mode! []
   (open-app! "telegram")
-  (.delay ^Robot robot 200)
-  (robot-mouse-move! 26 70)
-  (.delay ^Robot robot 350)
-  (robot-mouse-click!)
-  (.delay ^Robot robot 400)
-  (robot-mouse-move! 238 433)
-  (robot-mouse-click!))
+  (r/sleep 200)
+  (r/mouse-move! 26 70)
+  (r/sleep 350)
+  (r/mouse-click!)
+  (r/sleep 400)
+  (r/mouse-move! 238 433)
+  (r/mouse-click!))
 
 (defn -main
   "I don't do a whole lot ... yet."
@@ -220,3 +178,4 @@
   (telegram-toggle-dark-mode!)
 
   (System/exit 0) (comment due to https://dev.clojure.org/jira/browse/CLJ-959))
+
