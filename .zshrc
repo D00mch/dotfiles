@@ -53,6 +53,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 source ~/work/.aliases.sh
+source ~/.ssh-aliases.sh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
