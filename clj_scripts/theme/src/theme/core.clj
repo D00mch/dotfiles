@@ -10,6 +10,14 @@
 (defn open-app! [app-name]
   (sh "sh" "-c" (str "open -a " app-name)))
 
+(defn app-opened? [app-name app-path]
+  (if system-osx?
+    (let [shell-oputput (sh "sh" "-c" (str "ps ax | grep " app-name))
+          shell-res (:out shell-oputput)]
+      (prn (str "having text as " shell-oputput))
+      (.contains ^String shell-res app-path))
+    (throw (UnsupportedOperationException.))))
+
 ;; robot
 ;; file help functions
 
@@ -29,43 +37,64 @@
 (def zathura (expand-home "~/dotfiles/.config/zathura/zathurarc"))
 
 (defn zathura-change-colors-with! [f path]
-  (let [lines           (file-by-lines path)
-       [s title colors] (partition-by #(.contains ^String % "Colours") lines)
-       colors'          (map f colors)]
+  (let [lines (file-by-lines path)
+        [s title colors] (partition-by #(.contains ^String % "Colours") lines)
+        colors' (map f colors)]
     (->> (concat s title colors')
          (write-lines path))))
 
 (defn zathura-comment-colors! []
   (zathura-change-colors-with! #(if (= "set" (re-find #"\w+" %))
-                                 (str "#" %)
-                                 %)
-                              zathura))
+                                  (str "#" %)
+                                  %)
+                               zathura))
 
 (defn zathura-uncomment-colors! []
   (zathura-change-colors-with! #(if (= "#set" (re-find #"#\w+" %))
-                                 (subs % 1)
-                                 %)
-                              zathura))
+                                  (subs % 1)
+                                  %)
+                               zathura))
+
+;; ideas
+(defn studio-opened? []
+  (app-opened? "'Android Studio'" "/Android Studio"))
+
+(defn idea-set-theme! [idea-name theme-num]
+    (open-app! idea-name)
+    (r/sleep 220)
+    (r/hot-keys! [:cmd :shift :a])
+    (r/sleep 320)
+    (r/type-text! "Theme")
+    (r/sleep 400)
+    (r/type! :enter)
+    (r/sleep 200)
+    (r/type-text! theme-num))
+
+(defn intellij-set-theme! [is-black?]
+  (when (app-opened? "IntelliJ" "/IntelliJ")
+    (idea-set-theme! "IntelliJ\\ IDEA\\ CE" (if is-black? "3" "1"))))
+
+(defn android-set-theme! [is-black?]
+  (when (app-opened? "'Android Studio'" "/Android Studio")
+    (idea-set-theme! "Android\\ Studio" (if is-black? "2" "1"))))
 
 ;; spacemacs
 
 (def spacemacs (expand-home "~/dotfiles/.spacemacs"))
 (def spacemacs-light "doom-one-light")
-(def spacemacs-dark  "doom-tomorrow-night")
+(def spacemacs-dark "doom-tomorrow-night")
 
 (defn spacemacs-opened? []
-  (let [shell-oputput (sh "sh" "-c" "ps ax | grep emacs")
-        shell-res     (:out shell-oputput)]
-    (.contains ^String shell-res "/Emacs.app")))
+  (app-opened? "emacs" "/Emacs.app"))
 
 (defn spacemacs-set-theme! [theme]
   (do
     (->> (file-by-lines spacemacs)
-           (map (fn [line]
-                  (if (.contains ^String line "dotspacemacs-themes ")
-                    (str "   dotspacemacs-themes '(" theme)
-                    line)))
-           (write-lines spacemacs))
+         (map (fn [line]
+                (if (.contains ^String line "dotspacemacs-themes ")
+                  (str "   dotspacemacs-themes '(" theme)
+                  line)))
+         (write-lines spacemacs))
     (when (and system-osx? (spacemacs-opened?))
       (do
         (open-app! "emacs")
@@ -104,16 +133,16 @@
 (defn desktop-xfce-set-theme [& {:keys [property theme]}]
   {:pre [(#{"ThemeName" "IconThemeName"} property)]}
   (clojure.java.shell/sh
-   "sh"
-   "-c"
-   (format "xfconf-query -c xsettings -p /Net/%s -s %s" property theme)))
+    "sh"
+    "-c"
+    (format "xfconf-query -c xsettings -p /Net/%s -s %s" property theme)))
 
 (defn desktop-set-theme! "run after the chrome" [input]
   (if system-osx?
     (clojure.java.shell/sh
-     "sh" "-c"
-     (str "/usr/bin/automator "
-          (expand-home "~/Library/Services/DarkMode.workflow")))
+      "sh" "-c"
+      (str "/usr/bin/automator "
+           (expand-home "~/Library/Services/DarkMode.workflow")))
     (if (= input "b")
       (do
         (desktop-xfce-set-theme :property "ThemeName" :theme "Arc-Maia-Dark")
@@ -126,7 +155,7 @@
 ;; chrome dark-mode plugin
 
 (defn chrome-toggle-dark-mode-plugin! []
-  (let [runtime          (Runtime/getRuntime)
+  (let [runtime (Runtime/getRuntime)
         keys-dark-toggle [:alt :shift :d]
         keys-exit-chrome [:ctrl :q]]
     (if system-osx?
@@ -145,11 +174,11 @@
 ;; TODO: parse pixel patterns or find api
 (defn telegram-toggle-dark-mode! []
   (open-app! "telegram")
-  (r/sleep 200)
+  (r/sleep 240)
   (r/mouse-move! 26 70)
-  (r/sleep 350)
+  (r/sleep 370)
   (r/mouse-click!)
-  (r/sleep 400)
+  (r/sleep 450)
   (r/mouse-move! 238 433)
   (r/mouse-click!))
 
@@ -159,20 +188,24 @@
 
   (let [input (first args)]
     (cond (= input "b")
-         (do (zathura-uncomment-colors!)
-             (spacemacs-set-theme! spacemacs-dark)
-             (vim-set-theme! false)
-             (desktop-set-theme! input))
+          (do (zathura-uncomment-colors!)
+              (spacemacs-set-theme! spacemacs-dark)
+              (vim-set-theme! false)
+              (desktop-set-theme! input)
+              (intellij-set-theme! true)
+              (android-set-theme! true))
 
-         (= input "w")
-         (do (zathura-comment-colors!)
-             (spacemacs-set-theme! spacemacs-light)
-             (vim-set-theme! true)
-             (desktop-set-theme! input))
+          (= input "w")
+          (do (zathura-comment-colors!)
+              (spacemacs-set-theme! spacemacs-light)
+              (vim-set-theme! true)
+              (desktop-set-theme! input)
+              (intellij-set-theme! false)
+              (android-set-theme! false))
 
-         :else
-         (throw (IllegalArgumentException.
-                 (str "unknown input " input ", expected: (b)lack or (w)hite")))))
+          :else
+          (throw (IllegalArgumentException.
+                   (str "unknown input " input ", expected: (b)lack or (w)hite")))))
 
   (chrome-toggle-dark-mode-plugin!)
   (telegram-toggle-dark-mode!)
