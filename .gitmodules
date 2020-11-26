@@ -73,3 +73,6 @@
 [submodule ".vim/pack/plugins/start/vim-SyntaxRange"]
 	path = .vim/pack/plugins/start/vim-SyntaxRange
 	url = https://github.com/inkarkat/vim-SyntaxRange.git
+[submodule ".vim/pack/plugins/start/android-log.vim"]
+	path = .vim/pack/plugins/start/android-log.vim
+	url = https://github.com/yanqd0/android-log.vim.git
