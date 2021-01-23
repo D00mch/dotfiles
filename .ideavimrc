@@ -122,6 +122,7 @@ nnoremap <Leader>ss :action :cursive.repl.actions/jump-to-repl<cr>
 nnoremap <Leader>sb :action :cursive.repl.actions/load-file<cr>
 nnoremap <Leader>em :action :cursive.repl.actions/macroexpansion<cr>
 nnoremap <Leader>se :action :cursive.repl.actions/run-last-sexp<cr>
+nnoremap <Leader>sv :action :cursive.repl.actions/send-selection<cr>
 nnoremap <Leader>eb :action Flutter.Toolbar.ReloadAction<cr>
 nnoremap <Leader>sf :action :cursive.repl.actions/run-top-sexp<cr>
 nnoremap <Leader>sn :action :cursive.repl.actions/switch-namespace<cr>
@@ -137,6 +138,6 @@ nnoremap <Leader>= :action ReformatCode<cr>
 "}}}
 
 "{{{Python
-vnoremap <Leader>ev :action ExecuteInPyConsoleAction<cr>
-nnoremap <Leader>ss :action com.jetbrains.python.console.RunPythonConsoleAction<cr>
+"vnoremap <Leader>ev :action ExecuteInPyConsoleAction<cr>
+"nnoremap <Leader>ss :action com.jetbrains.python.console.RunPythonConsoleAction<cr>
 "}}}

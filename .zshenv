@@ -4,6 +4,7 @@ export EDITOR="$VISUAL"
 export PATH="/usr/local/sbin:$PATH"
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH://Users/a18385139/android-ndk-r20b
 export PATH=$ANDROID_HOME/tools:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 export PATH=$ANDROID_HOME/build-tools/29.0.3:$PATH
