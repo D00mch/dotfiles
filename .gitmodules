@@ -76,3 +76,6 @@
 [submodule ".vim/pack/plugins/start/android-log.vim"]
 	path = .vim/pack/plugins/start/android-log.vim
 	url = https://github.com/yanqd0/android-log.vim.git
+[submodule ".vim/pack/plugins/start/vim-calc"]
+	path = .vim/pack/plugins/start/vim-calc
+	url = https://github.com/theniceboy/vim-calc.git

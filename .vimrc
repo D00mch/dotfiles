@@ -47,6 +47,9 @@ nnoremap <space><tab> :e#<cr>
 nnoremap <space>pt :NERDTreeFind<cr>
 nnoremap <space>bd :bd<cr>
 nnoremap <space>pf :FZF<cr>
+
+"calculator
+nnoremap <LEADER>a :call Calc()<CR>
 "}}}
 
 "{{{ syntax
@@ -101,6 +104,7 @@ nnoremap å ggVG
 "{{{ search, replace, regex 
 nnoremap / /\v
 vnoremap / /\v
+"}}}
 
 "WORKING WITH CODE 
 
