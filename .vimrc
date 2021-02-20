@@ -9,6 +9,7 @@ set clipboard+=unnamed  "for osx
 set encoding=utf-8
 
 let mapleader=","
+let maplocalleader=","
 
 let g:airline#extensions#keymap#enabled = 0
 

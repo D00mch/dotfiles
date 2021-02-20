@@ -1,4 +1,5 @@
 # help commands start
+alias vim=nvim
 alias s='source ~/.zshrc'
 alias ..='cd ../'
 alias ...='cd ../../'
