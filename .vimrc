@@ -48,7 +48,8 @@ nnoremap <space><tab> :e#<cr>
 nnoremap <space>pt :NERDTreeFind<cr>
 nnoremap <space>bd :bd<cr>
 nnoremap <space>pf :FZF<cr>
-
+nnoremap <space>pa :Ag<cr>
+nnoremap <space>bb :ls<cr>
 "calculator
 nnoremap <LEADER>a :call Calc()<CR>
 "}}}
@@ -126,3 +127,11 @@ let g:syntastic_check_on_wq = 0
 "}}}
 
 set path=$PWD/**  " to be able to search on files through path
+
+"{{{ vim-iced
+let g:iced_enable_default_key_mappings = v:true
+
+nmap <Nop>(iced_command_palette) <Plug>(iced_command_palette)
+nmap <Leader>hc <Plug>(iced_command_palette)
+nmap <Leader>hh <Plug>(iced_clojuredocs_open)
+"}}}

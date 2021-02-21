@@ -79,9 +79,12 @@
 [submodule ".vim/pack/plugins/start/vim-calc"]
 	path = .vim/pack/plugins/start/vim-calc
 	url = https://github.com/theniceboy/vim-calc.git
-[submodule ".vim/pack/plugins/start/conjure"]
-	path = .vim/pack/plugins/start/conjure
-	url = https://github.com/Olical/conjure.git
 [submodule ".vim/pack/plugins/start/coc.nvim"]
 	path = .vim/pack/plugins/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim.git
+[submodule ".vim/pack/plugins/start/vim-iced"]
+	path = .vim/pack/plugins/start/vim-iced
+	url = https://github.com/liquidz/vim-iced.git
+[submodule ".vim/pack/plugins/start/vim-iced-coc-source"]
+	path = .vim/pack/plugins/start/vim-iced-coc-source
+	url = https://github.com/liquidz/vim-iced-coc-source.git
