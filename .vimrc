@@ -13,6 +13,9 @@ let maplocalleader=","
 
 let g:airline#extensions#keymap#enabled = 0
 
+
+nnoremap <leader>cd :cd %:p:h<CR>
+
 "{{{ clojure-highlight
 " Evaluate Clojure buffers on load
 autocmd BufRead *.clj try | silent! Require | catch /^Fireplace/ | endtry
@@ -43,15 +46,15 @@ nnoremap <silent> <leader>se :setlocal spell! spelllang=en<cr>
 nnoremap <silent> <leader>sr :setlocal spell! spelllang=ru<cr>
 "}}}
 
-"{{{ emacs-like syntax
+"{{{ spacemacs-like syntax
 nnoremap <space><tab> :e#<cr>
 nnoremap <space>pt :NERDTreeFind<cr>
 nnoremap <space>bd :bd<cr>
 nnoremap <space>pf :FZF<cr>
 nnoremap <space>pa :Ag<cr>
 nnoremap <space>bb :ls<cr>
-"calculator
-nnoremap <LEADER>a :call Calc()<CR>
+
+nnoremap <space>c :call Calc()<CR> 
 "}}}
 
 "{{{ syntax
@@ -62,8 +65,6 @@ colorscheme xoria256
 :command FormatJson %!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), ensure_ascii=False, indent=4)"
 
 au BufRead,BufNewFile *.lib set filetype=sh
-
-set guifont=Monospace\ 14 "default font for gVim 
 "}}}
 
 set nocompatible
@@ -134,4 +135,8 @@ let g:iced_enable_default_key_mappings = v:true
 nmap <Nop>(iced_command_palette) <Plug>(iced_command_palette)
 nmap <Leader>hc <Plug>(iced_command_palette)
 nmap <Leader>hh <Plug>(iced_clojuredocs_open)
+
+nmap <space>e <Plug>(iced_eval_and_print)af
+
+let g:iced#buffer#stdout#mods = 'rightbelow' 
 "}}}
