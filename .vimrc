@@ -13,13 +13,8 @@ let maplocalleader=","
 
 let g:airline#extensions#keymap#enabled = 0
 
-
+" set current path
 nnoremap <leader>cd :cd %:p:h<CR>
-
-"{{{ clojure-highlight
-" Evaluate Clojure buffers on load
-autocmd BufRead *.clj try | silent! Require | catch /^Fireplace/ | endtry
-"}}}
 
 "{{{ russian mapping
 set keymap=russian-jcukenmac
@@ -139,4 +134,9 @@ nmap <Leader>hh <Plug>(iced_clojuredocs_open)
 nmap <space>e <Plug>(iced_eval_and_print)af
 
 let g:iced#buffer#stdout#mods = 'rightbelow' 
+"}}}
+
+"{{{ neoterm
+"alt + v, like in Idea
+vnoremap √ :<c-u>exec v:count.'TREPLSendSelection'<cr>  
 "}}}
