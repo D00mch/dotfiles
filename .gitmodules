@@ -46,24 +46,12 @@
 [submodule ".vim/pack/plugins/start/vim-surround"]
 	path = .vim/pack/plugins/start/vim-surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule ".vim/pack/plugins/start/vim-fireplace"]
-	path = .vim/pack/plugins/start/vim-fireplace
-	url = https://github.com/tpope/vim-fireplace.git
-[submodule ".vim/pack/plugins/start/vim-clojure-static"]
-	path = .vim/pack/plugins/start/vim-clojure-static
-	url = https://github.com/guns/vim-clojure-static.git
-[submodule ".vim/pack/plugins/start/vim-clojure-highlight"]
-	path = .vim/pack/plugins/start/vim-clojure-highlight
-	url = https://github.com/guns/vim-clojure-highlight.git
 [submodule ".vim/pack/plugins/start/supertab"]
 	path = .vim/pack/plugins/start/supertab
 	url = https://github.com/ervandew/supertab.git
 [submodule ".vim/pack/plugins/start/kotlin-vim"]
 	path = .vim/pack/plugins/start/kotlin-vim
 	url = https://github.com/udalov/kotlin-vim.git
-[submodule ".emacs.d/private/clojure-lint"]
-	path = .emacs.d/private/clojure-lint
-	url = https://github.com/n2o/clojure-lint-spacemacs-layer
 [submodule ".vim/pack/plugins/start/vim-orgmode"]
 	path = .vim/pack/plugins/start/vim-orgmode
 	url = https://github.com/jceb/vim-orgmode.git
