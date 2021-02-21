@@ -6,6 +6,7 @@ set relativenumber
 set number
 set clipboard=unnamed
 set ideajoin
+set NERDTree
 
 "{{{ russian mapping
 set keymap=russian-jcukenmac
