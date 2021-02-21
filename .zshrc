@@ -10,6 +10,7 @@ alias sleep="sudo systemctl hybrid-sleep"
 alias hib="sudo systemctl hibernate"
 alias theme="java -jar ~/dotfiles/clj_scripts/theme/target/uberjar/theme-0.1.0-SNAPSHOT-standalone.jar $1"
 alias c="clear"
+alias fz='bash ~/dotfiles/fuz.sh'
 
 # python on mac
 alias python=/usr/local/bin/python3.8
