@@ -16,6 +16,13 @@ let g:airline#extensions#keymap#enabled = 0
 " set current path
 nnoremap <leader>cd :cd %:p:h<CR>
 
+"{{{ clojure-highlight  
+" Evaluate Clojure buffers on load     
+" Without this coc-vim-iced will throw an error
+autocmd BufRead *.clj try | silent! Require | catch /^Fireplace/ | endtry
+"}}}
+"
+
 "{{{ russian mapping
 set keymap=russian-jcukenmac
 set iminsert=0
