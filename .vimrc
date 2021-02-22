@@ -8,10 +8,6 @@ set clipboard+=unnamed  "for osx
 set encoding=utf-8
 set fdm=indent
 
-"Evaluate Clojure buffers on load     
-"Without this coc-vim-iced will throw an error
-autocmd BufRead *.clj try | silent! Require | catch /^Fireplace/ | endtry
-
 let mapleader=","
 let maplocalleader=","
 
@@ -21,6 +17,8 @@ let g:airline#extensions#keymap#enabled = 0
 set background=dark
 colorscheme xoria256
 au BufRead,BufNewFile *.lib set filetype=sh
+
+let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
 
 "MANAGE PLUGINS
     filetype plugin on
@@ -102,6 +100,9 @@ au BufRead,BufNewFile *.lib set filetype=sh
         nmap <Leader>ef <Plug>(iced_eval_outer_top_list)
         
         let g:iced#buffer#stdout#mods = 'rightbelow' 
+
+        :packadd vim-iced-coc-source
+
     "SEXP
         nmap <space>ks <Plug>(sexp_capture_next_element)
-        nmap <space>kS <Plug>(sexp_capture_prev_element) 
+        nmap <space>kS <Plug>(sexp_capture_prev_element)

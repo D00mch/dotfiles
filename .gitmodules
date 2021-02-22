@@ -70,12 +70,12 @@
 [submodule ".vim/pack/plugins/start/vim-iced"]
 	path = .vim/pack/plugins/start/vim-iced
 	url = https://github.com/liquidz/vim-iced.git
-[submodule ".vim/pack/plugins/start/vim-iced-coc-source"]
-	path = .vim/pack/plugins/start/vim-iced-coc-source
-	url = https://github.com/liquidz/vim-iced-coc-source.git
 [submodule ".vim/pack/plugins/start/neoterm"]
 	path = .vim/pack/plugins/start/neoterm
 	url = https://github.com/kassio/neoterm.git
 [submodule ".vim/pack/plugins/start/fugitive"]
 	path = .vim/pack/plugins/start/fugitive
 	url = https://tpope.io/vim/fugitive.git
+[submodule ".vim/pack/plugins/opt/vim-iced-coc-source"]
+	path = .vim/pack/plugins/opt/vim-iced-coc-source
+	url = https://github.com/liquidz/vim-iced-coc-source.git
