@@ -7,32 +7,24 @@ set number
 set clipboard=unnamed
 set ideajoin
 set NERDTree
+set fdm=indent
+
+" need ideavim extension plugin
+set keep-english-in-normal-and-restore-in-insert
 
 " Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-
-"{{{ russian mapping
-set keymap=russian-jcukenmac
-set iminsert=0
-set imsearch=0
-highlight lCursor guifg=NONE guibg=Cyan
-
-inoremap <c-l> <c-^>
-"}}}
-
+    map <C-j> <C-W>j
+    map <C-k> <C-W>k
+    map <C-h> <C-W>h
+    map <C-l> <C-W>l
 
 set nocompatible
 hi Search ctermfg=3
 
-"{{{ search
+"search
 set ignorecase
 set incsearch
 set hlsearch
-":hi Search guibg=Yellow guifg=Black ctermbg=Yellow ctermfg=Black
-"}}}
 
 set smartindent
 set shiftwidth=4 smarttab expandtab
@@ -40,113 +32,97 @@ set shiftwidth=4 smarttab expandtab
 set path+=**
 set tags=./tags,tags;$HOME
 
-"{{{escaping to the normal mode with Tab.
-" See there why this takes place: http://vim.wikia.com/wiki/Avoid_the_escape_key
-vnoremap <tab> <esc>
-inoremap <tab> <esc>
-inoremap <S-tab> <space><space><space><space>
-nmap <tab> :noh<Enter>:echom ""<Enter>
-nnoremap r<tab> <nop>
-"}}}
+"escaping to the normal mode with Tab.
+"See there why this takes place: http://vim.wikia.com/wiki/Avoid_the_escape_key
+    vnoremap <tab> <esc>
+    inoremap <tab> <esc>
+    inoremap <S-tab> <space><space><space><space>
+    nmap <tab> :noh<Enter>:echom ""<Enter>
+    nnoremap r<tab> <nop>
 
-"alt + q
-noremap œ @
-
-"{{{ editing
+"editing
 nnoremap <space>o o<Esc><Esc>
-"}}}
 
 let mapleader=","
 
-"{{{cursive
-nmap <Leader>w :action :cursive.actions.paredit/wrap-paren<cr>
-vnoremap <Leader>w :action :cursive.actions.paredit/wrap-paren<cr>
+"vim
+    nnoremap gh :action PreviousTab<cr>
+    nnoremap gl :action NextTab<cr>
 
-nmap <Leader>] :action :cursive.actions.paredit/wrap-square<cr>
-nmap <Leader>[ :action :cursive.actions.paredit/wrap-square<cr>
-vnoremap <Leader>] :action :cursive.actions.paredit/wrap-square<cr>
-vnoremap <Leader>[ :action :cursive.actions.paredit/wrap-square<cr>
 
-nmap <Leader>" :action :cursive.actions.paredit/wrap-quotes<cr>
-vnoremap <Leader>" :action :cursive.actions.paredit/wrap-quotes<cr>
-
-nmap <Leader>} :action :cursive.actions.paredit/wrap-curly<cr>
-nmap <Leader>{ :action :cursive.actions.paredit/wrap-curly<cr>
-vnoremap <Leader>} :action :cursive.actions.paredit/wrap-curly<cr>
-vnoremap <Leader>{ :action :cursive.actions.paredit/wrap-curly<cr>
-
-nmap <Leader>o :action :cursive.actions.paredit/raise<cr>
-vnoremap <Leader>o :action :cursive.actions.paredit/raise<cr>
-"}}}
-
-"vim{{{
-nnoremap gh :action PreviousTab<cr>
-nnoremap gl :action NextTab<cr>
-"}}}
-
-"{{{spacemacs
-nnoremap <space>bb :action RecentFiles<cr>
-nnoremap <space>pb :action RecentFiles<cr>
-nnoremap <space>pt :action SelectInProjectView<cr>
-nnoremap <space>bd :q<cr>
-nnoremap <space>wu :action ReopenClosedTab<cr>
-nnoremap <space>pf :action GotoFile<cr>
-nnoremap <space>pa :action GotoSymbol<cr>
-nnoremap <space>; :action CommentByLineComment<cr>
-vnoremap <space>kw :action :cursive.actions.paredit/wrap-paren<cr>
-nnoremap <space>kw :action :cursive.actions.paredit/wrap-paren<cr>
-nnoremap <space>kr :action :cursive.actions.paredit/raise<cr>
-nnoremap <space>kB :action :cursive.actions.paredit/barf-backwards<cr>
-nnoremap <space>kb :action :cursive.actions.paredit/barf-forwards<cr>
-nnoremap <space>kdx :action :cursive.actions.paredit/kill-sexp<cr>
-nnoremap <space>kS :action :cursive.actions.paredit/slurp-backwards<cr>
-nnoremap <space>ks :action :cursive.actions.paredit/slurp-forwards<cr>
-nnoremap <Leader>@ :action :cursive.actions.paredit/splice<cr>
-nnoremap <space>ke :action :cursive.actions.paredit/splice-killing-backwards<cr>
-nnoremap <space>kE :action :cursive.actions.paredit/splice-killing-forwards<cr>
-nnoremap <space><tab> :e#<cr>
-nnoremap ]s :action GotoNextError<cr>
-nnoremap [s :action GotoPreviousError<cr>
-nnoremap <space>bm :action CloseAllEditors<cr>
-nnoremap <Leader>rr :action RenameElement<cr>
-"}}}
-
-"{{{ idea complements
-nnoremap <Leader>k :action Run<cr>
-nnoremap <Leader>dr :action Debug<cr>
-nnoremap <Leader>de :action EvaluateExpression<cr>
-nnoremap <Leader>sq :action Stop<cr>
-"}}}"
-
-"{{{ android complements
-nnoremap <Leader>sg :action Android.SyncProject<cr>
-}}}"
-
-"{{{Cider
-nnoremap <C-c><C-c> :action :cursive.repl.actions/interrupt<cr>
-nnoremap <Leader>rtf :action :cursive.actions.paredit/thread-form<cr>
-nnoremap <Leader>sp :action :cursive.repl.actions/jump-to-output<cr>
-nnoremap <Leader>ss :action :cursive.repl.actions/jump-to-repl<cr>
-nnoremap <Leader>sb :action :cursive.repl.actions/load-file<cr>
-nnoremap <Leader>em :action :cursive.repl.actions/macroexpansion<cr>
-nnoremap <Leader>ee :action :cursive.repl.actions/run-last-sexp<cr>
-nnoremap <Leader>sv :action :cursive.repl.actions/send-selection<cr>
-nnoremap <Leader>eb :action Flutter.Toolbar.ReloadAction<cr>
-nnoremap <Leader>ef :action :cursive.repl.actions/run-top-sexp<cr>
-nnoremap <space>e :action :cursive.repl.actions/run-top-sexp<cr>
-nnoremap <Leader>sn :action :cursive.repl.actions/switch-namespace<cr>
-nnoremap <Leader>sx :action :cursive.repl.actions/sync-files<cr>
-nnoremap <Leader>tx :action :cursive.testing.actions/remove-test-markers<cr>
-nnoremap <Leader>tr :action :cursive.testing.actions/rerun-last-test <cr>
-nnoremap <Leader>ta :action :cursive.testing.actions/run-ns-tests <cr>
-nnoremap <Leader>tt :action :cursive.testing.actions/run-single-test<cr>
-nnoremap <Leader>db :action ToggleLineBreakpoint<cr>
-nnoremap <Leader>hh :action QuickJavaDoc<cr>
-nnoremap <Leader>rfu :action FindUsages<cr>
-nnoremap <Leader>= :action ReformatCode<cr>
-"}}}
-
-"{{{Python
-"vnoremap <Leader>ev :action ExecuteInPyConsoleAction<cr>
-"nnoremap <Leader>ss :action com.jetbrains.python.console.RunPythonConsoleAction<cr>
-"}}}
+"cursive
+    nmap <Leader>w :action :cursive.actions.paredit/wrap-paren<cr>
+    vnoremap <Leader>w :action :cursive.actions.paredit/wrap-paren<cr>
+    
+    nmap <Leader>] :action :cursive.actions.paredit/wrap-square<cr>
+    nmap <Leader>[ :action :cursive.actions.paredit/wrap-square<cr>
+    vnoremap <Leader>] :action :cursive.actions.paredit/wrap-square<cr>
+    vnoremap <Leader>[ :action :cursive.actions.paredit/wrap-square<cr>
+    
+    nmap <Leader>" :action :cursive.actions.paredit/wrap-quotes<cr>
+    vnoremap <Leader>" :action :cursive.actions.paredit/wrap-quotes<cr>
+    
+    nmap <Leader>} :action :cursive.actions.paredit/wrap-curly<cr>
+    nmap <Leader>{ :action :cursive.actions.paredit/wrap-curly<cr>
+    vnoremap <Leader>} :action :cursive.actions.paredit/wrap-curly<cr>
+    vnoremap <Leader>{ :action :cursive.actions.paredit/wrap-curly<cr>
+    
+    nmap <Leader>o :action :cursive.actions.paredit/raise<cr>
+    vnoremap <Leader>o :action :cursive.actions.paredit/raise<cr>
+"idea complements
+    nnoremap <Leader>k :action Run<cr>
+    nnoremap <Leader>dr :action Debug<cr>
+    nnoremap <Leader>de :action EvaluateExpression<cr>
+    nnoremap <Leader>sq :action Stop<cr>
+"android complements
+    nnoremap <Leader>sg :action Android.SyncProject<cr>
+"spacemacs
+    nnoremap <space>bb :action RecentFiles<cr>
+    nnoremap <space>pb :action RecentFiles<cr>
+    nnoremap <space>pt :action SelectInProjectView<cr>
+    nnoremap <space>bd :q<cr>
+    nnoremap <space>wu :action ReopenClosedTab<cr>
+    nnoremap <space>pf :action GotoFile<cr>
+    nnoremap <space>pa :action GotoSymbol<cr>
+    nnoremap <space>; :action CommentByLineComment<cr>
+    vnoremap <space>kw :action :cursive.actions.paredit/wrap-paren<cr>
+    nnoremap <space>kw :action :cursive.actions.paredit/wrap-paren<cr>
+    nnoremap <space>kr :action :cursive.actions.paredit/raise<cr>
+    nnoremap <space>kB :action :cursive.actions.paredit/barf-backwards<cr>
+    nnoremap <space>kb :action :cursive.actions.paredit/barf-forwards<cr>
+    nnoremap <space>kdx :action :cursive.actions.paredit/kill-sexp<cr>
+    nnoremap <space>kS :action :cursive.actions.paredit/slurp-backwards<cr>
+    nnoremap <space>ks :action :cursive.actions.paredit/slurp-forwards<cr>
+    nnoremap <Leader>@ :action :cursive.actions.paredit/splice<cr>
+    nnoremap <space>ke :action :cursive.actions.paredit/splice-killing-backwards<cr>
+    nnoremap <space>kE :action :cursive.actions.paredit/splice-killing-forwards<cr>
+    nnoremap <space><tab> :e#<cr>
+    nnoremap ]s :action GotoNextError<cr>
+    nnoremap [s :action GotoPreviousError<cr>
+    nnoremap <space>bm :action CloseAllEditors<cr>
+    nnoremap <Leader>rr :action RenameElement<cr> 
+"Cider
+    nnoremap <C-c><C-c> :action :cursive.repl.actions/interrupt<cr>
+    nnoremap <Leader>rtf :action :cursive.actions.paredit/thread-form<cr>
+    nnoremap <Leader>sp :action :cursive.repl.actions/jump-to-output<cr>
+    nnoremap <Leader>ss :action :cursive.repl.actions/jump-to-repl<cr>
+    nnoremap <Leader>sb :action :cursive.repl.actions/load-file<cr>
+    nnoremap <Leader>em :action :cursive.repl.actions/macroexpansion<cr>
+    nnoremap <Leader>ee :action :cursive.repl.actions/run-last-sexp<cr>
+    nnoremap <Leader>sv :action :cursive.repl.actions/send-selection<cr>
+    nnoremap <Leader>eb :action Flutter.Toolbar.ReloadAction<cr>
+    nnoremap <Leader>ef :action :cursive.repl.actions/run-top-sexp<cr>
+    nnoremap <space>e :action :cursive.repl.actions/run-top-sexp<cr>
+    nnoremap <Leader>sn :action :cursive.repl.actions/switch-namespace<cr>
+    nnoremap <Leader>sx :action :cursive.repl.actions/sync-files<cr>
+    nnoremap <Leader>tx :action :cursive.testing.actions/remove-test-markers<cr>
+    nnoremap <Leader>tr :action :cursive.testing.actions/rerun-last-test <cr>
+    nnoremap <Leader>ta :action :cursive.testing.actions/run-ns-tests <cr>
+    nnoremap <Leader>tt :action :cursive.testing.actions/run-single-test<cr>
+    nnoremap <Leader>db :action ToggleLineBreakpoint<cr>
+    nnoremap <Leader>hh :action QuickJavaDoc<cr>
+    nnoremap <Leader>rfu :action FindUsages<cr>
+    nnoremap <Leader>= :action ReformatCode<cr>
+"Python
+    "vnoremap <Leader>ev :action ExecuteInPyConsoleAction<cr>
+    "nnoremap <Leader>ss :action com.jetbrains.python.console.RunPythonConsoleAction<cr>
