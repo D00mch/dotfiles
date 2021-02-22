@@ -79,3 +79,6 @@
 [submodule ".vim/pack/plugins/start/neoterm"]
 	path = .vim/pack/plugins/start/neoterm
 	url = https://github.com/kassio/neoterm.git
+[submodule ".vim/pack/plugins/start/fugitive"]
+	path = .vim/pack/plugins/start/fugitive
+	url = https://tpope.io/vim/fugitive.git
