@@ -8,6 +8,12 @@ set clipboard=unnamed
 set ideajoin
 set NERDTree
 
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
 "{{{ russian mapping
 set keymap=russian-jcukenmac
 set iminsert=0
@@ -95,6 +101,7 @@ nnoremap <space>kb :action :cursive.actions.paredit/barf-forwards<cr>
 nnoremap <space>kdx :action :cursive.actions.paredit/kill-sexp<cr>
 nnoremap <space>kS :action :cursive.actions.paredit/slurp-backwards<cr>
 nnoremap <space>ks :action :cursive.actions.paredit/slurp-forwards<cr>
+nnoremap <Leader>@ :action :cursive.actions.paredit/splice<cr>
 nnoremap <space>ke :action :cursive.actions.paredit/splice-killing-backwards<cr>
 nnoremap <space>kE :action :cursive.actions.paredit/splice-killing-forwards<cr>
 nnoremap <space><tab> :e#<cr>
@@ -122,10 +129,11 @@ nnoremap <Leader>sp :action :cursive.repl.actions/jump-to-output<cr>
 nnoremap <Leader>ss :action :cursive.repl.actions/jump-to-repl<cr>
 nnoremap <Leader>sb :action :cursive.repl.actions/load-file<cr>
 nnoremap <Leader>em :action :cursive.repl.actions/macroexpansion<cr>
-nnoremap <Leader>se :action :cursive.repl.actions/run-last-sexp<cr>
+nnoremap <Leader>ee :action :cursive.repl.actions/run-last-sexp<cr>
 nnoremap <Leader>sv :action :cursive.repl.actions/send-selection<cr>
 nnoremap <Leader>eb :action Flutter.Toolbar.ReloadAction<cr>
-nnoremap <Leader>sf :action :cursive.repl.actions/run-top-sexp<cr>
+nnoremap <Leader>ef :action :cursive.repl.actions/run-top-sexp<cr>
+nnoremap <space>e :action :cursive.repl.actions/run-top-sexp<cr>
 nnoremap <Leader>sn :action :cursive.repl.actions/switch-namespace<cr>
 nnoremap <Leader>sx :action :cursive.repl.actions/sync-files<cr>
 nnoremap <Leader>tx :action :cursive.testing.actions/remove-test-markers<cr>
