@@ -116,13 +116,13 @@
 (def vim (expand-home "~/dotfiles/.vimrc"))
 
 (defn vim-bg [light?] (if light? "light" "dark"))
-(defn vim-theme [light?] (if light? "one" "xoria256"))
+(defn vim-theme [light?] (if light? "PaperColor" "PaperColor"))
 
 (defn vim-set-theme! [light?]
   (->> (file-by-lines vim)
        (map (fn [line]
-              (cond (.contains ^String line "colorscheme")
-                    (str "colorscheme " (vim-theme light?)),
+              (cond #_(.contains ^String line "colorscheme")
+                    #_(str "colorscheme " (vim-theme light?)),
                     (.contains ^String line "set background")
                     (str "set background=" (vim-bg light?)),
                     :else line)))
@@ -189,7 +189,7 @@
   (let [input (first args)]
     (cond (= input "b")
           (do (zathura-uncomment-colors!)
-              (spacemacs-set-theme! spacemacs-dark)
+              #_(spacemacs-set-theme! spacemacs-dark)
               (vim-set-theme! false)
               (desktop-set-theme! input)
               (intellij-set-theme! true)
@@ -197,7 +197,7 @@
 
           (= input "w")
           (do (zathura-comment-colors!)
-              (spacemacs-set-theme! spacemacs-light)
+              #_(spacemacs-set-theme! spacemacs-light)
               (vim-set-theme! true)
               (desktop-set-theme! input)
               (intellij-set-theme! false)

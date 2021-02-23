@@ -15,7 +15,7 @@ let g:airline#extensions#keymap#enabled = 0
 
 :syntax on
 set background=dark
-colorscheme xoria256
+colorscheme PaperColor
 au BufRead,BufNewFile *.lib set filetype=sh
 
 let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
