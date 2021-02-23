@@ -35,7 +35,8 @@ let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
     " SPACEMACS-LIKE NAVIGATION COMMANDS
         set autowrite
         nnoremap <space><tab> :e#<cr>
-        nnoremap <space>pt :NERDTreeFind<cr>
+        "nnoremap <space>pt :NERDTreeFind<cr>
+        nnoremap <space>pt :CocCommand explorer<cr>
         nnoremap <space>bd :bd<cr>
         nnoremap <space>pf :FZF<cr>
         nnoremap <space>pa :Ag<cr>
