@@ -55,6 +55,34 @@ let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
         map <C-k> <C-W>k
         map <C-h> <C-W>h
         map <C-l> <C-W>l
+    "STARTIFY
+        "help functions
+            function! s:gitModified()
+                let files = systemlist('git ls-files -m 2>/dev/null')
+                return map(files, "{'line': v:val, 'path': v:val}")
+            endfunction
+
+            function! s:gitUntracked()
+                let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
+                return map(files, "{'line': v:val, 'path': v:val}")
+            endfunction
+
+    let g:startify_change_to_vcs_root = 1
+    let g:startify_lists = [
+        \ { 'type': 'files',     'header': ['   Files']            },
+        \ { 'type': 'dir',       'header': ['   Dir '. getcwd()] },
+        \ { 'type': 'sessions',  'header': ['   Sessions']       },
+        \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+        \ { 'type': function('s:gitModified'),  'header': ['   git modified']},
+        \ { 'type': function('s:gitUntracked'), 'header': ['   git untracked']},
+        \ { 'type': 'commands',  'header': ['   Commands']       },
+        \ ]
+    let g:startify_bookmarks = [
+                \ { 'e': '~/.zshenv' },
+                \ { 'v': '~/.vimrc' },
+                \ { 'z': '~/.zshrc' },
+                \ '~/work/todos.org',
+                \ ]
 "SYNTAX
     "TABS
         set omnifunc=syntaxcomplete#Complete
@@ -98,6 +126,7 @@ let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
         
         nmap <space>e <Plug>(iced_eval_and_print)af
         nmap <Leader>ef <Plug>(iced_eval_outer_top_list)
+        nmap <Leader>rfu <Plug>(iced_use_case_open)
         
         let g:iced#buffer#stdout#mods = 'rightbelow' 
 
