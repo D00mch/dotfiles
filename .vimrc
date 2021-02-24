@@ -31,8 +31,12 @@ let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
     nnoremap <leader>cd :cd %:p:h<CR>
     " to be able to search on files through path
     set path=$PWD/**  
+
+    "TABS
+        nmap gh gT
+        nmap gl gt
     
-    " SPACEMACS-LIKE NAVIGATION COMMANDS
+    "SPACEMACS-LIKE NAVIGATION COMMANDS
         set autowrite
         nnoremap <space><tab> :e#<cr>
         "nnoremap <space>pt :NERDTreeFind<cr>
@@ -90,8 +94,6 @@ let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
         "autoclose
         autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif 
         nmap <tab> :noh<Enter>:echom ""<Enter>
-        nmap gh gT
-        nmap gl gt
 
         set smartindent
         set shiftwidth=4 smarttab expandtab
@@ -118,7 +120,7 @@ let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
         " noremap  <buffer> <silent> 0 g0
         " noremap  <buffer> <silent> $ g$ 
 "CLOJURE 
-    " VIM-ICED
+    "VIM-ICED
         let g:iced_enable_default_key_mappings = v:true
 
         nmap <Nop>(iced_command_palette) <Plug>(iced_command_palette)
