@@ -23,9 +23,6 @@ let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
 "MANAGE PLUGINS
     filetype plugin on
     filetype plugin indent on
-"SEARCH, REPLACE, REGEX 
-    nnoremap / /\v
-    vnoremap / /\v
 "NAVIGATION
     " set current path
     nnoremap <leader>cd :cd %:p:h<CR>
@@ -48,6 +45,8 @@ let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
         
         nnoremap <space>c :call Calc()<CR>     
     "SEARCH
+        nnoremap / /\v
+        vnoremap / /\v
         set ignorecase
         set incsearch
         set hlsearch
@@ -114,6 +113,7 @@ let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
     "VIM-WIKI
         let g:vimwiki_list = [{'path':'~/Yandex.Disk.localized/notes/wiki', 'path_html':'~/Yandex.Disk.localized/notes/export/xml'}]
         let g:vimwiki_folding='syntax'
+        let g:vimwiki_table_mappings=0
     "MULTILINES 
         " noremap  <buffer> <silent> k gk
         " noremap  <buffer> <silent> j gj
