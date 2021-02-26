@@ -3,10 +3,13 @@ set relativenumber
 set number
 set autoindent
 "set autochdir " change curernt working directory after changing buffer
-set clipboard+=unnamed  "for osx
+set clipboard+=unnamedplus  "for osx
+lang en_US.UTF-8
 "set clipboard=unnamedplus
 set encoding=utf-8
-set fdm=indent
+set fdm=syntax
+autocmd Filetype vim set fdm=indent
+autocmd BufRead *.txt set fdm=indent
 
 let mapleader=","
 let maplocalleader=","
@@ -20,6 +23,11 @@ au BufRead,BufNewFile *.lib set filetype=sh
 
 let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
 
+"PERSISTENT UNDO
+    set undofile
+    set undodir=$HOME/.vim/undo
+    set undolevels=1000
+    set undoreload=10000
 "MANAGE PLUGINS
     filetype plugin on
     filetype plugin indent on
@@ -51,6 +59,8 @@ let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
         set incsearch
         set hlsearch
         ":hi Search guibg=Yellow guifg=Black ctermbg=Yellow ctermfg=Black
+    "TER
+        tnoremap <Esc> <C-\><C-n>
     "NEOTERM
         "alt + v, like in Idea
         vnoremap √ :<c-u>exec v:count.'TREPLSendSelection'<cr>   
@@ -130,10 +140,11 @@ let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
         nmap <space>e <Plug>(iced_eval_and_print)af
         nmap <Leader>ef <Plug>(iced_eval_outer_top_list)
         nmap <Leader>rfu <Plug>(iced_use_case_open)
+        nmap <Leader>= <Plug>(iced_format_all)
         
         let g:iced#buffer#stdout#mods = 'rightbelow' 
+        let g:iced_formatter = 'joker'
 
-        :packadd vim-iced-coc-source
 
     "SEXP
         nmap <space>ks <Plug>(sexp_capture_next_element)
