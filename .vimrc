@@ -1,4 +1,5 @@
 set nocompatible
+
 set relativenumber
 set number
 set autoindent
@@ -149,3 +150,4 @@ let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
     "SEXP
         nmap <space>ks <Plug>(sexp_capture_next_element)
         nmap <space>kS <Plug>(sexp_capture_prev_element)
+
