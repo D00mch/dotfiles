@@ -61,7 +61,7 @@ let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
         set hlsearch
         ":hi Search guibg=Yellow guifg=Black ctermbg=Yellow ctermfg=Black
     "TER
-        tnoremap <Esc> <C-\><C-n>
+        "tnoremap <Esc> <C-\><C-n>
     "NEOTERM
         "alt + v, like in Idea
         vnoremap √ :<c-u>exec v:count.'TREPLSendSelection'<cr>   
@@ -96,7 +96,7 @@ let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
                 \ { 'e': '~/.zshenv' },
                 \ { 'v': '~/.vimrc' },
                 \ { 'z': '~/.zshrc' },
-                \ '~/work/todos.org',
+                \ '~/work/todos.wiki',
                 \ ]
 "SYNTAX
     "TABS
@@ -145,7 +145,7 @@ let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
         
         let g:iced#buffer#stdout#mods = 'rightbelow' 
         let g:iced_formatter = 'joker'
-
+        :packadd vim-iced-coc-source
 
     "SEXP
         nmap <space>ks <Plug>(sexp_capture_next_element)
