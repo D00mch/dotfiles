@@ -6,7 +6,7 @@ set relativenumber
 set number
 set clipboard=unnamed
 set ideajoin
-set NERDTree
+"set NERDTree
 set fdm=indent
 
 " need ideavim extension plugin
