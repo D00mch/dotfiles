@@ -110,6 +110,8 @@ let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
         
         set path+=**
         set tags=./tags,tags;$HOME
+
+        let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
     "LANG
         "set spellfile=~/.vim/spell/{language}.{encoding}.add
         nnoremap <silent> <leader>se :setlocal spell! spelllang=en<cr>
