@@ -28,15 +28,9 @@
 [submodule ".vim/pack/plugins/start/supertab"]
 	path = .vim/pack/plugins/start/supertab
 	url = https://github.com/ervandew/supertab.git
-[submodule ".vim/pack/plugins/start/vim-orgmode"]
-	path = .vim/pack/plugins/start/vim-orgmode
-	url = https://github.com/jceb/vim-orgmode.git
 [submodule ".vim/pack/plugins/start/vim-speeddating"]
 	path = .vim/pack/plugins/start/vim-speeddating
 	url = https://github.com/tpope/vim-speeddating.git
-[submodule ".vim/pack/plugins/start/vim-SyntaxRange"]
-	path = .vim/pack/plugins/start/vim-SyntaxRange
-	url = https://github.com/inkarkat/vim-SyntaxRange.git
 [submodule ".vim/pack/plugins/start/android-log.vim"]
 	path = .vim/pack/plugins/start/android-log.vim
 	url = https://github.com/yanqd0/android-log.vim.git
