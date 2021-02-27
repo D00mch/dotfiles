@@ -1,6 +1,3 @@
-[submodule ".vim/pack/plugins/start/nerdtree"]
-	path = .vim/pack/plugins/start/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
 [submodule ".vim/pack/plugins/start/fzf.vim"]
 	path = .vim/pack/plugins/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
@@ -10,15 +7,9 @@
 [submodule ".vim/pack/plugins/start/ack.vim"]
 	path = .vim/pack/plugins/start/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
-[submodule ".vim/pack/plugins/start/vim-notes"]
-	path = .vim/pack/plugins/start/vim-notes
-	url = https://github.com/xolox/vim-notes.git
 [submodule ".vim/pack/plugins/start/vim-misc"]
 	path = .vim/pack/plugins/start/vim-misc
 	url = https://github.com/xolox/vim-misc.git
-[submodule ".vim/pack/plugins/start/vim-one"]
-	path = .vim/pack/plugins/start/vim-one
-	url = https://github.com/rakr/vim-one.git
 [submodule ".vim/pack/plugins/start/vimwiki"]
 	path = .vim/pack/plugins/start/vimwiki
 	url = https://github.com/vimwiki/vimwiki.git

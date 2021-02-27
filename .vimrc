@@ -148,8 +148,6 @@ let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
         let g:iced#buffer#stdout#mods = 'rightbelow' 
         let g:iced_formatter = 'joker'
         :packadd vim-iced-coc-source
-
     "SEXP
         nmap <space>ks <Plug>(sexp_capture_next_element)
         nmap <space>kS <Plug>(sexp_capture_prev_element)
-
