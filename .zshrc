@@ -32,10 +32,10 @@ alias eng='trans en:ru'
 #translation end
 
 # settings files start
-alias zshrc='vim ~/.zshrc'
-alias vimrc='vim ~/.vimrc'
-alias inputrc='vim ~/.inputrc'
-alias idearc='vim ~/.ideavimrc'
+alias zshrc='vim ~/dotfiles/.zshrc'
+alias vimrc='vim ~/dotfiles/.vimrc'
+alias inputrc='vim ~/dotfiles/.inputrc'
+alias idearc='vim ~/dotfiles/.ideavimrc'
 alias zathurarc='vim ~/.config/zathura/zathurarc'
 # settings files end
 

@@ -8,9 +8,6 @@ set clipboard+=unnamedplus  "for osx
 lang en_US.UTF-8
 "set clipboard=unnamedplus
 set encoding=utf-8
-set fdm=syntax
-autocmd Filetype vim set fdm=indent
-autocmd BufRead *.txt set fdm=indent
 
 let mapleader=","
 let maplocalleader=","
@@ -22,6 +19,8 @@ au BufRead,BufNewFile *.lib set filetype=sh
 
 "EDITING
     map U <C-r>
+    "restore last known position
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
     "PERSISTENT UNDO
         set undofile
@@ -61,7 +60,8 @@ au BufRead,BufNewFile *.lib set filetype=sh
         set incsearch
         set hlsearch
     "TER
-        tnoremap <C-r> <C-\><C-n>
+        "alt + r
+        tnoremap ® <C-\><C-n>
     "NEOTERM
         "alt + v, like in Idea
         vnoremap √ :<c-u>exec v:count.'TREPLSendSelection'<cr>   
@@ -93,13 +93,17 @@ au BufRead,BufNewFile *.lib set filetype=sh
         \ { 'type': 'commands',  'header': ['   Commands']       },
         \ ]
     let g:startify_bookmarks = [
-                \ { 'e': '~/.zshenv' },
-                \ { 'v': '~/.vimrc' },
-                \ { 'z': '~/.zshrc' },
+                \ { 'e': '~/dotfiles/.zshenv' },
+                \ { 'v': '~/dotfiles/.vimrc' },
+                \ { 'z': '~/dotfiles/.zshrc' },
                 \ { 'w': '~/work/todos.wiki' },
                 \ '~/work/.aliases.',
                 \ ]
 "SYNTAX
+    "INDENTS
+        set fdm=syntax
+        autocmd Filetype vim set fdm=indent
+        autocmd BufRead *.txt set fdm=indent
     "TABS
         set omnifunc=syntaxcomplete#Complete
         "autoclose
