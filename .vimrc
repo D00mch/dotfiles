@@ -18,7 +18,7 @@ colorscheme PaperColor
 au BufRead,BufNewFile *.lib set filetype=sh
 
 "EDITING
-    map U <C-r>
+    nnoremap U <C-r>
     "restore last known position
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
@@ -45,14 +45,14 @@ au BufRead,BufNewFile *.lib set filetype=sh
         nmap gh gT
         nmap gl gt
     "SPACEMACS-LIKE NAVIGATION COMMANDS
-        set autowrite
+        set autowriteall
         noremap <space><tab> :e#<cr>
         "nnoremap <space>pt :NERDTreeFind<cr>
         noremap <space>pt :CocCommand explorer --sources=buffer+,file+<cr>
         noremap <space>bd :bd<cr>
-        noremap <space>pf :FZF<cr>
-        noremap <space>pa :Ag<cr>
-        noremap <space>bb :ls<cr>
+        noremap <silent><space>pa :execute 'silent! update'<Bar>AG<cr>
+        noremap <silent><space>pf :execute 'silent! update'<Bar>FZF<cr>
+        noremap <silent><space>bb :execute 'silent! update'<Bar>Buffers<cr>
     "SEARCH
         nnoremap / /\v
         vnoremap / /\v
@@ -62,6 +62,8 @@ au BufRead,BufNewFile *.lib set filetype=sh
     "TER
         "alt + r
         tnoremap ® <C-\><C-n>
+        "alt + t
+        nnoremap † :Tnew<cr>gi
     "NEOTERM
         "alt + v, like in Idea
         vnoremap √ :<c-u>exec v:count.'TREPLSendSelection'<cr>   
@@ -156,3 +158,11 @@ au BufRead,BufNewFile *.lib set filetype=sh
     "SEXP
         nmap <space>ks <Plug>(sexp_capture_next_element)
         nmap <space>kS <Plug>(sexp_capture_prev_element)
+        "alt + j
+        nmap ∆ <Plug>(sexp_swap_list_forward)
+        "alt + k
+        nmap ˚ <Plug>(sexp_swap_list_backward)
+        "alt + h
+        nmap ˙ <Plug>(sexp_swap_element_backward)
+        "alt + l
+        nmap ¬ <Plug>(sexp_swap_element_forward)
