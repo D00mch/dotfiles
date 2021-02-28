@@ -15,53 +15,53 @@ autocmd BufRead *.txt set fdm=indent
 let mapleader=","
 let maplocalleader=","
 
-let g:airline#extensions#keymap#enabled = 0
-
 :syntax on
 set background=dark
 colorscheme PaperColor
 au BufRead,BufNewFile *.lib set filetype=sh
 
-let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
+"EDITING
+    map U <C-r>
 
-"PERSISTENT UNDO
-    set undofile
-    set undodir=$HOME/.vim/undo
-    set undolevels=1000
-    set undoreload=10000
-"MANAGE PLUGINS
+    "PERSISTENT UNDO
+        set undofile
+        set undodir=$HOME/.vim/undo
+        set undolevels=1000
+        set undoreload=10000
+"PLUGINS SETUPS
     filetype plugin on
     filetype plugin indent on
+    nnoremap <space>c :call Calc()<CR>     
+    let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
+    let g:airline#extensions#keymap#enabled = 0
 "NAVIGATION
     " set current path
     nnoremap <leader>cd :cd %:p:h<CR>
     " to be able to search on files through path
     set path=$PWD/**  
+    noremap <space>h ^
+    noremap <space>l $
 
     "TABS
         nmap gh gT
         nmap gl gt
-    
     "SPACEMACS-LIKE NAVIGATION COMMANDS
         set autowrite
-        nnoremap <space><tab> :e#<cr>
+        noremap <space><tab> :e#<cr>
         "nnoremap <space>pt :NERDTreeFind<cr>
-        nnoremap <space>pt :CocCommand explorer --sources=buffer+,file+<cr>
-        nnoremap <space>bd :bd<cr>
-        nnoremap <space>pf :FZF<cr>
-        nnoremap <space>pa :Ag<cr>
-        nnoremap <space>bb :ls<cr>
-        
-        nnoremap <space>c :call Calc()<CR>     
+        noremap <space>pt :CocCommand explorer --sources=buffer+,file+<cr>
+        noremap <space>bd :bd<cr>
+        noremap <space>pf :FZF<cr>
+        noremap <space>pa :Ag<cr>
+        noremap <space>bb :ls<cr>
     "SEARCH
         nnoremap / /\v
         vnoremap / /\v
         set ignorecase
         set incsearch
         set hlsearch
-        ":hi Search guibg=Yellow guifg=Black ctermbg=Yellow ctermfg=Black
     "TER
-        "tnoremap <Esc> <C-\><C-n>
+        tnoremap <C-r> <C-\><C-n>
     "NEOTERM
         "alt + v, like in Idea
         vnoremap √ :<c-u>exec v:count.'TREPLSendSelection'<cr>   
@@ -84,10 +84,10 @@ let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
 
     let g:startify_change_to_vcs_root = 1
     let g:startify_lists = [
-        \ { 'type': 'files',     'header': ['   Files']            },
-        \ { 'type': 'dir',       'header': ['   Dir '. getcwd()] },
         \ { 'type': 'sessions',  'header': ['   Sessions']       },
         \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+        \ { 'type': 'files',     'header': ['   Files']            },
+        \ { 'type': 'dir',       'header': ['   Dir '. getcwd()] },
         \ { 'type': function('s:gitModified'),  'header': ['   git modified']},
         \ { 'type': function('s:gitUntracked'), 'header': ['   git untracked']},
         \ { 'type': 'commands',  'header': ['   Commands']       },
@@ -96,7 +96,8 @@ let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
                 \ { 'e': '~/.zshenv' },
                 \ { 'v': '~/.vimrc' },
                 \ { 'z': '~/.zshrc' },
-                \ '~/work/todos.wiki',
+                \ { 'w': '~/work/todos.wiki' },
+                \ '~/work/.aliases.',
                 \ ]
 "SYNTAX
     "TABS
