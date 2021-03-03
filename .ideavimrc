@@ -48,8 +48,9 @@ let mapleader=","
 "vim
     nnoremap gh :action PreviousTab<cr>
     nnoremap gl :action NextTab<cr>
-
-
+"navigation
+    noremap <space>h ^
+    noremap <space>l $
 "cursive
     nmap <Leader>w :action :cursive.actions.paredit/wrap-paren<cr>
     vnoremap <Leader>w :action :cursive.actions.paredit/wrap-paren<cr>

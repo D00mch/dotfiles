@@ -40,6 +40,8 @@ au BufRead,BufNewFile *.lib set filetype=sh
     set path=$PWD/**  
     noremap <space>h ^
     noremap <space>l $
+    "alt + q
+    nnoremap œ :xa!<cr>
 
     "TABS
         nmap gh gT
@@ -50,7 +52,7 @@ au BufRead,BufNewFile *.lib set filetype=sh
         "nnoremap <space>pt :NERDTreeFind<cr>
         noremap <space>pt :CocCommand explorer --sources=buffer+,file+<cr>
         noremap <space>bd :bd<cr>
-        noremap <silent><space>pa :execute 'silent! update'<Bar>AG<cr>
+        noremap <silent><space>pa :execute 'silent! update'<Bar>Ag<cr>
         noremap <silent><space>pf :execute 'silent! update'<Bar>FZF<cr>
         noremap <silent><space>bb :execute 'silent! update'<Bar>Buffers<cr>
     "SEARCH
