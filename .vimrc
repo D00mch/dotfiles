@@ -70,10 +70,17 @@ au BufRead,BufNewFile *.lib set filetype=sh
         "alt + v, like in Idea
         vnoremap √ :<c-u>exec v:count.'TREPLSendSelection'<cr>   
     "SMART WAY TO MOVE BETWEEN WINDOWS
-        map <C-j> <C-W>j
-        map <C-k> <C-W>k
-        map <C-h> <C-W>h
-        map <C-l> <C-W>l
+        "alt + j
+        nmap ∆ <C-W>j
+        "alt + k
+        nmap ˚ <C-W>k
+        "alt + h
+        nmap ˙ <C-W>h
+        "alt + l
+        nmap ¬ <C-W>l 
+
+        "alt + w
+        nmap ∑ <C-W>
     "STARTIFY
         "help functions
             function! s:gitModified()
@@ -160,11 +167,7 @@ au BufRead,BufNewFile *.lib set filetype=sh
     "SEXP
         nmap <space>ks <Plug>(sexp_capture_next_element)
         nmap <space>kS <Plug>(sexp_capture_prev_element)
-        "alt + j
-        nmap ∆ <Plug>(sexp_swap_list_forward)
-        "alt + k
-        nmap ˚ <Plug>(sexp_swap_list_backward)
-        "alt + h
-        nmap ˙ <Plug>(sexp_swap_element_backward)
-        "alt + l
-        nmap ¬ <Plug>(sexp_swap_element_forward)
+        map <C-j> <Plug>(sexp_swap_list_forward)
+        map <C-k> <Plug>(sexp_swap_list_backward)
+        map <C-h> <Plug>(sexp_swap_element_backward)
+        map <C-l> <Plug>(sexp_swap_element_forward)

@@ -13,11 +13,17 @@ set fdm=indent
 set keep-english-in-normal-and-restore-in-insert
 
 " Smart way to move between windows
-    map <C-j> <C-W>j
-    map <C-k> <C-W>k
-    map <C-h> <C-W>h
-    map <C-l> <C-W>l
+    "alt + j
+    nmap ∆ <C-W>j
+    "alt + k
+    nmap ˚ <C-W>k
+    "alt + h
+    nmap ˙ <C-W>h
+    "alt + l
+    nmap ¬ <C-W>l 
 
+    "alt + w
+    nmap ∑ <C-W>
 set nocompatible
 hi Search ctermfg=3
 
@@ -102,6 +108,7 @@ let mapleader=","
     nnoremap [s :action GotoPreviousError<cr>
     nnoremap <space>bm :action CloseAllEditors<cr>
     nnoremap <Leader>rr :action RenameElement<cr> 
+    nnoremap <Leader>ra :action Refactorings.QuickListPopupAction<cr> 
 "Cider
     nnoremap <C-c><C-c> :action :cursive.repl.actions/interrupt<cr>
     nnoremap <Leader>rtf :action :cursive.actions.paredit/thread-form<cr>
