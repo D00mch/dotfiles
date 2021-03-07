@@ -120,7 +120,7 @@ let mapleader=","
     nnoremap <Leader>sv :action :cursive.repl.actions/send-selection<cr>
     "nnoremap <Leader>eb :action Flutter.Toolbar.ReloadAction<cr>
     nnoremap <Leader>ef :action :cursive.repl.actions/run-top-sexp<cr>
-    nnoremap <space>e :action :cursive.repl.actions/run-top-sexp<cr>
+    nnoremap <space>e :action Cursive.Repl.Command.eval-to-file<cr> :action Synchronize<cr>
     nnoremap <Leader>sn :action :cursive.repl.actions/switch-namespace<cr>
     nnoremap <Leader>sx :action :cursive.repl.actions/sync-files<cr>
     nnoremap <Leader>tx :action :cursive.testing.actions/remove-test-markers<cr>
