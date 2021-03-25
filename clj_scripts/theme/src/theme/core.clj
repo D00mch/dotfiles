@@ -13,8 +13,8 @@
 (defn app-opened? [app-name app-path]
   (if system-osx?
     (let [shell-oputput (sh "sh" "-c" (str "ps ax | grep " app-name))
-          shell-res (:out shell-oputput)]
-      (prn (str "having text as " shell-oputput))
+          shell-res     (str/replace (:out shell-oputput) #"sh -c ps ax.*" "")]
+      #_(prn (str "having text as " shell-res))
       (.contains ^String shell-res app-path))
     (throw (UnsupportedOperationException.))))
 
@@ -57,7 +57,10 @@
 
 ;; ideas
 (defn studio-opened? []
-  (app-opened? "'Android Studio'" "/Android Studio"))
+  (app-opened? "'Android Studio'" "Studio.app/Contents/MacOS/"))
+
+(defn idea-opened? []
+  (app-opened? "IntelliJ" "Contents/MacOS/idea"))
 
 (defn idea-set-theme! [idea-name theme-num]
     (open-app! idea-name)
@@ -71,11 +74,11 @@
     (r/type-text! theme-num))
 
 (defn intellij-set-theme! [is-black?]
-  (when (app-opened? "IntelliJ" "/IntelliJ")
+  (when (idea-opened?)
     (idea-set-theme! "IntelliJ\\ IDEA\\ CE" (if is-black? "3" "1"))))
 
 (defn android-set-theme! [is-black?]
-  (when (app-opened? "'Android Studio'" "/Android Studio")
+  (when (studio-opened?)
     (idea-set-theme! "Android\\ Studio" (if is-black? "2" "1"))))
 
 ;; spacemacs
