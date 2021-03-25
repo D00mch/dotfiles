@@ -179,7 +179,7 @@
   (r/sleep 370)
   (r/mouse-click!)
   (r/sleep 450)
-  (r/mouse-move! 238 433)
+  (r/mouse-move! 272 469)
   (r/mouse-click!))
 
 (defn -main
