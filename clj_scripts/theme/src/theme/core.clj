@@ -195,16 +195,20 @@
               #_(spacemacs-set-theme! spacemacs-dark)
               (vim-set-theme! false)
               (desktop-set-theme! input)
-              (intellij-set-theme! true)
-              (android-set-theme! true))
+
+              ;; use Dark Mode Sync plugin instead
+              #_(intellij-set-theme! true)
+              #_(android-set-theme! true))
 
           (= input "w")
           (do (zathura-comment-colors!)
               #_(spacemacs-set-theme! spacemacs-light)
               (vim-set-theme! true)
               (desktop-set-theme! input)
-              (intellij-set-theme! false)
-              (android-set-theme! false))
+
+              ;; use Dark Mode Sync plugin instead
+              #_(intellij-set-theme! false)
+              #_(android-set-theme! false))
 
           :else
           (throw (IllegalArgumentException.

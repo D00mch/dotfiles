@@ -1,0 +1,16 @@
+false
+"having text as 68678   ??  Ss
+  0:42.16 /Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/bin/java
+   -Xmx1536M -Dfile.encoding=UTF-8 -Duser.country=RU -Duser.language=en -Duser.variant -cp
+   /Users/a18385139/.gradle/wrapper/dists/gradle-6.7-all/cuy9mc7upwgwgeb72wkcrupxe/gradle-6.7/lib/gradle-launcher-6.7.jar
+    org.gradle.launcher.daemon.bootstrap.GradleDaemon 6.7\n73443
+    ??  S      0:00.01 \n73445   ??  S      0:00.00 grep Android Studio\n"
+
+"having text as 68678   ??  Ss
+  0:42.19 /Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/bin/java
+  -Xmx1536M -Dfile.encoding=UTF-8 -Duser.country=RU -Duser.language=en -Duser.variant -cp
+  /Users/a18385139/.gradle/wrapper/dists/gradle-6.7-all/cuy9mc7upwgwgeb72wkcrupxe/gradle-6.7/lib/gradle-launcher-6.7.jar
+   org.gradle.launcher.daemon.bootstrap.GradleDaemon 6.7\n73456
+
+   ??  S      0:18.31 /Applications/Android Studio.app/Contents/MacOS/studio\n73471   ??  S      0:00.01 /Applications/Android Studio.app/Contents/bin/fsnotifier\n73481
+   ??  S      0:00.01 \n73483   ??  S      0:00.00 grep Android Studio\n"
