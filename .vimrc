@@ -42,6 +42,7 @@ au BufRead,BufNewFile *.lib set filetype=sh
     noremap <space>l $
     "alt + q
     nnoremap œ :xa!<cr>
+    map <m-q> :xa!<cr>
 
     "TABS
         nmap gh gT
