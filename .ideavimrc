@@ -6,7 +6,7 @@ set relativenumber
 set number
 set clipboard=unnamed
 set ideajoin
-"set NERDTree
+set NERDTree
 set fdm=indent
 
 " need ideavim extension plugin
@@ -26,6 +26,9 @@ set keep-english-in-normal-and-restore-in-insert
     nmap ∑ <C-W>
 set nocompatible
 hi Search ctermfg=3
+
+"editing
+    nnoremap U <C-r>
 
 "search
 set ignorecase
