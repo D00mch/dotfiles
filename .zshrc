@@ -54,6 +54,8 @@ plugins=(
     vi-mode
     python
     postgres
+    docker
+    docker-compose
 )
 source $ZSH/oh-my-zsh.sh
 
