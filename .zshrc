@@ -46,6 +46,14 @@ alias stop='./gradlew --stop'
 alias gc='./gradlew clean'
 # gradle end
 
+# git start
+speedUpGit(){
+    git config --add oh-my-zsh.hide-status 1
+    git config --add oh-my-zsh.hide-dirty 1
+}
+# git end
+
+
 ZSH_THEME="robbyrussell"
 plugins=(
     git
@@ -62,6 +70,6 @@ source $ZSH/oh-my-zsh.sh
 source ~/work/.aliases.sh
 source ~/.ssh-aliases.sh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
