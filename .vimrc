@@ -150,21 +150,6 @@ au BufRead,BufNewFile *.lib set filetype=sh
         " noremap  <buffer> <silent> 0 g0
         " noremap  <buffer> <silent> $ g$ 
 "CLOJURE 
-    "VIM-ICED
-        let g:iced_enable_default_key_mappings = v:true
-
-        nmap <Nop>(iced_command_palette) <Plug>(iced_command_palette)
-        nmap <Leader>hc <Plug>(iced_command_palette)
-        nmap <Leader>hh <Plug>(iced_clojuredocs_open)
-        
-        nmap <space>e <Plug>(iced_eval_and_print)af
-        nmap <Leader>ef <Plug>(iced_eval_outer_top_list)
-        nmap <Leader>rfu <Plug>(iced_use_case_open)
-        nmap <Leader>= <Plug>(iced_format_all)
-        
-        let g:iced#buffer#stdout#mods = 'rightbelow' 
-        let g:iced_formatter = 'joker'
-        :packadd vim-iced-coc-source
     "SEXP
         nmap <space>ks <Plug>(sexp_capture_next_element)
         nmap <space>kS <Plug>(sexp_capture_prev_element)
