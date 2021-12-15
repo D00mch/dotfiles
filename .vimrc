@@ -31,7 +31,6 @@ au BufRead,BufNewFile *.lib set filetype=sh
     filetype plugin on
     filetype plugin indent on
     nnoremap <space>c :call Calc()<CR>     
-    let g:coc_node_path = '/usr/local/opt/node@15/bin/node'
     let g:airline#extensions#keymap#enabled = 0
 "NAVIGATION
     " set current path
@@ -51,7 +50,6 @@ au BufRead,BufNewFile *.lib set filetype=sh
         set autowriteall
         noremap <space><tab> :e#<cr>
         "nnoremap <space>pt :NERDTreeFind<cr>
-        noremap <space>pt :CocCommand explorer --sources=buffer+,file+<cr>
         noremap <space>bd :bd<cr>
         noremap <silent><space>pa :execute 'silent! update'<Bar>Ag<cr>
         noremap <silent><space>pf :execute 'silent! update'<Bar>FZF<cr>
