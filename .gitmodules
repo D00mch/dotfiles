@@ -46,6 +46,6 @@
 [submodule ".vim/pack/plugins/start/nerdtree"]
 	path = .vim/pack/plugins/start/nerdtree
 	url = https://github.com/preservim/nerdtree.git
-[submodule ".vim/pack/plugins/start/vim-misc"]
+[submodule ".vim/pack/plugins/start/vim-misc"] # need it for some plugins like vim-wiki
 	path = .vim/pack/plugins/start/vim-misc
 	url = https://github.com/xolox/vim-misc.git
