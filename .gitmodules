@@ -37,9 +37,6 @@
 [submodule ".vim/pack/plugins/start/neoterm"]
 	path = .vim/pack/plugins/start/neoterm
 	url = https://github.com/kassio/neoterm.git
-[submodule ".vim/pack/plugins/start/fugitive"]
-	path = .vim/pack/plugins/start/fugitive
-	url = https://tpope.io/vim/fugitive.git
 [submodule ".vim/pack/plugins/start/vim-startify"]
 	path = .vim/pack/plugins/start/vim-startify
 	url = https://github.com/mhinz/vim-startify.git
