@@ -46,3 +46,6 @@
 [submodule ".vim/pack/plugins/start/vim-polyglot"]
 	path = .vim/pack/plugins/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
+[submodule ".vim/pack/plugins/start/nerdtree"]
+	path = .vim/pack/plugins/start/nerdtree
+	url = https://github.com/preservim/nerdtree.git
