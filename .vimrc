@@ -12,7 +12,7 @@ set encoding=utf-8
 let mapleader=","
 let maplocalleader=","
 
-:syntax on
+syntax on
 set background=dark
 colorscheme PaperColor
 au BufRead,BufNewFile *.lib set filetype=sh
@@ -80,35 +80,6 @@ au BufRead,BufNewFile *.lib set filetype=sh
 
         "alt + w
         nmap ∑ <C-W>
-    "STARTIFY
-        "help functions
-            function! s:gitModified()
-                let files = systemlist('git ls-files -m 2>/dev/null')
-                return map(files, "{'line': v:val, 'path': v:val}")
-            endfunction
-
-            function! s:gitUntracked()
-                let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
-                return map(files, "{'line': v:val, 'path': v:val}")
-            endfunction
-
-    let g:startify_change_to_vcs_root = 1
-    let g:startify_lists = [
-        \ { 'type': 'sessions',  'header': ['   Sessions']       },
-        \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-        \ { 'type': 'files',     'header': ['   Files']            },
-        \ { 'type': 'dir',       'header': ['   Dir '. getcwd()] },
-        \ { 'type': function('s:gitModified'),  'header': ['   git modified']},
-        \ { 'type': function('s:gitUntracked'), 'header': ['   git untracked']},
-        \ { 'type': 'commands',  'header': ['   Commands']       },
-        \ ]
-    let g:startify_bookmarks = [
-                \ { 'e': '~/dotfiles/.zshenv' },
-                \ { 'v': '~/dotfiles/.vimrc' },
-                \ { 'z': '~/dotfiles/.zshrc' },
-                \ { 'w': '~/work/todos.wiki' },
-                \ '~/work/.aliases.',
-                \ ]
 "SYNTAX
     "INDENTS
         set fdm=syntax
