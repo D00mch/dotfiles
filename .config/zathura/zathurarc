@@ -1,6 +1,5 @@
 set selection-clipboard clipboard
 
-
 #map h scroll left
 #map T feedkeys ":set pages-per-row "
 map d scroll half-down
@@ -12,7 +11,7 @@ map u scroll half-up
 
 # Open fuulscreen
 set window-height 3000
-set window-width 2000
+set window-width 1000
 
 
 #{{{ Colours
@@ -54,5 +53,5 @@ set render-loading-bg           "#1A1A1A" # base02
 # Recolor book content's color
 set recolor                     true
 set recolor-lightcolor          "#1A1A1A" # base02
-set recolor-darkcolor           "#93a1a1" # base1
+set recolor-darkcolor           "#bdc6c6" # base1
 #}}}
