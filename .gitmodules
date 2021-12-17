@@ -37,9 +37,6 @@
 [submodule ".vim/pack/plugins/start/neoterm"]
 	path = .vim/pack/plugins/start/neoterm
 	url = https://github.com/kassio/neoterm.git
-[submodule ".vim/pack/plugins/start/vim-startify"]
-	path = .vim/pack/plugins/start/vim-startify
-	url = https://github.com/mhinz/vim-startify.git
 [submodule ".vim/pack/plugins/start/vim-polyglot"]
 	path = .vim/pack/plugins/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
