@@ -20,6 +20,14 @@
  :deps {
         cheshire {:mvn/version "5.8.1"}}
 
+
+ :aliases {
+           
+   :REPL
+   {:extra-deps {nrepl/nrepl {:mvn/version "0.8.3"}}
+    :main-opts  ["-m" "nrepl.cmdline" "--port" "14563"]}
+ }
+
   ;; Aliases
 	;;   resolve-deps aliases (-R) affect dependency resolution, options:
 	;;     :extra-deps - specifies extra deps to add to :deps
