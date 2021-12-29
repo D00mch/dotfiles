@@ -1,38 +1,192 @@
 {
-  "title": "Ctrl + w",
-  "maintainers": [
-    "dumch"
-  ],
-  "rules": [
-      {
-        "description": "Ctrl + w",
-        "manipulators": [
-          {
-            "type": "basic",
-            "from": {
-              "key_code": "w",
-              "modifiers": {
-                "mandatory": ["control"]
-              }
-            },
-            "to": [
-              {
-                "key_code": "delete_or_backspace",
-                "modifiers": ["left_option"]
-              }
-            ],
-            "conditions": [
-              {
-                "type": "frontmost_application_unless",
-                "bundle_identifiers": [
-                   "^com.apple.Terminal$",
-                   "^com.qvacua.VimR$",
-                   "^com.googlecode.iterm2$"
-                ]
-              }
+    "title": "hotkeys",
+    "maintainers": [
+        "dumch"
+    ],
+    "rules": [
+        {
+            "description": "right cmd + p — =/+",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "p",
+                        "modifiers": {
+                            "mandatory": [ "right_command" ],
+                            "optional": [ "any" ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "equal_sign"
+                        }
+                    ]
+                }
             ]
-          }
-        ]
-      }
-  ] 
+        },
+        {
+            "description": "left cmd + m — 1",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "m",
+                        "modifiers": {
+                            "mandatory": [ "left_command" ],
+                            "optional": [ "any" ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "right cmd + o — delete",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "o",
+                        "modifiers": {
+                            "mandatory": [ "right_command" ],
+                            "optional": [ "any" ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "right cmd + i — shift",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "i",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_command"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_shift"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "left cmd + e — shift",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "e",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_command"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_shift"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "alt + l — language change",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "l",
+                        "modifiers": { "mandatory": [ "left_option" ] }
+                    },
+                    "to": [
+                        {
+                            "key_code": "spacebar",
+                            "modifiers": [ "left_control" ]
+                        }
+                    ],
+                    "parameters": {
+                        "basic.to_if_alone_timeout_milliseconds": 300,
+                        "basic.to_if_held_down_threshold_milliseconds": 0
+                    },
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_unless",
+                            "bundle_identifiers": [
+                                "^com.apple.Terminal$",
+                                "^com.qvacua.VimR$",
+                                "^com.googlecode.iterm2$"
+                            ]
+                        }
+                    ]
+                }
+            ] 
+        },
+        {
+            "description": "Ctrl + w",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "w",
+                        "modifiers": {
+                            "mandatory": ["control"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace",
+                            "modifiers": ["left_option"]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_unless",
+                            "bundle_identifiers": [
+                                "^com.apple.Terminal$",
+                                "^com.qvacua.VimR$",
+                                "^com.googlecode.iterm2$"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Alt + w",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "w",
+                        "modifiers": {
+                            "mandatory": ["left_option"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace",
+                            "modifiers": ["left_option"]
+                        }
+                    ]
+                }
+            ]
+        }
+    ] 
 }
