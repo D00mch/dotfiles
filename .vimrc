@@ -4,7 +4,7 @@ set relativenumber
 set number
 set autoindent
 "set autochdir " change curernt working directory after changing buffer
-set clipboard+=unnamedplus,  "for osx
+set clipboard+=unnamed  "for osx
 lang en_US.UTF-8
 "set clipboard=unnamedplus
 set encoding=utf-8
