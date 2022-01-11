@@ -54,7 +54,7 @@ speedUpGit(){
 # git end
 
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="avit"
 plugins=(
     git
     adb
