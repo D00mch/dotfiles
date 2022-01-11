@@ -4,7 +4,7 @@ set relativenumber
 set number
 set autoindent
 "set autochdir " change curernt working directory after changing buffer
-set clipboard+=unnamedplus  "for osx
+set clipboard+=unnamedplus,  "for osx
 lang en_US.UTF-8
 "set clipboard=unnamedplus
 set encoding=utf-8
@@ -19,6 +19,8 @@ au BufRead,BufNewFile *.lib set filetype=sh
 
 "EDITING
     nnoremap U <C-r>
+    "alt + w
+    inoremap ¬ <c-^>
     "restore last known position
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
@@ -109,6 +111,8 @@ au BufRead,BufNewFile *.lib set filetype=sh
             highlight lCursor guifg=NONE guibg=Cyan
             
             inoremap <c-l> <c-^>
+            "alt + l
+            inoremap ¬ <c-^>
     "VIM-WIKI
         let g:vimwiki_list = [{'path':'~/Yandex.Disk.localized/notes/wiki', 'path_html':'~/Yandex.Disk.localized/notes/export/xml'}]
         let g:vimwiki_folding='syntax'
