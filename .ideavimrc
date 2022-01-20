@@ -80,6 +80,10 @@ let mapleader=","
     
     nmap <Leader>o :action :cursive.actions.paredit/raise<cr>
     vnoremap <Leader>o :action :cursive.actions.paredit/raise<cr>
+
+    nnoremap <Leader>c :action insertClojureCommentAtTheFormStart<cr>
+    nnoremap vaf :action SelectForm<cr>
+
 "idea complements
     nnoremap <Leader>k :action Run<cr>
     nnoremap <Leader>dr :action Debug<cr>
