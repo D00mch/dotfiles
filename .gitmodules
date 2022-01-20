@@ -49,3 +49,6 @@
 [submodule ".vim/pack/plugins/start/vim-highlightedyank"]
 	path = .vim/pack/plugins/start/vim-highlightedyank
 	url = https://github.com/machakann/vim-highlightedyank.git
+[submodule ".vim/pack/plugins/start/vim-commentary"]
+	path = .vim/pack/plugins/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
