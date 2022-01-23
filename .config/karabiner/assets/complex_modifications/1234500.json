@@ -131,7 +131,9 @@
                             "bundle_identifiers": [
                                 "^com.apple.Terminal$",
                                 "^com.qvacua.VimR$",
-                                "^com.googlecode.iterm2$"
+                                "^com.googlecode.iterm2$",
+                                "^com.jetbrains.intellij.ce$",
+                                "^com.google.android.studio"
                             ]
                         }
                     ]
@@ -161,7 +163,9 @@
                             "bundle_identifiers": [
                                 "^com.apple.Terminal$",
                                 "^com.qvacua.VimR$",
-                                "^com.googlecode.iterm2$"
+                                "^com.googlecode.iterm2$",
+                                "^com.jetbrains.intellij.ce$",
+                                "^com.google.android.studio"
                             ]
                         }
                     ]
