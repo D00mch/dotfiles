@@ -46,13 +46,19 @@ alias stop='./gradlew --stop'
 alias gc='./gradlew clean'
 # gradle end
 
-# git start
-speedUpGit(){
-    git config --add oh-my-zsh.hide-status 1
-    git config --add oh-my-zsh.hide-dirty 1
-}
-# git end
+# vim start
+bindkey -v
+export KEYTIMEOUT=1
+export VI_MODE_SET_CURSOR=true
 
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
+
+# vim start
 
 ZSH_THEME="blinks"
 plugins=(
@@ -68,6 +74,13 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 source ~/.ssh-aliases.sh
+
+# git start
+speedUpGit(){
+    git config --add oh-my-zsh.hide-status 1
+    git config --add oh-my-zsh.hide-dirty 1
+}
+# git end
 
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
