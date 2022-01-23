@@ -2,12 +2,16 @@
 " to update idea, type              :source ~/.ideavimrc
 
 set backspace=indent,eol,start
+set visualbell
+set ideavimsupport=+singleline,dialog
 set relativenumber
 set number
 set clipboard=unnamed
+set ideamarks
 set ideajoin
 set NERDTree
 set highlightedyank
+"set commentary
 set fdm=indent
 
 " need ideavim extension plugin
