@@ -11,7 +11,7 @@ set ideamarks
 set ideajoin
 set NERDTree
 set highlightedyank
-"set commentary
+set commentary
 set fdm=indent
 
 " need ideavim extension plugin
@@ -88,6 +88,8 @@ let mapleader=","
 
     nnoremap <Leader>c :action insertClojureCommentAtTheFormStart<cr>
     nnoremap vaf :action SelectForm<cr>
+    nnoremap vif :action SelectInForm<cr>
+    nnoremap daf :action DeleteForm<cr>
 
 "idea complements
     nnoremap <Leader>k :action Run<cr>
