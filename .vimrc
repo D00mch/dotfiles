@@ -40,7 +40,7 @@ au BufRead,BufNewFile *.lib set filetype=sh
     " to be able to search on files through path
     set path=$PWD/**  
     noremap <space>h ^
-    noremap <space>l $
+    noremap <space>l g_
     "alt + q
     nnoremap œ :xa!<cr>
     map <m-q> :xa!<cr>
