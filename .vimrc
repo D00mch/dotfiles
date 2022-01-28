@@ -51,7 +51,8 @@ au BufRead,BufNewFile *.lib set filetype=sh
     "SPACEMACS-LIKE NAVIGATION COMMANDS
         set autowriteall
         noremap <space><tab> :e#<cr>
-        nnoremap <space>pt :NERDTreeFind<cr>
+        " nnoremap <space>pt :NERDTreeFind<cr>
+        noremap <space>pt :CocCommand explorer --sources=buffer+,file+<cr>
         noremap <space>bd :bd<cr>
         noremap <silent><space>pa :execute 'silent! update'<Bar>Ag<cr>
         noremap <silent><space>pf :execute 'silent! update'<Bar>FZF<cr>
@@ -130,3 +131,4 @@ au BufRead,BufNewFile *.lib set filetype=sh
         map <C-k> <Plug>(sexp_swap_list_backward)
         map <C-h> <Plug>(sexp_swap_element_backward)
         map <C-l> <Plug>(sexp_swap_element_forward)
+"END
