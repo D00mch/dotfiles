@@ -1,7 +1,7 @@
 # help commands start
 alias vim=nvim
 alias v=vim
-alias s='source ~/.zshrc'
+alias s='source ~/.zshrc; source ~/.zshenv'
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ~='cd ~'
@@ -51,13 +51,6 @@ bindkey -v
 export KEYTIMEOUT=1
 export VI_MODE_SET_CURSOR=true
 
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
-
-
 # vim start
 
 ZSH_THEME="blinks"
@@ -70,6 +63,8 @@ plugins=(
     postgres
     docker
     docker-compose
+    lein
+    brew
 )
 source $ZSH/oh-my-zsh.sh
 
