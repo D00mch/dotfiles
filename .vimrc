@@ -66,11 +66,15 @@ au BufRead,BufNewFile *.lib set filetype=sh
     "TER
         "alt + r
         tnoremap ® <C-\><C-n>
-        "alt + t
-        nnoremap † :Tnew<cr>gi
+        "SLIME
+            let g:slime_target = "neovim"
+            xmap √ <Plug>SlimeRegionSend
+            nmap <leader>ef <Plug>SlimeParagraphSend 
     "NEOTERM
         "alt + v, like in Idea
-        vnoremap √ :<c-u>exec v:count.'TREPLSendSelection'<cr>   
+        "vnoremap √ :<c-u>exec v:count.'TREPLSendSelection'<cr>   
+        "alt + t
+        nnoremap † :Tnew<cr>gi
     "SMART WAY TO MOVE BETWEEN WINDOWS
         "alt + j
         nmap ∆ <C-W>j
