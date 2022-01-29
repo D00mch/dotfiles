@@ -23,6 +23,9 @@ au BufRead,BufNewFile *.lib set filetype=sh
     inoremap ¬ <c-^>
     "restore last known position
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    if exists('g:started_by_firenvim')
+        set guifont=FiraCode_Nerd_Font_Mono:h23
+    endif
 
     "PERSISTENT UNDO
         set undofile
