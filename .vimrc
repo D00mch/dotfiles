@@ -37,6 +37,7 @@ au BufRead,BufNewFile *.lib set filetype=sh
     filetype plugin indent on
     nnoremap <space>c :call Calc()<CR>     
     let g:airline#extensions#keymap#enabled = 0
+    silent! helptags ALL
 "NAVIGATION
     " set current path
     nnoremap <leader>cd :cd %:p:h<CR>
