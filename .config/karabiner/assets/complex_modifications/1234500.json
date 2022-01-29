@@ -5,7 +5,7 @@
     ],
     "rules": [
         {
-            "description": "right cmd + p — =/+",
+            "description": "Right cmd + p — =/+",
             "manipulators": [
                 {
                     "type": "basic",
@@ -25,27 +25,7 @@
             ]
         },
         {
-            "description": "left cmd + m — 1",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "m",
-                        "modifiers": {
-                            "mandatory": [ "left_command" ],
-                            "optional": [ "any" ]
-                        }
-                    },
-                    "to": [
-                        {
-                            "key_code": "1"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "description": "right cmd + o — delete",
+            "description": "Right cmd + o — delete",
             "manipulators": [
                 {
                     "type": "basic",
@@ -65,7 +45,7 @@
             ]
         },
         {
-            "description": "right cmd + i — shift",
+            "description": "Right cmd + i — shift",
             "manipulators": [
                 {
                     "type": "basic",
@@ -86,7 +66,7 @@
             ]
         },
         {
-            "description": "left cmd + e — shift",
+            "description": "Left cmd + e — shift",
             "manipulators": [
                 {
                     "type": "basic",
@@ -107,7 +87,7 @@
             ]
         },
         {
-            "description": "alt + l — language change",
+            "description": "Alt + l — language change",
             "manipulators": [
                 {
                     "type": "basic",
@@ -165,7 +145,9 @@
                                 "^com.qvacua.VimR$",
                                 "^com.googlecode.iterm2$",
                                 "^com.jetbrains.intellij.ce$",
-                                "^com.google.android.studio"
+                                "^com.google.android.studio",
+                                "^com.google.Chrome$",
+                                "^org.chromium.Chromium$"
                             ]
                         }
                     ]

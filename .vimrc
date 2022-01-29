@@ -23,10 +23,6 @@ au BufRead,BufNewFile *.lib set filetype=sh
     inoremap ¬ <c-^>
     "restore last known position
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-    if exists('g:started_by_firenvim')
-        set guifont=FiraCode_Nerd_Font_Mono:h23
-    endif
-
     "PERSISTENT UNDO
         set undofile
         set undodir=$HOME/.vim/undo
@@ -37,7 +33,14 @@ au BufRead,BufNewFile *.lib set filetype=sh
     filetype plugin indent on
     nnoremap <space>c :call Calc()<CR>     
     let g:airline#extensions#keymap#enabled = 0
-    silent! helptags ALL
+
+    "FIREVIM
+        if exists('g:started_by_firenvim')
+            set guifont=FiraCode_Nerd_Font_Mono:h22
+            "set guifont=CaskaydiaCove_Nerd_Font_Mono:h16
+set background=dark
+            colorscheme PaperColor
+        endif
 "NAVIGATION
     " set current path
     nnoremap <leader>cd :cd %:p:h<CR>
