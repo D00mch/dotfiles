@@ -38,8 +38,25 @@ au BufRead,BufNewFile *.lib set filetype=sh
         if exists('g:started_by_firenvim')
             set guifont=FiraCode_Nerd_Font_Mono:h22
             "set guifont=CaskaydiaCove_Nerd_Font_Mono:h16
-set background=dark
+            set background=dark
             colorscheme PaperColor
+            "SAVING BACKUPS
+                let g:timer_started = v:false
+                function! Write_Backup(timer) abort
+                  let g:timer_started = v:false
+                  write! /tmp/firenvim_backup.txt
+                endfunction
+                
+                function! On_Text_Changed() abort
+                  if g:timer_started
+                    return
+                  end
+                  let g:timer_started = v:true
+                  call timer_start(10000, 'Write_Backup')
+                endfunction
+                
+                au TextChanged * ++nested call On_Text_Changed()
+                au TextChangedI * ++nested call On_Text_Changed()
         endif
 "NAVIGATION
     " set current path
