@@ -62,3 +62,6 @@
 [submodule ".vim/pack/plugins/start/firenvim"]
 	path = .vim/pack/plugins/start/firenvim
 	url = https://github.com/glacambre/firenvim.git
+[submodule ".vim/pack/plugins/start/vim-startify"]
+	path = .vim/pack/plugins/start/vim-startify
+	url = https://github.com/mhinz/vim-startify.git

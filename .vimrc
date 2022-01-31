@@ -61,21 +61,21 @@ au BufRead,BufNewFile *.lib set filetype=sh
 
             "AREA
                 function! OnUIEnter(event) abort
-                    set lines=20
+                    set lines=10
                 endfunction
                 autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
 
             "TAKEOVER
                 let g:firenvim_config = { 
                     \ 'globalSettings': {
-                        \ 'alt': 'all',
+                        \ 'cmd': 'all',
                     \  },
                     \ 'localSettings': {
                         \ '.*': {
                             \ 'cmdline': 'neovim',
                             \ 'content': 'text',
                             \ 'priority': 0,
-                            \ 'selector': 'textarea',
+                            \ 'selector': 'textarea:not([readonly]), div[role="textbox"]',
                             \ 'takeover': 'empty',
                         \ },
                     \ }
@@ -135,6 +135,35 @@ au BufRead,BufNewFile *.lib set filetype=sh
 
         "alt + w
         nmap ∑ <C-W>
+    "STARTIFY
+        "help functions
+            function! s:gitModified()
+                let files = systemlist('git ls-files -m 2>/dev/null')
+                return map(files, "{'line': v:val, 'path': v:val}")
+            endfunction
+
+            function! s:gitUntracked()
+                let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
+                return map(files, "{'line': v:val, 'path': v:val}")
+            endfunction
+
+    let g:startify_change_to_vcs_root = 1
+    let g:startify_lists = [
+        \ { 'type': 'sessions',  'header': ['   Sessions']       },
+        \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+        \ { 'type': 'files',     'header': ['   Files']            },
+        \ { 'type': 'dir',       'header': ['   Dir '. getcwd()] },
+        \ { 'type': function('s:gitModified'),  'header': ['   git modified']},
+        \ { 'type': function('s:gitUntracked'), 'header': ['   git untracked']},
+        \ { 'type': 'commands',  'header': ['   Commands']       },
+        \ ]
+    let g:startify_bookmarks = [
+                \ { 'e': '~/dotfiles/.zshenv' },
+                \ { 'v': '~/dotfiles/.vimrc' },
+                \ { 'z': '~/dotfiles/.zshrc' },
+                \ { 'w': '~/work/todos.wiki' },
+                \ '~/work/.aliases.',
+                \ ]
 "SYNTAX
     "INDENTS
         set fdm=syntax
@@ -166,6 +195,10 @@ au BufRead,BufNewFile *.lib set filetype=sh
             inoremap <c-l> <c-^>
             "alt + l
             inoremap ¬ <c-^>
+            "change to russian and go in insert mode
+            nmap <silent> <space>r :set iminsert=1 imsearch=1<cr>a
+            nmap <silent> <space>e :set iminsert=0 imsearch=0<cr>a
+
     "VIM-WIKI
         let g:vimwiki_list = [{'path':'~/Yandex.Disk.localized/notes/wiki', 'path_html':'~/Yandex.Disk.localized/notes/export/xml'}]
         let g:vimwiki_folding='syntax'
