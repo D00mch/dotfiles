@@ -19,8 +19,8 @@ au BufRead,BufNewFile *.lib set filetype=sh
 
 "EDITING
     nnoremap U <C-r>
-    "alt + w
-    inoremap ¬ <c-^>
+    "alt + w  to remove
+    inoremap ¬ <c-w>
     "restore last known position
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
     "PERSISTENT UNDO
@@ -38,7 +38,7 @@ au BufRead,BufNewFile *.lib set filetype=sh
         if exists('g:started_by_firenvim')
             " set guifont=FiraCode_Nerd_Font_Mono:h22
             set guifont=CaskaydiaCove_Nerd_Font_Mono:h16
-            set background=dark
+            set bg=light
             colorscheme PaperColor
 
             "SAVING BACKUPS
@@ -64,6 +64,22 @@ au BufRead,BufNewFile *.lib set filetype=sh
                     set lines=20
                 endfunction
                 autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
+
+            "TAKEOVER
+                let g:firenvim_config = { 
+                    \ 'globalSettings': {
+                        \ 'alt': 'all',
+                    \  },
+                    \ 'localSettings': {
+                        \ '.*': {
+                            \ 'cmdline': 'neovim',
+                            \ 'content': 'text',
+                            \ 'priority': 0,
+                            \ 'selector': 'textarea',
+                            \ 'takeover': 'empty',
+                        \ },
+                    \ }
+                \ }
 
         endif
 "NAVIGATION
