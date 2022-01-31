@@ -36,10 +36,11 @@ au BufRead,BufNewFile *.lib set filetype=sh
 
     "FIREVIM
         if exists('g:started_by_firenvim')
-            set guifont=FiraCode_Nerd_Font_Mono:h22
-            "set guifont=CaskaydiaCove_Nerd_Font_Mono:h16
+            " set guifont=FiraCode_Nerd_Font_Mono:h22
+            set guifont=CaskaydiaCove_Nerd_Font_Mono:h16
             set background=dark
             colorscheme PaperColor
+
             "SAVING BACKUPS
                 let g:timer_started = v:false
                 function! Write_Backup(timer) abort
@@ -57,6 +58,13 @@ au BufRead,BufNewFile *.lib set filetype=sh
                 
                 au TextChanged * ++nested call On_Text_Changed()
                 au TextChangedI * ++nested call On_Text_Changed()
+
+            "AREA
+                function! OnUIEnter(event) abort
+                    set lines=20
+                endfunction
+                autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
+
         endif
 "NAVIGATION
     " set current path
