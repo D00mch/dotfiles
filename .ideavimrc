@@ -95,6 +95,7 @@ let mapleader=","
     nnoremap yif :action YankInForm<cr>
     nnoremap caf :action ChangeAForm<cr>i
     nnoremap cif :action ChangeInForm<cr>i
+    nnoremap <space>f :action :cursive.actions.paredit/cycle-collection-type<cr>
 
 "idea complements
     nnoremap <Leader>k :action Run<cr>
@@ -151,6 +152,9 @@ let mapleader=","
     nnoremap <Leader>hh :action QuickJavaDoc<cr>
     nnoremap <Leader>rfu :action FindUsages<cr>
     nnoremap <Leader>= :action ReformatCode<cr>
+
+    set iskeyword=@,48-57,_,192-255,-,*,!,+,=,<,>,.,:,$
+
 "Python
     "vnoremap <Leader>ev :action ExecuteInPyConsoleAction<cr>
     "nnoremap <Leader>ss :action com.jetbrains.python.console.RunPythonConsoleAction<cr>
