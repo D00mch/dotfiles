@@ -106,9 +106,13 @@ au BufRead,BufNewFile *.lib set filetype=sh
     set path=$PWD/**  
     noremap <space>h ^
     noremap <space>l g_
+
     "alt + q
-    nnoremap œ :xa!<cr>
-    map <m-q> :xa!<cr>
+    function! ShutUpAndClose()
+      execute ":w"
+      execute ":q!"
+    endfunction
+    nnoremap œ :call ShutUpAndClose()<CR>
 
     "TABS
         nmap gh gT
