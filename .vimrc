@@ -36,10 +36,33 @@ au BufRead,BufNewFile *.lib set filetype=sh
 
     "FIREVIM
         if exists('g:started_by_firenvim')
-            " set guifont=FiraCode_Nerd_Font_Mono:h22
-            set guifont=CaskaydiaCove_Nerd_Font_Mono:h16
             set bg=light
             colorscheme PaperColor
+
+            "FONTSIZE AND AREA
+            set guifont=CaskaydiaCove_Nerd_Font_Mono:h16
+            " set guifont=FiraCode_Nerd_Font_Mono:h22
+
+            let s:fontsize = 16
+            function! AdjustFontSizeF(amount)
+              let s:fontsize = s:fontsize+a:amount
+              execute "set guifont=CaskaydiaCove_Nerd_Font_Mono:h" . s:fontsize
+              call rpcnotify(0, 'Gui', 'WindowMaximized', 1)
+            endfunction
+
+            noremap  <C-=> :call AdjustFontSizeF(1)<CR>
+            noremap  <C--> :call AdjustFontSizeF(-1)<CR>
+
+            let s:lines = 10
+            let s:columns = 70
+            function! AdjustLines(amount)
+              let s:lines = s:lines+a:amount
+              let s:columns = s:columns+a:amount
+              execute "set lines=" . s:lines . " columns=" . s:columns
+            endfunction
+
+            noremap  ≠ :call AdjustLines(1)<CR>
+            noremap  – :call AdjustLines(-1)<CR>
 
             "SAVING BACKUPS
                 let g:timer_started = v:false
@@ -59,12 +82,6 @@ au BufRead,BufNewFile *.lib set filetype=sh
                 au TextChanged * ++nested call On_Text_Changed()
                 au TextChangedI * ++nested call On_Text_Changed()
 
-            "AREA
-                function! OnUIEnter(event) abort
-                    set lines=10
-                endfunction
-                autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
-
             "TAKEOVER
                 let g:firenvim_config = { 
                     \ 'globalSettings': {
@@ -75,8 +92,8 @@ au BufRead,BufNewFile *.lib set filetype=sh
                             \ 'cmdline': 'neovim',
                             \ 'content': 'text',
                             \ 'priority': 0,
-                            \ 'selector': 'textarea:not([readonly]), div[role="textbox"]',
-                            \ 'takeover': 'empty',
+                            \ 'selector': 'textarea',
+                            \ 'takeover': 'never',
                         \ },
                     \ }
                 \ }
