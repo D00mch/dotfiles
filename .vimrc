@@ -109,8 +109,8 @@ au BufRead,BufNewFile *.lib set filetype=sh
 
     "alt + q
     function! ShutUpAndClose()
-      execute ":w"
-      execute ":q!"
+      execute ":wa"
+      execute ":qa!"
     endfunction
     nnoremap œ :call ShutUpAndClose()<CR>
 
