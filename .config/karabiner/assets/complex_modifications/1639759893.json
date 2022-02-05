@@ -39,6 +39,26 @@
                     }
                 }
             ]
+        },
+        {
+            "description": "left cmd + d = return",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "d",
+                        "modifiers": {  
+                            "optional": [ "any" ], 
+                            "mandatory": [ "left_command" ] 
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "return_or_enter"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
