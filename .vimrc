@@ -114,6 +114,9 @@ au BufRead,BufNewFile *.lib set filetype=sh
     endfunction
     nnoremap œ :call ShutUpAndClose()<CR>
 
+    "alt + s
+    noremap ß :wa<CR>
+
     "TABS
         nmap gh gT
         nmap gl gt
