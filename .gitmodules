@@ -56,9 +56,6 @@
 [submodule ".vim/pack/plugins/start/vim-slime"]
 	path = .vim/pack/plugins/start/vim-slime
 	url = https://github.com/jpalardy/vim-slime.git
-[submodule ".vim/pack/plugins/start/neoterm"]
-	path = .vim/pack/plugins/start/neoterm
-	url = https://github.com/kassio/neoterm.git
 [submodule ".vim/pack/plugins/start/firenvim"]
 	path = .vim/pack/plugins/start/firenvim
 	url = https://github.com/glacambre/firenvim.git
