@@ -65,3 +65,6 @@
 [submodule ".vim/pack/plugins/start/vim-fugitive"]
 	path = .vim/pack/plugins/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule ".vim/pack/plugins/start/kotlin-vim"]
+	path = .vim/pack/plugins/start/kotlin-vim
+	url = https://github.com/udalov/kotlin-vim.git
