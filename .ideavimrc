@@ -137,10 +137,12 @@ let mapleader=","
     nnoremap <Leader>ss :action :cursive.repl.actions/jump-to-repl<cr>
     nnoremap <Leader>eb :action :cursive.repl.actions/load-file<cr>
     nnoremap <Leader>em :action :cursive.repl.actions/macroexpansion<cr>
-    nnoremap <Leader>ee :action :cursive.repl.actions/run-last-sexp<cr>
+    nnoremap <Leader>se :action :cursive.repl.actions/run-last-sexp<cr>
+    nnoremap <Leader>ee :action Clj.Stuff.EvaluatePrevForm<cr>
     nnoremap <Leader>sv :action :cursive.repl.actions/send-selection<cr>
     "nnoremap <Leader>eb :action Flutter.Toolbar.ReloadAction<cr>
-    nnoremap <Leader>ef :action :cursive.repl.actions/run-top-sexp<cr>
+    nnoremap <Leader>sf :action :cursive.repl.actions/run-top-sexp<cr>
+    nnoremap <Leader>ef :action Clj.Stuff.EvaluateTopForm<cr>
     nnoremap <space>e :action Cursive.Repl.Command.eval-to-file<cr> :action Synchronize<cr>
     nnoremap <Leader>sn :action :cursive.repl.actions/switch-namespace<cr>
     nnoremap <Leader>sx :action :cursive.repl.actions/sync-files<cr>
@@ -153,7 +155,7 @@ let mapleader=","
     nnoremap <Leader>rfu :action FindUsages<cr>
     nnoremap <Leader>= :action ReformatCode<cr>
 
-    set iskeyword=@,48-57,_,192-255,-,*,!,+,=,<,>,:,$
+    set iskeyword=@,48-57,_,192-255,-,—,–,*,!,+,=,<,>,$
 
 "Python
     "vnoremap <Leader>ev :action ExecuteInPyConsoleAction<cr>
