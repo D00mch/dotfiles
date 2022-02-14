@@ -28,6 +28,10 @@ au BufRead,BufNewFile *.lib set filetype=sh
         set undodir=$HOME/.vim/undo
         set undolevels=1000
         set undoreload=10000
+    "COPY FILE, PATH
+    nnoremap yp :let @+=expand("%:p")<cr>:echom expand("%:p")<cr>
+    nnoremap yd :let @+=expand("%:p:h")<cr>:echom expand("%:p:h")<cr>
+
 "PLUGINS SETUPS
     filetype plugin on
     filetype plugin indent on
