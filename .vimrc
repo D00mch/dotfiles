@@ -32,8 +32,10 @@ set cursorcolumn
         set undolevels=1000
         set undoreload=10000
     "COPY FILE, PATH
-    nnoremap yp :let @+=expand("%:p")<cr>:echom expand("%:p")<cr>
-    nnoremap yd :let @+=expand("%:p:h")<cr>:echom expand("%:p:h")<cr>
+        nnoremap yp :let @+=expand("%:p")<cr>:echom expand("%:p")<cr>
+        nnoremap yd :let @+=expand("%:p:h")<cr>:echom expand("%:p:h")<cr>
+    "PASTE LINE BELOW
+        nnoremap cl mX"9yy"9p`Xj
 
 "PLUGINS SETUPS
     filetype plugin on

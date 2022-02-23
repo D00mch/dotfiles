@@ -34,6 +34,8 @@ hi Search ctermfg=3
 
 "editing
     nnoremap U <C-r>
+    " duplicate line but preserve cursor position and the clipboard
+    nnoremap cl mX"9yy"9p`Xj
 
 "search
 set ignorecase
