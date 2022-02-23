@@ -17,6 +17,9 @@ set background=dark
 colorscheme PaperColor
 au BufRead,BufNewFile *.lib set filetype=sh
 
+set cursorline
+set cursorcolumn
+
 "EDITING
     nnoremap U <C-r>
     "alt + w  to remove
