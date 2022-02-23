@@ -229,8 +229,8 @@ set cursorcolumn
             "alt + l
             inoremap ¬ <c-^>
             "change to russian and go in insert mode
-            nmap <silent> <space>r :set iminsert=1 imsearch=1<cr>a
-            nmap <silent> <space>e :set iminsert=0 imsearch=0<cr>a
+            nmap <silent> <space>r :set iminsert=1 imsearch=1<cr>
+            nmap <silent> <space>e :set iminsert=0 imsearch=0<cr>
 
     "VIM-WIKI
         let g:vimwiki_list = [{'path':'~/Yandex.Disk.localized/notes/wiki', 'path_html':'~/Yandex.Disk.localized/notes/export/xml'}]
