@@ -53,7 +53,7 @@ export VI_MODE_SET_CURSOR=true
 
 # vim start
 
-ZSH_THEME="blinks"
+ZSH_THEME="strug"
 plugins=(
     git
     adb
@@ -69,7 +69,7 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 
-source ~/.ssh-aliases.sh
+# source ~/.ssh-aliases.sh
 
 # git start
 speedUpGit(){
