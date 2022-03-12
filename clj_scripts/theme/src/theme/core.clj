@@ -144,8 +144,8 @@
   (if system-osx?
     (clojure.java.shell/sh
       "sh" "-c"
-      (str "/usr/bin/automator "
-           (expand-home "~/Library/Services/DarkMode.workflow")))
+      "osascript -e 'tell application \"System Events\" to tell appearance preferences to set dark mode to not dark mode'"
+      )
     (if (= input "b")
       (do
         (desktop-xfce-set-theme :property "ThemeName" :theme "Arc-Maia-Dark")
@@ -176,14 +176,14 @@
 
 ;; TODO: parse pixel patterns or find api
 (defn telegram-toggle-dark-mode! []
-  (open-app! "telegram")
-  (r/sleep 240)
-  (r/mouse-move! 26 70)
-  (r/sleep 370)
-  (r/mouse-click!)
-  (r/sleep 450)
-  (r/mouse-move! 272 469)
-  (r/mouse-click!))
+  (when (empty? (:err (open-app! "telegram")))
+    (r/sleep 240)
+    (r/mouse-move! 26 70)
+    (r/sleep 370)
+    (r/mouse-click!)
+    (r/sleep 450)
+    (r/mouse-move! 272 469)
+    (r/mouse-click!)))
 
 (defn -main
   "I don't do a whole lot ... yet."
