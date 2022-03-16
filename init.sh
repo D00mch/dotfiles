@@ -9,6 +9,8 @@ ln    -s   $DOTFILES_PATH/.zshenv                    ~/
 ln    -s   $DOTFILES_PATH/.zshrc                     ~/
 ln    -s   $DOTFILES_PATH/.ideavimrc                 ~/ 
 ln    -s   $DOTFILES_PATH/fuz.sh                     ~/ 
+ln    -s   $DOTFILES_PATH/.yabairc                   ~/ 
+ln    -s   $DOTFILES_PATH/.skhdrc                    ~/ 
 
 mkdir -p   ~/.config
 
