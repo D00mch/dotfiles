@@ -57,15 +57,10 @@ ZSH_THEME="strug"
 plugins=(
     git
     adb
-    gradle
     vi-mode
     python
-    postgres
-    docker
-    docker-compose
     lein
     brew
-    kubectl
 )
 source $ZSH/oh-my-zsh.sh
 
