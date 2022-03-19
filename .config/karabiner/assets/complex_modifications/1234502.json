@@ -289,7 +289,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "v",
+            "key_code": "a",
             "modifiers": {
               "optional": [
                 "any"
@@ -298,10 +298,7 @@
           },
           "to": [
             {
-              "pointing_button": "button1",
-              "mouse_key": {
-                "speed_multiplier": 4.0
-              }
+              "pointing_button": "button1"
             }
           ],
           "conditions": [
@@ -315,7 +312,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "b",
+            "key_code": "w",
             "modifiers": {
               "optional": [
                 "any"
@@ -338,7 +335,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "n",
+            "key_code": "s",
             "modifiers": {
               "optional": [
                 "any"
