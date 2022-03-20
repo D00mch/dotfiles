@@ -9,7 +9,8 @@ export PATH="/usr/local/sbin:$PATH"
 #export PATH=$ANDROID_HOME/platform-tools:$PATH
 #export PATH=$ANDROID_HOME/build-tools/29.0.3:$PATH
 #export ANDROID_NDK=~/android-ndk-r20b
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+export PATH="$HOME/.jenv/bin:$PATH"
 
 export EDITOR='vim'
 bindkey -v

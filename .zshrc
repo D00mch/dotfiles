@@ -64,6 +64,8 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 
+eval "$(jenv init -)"
+
 # source ~/.ssh-aliases.sh
 
 # git start
