@@ -19,18 +19,18 @@ yabai -m config mouse_follows_focus          on
 yabai -m config focus_follows_mouse          off
 yabai -m config window_placement             second_child
 yabai -m config window_topmost               on
-yabai -m config window_shadow                on
-yabai -m config window_opacity               off
+yabai -m config window_shadow                off
+yabai -m config window_opacity               on
 yabai -m config window_opacity_duration      0.0
 yabai -m config active_window_opacity        1.0
 yabai -m config normal_window_opacity        0.90
 yabai -m config window_border                off
 yabai -m config window_border_width          6
 yabai -m config active_window_border_color   0xff775759
-yabai -m config normal_window_border_color   0xff555555
+yabai -m config normal_window_border_color   0x00FFFFFF
 yabai -m config insert_feedback_color        0xffd75f5f
 yabai -m config split_ratio                  0.50
-yabai -m config auto_balance                 on
+yabai -m config auto_balance                 off
 yabai -m config mouse_modifier               fn
 yabai -m config mouse_action1                move
 yabai -m config mouse_action2                resize
@@ -45,3 +45,10 @@ yabai -m config right_padding                0
 yabai -m config window_gap                   0
 
 echo "yabai configuration loaded.."
+
+# automation for common apps
+# yabai -m query --windows | jq ".[] | { App: .app, Title: .title }" |vim 
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^Karabiner-Elements$" manage=off
+yabai -m rule --add app="^System Information$" manage=off
+yabai -m rule --add app="^IntelliJ IDEA$" title="(Preferences|Project Structure)" manage=off

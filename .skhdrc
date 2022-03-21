@@ -29,6 +29,9 @@ alt - t : yabai -m window --toggle float;\
 # go zoom fullscreen
 alt - f : yabai -m window --toggle zoom-fullscreen
 
+# toggle split type
+alt - e : yabai -m window --toggle split
+
 # send window to desktop
 shift + alt - x : yabai -m window --space recent
 shift + alt - 1 : yabai -m window --space 1
