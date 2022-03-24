@@ -10,6 +10,7 @@ set clipboard=unnamed
 set ideamarks
 set ideajoin
 set NERDTree
+set ReplaceWithRegister
 set highlightedyank
 set commentary
 set fdm=indent

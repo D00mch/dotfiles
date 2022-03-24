@@ -71,3 +71,6 @@
 [submodule ".vim/pack/plugins/start/limelight.vim"]
 	path = .vim/pack/plugins/start/limelight.vim
 	url = https://github.com/junegunn/limelight.vim.git
+[submodule ".vim/pack/plugins/start/ReplaceWithRegister"]
+	path = .vim/pack/plugins/start/ReplaceWithRegister
+	url = https://github.com/vim-scripts/ReplaceWithRegister.git
