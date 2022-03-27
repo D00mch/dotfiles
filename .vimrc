@@ -239,6 +239,7 @@ set cursorcolumn
         let g:vimwiki_folding='syntax'
         let g:vimwiki_table_mappings=0
         au filetype vimwiki silent! unmap <buffer> <Tab>
+        autocmd BufWinEnter *.md setlocal syntax=markdown
     "MULTILINES 
         " noremap  <buffer> <silent> k gk
         " noremap  <buffer> <silent> j gj

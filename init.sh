@@ -12,6 +12,8 @@ ln    -s   $DOTFILES_PATH/fuz.sh                     ~/
 ln    -s   $DOTFILES_PATH/.yabairc                   ~/ 
 ln    -s   $DOTFILES_PATH/.skhdrc                    ~/ 
 
+touch ~/.ssh-aliases.sh # zshrc source it
+
 mkdir -p   ~/.config
 
 ln    -s   $DOTFILES_PATH/.config/nvim               ~/.config/

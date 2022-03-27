@@ -14,26 +14,9 @@ alias btheme="theme 'b'"
 alias c="clear"
 alias fz='bash ~/dotfiles/fuz.sh'
 
-alias todo='vim ~/wiki/index.md'
-alias nt='vim ~/wiki/todo.md'
-
-# python on mac
-alias python=/usr/local/bin/python3.8
-alias pip=/usr/local/bin/pip3.8
-
-# android commands start
-alias apkinstall="adb devices | tail -n +2 | cut -sf 1 | xargs -I X adb -s X install -r $1"
-alias ai="apkinstall"
-alias rmapp="adb devices | tail -n +2 | cut -sf 1 | xargs -I X adb -s X uninstall $1"
-alias clearappcache='adb shell pm clear $1'
-alias adb_root_remount_shell="adb root; adb remount; adb shell"
-# android commands end
-
-#translation start
-alias р='trans -b ru:en'
-alias e='trans en:ru -brief'
-alias eng='trans en:ru'
-#translation end
+# notes
+alias todo='vim ~/wiki/todo.md'
+alias nt='vim ~/wiki/index.md'
 
 # settings files start
 alias zshrc='vim ~/dotfiles/.zshrc'
@@ -41,19 +24,12 @@ alias vimrc='vim ~/dotfiles/.vimrc'
 alias inputrc='vim ~/dotfiles/.inputrc'
 alias idearc='vim ~/dotfiles/.ideavimrc'
 alias zathurarc='vim ~/.config/zathura/zathurarc'
-# settings files end
-
-# gradle start
-alias stop='./gradlew --stop'
-alias gc='./gradlew clean'
-# gradle end
+alias hotkeys='vim ~/.skhdrc'
 
 # vim start
 bindkey -v
 export KEYTIMEOUT=1
 export VI_MODE_SET_CURSOR=true
-
-# vim start
 
 ZSH_THEME="strug"
 plugins=(
@@ -68,15 +44,11 @@ source $ZSH/oh-my-zsh.sh
 
 eval "$(jenv init -)"
 
-# source ~/.ssh-aliases.sh
+source ~/.ssh-aliases.sh
 
 # git start
 speedUpGit(){
     git config --add oh-my-zsh.hide-status 1
     git config --add oh-my-zsh.hide-dirty 1
 }
-# git end
 
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
