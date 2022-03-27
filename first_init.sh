@@ -7,6 +7,8 @@ cd ~
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # prepare dotfiles (after installing zsh) 
+rm -rf ~/.zshenv
+rm -rf ~/.zshrc
 bash init.sh
 
 # installing brew
@@ -24,6 +26,7 @@ brew install the_silver_searcher # ag
 brew install --cask karabiner-elements
 brew install jenv
 brew install java
+brew install node npm # for vim coc-explorer
 
 # start services
 brew services start skhd
