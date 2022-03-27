@@ -14,6 +14,9 @@ alias btheme="theme 'b'"
 alias c="clear"
 alias fz='bash ~/dotfiles/fuz.sh'
 
+alias todo='vim ~/wiki/index.md'
+alias nt='vim ~/wiki/todo.md'
+
 # python on mac
 alias python=/usr/local/bin/python3.8
 alias pip=/usr/local/bin/pip3.8
