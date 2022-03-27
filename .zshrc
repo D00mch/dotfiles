@@ -1,6 +1,7 @@
 # help commands start
 alias vim=nvim
 alias v=vim
+alias vi=vim
 alias s='source ~/.zshrc; source ~/.zshenv'
 alias ..='cd ../'
 alias ...='cd ../../'
