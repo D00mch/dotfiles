@@ -7,6 +7,9 @@
 [submodule ".vim/pack/plugins/start/ack.vim"]
 	path = .vim/pack/plugins/start/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
+[submodule ".vim/pack/plugins/start/vimwiki"]
+	path = .vim/pack/plugins/start/vimwiki
+	url = https://github.com/vimwiki/vimwiki.git
 [submodule ".vim/pack/plugins/start/vim-sexp"]
 	path = .vim/pack/plugins/start/vim-sexp
 	url = https://github.com/guns/vim-sexp.git
@@ -37,6 +40,9 @@
 [submodule ".vim/pack/plugins/start/nerdtree"]
 	path = .vim/pack/plugins/start/nerdtree
 	url = https://github.com/preservim/nerdtree.git
+[submodule ".vim/pack/plugins/start/vim-misc"] # need it for some plugins like vim-wiki
+	path = .vim/pack/plugins/start/vim-misc
+	url = https://github.com/xolox/vim-misc.git
 [submodule ".vim/pack/plugins/start/vim-highlightedyank"]
 	path = .vim/pack/plugins/start/vim-highlightedyank
 	url = https://github.com/machakann/vim-highlightedyank.git

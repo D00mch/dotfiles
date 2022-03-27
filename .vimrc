@@ -231,6 +231,11 @@ set cursorcolumn
             "change to russian and go in insert mode
             nmap <silent> <space>r :set iminsert=1 imsearch=1<cr>
             nmap <silent> <space>e :set iminsert=0 imsearch=0<cr>
+
+    "VIM-WIKI
+        let g:vimwiki_list = [{'path':'~/Yandex.Disk.localized/notes/wiki', 'path_html':'~/Yandex.Disk.localized/notes/export/xml'}]
+        let g:vimwiki_folding='syntax'
+        let g:vimwiki_table_mappings=0
     "MULTILINES 
         " noremap  <buffer> <silent> k gk
         " noremap  <buffer> <silent> j gj
