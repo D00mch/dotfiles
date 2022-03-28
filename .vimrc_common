@@ -1,0 +1,78 @@
+set relativenumber
+set number
+set clipboard+=unnamed  "for osx
+set nocompatible
+
+let mapleader=","
+let maplocalleader=","
+
+set cursorline
+set cursorcolumn
+
+"EDITING
+    nnoremap U <C-r>
+
+    "PASTE BELOW
+        "current line
+        nnoremap cl mX"9yy"9p`Xj
+        "empty line
+        nnoremap <space>o o<Esc><Esc>
+    "SAVING
+        "alt + q
+        function! ShutUpAndClose()
+          execute ":wa"
+          execute ":qa!"
+        endfunction
+        nnoremap œ :call ShutUpAndClose()<CR>
+
+        "alt + s
+        noremap ß :wa<CR>
+
+"NAVIGATION
+    " set current path
+    nnoremap <leader>cd :cd %:p:h<CR>
+
+    " to be able to search on files through path
+    set path=$PWD/**  
+    noremap <space>h ^
+    noremap <space>l g_
+
+    nnoremap <space><tab> :e#<cr>
+
+    "TABS
+        nmap gh gT
+        nmap gl gt
+
+    "SPACEMACS-LIKE NAVIGATION COMMANDS
+        noremap <space>bd :bd<cr>
+
+    "SEARCH
+        set ignorecase
+        set incsearch
+        set hlsearch
+
+    "SMART WAY TO MOVE BETWEEN WINDOWS
+        "alt + j
+        nmap ∆ <C-W>j
+        "alt + k
+        nmap ˚ <C-W>k
+        "alt + h
+        nmap ˙ <C-W>h
+        "alt + l
+        nmap ¬ <C-W>l 
+
+        "alt + w
+        nmap ∑ <C-W>
+
+"SYNTAX
+    "INDENTS
+        set fdm=syntax
+        autocmd Filetype vim set fdm=indent
+        autocmd BufRead *.txt set fdm=indent
+    "TABS
+        nmap <tab> :noh<Enter>:echom ""<Enter>
+        set smartindent
+        set shiftwidth=4 smarttab expandtab
+        set tags=./tags,tags;$HOME
+
+"END

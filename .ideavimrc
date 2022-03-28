@@ -1,165 +1,124 @@
 " see all commands for mapping with :actionlist
 " to update idea, type              :source ~/.ideavimrc
 
+source ~/.vimrc_common
+
 set backspace=indent,eol,start
 set visualbell
 set ideavimsupport=+singleline,dialog
-set relativenumber
-set number
-set clipboard=unnamed
-set ideamarks
 set ideajoin
-set NERDTree
 set ReplaceWithRegister
-set highlightedyank
-set commentary
-set fdm=indent
 
-" need ideavim extension plugin
-set keep-english-in-normal-and-restore-in-insert
+"PLUGINS SETUPS
+    set ideamarks
+    set NERDTree
+    "needs ideavim extension plugin
+    set keep-english-in-normal-and-restore-in-insert
+    set highlightedyank
+    set commentary
 
-" Smart way to move between windows
-    "alt + j
-    nmap ∆ <C-W>j
-    "alt + k
-    nmap ˚ <C-W>k
-    "alt + h
-    nmap ˙ <C-W>h
-    "alt + l
-    nmap ¬ <C-W>l 
+"NAVIGATION
+    set path+=**
 
-    "alt + w
-    nmap ∑ <C-W>
-set nocompatible
-hi Search ctermfg=3
+    "SPACEMACS-LIKE
+        nnoremap <space>bb :action RecentFiles<cr>
+        nnoremap <space>pb :action RecentFiles<cr>
+        nnoremap <space>pt :action SelectInProjectView<cr>
+        nnoremap <space>bd :q<cr>
+        nnoremap <space>wu :action ReopenClosedTab<cr>
+        nnoremap <space>pf :action GotoFile<cr>
+        nnoremap <space>pa :action GotoSymbol<cr>
+        nnoremap <space>bm :action CloseAllEditors<cr>
+    "CIDER-LIKE
+        
+    "SEARCH
+        hi Search ctermfg=3
+    "TABS
+        nnoremap gh :action PreviousTab<cr>
+        nnoremap gl :action NextTab<cr>
 
-"editing
-    nnoremap U <C-r>
-    " duplicate line but preserve cursor position and the clipboard
-    nnoremap cl mX"9yy"9p`Xj
+"SYNTAX
+    "INDENTS
+        set fdm=indent
+    "ERRORS
+        nnoremap ]s :action GotoNextError<cr>
+        nnoremap [s :action GotoPreviousError<cr>
 
-"search
-set ignorecase
-set incsearch
-set hlsearch
+    "SPACEMACS-LIKE
+        map <space>; :action CommentByLineComment<cr>
+        nnoremap <Leader>k :action Run<cr>
+        nnoremap <Leader>dr :action Debug<cr>
+        nnoremap <Leader>de :action EvaluateExpression<cr>
+        nnoremap <Leader>sq :action Stop<cr>
+        "android complements
+        nnoremap <Leader>sg :action Android.SyncProject<cr>
+        nnoremap <Leader>db :action ToggleLineBreakpoint<cr>
+        nnoremap <Leader>hh :action QuickJavaDoc<cr>
+        nnoremap <Leader>rfu :action FindUsages<cr>
+        nnoremap <Leader>= :action ReformatCode<cr>
+        nnoremap <Leader>rr :action RenameElement<cr> 
+        nnoremap <Leader>ra :action Refactorings.QuickListPopupAction<cr> 
 
-set smartindent
-set shiftwidth=4 smarttab expandtab
+        "CLOJURE-EDITING
+            map <C-l> :action :cursive.actions.paredit/move-form-down<cr>
+            map <C-h> :action :cursive.actions.paredit/move-form-up<cr>
+            set iskeyword=@,48-57,_,192-255,-,—,–,*,!,+,=,<,>,$
+            nnoremap <Leader>rtf :action :cursive.actions.paredit/thread-form<cr>
+            nnoremap <Leader>@ :action :cursive.actions.paredit/splice<cr>
+            nnoremap <space>kr :action :cursive.actions.paredit/raise<cr>
+            nnoremap <space>kB :action :cursive.actions.paredit/barf-backwards<cr>
+            nnoremap <space>kb :action :cursive.actions.paredit/barf-forwards<cr>
+            nnoremap <space>kS :action :cursive.actions.paredit/slurp-backwards<cr>
+            nnoremap <space>ks :action :cursive.actions.paredit/slurp-forwards<cr>
+            nnoremap <space>ke :action :cursive.actions.paredit/splice-killing-backwards<cr>
+            nnoremap <space>kE :action :cursive.actions.paredit/splice-killing-forwards<cr>
+            nmap <Leader>o :action :cursive.actions.paredit/raise<cr>
+            vnoremap <Leader>o :action :cursive.actions.paredit/raise<cr>
 
-set path+=**
-set tags=./tags,tags;$HOME
+        "CLOJURE-REPL
+            nnoremap <C-c><C-c> :action :cursive.repl.actions/interrupt<cr>
+            nnoremap <Leader>sp :action :cursive.repl.actions/jump-to-output<cr>
+            nnoremap <Leader>ss :action :cursive.repl.actions/jump-to-repl<cr>
+            nnoremap <Leader>eb :action :cursive.repl.actions/load-file<cr>
+            nnoremap <Leader>em :action :cursive.repl.actions/macroexpansion<cr>
+            nnoremap <Leader>se :action :cursive.repl.actions/run-last-sexp<cr>
+            nnoremap <Leader>sv :action :cursive.repl.actions/send-selection<cr>
+            nnoremap <Leader>sf :action :cursive.repl.actions/run-top-sexp<cr>
+            nnoremap <Leader>ef :action Clj.Stuff.EvaluateTopForm<cr>
+            nnoremap <Leader>sn :action :cursive.repl.actions/switch-namespace<cr>
+            nnoremap <Leader>sx :action :cursive.repl.actions/sync-files<cr>
+            nnoremap <Leader>ee :action Clj.Stuff.EvaluatePrevForm<cr>
+            "https://www.reddit.com/r/Clojure/comments/lzx0zb/did_you_know_that_ideacursive_repl_results_may_be/
+            nnoremap <space>e :action Cursive.Repl.Command.eval-to-file<cr> :action Synchronize<cr>
 
-"escaping to the normal mode with Tab.
-"See there why this takes place: http://vim.wikia.com/wiki/Avoid_the_escape_key
-    vnoremap <tab> <esc>
-    inoremap <tab> <esc>
-    inoremap <S-tab> <space><space><space><space>
-    nmap <tab> :noh<Enter>:echom ""<Enter>
-    nnoremap r<tab> <nop>
+        "LISP-FORMS WRAP/SELECT
+            nmap <Leader>w :action :cursive.actions.paredit/wrap-paren<cr>
+            vnoremap <Leader>w :action :cursive.actions.paredit/wrap-paren<cr>
+            nmap <Leader>] :action :cursive.actions.paredit/wrap-square<cr>
+            nmap <Leader>[ :action :cursive.actions.paredit/wrap-square<cr>
+            vnoremap <Leader>] :action :cursive.actions.paredit/wrap-square<cr>
+            vnoremap <Leader>[ :action :cursive.actions.paredit/wrap-square<cr>
+            nmap <Leader>" :action :cursive.actions.paredit/wrap-quotes<cr>
+            vnoremap <Leader>" :action :cursive.actions.paredit/wrap-quotes<cr>
+            nmap <Leader>} :action :cursive.actions.paredit/wrap-curly<cr>
+            nmap <Leader>{ :action :cursive.actions.paredit/wrap-curly<cr>
+            vnoremap <Leader>} :action :cursive.actions.paredit/wrap-curly<cr>
+            vnoremap <Leader>{ :action :cursive.actions.paredit/wrap-curly<cr>
+            nnoremap <Leader>c :action InsertClojureCommentAtTheFormStart<cr>
+            nnoremap vaf :action SelectAForm<cr>
+            nnoremap vif :action SelectInForm<cr>
+            nnoremap daf :action DeleteAForm<cr>
+            nnoremap dif :action DeleteInForm<cr>
+            nnoremap yaf :action YankAForm<cr>
+            nnoremap yif :action YankInForm<cr>
+            nnoremap caf :action ChangeAForm<cr>i
+            nnoremap cif :action ChangeInForm<cr>i
+            nnoremap <space>f :action :cursive.actions.paredit/cycle-collection-type<cr>
 
-"editing
-nnoremap <space>o o<Esc><Esc>
+        "CLOJURE-TESTS
+            nnoremap <Leader>tx :action :cursive.testing.actions/remove-test-markers<cr>
+            nnoremap <Leader>tr :action :cursive.testing.actions/rerun-last-test <cr>
+            nnoremap <Leader>ta :action :cursive.testing.actions/run-ns-tests <cr>
+            nnoremap <Leader>tt :action :cursive.testing.actions/run-single-test<cr>
 
-let mapleader=","
-
-
-"vim
-    nnoremap gh :action PreviousTab<cr>
-    nnoremap gl :action NextTab<cr>
-"navigation
-    noremap <space>h ^
-    noremap <space>l g_
-"cursive
-    nmap <Leader>w :action :cursive.actions.paredit/wrap-paren<cr>
-    vnoremap <Leader>w :action :cursive.actions.paredit/wrap-paren<cr>
-    
-    nmap <Leader>] :action :cursive.actions.paredit/wrap-square<cr>
-    nmap <Leader>[ :action :cursive.actions.paredit/wrap-square<cr>
-    vnoremap <Leader>] :action :cursive.actions.paredit/wrap-square<cr>
-    vnoremap <Leader>[ :action :cursive.actions.paredit/wrap-square<cr>
-    
-    nmap <Leader>" :action :cursive.actions.paredit/wrap-quotes<cr>
-    vnoremap <Leader>" :action :cursive.actions.paredit/wrap-quotes<cr>
-    
-    nmap <Leader>} :action :cursive.actions.paredit/wrap-curly<cr>
-    nmap <Leader>{ :action :cursive.actions.paredit/wrap-curly<cr>
-    vnoremap <Leader>} :action :cursive.actions.paredit/wrap-curly<cr>
-    vnoremap <Leader>{ :action :cursive.actions.paredit/wrap-curly<cr>
-    
-    nmap <Leader>o :action :cursive.actions.paredit/raise<cr>
-    vnoremap <Leader>o :action :cursive.actions.paredit/raise<cr>
-
-    nnoremap <Leader>c :action InsertClojureCommentAtTheFormStart<cr>
-    nnoremap vaf :action SelectAForm<cr>
-    nnoremap vif :action SelectInForm<cr>
-    nnoremap daf :action DeleteAForm<cr>
-    nnoremap dif :action DeleteInForm<cr>
-    nnoremap yaf :action YankAForm<cr>
-    nnoremap yif :action YankInForm<cr>
-    nnoremap caf :action ChangeAForm<cr>i
-    nnoremap cif :action ChangeInForm<cr>i
-    nnoremap <space>f :action :cursive.actions.paredit/cycle-collection-type<cr>
-
-"idea complements
-    nnoremap <Leader>k :action Run<cr>
-    nnoremap <Leader>dr :action Debug<cr>
-    nnoremap <Leader>de :action EvaluateExpression<cr>
-    nnoremap <Leader>sq :action Stop<cr>
-"android complements
-    nnoremap <Leader>sg :action Android.SyncProject<cr>
-"spacemacs
-    nnoremap <space>bb :action RecentFiles<cr>
-    nnoremap <space>pb :action RecentFiles<cr>
-    nnoremap <space>pt :action SelectInProjectView<cr>
-    nnoremap <space>bd :q<cr>
-    nnoremap <space>wu :action ReopenClosedTab<cr>
-    nnoremap <space>pf :action GotoFile<cr>
-    nnoremap <space>pa :action GotoSymbol<cr>
-    nnoremap <space>; :action CommentByLineComment<cr>
-    vnoremap <space>kw :action :cursive.actions.paredit/wrap-paren<cr>
-    nnoremap <space>kw :action :cursive.actions.paredit/wrap-paren<cr>
-    nnoremap <space>kr :action :cursive.actions.paredit/raise<cr>
-    nnoremap <space>kB :action :cursive.actions.paredit/barf-backwards<cr>
-    nnoremap <space>kb :action :cursive.actions.paredit/barf-forwards<cr>
-    nnoremap <space>kdx :action :cursive.actions.paredit/kill-sexp<cr>
-    nnoremap <space>kS :action :cursive.actions.paredit/slurp-backwards<cr>
-    nnoremap <space>ks :action :cursive.actions.paredit/slurp-forwards<cr>
-    nnoremap <Leader>@ :action :cursive.actions.paredit/splice<cr>
-    nnoremap <space>ke :action :cursive.actions.paredit/splice-killing-backwards<cr>
-    nnoremap <space>kE :action :cursive.actions.paredit/splice-killing-forwards<cr>
-    nnoremap <space><tab> :e#<cr>
-    nnoremap ]s :action GotoNextError<cr>
-    nnoremap [s :action GotoPreviousError<cr>
-    nnoremap <space>bm :action CloseAllEditors<cr>
-    nnoremap <Leader>rr :action RenameElement<cr> 
-    nnoremap <Leader>ra :action Refactorings.QuickListPopupAction<cr> 
-"Cider
-    nnoremap <C-c><C-c> :action :cursive.repl.actions/interrupt<cr>
-    nnoremap <Leader>rtf :action :cursive.actions.paredit/thread-form<cr>
-    nnoremap <Leader>sp :action :cursive.repl.actions/jump-to-output<cr>
-    nnoremap <Leader>ss :action :cursive.repl.actions/jump-to-repl<cr>
-    nnoremap <Leader>eb :action :cursive.repl.actions/load-file<cr>
-    nnoremap <Leader>em :action :cursive.repl.actions/macroexpansion<cr>
-    nnoremap <Leader>se :action :cursive.repl.actions/run-last-sexp<cr>
-    nnoremap <Leader>ee :action Clj.Stuff.EvaluatePrevForm<cr>
-    nnoremap <Leader>sv :action :cursive.repl.actions/send-selection<cr>
-    "nnoremap <Leader>eb :action Flutter.Toolbar.ReloadAction<cr>
-    nnoremap <Leader>sf :action :cursive.repl.actions/run-top-sexp<cr>
-    nnoremap <Leader>ef :action Clj.Stuff.EvaluateTopForm<cr>
-    nnoremap <space>e :action Cursive.Repl.Command.eval-to-file<cr> :action Synchronize<cr>
-    nnoremap <Leader>sn :action :cursive.repl.actions/switch-namespace<cr>
-    nnoremap <Leader>sx :action :cursive.repl.actions/sync-files<cr>
-    nnoremap <Leader>tx :action :cursive.testing.actions/remove-test-markers<cr>
-    nnoremap <Leader>tr :action :cursive.testing.actions/rerun-last-test <cr>
-    nnoremap <Leader>ta :action :cursive.testing.actions/run-ns-tests <cr>
-    nnoremap <Leader>tt :action :cursive.testing.actions/run-single-test<cr>
-    nnoremap <Leader>db :action ToggleLineBreakpoint<cr>
-    nnoremap <Leader>hh :action QuickJavaDoc<cr>
-    nnoremap <Leader>rfu :action FindUsages<cr>
-    nnoremap <Leader>= :action ReformatCode<cr>
-
-    set iskeyword=@,48-57,_,192-255,-,—,–,*,!,+,=,<,>,$
-
-"Python
-    "vnoremap <Leader>ev :action ExecuteInPyConsoleAction<cr>
-    "nnoremap <Leader>ss :action com.jetbrains.python.console.RunPythonConsoleAction<cr>
+"END

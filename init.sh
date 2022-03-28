@@ -2,8 +2,8 @@
 
 DOTFILES_PATH=~/dotfiles
 
-
 ln    -s   $DOTFILES_PATH/.vim                       ~/ 
+ln    -s   $DOTFILES_PATH/.vimrc_common              ~/
 ln    -s   $DOTFILES_PATH/.vimrc                     ~/
 ln    -s   $DOTFILES_PATH/.zshenv                    ~/
 ln    -s   $DOTFILES_PATH/.zshrc                     ~/
