@@ -65,12 +65,6 @@
 [submodule ".vim/pack/plugins/start/vim-fugitive"]
 	path = .vim/pack/plugins/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule ".vim/pack/plugins/start/kotlin-vim"]
-	path = .vim/pack/plugins/start/kotlin-vim
-	url = https://github.com/udalov/kotlin-vim.git
-[submodule ".vim/pack/plugins/start/limelight.vim"]
-	path = .vim/pack/plugins/start/limelight.vim
-	url = https://github.com/junegunn/limelight.vim.git
 [submodule ".vim/pack/plugins/start/ReplaceWithRegister"]
 	path = .vim/pack/plugins/start/ReplaceWithRegister
 	url = https://github.com/vim-scripts/ReplaceWithRegister.git
