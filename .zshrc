@@ -15,8 +15,8 @@ alias c="clear"
 alias fz='bash ~/dotfiles/fuz.sh'
 
 # notes
-alias todo='vim ~/wiki/todo.md'
-alias nt='vim ~/wiki/index.md'
+alias todo='vim ~/wiki/todo.md -c ":cd %:p:h"'
+alias nt='vim ~/wiki/index.md -c ":cd %:p:h"'
 
 # settings files start
 alias zshrc='vim ~/dotfiles/.zshrc'
