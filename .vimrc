@@ -109,8 +109,7 @@ set cursorcolumn
 
 "NAVIGATION
     "SPACEMACS-LIKE NAVIGATION COMMANDS
-        " nnoremap <space>pt :N]RDTreeFind<cr>
-        noremap <space>pt :CocCommand explorer --sources=buffer+,file+<cr>
+        nnoremap <space>pt :NERDTreeFind<cr>
         noremap <silent><space>pa :execute 'silent! update'<Bar>Ag<cr>
         noremap <silent><space>pf :execute 'silent! update'<Bar>FZF<cr>
         noremap <silent><space>bb :execute 'silent! update'<Bar>Buffers<cr>
