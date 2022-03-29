@@ -26,7 +26,6 @@ brew install the_silver_searcher # ag
 brew install --cask karabiner-elements
 brew install jenv
 brew install java
-brew install node npm # for vim coc-explorer
 
 # start services
 brew services start skhd

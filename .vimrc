@@ -6,12 +6,20 @@ lang en_US.UTF-8
 set encoding=utf-8
 
 syntax on
-set background=dark
-colorscheme PaperColor
 au BufRead,BufNewFile *.lib set filetype=sh
 
 set cursorline
 set cursorcolumn
+
+"THEME
+    let output =  system("defaults read -g AppleInterfaceStyle")
+    if v:shell_error == 0
+        set background=dark
+        colorscheme xoria256
+    else
+        set background=light
+        colorscheme PaperColor
+    endif
 
 "PLUGINS SETUPS
     filetype plugin on

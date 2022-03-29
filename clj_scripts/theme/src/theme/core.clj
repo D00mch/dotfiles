@@ -34,7 +34,7 @@
 
 ;; zathura
 
-(def zathura (expand-home "~/dotfiles/.config/zathura/zathurarc"))
+(def zathura (expand-home "~/.config/zathura/zathurarc"))
 
 (defn zathura-change-colors-with! [f path]
   (let [lines (file-by-lines path)
@@ -193,7 +193,7 @@
     (cond (= input "b")
           (do (zathura-uncomment-colors!)
               #_(spacemacs-set-theme! spacemacs-dark)
-              (vim-set-theme! false)
+              #_(vim-set-theme! false)
               (desktop-set-theme! input)
 
               ;; use Dark Mode Sync plugin instead
@@ -203,7 +203,7 @@
           (= input "w")
           (do (zathura-comment-colors!)
               #_(spacemacs-set-theme! spacemacs-light)
-              (vim-set-theme! true)
+              #_(vim-set-theme! true)
               (desktop-set-theme! input)
 
               ;; use Dark Mode Sync plugin instead

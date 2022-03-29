@@ -12,12 +12,13 @@ ln    -s   $DOTFILES_PATH/fuz.sh                     ~/
 ln    -s   $DOTFILES_PATH/.yabairc                   ~/ 
 ln    -s   $DOTFILES_PATH/.skhdrc                    ~/ 
 
-touch ~/.ssh-aliases.sh # zshrc source it
+touch      ~/.ssh-aliases.sh # zshrc source it
 
 mkdir -p   ~/.config
 
 ln    -s   $DOTFILES_PATH/.config/nvim               ~/.config/
-ln    -s   $DOTFILES_PATH/.config/zathura            ~/.config/
 
 mkdir -p   ~/.config/karabiner/
 ln    -s   $DOTFILES_PATH/.config/karabiner/assets   ~/.config/karabiner/ 
+
+cp    -r   $DOTFILES_PATH/.config/zathura            ~/.config/
