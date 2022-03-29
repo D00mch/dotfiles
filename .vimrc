@@ -31,8 +31,9 @@ set cursorcolumn
         let g:vimwiki_list = [{'path':   '~/Yandex.Disk.localized/notes/wiki',
                              \ 'syntax': 'markdown', 
                              \ 'ext':    '.md'}]
-        let g:vimwiki_folding='syntax'
+        let g:vimwiki_folding='custom'
         let g:vimwiki_table_mappings=0
+        let g:vimwiki_global_ext = 0
         au filetype vimwiki silent! unmap <buffer> <Tab>
         autocmd BufWinEnter *.md setlocal syntax=markdown
     "FIREVIM

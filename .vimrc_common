@@ -65,10 +65,36 @@ set cursorcolumn
         nmap ∑ <C-W>
 
 "SYNTAX
-    "INDENTS
+    "FOLDING
+        function! MarkdownLevel()
+            if getline(v:lnum) =~ '^# .*$'
+                return ">1"
+            endif
+            if getline(v:lnum) =~ '^## .*$'
+                return ">2"
+            endif
+            if getline(v:lnum) =~ '^### .*$'
+                return ">3"
+            endif
+            if getline(v:lnum) =~ '^#### .*$'
+                return ">4"
+            endif
+            if getline(v:lnum) =~ '^##### .*$'
+                return ">5"
+            endif
+            if getline(v:lnum) =~ '^###### .*$'
+                return ">6"
+            endif
+            return "=" 
+        endfunction
+
         set fdm=syntax
-        autocmd Filetype vim set fdm=indent
-        autocmd BufRead *.txt set fdm=indent
+
+        autocmd BufEnter *.md setlocal foldexpr=MarkdownLevel()  
+        autocmd BufEnter *.md setlocal foldmethod=expr  
+        autocmd Filetype vim set foldmethod=indent
+        autocmd BufRead *.txt set foldmethod=indent
+
     "TABS
         nmap <tab> :noh<Enter>:echom ""<Enter>
         set smartindent
