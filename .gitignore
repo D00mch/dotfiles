@@ -1,3 +1,4 @@
 .clojure/.cpcache/
 .vim/undo
 .vim/.netrwhist
+.vim/autoload/plug.vim

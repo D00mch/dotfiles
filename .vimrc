@@ -41,6 +41,7 @@ set cursorcolumn
         let g:vimwiki_folding='custom'
         let g:vimwiki_table_mappings=0
         let g:vimwiki_global_ext = 0
+        let g:vimwiki_map_prefix = '<Leader>n'
         au filetype vimwiki silent! unmap <buffer> <Tab>
         autocmd BufWinEnter *.md setlocal syntax=markdown
     "FIREVIM
@@ -204,5 +205,59 @@ set cursorcolumn
             map <C-k> <Plug>(sexp_swap_list_backward)
             map <C-h> <Plug>(sexp_swap_element_backward)
             map <C-l> <Plug>(sexp_swap_element_forward)
+            nmap <Leader>c <Plug>(sexp_move_to_prev_bracket)i#_<C-[>
+        "VIM-ICED
+            let g:iced_enable_default_key_mappings = v:false
+            let g:iced#buffer#document#height = 25
+            let g:iced#notify#max_width_rate=0.4
+            let g:iced#notify#max_height_rate=0.4
+
+            nmap <Nop>(iced_command_palette) <Plug>(iced_command_palette)
+
+            "DOCS
+            nmap <Leader>hh <Plug>(iced_clojuredocs_open)
+            nmap <Leader>hq <Plug>(iced_document_close)
+
+            "REFACTOR
+            nmap <Leader>= <Plug>(iced_format_all)
+            nmap <Leader>rfu <Plug>(iced_use_case_open)
+            nmap <Leader>ran <Plug>(iced_add_ns)
+            nmap <Leader>ram <Plug>(iced_add_missing)
+            nmap gd <Plug>(iced_def_jump)
+            nmap <space>kb <Plug>(iced_barf)
+            nmap <space>kB <Plug>(sexp_emit_head_element)
+            nmap <space>ks <Plug>(iced_slurp)
+            nmap <space>kS <Plug>(sexp_capture_prev_element)
+            nmap <Leader>rr <Plug>(iced_rename_symbol)
+            nmap <Leader>ra <Plug>(iced_command_palette)
+            nmap <Leader>rtf <Plug>(iced_thread_first)
+            nmap <Leader>rtl <Plug>(iced_thread_last)
+            " nmap <Leader>c <Plug>(sexp_outer_list)i#_
+
+            "REPL
+            nmap <Leader>' <Plug>(iced_connect)
+            nmap <Leader>" <Plug>(iced_jack_in)
+            nmap <space>e <Plug>(iced_eval_and_comment)af
+            nmap <Leader>sf <Plug>(iced_eval_and_print)af
+            nmap <Leader>ef <Plug>(iced_eval_outer_top_list)
+            nmap <Leader>sn <Plug>(iced_eval_ns)
+            nmap <Leader>eb ggVG<Plug>(iced_eval_visual)
+            nmap <Leader>ei <Plug>(iced_eval)<Plug>(sexp_inner_element)
+            nmap <Leader>si <Plug>(iced_eval_and_print)<Plug>(sexp_inner_element)
+            nmap <Leader>ee <Plug>(iced_eval)<Plug>(sexp_outer_list)
+            nmap <Leader>eu <Plug>(iced_undef)
+            nmap <Leader>eU <Plug>(iced_undef_all_in_ns)
+            nmap <Leader>eq <Plug>(iced_interrupt)
+            nmap <Leader>eQ <Plug>(iced_interrupt_all)
+            vmap <Leader>ev <Plug>(iced_eval_visual)
+
+            "STDOUT BUFFER
+            nmap <Leader>ss <Plug>(iced_stdout_buffer_toggle)
+            nmap <Leader>so <Plug>(iced_stdout_buffer_open)
+            nmap <Leader>sc <Plug>(iced_stdout_buffer_clear)
+            nmap <Leader>sq <Plug>(iced_stdout_buffer_close)
+
+            let g:iced#buffer#stdout#mods = 'rightbelow' 
+            "let g:iced_formatter = 'joker'
 
 "END

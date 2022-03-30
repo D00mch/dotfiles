@@ -21,3 +21,6 @@ export ZSH="/Users/m1/.oh-my-zsh"
 
 # For fzf
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+
+# For vim-iced
+export PATH=$PATH:~/.local/share/nvim/plugged/vim-iced/bin

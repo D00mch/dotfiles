@@ -23,15 +23,18 @@ set cursorcolumn
         Plug 'https://github.com/tpope/vim-fugitive.git'
         Plug 'https://github.com/vim-scripts/ReplaceWithRegister.git'
 
-        Plug 'https://github.com/xolox/vim-misc' "for vimwiki
+        Plug 'https://github.com/xolox/vim-misc', { 'for': 'vimwiki' }
         Plug 'vimwiki/vimwiki'
         Plug 'sheerun/vim-polyglot'
 
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
 
-        "CLOJURE
-        Plug 'https://github.com/guns/vim-sexp.git'
+        Plug 'https://github.com/guns/vim-sexp.git',  { 'for': 'clojure' }
+        Plug 'liquidz/vim-iced',                      { 'for': 'clojure' }
+        Plug 'prabirshrestha/asyncomplete.vim',       { 'for': 'clojure' }
+        Plug 'liquidz/vim-iced-asyncomplete',         { 'for': 'clojure' }
+        Plug 'https://github.com/tpope/vim-surround', { 'for': 'clojure' }
 
         call plug#end()
 
@@ -56,7 +59,7 @@ set cursorcolumn
 
 "NAVIGATION
     " set current path
-    nnoremap <leader>cd :cd %:p:h<CR>
+    nnoremap <leader>sd :cd %:p:h<CR>
 
     " to be able to search on files through path
     set path=$PWD/**  
