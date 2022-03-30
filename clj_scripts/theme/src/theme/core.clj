@@ -198,7 +198,7 @@
 
               ;; use Dark Mode Sync plugin instead
               #_(intellij-set-theme! true)
-              #_(android-set-theme! true))
+              (android-set-theme! true))
 
           (= input "w")
           (do (zathura-comment-colors!)
@@ -208,7 +208,7 @@
 
               ;; use Dark Mode Sync plugin instead
               #_(intellij-set-theme! false)
-              #_(android-set-theme! false))
+              (android-set-theme! false))
 
           :else
           (throw (IllegalArgumentException.
