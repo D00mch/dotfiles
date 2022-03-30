@@ -12,17 +12,17 @@ alias theme="java -jar ~/dotfiles/clj_scripts/theme/target/uberjar/theme-0.1.0-S
 alias wtheme="theme 'w'"
 alias btheme="theme 'b'"
 alias c="clear"
-alias fz='bash ~/dotfiles/fuz.sh'
+alias fz='bash ~/fuz.sh'
 
 # notes
 alias todo='vim ~/wiki/todo.md -c ":cd %:p:h"'
 alias nt='vim ~/wiki/index.md -c ":cd %:p:h"'
 
 # settings files start
-alias zshrc='vim ~/dotfiles/.zshrc'
-alias vimrc='vim ~/dotfiles/.vimrc'
-alias inputrc='vim ~/dotfiles/.inputrc'
-alias idearc='vim ~/dotfiles/.ideavimrc'
+alias zshrc='vim ~/.zshrc'
+alias vimrc='vim ~/.vimrc'
+alias inputrc='vim ~/.inputrc'
+alias idearc='vim ~/.ideavimrc'
 alias zathurarc='vim ~/.config/zathura/zathurarc'
 alias hotkeys='vim ~/.skhdrc'
 

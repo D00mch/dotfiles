@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-DOTFILES_PATH=~/dotfiles
+DOTFILES_PATH="$1"
+echo "DOTFILES_PATH $DOTFILES_PATH"
 
 ln    -s   $DOTFILES_PATH/.vim                       ~/ 
 ln    -s   $DOTFILES_PATH/.vimrc_common              ~/

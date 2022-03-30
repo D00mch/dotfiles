@@ -11,11 +11,9 @@ set ReplaceWithRegister
 
 "PLUGINS SETUPS
     set ideamarks
-    set NERDTree
     "needs ideavim extension plugin
     set keep-english-in-normal-and-restore-in-insert
     set highlightedyank
-    set commentary
 
 "NAVIGATION
     set path+=**

@@ -9,6 +9,32 @@ let maplocalleader=","
 set cursorline
 set cursorcolumn
 
+"PLUGINS
+    "PLUGINS INCLUTION
+        call plug#begin()
+        Plug 'vim-airline/vim-airline'
+        Plug 'https://github.com/ervandew/supertab.git'
+        Plug 'https://github.com/tpope/vim-commentary.git'
+        Plug 'https://github.com/jpalardy/vim-slime.git'
+        Plug 'preservim/nerdtree'
+        Plug 'theniceboy/vim-calc'
+        Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+        Plug 'mhinz/vim-startify'
+        Plug 'https://github.com/tpope/vim-fugitive.git'
+        Plug 'https://github.com/vim-scripts/ReplaceWithRegister.git'
+
+        Plug 'https://github.com/xolox/vim-misc' "for vimwiki
+        Plug 'vimwiki/vimwiki'
+        Plug 'sheerun/vim-polyglot'
+
+        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+        Plug 'junegunn/fzf.vim'
+
+        "CLOJURE
+        Plug 'https://github.com/guns/vim-sexp.git'
+
+        call plug#end()
+
 "EDITING
     nnoremap U <C-r>
 
