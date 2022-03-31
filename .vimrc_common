@@ -36,7 +36,15 @@ set cursorcolumn
         Plug 'liquidz/vim-iced-asyncomplete',         { 'for': 'clojure' }
         Plug 'https://github.com/tpope/vim-surround', { 'for': 'clojure' }
 
+        Plug 'sainnhe/everforest'
+        Plug 'arzg/vim-colors-xcode' 
+        Plug 'cormacrelf/vim-colors-github'
+
         call plug#end()
+    "NERDTREE
+        let g:NERDTreeHijackNetrw = 1
+        au VimEnter NERD_tree_1 enew | execute 'NERDTree '.argv()[0]
+        let NERDTreeShowHidden=1
 
 "EDITING
     nnoremap U <C-r>
@@ -59,7 +67,7 @@ set cursorcolumn
 
 "NAVIGATION
     " set current path
-    nnoremap <leader>sd :cd %:p:h<CR>
+    nnoremap <leader>sd :sd %:p:h<CR>
 
     " to be able to search on files through path
     set path=$PWD/**  

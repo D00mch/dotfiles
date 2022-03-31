@@ -15,10 +15,10 @@ set cursorcolumn
     let output =  system("defaults read -g AppleInterfaceStyle")
     if v:shell_error == 0
         set background=dark
-        colorscheme xoria256
+        colorscheme everforest
     else
         set background=light
-        colorscheme PaperColor
+        colorscheme github
     endif
 
 "PLUGINS
@@ -168,6 +168,7 @@ set cursorcolumn
                     \ { 'z': '~/dotfiles/.zshrc' },
                     \ { 'w': '~/wiki/todo.md' },
                     \ ]
+        nmap <Leader>mp :Startify<cr>
 
 "SYNTAX
     "TABS
