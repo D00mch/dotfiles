@@ -129,6 +129,7 @@ set cursorcolumn
 
         autocmd BufEnter *.md setlocal foldexpr=MarkdownLevel()  
         autocmd BufEnter *.md setlocal foldmethod=expr  
+        autocmd BufEnter *.md colorscheme PaperColor
         autocmd Filetype vim set foldmethod=indent
         autocmd BufRead *.txt set foldmethod=indent
 
