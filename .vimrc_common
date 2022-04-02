@@ -21,6 +21,7 @@ set cursorcolumn
         Plug 'mhinz/vim-startify'
         Plug 'https://github.com/tpope/vim-fugitive.git'
         Plug 'https://github.com/vim-scripts/ReplaceWithRegister.git'
+        Plug 'https://github.com/ludovicchabant/vim-gutentags'
 
         Plug 'https://github.com/xolox/vim-misc', { 'for': 'vimwiki' }
         Plug 'vimwiki/vimwiki'
