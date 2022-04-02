@@ -2,3 +2,8 @@
 .vim/undo
 .vim/.netrwhist
 .vim/autoload/plug.vim
+
+# for vim temp files
+*~
+*.swp
+*.swo
