@@ -124,11 +124,14 @@ set cursorcolumn
         map <space>; gcc
 
 "NAVIGATION
-    "SPACEMACS-LIKE NAVIGATION COMMANDS
+    "SPACEMACS-LIKE COMMANDS
         nnoremap <space>pt :NERDTreeFind<cr>
-        noremap <silent><space>pa :execute 'silent! update'<Bar>Ag<cr>
+        noremap <silent><space>pa :execute 'silent! update'<Bar>Rg<cr>
         noremap <silent><space>pf :execute 'silent! update'<Bar>FZF<cr>
         noremap <silent><space>bb :execute 'silent! update'<Bar>Buffers<cr>
+    "IDEA-LIKE COMMANDS
+        " alt + b to fine this word in the project
+        nnoremap ∫ :Rg <C-R><C-W><CR>
     "SEARCH
         nnoremap / /\v
         vnoremap / /\v
