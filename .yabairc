@@ -52,4 +52,7 @@ yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^System Information$" manage=off
 yabai -m rule --add app="^Tunnelblick$" manage=off
-yabai -m rule --add app="^(IntelliJ IDEA|Android Studio)$" title="(Preferences|Project Structure)" manage=off
+yabai -m rule --add app="^(IntelliJ IDEA|Android Studio)$" \
+    title="(Preferences|Project Structure)" manage=off
+yabai -m rule --add app="^VimR$" \
+    title="last-buffer.*" manage=off

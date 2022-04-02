@@ -1,5 +1,6 @@
 # open finder
 cmd - m : open ~/.
+shift + alt - v : bash ~/osx-vimr-anywhere/run.sh
 
 # focus window
 alt - h : yabai -m window --focus west

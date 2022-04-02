@@ -2,7 +2,6 @@ source ~/.vimrc_common
 
 set autoindent
 "set autochdir " change curernt working directory after changing buffer
-lang en_US.UTF-8
 set encoding=utf-8
 
 syntax on
