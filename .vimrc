@@ -112,17 +112,18 @@ let maplocalleader=","
     endif
 
 "EDITING
-    set encoding=utf-8
-    set clipboard+=unnamed  "for osx
-    set autoindent
+    "ALL
+        set encoding=utf-8
+        set clipboard+=unnamed  "for osx
+        set autoindent
 
-    set relativenumber
-    set number
+        set relativenumber
+        set number
 
-    set cursorline
-    set cursorcolumn
+        set cursorline
+        set cursorcolumn
 
-    nnoremap U <C-r>
+        nnoremap U <C-r>
 
     "SAVING
         "alt + q
@@ -161,15 +162,16 @@ let maplocalleader=","
         map <space>; gcc
 
 "NAVIGATION
-    " set current path
-    nnoremap <leader>sd :sd %:p:h<CR>
+    "All
+        " set current path
+        nnoremap <leader>sd :sd %:p:h<CR>
 
-    " to be able to search on files through path
-    set path=$PWD/**  
-    noremap <space>h ^
-    noremap <space>l g_
+        " to be able to search on files through path
+        set path=$PWD/**  
+        noremap <space>h ^
+        noremap <space>l g_
 
-    nnoremap <space><tab> :e#<cr>
+        nnoremap <space><tab> :e#<cr>
 
     "TABS
         nmap gh gT
@@ -218,8 +220,9 @@ let maplocalleader=","
             nmap <leader>ef <Plug>SlimeParagraphSend 
 
 "SYNTAX
-    syntax on
-    au BufRead,BufNewFile *.lib set filetype=sh
+    "ALL
+        syntax on
+        au BufRead,BufNewFile *.lib set filetype=sh
 
     "FOLDING
         function! MarkdownLevel()
@@ -307,43 +310,43 @@ let maplocalleader=","
             nmap <Leader>hq <Plug>(iced_document_close)
 
             "REFACTOR
-            nmap <Leader>= <Plug>(iced_format_all)
-            nmap <Leader>rfu <Plug>(iced_use_case_open)
-            nmap <Leader>ran <Plug>(iced_add_ns)
-            nmap <Leader>ram <Plug>(iced_add_missing)
-            nmap gd <Plug>(iced_def_jump)
-            nmap <space>kb <Plug>(iced_barf)
-            nmap <space>kB <Plug>(sexp_emit_head_element)
-            nmap <space>ks <Plug>(iced_slurp)
-            nmap <space>kS <Plug>(sexp_capture_prev_element)
-            nmap <Leader>rr <Plug>(iced_rename_symbol)
-            nmap <Leader>ra <Plug>(iced_command_palette)
-            nmap <Leader>rtf <Plug>(iced_thread_first)
-            nmap <Leader>rtl <Plug>(iced_thread_last)
-            " nmap <Leader>c <Plug>(sexp_outer_list)i#_
+            autocmd Filetype clojure nmap <Leader>= <Plug>(iced_format_all)
+            autocmd Filetype clojure nmap <Leader>rfu <Plug>(iced_use_case_open)
+            autocmd Filetype clojure nmap <Leader>ran <Plug>(iced_add_ns)
+            autocmd Filetype clojure nmap <Leader>ram <Plug>(iced_add_missing)
+            autocmd Filetype clojure nmap gd <Plug>(iced_def_jump)
+            autocmd Filetype clojure nmap <space>kb <Plug>(iced_barf)
+            autocmd Filetype clojure nmap <space>kB <Plug>(sexp_emit_head_element)
+            autocmd Filetype clojure nmap <space>ks <Plug>(iced_slurp)
+            autocmd Filetype clojure nmap <space>kS <Plug>(sexp_capture_prev_element)
+            autocmd Filetype clojure nmap <Leader>rr <Plug>(iced_rename_symbol)
+            autocmd Filetype clojure nmap <Leader>ra <Plug>(iced_command_palette)
+            autocmd Filetype clojure nmap <Leader>rtf <Plug>(iced_thread_first)
+            autocmd Filetype clojure nmap <Leader>rtl <Plug>(iced_thread_last)
 
             "REPL
-            nmap <Leader>' <Plug>(iced_connect)
-            nmap <Leader>" <Plug>(iced_jack_in)
-            nmap <space>e <Plug>(iced_eval_and_comment)af
-            nmap <Leader>sf <Plug>(iced_eval_and_print)af
-            nmap <Leader>ef <Plug>(iced_eval_outer_top_list)
-            nmap <Leader>sn <Plug>(iced_eval_ns)
-            nmap <Leader>eb ggVG<Plug>(iced_eval_visual)
-            nmap <Leader>ei <Plug>(iced_eval)<Plug>(sexp_inner_element)
-            nmap <Leader>si <Plug>(iced_eval_and_print)<Plug>(sexp_inner_element)
-            nmap <Leader>ee <Plug>(iced_eval)<Plug>(sexp_outer_list)
-            nmap <Leader>eu <Plug>(iced_undef)
-            nmap <Leader>eU <Plug>(iced_undef_all_in_ns)
-            nmap <Leader>eq <Plug>(iced_interrupt)
-            nmap <Leader>eQ <Plug>(iced_interrupt_all)
-            vmap <Leader>ev <Plug>(iced_eval_visual)
+            autocmd Filetype clojure nmap <Leader>' <Plug>(iced_connect)
+            autocmd Filetype clojure nmap <Leader>" <Plug>(iced_jack_in)
+
+            autocmd Filetype clojure nmap <space>e <Plug>(iced_eval_and_comment)af
+            autocmd Filetype clojure nmap <Leader>sf <Plug>(iced_eval_and_print)af
+            autocmd Filetype clojure nmap <Leader>ef <Plug>(iced_eval_outer_top_list)
+            autocmd Filetype clojure nmap <Leader>sn <Plug>(iced_eval_ns)
+            autocmd Filetype clojure nmap <Leader>eb ggVG<Plug>(iced_eval_visual)
+            autocmd Filetype clojure nmap <Leader>ei <Plug>(iced_eval)<Plug>(sexp_inner_element)
+            autocmd Filetype clojure nmap <Leader>si <Plug>(iced_eval_and_print)<Plug>(sexp_inner_element)
+            autocmd Filetype clojure nmap <Leader>ee <Plug>(iced_eval)<Plug>(sexp_outer_list)
+            autocmd Filetype clojure nmap <Leader>eu <Plug>(iced_undef)
+            autocmd Filetype clojure nmap <Leader>eU <Plug>(iced_undef_all_in_ns)
+            autocmd Filetype clojure nmap <Leader>eq <Plug>(iced_interrupt)
+            autocmd Filetype clojure nmap <Leader>eQ <Plug>(iced_interrupt_all)
+            autocmd Filetype clojure vmap <Leader>ev <Plug>(iced_eval_visual)
 
             "STDOUT BUFFER
-            nmap <Leader>ss <Plug>(iced_stdout_buffer_toggle)
-            nmap <Leader>so <Plug>(iced_stdout_buffer_open)
-            nmap <Leader>sc <Plug>(iced_stdout_buffer_clear)
-            nmap <Leader>sq <Plug>(iced_stdout_buffer_close)
+            autocmd Filetype clojure nmap <Leader>ss <Plug>(iced_stdout_buffer_toggle)
+            autocmd Filetype clojure nmap <Leader>so <Plug>(iced_stdout_buffer_open)
+            autocmd Filetype clojure nmap <Leader>sc <Plug>(iced_stdout_buffer_clear)
+            autocmd Filetype clojure nmap <Leader>sq <Plug>(iced_stdout_buffer_close)
 
             let g:iced#buffer#stdout#mods = 'rightbelow' 
             "let g:iced_formatter = 'joker'
