@@ -21,20 +21,22 @@ set cursorcolumn
         Plug 'mhinz/vim-startify'
         Plug 'https://github.com/tpope/vim-fugitive.git'
         Plug 'https://github.com/vim-scripts/ReplaceWithRegister.git'
-
-        Plug 'https://github.com/xolox/vim-misc', { 'for': 'vimwiki' }
-        Plug 'vimwiki/vimwiki'
-        Plug 'sheerun/vim-polyglot'
-
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
 
+        "WIKI
+        Plug 'https://github.com/xolox/vim-misc', { 'for': 'vimwiki' }
+        Plug 'vimwiki/vimwiki',                   { 'for': 'vimwiki' }
+        Plug 'sheerun/vim-polyglot'
+
+        "CLOJURE
         Plug 'https://github.com/guns/vim-sexp.git',  { 'for': 'clojure' }
         Plug 'liquidz/vim-iced',                      { 'for': 'clojure' }
         Plug 'prabirshrestha/asyncomplete.vim',       { 'for': 'clojure' }
         Plug 'liquidz/vim-iced-asyncomplete',         { 'for': 'clojure' }
-        Plug 'https://github.com/tpope/vim-surround', { 'for': 'clojure' }
+        Plug 'https://github.com/tpope/vim-surround'
 
+        "THEME
         Plug 'sainnhe/everforest'
         Plug 'arzg/vim-colors-xcode' 
         Plug 'cormacrelf/vim-colors-github'
