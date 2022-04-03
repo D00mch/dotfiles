@@ -101,7 +101,6 @@ let maplocalleader=","
     "AUTOPAIRS
     au Filetype clojure let b:AutoPairs={'(':')', '[':']', '{':'}','"':'"', '`':'`'}
 
-
 "THEME
     let output =  system("defaults read -g AppleInterfaceStyle")
     if v:shell_error == 0
