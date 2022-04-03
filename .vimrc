@@ -289,6 +289,9 @@ let maplocalleader=","
         " noremap  <buffer> <silent> $ g$ 
  
     "CLOJURE 
+        "ALL
+            au! BufRead,BufNewFile *.cljd setfiletype clojure
+
         "SEXP
             nmap <space>ks <Plug>(sexp_capture_next_element)
             nmap <space>kS <Plug>(sexp_capture_prev_element)
