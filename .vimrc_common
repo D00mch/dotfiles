@@ -23,6 +23,7 @@ set cursorcolumn
         Plug 'https://github.com/vim-scripts/ReplaceWithRegister.git'
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
+        Plug 'https://github.com/jiangmiao/auto-pairs'
 
         "WIKI
         Plug 'https://github.com/xolox/vim-misc', { 'for': 'vimwiki' }
