@@ -24,6 +24,7 @@ let maplocalleader=","
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
         Plug 'https://github.com/jiangmiao/auto-pairs'
+        Plug 'https://github.com/mbbill/undotree'
 
         "WIKI
         Plug 'https://github.com/xolox/vim-misc'
@@ -138,15 +139,19 @@ let maplocalleader=","
         "empty line
         nnoremap <space>o o<Esc><Esc>
 
-    "PERSISTENT UNDO
+    "UNDO
         "restore last known position
         au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+        "PERSISTENT
         set undofile
         set undodir=$HOME/.vim/undo
         set undolevels=1000
         set undoreload=10000
 
-    "COPY FILE, PATH
+        "TREE
+        map <space>au :UndotreeToggle<cr>
+         
+        "COPY FILE, PATH
         nnoremap yp :let @+=expand("%:p")<cr>:echom expand("%:p")<cr>
         nnoremap yd :let @+=expand("%:p:h")<cr>:echom expand("%:p:h")<cr>
 
