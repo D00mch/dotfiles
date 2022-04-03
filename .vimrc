@@ -98,6 +98,10 @@ let maplocalleader=","
         autocmd BufWinEnter *.md setlocal syntax=markdown
         autocmd BufEnter *.md colorscheme PaperColor
 
+    "AUTOPAIRS
+    au Filetype clojure let b:AutoPairs={'(':')', '[':']', '{':'}','"':'"', '`':'`'}
+
+
 "THEME
     let output =  system("defaults read -g AppleInterfaceStyle")
     if v:shell_error == 0
@@ -120,7 +124,6 @@ let maplocalleader=","
     set cursorcolumn
 
     nnoremap U <C-r>
-
 
     "SAVING
         "alt + q
