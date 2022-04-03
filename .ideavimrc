@@ -1,7 +1,7 @@
 " see all commands for mapping with :actionlist
 " to update idea, type              :source ~/.ideavimrc
 
-source ~/.vimrc_common
+source ~/.vimrc
 
 set backspace=indent,eol,start
 set visualbell
@@ -71,7 +71,9 @@ set ReplaceWithRegister
             nnoremap <space>ke :action :cursive.actions.paredit/splice-killing-backwards<cr>
             nnoremap <space>kE :action :cursive.actions.paredit/splice-killing-forwards<cr>
             nmap <Leader>o :action :cursive.actions.paredit/raise<cr>
+            nmap <Leader>O :action :cursive.actions.paredit/raise<cr>
             vnoremap <Leader>o :action :cursive.actions.paredit/raise<cr>
+            vnoremap <Leader>O :action :cursive.actions.paredit/raise<cr>
 
         "CLOJURE-REPL
             nnoremap <C-c><C-c> :action :cursive.repl.actions/interrupt<cr>

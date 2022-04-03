@@ -4,7 +4,6 @@ DOTFILES_PATH="$1"
 echo "DOTFILES_PATH $DOTFILES_PATH"
 
 ln    -s   $DOTFILES_PATH/.vim                       ~/ 
-ln    -s   $DOTFILES_PATH/.vimrc_common              ~/
 ln    -s   $DOTFILES_PATH/.vimrc                     ~/
 ln    -s   $DOTFILES_PATH/.zshenv                    ~/
 ln    -s   $DOTFILES_PATH/.zshrc                     ~/

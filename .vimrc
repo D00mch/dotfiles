@@ -1,24 +1,7 @@
-source ~/.vimrc_common
+set nocompatible
 
-set autoindent
-"set autochdir " change curernt working directory after changing buffer
-set encoding=utf-8
-
-syntax on
-au BufRead,BufNewFile *.lib set filetype=sh
-
-set cursorline
-set cursorcolumn
-
-"THEME
-    let output =  system("defaults read -g AppleInterfaceStyle")
-    if v:shell_error == 0
-        set background=dark
-        colorscheme everforest
-    else
-        set background=light
-        colorscheme github
-    endif
+let mapleader=","
+let maplocalleader=","
 
 "PLUGINS
     "INSTALLATION
@@ -28,56 +11,50 @@ set cursorcolumn
           autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
         endif
 
-    filetype plugin on
-    filetype plugin indent on
-    nnoremap <space>c :call Calc()<CR>     
-    let g:airline#extensions#keymap#enabled = 0
+        call plug#begin()
+        Plug 'vim-airline/vim-airline'
+        Plug 'https://github.com/ervandew/supertab.git'
+        Plug 'https://github.com/tpope/vim-commentary.git'
+        Plug 'https://github.com/jpalardy/vim-slime.git'
+        Plug 'preservim/nerdtree'
+        Plug 'theniceboy/vim-calc'
+        Plug 'mhinz/vim-startify'
+        Plug 'https://github.com/tpope/vim-fugitive.git'
+        Plug 'https://github.com/vim-scripts/ReplaceWithRegister.git'
+        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+        Plug 'junegunn/fzf.vim'
+        Plug 'https://github.com/jiangmiao/auto-pairs'
 
-    "VIM-WIKI
-        let g:vimwiki_list = [{'path':   '~/Yandex.Disk.localized/notes/wiki',
-                             \ 'syntax': 'markdown', 
-                             \ 'ext':    '.md'}]
-        let g:vimwiki_folding='custom'
-        let g:vimwiki_table_mappings=0
-        let g:vimwiki_global_ext = 0
-        let g:vimwiki_map_prefix = '<Leader>n'
-        au filetype vimwiki silent! unmap <buffer> <Tab>
-        autocmd BufWinEnter *.md setlocal syntax=markdown
-        autocmd BufEnter *.md colorscheme PaperColor
+        "WIKI
+        Plug 'https://github.com/xolox/vim-misc'
+        Plug 'vimwiki/vimwiki'
+        Plug 'sheerun/vim-polyglot'
 
-"EDITING
-    "restore last known position
-    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-    "PERSISTENT UNDO
-        set undofile
-        set undodir=$HOME/.vim/undo
-        set undolevels=1000
-        set undoreload=10000
-    "COPY FILE, PATH
-        nnoremap yp :let @+=expand("%:p")<cr>:echom expand("%:p")<cr>
-        nnoremap yd :let @+=expand("%:p:h")<cr>:echom expand("%:p:h")<cr>
-    "SPACEMACS-LIKE
-        map <space>; gcc
+        "CLOJURE
+        Plug 'https://github.com/guns/vim-sexp.git',  { 'for': 'clojure' }
+        Plug 'liquidz/vim-iced',                      { 'for': 'clojure' }
+        Plug 'prabirshrestha/asyncomplete.vim',       { 'for': 'clojure' }
+        Plug 'liquidz/vim-iced-asyncomplete',         { 'for': 'clojure' }
+        Plug 'https://github.com/tpope/vim-surround'
 
-"NAVIGATION
-    "SPACEMACS-LIKE COMMANDS
-        nnoremap <space>pt :NERDTreeFind<cr>
-        noremap <silent><space>pa :execute 'silent! update'<Bar>Rg<cr>
-        noremap <silent><space>pf :execute 'silent! update'<Bar>FZF<cr>
-        noremap <silent><space>bb :execute 'silent! update'<Bar>Buffers<cr>
-    "IDEA-LIKE COMMANDS
-        " alt + b to fine this word in the project
-        nnoremap ∫ :Rg <C-R><C-W><CR>
-    "SEARCH
-        nnoremap / /\v
-        vnoremap / /\v
-    "TER
-        "alt + r
-        tnoremap ® <C-\><C-n>
-        "SLIME
-            let g:slime_target = "neovim"
-            xmap √ <Plug>SlimeRegionSend
-            nmap <leader>ef <Plug>SlimeParagraphSend 
+        "THEME
+        Plug 'sainnhe/everforest'
+        Plug 'arzg/vim-colors-xcode' 
+        Plug 'cormacrelf/vim-colors-github'
+
+        call plug#end()
+
+    "ALL
+        filetype plugin on
+        filetype plugin indent on
+        nnoremap <space>c :call Calc()<CR>     
+        let g:airline#extensions#keymap#enabled = 0
+
+    "NERDTREE
+        let g:NERDTreeHijackNetrw = 1
+        au VimEnter NERD_tree_1 enew | execute 'NERDTree '.argv()[0]
+        let NERDTreeShowHidden=1
+
     "STARTIFY
         "help functions
             function! s:gitModified()
@@ -108,13 +85,176 @@ set cursorcolumn
                     \ ]
         nmap <Leader>mp :Startify<cr>
 
-"SYNTAX
+    "VIM-WIKI
+        let g:vimwiki_list = [{'path':   '~/Yandex.Disk.localized/notes/wiki',
+                             \ 'syntax': 'markdown', 
+                             \ 'ext':    '.md'}]
+        let g:vimwiki_folding='custom'
+        let g:vimwiki_table_mappings=0
+        let g:vimwiki_global_ext = 0
+        let g:vimwiki_map_prefix = '<Leader>n'
+        au filetype vimwiki silent! unmap <buffer> <Tab>
+        autocmd BufWinEnter *.md setlocal syntax=markdown
+        autocmd BufEnter *.md colorscheme PaperColor
+
+"THEME
+    let output =  system("defaults read -g AppleInterfaceStyle")
+    if v:shell_error == 0
+        set background=dark
+        colorscheme everforest
+    else
+        set background=light
+        colorscheme github
+    endif
+
+"EDITING
+    set encoding=utf-8
+    set clipboard+=unnamed  "for osx
+    set autoindent
+
+    set relativenumber
+    set number
+
+    set cursorline
+    set cursorcolumn
+
+    nnoremap U <C-r>
+
+
+    "SAVING
+        "alt + q
+        function! ShutUpAndClose()
+          execute ":wa"
+          execute ":qa!"
+        endfunction
+        "alt + q
+        nnoremap œ :call ShutUpAndClose()<CR>
+        "alt + s
+        noremap ß :wa<CR>
+
+    "PASTE BELOW
+        "current line
+        nnoremap cl mX"9yy"9p`Xj
+        "empty line
+        nnoremap <space>o o<Esc><Esc>
+
+    "PERSISTENT UNDO
+        "restore last known position
+        au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+        set undofile
+        set undodir=$HOME/.vim/undo
+        set undolevels=1000
+        set undoreload=10000
+
+    "COPY FILE, PATH
+        nnoremap yp :let @+=expand("%:p")<cr>:echom expand("%:p")<cr>
+        nnoremap yd :let @+=expand("%:p:h")<cr>:echom expand("%:p:h")<cr>
+
+    "SPACEMACS-LIKE
+        map <space>; gcc
+
+"NAVIGATION
+    " set current path
+    nnoremap <leader>sd :sd %:p:h<CR>
+
+    " to be able to search on files through path
+    set path=$PWD/**  
+    noremap <space>h ^
+    noremap <space>l g_
+
+    nnoremap <space><tab> :e#<cr>
+
     "TABS
+        nmap gh gT
+        nmap gl gt
+
+    "SPACEMACS-LIKE NAVIGATION COMMANDS
+        noremap <space>bd :bd<cr>
+
+    "SEARCH
+        set ignorecase
+        set incsearch
+        set hlsearch
+
+    "SMART WAY TO MOVE BETWEEN WINDOWS
+        "alt + j
+        nmap ∆ <C-W>j
+        "alt + k
+        nmap ˚ <C-W>k
+        "alt + h
+        nmap ˙ <C-W>h
+        "alt + l
+        nmap ¬ <C-W>l 
+        "alt + w
+        nmap ∑ <C-W>
+
+    "SPACEMACS-LIKE COMMANDS
+        nnoremap <space>pt :NERDTreeFind<cr>
+        noremap <silent><space>pa :execute 'silent! update'<Bar>Rg<cr>
+        noremap <silent><space>pf :execute 'silent! update'<Bar>FZF<cr>
+        noremap <silent><space>bb :execute 'silent! update'<Bar>Buffers<cr>
+
+    "IDEA-LIKE COMMANDS
+        " alt + b to fine this word in the project
+        nnoremap ∫ :Rg <C-R><C-W><CR>
+
+    "SEARCH
+        nnoremap / /\v
+        vnoremap / /\v
+
+    "TER
+        "alt + r
+        tnoremap ® <C-\><C-n>
+        "SLIME
+            let g:slime_target = "neovim"
+            xmap √ <Plug>SlimeRegionSend
+            nmap <leader>ef <Plug>SlimeParagraphSend 
+
+"SYNTAX
+    syntax on
+    au BufRead,BufNewFile *.lib set filetype=sh
+
+    "FOLDING
+        function! MarkdownLevel()
+            if getline(v:lnum) =~ '^# .*$'
+                return ">1"
+            endif
+            if getline(v:lnum) =~ '^## .*$'
+                return ">2"
+            endif
+            if getline(v:lnum) =~ '^### .*$'
+                return ">3"
+            endif
+            if getline(v:lnum) =~ '^#### .*$'
+                return ">4"
+            endif
+            if getline(v:lnum) =~ '^##### .*$'
+                return ">5"
+            endif
+            if getline(v:lnum) =~ '^###### .*$'
+                return ">6"
+            endif
+            return "=" 
+        endfunction
+
+        set fdm=syntax
+
+        autocmd BufEnter *.md setlocal foldexpr=MarkdownLevel()  
+        autocmd BufEnter *.md setlocal foldmethod=expr  
+        autocmd Filetype vim set foldmethod=indent
+        autocmd BufRead *.txt set foldmethod=indent
+
+    "TABS
+        nmap <tab> :noh<Enter>:echom ""<Enter>
+        set smartindent
+        set shiftwidth=4 smarttab expandtab
+        set tags=./tags,tags;$HOME
         set omnifunc=syntaxcomplete#Complete
         "autoclose
         autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif 
         set path+=**
         let g:SuperTabDefaultCompletionType = "<c-n>"
+
     "LANG
         "set spellfile=~/.vim/spell/{language}.{encoding}.add
         nnoremap <silent> <leader>se :setlocal spell! spelllang=en<cr>
@@ -131,11 +271,13 @@ set cursorcolumn
             "change to russian and go in insert mode
             nmap <silent> <space>r :set iminsert=1 imsearch=1<cr>
             nmap <silent> <space>e :set iminsert=0 imsearch=0<cr>
+
     "MULTILINES 
         " noremap  <buffer> <silent> k gk
         " noremap  <buffer> <silent> j gj
         " noremap  <buffer> <silent> 0 g0
         " noremap  <buffer> <silent> $ g$ 
+ 
     "CLOJURE 
         "SEXP
             nmap <space>ks <Plug>(sexp_capture_next_element)
