@@ -56,3 +56,6 @@ yabai -m rule --add app="^(IntelliJ IDEA|Android Studio)$" \
     title="(Preferences|Project Structure)" manage=off
 yabai -m rule --add app="^VimR$" \
     title="last-buffer.*" manage=off
+yabai -m rule --add app="^VimR$" \
+    title="Preferences" manage=off
+
