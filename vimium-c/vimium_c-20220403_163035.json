@@ -1,30 +1,37 @@
 {
 	"name": "Vimium C",
-	"@time": "7/9/2019, 1:53:27 PM",
-	"time": 1562669607654,
+	"@time": "03/04/2022, 16:30:35",
+	"time": 1648992635910,
 	"environment": {
-		"extension": "1.76.0",
-		"platform": "linux",
-		"chrome": 75
+		"extension": "1.97.0",
+		"platform": "mac",
+		"chrome": "100"
 	},
-	"grabBackFocus": true,
 	"exclusionRules": [
 		{
-			"pattern": "^https?://mail.google.com/",
-			"passKeys": ""
+			"passKeys": "",
+			"pattern": "^https?://mail.google.com/"
 		},
 		{
-			"pattern": ":http://klavogonki.ru/",
-			"passKeys": ""
+			"passKeys": "",
+			"pattern": ":http://klavogonki.ru/"
 		},
 		{
-			"pattern": "^https?://experilous\\.com/",
-			"passKeys": ""
+			"passKeys": "",
+			"pattern": "^https?://experilous\\.com/"
+		},
+		{
+			"passKeys": "",
+			"pattern": "^https?://127\\.0\\.0\\.1:9100/"
+		},
+		{
+			"passKeys": "",
+			"pattern": "^https?://127\\.0\\.0\\.1:9100/"
 		}
 	],
-	"newTabUrl": "chrome-extension://mfgdmpfihlmdekaclngibpjhdebndhdj/newtab.html",
-	"showAdvancedCommands": true,
+	"grabBackFocus": true,
 	"keyMappings": [
+		"#!no-check",
 		"# RUSSIAN",
 		"map  , showHelp",
 		"map  о scrollDown",
@@ -38,7 +45,8 @@
 		"",
 		"map  в scrollPageDown",
 		"map  г scrollPageUp",
-		"map  к reload",
+		"#map  к reload",
+		"unmap r",
 		"map  пы toggleViewSource",
 		"",
 		"map  ш enterInsertMode",
@@ -50,9 +58,9 @@
 		"",
 		"map  пш focusInput",
 		"",
-		"map  а LinkHints.activateMode",
-		"map  А LinkHints.activateModeToOpenInNewTab",
-		"map  <a-а> LinkHints.activateModeWithQueue",
+		"map  а LinkHints.activate",
+		"map  А LinkHints.activateOpenInNewTab",
+		"map  <a-а> LinkHints.activateWithQueue",
 		"",
 		"map  . enterFindMode",
 		"map  т performFind",
@@ -62,7 +70,7 @@
 		"map  ъъ goNext",
 		"",
 		"map  нн copyCurrentUrl",
-		"map  на LinkHints.activateModeToCopyLinkUrl",
+		"map  на LinkHints.activateCopyLinkUrl",
 		"",
 		"map  з openCopiedUrlInCurrentTab",
 		"map  З openCopiedUrlInNewTab",
@@ -71,7 +79,8 @@
 		"map  п; lastTab",
 		"",
 		"map  ц moveTabToNewWindow",
-		"map  е createTab",
+		"#map  е createTab",
+		"unmap t",
 		"map  не duplicateTab",
 		"map  ч removeTab",
 		"map  Ч restoreTab",
@@ -110,9 +119,11 @@
 		"map ' Marks.activate",
 		"map э Marks.activate",
 		"",
+		"map  i focusInput",
+		"",
 		"#f",
-		"map f LinkHints.activateMode mapKey",
-		"map F LinkHints.activateModeToOpenInNewTab mapKey",
+		"map f LinkHints.activate mapKey",
+		"map F LinkHints.activateOpenInNewTab mapKey",
 		"mapKey а f",
 		"",
 		"mapKey ф a",
@@ -136,21 +147,19 @@
 		"mapKey з p",
 		""
 	],
-	"vomnibarOptions": {
-		"maxMatches": 10,
-		"queryInterval": 500,
-		"styles": ""
-	},
+	"linkHintCharacters": "asdghjklqwertyuiop",
+	"newTabUrl": "chrome-extension://mfgdmpfihlmdekaclngibpjhdebndhdj/newtab.html",
+	"regexFindMode": true,
 	"scrollStepSize": 50,
-	"focusNewTabContent": false,
 	"searchEngines": [
 		"w: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia",
 		"",
 		"g: https://github.com/search?q=%s GitHub",
-		"e: https://translate.google.com/#en/ru/%s translate from eng",
-		"р: https://translate.google.com/#ru/en/%s translate from rus",
+		"e: https://translate.yandex.ru/?text=%s translate from source",
 		"u: http://www.youtube.com/results?search_query=%s&page=%7BstartPage?%7D&utm_source=opensearch youtube",
 		"y: http://yandex.ru/yandsearch?clid=2235002&web=1&text=%s yandex",
+		"pr: https://stash.sigma.sbrf.ru/projects/ATHENA/repos/staros/pull-requests?create",
+		"bb: https://stash.sigma.sbrf.ru/projects/ATHENA/repos/staros/pull-requests",
 		"",
 		"# More examples.",
 		"#",
@@ -167,6 +176,11 @@
 		"# qw: https://www.qwant.com/?q=%s Qwant",
 		""
 	],
-	"linkHintCharacters": "asdghjklqwertyuiop",
-	"showAdvancedOptions": true
+	"vomnibarOptions": {
+		"actions": "",
+		"maxMatches": 10,
+		"queryInterval": 500,
+		"sizes": "",
+		"styles": ""
+	}
 }
