@@ -43,6 +43,7 @@ set cursorcolumn
         let g:vimwiki_map_prefix = '<Leader>n'
         au filetype vimwiki silent! unmap <buffer> <Tab>
         autocmd BufWinEnter *.md setlocal syntax=markdown
+        autocmd BufEnter *.md colorscheme PaperColor
 
 "EDITING
     "restore last known position

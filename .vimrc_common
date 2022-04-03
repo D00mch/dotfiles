@@ -26,8 +26,8 @@ set cursorcolumn
         Plug 'https://github.com/jiangmiao/auto-pairs'
 
         "WIKI
-        Plug 'https://github.com/xolox/vim-misc', { 'for': 'vimwiki' }
-        Plug 'vimwiki/vimwiki',                   { 'for': 'vimwiki' }
+        Plug 'https://github.com/xolox/vim-misc'
+        Plug 'vimwiki/vimwiki'
         Plug 'sheerun/vim-polyglot'
 
         "CLOJURE
@@ -131,7 +131,6 @@ set cursorcolumn
 
         autocmd BufEnter *.md setlocal foldexpr=MarkdownLevel()  
         autocmd BufEnter *.md setlocal foldmethod=expr  
-        autocmd BufEnter *.md colorscheme PaperColor
         autocmd Filetype vim set foldmethod=indent
         autocmd BufRead *.txt set foldmethod=indent
 
