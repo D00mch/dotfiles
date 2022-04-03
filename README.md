@@ -10,12 +10,12 @@ If brew, fzf, ag are not installed, use first_init.sh script:
 
 ```bash
 cd dotfiles
-bash first_init.sh
+bash first_init.sh ~/dotfiles
 ```
 
 If only want to symlink dotfiles use:
 
 ```bash
 cd dotfiles
-bash init.sh
+bash init.sh ~/dotfiles
 ```
