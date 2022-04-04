@@ -42,6 +42,7 @@ let maplocalleader=","
         Plug 'sainnhe/everforest'
         Plug 'arzg/vim-colors-xcode' 
         Plug 'cormacrelf/vim-colors-github'
+        Plug 'sainnhe/sonokai'
 
         call plug#end()
 
@@ -105,7 +106,9 @@ let maplocalleader=","
     let output =  system("defaults read -g AppleInterfaceStyle")
     if v:shell_error == 0
         set background=dark
-        colorscheme everforest
+        let g:sonokai_style = 'espresso'
+        colorscheme sonokai
+        "colorscheme everforest
     else
         set background=light
         colorscheme github
