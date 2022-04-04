@@ -5,6 +5,46 @@
     ],
     "rules": [
         {
+            "description": "Right cmd + . — ]",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "period",
+                        "modifiers": {
+                            "mandatory": [ "right_command" ],
+                            "optional": [ "any" ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "close_bracket"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Right cmd + , — [",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "comma",
+                        "modifiers": {
+                            "mandatory": [ "right_command" ],
+                            "optional": [ "any" ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "open_bracket"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "description": "Right cmd + p — =/+",
             "manipulators": [
                 {
