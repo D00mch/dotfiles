@@ -251,6 +251,9 @@ let maplocalleader=","
         syntax on
         au BufRead,BufNewFile *.lib set filetype=sh
 
+    "VIM
+        autocmd Filetype vim nmap gd :help <C-R><C-W>\|on<CR> 
+
     "FOLDING
         function! MarkdownLevel()
             if getline(v:lnum) =~ '^# .*$'
