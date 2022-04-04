@@ -26,6 +26,8 @@ brew install the_silver_searcher # ag
 brew install --cask karabiner-elements
 brew install jenv
 brew install java
+brew install clojure
+brew install borkdude/brew/clj-kondo
 # for :Rg search (like fzf and ag in one place)
 brew install ripgrep
 

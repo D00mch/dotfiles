@@ -38,6 +38,7 @@ let maplocalleader=","
         Plug 'liquidz/vim-iced-asyncomplete',         { 'for': 'clojure' }
         Plug 'https://github.com/tpope/vim-surround'
         Plug 'junegunn/rainbow_parentheses.vim'
+        Plug 'dense-analysis/ale'
 
         "THEME
         Plug 'sainnhe/everforest'
@@ -108,6 +109,21 @@ let maplocalleader=","
 
     "AUTOPAIRS
     au Filetype clojure let b:AutoPairs={'(':')', '[':']', '{':'}','"':'"', '`':'`'}
+
+    "ALE-LINTER
+        let g:ale_linters = {'clojure': ['clj-kondo']}
+
+        "run on save
+        let g:ale_lint_on_text_changed = 'never'
+        let g:ale_lint_on_insert_leave = 0
+
+        let g:ale_cursor_detail = 1
+        let g:ale_close_preview_on_insert = 1
+        let g:ale_detail_to_floating_preview = 1
+        let g:ale_floating_preview = 1
+
+        autocmd Filetype clojure nmap <silent> [s <Plug>(ale_previous_wrap)
+        autocmd Filetype clojure nmap <silent> ]s <Plug>(ale_next_wrap)
 
 "THEME
     let output =  system("defaults read -g AppleInterfaceStyle")
@@ -311,8 +327,8 @@ let maplocalleader=","
             map <C-l> <Plug>(sexp_swap_element_forward)
             nmap <Leader>c <Plug>(sexp_move_to_prev_bracket)i#_<C-[>
         "VIM-ICED
-            let g:iced_enable_default_key_mappings = v:false
-            let g:iced#buffer#document#height = 25
+            let g:iced_enable_default_key_mappings=v:false
+            let g:iced#buffer#document#height=25
             let g:iced#notify#max_width_rate=0.4
             let g:iced#notify#max_height_rate=0.4
 
