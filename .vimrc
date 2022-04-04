@@ -39,7 +39,6 @@ let maplocalleader=","
         Plug 'https://github.com/tpope/vim-surround'
         Plug 'junegunn/rainbow_parentheses.vim'
         Plug 'dense-analysis/ale'
-        Plug 'bhurlow/vim-parinfer',                  { 'for': 'clojure' }
 
         "THEME
         Plug 'sainnhe/everforest'
@@ -109,7 +108,8 @@ let maplocalleader=","
         autocmd BufEnter *.md colorscheme PaperColor
 
     "AUTOPAIRS
-        au Filetype clojure let b:AutoPairs={'(':')', '[':']', '{':'}','"':'"', '`':'`'}
+        au Filetype clojure let b:AutoPairs={}
+        let g:AutoPairsFlyMode = 1
 
     "ALE-LINTER
         let g:ale_linters = {'clojure': ['clj-kondo']}
