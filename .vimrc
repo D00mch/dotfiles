@@ -37,6 +37,7 @@ let maplocalleader=","
         Plug 'prabirshrestha/asyncomplete.vim',       { 'for': 'clojure' }
         Plug 'liquidz/vim-iced-asyncomplete',         { 'for': 'clojure' }
         Plug 'https://github.com/tpope/vim-surround'
+        Plug 'junegunn/rainbow_parentheses.vim'
 
         "THEME
         Plug 'sainnhe/everforest'
@@ -51,6 +52,12 @@ let maplocalleader=","
         filetype plugin indent on
         nnoremap <space>c :call Calc()<CR>     
         let g:airline#extensions#keymap#enabled = 0
+
+        "rainbow activation based on file type
+        augroup rainbow_lisp
+          autocmd!
+          autocmd FileType lisp,clojure,scheme RainbowParentheses
+        augroup END
 
     "NERDTREE
         let g:NERDTreeHijackNetrw = 1
