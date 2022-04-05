@@ -1,8 +1,5 @@
 set nocompatible
 
-let mapleader=","
-let maplocalleader=","
-
 "PLUGINS
     "INSTALLATION
         let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
