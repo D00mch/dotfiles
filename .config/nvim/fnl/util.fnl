@@ -1,5 +1,6 @@
 (module util
-  {require {nvim aniseed.nvim}})
+  {require {nvim aniseed.nvim
+            a aniseed.core}})
 
 (defn expand [path]
   (nvim.fn.expand path))
@@ -15,10 +16,10 @@
 
 (def config-path (nvim.fn.stdpath "config"))
 
-(defn nnoremap [from to]
-  (nvim.set_keymap
-    :n
-    from
-    to
-    {:noremap true}))
+(defn nnoremap [from to opts]
+  (let [map-opts {:noremap true}
+        to (.. ":" to "<cr>")]
+    (if (a.get opts :local?)
+      (nvim.buf_set_keymap 0 :n from to map-opts)
+      (nvim.set_keymap :n from to map-opts))))
 

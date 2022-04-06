@@ -9,11 +9,18 @@ set nocompatible
         endif
 
         call plug#begin()
-        Plug 'vim-airline/vim-airline'
+
+        "LuaLine
+        Plug 'nvim-lualine/lualine.nvim'
+        Plug 'kyazdani42/nvim-web-devicons'
+
+        "tree
+        Plug 'preservim/nerdtree'
+        Plug 'ryanoasis/vim-devicons'
+
         Plug 'https://github.com/ervandew/supertab.git'
         Plug 'https://github.com/tpope/vim-commentary.git'
         Plug 'https://github.com/jpalardy/vim-slime.git'
-        Plug 'preservim/nerdtree'
         Plug 'theniceboy/vim-calc'
         Plug 'mhinz/vim-startify'
         Plug 'https://github.com/tpope/vim-fugitive.git'
@@ -54,7 +61,6 @@ set nocompatible
         filetype plugin on
         filetype plugin indent on
         nnoremap <space>c :call Calc()<CR>     
-        let g:airline#extensions#keymap#enabled = 0
 
         "rainbow activation based on file type
         augroup rainbow_lisp
@@ -63,71 +69,6 @@ set nocompatible
         augroup END
 
         " let g:conjure#client#fennel#aniseed#aniseed_module_prefix = "aniseed."
-
-    "NERDTREE
-        let g:NERDTreeHijackNetrw = 1
-        au VimEnter NERD_tree_1 enew | execute 'NERDTree '.argv()[0]
-        let NERDTreeShowHidden=1
-
-    "STARTIFY
-        "help functions
-            function! s:gitModified()
-                let files = systemlist('git ls-files -m 2>/dev/null')
-                return map(files, "{'line': v:val, 'path': v:val}")
-            endfunction
-
-            function! s:gitUntracked()
-                let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
-                return map(files, "{'line': v:val, 'path': v:val}")
-            endfunction
-
-        let g:startify_change_to_vcs_root = 1
-        let g:startify_lists = [
-            \ { 'type': 'sessions',  'header': ['   Sessions']       },
-            \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-            \ { 'type': 'files',     'header': ['   Files']            },
-            \ { 'type': 'dir',       'header': ['   Dir '. getcwd()] },
-            \ { 'type': function('s:gitModified'),  'header': ['   git modified']},
-            \ { 'type': function('s:gitUntracked'), 'header': ['   git untracked']},
-            \ { 'type': 'commands',  'header': ['   Commands']       },
-            \ ]
-        let g:startify_bookmarks = [
-                    \ { 'e': '~/dotfiles/.zshenv' },
-                    \ { 'v': '~/dotfiles/.vimrc' },
-                    \ { 'z': '~/dotfiles/.zshrc' },
-                    \ { 'w': '~/wiki/todo.md' },
-                    \ ]
-        nmap <Leader>mp :Startify<cr>
-
-    "VIM-WIKI
-        let g:vimwiki_list = [{'path':   '~/Yandex.Disk.localized/notes/wiki',
-                             \ 'syntax': 'markdown', 
-                             \ 'ext':    '.md'}]
-        let g:vimwiki_folding='custom'
-        let g:vimwiki_table_mappings=0
-        let g:vimwiki_global_ext = 0
-        let g:vimwiki_map_prefix = '<Leader>n'
-        au filetype vimwiki silent! unmap <buffer> <Tab>
-        autocmd BufWinEnter *.md setlocal syntax=markdown
-        autocmd BufEnter *.md colorscheme PaperColor
-
-    "AUTOPAIRS
-        au Filetype clojure let b:AutoPairs={}
-
-    "ALE-LINTER
-        let g:ale_linters = {'clojure': ['clj-kondo']}
-
-        "run on save
-        let g:ale_lint_on_text_changed = 'never'
-        let g:ale_lint_on_insert_leave = 0
-
-        let g:ale_cursor_detail = 1
-        let g:ale_close_preview_on_insert = 1
-        let g:ale_detail_to_floating_preview = 1
-        let g:ale_floating_preview = 1
-
-        autocmd Filetype clojure nmap <silent> [s <Plug>(ale_previous_wrap)
-        autocmd Filetype clojure nmap <silent> ]s <Plug>(ale_next_wrap)
 
 "THEME
     let output =  system("defaults read -g AppleInterfaceStyle")
@@ -228,7 +169,7 @@ set nocompatible
         nmap ∑ <C-W>
 
     "SPACEMACS-LIKE COMMANDS
-        nnoremap <space>pt :NERDTreeFind<cr>
+        " nnoremap <space>pt :NERDTreeFind<cr>
         noremap <silent><space>pa :execute 'silent! update'<Bar>Rg<cr>
         noremap <silent><space>pf :execute 'silent! update'<Bar>FZF<cr>
         noremap <silent><space>bb :execute 'silent! update'<Bar>Buffers<cr>
@@ -324,59 +265,5 @@ set nocompatible
     "CLOJURE 
         "ALL
             au! BufRead,BufNewFile *.cljd setfiletype clojure
-
-        "VIM-ICED
-            "let g:iced_enable_default_key_mappings=v:false
-            "let g:iced#buffer#document#height=25
-            "let g:iced#notify#max_width_rate=0.4
-            "let g:iced#notify#max_height_rate=0.4
-
-            "nmap <Nop>(iced_command_palette) <Plug>(iced_command_palette)
-
-            ""DOCS
-            "nmap <Leader>hh <Plug>(iced_clojuredocs_open)
-            "nmap <Leader>hq <Plug>(iced_document_close)
-
-            ""REFACTOR
-            "autocmd Filetype clojure nmap <Leader>= <Plug>(iced_format_all)
-            "autocmd Filetype clojure nmap <Leader>rfu <Plug>(iced_use_case_open)
-            "autocmd Filetype clojure nmap <Leader>ran <Plug>(iced_add_ns)
-            "autocmd Filetype clojure nmap <Leader>ram <Plug>(iced_add_missing)
-            "autocmd Filetype clojure nmap gd <Plug>(iced_def_jump)
-            "autocmd Filetype clojure nmap <space>kb <Plug>(iced_barf)
-            "autocmd Filetype clojure nmap <space>kB <Plug>(sexp_emit_head_element)
-            "autocmd Filetype clojure nmap <space>ks <Plug>(iced_slurp)
-            "autocmd Filetype clojure nmap <space>kS <Plug>(sexp_capture_prev_element)
-            "autocmd Filetype clojure nmap <Leader>rr <Plug>(iced_rename_symbol)
-            "autocmd Filetype clojure nmap <Leader>ra <Plug>(iced_command_palette)
-            "autocmd Filetype clojure nmap <Leader>rtf <Plug>(iced_thread_first)
-            "autocmd Filetype clojure nmap <Leader>rtl <Plug>(iced_thread_last)
-
-            ""REPL
-            "autocmd Filetype clojure nmap <Leader>' <Plug>(iced_connect)
-            "autocmd Filetype clojure nmap <Leader>" <Plug>(iced_jack_in)
-
-            "autocmd Filetype clojure nmap <space>e <Plug>(iced_eval_and_comment)af
-            "autocmd Filetype clojure nmap <Leader>sf <Plug>(iced_eval_and_print)af
-            "autocmd Filetype clojure nmap <Leader>ef <Plug>(iced_eval_outer_top_list)
-            "autocmd Filetype clojure nmap <Leader>sn <Plug>(iced_eval_ns)
-            "autocmd Filetype clojure nmap <Leader>eb ggVG<Plug>(iced_eval_visual)
-            "autocmd Filetype clojure nmap <Leader>ei <Plug>(iced_eval)<Plug>(sexp_inner_element)
-            "autocmd Filetype clojure nmap <Leader>si <Plug>(iced_eval_and_print)<Plug>(sexp_inner_element)
-            "autocmd Filetype clojure nmap <Leader>ee <Plug>(iced_eval)<Plug>(sexp_outer_list)
-            "autocmd Filetype clojure nmap <Leader>eu <Plug>(iced_undef)
-            "autocmd Filetype clojure nmap <Leader>eU <Plug>(iced_undef_all_in_ns)
-            "autocmd Filetype clojure nmap <Leader>eq <Plug>(iced_interrupt)
-            "autocmd Filetype clojure nmap <Leader>eQ <Plug>(iced_interrupt_all)
-            "autocmd Filetype clojure vmap <Leader>ev <Plug>(iced_eval_visual)
-
-            ""STDOUT BUFFER
-            "autocmd Filetype clojure nmap <Leader>ss <Plug>(iced_stdout_buffer_toggle)
-            "autocmd Filetype clojure nmap <Leader>so <Plug>(iced_stdout_buffer_open)
-            "autocmd Filetype clojure nmap <Leader>sc <Plug>(iced_stdout_buffer_clear)
-            "autocmd Filetype clojure nmap <Leader>sq <Plug>(iced_stdout_buffer_close)
-
-            "let g:iced#buffer#stdout#mods = 'rightbelow' 
-            ""let g:iced_formatter = 'joker'
 
 "END

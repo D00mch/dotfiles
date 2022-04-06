@@ -1,6 +1,7 @@
 (module plugin.conjure
   {require {nvim aniseed.nvim}})
 
+(set nvim.g.conjure#log#wrap true)
 (set nvim.g.conjure#eval#result_register "*")
 (set nvim.g.conjure#log#botright true)
 (set nvim.g.conjure#mapping#doc_word "hh")

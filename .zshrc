@@ -21,6 +21,7 @@ alias nt='vim ~/wiki/index.md -c ":cd %:p:h"'
 # settings files start
 alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
+alias vimplug='vim ~/.local/share/nvim/plugged'
 alias inputrc='vim ~/.inputrc'
 alias idearc='vim ~/.ideavimrc'
 alias zathurarc='vim ~/.config/zathura/zathurarc'
