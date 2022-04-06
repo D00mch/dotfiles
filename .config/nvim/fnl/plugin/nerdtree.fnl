@@ -10,5 +10,5 @@
       "NERD_tree_1"
       "enew | execute 'NERDTree '.argv()[0]")
 
-(ut.nnoremap "<space>pt" ":NERDTreeFind<cr>")
-(ut.nnoremap "¡" ":NERDTreeToggle")
+(ut.nmap "<space>pt" ":NERDTreeFind<cr>")
+(ut.nmap "¡" ":NERDTreeToggle<cr>")

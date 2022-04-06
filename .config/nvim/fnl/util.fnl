@@ -8,6 +8,9 @@
 (defn glob [path]
   (nvim.fn.glob path true true true))
 
+(defn add-glob [n f]
+  (tset _G n f))
+
 (defn exists? [path]
   (= (nvim.fn.filereadable path) 1))
 
@@ -16,10 +19,14 @@
 
 (def config-path (nvim.fn.stdpath "config"))
 
-(defn nnoremap [from to opts]
-  (let [map-opts {:noremap true}
-        to (.. ":" to "<cr>")]
-    (if (a.get opts :local?)
-      (nvim.buf_set_keymap 0 :n from to map-opts)
-      (nvim.set_keymap :n from to map-opts))))
+(defn m [mode from to opts]
+  (nvim.set_keymap mode from to (if opts opts {:noremap true})))
+
+(defn nmap [from to]
+  (m :n from to))
+
+(def nnoremap nmap)
+
+(defn map [from to]
+  (m :n from to {:noremap false}))
 
