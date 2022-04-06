@@ -29,7 +29,7 @@ set nocompatible
         Plug 'sheerun/vim-polyglot'
 
         "CLOJURE
-        Plug 'https://github.com/guns/vim-sexp.git',  { 'for': 'clojure' }
+        Plug 'https://github.com/guns/vim-sexp.git'
         " Plug 'liquidz/vim-iced',                      { 'for': 'clojure' }
         " Plug 'prabirshrestha/asyncomplete.vim',       { 'for': 'clojure' }
         " Plug 'liquidz/vim-iced-asyncomplete',         { 'for': 'clojure' }
@@ -45,6 +45,9 @@ set nocompatible
         Plug 'cormacrelf/vim-colors-github'
         Plug 'sainnhe/sonokai'
 
+        "Fennel
+        Plug 'Olical/aniseed'
+
         call plug#end()
 
     "ALL
@@ -56,8 +59,10 @@ set nocompatible
         "rainbow activation based on file type
         augroup rainbow_lisp
           autocmd!
-          autocmd FileType lisp,clojure,scheme RainbowParentheses
+          autocmd FileType lisp,clojure,scheme,fennel RainbowParentheses
         augroup END
+
+        " let g:conjure#client#fennel#aniseed#aniseed_module_prefix = "aniseed."
 
     "NERDTREE
         let g:NERDTreeHijackNetrw = 1
@@ -322,21 +327,13 @@ set nocompatible
             au! BufRead,BufNewFile *.cljd setfiletype clojure
 
         "SEXP
-            nmap <space>ks <Plug>(sexp_capture_next_element)
-            nmap <space>kS <Plug>(sexp_capture_prev_element)
-            map <C-j> <Plug>(sexp_swap_list_forward)
-            map <C-k> <Plug>(sexp_swap_list_backward)
-            map <C-h> <Plug>(sexp_swap_element_backward)
-            map <C-l> <Plug>(sexp_swap_element_forward)
-            nmap <Leader>c <Plug>(sexp_move_to_prev_bracket)i#_<C-[>
-
-        "CONJURE
-            "autocmd Filetype clojure nmap <Leader>ss <Plug>(iced_stdout_buffer_toggle)
-            let g:conjure#mapping#doc_word = 'hh'
-            let g:conjure#mapping#eval_visual = 'ev'
-            let g:conjure#mapping#eval_comment_current_form = ["<space>e"]
-            let g:conjure#mapping#eval_file = 'eb'
-            let g:conjure#mapping#eval_root_form = 'ef'
+            " nmap <space>ks <Plug>(sexp_capture_next_element)
+            " nmap <space>kS <Plug>(sexp_capture_prev_element)
+            " map <C-j> <Plug>(sexp_swap_list_forward)
+            " map <C-k> <Plug>(sexp_swap_list_backward)
+            " map <C-h> <Plug>(sexp_swap_element_backward)
+            " map <C-l> <Plug>(sexp_swap_element_forward)
+            " nmap <Leader>c <Plug>(sexp_move_to_prev_bracket)i#_<C-[>
 
         "VIM-ICED
             "let g:iced_enable_default_key_mappings=v:false

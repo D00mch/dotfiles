@@ -8,3 +8,4 @@ source ~/.vimrc
 au TextYankPost * silent! lua vim.highlight.on_yank()
 ]])
 
+require('aniseed.env').init()
