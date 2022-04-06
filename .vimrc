@@ -113,7 +113,6 @@ set nocompatible
 
     "AUTOPAIRS
         au Filetype clojure let b:AutoPairs={}
-        let g:AutoPairsFlyMode = 1
 
     "ALE-LINTER
         let g:ale_linters = {'clojure': ['clj-kondo']}
@@ -325,15 +324,6 @@ set nocompatible
     "CLOJURE 
         "ALL
             au! BufRead,BufNewFile *.cljd setfiletype clojure
-
-        "SEXP
-            " nmap <space>ks <Plug>(sexp_capture_next_element)
-            " nmap <space>kS <Plug>(sexp_capture_prev_element)
-            " map <C-j> <Plug>(sexp_swap_list_forward)
-            " map <C-k> <Plug>(sexp_swap_list_backward)
-            " map <C-h> <Plug>(sexp_swap_element_backward)
-            " map <C-l> <Plug>(sexp_swap_element_forward)
-            " nmap <Leader>c <Plug>(sexp_move_to_prev_bracket)i#_<C-[>
 
         "VIM-ICED
             "let g:iced_enable_default_key_mappings=v:false

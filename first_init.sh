@@ -30,6 +30,9 @@ brew install clojure
 brew install borkdude/brew/clj-kondo
 # for :Rg search (like fzf and ag in one place)
 brew install ripgrep
+# for lua and fennel
+brew install luarocks 
+luarocks install fennel
 
 # start services
 brew services start skhd

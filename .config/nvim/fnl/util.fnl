@@ -18,6 +18,7 @@
 (defn nnoremap [from to]
   (nvim.set_keymap
     :n
-    (.. "<leader>" from)
-    (.. ":" to "<cr>")
+    from
+    to
     {:noremap true}))
+
