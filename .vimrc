@@ -30,12 +30,14 @@ set nocompatible
 
         "CLOJURE
         Plug 'https://github.com/guns/vim-sexp.git',  { 'for': 'clojure' }
-        Plug 'liquidz/vim-iced',                      { 'for': 'clojure' }
-        Plug 'prabirshrestha/asyncomplete.vim',       { 'for': 'clojure' }
-        Plug 'liquidz/vim-iced-asyncomplete',         { 'for': 'clojure' }
+        " Plug 'liquidz/vim-iced',                      { 'for': 'clojure' }
+        " Plug 'prabirshrestha/asyncomplete.vim',       { 'for': 'clojure' }
+        " Plug 'liquidz/vim-iced-asyncomplete',         { 'for': 'clojure' }
         Plug 'https://github.com/tpope/vim-surround'
         Plug 'junegunn/rainbow_parentheses.vim'
         Plug 'dense-analysis/ale'
+        Plug 'Olical/conjure'
+        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
         "THEME
         Plug 'sainnhe/everforest'
@@ -327,58 +329,67 @@ set nocompatible
             map <C-h> <Plug>(sexp_swap_element_backward)
             map <C-l> <Plug>(sexp_swap_element_forward)
             nmap <Leader>c <Plug>(sexp_move_to_prev_bracket)i#_<C-[>
+
+        "CONJURE
+            "autocmd Filetype clojure nmap <Leader>ss <Plug>(iced_stdout_buffer_toggle)
+            let g:conjure#mapping#doc_word = 'hh'
+            let g:conjure#mapping#eval_visual = 'ev'
+            let g:conjure#mapping#eval_comment_current_form = ["<space>e"]
+            let g:conjure#mapping#eval_file = 'eb'
+            let g:conjure#mapping#eval_root_form = 'ef'
+
         "VIM-ICED
-            let g:iced_enable_default_key_mappings=v:false
-            let g:iced#buffer#document#height=25
-            let g:iced#notify#max_width_rate=0.4
-            let g:iced#notify#max_height_rate=0.4
+            "let g:iced_enable_default_key_mappings=v:false
+            "let g:iced#buffer#document#height=25
+            "let g:iced#notify#max_width_rate=0.4
+            "let g:iced#notify#max_height_rate=0.4
 
-            nmap <Nop>(iced_command_palette) <Plug>(iced_command_palette)
+            "nmap <Nop>(iced_command_palette) <Plug>(iced_command_palette)
 
-            "DOCS
-            nmap <Leader>hh <Plug>(iced_clojuredocs_open)
-            nmap <Leader>hq <Plug>(iced_document_close)
+            ""DOCS
+            "nmap <Leader>hh <Plug>(iced_clojuredocs_open)
+            "nmap <Leader>hq <Plug>(iced_document_close)
 
-            "REFACTOR
-            autocmd Filetype clojure nmap <Leader>= <Plug>(iced_format_all)
-            autocmd Filetype clojure nmap <Leader>rfu <Plug>(iced_use_case_open)
-            autocmd Filetype clojure nmap <Leader>ran <Plug>(iced_add_ns)
-            autocmd Filetype clojure nmap <Leader>ram <Plug>(iced_add_missing)
-            autocmd Filetype clojure nmap gd <Plug>(iced_def_jump)
-            autocmd Filetype clojure nmap <space>kb <Plug>(iced_barf)
-            autocmd Filetype clojure nmap <space>kB <Plug>(sexp_emit_head_element)
-            autocmd Filetype clojure nmap <space>ks <Plug>(iced_slurp)
-            autocmd Filetype clojure nmap <space>kS <Plug>(sexp_capture_prev_element)
-            autocmd Filetype clojure nmap <Leader>rr <Plug>(iced_rename_symbol)
-            autocmd Filetype clojure nmap <Leader>ra <Plug>(iced_command_palette)
-            autocmd Filetype clojure nmap <Leader>rtf <Plug>(iced_thread_first)
-            autocmd Filetype clojure nmap <Leader>rtl <Plug>(iced_thread_last)
+            ""REFACTOR
+            "autocmd Filetype clojure nmap <Leader>= <Plug>(iced_format_all)
+            "autocmd Filetype clojure nmap <Leader>rfu <Plug>(iced_use_case_open)
+            "autocmd Filetype clojure nmap <Leader>ran <Plug>(iced_add_ns)
+            "autocmd Filetype clojure nmap <Leader>ram <Plug>(iced_add_missing)
+            "autocmd Filetype clojure nmap gd <Plug>(iced_def_jump)
+            "autocmd Filetype clojure nmap <space>kb <Plug>(iced_barf)
+            "autocmd Filetype clojure nmap <space>kB <Plug>(sexp_emit_head_element)
+            "autocmd Filetype clojure nmap <space>ks <Plug>(iced_slurp)
+            "autocmd Filetype clojure nmap <space>kS <Plug>(sexp_capture_prev_element)
+            "autocmd Filetype clojure nmap <Leader>rr <Plug>(iced_rename_symbol)
+            "autocmd Filetype clojure nmap <Leader>ra <Plug>(iced_command_palette)
+            "autocmd Filetype clojure nmap <Leader>rtf <Plug>(iced_thread_first)
+            "autocmd Filetype clojure nmap <Leader>rtl <Plug>(iced_thread_last)
 
-            "REPL
-            autocmd Filetype clojure nmap <Leader>' <Plug>(iced_connect)
-            autocmd Filetype clojure nmap <Leader>" <Plug>(iced_jack_in)
+            ""REPL
+            "autocmd Filetype clojure nmap <Leader>' <Plug>(iced_connect)
+            "autocmd Filetype clojure nmap <Leader>" <Plug>(iced_jack_in)
 
-            autocmd Filetype clojure nmap <space>e <Plug>(iced_eval_and_comment)af
-            autocmd Filetype clojure nmap <Leader>sf <Plug>(iced_eval_and_print)af
-            autocmd Filetype clojure nmap <Leader>ef <Plug>(iced_eval_outer_top_list)
-            autocmd Filetype clojure nmap <Leader>sn <Plug>(iced_eval_ns)
-            autocmd Filetype clojure nmap <Leader>eb ggVG<Plug>(iced_eval_visual)
-            autocmd Filetype clojure nmap <Leader>ei <Plug>(iced_eval)<Plug>(sexp_inner_element)
-            autocmd Filetype clojure nmap <Leader>si <Plug>(iced_eval_and_print)<Plug>(sexp_inner_element)
-            autocmd Filetype clojure nmap <Leader>ee <Plug>(iced_eval)<Plug>(sexp_outer_list)
-            autocmd Filetype clojure nmap <Leader>eu <Plug>(iced_undef)
-            autocmd Filetype clojure nmap <Leader>eU <Plug>(iced_undef_all_in_ns)
-            autocmd Filetype clojure nmap <Leader>eq <Plug>(iced_interrupt)
-            autocmd Filetype clojure nmap <Leader>eQ <Plug>(iced_interrupt_all)
-            autocmd Filetype clojure vmap <Leader>ev <Plug>(iced_eval_visual)
+            "autocmd Filetype clojure nmap <space>e <Plug>(iced_eval_and_comment)af
+            "autocmd Filetype clojure nmap <Leader>sf <Plug>(iced_eval_and_print)af
+            "autocmd Filetype clojure nmap <Leader>ef <Plug>(iced_eval_outer_top_list)
+            "autocmd Filetype clojure nmap <Leader>sn <Plug>(iced_eval_ns)
+            "autocmd Filetype clojure nmap <Leader>eb ggVG<Plug>(iced_eval_visual)
+            "autocmd Filetype clojure nmap <Leader>ei <Plug>(iced_eval)<Plug>(sexp_inner_element)
+            "autocmd Filetype clojure nmap <Leader>si <Plug>(iced_eval_and_print)<Plug>(sexp_inner_element)
+            "autocmd Filetype clojure nmap <Leader>ee <Plug>(iced_eval)<Plug>(sexp_outer_list)
+            "autocmd Filetype clojure nmap <Leader>eu <Plug>(iced_undef)
+            "autocmd Filetype clojure nmap <Leader>eU <Plug>(iced_undef_all_in_ns)
+            "autocmd Filetype clojure nmap <Leader>eq <Plug>(iced_interrupt)
+            "autocmd Filetype clojure nmap <Leader>eQ <Plug>(iced_interrupt_all)
+            "autocmd Filetype clojure vmap <Leader>ev <Plug>(iced_eval_visual)
 
-            "STDOUT BUFFER
-            autocmd Filetype clojure nmap <Leader>ss <Plug>(iced_stdout_buffer_toggle)
-            autocmd Filetype clojure nmap <Leader>so <Plug>(iced_stdout_buffer_open)
-            autocmd Filetype clojure nmap <Leader>sc <Plug>(iced_stdout_buffer_clear)
-            autocmd Filetype clojure nmap <Leader>sq <Plug>(iced_stdout_buffer_close)
+            ""STDOUT BUFFER
+            "autocmd Filetype clojure nmap <Leader>ss <Plug>(iced_stdout_buffer_toggle)
+            "autocmd Filetype clojure nmap <Leader>so <Plug>(iced_stdout_buffer_open)
+            "autocmd Filetype clojure nmap <Leader>sc <Plug>(iced_stdout_buffer_clear)
+            "autocmd Filetype clojure nmap <Leader>sq <Plug>(iced_stdout_buffer_close)
 
-            let g:iced#buffer#stdout#mods = 'rightbelow' 
-            "let g:iced_formatter = 'joker'
+            "let g:iced#buffer#stdout#mods = 'rightbelow' 
+            ""let g:iced_formatter = 'joker'
 
 "END
