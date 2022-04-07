@@ -60,6 +60,20 @@
                                   :requires [[:nvim-lua/popup.nvim] 
                                              [:nvim-lua/plenary.nvim]]}
 
+
+  ;; parsing system
+  :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
+                                    :mod :treesitter}
+
+  ;; lsp
+  :neovim/nvim-lspconfig {:mod :lspconfig}
+
+  ;; autocomplete
+  :hrsh7th/nvim-cmp {:requires [:hrsh7th/cmp-buffer
+                                :hrsh7th/cmp-nvim-lsp
+                                :PaterJason/cmp-conjure]
+                     :mod :cmp}
+
   :mhinz/vim-startify {:mod :startify}
   :ervandew/supertab {}
   :tpope/vim-commentary {}
