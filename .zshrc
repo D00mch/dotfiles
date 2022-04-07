@@ -25,6 +25,9 @@ alias inputrc='vim ~/.inputrc'
 alias idearc='vim ~/.ideavimrc'
 alias zathurarc='vim ~/.config/zathura/zathurarc'
 alias hotkeys='vim ~/.skhdrc'
+alias rehotkeys='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.skhd"'
+alias yabairc='vim ~/.yabairc'
+alias reyabai='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"'
 
 # vim start
 bindkey -v
