@@ -1,7 +1,3 @@
-# submodules
-git submodule init
-git submodule update
-
 # install oh my zsh
 cd ~
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -9,12 +5,12 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # prepare dotfiles (after installing zsh) 
 rm -rf ~/.zshenv
 rm -rf ~/.zshrc
-bash init.sh
+bash init.sh $1
 
 # installing brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-sudo chown -R $(whoami) /usr/local/Cellar
+echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> ~/.zprofile
+eval $(/opt/homebrew/bin/brew shellenv)
 
 # installing utilities 
 brew install fzf
@@ -24,14 +20,17 @@ brew install koekeishiya/formulae/skhd
 brew install yabai
 brew install the_silver_searcher # ag
 brew install --cask karabiner-elements
+brew install jq
 brew install jenv
 brew install java
+brew install leiningen
 brew install clojure
 brew install borkdude/brew/clj-kondo
 # for :Rg search (like fzf and ag in one place)
 brew install ripgrep
 
 # for lualine and nerdtree icons
+brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
 
 # start services
