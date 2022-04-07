@@ -7,6 +7,11 @@ set backspace=indent,eol,start
 set visualbell
 set ideavimsupport=+singleline,dialog
 set ideajoin
+set NERDTree
+set highlightedyank
+set commentary
+set surround
+set ReplaceWithRegister
 set ReplaceWithRegister
 
 "PLUGINS SETUPS
@@ -78,7 +83,8 @@ set ReplaceWithRegister
         "CLOJURE-REPL
             nnoremap <C-c><C-c> :action :cursive.repl.actions/interrupt<cr>
             nnoremap <Leader>sp :action :cursive.repl.actions/jump-to-output<cr>
-            nnoremap <Leader>ss :action :cursive.repl.actions/jump-to-repl<cr>
+            nnoremap <Leader>lv :action :cursive.repl.actions/jump-to-repl<cr>
+            nnoremap <Leader>ls :action :cursive.repl.actions/jump-to-repl<cr>
             nnoremap <Leader>eb :action :cursive.repl.actions/load-file<cr>
             nnoremap <Leader>em :action :cursive.repl.actions/macroexpansion<cr>
             nnoremap <Leader>se :action :cursive.repl.actions/run-last-sexp<cr>
