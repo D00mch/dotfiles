@@ -2,16 +2,6 @@
   {autoload {nvim aniseed.nvim
              c aniseed.core}})
 
-(nvim.ex.set :wrap)
-(nvim.ex.set "wildmode=full")
-
-(set nvim.o.undodir "$HOME/.vim/undo")
-(set nvim.o.tabstop 2)
-
-(nvim.ex.set "clipboard-=unnamedplus")
-
-(set vim.g.colores_name "sonokai")
-
 (let [(ok? msg) (pcall vim.fn.system "defaults read -g AppleInterfaceStyle")]
   (if (string.find msg "Dark")
     (do 
