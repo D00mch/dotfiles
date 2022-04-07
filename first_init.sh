@@ -13,12 +13,10 @@ echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> ~/.zprofile
 eval $(/opt/homebrew/bin/brew shellenv)
 
 # installing utilities 
-brew install fzf
 brew install neovim
 brew install koekeishiya/formulae/skhd
 # https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(from-HEAD)
 brew install yabai
-brew install the_silver_searcher # ag
 brew install --cask karabiner-elements
 brew install jq
 brew install jenv
@@ -26,7 +24,6 @@ brew install java
 brew install leiningen
 brew install clojure
 brew install borkdude/brew/clj-kondo
-# for :Rg search (like fzf and ag in one place)
 brew install ripgrep
 
 # for lualine and nerdtree icons

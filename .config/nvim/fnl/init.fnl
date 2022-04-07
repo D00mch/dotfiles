@@ -1,23 +1,24 @@
 (module init
   {require {core aniseed.core
             nvim aniseed.nvim
+            u aniseed.nvim.util
             util util}})
+
+(require :plugin)
 
 (defn- map [mode from to]
   (util.m mode from to {:noremap false}))
+
+; (defn save-it [] 
+;   (nvim.fn.execute ":wa"))
+; (u.fn-bridge :MySaveIt :plugin.theme :save-it)
+; (map :n "<leader>s" ":call MySaveIt()<cr>")
 
 (do (comment "Editing")
   (nvim.ex.autocmd                                  ; restore last known position
                    :BufReadPost
                    "*"
                    "if line(\"'\\\"\") > 1 && line(\"'\\\"\") <= line(\"$\") | exe \"normal! g'\\\"\" | endif")
-  (nvim.ex.set :undofile)
-
-  (set nvim.o.undodir (.. (nvim.fn.stdpath "data")  ; persistent undo settings
-                          "/undo"))            
-  (set nvim.o.undolevels 1000)
-  (set nvim.o.undoreload 10000)
-  (map :n "<space>u" ":UndotreeToggle<cr>")         ; undo tree
   (comment "to be continue..."))
 
 (do (comment "Syntax")
