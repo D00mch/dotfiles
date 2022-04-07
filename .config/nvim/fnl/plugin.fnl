@@ -82,5 +82,5 @@
   :vim-scripts/ReplaceWithRegister {}
   :jiangmiao/auto-pairs {:mod :auto-pairs}
   :mbbill/undotree {:mod :undotree}
-
+  :airblade/vim-rooter {:mod :rooter}
   )
