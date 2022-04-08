@@ -8,6 +8,8 @@
 
 (u.map :<space>ks "<Plug>(sexp_capture_next_element)")
 (u.map :<space>kS "<Plug>(sexp_capture_prev_element)")
+(u.map :<space>kb "<Plug>(sexp_emit_tail_element)")
+(u.map :<space>kB "<Plug>(sexp_emit_head_element)")
 (u.map :<C-j> "<Plug>(sexp_swap_list_forward)")
 (u.map :<C-k> "<Plug>(sexp_swap_list_backward)")
 (u.map :<C-h> "<Plug>(sexp_swap_element_backward)")
