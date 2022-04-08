@@ -9,3 +9,5 @@
 (set nvim.g.conjure#mapping#eval_file "eb")
 (set nvim.g.conjure#mapping#eval_root_form "ef")
 (set nvim.g.conjure#mapping#eval_comment_current_form "sf")
+(set nvim.g.conjure#extract#tree_sitter#enabled true)
+

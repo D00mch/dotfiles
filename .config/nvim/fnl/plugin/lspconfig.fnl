@@ -52,11 +52,13 @@
                     ; (map bufnr :n :<leader>lj "<cmd>lua vim.diagnostic.goto_next()<CR>" {:noremap true})
                     ; (map bufnr :n :<leader>lk "<cmd>lua vim.diagnostic.goto_prev()<CR>" {:noremap true})
                     ;telescope
-                    (map bufnr :n :<leader>ra ":lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor())<cr>" {:noremap true})
+                    (map bufnr :n :<leader>ra
+                         ":lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor())<cr>"
+                         {:noremap true})
                     (map bufnr :v :<leader>ra ":'<,'>:Telescope lsp_range_code_actions theme=cursor<cr>" {:noremap true})
                     (map bufnr :n :<leader>rw ":lua require('telescope.builtin').lsp_workspace_diagnostics()<cr>" {:noremap true})
                     (map bufnr :n :<leader>fr ":lua require('telescope.builtin').lsp_references()<cr>" {:noremap true})
                     (map bufnr :n :<leader>fi ":lua require('telescope.builtin').lsp_implementations()<cr>" {:noremap true})))]
-  (lsp.clojure_lsp.setup {:on_attach on_attach
+(lsp.clojure_lsp.setup {:on_attach on_attach
                           :handlers handlers
                           :capabilities capabilities}))
