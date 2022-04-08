@@ -24,6 +24,10 @@
   nil)
 
 (use
+  ;; base
+  :wbthomason/packer.nvim {}
+  :Olical/aniseed {}
+  :lewis6991/impatient.nvim {}
 
   ;; status line
   :kyazdani42/nvim-web-devicons {}
