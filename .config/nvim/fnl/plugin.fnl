@@ -43,7 +43,7 @@
   :ryanoasis/vim-devicons {}
 
   ;; clojure
-  :dense-analysis/ale {}
+  :dense-analysis/ale {:mod :ale}
 
   ;; wiki
   :vimwiki/vimwiki {:mod :wiki :requires [[:xolox/vim-misc]]}
