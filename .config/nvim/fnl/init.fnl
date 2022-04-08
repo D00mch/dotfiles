@@ -14,13 +14,15 @@
 ; (u.fn-bridge :MySaveIt :plugin.theme :save-it)
 ; (map :n "<leader>s" ":call MySaveIt()<cr>")
 
-(do (comment "Editing")
-  (map :t "®" "<C-\\><C-n>")
-  (nvim.ex.autocmd                                  ; restore last known position
-                   :BufReadPost
-                   "*"
-                   "if line(\"'\\\"\") > 1 && line(\"'\\\"\") <= line(\"$\") | exe \"normal! g'\\\"\" | endif")
-  (comment "to be continue..."))
+
+;; open Help in full window
+(vim.cmd "command! -nargs=1 -complete=help H help <args> | silent only")
+
+(map :t "®" "<C-\\><C-n>")
+(nvim.ex.autocmd                                    ; restore last known position
+                 :BufReadPost
+                 "*"
+                 "if line(\"'\\\"\") > 1 && line(\"'\\\"\") <= line(\"$\") | exe \"normal! g'\\\"\" | endif")
 
 (do (comment "Syntax")
   (vim.cmd "set fdm=syntax")
