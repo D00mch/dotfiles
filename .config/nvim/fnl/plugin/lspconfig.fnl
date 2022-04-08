@@ -8,7 +8,7 @@
 
 (def- map nvim.buf_set_keymap)
 
-;symbols to show for lsp diagnostics
+;; Symbols to show for lsp diagnostics
 (defn define-signs
   [prefix]
   (let [error (.. prefix "SignError")
@@ -71,15 +71,15 @@
 
   (flut.setup
     {:lsp
-     {:on_attach
+     {:closing_tags {:highlight "ErrorMsg"
+                     :prefix ">"
+                     :enabled true}
+      :handlers handlers
+      :capabilities capabilities
+      :on_attach
       (fn [client b]
         (on_attach client b)
         (map b :n :<leader>fa
              ":lua require('telescope').extensions.flutter.commands()<cr>"
              {:noremap true})
-        (tel.load_extension "flutter"))
-      :handlers handlers
-      :capabilities capabilities}
-     :closing_tags {:highlight "ErrorMsg"
-                    :prefix ">"
-                    :enabled true}}))
+        (tel.load_extension "flutter"))}}))

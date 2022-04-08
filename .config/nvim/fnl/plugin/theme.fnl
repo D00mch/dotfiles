@@ -11,4 +11,3 @@
     (do 
       (set nvim.o.background "light")
       (vim.cmd "colorscheme github"))))
-

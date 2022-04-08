@@ -19,17 +19,8 @@
       {:type "bookmarks" :header ["    Bookmarks"]}])
 
 (set nvim.g.startify_bookmarks
-     [{:e "~/dotfiles/.zshenv"}
+     [{:p "~/dotfiles/.zshenv"}
       {:v "~/dotfiles/.vimrc"}
       {:i "~/dotfiles/.ideavimrc"}
       {:z "~/dotfiles/.zshrc"}
       {:w "~/wiki/todo.md"} ])
-
-; (defn git-modified []
-;   (let [files (nvim.ex.systemlist "git ls-files -m 2>/dev/null")]
-;     (map 
-;       (fn [f] (str "{'line':" f ", 'path':" f ":}"))
-;       files)))
-; (nvim.nvim_call_function "systemlist" "git ls-files -m 2>/dev/null")
-
-

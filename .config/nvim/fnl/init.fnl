@@ -9,12 +9,6 @@
 (defn- map [mode from to]
   (util.m mode from to {:noremap false}))
 
-; (defn save-it [] 
-;   (nvim.fn.execute ":wa"))
-; (u.fn-bridge :MySaveIt :plugin.theme :save-it)
-; (map :n "<leader>s" ":call MySaveIt()<cr>")
-
-
 ;; open Help in full window
 (vim.cmd "command! -nargs=1 -complete=help H help <args> | silent only")
 
@@ -29,8 +23,7 @@
   (nvim.ex.autocmd :FileType "vim,fennel" "set foldmethod=indent")
   (nvim.ex.autocmd :BufRead "*.txt" "set foldmethod=indent")
 
-  ; TODO: move to tab plugin
-  (vim.cmd "set omnifunc=syntaxcomplete#Complete")
+  (vim.cmd "set omnifunc=syntaxcomplete#Complete")  ; tabs 
   (set nvim.g.SuperTabDefaultCompletionType "<c-n>") 
 
   (vim.cmd "set keymap=russian-jcukenmac")          ; set up russian lang
@@ -44,10 +37,9 @@
        ":set iminsert=1 imsearch=1<cr>")            ; change to russian (search included)
   (map :n "<space>e" ":set iminsert=0 imsearch=0<cr>")
 
-  ;; TODO: find how to write in on line
+  ;; TODO: find how to write in on line BufRead,BufNewFile
   (nvim.ex.autocmd                                  ; cljd are clojure 
     :BufRead "*.cljd" "setfiletype clojure")
   (nvim.ex.autocmd 
     :BufNewFile "*.cljd" "setfiletype clojure")
-  (comment "to be continue...")) ; nil
-
+  (comment "to be continue..."))

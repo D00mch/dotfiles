@@ -3,4 +3,3 @@
             util util}})
 
 (set nvim.g.rooter_patterns [".git" "deps.edn" "project.clj" "package.json"])
-

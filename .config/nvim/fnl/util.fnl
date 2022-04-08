@@ -29,4 +29,3 @@
 
 (defn map [from to]
   (m :n from to {:noremap false}))
-

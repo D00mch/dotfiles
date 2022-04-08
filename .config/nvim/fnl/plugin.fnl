@@ -40,7 +40,7 @@
   :guns/vim-sexp {:mod :sexp}
   :tpope/vim-repeat {}
   :tpope/vim-surround {}
-  :junegunn/rainbow_parentheses.vim {}
+  :junegunn/rainbow_parentheses.vim {:mod :rainbow}
 
   ;; tree
   :preservim/nerdtree {:mod :nerdtree}
@@ -84,11 +84,10 @@
   :mhinz/vim-startify {:mod :startify}
   :ervandew/supertab {}
   :tpope/vim-commentary {}
-  :jpalardy/vim-slime {}
+  :jpalardy/vim-slime {:mod :slime}
   :tpope/vim-fugitive {}
   :vim-scripts/ReplaceWithRegister {}
   :jiangmiao/auto-pairs {:mod :auto-pairs}
   :mbbill/undotree {:mod :undotree}
   :airblade/vim-rooter {:mod :rooter}
-  :easymotion/vim-easymotion {:mod :easymotion}
-  )
+  :easymotion/vim-easymotion {:mod :easymotion})

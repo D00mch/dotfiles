@@ -4,8 +4,8 @@
 (set nvim.g.ale_linters
   {:clojure [:clj-kondo]})
 
-; "run on save
-(set nvim.g.ale_lint_on_text_changed  "never")
+;; "run on save
+(set nvim.g.ale_lint_on_text_changed "never")
 (set nvim.g.ale_lint_on_insert_leave 0)
 
 (set nvim.g.ale_cursor_detail 1)
@@ -22,4 +22,3 @@
   :FileType
   "clojure"
   "nmap <silent> ]s <Plug>(ale_next_wrap)")
-
