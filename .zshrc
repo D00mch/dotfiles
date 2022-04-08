@@ -19,6 +19,7 @@ alias todo='vim ~/wiki/todo.md -c ":cd %:p:h"'
 alias nt='vim ~/wiki/index.md -c ":cd %:p:h"'
 
 # settings files start
+alias dtf='cd ~/dotfiles' 
 alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
 alias vimplug='vim ~/.local/share/nvim/plugged'
