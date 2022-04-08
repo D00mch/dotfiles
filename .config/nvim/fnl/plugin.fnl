@@ -45,6 +45,9 @@
   ;; clojure
   :dense-analysis/ale {:mod :ale}
 
+  ;; flutter
+  :akinsho/flutter-tools.nvim {:requires [[:nvim-lua/plenary.nvim]]}
+
   ;; wiki
   :vimwiki/vimwiki {:mod :wiki :requires [[:xolox/vim-misc]]}
   :sheerun/vim-polyglot {}
