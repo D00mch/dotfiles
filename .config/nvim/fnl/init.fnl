@@ -15,6 +15,7 @@
 ; (map :n "<leader>s" ":call MySaveIt()<cr>")
 
 (do (comment "Editing")
+  (map :t "®" "<C-\\><C-n>")
   (nvim.ex.autocmd                                  ; restore last known position
                    :BufReadPost
                    "*"
