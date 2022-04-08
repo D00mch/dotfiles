@@ -51,9 +51,3 @@
     :BufNewFile "*.cljd" "setfiletype clojure")
   (comment "to be continue...")) ; nil
 
-;; Load all modules in no particular order.
-(->> (util.glob (.. util.config-path "/lua/plugin/*.lua"))
-     (core.run! (fn [path]
-                 (require (string.gsub path ".*/(.-)/(.-)%.lua" "%1.%2")))))
-
-
