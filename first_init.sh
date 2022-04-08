@@ -11,6 +11,13 @@ bash init.sh $1
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> ~/.zprofile
 eval $(/opt/homebrew/bin/brew shellenv)
+# brew autocompletion https://docs.brew.sh/Shell-Completion
+echo 'if type brew &>/dev/null' >> ~/.zprofile 
+echo 'then' >> ~/.zprofile 
+echo '  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"' >> ~/.zprofile 
+echo '  autoload -Uz compinit' >> ~/.zprofile 
+echo '  compinit' >> ~/.zprofile 
+echo 'fi' >> ~/.zprofile 
 
 # installing utilities 
 brew install neovim
