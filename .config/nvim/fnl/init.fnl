@@ -28,7 +28,7 @@
   (map :n "<leader>se"                              ; check eng spelling 
        ":setlocal spell! spelllang=en<cr>")
   (map :n "<leader>sr" ":setlocal spell! spelllang=ru<cr>")
-  (map :n "<c-l>" "<c-^>")                          ; change lang in insert mode
+  (map :i "<c-l>" "<c-^>")                          ; change lang in insert mode
   (map :n "<space>r" 
        ":set iminsert=1 imsearch=1<cr>")            ; change to russian (search included)
   (map :n "<space>e" ":set iminsert=0 imsearch=0<cr>")
