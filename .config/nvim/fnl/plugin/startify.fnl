@@ -14,13 +14,14 @@
 
 (set nvim.g.startify_lists 
      [{:type "sessions"  :header ["    Sessions"]}
+      {:type "bookmarks" :header ["    Bookmarks"]}
       {:type "files"     :header ["    Files"]}
-      {:type "commands"  :header ["    Commands"]}
-      {:type "bookmarks" :header ["    Bookmarks"]}])
+      {:type "commands"  :header ["    Commands"]}])
 
 (set nvim.g.startify_bookmarks
-     [{:p "~/dotfiles/.zshenv"}
+     [{:p "~/dotfiles/.config/nvim/fnl/plugin.fnl"}
+      {:n "~/dotfiles/.config/nvim/fnl/init.fnl"}
       {:v "~/dotfiles/.vimrc"}
       {:i "~/dotfiles/.ideavimrc"}
       {:z "~/dotfiles/.zshrc"}
-      {:w "~/wiki/todo.md"} ])
+      {:t "~/wiki/todo.md"} ])
