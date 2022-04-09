@@ -36,10 +36,5 @@
   (map :n "<space>r" 
        ":set iminsert=1 imsearch=1<cr>")            ; change to russian (search included)
   (map :n "<space>e" ":set iminsert=0 imsearch=0<cr>")
-
-  ;; TODO: find how to write in on line BufRead,BufNewFile
-  (nvim.ex.autocmd                                  ; cljd are clojure 
-    :BufRead "*.cljd" "setfiletype clojure")
-  (nvim.ex.autocmd 
-    :BufNewFile "*.cljd" "setfiletype clojure")
+  (vim.cmd "au! BufRead,BufNewFile *.cljd setfiletype clojure")
   (comment "to be continue..."))
