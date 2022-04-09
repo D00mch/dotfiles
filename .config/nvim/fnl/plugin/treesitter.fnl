@@ -5,7 +5,7 @@
 (set nvim.o.foldmethod :expr)
 (set nvim.o.foldexpr "nvim_treesitter#foldexpr()")
 
-(treesitter.setup 
+(treesitter.setup
   {:ensure_installed [:clojure :fennel :java :dart :markdown]
    :highlight {:enable true}
    :indent {:enable true}

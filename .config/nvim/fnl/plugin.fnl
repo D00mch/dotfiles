@@ -40,7 +40,6 @@
   :guns/vim-sexp {:mod :sexp}
   :tpope/vim-repeat {}
   :tpope/vim-surround {}
-  :junegunn/rainbow_parentheses.vim {:mod :rainbow}
 
   ;; tree
   :preservim/nerdtree {:mod :nerdtree}
@@ -54,7 +53,6 @@
 
   ;; wiki
   :vimwiki/vimwiki {:mod :wiki :requires [[:xolox/vim-misc]]}
-  :sheerun/vim-polyglot {}
 
   ;; theme
   :sainnhe/everforest {:mod :theme}
@@ -66,7 +64,6 @@
   :nvim-telescope/telescope.nvim {:mod :telescope 
                                   :requires [[:nvim-lua/popup.nvim] 
                                              [:nvim-lua/plenary.nvim]]}
-
 
   ;; parsing system
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
