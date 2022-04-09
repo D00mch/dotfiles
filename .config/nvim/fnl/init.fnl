@@ -19,10 +19,6 @@
                  "if line(\"'\\\"\") > 1 && line(\"'\\\"\") <= line(\"$\") | exe \"normal! g'\\\"\" | endif")
 
 (do (comment "Syntax")
-  (vim.cmd "set fdm=syntax")
-  (nvim.ex.autocmd :FileType "vim,fennel" "set foldmethod=indent")
-  (nvim.ex.autocmd :BufRead "*.txt" "set foldmethod=indent")
-
   (vim.cmd "set omnifunc=syntaxcomplete#Complete")  ; tabs 
   (set nvim.g.SuperTabDefaultCompletionType "<c-n>") 
 
