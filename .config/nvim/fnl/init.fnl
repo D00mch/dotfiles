@@ -18,6 +18,11 @@
                  "*"
                  "if line(\"'\\\"\") > 1 && line(\"'\\\"\") <= line(\"$\") | exe \"normal! g'\\\"\" | endif")
 
+(nvim.ex.autocmd
+  :FileType
+  "clojure"
+  ":lua require('lang.clojure')")
+
 (do (comment "Syntax")
   (vim.cmd "set omnifunc=syntaxcomplete#Complete")  ; tabs 
   (set nvim.g.SuperTabDefaultCompletionType "<c-n>") 
