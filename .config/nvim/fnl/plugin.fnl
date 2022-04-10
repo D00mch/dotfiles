@@ -87,4 +87,4 @@
   :jiangmiao/auto-pairs {:mod :auto-pairs}
   :mbbill/undotree {:mod :undotree}
   :airblade/vim-rooter {:mod :rooter}
-  :easymotion/vim-easymotion {:mod :easymotion})
+  :ggandor/lightspeed.nvim {:mod :lightspeed})
