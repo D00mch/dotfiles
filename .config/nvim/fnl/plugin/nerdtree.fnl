@@ -1,6 +1,9 @@
 (module plugin.nerdtree
   {require {nvim aniseed.nvim
-            ut   util}})
+            str aniseed.string
+            core aniseed.core
+            u aniseed.nvim.util
+            util util}})
 
 (set nvim.g.NERDTreeHijackNetrw 1)
 (set nvim.g.NERDTreeShowHidden 1)
@@ -10,5 +13,11 @@
       "NERD_tree_1"
       "enew | execute 'NERDTree '.argv()[0]")
 
-(ut.nmap "<space>pt" ":NERDTreeFind<cr>")
-(ut.nmap "¡" ":NERDTreeToggle<cr>")
+(util.nmap "¡" ":NERDTreeToggle<cr>")
+(util.map "<space>pt" ":call NERDTreeFindOrOpen()<cr>")
+
+(defn find-or-open []
+  (let [empty? (str.blank? (vim.fn.expand "%"))]
+    (vim.cmd (if empty? "NERDTree" "NERDTreeFind"))))
+
+(u.fn-bridge :NERDTreeFindOrOpen :plugin.nerdtree :find-or-open)
