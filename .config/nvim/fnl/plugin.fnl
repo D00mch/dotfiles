@@ -76,7 +76,6 @@
                      :mod :cmp}
 
   :mhinz/vim-startify {:mod :startify}
-  :ervandew/supertab {}
   :tpope/vim-commentary {}
   :jpalardy/vim-slime {:mod :slime}
   :tpope/vim-fugitive {}

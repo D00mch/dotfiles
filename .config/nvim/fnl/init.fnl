@@ -27,10 +27,6 @@
   "clojure"
   ":lua require('lang.clojure')")
 
-;; tabs
-(vim.cmd "set omnifunc=syntaxcomplete#Complete")
-(set nvim.g.SuperTabDefaultCompletionType "<c-n>")
-
 ;; cljd is also a clojure
 (vim.cmd "au! BufRead,BufNewFile *.cljd setfiletype clojure")
 
