@@ -84,4 +84,5 @@
   :jiangmiao/auto-pairs {:mod :auto-pairs}
   :mbbill/undotree {:mod :undotree}
   :airblade/vim-rooter {:mod :rooter}
+  :folke/which-key.nvim {:mod :which}
   :ggandor/lightspeed.nvim {:mod :lightspeed})

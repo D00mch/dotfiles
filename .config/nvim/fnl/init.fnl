@@ -2,6 +2,7 @@
   {require {core aniseed.core
             nvim aniseed.nvim
             u aniseed.nvim.util
+            key which-key
             util util}})
 
 (require :plugin)
@@ -37,11 +38,18 @@
 (vim.cmd "set keymap=russian-jcukenmac")
 (set nvim.o.iminsert 0)
 (set nvim.o.imsearch 0)
-(map :n "<leader>se" ":setlocal spell! spelllang=en<cr>")
-(map :n "<leader>sr" ":setlocal spell! spelllang=ru<cr>")
+; (map :n "<leader>se" ":setlocal spell! spelllang=en<cr>")
+; (map :n "<leader>sr" ":setlocal spell! spelllang=ru<cr>")
 (map :i "<c-l>" "<c-^>")
-(map :n "<space>r" ":set iminsert=1 imsearch=1<cr>")
-(map :n "<space>e" ":set iminsert=0 imsearch=0<cr>")
+
+(key.register
+  {:<Leader> 
+   {:s {:name "lang-spelling" 
+        :e [":setlocal spell! spelllang=en<cr>" "check eng spell"]
+        :r [":setlocal spell! spelllang=ru<cr>" "check rus spell"]}}
+   :<Space>
+   {:r [":set iminsert=1 imsearch=1<cr>" "set rus lang"]
+    :e [":set iminsert=0 imsearch=0<cr>" "set eng lang"]}})
 
 ;; neovide settings
 (set nvim.o.guifont "Hack Nerd Font Mono:h15")
