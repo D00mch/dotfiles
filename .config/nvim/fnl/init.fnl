@@ -42,4 +42,7 @@
 (map :i "<c-l>" "<c-^>")
 (map :n "<space>r" ":set iminsert=1 imsearch=1<cr>")
 (map :n "<space>e" ":set iminsert=0 imsearch=0<cr>")
-(comment "to be continue...")
+
+;; neovide settings
+(set nvim.o.guifont "Hack Nerd Font Mono:h15")
+(set nvim.g.neovide_cursor_vfx_mode "railgun")
