@@ -14,11 +14,30 @@ set cursorcolumn
     "redo
     nmap U <C-r>
 
-    "PASTE BELOW
-        "current line
+    "OBJECTS
+        omap w iw
+        omap W iW
+        nnoremap dw daw
+        nnoremap dW daW
+
+    "COMMON
+        "alt p - to paste in edit mode
+        map! π <C-r>*
+        "alt o - to remove word
+        map! ø <C-w>
+        "alt a - select all
+        nmap å ggVG
+        "alt o - to remove word
+        nmap ø <C-o>
+        "v to change visual
+        vmap v  <C-v> 
+
+    "PASTE
+        "below - current line
         nmap cl mX"9yy"9p`Xj
-        "empty line
+        "below - empty line
         nmap <space>o o<Esc><Esc>
+
     "SAVING
         "alt + q
         nmap œ :silent! wa<bar>qa!<cr>
@@ -31,6 +50,7 @@ set cursorcolumn
         nmap yd :let @+=expand("%:p:h")<cr>:echom expand("%:p:h")<cr>
     "SPACEMACS-LIKE
         map <space>; gcc
+        map <space>m q
 
 "NAVIGATION
     " set current path
@@ -40,8 +60,14 @@ set cursorcolumn
     set path=$PWD/**
     noremap <space>h ^
     noremap <space>l g_
+
     "alt + w
-    nmap ∑ <C-W>
+    map ∑ <C-w>
+
+    map <left> <C-u>
+    map <right> <C-d>
+    map <up> <C-y>
+    map <down> <C-e>
 
     nmap <space><tab> :e#<cr>
 
