@@ -17,8 +17,8 @@
     :mappings {:i {:<esc> actions.close}}}})
 
 (u.m :n :<space>pf ":Telescope find_files hidden=true no_ignore=false<cr>")
-(u.m :n :<space>bb ":Telescope buffers<cr>")
+(u.m :n :<space>bb ":Telescope buffers sort_lastused=true<cr>")
 (u.m :n :<space>pa ":Telescope live_grep<cr>")
-(u.m :n :<space>pg ":Telescope live_grep<cr>")
+(u.m :n :<space>pg ":Telescope git_commits<cr>")
 (u.m :n :<space>vm ":Telescope keymaps<cr>")
 (u.m :n :<space>vc ":Telescope colorscheme<cr>")
