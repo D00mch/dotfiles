@@ -1,7 +1,7 @@
 # open finder
 cmd - m : open ~/.
 shift + alt - e : bash ~/osx-vimr-anywhere/run.sh
-shift + alt - v : vimr -n
+cmd - g : open ~/Applications/Neovide.app -n
 alt - n : vimr ~/Yandex.Disk.localized/notes/wiki/index.md  --cwd ~/Yandex.Disk.localized/notes/wiki -n
 
 # focus window
