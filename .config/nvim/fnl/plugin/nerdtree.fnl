@@ -14,7 +14,7 @@
       "enew | execute 'NERDTree '.argv()[0]")
 
 (util.nmap "¡" ":NERDTreeToggle<cr>")
-(util.map "<space>pt" ":call NERDTreeFindOrOpen()<cr>")
+(util.nmap "<space>pt" ":call NERDTreeFindOrOpen()<cr>")
 
 (defn find-or-open []
   (let [empty? (str.blank? (vim.fn.expand "%"))]

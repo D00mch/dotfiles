@@ -28,4 +28,4 @@
 ;; make function available in vim cmd
 (u.fn-bridge :RunAppropriateClojureRepl :lang.clojure :run-appropriate-clojure-repl)
 
-(util.map "<Leader>k" ":call RunAppropriateClojureRepl()<cr>")
+(util.nmap "<Leader>k" ":call RunAppropriateClojureRepl()<cr>")

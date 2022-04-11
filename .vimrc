@@ -12,49 +12,51 @@ set cursorcolumn
 
 "EDITING
     "redo
-    nmap U <C-r>
+    nnoremap U <C-r>
 
     "OBJECTS
-        omap w iw
-        omap W iW
+        onoremap w iw
+        xnoremap w iw
+        onoremap W iW
+        xnoremap W iW
         nnoremap dw daw
         nnoremap dW daW
 
     "COMMON
         "alt p - to paste in edit mode
-        map! π <C-r>*
+        noremap! π <C-r>*
         "alt o - to remove word
-        map! ø <C-w>
+        noremap! ø <C-w>
         "alt a - select all
-        nmap å ggVG
+        nnoremap å ggVG
         "alt o - to remove word
-        nmap ø <C-o>
+        nnoremap ø <C-o>
         "v to change visual
         vmap v  <C-v> 
 
     "PASTE
         "below - current line
-        nmap cl mX"9yy"9p`Xj
+        nnoremap cl mX"9yy"9p`Xj
         "below - empty line
-        nmap <space>o o<Esc><Esc>
+        nnoremap <space>o o<Esc><Esc>
 
     "SAVING
         "alt + q
-        nmap œ :silent! wa<bar>qa!<cr>
+        nnoremap œ :silent! wa<bar>qa!<cr>
 
         "alt + s
         noremap ß :wa<CR>
 
     "COPY FILE, PATH
-        nmap yp :let @+=expand("%:p")<cr>:echom expand("%:p")<cr>
-        nmap yd :let @+=expand("%:p:h")<cr>:echom expand("%:p:h")<cr>
+        nnoremap yp :let @+=expand("%:p")<cr>:echom expand("%:p")<cr>
+        nnoremap yd :let @+=expand("%:p:h")<cr>:echom expand("%:p:h")<cr>
     "SPACEMACS-LIKE
         map <space>; gcc
-        map <space>m q
+        nnoremap <space>q q
 
 "NAVIGATION
     " set current path
-    nmap <leader>sd :cd %:p:h<CR>
+    nnoremap <leader>sd :cd %:p:h<CR>
 
     " to be able to search on files through path
     set path=$PWD/**
@@ -64,16 +66,16 @@ set cursorcolumn
     "alt + w
     map ∑ <C-w>
 
-    map <left> <C-u>
-    map <right> <C-d>
-    map <up> <C-y>
-    map <down> <C-e>
+    noremap <left> <C-u>
+    noremap <right> <C-d>
+    noremap <up> <C-y>
+    noremap <down> <C-e>
 
-    nmap <space><tab> :e#<cr>
+    nnoremap <space><tab> :e#<cr>
 
     "TABS
-        nmap gh gT
-        nmap gl gt
+        nnoremap gh gT
+        nnoremap gl gt
 
     "SPACEMACS-LIKE COMMANDS
         noremap <space>bd :bd<cr>
@@ -85,10 +87,10 @@ set cursorcolumn
 
     "IDEA-LIKE COMMANDS
         " alt + b to fine this word in the project
-        nmap ∫ :Rg <C-R><C-W><CR>
+        nnoremap ∫ :Rg <C-R><C-W><CR>
 
     "SEARCH
-        nmap / /\v
+        nnoremap / /\v
         vnoremap / /\v
 
 "SYNTAX
@@ -123,7 +125,7 @@ set cursorcolumn
         autocmd BufRead *.txt set foldmethod=indent
 
     "TABS
-        nmap <tab> :noh<Enter>:echom ""<Enter>
+        nnoremap <tab> :noh<Enter>:echom ""<Enter>
         set smartindent
         set shiftwidth=4 smarttab expandtab
         set tags=./tags,tags;$HOME
