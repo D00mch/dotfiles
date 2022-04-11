@@ -21,8 +21,3 @@
   :BufWinEnter
   "*.md"
   "setlocal syntax=markdown")
-
-(nvim.ex.autocmd
-  :BufEnter
-  "*.md"
-  "colorscheme PaperColor")
