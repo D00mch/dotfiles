@@ -33,6 +33,10 @@ brew install clojure
 brew install clojure-lsp
 brew install ripgrep
 
+# install rust (for parinfer-rust, neovide)
+brew install cmake
+brew install rustup-init
+
 # for lualine and nerdtree icons
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font

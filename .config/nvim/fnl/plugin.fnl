@@ -31,13 +31,14 @@
 
   ;; status line
   :kyazdani42/nvim-web-devicons {}
-  :nvim-lualine/lualine.nvim {:mod :lualine }
+  :nvim-lualine/lualine.nvim {:mod :lualine}
 
   ;; repl
   :Olical/conjure {:branch :master :mod :conjure}
 
   ;; sexp
   :guns/vim-sexp {:mod :sexp}
+  :eraserhd/parinfer-rust {:ft [:clojure :fennel :lisp :scheme]}
   :tpope/vim-repeat {}
   :tpope/vim-surround {}
 

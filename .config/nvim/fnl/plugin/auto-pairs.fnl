@@ -3,7 +3,10 @@
              nvim aniseed.nvim}})
 
 (defn init []
-  (set nvim.b.AutoPairs (vim.empty_dict)))
+  (let [d nvim.g.AutoPairs] 
+    (tset d "'" nil)
+    (tset d "`" nil)
+    (set nvim.b.AutoPairs d)))
 
 (vim.schedule
   (fn [] 
