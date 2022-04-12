@@ -1,44 +1,53 @@
 {
-    "title": "hotkeys",
-    "maintainers": [
-        "dumch"
-    ],
+    "title": "Hotkeys",
+    "maintainers": [ "dumch" ],
     "rules": [
         {
-            "description": "Right cmd + . — ]",
+            "description": "left cmd + d = return",
             "manipulators": [
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "period",
+                        "key_code": "d",
                         "modifiers": {
-                            "mandatory": [ "right_command" ],
-                            "optional": [ "any" ]
+                            "optional": [ "any" ],
+                            "mandatory": [ "left_command" ]
                         }
                     },
                     "to": [
                         {
-                            "key_code": "close_bracket"
+                            "key_code": "return_or_enter"
                         }
                     ]
                 }
             ]
         },
         {
-            "description": "Right cmd + , — [",
+            "description": "left cmd + i/o —>  cmd + shift + [/]",
             "manipulators": [
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "comma",
-                        "modifiers": {
-                            "mandatory": [ "right_command" ],
-                            "optional": [ "any" ]
-                        }
+                        "key_code": "i",
+                        "modifiers": { "mandatory": ["left_command"] }
                     },
                     "to": [
                         {
-                            "key_code": "open_bracket"
+                            "key_code": "open_bracket",
+                            "modifiers": [ "shift", "left_command" ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "o",
+                        "modifiers": { "mandatory": ["left_command"] }
+                    },
+                    "to": [
+                        {
+                            "key_code": "close_bracket",
+                            "modifiers": [ "shift", "left_command" ]
                         }
                     ]
                 }
@@ -56,11 +65,7 @@
                             "optional": [ "any" ]
                         }
                     },
-                    "to": [
-                        {
-                            "key_code": "equal_sign"
-                        }
-                    ]
+                    "to": [ { "key_code": "equal_sign" } ]
                 }
             ]
         },
@@ -76,11 +81,7 @@
                             "optional": [ "any" ]
                         }
                     },
-                    "to": [
-                        {
-                            "key_code": "delete_or_backspace"
-                        }
-                    ]
+                    "to": [ { "key_code": "delete_or_backspace" } ]
                 }
             ]
         },
@@ -92,16 +93,10 @@
                     "from": {
                         "key_code": "i",
                         "modifiers": {
-                            "mandatory": [
-                                "right_command"
-                            ]
+                            "mandatory": [ "right_command" ]
                         }
                     },
-                    "to": [
-                        {
-                            "key_code": "right_shift"
-                        }
-                    ]
+                    "to": [ { "key_code": "right_shift" } ]
                 }
             ]
         },
@@ -113,106 +108,13 @@
                     "from": {
                         "key_code": "e",
                         "modifiers": {
-                            "mandatory": [
-                                "left_command"
-                            ]
+                            "mandatory": [ "left_command" ]
                         }
                     },
-                    "to": [
-                        {
-                            "key_code": "left_shift"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "description": "Alt + l — language change",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "l",
-                        "modifiers": { "mandatory": [ "left_option" ] }
-                    },
-                    "to": [
-                        {
-                            "key_code": "spacebar",
-                            "modifiers": [ "left_control" ]
-                        }
-                    ],
-                    "parameters": {
-                        "basic.to_if_alone_timeout_milliseconds": 300,
-                        "basic.to_if_held_down_threshold_milliseconds": 0
-                    },
-                    "conditions": [
-                        {
-                            "type": "frontmost_application_unless",
-                            "bundle_identifiers": [
-                                "^com.apple.Terminal$",
-                                "^com.qvacua.VimR$",
-                                "^com.googlecode.iterm2$",
-                                "^com.jetbrains.intellij.ce$",
-                                "^com.google.android.studio"
-                            ]
-                        }
-                    ]
-                }
-            ] 
-        },
-        {
-            "description": "Ctrl + w",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "w",
-                        "modifiers": {
-                            "mandatory": ["control"]
-                        }
-                    },
-                    "to": [
-                        {
-                            "key_code": "delete_or_backspace",
-                            "modifiers": ["left_option"]
-                        }
-                    ],
-                    "conditions": [
-                        {
-                            "type": "frontmost_application_unless",
-                            "bundle_identifiers": [
-                                "^com.apple.Terminal$",
-                                "^com.qvacua.VimR$",
-                                "^com.googlecode.iterm2$",
-                                "^com.jetbrains.intellij.ce$",
-                                "^com.google.android.studio",
-                                "^com.google.Chrome$",
-                                "^org.chromium.Chromium$"
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "description": "Alt + w",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "w",
-                        "modifiers": {
-                            "mandatory": ["left_option"]
-                        }
-                    },
-                    "to": [
-                        {
-                            "key_code": "delete_or_backspace",
-                            "modifiers": ["left_option"]
-                        }
-                    ]
+                    "to": [ { "key_code": "left_shift" } ]
                 }
             ]
         }
-    ] 
+    ]
 }
+

@@ -1,0 +1,69 @@
+{
+    "title": "Vim",
+    "maintainers": [
+        "dumch"
+    ],
+    "rules": [
+        {
+            "description": "Cmd key",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "v",
+                        "modifiers": {
+                            "mandatory": ["left_command"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "p",
+                            "modifiers": ["left_option"]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com.qvacua.VimR$",
+                                "^com.neovide.neovide$"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Alt-o —> delete a word",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "o",
+                        "modifiers": {
+                            "mandatory": ["left_option"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace",
+                            "modifiers": ["left_option", "left_shift"]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_unless",
+                            "bundle_identifiers": [
+                                "^com.apple.Terminal$",
+                                "^com.qvacua.VimR$",
+                                "^com.googlecode.iterm2$",
+                                "^com.neovide.neovide$"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+

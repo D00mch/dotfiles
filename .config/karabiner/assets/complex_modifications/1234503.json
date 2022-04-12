@@ -1,0 +1,72 @@
+{
+    "title": "Brackets",
+    "maintainers": [ "dumch" ],
+    "rules": [
+        {
+            "description": "Left cmd + j/k -> (/)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "j",
+                        "modifiers": {
+                            "mandatory": [ "left_command" ],
+                            "optional": [ "any" ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "9",
+                            "modifiers": [ "shift" ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "k",
+                        "modifiers": {
+                            "mandatory": [ "left_command" ],
+                            "optional": [ "any" ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "0",
+                            "modifiers": [ "shift" ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Right cmd + ./, — [/]",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "period",
+                        "modifiers": {
+                            "mandatory": [ "right_command" ],
+                            "optional": [ "any" ]
+                        }
+                    },
+                    "to": [ { "key_code": "close_bracket" } ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "comma",
+                        "modifiers": {
+                            "mandatory": [ "right_command" ],
+                            "optional": [ "any" ]
+                        }
+                    },
+                    "to": [ { "key_code": "open_bracket" } ]
+                }
+
+            ]
+        }
+    ]
+}
+

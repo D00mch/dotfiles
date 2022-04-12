@@ -1,0 +1,63 @@
+{
+    "title": "unused hotkeys",
+    "maintainers": [
+        "dumch"
+    ],
+    "rules": [
+        {
+            "description": "Ctrl + w",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "w",
+                        "modifiers": {
+                            "mandatory": ["control"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace",
+                            "modifiers": ["left_option"]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_unless",
+                            "bundle_identifiers": [
+                                "^com.apple.Terminal$",
+                                "^com.qvacua.VimR$",
+                                "^com.googlecode.iterm2$",
+                                "^com.jetbrains.intellij.ce$",
+                                "^com.google.android.studio",
+                                "^com.google.Chrome$",
+                                "^org.chromium.Chromium$"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Alt + w",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "w",
+                        "modifiers": {
+                            "mandatory": ["left_option"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace",
+                            "modifiers": ["left_option"]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
