@@ -21,3 +21,6 @@ FireVim
 LINTER
 STARTIFY
 NERDTREE
+config
+vimscript
+Nvim
