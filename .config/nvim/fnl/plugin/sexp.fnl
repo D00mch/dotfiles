@@ -17,3 +17,9 @@
 (u.map :<C-h> "<Plug>(sexp_swap_element_backward)")
 (u.map :<C-l> "<Plug>(sexp_swap_element_forward)")
 (u.map :<Leader>c "<Plug>(sexp_move_to_prev_bracket)i#_<C-[>")
+
+;; map form objects
+(u.m :o "o" "af" {:noremap false})
+(u.m :x "o" "af" {:noremap false})
+(u.m :o "io" "if" {:noremap false})
+(u.m :x "io" "if" {:noremap false})
