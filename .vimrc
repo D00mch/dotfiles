@@ -16,9 +16,7 @@ set cursorcolumn
 
     "OBJECTS
         onoremap w iw
-        xnoremap w iw
         onoremap W iW
-        xnoremap W iW
         nnoremap dw daw
         nnoremap dW daW
 
@@ -63,9 +61,6 @@ set cursorcolumn
     noremap <space>h ^
     noremap <space>l g_
 
-    "alt + w
-    map ∑ <C-w>
-
     noremap <left> <C-u>
     noremap <right> <C-d>
     noremap <up> <C-y>
@@ -73,9 +68,13 @@ set cursorcolumn
 
     nnoremap <space><tab> :e#<cr>
 
-    "TABS
-        nnoremap gh gT
-        nnoremap gl gt
+    "WINDOWS
+        "alt + w
+        noremap ∑ <C-w>
+        map gh <C-w>h
+        map gl <C-w>l
+        map gj <C-w>j
+        map gk <C-w>k
 
     "SPACEMACS-LIKE COMMANDS
         noremap <space>bd :bd<cr>
