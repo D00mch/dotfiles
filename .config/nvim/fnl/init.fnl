@@ -34,8 +34,6 @@
 (vim.cmd "set keymap=russian-jcukenmac")
 (set nvim.o.iminsert 0)
 (set nvim.o.imsearch 0)
-; (map :n "<leader>se" ":setlocal spell! spelllang=en<cr>")
-; (map :n "<leader>sr" ":setlocal spell! spelllang=ru<cr>")
 (map :i "<c-l>" "<c-^>")
 
 (key.register
