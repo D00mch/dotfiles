@@ -6,7 +6,8 @@
 (def- cmp-src-menu-items
   {:buffer "buff"
    :conjure "conj"
-   :name :cmdline
+   :cmdline "cmdline"
+   :path "path"
    :nvim_lsp "lsp"})
 
 (def- cmp-srcs
