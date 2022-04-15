@@ -16,8 +16,10 @@
 
 (set nvim.g.startify_bookmarks
      [{:p "~/dotfiles/.config/nvim/fnl/plugin.fnl"}
-      {:n "~/dotfiles/.config/nvim/fnl/init.fnl"}
+      {:i "~/dotfiles/.config/nvim/fnl/init.fnl"}
       {:v "~/dotfiles/.vimrc"}
-      {:i "~/dotfiles/.ideavimrc"}
+      {:d "~/dotfiles/.ideavimrc"}
       {:z "~/dotfiles/.zshrc"}
-      {:t "~/wiki/todo.md"} ])
+      {:t "~/wiki/todo.md"}])
+
+(vim.cmd "autocmd User Startified execute 'nunmap <buffer> q'")
