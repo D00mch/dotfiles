@@ -38,7 +38,6 @@
 
   ;; sexp
   :guns/vim-sexp {:mod :sexp}
-  :eraserhd/parinfer-rust {:ft [:clojure :fennel :lisp :scheme]}
   :tpope/vim-repeat {}
   :tpope/vim-surround {}
 
