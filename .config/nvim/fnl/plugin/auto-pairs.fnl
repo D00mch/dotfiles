@@ -1,6 +1,7 @@
 (module plugin.auto-pairs
   {autoload {core aniseed.core
-             nvim aniseed.nvim}})
+             nvim aniseed.nvim}
+   require-macros [macros]})
 
 (defn init []
   (let [d nvim.g.AutoPairs] 
@@ -10,7 +11,6 @@
 
 (vim.schedule
   (fn [] 
-    (nvim.ex.autocmd
-      :FileType
-      "clojure,fennel,scheme"
-      "lua require('plugin.auto-pairs').init()")))
+    (autocmd :FileType
+             "clojure,fennel,scheme"
+             "lua require('plugin.auto-pairs').init()")))

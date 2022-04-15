@@ -1,6 +1,7 @@
 (module plugin.wiki
   {require {nvim aniseed.nvim
-            u util}})
+            u util}
+   require-macros [macros]})
 
 (set nvim.g.vimwiki_list 
      [{:path "~/Yandex.Disk.localized/notes/wiki"
@@ -12,12 +13,5 @@
 (set nvim.g.vimwiki_global_ext 0)
 (set nvim.g.vimwiki_map_prefix "<Leader>n")
 
-(nvim.ex.autocmd
-  :FileType
-  "vimwiki"
-  "silent! unmap <buffer> <Tab>")
-
-(nvim.ex.autocmd
-  :BufWinEnter
-  "*.md"
-  "setlocal syntax=markdown")
+(autocmd :FileType :vimwiki "silent! unmap <buffer> <Tab>")
+(autocmd :BufWinEnter :*.md "setlocal syntax=markdown")

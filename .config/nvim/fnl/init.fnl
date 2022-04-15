@@ -3,7 +3,8 @@
             nvim aniseed.nvim
             u aniseed.nvim.util
             key which-key
-            util util}})
+            util util}
+   require-macros [macros]})
 
 (require :plugin)
 
@@ -17,15 +18,12 @@
 (map :t "®" "<C-\\><C-n>")
 
 ;; restore last known position
-(nvim.ex.autocmd                                    
+(autocmd                                    
   :BufReadPost
   "*"
   "if line(\"'\\\"\") > 1 && line(\"'\\\"\") <= line(\"$\") | exe \"normal! g'\\\"\" | endif")
 
-(nvim.ex.autocmd
-  :FileType
-  "clojure"
-  ":lua require('lang.clojure')")
+(autocmd :FileType :clojure ":lua require('lang.clojure')")
 
 ;; cljd is also a clojure
 (vim.cmd "au! BufRead,BufNewFile *.cljd setfiletype clojure")

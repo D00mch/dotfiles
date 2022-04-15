@@ -1,6 +1,7 @@
 (module plugin.startify
   {require {nvim aniseed.nvim
-            ut   util}})
+            ut   util}
+   require-macros [macros]})
 
 (set nvim.g.startify_files_number 18)
 (set nvim.g.startify_change_to_vcs_root 1)
@@ -22,4 +23,4 @@
       {:z "~/dotfiles/.zshrc"}
       {:t "~/wiki/todo.md"}])
 
-(vim.cmd "autocmd User Startified execute 'nunmap <buffer> q'")
+(autocmd :User :Startified "execute 'nunmap <buffer> q'" )
