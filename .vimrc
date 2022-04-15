@@ -89,8 +89,8 @@ set cursorcolumn
         nnoremap ∫ :Rg <C-R><C-W><CR>
 
     "SEARCH
-        nnoremap / /\v
-        vnoremap / /\v
+        " nnoremap / /\v
+        " vnoremap / /\v
 
 "SYNTAX
     "FOLDING
