@@ -1,0 +1,3 @@
+{:linters {:unresolved-namespace 
+           {:level :warning
+            :exclude [clojure.pprint]}}}

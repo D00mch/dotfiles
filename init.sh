@@ -17,6 +17,7 @@ touch      ~/.ssh-aliases.sh # zshrc source it
 mkdir -p   ~/.config
 
 ln    -s   $DOTFILES_PATH/.config/nvim               ~/.config/
+ln    -s   $DOTFILES_PATH/.config/clj-kondo          ~/.config/
 
 mkdir -p   ~/.config/karabiner/
 ln    -s   $DOTFILES_PATH/.config/karabiner/assets   ~/.config/karabiner/ 
