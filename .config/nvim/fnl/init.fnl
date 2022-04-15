@@ -9,7 +9,7 @@
 (require :plugin)
 
 (defn- map [mode from to]
-  (util.m mode from to {:noremap false}))
+  (util.m mode from to {:noremap true}))
 
 ;; open Help in full window
 (vim.cmd "command! -nargs=1 -complete=help H help <args> | silent only")
@@ -28,6 +28,10 @@
 ;; cljd is also a clojure
 (vim.cmd "au! BufRead,BufNewFile *.cljd setfiletype clojure")
 
+;; navigation settngs
+;; delete all buffers except this one
+(map :n :<space>ba ":w <bar> silent %bd! <bar> e# <bar> bd# <CR>") 
+        
 ;; language setup
 (vim.cmd "set keymap=russian-jcukenmac")
 (set nvim.o.iminsert 0)
