@@ -8,6 +8,7 @@
 
 (set nvim.g.NERDTreeHijackNetrw 1)
 (set nvim.g.NERDTreeShowHidden 1)
+(set nvim.g.NERDTreeCustomOpenArgs {:file {:keepopen 0}})
 
 (autocmd :VimEnter :NERD_tree_1 "enew | execute 'NERDTree '.argv()[0]")
 
