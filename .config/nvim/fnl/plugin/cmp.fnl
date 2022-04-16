@@ -6,7 +6,6 @@
 (def- cmp-src-menu-items
   {:buffer "buff"
    :conjure "conj"
-   :cmdline "cmdline"
    :path "path"
    :nvim_lsp "lsp"})
 
@@ -15,7 +14,6 @@
    {:name :conjure}
    {:name :buffer}
    {:name :path}
-   {:name :cmdline}
    {:name :luasnip}])
 
 (defn luasnip-tab [fallback]
@@ -50,9 +48,9 @@
                            :select false}
             :snippet {:expand (fn [args] (luasnip.lsp_expand args.body))}})
 
-(cmp.setup.cmdline "/" {:mapping (cmp.mapping.preset.cmdline)}
-                        :sources [{:name :buffer}])
+(cmp.setup.cmdline "/" {:mapping (cmp.mapping.preset.cmdline)
+                        :sources (cmp.config.sources [{:name :buffer :max_item_count 18}])})
 
 (cmp.setup.cmdline ":" {:mapping (cmp.mapping.preset.cmdline)
-                        :sources (cmp.config.sources [{:name :cmdline} 
-                                                      {:name :path}])})
+                        :sources (cmp.config.sources [{:name :cmdline :max_item_count 18} 
+                                                      {:name :path :max_item_count 12}])})
