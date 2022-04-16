@@ -14,10 +14,11 @@
                     :width 0.9}
     :layout_strategy :vertical ; cursor horizontal bottom_pane
     :wrap_results true
-    :mappings {:i {:<Esc> actions.close
+    :mappings {:i {:<Esc>   actions.close
                    :<Right> actions.preview_scrolling_down
-                   :<Left> actions.preview_scrolling_up
-                   :Ã· actions.which_key}}}}) ; alt + ?                   
+                   :<Left>  actions.preview_scrolling_up
+                   :∂       actions.delete_buffer   ; alt + d
+                   :Ã·      actions.which_key}}}})  ; alt + ?                   
 
 (u.m :n :<space>pf ":Telescope find_files hidden=true no_ignore=false<cr>")
 (u.m :n :<space>bb ":Telescope buffers sort_lastused=true<cr>")
