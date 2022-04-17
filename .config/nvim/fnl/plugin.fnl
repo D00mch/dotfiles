@@ -49,7 +49,8 @@
   :akinsho/flutter-tools.nvim {:requires [[:nvim-lua/plenary.nvim]]}
 
   ;; wiki
-  :vimwiki/vimwiki {:mod :wiki :requires [[:xolox/vim-misc]]}
+  :vimwiki/vimwiki {:mod :wiki :requires [[:xolox/vim-misc]
+                                          [:preservim/vim-markdown]]}
 
   ;; theme
   :sainnhe/everforest {:mod :theme}
