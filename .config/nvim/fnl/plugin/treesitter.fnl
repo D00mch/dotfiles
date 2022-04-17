@@ -6,7 +6,7 @@
 (set nvim.o.foldexpr "nvim_treesitter#foldexpr()")
 
 (treesitter.setup
-  {:ensure_installed [:clojure :fennel :java :dart :lua :yaml]
+  {:ensure_installed [:clojure :fennel :java :dart :lua :yaml :json]
    :highlight {:enable true}
    :refactor  {:highlight_definitions     {:enable               true
                                            :clear_on_cursor_move true}
