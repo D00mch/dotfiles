@@ -50,6 +50,7 @@ echo "yabai configuration loaded.."
 # yabai -m query --windows | jq ".[] | { App: .app, Title: .title }" |vim 
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
+yabai -m rule --add app="^Karabiner-EventViewer$" manage=off
 yabai -m rule --add app="^System Information$" manage=off
 yabai -m rule --add app="^Tunnelblick$" manage=off
 yabai -m rule --add app="^(IntelliJ IDEA|Android Studio)$" \
