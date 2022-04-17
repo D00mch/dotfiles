@@ -1,14 +1,34 @@
 {
-    "title": "Brackets",
+    "title": "Brackets|Separator",
     "maintainers": [ "dumch" ],
     "rules": [
         {
-            "description": "Left cmd + j/k -> (/)",
+            "description": "Right cmd + / -> |",
             "manipulators": [
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "j",
+                        "key_code": "slash",
+                        "modifiers": {
+                            "mandatory": [ "right_command" ],
+                            "optional": [ "any" ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "backslash"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Left cmd + u/p -> (/)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "u",
                         "modifiers": {
                             "mandatory": [ "left_command" ],
                             "optional": [ "any" ]
@@ -24,7 +44,7 @@
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "k",
+                        "key_code": "p",
                         "modifiers": {
                             "mandatory": [ "left_command" ],
                             "optional": [ "any" ]
@@ -40,33 +60,34 @@
             ]
         },
         {
-            "description": "Right cmd + ./, — [/]",
+            "description": "Left cmd + i/o — [/]",
             "manipulators": [
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "period",
+                        "key_code": "i",
                         "modifiers": {
-                            "mandatory": [ "right_command" ],
-                            "optional": [ "any" ]
-                        }
-                    },
-                    "to": [ { "key_code": "close_bracket" } ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "comma",
-                        "modifiers": {
-                            "mandatory": [ "right_command" ],
+                            "mandatory": [ "left_command" ],
                             "optional": [ "any" ]
                         }
                     },
                     "to": [ { "key_code": "open_bracket" } ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "o",
+                        "modifiers": {
+                            "mandatory": [ "left_command" ],
+                            "optional": [ "any" ]
+                        }
+                    },
+                    "to": [ { "key_code": "close_bracket" } ]
                 }
-
             ]
         }
     ]
 }
+
+
 

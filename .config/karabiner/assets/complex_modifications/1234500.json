@@ -23,31 +23,31 @@
             ]
         },
         {
-            "description": "left cmd + i/o —>  cmd + shift + [/]",
+            "description": "right cmd + ,/. —>  cmd + shift + [/]",
             "manipulators": [
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "i",
-                        "modifiers": { "mandatory": ["left_command"] }
+                        "key_code": "comma",
+                        "modifiers": { "mandatory": ["right_command"] }
                     },
                     "to": [
                         {
                             "key_code": "open_bracket",
-                            "modifiers": [ "shift", "left_command" ]
+                            "modifiers": [ "shift", "right_command" ]
                         }
                     ]
                 },
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "o",
-                        "modifiers": { "mandatory": ["left_command"] }
+                        "key_code": "period",
+                        "modifiers": { "mandatory": ["right_command"] }
                     },
                     "to": [
                         {
                             "key_code": "close_bracket",
-                            "modifiers": [ "shift", "left_command" ]
+                            "modifiers": [ "shift", "right_command" ]
                         }
                     ]
                 }
@@ -117,4 +117,5 @@
         }
     ]
 }
+
 
