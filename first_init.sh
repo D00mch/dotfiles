@@ -30,6 +30,7 @@ brew install jenv
 brew install java
 brew install leiningen
 brew install clojure
+brew install borkdude/brew/clj-kondo
 brew install clojure-lsp
 brew install ripgrep
 

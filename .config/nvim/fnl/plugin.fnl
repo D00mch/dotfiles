@@ -45,6 +45,9 @@
   :preservim/nerdtree {:mod :nerdtree}
   :ryanoasis/vim-devicons {}
 
+  ;; clojure
+  :dense-analysis/ale {:mod :ale}
+
   ;; flutter
   :akinsho/flutter-tools.nvim {:requires [[:nvim-lua/plenary.nvim]]}
 
