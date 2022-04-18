@@ -35,7 +35,7 @@
                        (set item.menu (or (. cmp-src-menu-items entry.source.name) ""))
                        item)}
 
-            :mapping {:<Tab> luasnip-tab
+            :mapping {:<Tab> (cmp.mapping luasnip-tab [:i :s])
                       :<S-Tab> (cmp.mapping.select_prev_item {:behavior cmp.SelectBehavior.Select})
                       :<down> (cmp.mapping.select_next_item {:behavior cmp.SelectBehavior.Select})
                       :<up> (cmp.mapping.select_prev_item {:behavior cmp.SelectBehavior.Select})
