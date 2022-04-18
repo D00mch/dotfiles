@@ -31,7 +31,8 @@
 ;; navigation settngs
 ;; delete all buffers except this one
 (map :n :<space>ba ":w <bar> silent %bd! <bar> e# <bar> bd# <CR>") 
-        
+(map :n :≈ ":silent! bd!<cr>") ;; alt + x to delete a buffer
+
 ;; language setup
 (vim.cmd "set keymap=russian-jcukenmac")
 (set nvim.o.iminsert 0)

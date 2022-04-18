@@ -30,6 +30,102 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "s",
+                        "modifiers": {
+                            "mandatory": ["left_command"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "s",
+                            "modifiers": ["left_option"]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com.qvacua.VimR$",
+                                "^com.neovide.neovide$"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "a",
+                        "modifiers": {
+                            "mandatory": ["left_command"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "a",
+                            "modifiers": ["left_option"]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com.qvacua.VimR$",
+                                "^com.neovide.neovide$"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "q",
+                        "modifiers": {
+                            "mandatory": ["left_command"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "q",
+                            "modifiers": ["left_option"]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com.qvacua.VimR$",
+                                "^com.neovide.neovide$"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "w",
+                        "modifiers": {
+                            "mandatory": ["left_command"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "x",
+                            "modifiers": ["left_option"]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com.qvacua.VimR$",
+                                "^com.neovide.neovide$"
+                            ]
+                        }
+                    ]
                 }
             ]
         },
@@ -66,4 +162,6 @@
         }
     ]
 }
+
+
 
