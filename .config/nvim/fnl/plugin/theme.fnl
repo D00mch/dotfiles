@@ -2,6 +2,8 @@
   {autoload {nvim aniseed.nvim
              c aniseed.core}})
 
+(set nvim.g.everforest_background "hard")
+
 (let [(ok? msg) (pcall vim.fn.system "defaults read -g AppleInterfaceStyle")]
   (if (string.find msg "Dark")
     (do 
