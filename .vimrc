@@ -43,7 +43,7 @@ set cursorcolumn
         nnoremap œ :silent! wa<bar>qa!<cr>
 
         "alt + s
-        noremap ß :wa<CR>
+        noremap ß :w<CR>
 
     "COPY FILE, PATH
         nnoremap yp :let @+=expand("%:p")<cr>:echom expand("%:p")<cr>
@@ -70,14 +70,21 @@ set cursorcolumn
 
     "WINDOWS
         "alt + w
-        noremap ∑ <C-w>
-        map gh <C-w>h
-        map gl <C-w>l
-        map gj <C-w>j
-        map gk <C-w>k
+        nnoremap ∑ <C-w>
+        nnoremap gh <C-w>h
+        nnoremap gl <C-w>l
+        nnoremap gj <C-w>j
+        nnoremap gk <C-w>k
 
-    "SPACEMACS-LIKE COMMANDS
-        noremap <space>bd :bd<cr>
+        "RESIZE
+        nnoremap g= <C-w>5+
+        nnoremap g- <C-w>5-
+        "alt+
+        nnoremap ≠ <C-w>5>+
+        nnoremap – <C-w>5<+
+
+    "SPACEMACS-LIKE COMMANDS 
+        noremap <space>bd :silent! bd!<cr>
 
     "SEARCH
         set ignorecase
