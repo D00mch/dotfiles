@@ -89,7 +89,7 @@
   :mhinz/vim-startify {:mod :startify}
   :tpope/vim-commentary {}
   :jpalardy/vim-slime {:mod :slime}
-  :tpope/vim-fugitive {}
+  :tpope/vim-fugitive {:mod :fugitive}
   :vim-scripts/ReplaceWithRegister {}
   :jiangmiao/auto-pairs {:mod :auto-pairs}
   :mbbill/undotree {:mod :undotree}
