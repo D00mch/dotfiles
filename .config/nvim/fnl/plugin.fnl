@@ -85,6 +85,7 @@
                                 :PaterJason/cmp-conjure]
                      :mod :cmp}
 
+  :akinsho/toggleterm.nvim {:mod :toggleterm}
   :mhinz/vim-startify {:mod :startify}
   :tpope/vim-commentary {}
   :jpalardy/vim-slime {:mod :slime}
