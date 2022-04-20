@@ -13,6 +13,8 @@
 (autocmd :VimEnter :NERD_tree_1 "enew | execute 'NERDTree '.argv()[0]")
 
 (util.nmap "¡" ":NERDTreeToggle<cr>") ; alt+1
+(util.m :i "¡" "<Esc>¡" {:noremap false})
+
 (util.nmap "<space>pt" ":call NERDTreeFindOrOpen()<cr>")
 
 (defn find-or-open []

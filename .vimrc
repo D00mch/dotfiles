@@ -41,9 +41,12 @@ set cursorcolumn
     "SAVING
         "alt + q
         nnoremap œ :silent! wa<bar>qa!<cr>
+        imap œ <Esc>œ
 
         "alt + s
         noremap ß :w<CR>
+        inoremap ß <Esc>:w<CR>a
+
 
     "COPY FILE, PATH
         nnoremap yp :let @+=expand("%:p")<cr>:echom expand("%:p")<cr>
