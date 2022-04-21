@@ -33,7 +33,7 @@
 ;; navigation settngs
 ;; delete all buffers except this one
 (map :n :<space>ba ":w <bar> silent %bd! <bar> e# <bar> bd# <CR>") 
-(map :n :≈ ":silent! :w <bar> bd!<cr>") ;; alt + x to delete a buffer
+(map :n :≈ ":silent! bd!<cr>") ;; alt + x to delete a buffer
 (util.m :i :≈ "<Esc>≈" {:noremap false})
 
 ;; language setup
