@@ -94,10 +94,6 @@ set cursorcolumn
         set incsearch
         set hlsearch
 
-    "IDEA-LIKE COMMANDS
-        " alt + b to fine this word in the project
-        nnoremap ∫ :Rg <C-R><C-W><CR>
-
     "SEARCH
         " nnoremap / /\v
         " vnoremap / /\v

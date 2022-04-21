@@ -62,7 +62,7 @@
           (map bufnr :v :<leader>ra ":'<,'>:Telescope lsp_range_code_actions theme=cursor<cr>" {:noremap true})
           ;(map bufnr :n :<leader>rw ":lua require('telescope.builtin').lsp_workspace_diagnostics()<cr>" {:noremap true})
           (map bufnr :n :<leader>fu ":lua require('telescope.builtin').lsp_references()<cr>" {:noremap true})
-          (map bufnr :n :<leader>fi ":lua require('telescope.builtin').lsp_implementations()<cr>" {:noremap true})))]
+          (map bufnr :n :∫ :<leader>fu {:noremap false})))]
 
   (lsp.clojure_lsp.setup
     {:on_attach on_attach
