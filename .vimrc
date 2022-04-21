@@ -66,8 +66,8 @@ set cursorcolumn
 
     noremap <left> <C-u>
     noremap <right> <C-d>
-    noremap <up> <C-y>
-    noremap <down> <C-e>
+    noremap <up> <C-y><C-y>
+    noremap <down> <C-e><C-e>
 
     nnoremap <space><tab> :e#<cr>
 
