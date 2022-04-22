@@ -36,7 +36,7 @@ bindkey -v
 export KEYTIMEOUT=1
 export VI_MODE_SET_CURSOR=true
 
-ZSH_THEME="strug"
+ZSH_THEME="ys"
 plugins=(
     git
     adb
@@ -56,4 +56,3 @@ speedUpGit(){
     git config --add oh-my-zsh.hide-status 1
     git config --add oh-my-zsh.hide-dirty 1
 }
-
