@@ -64,3 +64,5 @@
 ;; tabs (remaped with common aproach with karabiner)
 (map :n :<C-y> :gt)
 (map :n :<C-t> :gT)
+(map :n ">>" ":tabmove +1<cr>")
+(map :n "<<" ":tabmove -1<cr>")
