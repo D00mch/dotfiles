@@ -20,7 +20,7 @@
 (def config-path (nvim.fn.stdpath "config"))
 
 (defn m [mode from to opts]
-  (nvim.set_keymap mode from to (if opts opts {:noremap true})))
+  (vim.api.nvim_set_keymap mode from to {:noremap true}))
 
 (defn nmap [from to]
   (m :n from to))

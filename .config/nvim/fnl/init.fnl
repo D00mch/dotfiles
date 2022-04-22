@@ -3,6 +3,7 @@
             nvim aniseed.nvim
             u aniseed.nvim.util
             key which-key
+            plenary plenary.filetype
             util util}
    require-macros [macros]})
 
@@ -12,7 +13,7 @@
   (util.m mode from to {:noremap true}))
 
 ;; open Help in full window
-(vim.cmd "command! -nargs=1 -complete=help H help <args> | silent only")
+(vim.api.nvim_command "command! -nargs=1 -complete=help H help <args> | silent only")
 
 ;; terminal, go in normal mode
 (map :t "®" "<C-\\><C-n>")
@@ -27,8 +28,13 @@
 
 (autocmd :FileType :clojure ":lua require('lang.clojure')")
 
-;; cljd is also a clojure
-(vim.cmd "au! BufRead,BufNewFile *.cljd setfiletype clojure")
+(vim.api.nvim_create_autocmd 
+  "BufRead,BufNewFile"
+  {:pattern "*.cljd"
+   :callback (fn [args] 
+               (vim.api.nvim_command "setfiletype clojure")
+               ;; until https://github.com/nvim-lua/plenary.nvim/pull/356
+               (plenary.add_file "ext"))})
 
 ;; navigation settngs
 ;; delete all buffers except this one
@@ -37,7 +43,7 @@
 (util.m :i :≈ "<Esc>≈" {:noremap false})
 
 ;; language setup
-(vim.cmd "set keymap=russian-jcukenmac")
+(vim.api.nvim_command "set keymap=russian-jcukenmac")
 (set nvim.o.iminsert 0)
 (set nvim.o.imsearch 0)
 (map :i "<c-l>" "<c-^>")

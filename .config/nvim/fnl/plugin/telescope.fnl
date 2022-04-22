@@ -2,7 +2,6 @@
   {autoload {nvim aniseed.nvim
              telescope telescope
              actions telescope.actions
-             plenary plenary.filetype
              u util}})
 
 (telescope.setup 
@@ -27,7 +26,3 @@
 (u.m :n :<space>pg ":Telescope git_commits<cr>")
 (u.m :n :<space>vm ":Telescope keymaps<cr>")
 (u.m :n :<space>vc ":Telescope colorscheme<cr>")
-
-;; temp support for clojuredart, until they take my pr 
-;; https://github.com/nvim-lua/plenary.nvim/pull/356
-(plenary.add_file "ext")

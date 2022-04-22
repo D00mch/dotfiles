@@ -9,7 +9,7 @@
     (do 
       (set nvim.o.background "dark")
       (set nvim.g.sonokai_style "espresso")
-      (vim.cmd "colorscheme sonokai"))
+      (vim.api.nvim_command "colorscheme sonokai"))
     (do 
       (set nvim.o.background "light")
-      (vim.cmd "colorscheme github"))))
+      (vim.api.nvim_command "colorscheme github"))))

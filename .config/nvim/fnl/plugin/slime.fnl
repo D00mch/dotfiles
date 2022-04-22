@@ -4,5 +4,5 @@
 
 (set nvim.g.slime_target "neovim")
 
-(vim.cmd "xmap √ <Plug>SlimeRegionSend")
-(vim.cmd "nmap <leader>ef <Plug>SlimeParagraphSend")
+(vim.api.nvim_command "xmap √ <Plug>SlimeRegionSend")
+(vim.api.nvim_command "nmap <leader>ef <Plug>SlimeParagraphSend")

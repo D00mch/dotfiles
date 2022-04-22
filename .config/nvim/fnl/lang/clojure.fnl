@@ -13,19 +13,23 @@
       " -m nrepl.cmdline --middleware '[\"cider.nrepl/cider-middleware\"]' --interactive"))
 
 ;; jack in with Lein or Deps based on root project file
-(defn run-appropriate-clojure-repl []
+(defn run-appropriate-clojure-repl [args]
   (let [root-files (nvim.fn.readdir (nvim.fn.getcwd))
         has-lein (core.some (fn [s] (= s "project.clj")) root-files)
         has-deps (core.some (fn [s] (= s "deps.edn")) root-files)]
     (if has-lein 
       (do (nvim.echo "found lein")
-        (vim.cmd (.. "terminal " run-lein-cmd)))
+        (vim.api.nvim_command (.. "terminal " run-lein-cmd)))
       has-deps
       (do (nvim.echo "found deps")
-        (vim.cmd (.. "terminal " run-deps-cmd)))
+        (vim.api.nvim_command (.. "terminal " run-deps-cmd)))
       (nvim.echo "can't find neither deps.edn nor project.clj in the root"))))
 
-;; make function available in vim cmd
-(u.fn-bridge :RunAppropriateClojureRepl :lang.clojure :run-appropriate-clojure-repl)
+(vim.api.nvim_create_user_command
+  :RunAppropriateClojureRepl
+  run-appropriate-clojure-repl
+  {:nargs :* :desc "Run terminal with clojure repl"})
 
-(util.nmap "<Leader>k" ":call RunAppropriateClojureRepl()<cr>")
+;(u.fn-bridge :RunAppropriateClojureRepl :lang.clojure :run-appropriate-clojure-repl)
+
+(util.nmap "<Leader>k" ":RunAppropriateClojureRepl<cr>")

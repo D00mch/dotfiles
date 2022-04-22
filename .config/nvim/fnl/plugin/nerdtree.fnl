@@ -15,10 +15,11 @@
 (util.nmap "¡" ":NERDTreeToggle<cr>") ; alt+1
 (util.m :i "¡" "<Esc>¡" {:noremap false})
 
-(util.nmap "<space>pt" ":call NERDTreeFindOrOpen()<cr>")
+(util.nmap "<space>pt" ":NERDTreeFindOrOpen<cr>")
 
-(defn find-or-open []
-  (let [empty? (str.blank? (vim.fn.expand "%"))]
-    (vim.cmd (if empty? "NERDTree" "NERDTreeFind"))))
-
-(u.fn-bridge :NERDTreeFindOrOpen :plugin.nerdtree :find-or-open)
+(vim.api.nvim_create_user_command
+  :NERDTreeFindOrOpen
+  (fn [args]
+    (let [empty? (str.blank? (vim.fn.expand "%"))]
+      (vim.api.nvim_command (if empty? "NERDTree" "NERDTreeFind"))))
+  {:nargs :* :desc "Open nerdtree even from startify"})
