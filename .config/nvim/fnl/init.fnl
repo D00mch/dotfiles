@@ -60,3 +60,7 @@
 ;; neovide settings
 (set nvim.o.guifont "Hack Nerd Font Mono:h15")
 (set nvim.g.neovide_cursor_vfx_mode "railgun")
+
+;; tabs (remaped with common aproach with karabiner)
+(map :n :<C-y> :gt)
+(map :n :<C-t> :gT)

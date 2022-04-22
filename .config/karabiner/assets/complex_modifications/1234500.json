@@ -36,6 +36,15 @@
                             "key_code": "open_bracket",
                             "modifiers": [ "shift", "right_command" ]
                         }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_unless",
+                            "bundle_identifiers": [
+                                "^com.qvacua.VimR$",
+                                "^com.neovide.neovide$"
+                            ]
+                        }
                     ]
                 },
                 {
@@ -49,7 +58,17 @@
                             "key_code": "close_bracket",
                             "modifiers": [ "shift", "right_command" ]
                         }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_unless",
+                            "bundle_identifiers": [
+                                "^com.qvacua.VimR$",
+                                "^com.neovide.neovide$"
+                            ]
+                        }
                     ]
+
                 }
             ]
         },
@@ -117,5 +136,6 @@
         }
     ]
 }
+
 
 
