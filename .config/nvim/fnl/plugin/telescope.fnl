@@ -14,15 +14,22 @@
                     :width 0.9}
     :layout_strategy :vertical ; cursor horizontal bottom_pane
     :wrap_results true
-    :mappings {:i {:<Esc>   actions.close
+    :mappings {:i {;:œ   actions.close
+                   :<Esc>   actions.close
+                   :?       actions.which_key 
                    :<Right> actions.preview_scrolling_down
                    :<Left>  actions.preview_scrolling_up
                    :∂       actions.delete_buffer   ; alt + d
                    :Ã·      actions.which_key}}}})  ; alt + ?                   
 
 (u.m :n :<space>pf ":Telescope find_files hidden=true no_ignore=false<cr>")
-(u.m :n :<space>bb ":Telescope buffers sort_lastused=true<cr>")
+(u.m :n :<space>bb ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")
 (u.m :n :<space>pa ":Telescope live_grep<cr>")
-(u.m :n :<space>pg ":Telescope git_commits<cr>")
 (u.m :n :<space>vm ":Telescope keymaps<cr>")
 (u.m :n :<space>vc ":Telescope colorscheme<cr>")
+
+;; git
+(u.m :n :<space>gc ":Telescope git_commits<cr>")
+(u.m :n :<space>gs ":Telescope git_status<cr>")
+(u.m :n :<space>gb ":Telescope git_branches<cr>")
+
