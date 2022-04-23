@@ -39,7 +39,7 @@
 ;; navigation settngs
 ;; delete all buffers except this one
 (map :n :<space>ba ":w <bar> silent %bd! <bar> e# <bar> bd# <CR>") 
-(map :n :≈ ":silent! bd!<cr>") ;; alt + x to delete a buffer
+(map :n :≈ ":silent! BD!<cr>") ;; alt + x to delete a buffer
 (util.m :i :≈ "<Esc>≈" {:noremap false})
 
 ;; language setup
@@ -64,5 +64,7 @@
 ;; tabs (remaped with common aproach with karabiner)
 (map :n :<C-y> :gt)
 (map :n :<C-t> :gT)
+(map :i :<C-y> :<Esc>gt)
+(map :i :<C-t> :<Esc>gT)
 (map :n ">>" ":tabmove +1<cr>")
 (map :n "<<" ":tabmove -1<cr>")
