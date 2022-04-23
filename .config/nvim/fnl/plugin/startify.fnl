@@ -3,7 +3,7 @@
             ut   util}
    require-macros [macros]})
 
-(set nvim.g.startify_files_number 18)
+(set nvim.g.startify_files_number 28)
 (set nvim.g.startify_change_to_vcs_root 1)
 (set nvim.g.webdevicons_enable_startify 1)
 
