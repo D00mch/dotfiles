@@ -2,7 +2,16 @@
   {autoload {nvim aniseed.nvim
              telescope telescope
              actions telescope.actions
+             state telescope.actions.state
+             mt telescope.actions.mt
              u util}})
+
+(def- M (mt.transform_mod
+          {:yank-entry 
+           (fn [prompt_bufnr]
+             (let [entry (state.get_selected_entry prompt_bufnr) ]
+               (vim.fn.setreg "*" entry.value)
+               (actions.close prompt_bufnr)))}))
 
 (telescope.setup 
   {:defaults
@@ -14,8 +23,8 @@
                     :width 0.9}
     :layout_strategy :vertical ; cursor horizontal bottom_pane
     :wrap_results true
-    :mappings {:i {;:œ   actions.close
-                   :<Esc>   actions.close
+    :mappings {:n {:y       M.yank-entry}
+               :i {:≈       actions.close           ; alt+x
                    :?       actions.which_key 
                    :<Right> actions.preview_scrolling_down
                    :<Left>  actions.preview_scrolling_up
