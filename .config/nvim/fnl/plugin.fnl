@@ -53,8 +53,8 @@
                                           [:preservim/vim-markdown]]}
 
   ;; theme
-  :sainnhe/everforest {:mod :theme}
-  :arzg/vim-colors-xcode {}
+  :EdenEast/nightfox.nvim {:mod :theme}
+  :sainnhe/everforest {}
   :cormacrelf/vim-colors-github {}
   :sainnhe/sonokai {}
 
