@@ -26,7 +26,6 @@ brew install koekeishiya/formulae/skhd
 brew install yabai
 brew install --cask karabiner-elements
 brew install jq
-brew install jenv
 brew install java
 brew install leiningen
 brew install clojure
@@ -49,9 +48,3 @@ brew services start yabai
 # set up java versions
 source ~/.zshrc
 source ~/.zshenv
-eval "$(jenv init -)"
-jenv enable-plugin export
-jenv enable-plugin maven
-echo "————————————————————————————————————————————"
-echo "ADD THIS TO YOUR ENV WITH 'jenv add <path>':"
-/usr/libexec/java_home -V
