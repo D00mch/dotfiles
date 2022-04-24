@@ -10,6 +10,29 @@
                 {
                     "type": "basic",
                     "from": {
+                        "key_code": "c",
+                        "modifiers": {
+                            "mandatory": ["left_command"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "y"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com.qvacua.VimR$",
+                                "^com.neovide.neovide$"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
                         "key_code": "b",
                         "modifiers": {
                             "mandatory": ["left_command"]
@@ -306,6 +329,7 @@
         }
     ]
 }
+
 
 
 
