@@ -100,6 +100,8 @@ set cursorcolumn
 
 "SYNTAX
     "FOLDING
+        "no foldings by default
+        set nofen 
         autocmd Filetype vim set foldmethod=indent
         autocmd BufRead *.txt set foldmethod=indent
 
