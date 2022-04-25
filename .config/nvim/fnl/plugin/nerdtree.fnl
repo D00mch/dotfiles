@@ -1,7 +1,6 @@
 (module plugin.nerdtree
   {require {nvim aniseed.nvim
             str aniseed.string
-            core aniseed.core
             u aniseed.nvim.util
             util util}
    require-macros [macros]})

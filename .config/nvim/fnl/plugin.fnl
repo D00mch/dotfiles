@@ -1,8 +1,8 @@
 (module plugin
   {autoload {nvim aniseed.nvim
-             a aniseed.core
              util util
-             packer packer}})
+             packer packer}
+   require {{: assoc : count} aniseed.core}})
 
 (defn safe-require-plugin-config [name]
   (let [(ok? val-or-err) (pcall require (.. :plugin. name))]
@@ -16,11 +16,11 @@
   (let [pkgs [...]]
     (packer.startup
       (fn [use]
-        (for [i 1 (a.count pkgs) 2]
+        (for [i 1 (count pkgs) 2]
           (let [name (. pkgs i)
                 opts (. pkgs (+ i 1))]
             (-?> (. opts :mod) (safe-require-plugin-config))
-            (use (a.assoc opts 1 name)))))))
+            (use (assoc opts 1 name)))))))
   nil)
 
 (use

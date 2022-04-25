@@ -1,6 +1,5 @@
 (module plugin.auto-pairs
-  {autoload {core aniseed.core
-             nvim aniseed.nvim}
+  {autoload {nvim aniseed.nvim}
    require-macros [macros]})
 
 (defn init []
