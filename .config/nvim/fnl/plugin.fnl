@@ -81,6 +81,7 @@
                                 :PaterJason/cmp-conjure]
                      :mod :cmp}
 
+  :gcmt/taboo.vim {}
   :qpkorr/vim-bufkill {}
   :akinsho/toggleterm.nvim {:mod :toggleterm}
   :mhinz/vim-startify {:mod :startify}

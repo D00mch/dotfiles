@@ -1,6 +1,5 @@
 (module init
-  {require {core aniseed.core
-            nvim aniseed.nvim
+  {require {nvim aniseed.nvim
             u aniseed.nvim.util
             key which-key
             plenary plenary.filetype
@@ -39,8 +38,9 @@
 
 ;; navigation settngs
 ;; delete all buffers except this one
+(map :n :<space>bd ":silent! BD!<cr>")
 (map :n :<space>ba ":w <bar> silent %bd! <bar> e# <bar> bd# <CR>") 
-(map :n :≈ ":silent! BD!<cr>") ;; alt + x to delete a buffer
+(map :n :≈ ":silent! bd!<cr>") ;; alt + x to delete a buffer
 (util.m :i :≈ "<Esc>≈" {:noremap false})
 
 ;; language setup

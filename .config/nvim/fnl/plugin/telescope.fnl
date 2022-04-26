@@ -23,7 +23,8 @@
                     :width 0.9}
     :layout_strategy :vertical ; cursor horizontal bottom_pane
     :wrap_results true
-    :mappings {:n {:y       M.yank-entry}
+    :mappings {:n {:y       M.yank-entry
+                   :t       actions.select_tab}
                :i {:≈       actions.close           ; alt+x
                    :?       actions.which_key 
                    :<Right> actions.preview_scrolling_down
