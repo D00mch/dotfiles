@@ -1,6 +1,7 @@
 (module plugin.telescope
   {autoload {nvim aniseed.nvim
              telescope telescope
+             themes telescope.themes
              actions telescope.actions
              state telescope.actions.state
              mt telescope.actions.mt
@@ -30,7 +31,11 @@
                    :<Right> actions.preview_scrolling_down
                    :<Left>  actions.preview_scrolling_up
                    :∂       actions.delete_buffer   ; alt + d
-                   :Ã·      actions.which_key}}}})  ; alt + ?                   
+                   :Ã·      actions.which_key}}}    ; alt + ?
+      
+  :extensions {:ui-select [(themes.get_dropdown {})]}})                     
+
+(telescope.load_extension :ui-select) ;; after setup*
 
 (u.m :n :<space>pf ":Telescope find_files hidden=true no_ignore=false<cr>")
 (u.m :n :<space>bb ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")

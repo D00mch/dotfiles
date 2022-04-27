@@ -56,11 +56,8 @@
           (map bufnr :n "]s" "<cmd>lua vim.diagnostic.goto_next()<CR>" {:noremap true})
           (map bufnr :n "[s" "<cmd>lua vim.diagnostic.goto_prev()<CR>" {:noremap true})
           ;telescope
-          (map bufnr :n :<leader>ra
-               ":lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor())<cr>"
-               {:noremap true})
-          (map bufnr :v :<leader>ra ":'<,'>:Telescope lsp_range_code_actions theme=cursor<cr>" {:noremap true})
-          ;(map bufnr :n :<leader>rw ":lua require('telescope.builtin').lsp_workspace_diagnostics()<cr>" {:noremap true})
+          (map bufnr :n :<leader>ra "<cmd>lua vim.lsp.buf.code_action()<CR>" {:noremap true})
+          (map bufnr :v :<leader>ra "<cmd>lua vim.lsp.buf.range_code_action()<CR>" {:noremap true})
           (map bufnr :n :<leader>fu ":lua require('telescope.builtin').lsp_references()<cr>" {:noremap true})
           (map bufnr :n :∫ :<leader>fu {:noremap false})))]
 
