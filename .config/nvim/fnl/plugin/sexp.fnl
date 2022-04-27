@@ -19,5 +19,4 @@
                            :sexp_swap_element_backward :<C-h> 
                            :sexp_swap_element_forward  :<C-l>})
 
-;; comment a form and fix indets
-(u.map :<Leader>c "<Plug>(sexp_move_to_prev_bracket)i#_<C-[>l=af")
+(u.map :<Leader>c :gcaf)

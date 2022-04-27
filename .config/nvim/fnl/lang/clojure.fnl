@@ -1,10 +1,15 @@
 (module lang.clojure
   {require {nvim aniseed.nvim
-            util util
+            {:bm map} util
             u aniseed.nvim.util
             {: some} aniseed.core}})
 
-(nvim.echo "lang loaded")
+(set nvim.g.surround_99 "#_\r")
+
+(map :n :<Leader>c :ysafc {:noremap false})
+(map :n "<Leader>k" ":RunAppropriateClojureRepl<cr>")
+
+;;  =============== jack in part ===============
 
 (def- run-lein-cmd "lein repl")
 (def- run-deps-cmd 
@@ -29,7 +34,3 @@
   :RunAppropriateClojureRepl
   run-appropriate-clojure-repl
   {:nargs :* :desc "Run terminal with clojure repl"})
-
-;(u.fn-bridge :RunAppropriateClojureRepl :lang.clojure :run-appropriate-clojure-repl)
-
-(util.nmap "<Leader>k" ":RunAppropriateClojureRepl<cr>")
