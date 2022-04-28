@@ -69,7 +69,7 @@ set cursorcolumn
     noremap <up> <C-y><C-y>
     noremap <down> <C-e><C-e>
 
-    nnoremap <space><tab> :bp<cr>
+    nnoremap <silent> <space><tab> <cmd>exe v:count ? v:count . 'b' : 'b' . (bufloaded(0) ? '#' : 'n')<cr>
 
     "WINDOWS
         "alt + w
