@@ -1,12 +1,12 @@
 (module lang.clojure
   {require {nvim aniseed.nvim
             {:bm map} util
-            u aniseed.nvim.util
             {: some} aniseed.core}})
 
 (set nvim.g.surround_99 "#_\r")
 
 (map :n :<Leader>c :ysafc {:noremap false})
+(map :n :<Leader>uc "<Cmd>let s=@/<CR>l?\\v(#_)+<CR>dgn:let @/=s<CR>")
 (map :n "<Leader>k" ":RunAppropriateClojureRepl<cr>")
 
 ;;  =============== jack in part ===============
