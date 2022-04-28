@@ -8,21 +8,7 @@
 
 (def- map nvim.buf_set_keymap)
 
-;; Symbols to show for lsp diagnostics
-(defn define-signs
-  [prefix]
-  (let [error (.. prefix "SignError")
-        warn  (.. prefix "SignWarn")
-        info  (.. prefix "SignInfo")
-        hint  (.. prefix "SignHint")]
-  (vim.fn.sign_define error {:text "x" :texthl error})
-  (vim.fn.sign_define warn  {:text "!" :texthl warn})
-  (vim.fn.sign_define info  {:text "i" :texthl info})
-  (vim.fn.sign_define hint  {:text "?" :texthl hint})))
-
-(if (= (nvim.fn.has "nvim-0.6") 1)
-  (define-signs "Diagnostic")
-  (define-signs "LspDiagnostics"))
+(vim.diagnostic.config {:float {:source true}})
 
 (let [handlers {"textDocument/publishDiagnostics"
                 (vim.lsp.with
@@ -30,6 +16,7 @@
                   {:severity_sort true
                    :update_in_insert false
                    :underline true
+                   :signs false
                    :virtual_text false})
                 "textDocument/hover"
                 (vim.lsp.with
