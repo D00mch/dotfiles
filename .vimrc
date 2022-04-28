@@ -69,7 +69,7 @@ set cursorcolumn
     noremap <up> <C-y><C-y>
     noremap <down> <C-e><C-e>
 
-    nnoremap <space><tab> :e#<cr>
+    nnoremap <space><tab> :bp<cr>
 
     "WINDOWS
         "alt + w
