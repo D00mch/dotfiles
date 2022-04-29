@@ -1,13 +1,14 @@
 (module lang.clojure
   {require {nvim aniseed.nvim
-            {:bm map} util
-            {: some} aniseed.core}})
+            u util
+            c aniseed.core}})
 
 (set nvim.g.surround_99 "#_\r")
 
-(map :n :<Leader>c :ysafc {:noremap false})
-(map :n :<Leader>uc "<Cmd>let s=@/<CR>l?\\v(#_)+<CR>dgn:let @/=s<CR>")
-(map :n "<Leader>k" ":RunAppropriateClojureRepl<cr>")
+(defn set-up-mappings []
+  (u.bm :n :<Leader>c :ysafc {:noremap false})
+  (u.bm :n :<Leader>uc "<Cmd>let s=@/<CR>l?\\v(#_)+<CR>dgn:let @/=s<CR>")
+  (u.bm :n "<Leader>k" ":RunAppropriateClojureRepl<cr>"))
 
 ;;  =============== jack in part ===============
 
@@ -20,8 +21,8 @@
 ;; jack in with Lein or Deps based on root project file
 (defn run-appropriate-clojure-repl [args]
   (let [root-files (nvim.fn.readdir (nvim.fn.getcwd))
-        has-lein (some (fn [s] (= s "project.clj")) root-files)
-        has-deps (some (fn [s] (= s "deps.edn")) root-files)]
+        has-lein (c.some (fn [s] (= s "project.clj")) root-files)
+        has-deps (c.some (fn [s] (= s "deps.edn")) root-files)]
     (if has-lein 
       (do (nvim.echo "found lein")
         (vim.api.nvim_command (.. "terminal " run-lein-cmd)))

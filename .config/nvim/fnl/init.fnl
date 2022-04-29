@@ -25,8 +25,14 @@
   "*"
   "if line(\"'\\\"\") > 1 && line(\"'\\\"\") <= line(\"$\") | exe \"normal! g'\\\"\" | endif")
 
-(autocmd :FileType :clojure ":lua require('lang.clojure')")
 (autocmd :FileType :dart "set shiftwidth=2 smarttab expandtab")
+
+(vim.api.nvim_create_autocmd 
+  "FileType"
+  {:pattern "clojure"
+   :callback (fn [args] 
+               (let [clj (require :lang.clojure)]
+                 (clj.set-up-mappings)))})
 
 (vim.api.nvim_create_autocmd 
   "BufRead,BufNewFile"
