@@ -8,8 +8,6 @@ export PATH=$ANDROID_HOME/tools:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 export PATH=$ANDROID_HOME/build-tools/30.0.0:$PATH
 
-export PATH="$HOME/.jenv/bin:$PATH"
-
 export EDITOR='vim'
 bindkey -v
 
