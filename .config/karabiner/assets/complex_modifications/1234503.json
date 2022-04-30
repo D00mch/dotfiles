@@ -3,7 +3,7 @@
     "maintainers": [ "dumch" ],
     "rules": [
         {
-            "description": "Right cmd + / -> |",
+            "description": "Right cmd + / -> \\",
             "manipulators": [
                 {
                     "type": "basic",
@@ -88,6 +88,4 @@
         }
     ]
 }
-
-
 
