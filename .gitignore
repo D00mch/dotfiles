@@ -7,3 +7,6 @@
 *~
 *.swp
 *.swo
+
+.lsp/
+.clj-kondo/
