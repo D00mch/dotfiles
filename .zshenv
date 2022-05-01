@@ -3,6 +3,8 @@ export EDITOR="$VISUAL"
 
 export PATH="/usr/local/sbin:$PATH"
 
+export JAVA_HOME=$(/usr/libexec/java_home)
+
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$ANDROID_HOME/tools:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$PATH
