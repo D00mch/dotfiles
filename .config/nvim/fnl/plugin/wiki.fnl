@@ -8,8 +8,10 @@
        :syntax "markdown"
        :ext ".md"}])
 
+(set nvim.g.vimwiki_key_mappings {:lists 0 
+                                  :table_mappings 0})
+
 (set nvim.g.vimwiki_folding "custom")
-(set nvim.g.vimwiki_table_mappings 0)
 (set nvim.g.vimwiki_global_ext 0)
 (set nvim.g.vimwiki_map_prefix "<Leader>n")
 
