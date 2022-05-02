@@ -15,9 +15,10 @@
 (vim.api.nvim_command "command! -nargs=1 -complete=help H help <args> | silent only")
 
 ;; terminal, go in normal mode
-(map :t "®" "<C-\\><C-n>")
+(map :t "®" "<C-\\><C-n>") ; alt+r
 (map :t "π" "<Esc>pa") ; alt+p to paste (karabiner map cmd+v to alt+p for vims)
 (map :t "ø" "<C-w>") ; alt+o to delete a word 
+(map :t "<Esc>" "<C-\\><C-n>")
 
 ;; restore last known position
 (autocmd                                    
