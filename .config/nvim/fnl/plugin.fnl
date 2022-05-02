@@ -48,9 +48,11 @@
   ;; flutter
   :akinsho/flutter-tools.nvim {:requires [[:nvim-lua/plenary.nvim]]}
 
-  ;; wiki
-  :vimwiki/vimwiki {:mod :wiki :requires [[:xolox/vim-misc]
-                                          [:preservim/vim-markdown]]}
+  ;; writing
+  :vimwiki/vimwiki {:mod :wiki :requires [:xolox/vim-misc
+                                          :preservim/vim-markdown]
+                    :ft [:markdown]}
+  :preservim/vim-textobj-sentence {:ft [:markdown]}
 
   ;; theme
   :EdenEast/nightfox.nvim {:mod :theme}
@@ -78,6 +80,7 @@
                                 :hrsh7th/cmp-path
                                 :hrsh7th/cmp-cmdline
                                 :L3MON4D3/LuaSnip
+                                :f3fora/cmp-spell
                                 :saadparwaiz1/cmp_luasnip
                                 :PaterJason/cmp-conjure]
                      :mod :cmp}

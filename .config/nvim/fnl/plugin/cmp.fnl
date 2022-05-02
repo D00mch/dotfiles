@@ -14,6 +14,7 @@
    {:name :conjure}
    {:name :buffer}
    {:name :path}
+   {:name :spell}
    {:name :luasnip}])
 
 (defn luasnip-tab [fallback]
