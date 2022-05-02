@@ -333,6 +333,33 @@
                     },
                     "to": [
                         {
+                            "key_code": "w",
+                            "modifiers": ["left_control"]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com.qvacua.VimR$",
+                                "^com.neovide.neovide$",
+                                "^com.apple.Terminal$",
+                                "^com.googlecode.iterm2$"
+
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "o",
+                        "modifiers": {
+                            "mandatory": ["left_option"]
+                        }
+                    },
+                    "to": [
+                        {
                             "key_code": "delete_or_backspace",
                             "modifiers": ["left_option", "left_shift"]
                         }
@@ -353,5 +380,6 @@
         }
     ]
 }
+
 
 
