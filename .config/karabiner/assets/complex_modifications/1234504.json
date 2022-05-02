@@ -293,6 +293,30 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "x",
+                        "modifiers": {
+                            "mandatory": ["left_command"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "l",
+                            "modifiers": ["left_control"]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com.qvacua.VimR$",
+                                "^com.neovide.neovide$"
+                            ]
+                        }
+                    ]
                 }
             ]
         },
@@ -329,4 +353,5 @@
         }
     ]
 }
+
 
