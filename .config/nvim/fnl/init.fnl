@@ -51,19 +51,20 @@
 (util.m :i :≈ "<Esc>≈" {:noremap false})
 
 ;; language setup
+(vim.cmd "lang en_US.UTF-8") ;; tmp fix until nvim 0.7.1 https://github.com/neovim/neovim/issues/5683#issuecomment-1114756116
 (vim.api.nvim_command "set keymap=russian-jcukenmac")
 (set nvim.o.iminsert 0)
 (set nvim.o.imsearch 0)
 (map :i "<c-l>" "<c-^>")
 
 (key.register
-  {:<Leader> 
-   {:s {:name "lang-spelling" 
-        :e [":setlocal spell! spelllang=en<cr>" "check eng spell"]
-        :r [":setlocal spell! spelllang=ru<cr>" "check rus spell"]}}
-   :<Space>
-   {:r [":set iminsert=1 imsearch=1<cr>" "set rus lang"]
-    :e [":set iminsert=0 imsearch=0<cr>" "set eng lang"]}})
+  {:<Space>
+   {:r [(.. "<Cmd>set iminsert=1 imsearch=1<bar>"
+            "lang ru_RU.UTF-8<bar>"
+            "setlocal spell! spelllang=ru_ru,en_us<cr>") "set rus lang"]
+    :e [(.. "<Cmd>set iminsert=0 imsearch=0<bar>"
+            "lang en_US.UTF-8<bar>"
+            "setlocal spell! spelllang=ru_ru,en_us<cr>") "set eng lang"]}})
 
 ;; neovide settings
 (set nvim.o.guifont "Hack Nerd Font Mono:h15")
