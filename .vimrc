@@ -61,8 +61,6 @@ set cursorcolumn
 
     " to be able to search on files through path
     set path=$PWD/**
-    noremap <space>h ^
-    noremap <space>l g_
 
     noremap <left> <C-u>
     noremap <right> <C-d>
@@ -110,5 +108,9 @@ set cursorcolumn
         set smartindent
         set shiftwidth=4 smarttab expandtab
         set tags=./tags,tags;$HOME
-
+    "WRAP
+        nnoremap <expr> j v:count ? 'j' : 'gj'
+        nnoremap <expr> k v:count ? 'k' : 'gk'
+        noremap <space>h g0
+        noremap <space>l g$
 "END
