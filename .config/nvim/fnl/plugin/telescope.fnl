@@ -42,9 +42,9 @@
 (u.m :n :<space>pa ":Telescope live_grep<cr>")
 (u.m :n :<space>vm ":Telescope keymaps<cr>")
 (u.m :n :<space>vc ":Telescope colorscheme<cr>")
+(u.m :n :z= ":Telescope spell_suggest<cr>")
 
 ;; git
 (u.m :n :<space>gc ":Telescope git_commits<cr>")
 (u.m :n :<space>gs ":Telescope git_status<cr>")
 (u.m :n :<space>gb ":Telescope git_branches<cr>")
-
