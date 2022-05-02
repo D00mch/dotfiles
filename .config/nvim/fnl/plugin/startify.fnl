@@ -11,8 +11,8 @@
 
 (set nvim.g.startify_lists 
      [{:type "sessions"  :header ["    Sessions"]}
-      {:type "bookmarks" :header ["    Bookmarks"]}
       {:type "files"     :header ["    Files"]}
+      {:type "bookmarks" :header ["    Bookmarks"]}
       {:type "commands"  :header ["    Commands"]}])
 
 (set nvim.g.startify_bookmarks
