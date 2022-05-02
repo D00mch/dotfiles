@@ -1,7 +1,7 @@
 (module lang.clojure
   {require {nvim aniseed.nvim
             u util
-            c aniseed.core}})
+            {: some} aniseed.core}})
 
 (set nvim.g.surround_99 "#_\r")
 
@@ -21,8 +21,8 @@
 ;; jack in with Lein or Deps based on root project file
 (defn run-appropriate-clojure-repl [args]
   (let [root-files (nvim.fn.readdir (nvim.fn.getcwd))
-        has-lein (c.some (fn [s] (= s "project.clj")) root-files)
-        has-deps (c.some (fn [s] (= s "deps.edn")) root-files)]
+        has-lein (some (fn [s] (= s "project.clj")) root-files)
+        has-deps (some (fn [s] (= s "deps.edn")) root-files)]
     (if has-lein 
       (do (nvim.echo "found lein")
         (vim.api.nvim_command (.. "terminal " run-lein-cmd)))
