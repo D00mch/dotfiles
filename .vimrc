@@ -109,8 +109,8 @@ set cursorcolumn
         set shiftwidth=4 smarttab expandtab
         set tags=./tags,tags;$HOME
     "WRAP
-        nnoremap <expr> j v:count ? 'j' : 'gj'
-        nnoremap <expr> k v:count ? 'k' : 'gk'
+        noremap <expr> j v:count ? 'j' : 'gj'
+        noremap <expr> k v:count ? 'k' : 'gk'
         noremap <space>h g0
         noremap <space>l g$
 "END

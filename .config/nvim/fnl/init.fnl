@@ -70,8 +70,8 @@
 (set nvim.g.neovide_cursor_vfx_mode "railgun")
 
 ;; tabs (remaped with common aproach with karabiner)
-(map :n :<C-y> :gt)
-(map :n :<C-t> :gT)
+(map "" :<C-y> :gt)
+(map "" :<C-t> :gT)
 (map :i :<C-y> :<Esc>gt)
 (map :i :<C-t> :<Esc>gT)
 (map :n ">>" ":tabmove +1<cr>")
