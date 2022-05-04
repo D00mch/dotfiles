@@ -10,16 +10,35 @@
 
 (vim.diagnostic.config {:float {:source true}})
 
-;; highlight line number instead of having icons in sigh column
-(vim.cmd "
-  highlight! DiagnosticLineNrError guibg=#51202A guifg=#FF0000 gui=bold
-  highlight! DiagnosticLineNrWarn guibg=#51412A guifg=#FFA500 gui=bold
-  highlight! DiagnosticLineNrInfo guibg=#1E535D guifg=#00FFFF gui=bold
-  highlight! DiagnosticLineNrHint guibg=#1E205D guifg=#0000FF gui=bold
-  sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError
-  sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn
-  sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
-  sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint")
+(set vim.o.updatetime 250)
+
+(defn highlight-line-symbol []
+  ;; highlight line number instead of having icons in sigh column
+  (vim.cmd "
+    highlight! DiagnosticLineNrError guibg=#51202A guifg=#FF0000 gui=bold
+    highlight! DiagnosticLineNrWarn guibg=#51412A guifg=#FFA500 gui=bold
+    highlight! DiagnosticLineNrInfo guibg=#1E535D guifg=#00FFFF gui=bold
+    highlight! DiagnosticLineNrHint guibg=#1E205D guifg=#0000FF gui=bold
+    sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError
+    sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn
+    sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
+    sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint"))
+
+(defn- highlight-symbols [client]
+  (if client.resolved_capabilities.document_highlight
+    (do 
+      (highlight-line-symbol)
+      (vim.api.nvim_create_autocmd :ColorScheme {:buffer 0 :callback highlight-line-symbol})
+      (vim.cmd "hi! link LspReferenceWrite TSConstMacro")
+      (vim.api.nvim_create_augroup :lsp_document_highlight {})
+      (vim.api.nvim_create_autocmd [:CursorHold :CursorHoldI]
+                                   {:group :lsp_document_highlight
+                                    :buffer 0
+                                    :callback vim.lsp.buf.document_highlight})
+      (vim.api.nvim_create_autocmd :CursorMoved
+                                   {:group :lsp_document_highlight
+                                    :buffer 0
+                                    :callback vim.lsp.buf.clear_references}))))
 
 (let [handlers {"textDocument/publishDiagnostics"
                 (vim.lsp.with
@@ -41,6 +60,7 @@
                      (vim.lsp.protocol.make_client_capabilities))
       on_attach
       (fn [client bufnr]
+        (highlight-symbols client)
         (map bufnr :n :gd "<Cmd>lua vim.lsp.buf.definition()<CR>" {:noremap true})
         (map bufnr :n :<leader>hh "<Cmd>lua vim.lsp.buf.hover()<CR>" {:noremap true})
         (map bufnr :n :<leader>gD "<Cmd>lua vim.lsp.buf.declaration()<CR>" {:noremap true})
