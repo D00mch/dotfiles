@@ -25,3 +25,6 @@
 ;; insert markdown links
 (u.m :n :<space>K "caw[]<Esc>hpla()<Esc>i")
 (u.m :x :<space>K "<Esc>`>a](<C-r>*)<C-o>`<[<Esc>")
+
+(u.m :n :<space>L "caw[]<Esc>hpla[]<Esc>i")
+(u.m :x :<space>L "<Esc>`>a][<C-r>*]<C-o>`<[<Esc>")
