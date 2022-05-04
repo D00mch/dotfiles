@@ -14,8 +14,13 @@
 (set nvim.g.vimwiki_global_ext 0)
 (set nvim.g.vimwiki_map_prefix "<Leader>n")
 
-(autocmd :BufWinEnter :*.md "setlocal syntax=markdown")
-(autocmd :FileType :vimwiki "silent! unmap <buffer> <Tab>")
+(vim.api.nvim_create_autocmd 
+  :BufWinEnter
+  {:pattern :*.md
+   :callback (fn [_] 
+               (vim.api.nvim_buf_del_keymap 0 "" :<Tab>)
+               (vim.api.nvim_set_option_value :syntax :markdown {:scope :local})
+               (vim.cmd "set wrap linebreak nolist"))})
 
 ;; insert markdown links
 (u.m :n :<space>K "caw[]<Esc>hpla()<Esc>i")
