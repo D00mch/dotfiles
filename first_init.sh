@@ -30,7 +30,6 @@ brew install java
 brew install leiningen
 brew install clojure
 brew install borkdude/brew/clj-kondo
-brew install clojure-lsp
 brew install ripgrep
 
 # install rust (for parinfer-rust, neovide)

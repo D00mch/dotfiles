@@ -1,5 +1,6 @@
 (module plugin.lspconfig
   {autoload {nvim aniseed.nvim
+             installer nvim-lsp-installer
              lsp lspconfig
              util util
              tel  telescope
@@ -7,6 +8,9 @@
              cmplsp cmp_nvim_lsp}})
 
 (def- map nvim.buf_set_keymap)
+
+(installer.setup 
+  {:ensure_installed [:clojure_lsp]})
 
 (vim.diagnostic.config {:float {:source true}})
 
@@ -23,6 +27,8 @@
     sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn
     sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
     sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint"))
+
+(highlight-line-symbol)
 
 (defn- highlight-symbols [client]
   (if client.resolved_capabilities.document_highlight
