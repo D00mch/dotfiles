@@ -18,7 +18,7 @@
   :BufWinEnter
   {:pattern :*.md
    :callback (fn [_] 
-               (vim.api.nvim_buf_del_keymap 0 "" :<Tab>)
+               (vim.cmd "silent! unmap <buffer> <Tab>") ;; do not use nvim_buf_del_keymap
                (vim.api.nvim_set_option_value :syntax :markdown {:scope :local})
                (vim.cmd "set wrap linebreak nolist"))})
 
