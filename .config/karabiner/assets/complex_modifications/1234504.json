@@ -304,7 +304,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "l",
+                            "key_code": "6",
                             "modifiers": ["left_control"]
                         }
                     ],
@@ -380,6 +380,8 @@
         }
     ]
 }
+
+
 
 
 

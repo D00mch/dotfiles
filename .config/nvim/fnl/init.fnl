@@ -54,8 +54,6 @@
 (vim.api.nvim_command "set keymap=russian-jcukenmac")
 (set nvim.o.iminsert 0)
 (set nvim.o.imsearch 0)
-(map :i "<c-l>" "<c-^>")
-(map :c "<c-l>" "<c-^>")
 
 (key.register
   {:<Space>
