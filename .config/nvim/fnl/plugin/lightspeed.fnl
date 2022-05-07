@@ -1,12 +1,12 @@
 (module plugin.lightspeed
   {require {nvim aniseed.nvim
-            util util}})
+            {:m map :map remap} util}})
 
 ; unmapping default search mappings
-(util.map :s :s)
-(util.map :S :S)
+(remap :s :s)
+(remap :S :S)
 
-(nvim.set_keymap "" "q" "<Plug>Lightspeed_s" {:noremap false})
-(nvim.set_keymap "" "Q" "<Plug>Lightspeed_S" {:noremap false})
-(nvim.set_keymap "" "gq" "<Plug>Lightspeed_gs" {:noremap false})
-(nvim.set_keymap "" "gQ" "<Plug>Lightspeed_gS" {:noremap false})
+(map "" "q" "<Plug>Lightspeed_s" {:noremap false})
+(map "" "Q" "<Plug>Lightspeed_S" {:noremap false})
+(map "" "gq" "<Plug>Lightspeed_gs" {:noremap false})
+(map "" "gQ" "<Plug>Lightspeed_gS" {:noremap false})
