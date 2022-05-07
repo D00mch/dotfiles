@@ -1,6 +1,12 @@
 (module plugin.which
-  {autoload {key which-key}})
+  {autoload {wk which-key}})
 
-(key.setup 
-  {:plugins {:spelling {:enabled true
+(wk.setup 
+  {:plugins {:spelling {:enabled false
                         :suggestions 12}}})
+
+(defn toggle [key name cmd buf]
+  (wk.register {:t {:name :toggle
+                    key [cmd name]}}
+               {:prefix :<space>
+                :buffer buf}))

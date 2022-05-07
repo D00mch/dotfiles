@@ -13,6 +13,8 @@ set cursorcolumn
 "EDITING
     "redo
     nnoremap U <C-r>
+    noremap <space>h ^
+    noremap <space>l g_
 
     "OBJECTS
         onoremap w iw
@@ -109,8 +111,32 @@ set cursorcolumn
         set shiftwidth=4 smarttab expandtab
         set tags=./tags,tags;$HOME
     "WRAP
-        noremap <expr> j v:count ? 'j' : 'gj'
-        noremap <expr> k v:count ? 'k' : 'gk'
-        noremap <space>h g0
-        noremap <space>l g$
+        " noremap <expr> j v:count ? 'j' : 'gj'
+        " noremap <expr> k v:count ? 'k' : 'gk'
+        " noremap <space>h g0
+        " noremap <space>l g$
+    "Markdown
+        function! MarkdownLevel()
+            if getline(v:lnum) =~ '^# .*$'
+                return ">1"
+            endif
+            if getline(v:lnum) =~ '^## .*$'
+                return ">2"
+            endif
+            if getline(v:lnum) =~ '^### .*$'
+                return ">3"
+            endif
+            if getline(v:lnum) =~ '^#### .*$'
+                return ">4"
+            endif
+            if getline(v:lnum) =~ '^##### .*$'
+                return ">5"
+            endif
+            if getline(v:lnum) =~ '^###### .*$'
+                return ">6"
+            endif
+            return "=" 
+        endfunction
+        au BufEnter *.md setlocal foldexpr=MarkdownLevel()  
+        au BufEnter *.md setlocal foldmethod=expr    
 "END
