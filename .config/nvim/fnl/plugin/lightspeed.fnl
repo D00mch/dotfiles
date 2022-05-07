@@ -8,5 +8,5 @@
 
 (map "" "q" "<Plug>Lightspeed_s" {:noremap false})
 (map "" "Q" "<Plug>Lightspeed_S" {:noremap false})
-(map "" "gq" "<Plug>Lightspeed_gs" {:noremap false})
-(map "" "gQ" "<Plug>Lightspeed_gS" {:noremap false})
+(map :n "gq" "<Plug>Lightspeed_gs" {:noremap false})
+(map :n "gQ" "<Plug>Lightspeed_gS" {:noremap false})

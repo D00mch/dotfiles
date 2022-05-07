@@ -49,12 +49,10 @@
   :akinsho/flutter-tools.nvim {:requires [[:nvim-lua/plenary.nvim]]}
 
   ;; writing
-  :vimwiki/vimwiki {:mod :wiki 
-                    :ft [:markdown]
-                    :requires [:xolox/vim-misc
-                               :preservim/vim-textobj-sentence
-                               :preservim/vim-textobj-quote ;; depends on below
-                               :kana/vim-textobj-user]}
+  :jghauser/follow-md-links.nvim {:mod :markdown}
+  :preservim/vim-textobj-sentence {:ft [:markdown]}
+  :preservim/vim-textobj-quote {:ft [:markdown]
+                                :requires [:kana/vim-textobj-user]}
 
   ;; theme
   :EdenEast/nightfox.nvim {:mod :theme}
