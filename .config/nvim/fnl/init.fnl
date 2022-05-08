@@ -2,6 +2,7 @@
   {require {nvim aniseed.nvim
             u aniseed.nvim.util
             key which-key
+            {: toggle} plugin.which
             plenary plenary.filetype
             util util}
    require-macros [macros]})
@@ -67,6 +68,13 @@
 ;; neovide settings
 (set nvim.o.guifont "Hack Nerd Font Mono:h15")
 (set nvim.g.neovide_cursor_vfx_mode "railgun")
+(toggle "t" "transparency" ":NeovideToggleTransparency<Cr>")
+
+(vim.api.nvim_create_user_command :NeovideToggleTransparency 
+                                  (fn []                                  
+                                    (vim.cmd (..  "let g:neovide_transparency="
+                                                 (if (= 1 nvim.g.neovide_transparency) 0.8 1))) )
+                                  {:nargs :* :desc "Insert markdown header"})
 
 ;; tabs (remaped with common aproach with karabiner)
 (map "" :<C-y> :gt)
