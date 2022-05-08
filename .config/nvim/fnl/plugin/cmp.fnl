@@ -50,6 +50,8 @@
                       :<S-Tab> (cmp.mapping.select_prev_item {:behavior cmp.SelectBehavior.Select})
                       :<down> (cmp.mapping.select_next_item {:behavior cmp.SelectBehavior.Select})
                       :<up> (cmp.mapping.select_prev_item {:behavior cmp.SelectBehavior.Select})
+                      :<left> (cmp.mapping (cmp.mapping.scroll_docs -4) [:i :c])
+                      :<right> (cmp.mapping (cmp.mapping.scroll_docs 4) [:i :c])
                       :<C-Space> (cmp.mapping.complete)
                       :<C-e> (cmp.mapping.close)
                       :<CR> (cmp.mapping.confirm {:behavior cmp.ConfirmBehavior.Replace
