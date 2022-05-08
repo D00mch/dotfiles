@@ -1,0 +1,32 @@
+snippet blrest "inserts a rest block with header"
+	# ${1:method name}
+	## Input:
+	\`\`\`
+	{}
+	\`\`\`
+
+	## Output:
+	\`\`\`json
+	{}
+	\`\`\`
+
+	## Example
+	\`\`\`bash
+	curl -H "Content-Type: application/json" \
+	     GET ${2:url} | jq
+	\`\`\`
+
+snippet blclj
+	\`\`\`clojure
+	${1:code}
+	\`\`\`
+
+snippet bldart
+	\`\`\`dart
+	${1:code}
+	\`\`\`
+
+snippet blbash
+	\`\`\`bash
+	${1:code}
+	\`\`\`
