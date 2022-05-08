@@ -1,7 +1,8 @@
 (module plugin.cmp
   {autoload {nvim aniseed.nvim
+             {: first} aniseed.core
              cmp cmp
-             luasnip luasnip}})
+             snippy snippy}})
 
 (def- cmp-src-menu-items
   {:buffer "buff"
@@ -15,19 +16,28 @@
    {:name :buffer}
    {:name :path}
    {:name :spell}
-   {:name :luasnip}])
+   {:name :snippy}])
 
-(defn luasnip-tab [fallback]
+;; snippy tab
+
+(defn has-words-before []
+  (let [[line col] (vim.api.nvim_win_get_cursor 0)]
+    (and (~= col 0)
+         (let [line (vim.api.nvim_get_current_line)
+               behind (line:sub col col)]
+           (= (behind:match "%s") nil)))))
+
+(defn snippy-tab [fallback]
   (if 
     (cmp.visible)
-    (cmp.select_next_item {:behavior cmp.SelectBehavior.Select})
-    
-    (luasnip.expand_or_jumpable)
-    (vim.fn.feedkeys 
-      (vim.api.nvim_replace_termcodes 
-        "<Plug>luasnip-expand-or-jump" true true true) 
-      "")
-    
+    (cmp.select_next_item)
+
+    (snippy.can_expand_or_advance)
+    (snippy.expand_or_advance)
+
+    (has-words-before)
+    (cmp.complete)
+
     (fallback)))
 
 ;; Setup cmp with desired settings
@@ -36,7 +46,7 @@
                        (set item.menu (or (. cmp-src-menu-items entry.source.name) ""))
                        item)}
 
-            :mapping {:<Tab> (cmp.mapping luasnip-tab [:i :s])
+            :mapping {:<Tab> (cmp.mapping snippy-tab [:i :s])
                       :<S-Tab> (cmp.mapping.select_prev_item {:behavior cmp.SelectBehavior.Select})
                       :<down> (cmp.mapping.select_next_item {:behavior cmp.SelectBehavior.Select})
                       :<up> (cmp.mapping.select_prev_item {:behavior cmp.SelectBehavior.Select})
@@ -47,7 +57,7 @@
             :sources cmp-srcs
             :confirm_opts {:behavior cmp.ConfirmBehavior.Replace
                            :select false}
-            :snippet {:expand (fn [args] (luasnip.lsp_expand args.body))}})
+            :snippet {:expand (fn [args] (snippy.expand_snippet args.body))}})
 
 (cmp.setup.cmdline "/" {:mapping (cmp.mapping.preset.cmdline)
                         :sources (cmp.config.sources [{:name :buffer :max_item_count 18}])})

@@ -49,7 +49,7 @@
   :akinsho/flutter-tools.nvim {:requires [[:nvim-lua/plenary.nvim]]}
 
   ;; writing
-  :jghauser/follow-md-links.nvim {:mod :markdown}
+  :jghauser/follow-md-links.nvim {:mod :markdown }
   :preservim/vim-textobj-sentence {:ft [:markdown]}
   :preservim/vim-textobj-quote {:ft [:markdown]
                                 :requires [:kana/vim-textobj-user]}
@@ -80,11 +80,10 @@
                                 :hrsh7th/cmp-nvim-lsp
                                 :hrsh7th/cmp-path
                                 :hrsh7th/cmp-cmdline
-                                :L3MON4D3/LuaSnip
                                 :f3fora/cmp-spell
-                                :saadparwaiz1/cmp_luasnip
                                 :PaterJason/cmp-conjure]
                      :mod :cmp}
+  :dcampos/nvim-snippy {:requires [:dcampos/cmp-snippy]}
 
   :gcmt/taboo.vim {}
   :qpkorr/vim-bufkill {}
