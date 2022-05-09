@@ -81,8 +81,10 @@
         ;telescope
         (map bufnr :n :<leader>ra "<cmd>lua vim.lsp.buf.code_action()<CR>" {:noremap true})
         (map bufnr :n :® :<leader>ra {:noremap false})
-        (map bufnr :v :<leader>ra "<cmd>lua vim.lsp.buf.range_code_action()<CR>" {:noremap true})
+        (map bufnr :v :<leader>ra ":'<,'>:lua vim.lsp.buf.range_code_action()<CR>" {:noremap true})
         (map bufnr :n :<leader>fu ":lua require('telescope.builtin').lsp_references()<cr>" {:noremap true})
+        (map bufnr :n :<leader>fi
+             ":lua require('telescope.builtin').lsp_implementations()<cr>" {:noremap true})
         (map bufnr :n :∫ :<leader>fu {:noremap false}))]
 
   (lsp.clojure_lsp.setup
