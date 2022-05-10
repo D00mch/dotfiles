@@ -3,6 +3,7 @@
              telescope telescope
              themes telescope.themes
              actions telescope.actions
+             fb_actions telescope._extensions.file_browser.actions
              state telescope.actions.state
              mt telescope.actions.mt
              u util}})
@@ -25,6 +26,8 @@
     :layout_strategy :vertical ; cursor horizontal bottom_pane
     :wrap_results true
     :mappings {:n {:y       M.yank-entry
+                   :<Right> actions.preview_scrolling_down
+                   :<Left>  actions.preview_scrolling_up
                    :t       actions.select_tab}
                :i {:≈       actions.close           ; alt+x
                    :?       actions.which_key 
@@ -32,16 +35,29 @@
                    :<Left>  actions.preview_scrolling_up
                    :∂       actions.delete_buffer   ; alt + d
                    :Ã·      actions.which_key}}}    ; alt + ?
-      
-  :extensions {:ui-select [(themes.get_dropdown {})]}})                     
+   :extensions {:file_browser {:theme :ivy
+                               :mappings {:n ;; nerdtree-like mappings 
+                                          {:u fb_actions.goto_parent_dir 
+                                           :r fb_actions.open
+                                           :a fb_actions.create
+                                           :o actions.select_default
+                                           :m fb_actions.rename
+                                           :m fb_actions.move ;; several items
+                                           :c fb_actions.copy
+                                           :d fb_actions.remove
+                                           :h fb_actions.toggle_hidden}}}
+               :ui-select [(themes.get_dropdown {})]}})                     
 
-(telescope.load_extension :ui-select) ;; after setup*
+;; after telescope setup 
+(telescope.load_extension :ui-select) 
+(telescope.load_extension :file_browser) 
 
 (u.m :n :<space>pf ":Telescope find_files hidden=true no_ignore=false<cr>")
 (u.m :n :<space>bb ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")
 (u.m :n :<space>pa ":Telescope live_grep<cr>")
 (u.m :n :<space>vm ":Telescope keymaps<cr>")
 (u.m :n :<space>vc ":Telescope colorscheme<cr>")
+(u.m :n :<space>fb ":Telescope file_browser<cr>")
 (u.m :n :z= ":Telescope spell_suggest<cr>")
 
 ;; git

@@ -64,7 +64,8 @@
   :nvim-telescope/telescope.nvim {:mod :telescope 
                                   :requires [[:nvim-lua/popup.nvim] 
                                              [:nvim-lua/plenary.nvim]
-                                             [:nvim-telescope/telescope-ui-select.nvim]]}
+                                             [:nvim-telescope/telescope-ui-select.nvim]
+                                             [:nvim-telescope/telescope-file-browser.nvim]]}
 
   ;; parsing system
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
