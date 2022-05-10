@@ -3,15 +3,20 @@
              term toggleterm
              t    toggleterm.terminal}})
 
+(defn update-bg []
+  (set nvim.o.background nvim.o.background)
+  (vim.api.nvim_command (.. "colorscheme " nvim.g.colors_name)))
+
+
 (term.setup 
   {:size 25
    :open_mapping "•" ; alt + 8 (cmd + 8 from karabinner)
    :hide_numbers true
-   :shade_terminals true
+   :shade_terminals false
    :shading_factor 2
+   :on_open update-bg
    ;:start_in_insert false
    :insert_mappings true
    :terminal_mappings true
    :direction :horizontal
    :persist_size true})
-
