@@ -90,7 +90,6 @@
   :akinsho/toggleterm.nvim {:mod :toggleterm}
   :mhinz/vim-startify {:mod :startify}
   :tpope/vim-commentary {}
-  :jpalardy/vim-slime {:mod :slime}
   :tpope/vim-fugitive {:mod :fugitive}
   :vim-scripts/ReplaceWithRegister {}
   :jiangmiao/auto-pairs {:mod :auto-pairs}

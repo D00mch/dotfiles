@@ -1,12 +1,14 @@
 (module plugin.toggleterm
   {autoload {nvim aniseed.nvim
              term toggleterm
+             {:m map} util
              t    toggleterm.terminal}})
 
 (defn update-bg []
   (set nvim.o.background nvim.o.background)
   (vim.api.nvim_command (.. "colorscheme " nvim.g.colors_name)))
 
+(map :x :√ ":ToggleTermSendVisualSelection<cr>")
 
 (term.setup 
   {:size 25
