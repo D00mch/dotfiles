@@ -57,3 +57,5 @@
 (vim.api.nvim_create_user_command
   :MarkdownHeaderRemove remove-header
   {:nargs :* :desc "Insert markdown header"})
+
+(u.m :n :<Leader>ef :vap2ko2j:ToggleTermSendVisualSelection<cr>)
