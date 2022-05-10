@@ -37,12 +37,12 @@
                    :∂       actions.delete_buffer   ; alt + d
                    :Ã·      actions.which_key}}}    ; alt + ?
    :extensions {:file_browser {:theme :ivy
-                               :mappings {:n ;; nerdtree-like mappings 
+                               :mappings {:n
                                           {:u fb_actions.goto_parent_dir 
-                                           :r fb_actions.open
+                                           :f fb_actions.open
                                            :a fb_actions.create
                                            :o actions.select_default
-                                           :m fb_actions.rename
+                                           :r fb_actions.rename
                                            :m fb_actions.move ;; several items
                                            :c fb_actions.copy
                                            :d fb_actions.remove

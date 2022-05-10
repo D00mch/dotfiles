@@ -42,7 +42,7 @@
   :tpope/vim-surround {}
 
   ;; tree
-  :preservim/nerdtree {:mod :nerdtree}
+  :kyazdani42/nvim-tree.lua {:mod :tree}
   :ryanoasis/vim-devicons {}
 
   ;; flutter
