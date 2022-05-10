@@ -4,6 +4,7 @@
              themes telescope.themes
              actions telescope.actions
              fb_actions telescope._extensions.file_browser.actions
+             pr_actions telescope._extensions.project.actions
              state telescope.actions.state
              mt telescope.actions.mt
              u util}})
@@ -46,15 +47,23 @@
                                            :c fb_actions.copy
                                            :d fb_actions.remove
                                            :h fb_actions.toggle_hidden}}}
-               :ui-select [(themes.get_dropdown {})]}})                     
+                :project {:base_dirs ["~/IdeaProjects"]
+                          :mappings {:n ;; nerdtree-like mappings, doesn't work yet 
+                                     { :m pr_actions.rename_project
+                                      :a pr_actions.add_project
+                                      :<Cr> pr_actions.recent_project_files
+                                      :o actions.select_default}}}
+                :ui-select [(themes.get_dropdown {})]}})                     
 
 ;; after telescope setup 
 (telescope.load_extension :ui-select) 
 (telescope.load_extension :file_browser) 
+(telescope.load_extension :project) 
 
 (u.m :n :<space>pf ":Telescope find_files hidden=true no_ignore=false<cr>")
 (u.m :n :<space>bb ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")
 (u.m :n :<space>pa ":Telescope live_grep<cr>")
+(u.m :n :<space>pp ":Telescope project display_type=minimal<cr>") ;; full
 (u.m :n :<space>vm ":Telescope keymaps<cr>")
 (u.m :n :<space>vc ":Telescope colorscheme<cr>")
 (u.m :n :<space>fb ":Telescope file_browser<cr>")
