@@ -24,6 +24,10 @@
   (u.bm :n := ":MarkdownHeaderInsert<cr>")
   (u.bm :n :+ ":MarkdownHeaderRemove<cr>")
 
+  ;; insert list tasks
+  (u.bm :n :- ":MarkdownTaskToggle<cr>")
+  (u.bm :x :- ":MarkdownTaskToggle<cr>")
+
   ;; insert markdown links
   (u.bm :n :<space>K "caw[]<Esc>hpla()<Esc>i")
   (u.bm :x :<space>K "<Esc>`>a](<C-r>*)<C-o>`<[<Esc>")
@@ -36,6 +40,16 @@
    :callback setup-md})
 
 ;; custom commands
+
+(defn toggle-taks []
+  (let [s (vim.api.nvim_get_current_line)
+        selection (string.match s "^- %[(.)%]")
+        s (if 
+            (= " " selection)   (s:gsub "^- %[.%]" "- %[X%]")
+            (= "X" selection)   (s:gsub "^- %[.%]" "- %[ %]")
+            (= (s:sub 1 1) "-") (s:gsub "^- " "- %[ %] ")
+            (.. "- [ ] " s))]
+    (vim.api.nvim_set_current_line s)))
 
 (defn insert-header []
   (let [s (vim.api.nvim_get_current_line)
@@ -57,5 +71,9 @@
 (vim.api.nvim_create_user_command
   :MarkdownHeaderRemove remove-header
   {:nargs :* :desc "Insert markdown header"})
+
+(vim.api.nvim_create_user_command
+  :MarkdownTaskToggle toggle-taks
+  {:nargs :* :desc "Toggle taks in markdown"})
 
 (u.m :n :<Leader>ef :vap2ko2j:ToggleTermSendVisualSelection<cr>)
