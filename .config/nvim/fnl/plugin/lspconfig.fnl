@@ -73,7 +73,7 @@
         ;(map bufnr :n :<leader>tD "<cmd>lua vim.lsp.buf.type_definition()<CR>" {:noremap true})
         (map bufnr :n :<leader>hs "<cmd>lua vim.lsp.buf.signature_help()<CR>" {:noremap true})
         (map bufnr :n :<leader>rr "<cmd>lua vim.lsp.buf.rename()<CR>" {:noremap true})
-        (map bufnr :n :<leader>rs "<cmd>lua vim.diagnostic.open_float()<CR>" {:noremap true})
+        (map bufnr :n :<leader>d "<cmd>lua vim.diagnostic.open_float()<CR>" {:noremap true})
         (map bufnr :n :<leader>re "<cmd>lua vim.diagnostic.setloclist()<CR>" {:noremap true})
         (map bufnr :n :<leader>r= "<cmd>lua vim.lsp.buf.formatting()<CR>" {:noremap true})
         (map bufnr :n "]s" "<cmd>lua vim.diagnostic.goto_next()<CR>" {:noremap true})

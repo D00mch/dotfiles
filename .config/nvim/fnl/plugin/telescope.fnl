@@ -66,7 +66,7 @@
 (u.m :n :<space>pp ":Telescope project display_type=minimal<cr>") ;; full
 (u.m :n :<space>vm ":Telescope keymaps<cr>")
 (u.m :n :<space>vc ":Telescope colorscheme<cr>")
-(u.m :n :<space>fb ":Telescope file_browser<cr>")
+(u.m :n :<space>ff ":Telescope file_browser<cr>")
 (u.m :n :z= ":Telescope spell_suggest<cr>")
 
 ;; git
