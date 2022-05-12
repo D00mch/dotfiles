@@ -17,13 +17,20 @@
   (.. "clj -Sdeps"
       " '{:deps {nrepl/nrepl {:mvn/version \"0.7.0\"} cider/cider-nrepl {:mvn/version \"0.25.2\"}}}'"
       " -m nrepl.cmdline --middleware '[\"cider.nrepl/cider-middleware\"]' --interactive"))
+(def- run-flutter-cmd "clj -M -m cljd.build flutter")
 
-;; jack in with Lein or Deps based on root project file
+;; jack in with Lein or Deps or Flutter based on root project file
 (defn run-appropriate-clojure-repl [args]
   (let [root-files (nvim.fn.readdir (nvim.fn.getcwd))
+        has-pubspec (some (fn [s] (= s "pubspec.yaml")) root-files) 
         has-lein (some (fn [s] (= s "project.clj")) root-files)
         has-deps (some (fn [s] (= s "deps.edn")) root-files)]
-    (if has-lein 
+    (if 
+      has-pubspec
+      (do (nvim.echo "found flutter")
+        (vim.api.nvim_command (.. "terminal " run-flutter-cmd)))
+
+      has-lein 
       (do (nvim.echo "found lein")
         (vim.api.nvim_command (.. "terminal " run-lein-cmd)))
       has-deps
