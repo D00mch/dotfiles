@@ -64,10 +64,10 @@ set cursorcolumn
     " to be able to search on files through path
     set path=$PWD/**
 
-    noremap <left> <C-u>
-    noremap <right> <C-d>
-    noremap <up> <C-y><C-y>
-    noremap <down> <C-e><C-e>
+    noremap <left> 20<C-y>20k
+    noremap <right> 20<C-e>20j
+    noremap <up> 2<C-y>
+    noremap <down> 2<C-e>
 
     nnoremap <silent> <space><tab> <cmd>exe v:count ? v:count . 'b' : 'b' . (bufloaded(0) ? '#' : 'n')<cr>
 
