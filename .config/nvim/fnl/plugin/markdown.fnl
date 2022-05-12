@@ -1,5 +1,6 @@
 (module plugin.wiki
   {require {nvim aniseed.nvim
+            {: first : last : map} aniseed.core
             {: toggle} plugin.which
             {: join} aniseed.string
             u util}
@@ -20,13 +21,16 @@
   (setup-pensil)
   (setup-quote)
 
+  ;; rest-client feature
+  (u.m :n :<Leader>ef :vap2ko2j:ToggleTermSendVisualSelection<cr>)
+
   ;; insert headers
   (u.bm :n := ":MarkdownHeaderInsert<cr>")
   (u.bm :n :+ ":MarkdownHeaderRemove<cr>")
 
   ;; insert list tasks
   (u.bm :n :- ":MarkdownTaskToggle<cr>")
-  (u.bm :x :- ":MarkdownTaskToggle<cr>")
+  (u.bm :x :- "<Esc>:MarkdownTaskToggleSelection<cr>")
 
   ;; insert markdown links
   (u.bm :n :<space>K "caw[]<Esc>hpla()<Esc>i")
@@ -40,16 +44,6 @@
    :callback setup-md})
 
 ;; custom commands
-
-(defn toggle-taks []
-  (let [s (vim.api.nvim_get_current_line)
-        selection (string.match s "^- %[(.)%]")
-        s (if 
-            (= " " selection)   (s:gsub "^- %[.%]" "- %[X%]")
-            (= "X" selection)   (s:gsub "^- %[.%]" "- %[ %]")
-            (= (s:sub 1 1) "-") (s:gsub "^- " "- %[ %] ")
-            (.. "- [ ] " s))]
-    (vim.api.nvim_set_current_line s)))
 
 (defn insert-header []
   (let [s (vim.api.nvim_get_current_line)
@@ -72,8 +66,32 @@
   :MarkdownHeaderRemove remove-header
   {:nargs :* :desc "Insert markdown header"})
 
+;; list tasks toggling
+
+(defn- toggle-task-line [s]
+  (let [selection (string.match s "^- %[(.)%]")]
+    (if 
+      (= " " selection)   (s:gsub "^- %[.%]" "- %[X%]")
+      (= "X" selection)   (s:gsub "^- %[.%]" "- %[ %]")
+      (= (s:sub 1 1) "-") (s:gsub "^- " "- %[ %] ")
+      (.. "- [ ] " s))))
+
+(defn toggle-task []
+  (let [s (toggle-task-line (vim.api.nvim_get_current_line))]
+    (vim.api.nvim_set_current_line s)))
+
 (vim.api.nvim_create_user_command
-  :MarkdownTaskToggle toggle-taks
+  :MarkdownTaskToggle toggle-task
   {:nargs :* :desc "Toggle taks in markdown"})
 
-(u.m :n :<Leader>ef :vap2ko2j:ToggleTermSendVisualSelection<cr>)
+(defn toggle-task-selection []
+  (let [start     (- (first (vim.api.nvim_buf_get_mark 0 "<")) 1)
+        end       (first (vim.api.nvim_buf_get_mark 0 ">"))
+        new-lines (map
+                    toggle-task-line
+                    (vim.api.nvim_buf_get_lines 0 start end 0))]
+    (vim.api.nvim_buf_set_lines 0 start end 1 new-lines)))
+
+(vim.api.nvim_create_user_command
+  :MarkdownTaskToggleSelection toggle-task-selection
+  {:nargs :* :desc "Toggle taks in markdown selection"})
