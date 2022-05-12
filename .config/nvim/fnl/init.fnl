@@ -49,6 +49,7 @@
 (map :n :<space>ba ":w <bar> silent %bd! <bar> e# <bar> bd# <CR>") 
 (map :n :≈ ":silent! bd!<cr>") ;; alt + x to delete a buffer
 (util.m :i :≈ "<Esc>≈" {:noremap false})
+(set nvim.o.mouse "a")
 
 ;; language setup
 (vim.cmd "lang en_US.UTF-8") ;; tmp fix until nvim 0.7.1 https://github.com/neovim/neovim/issues/5683#issuecomment-1114756116
