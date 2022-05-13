@@ -85,7 +85,45 @@
                     "to": [ { "key_code": "close_bracket" } ]
                 }
             ]
+        },
+        {
+            "description": "Right cmd + w/e — {/}",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "w",
+                        "modifiers": {
+                            "mandatory": [ "right_command" ],
+                            "optional": [ "any" ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "open_bracket",
+                            "modifiers": [ "right_shift" ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "e",
+                        "modifiers": {
+                            "mandatory": [ "right_command" ],
+                            "optional": [ "any" ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "close_bracket",
+                            "modifiers": [ "right_shift" ]
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
+
 
