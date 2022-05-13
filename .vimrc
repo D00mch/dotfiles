@@ -32,7 +32,7 @@ set cursorcolumn
         "alt o - to remove word
         nnoremap ø <C-o>
         "v to change visual
-        vmap v  <C-v> 
+        vnoremap v <C-v>
 
     "PASTE
         "below - current line
