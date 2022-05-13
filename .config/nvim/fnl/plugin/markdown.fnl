@@ -22,7 +22,7 @@
   (setup-quote)
 
   ;; rest-client feature
-  (u.m :n :<Leader>ef :vap2ko2j:ToggleTermSendVisualSelection<cr>)
+  (u.m :n :<Leader>ef :vic:ToggleTermSendVisualSelection<cr> {:noremap false})
 
   ;; insert headers
   (u.bm :n := ":MarkdownHeaderInsert<cr>")
