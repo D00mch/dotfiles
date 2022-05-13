@@ -16,6 +16,9 @@
   (vim.api.nvim_set_option_value :textwidth 80 {:scope :local}))
 
 (defn setup-md []
+  (u.bm :n :<Cr> :o) ;; unmap follow-md-links <Cr>
+  (u.bm :n :gd ":lua require('follow-md-links').follow_link()<cr>")
+
   (vim.cmd "set wrap linebreak nolist") ;; wrap without bracking a word
 
   (setup-pensil)
