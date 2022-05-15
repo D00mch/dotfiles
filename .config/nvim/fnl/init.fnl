@@ -68,6 +68,15 @@
 
 ;; neovide settings
 (set nvim.o.guifont "Hack Nerd Font Mono:h15")
+
+(defn font-size! [diff]
+  (let [font nvim.o.guifont
+        size (-> (nvim.o.guifont:match "h(%d+)$") tonumber (+ diff))]
+    (set nvim.o.guifont (font:gsub "%d+$" size))))
+
+(vim.keymap.set :n :<Space>+ (fn [] (font-size! 1)))
+(vim.keymap.set :n :<Space>- (fn [] (font-size! -1)))
+
 (set nvim.g.neovide_cursor_vfx_mode "railgun")
 (toggle "t" "transparency" ":NeovideToggleTransparency<Cr>")
 
