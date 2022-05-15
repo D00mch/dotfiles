@@ -2,7 +2,7 @@
   {require {nvim aniseed.nvim
             u util}})
 
-(set nvim.g.sexp_filetypes "clojure,scheme,lisp,timl,fennel,janet")
+(set nvim.g.sexp_filetypes "clojure,scheme,lisp,timl,fennel,janet,markdown")
 (set nvim.g.sexp_enable_insert_mode_mappings 0) ;set up with auto-pairs
 (set nvim.g.sexp_insert_after_wrap 0) ;do not insert spaces
 
@@ -12,6 +12,10 @@
                            :sexp_capture_prev_element  :<space>kS
                            :sexp_emit_tail_element     :<space>kb 
                            :sexp_emit_head_element     :<space>kB 
+
+                           ;; disabled keys
+                           :sexp_indent                ""
+                           :sexp_indent_top            ""
 
                            ;; move element under cursor
                            :sexp_swap_list_forward     :<C-j> 
