@@ -5,12 +5,7 @@
 
 (set nvim.g.surround_99 "#_\r")
 
-(defn set-up-mappings []
-  (u.bm :n :<Leader>c :ysafc {:noremap false})
-  (u.bm :n :<Leader>uc "<Cmd>let s=@/<CR>l?\\v(#_)+<CR>dgn:let @/=s<CR>")
-  (u.bm :n "<Leader>k" ":RunAppropriateClojureRepl<cr>"))
-
-;;  =============== jack in part ===============
+;; jack in
 
 (def- run-lein-cmd "lein repl")
 (def- run-deps-cmd 
@@ -20,7 +15,7 @@
 (def- run-flutter-cmd "clj -M -m cljd.build flutter")
 
 ;; jack in with Lein or Deps or Flutter based on root project file
-(defn run-appropriate-clojure-repl [args]
+(defn run-appropriate-clojure-repl []
   (let [root-files (nvim.fn.readdir (nvim.fn.getcwd))
         has-pubspec (some (fn [s] (= s "pubspec.yaml")) root-files) 
         has-lein (some (fn [s] (= s "project.clj")) root-files)
@@ -38,7 +33,8 @@
         (vim.api.nvim_command (.. "terminal " run-deps-cmd)))
       (nvim.echo "can't find neither deps.edn nor project.clj in the root"))))
 
-(vim.api.nvim_create_user_command
-  :RunAppropriateClojureRepl
-  run-appropriate-clojure-repl
-  {:nargs :* :desc "Run terminal with clojure repl"})
+;; setup
+(defn set-up-mappings []
+  (u.bm :n :<Leader>c :ysafc {:noremap false})
+  (u.bm :n :<Leader>uc "<Cmd>let s=@/<CR>l?\\v(#_)+<CR>dgn:let @/=s<CR>")
+  (vim.keymap.set :n "<Leader>k" run-appropriate-clojure-repl))

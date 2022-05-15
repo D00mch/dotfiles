@@ -4,14 +4,11 @@
             util util}
    require-macros [macros]})
 
-(vim.api.nvim_create_user_command
-  :FugitiveToggle
-  (fn [args]
-    (let [current-dir (vim.fn.expand "%")
-          in-git? (string.match current-dir ".*%.git/index")]
-      (vim.api.nvim_command (if in-git? "q" "G"))))
-  {:nargs :* :desc "Toggle git like in idea"})
+(defn fugitive-toggle []
+  (let [current-dir (vim.fn.expand "%")
+        in-git? (string.match current-dir ".*%.git/index")]
+    (vim.api.nvim_command (if in-git? "q" "G"))))
 
 (vim.api.nvim_command "set splitbelow")
-(util.nmap :ª ":FugitiveToggle<cr>") ;; alt+9, (mapped to cmd+9 with karabiner) 
+(vim.keymap.set [:n :x :i] :ª fugitive-toggle) ;; alt+9, (mapped to cmd+9 with karabiner) 
 (util.m :i :ª "<Esc>ª" {:noremap false})
