@@ -93,3 +93,24 @@
 (map :i :<C-t> :<Esc>gT)
 (map :n ">>" ":tabmove +1<cr>")
 (map :n "<<" ":tabmove -1<cr>")
+
+;; diff split
+(defn- compare-to-clipboard []
+  (let [ftype (vim.api.nvim_eval "&filetype")]
+    (-> 
+      "execute 'normal! \"xy'
+      vsplit
+      enew
+      normal! P
+      setlocal buftype=nowrite
+      set filetype=%s
+      diffthis
+      execute \"normal! \\<C-w>\\<C-w>\"
+      enew
+      set filetype=%s
+      normal! \"xP
+      diffthis"
+      (string.format ftype ftype)
+      vim.cmd)))
+
+(vim.keymap.set :x :<Space>d compare-to-clipboard)
