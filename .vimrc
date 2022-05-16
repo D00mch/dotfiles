@@ -18,6 +18,10 @@ set cursorcolumn
     nnoremap <Cr> o
     nnoremap o <C-o>
 
+    "INFO
+        noremap <leader>z g<C-g>
+        vnoremap <leader>z g<C-g>:<C-U>echo v:statusmsg<CR>
+
     "OBJECTS
         onoremap w iw
         onoremap W iW
