@@ -10,7 +10,7 @@
 (def- map nvim.buf_set_keymap)
 
 (installer.setup 
-  {:ensure_installed [:clojure_lsp]})
+  {:ensure_installed [:clojure_lsp :jdtls]})
 
 (vim.diagnostic.config {:float {:source true}})
 
@@ -88,6 +88,11 @@
         (map bufnr :n :∫ :<leader>fu {:noremap false}))]
 
   (lsp.clojure_lsp.setup
+    {:on_attach on_attach
+     :handlers handlers
+     :capabilities capabilities})
+
+  (lsp.jdtls.setup 
     {:on_attach on_attach
      :handlers handlers
      :capabilities capabilities})
