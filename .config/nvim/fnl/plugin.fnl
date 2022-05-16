@@ -53,6 +53,7 @@
   :preservim/vim-textobj-sentence {:ft [:markdown]}
   :preservim/vim-textobj-quote {:ft [:markdown]
                                 :requires [:kana/vim-textobj-user]}
+  :uga-rosa/translate.nvim {:mod :translate}
 
   ;; theme
   :EdenEast/nightfox.nvim {:mod :theme}
