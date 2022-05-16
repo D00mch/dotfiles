@@ -15,6 +15,8 @@ set cursorcolumn
     nnoremap U <C-r>
     noremap <space>h ^
     noremap <space>l g_
+    nnoremap <Cr> o
+    nnoremap o <C-o>
 
     "OBJECTS
         onoremap w iw
