@@ -1,4 +1,4 @@
-(module plugin.wiki
+(module plugin.markdown
   {require {nvim aniseed.nvim
             {: first : last : map} aniseed.core
             {: toggle} plugin.which
