@@ -1,8 +1,7 @@
-(module plugin.toggleterm
-  {autoload {nvim aniseed.nvim
+(module plugin.terminal
+  {require {nvim aniseed.nvim
              term toggleterm
-             {:m map} util
-             t    toggleterm.terminal}})
+             {:m map} util}})
 
 (defn update-bg []
   (set nvim.o.background nvim.o.background)
@@ -11,7 +10,7 @@
 (map :x :√ ":ToggleTermSendVisualSelection<cr>")
 
 (term.setup 
-  {:size 25
+  {:size 30
    :open_mapping "•" ; alt + 8 (cmd + 8 from karabinner)
    :hide_numbers true
    :shade_terminals false

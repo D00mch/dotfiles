@@ -90,7 +90,7 @@
 
   :gcmt/taboo.vim {}
   :qpkorr/vim-bufkill {}
-  :akinsho/toggleterm.nvim {:mod :toggleterm}
+  :akinsho/toggleterm.nvim {:mod :terminal}
   :mhinz/vim-startify {:mod :startify}
   :tpope/vim-commentary {}
   :tpope/vim-fugitive {:mod :fugitive}
