@@ -15,8 +15,7 @@ set cursorcolumn
     nnoremap U <C-r>
     noremap <space>h ^
     noremap <space>l g_
-    nnoremap <Cr> o
-    nnoremap o <C-o>
+    nnoremap <Bs> <C-o>
 
     "INFO
         noremap <leader>z g<C-g>
@@ -44,7 +43,7 @@ set cursorcolumn
         "below - current line
         nnoremap cl mX"9yy"9p`Xj
         "below - empty line
-        nnoremap <space>o o<Esc><Esc>
+        nnoremap <space>o mXo<Esc><Esc>`X
 
     "SAVING
         "alt + q
