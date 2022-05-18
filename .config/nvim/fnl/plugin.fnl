@@ -88,6 +88,7 @@
                      :mod :cmp}
   :dcampos/nvim-snippy {:requires [:dcampos/cmp-snippy]}
 
+  :chrisbra/Colorizer {:mod :colors}
   :gcmt/taboo.vim {}
   :qpkorr/vim-bufkill {}
   :akinsho/toggleterm.nvim {:mod :terminal}
