@@ -122,8 +122,27 @@
                     ]
                 }
             ]
+        },
+        {
+            "description": "Right cmd + z -> |",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "z",
+                        "modifiers": { "mandatory": [ "right_command" ] }
+                    },
+                    "to": [
+                        {
+                            "key_code": "backslash",
+                            "modifiers": [ "right_shift" ]
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
+
 
 
