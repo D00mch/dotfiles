@@ -44,6 +44,7 @@ plugins=(
     python
     lein
     brew
+    gradle
 )
 source $ZSH/oh-my-zsh.sh
 

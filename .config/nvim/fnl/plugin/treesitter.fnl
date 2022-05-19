@@ -6,7 +6,8 @@
 (set nvim.o.foldexpr "nvim_treesitter#foldexpr()")
 
 (treesitter.setup
-  {:ensure_installed [:clojure :fennel :java :dart :lua :yaml :json :markdown :bash]
+  {:ensure_installed [:clojure :fennel :java :dart :lua :yaml :json :markdown :bash 
+                      :kotlin]
    :highlight {:enable true}
    :indent    {:enable true}
    :rainbow   {:enable true

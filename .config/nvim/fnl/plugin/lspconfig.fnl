@@ -10,7 +10,7 @@
 (def- map nvim.buf_set_keymap)
 
 (installer.setup 
-  {:ensure_installed [:clojure_lsp :jdtls]})
+  {:ensure_installed [:clojure_lsp :jdtls :kotlin_language_server]})
 
 (vim.diagnostic.config {:float {:source true}})
 
@@ -93,6 +93,11 @@
      :capabilities capabilities})
 
   (lsp.jdtls.setup 
+    {:on_attach on_attach
+     :handlers handlers
+     :capabilities capabilities})
+
+  (lsp.kotlin_language_server.setup 
     {:on_attach on_attach
      :handlers handlers
      :capabilities capabilities})
