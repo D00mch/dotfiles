@@ -1,7 +1,7 @@
 # open finder
 cmd - m : open ~/.
 shift + alt - e : bash ~/dotfiles/vimanywhere.sh
-cmd - g : open ~/Applications/Neovide.app -n --args --multigrid
+cmd - g : open ~/Applications/Neovide.app -n
 alt - n : vimr ~/Yandex.Disk.localized/notes/wiki/index.md  --cwd ~/Yandex.Disk.localized/notes/wiki -n
 
 # focus window
