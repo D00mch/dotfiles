@@ -49,7 +49,7 @@
                                            :h fb_actions.toggle_hidden}}}
                 :project {:base_dirs ["~/IdeaProjects"]
                           :mappings {:n ;; nerdtree-like mappings, doesn't work yet 
-                                     { :m pr_actions.rename_project
+                                     {:r pr_actions.rename_project
                                       :a pr_actions.add_project
                                       :<Cr> pr_actions.recent_project_files
                                       :o actions.select_default}}}
