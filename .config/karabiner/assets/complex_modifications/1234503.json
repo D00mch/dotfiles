@@ -124,12 +124,12 @@
             ]
         },
         {
-            "description": "Right cmd + z -> |",
+            "description": "Right cmd + a -> |",
             "manipulators": [
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "z",
+                        "key_code": "a",
                         "modifiers": { "mandatory": [ "right_command" ] }
                     },
                     "to": [
@@ -143,6 +143,7 @@
         }
     ]
 }
+
 
 
 
