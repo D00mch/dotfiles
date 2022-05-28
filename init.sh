@@ -11,6 +11,7 @@ ln    -s   $DOTFILES_PATH/.ideavimrc                 ~/
 ln    -s   $DOTFILES_PATH/fuz.sh                     ~/ 
 ln    -s   $DOTFILES_PATH/.yabairc                   ~/ 
 ln    -s   $DOTFILES_PATH/.skhdrc                    ~/ 
+ln    -s   $DOTFILES_PATH/.clojure                   ~/ 
 
 touch      ~/.ssh-aliases.sh # zshrc source it
 
