@@ -15,8 +15,8 @@
 (set nvim.g.conjure#client#clojure#nrepl#mapping#disconnect false)
 (set nvim.g.conjure#client#clojure#nrepl#mapping#connect_port_file false)
 
-;; unmap tests
-(set nvim.g.conjure#client#clojure#nrepl#mapping#run_current_ns_tests false)
-(set nvim.g.conjure#client#clojure#nrepl#mapping#run_alternate_ns_tests false)
-(set nvim.g.conjure#client#clojure#nrepl#mapping#run_current_test false)
-(set nvim.g.conjure#client#clojure#nrepl#mapping#run_all_tests false)
+;; tests
+; (set nvim.g.conjure#client#clojure#nrepl#mapping#run_current_ns_tests false)
+; (set nvim.g.conjure#client#clojure#nrepl#mapping#run_alternate_ns_tests false)
+; (set nvim.g.conjure#client#clojure#nrepl#mapping#run_current_test false)
+; (set nvim.g.conjure#client#clojure#nrepl#mapping#run_all_tests false)

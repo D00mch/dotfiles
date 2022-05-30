@@ -6,12 +6,8 @@
 (set nvim.g.surround_99 "#_\r")
 
 ;; jack in
-
 (def- run-lein-cmd "lein repl")
-(def- run-deps-cmd 
-  (.. "clj -Sdeps"
-      " '{:deps {nrepl/nrepl {:mvn/version \"0.7.0\"} cider/cider-nrepl {:mvn/version \"0.25.2\"}}}'"
-      " -m nrepl.cmdline --middleware '[\"cider.nrepl/cider-middleware\"]' --interactive"))
+(def- run-deps-cmd "clj -M:REPL")
 (def- run-flutter-cmd "clj -M -m cljd.build flutter")
 
 ;; jack in with Lein or Deps or Flutter based on root project file
