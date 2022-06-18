@@ -1,7 +1,7 @@
 (ns theme.core
   (:gen-class)
   (:require [clojure.string :as str]
-            [clojure.java.shell :use [sh]]
+            [clojure.java.shell :refer [sh]]
             [robot.core :as r]))
 
 (def system-osx?

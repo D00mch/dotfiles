@@ -20,7 +20,6 @@
       has-pubspec
       (do (nvim.echo "found flutter")
         (vim.api.nvim_command (.. "terminal " run-flutter-cmd)))
-
       has-lein 
       (do (nvim.echo "found lein")
         (vim.api.nvim_command (.. "terminal " run-lein-cmd)))
