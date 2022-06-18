@@ -133,7 +133,24 @@
                     "to": [ { "key_code": "left_shift" } ]
                 }
             ]
+        },
+        {
+            "description": "Right cmd + quote — quote",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "quote",
+                        "modifiers": {
+                            "mandatory": [ "right_command" ]
+                        }
+                    },
+                    "to": [ { "key_code": "quote",
+                              "modifiers": [ "right_shift" ]} ]
+                }
+            ]
         }
     ]
 }
+
 
