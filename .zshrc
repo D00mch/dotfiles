@@ -4,15 +4,12 @@ alias v=vim
 alias vi=vim
 alias s='source ~/.zshrc; source ~/.zshenv'
 alias ~='cd ~'
-alias f="find . -name $1"
 alias ip="ifconfig | grep 'inet' | grep -Fv 127.0.0.1 | awk '{print $2}'"
 alias sleep="sudo systemctl hybrid-sleep"
-alias hib="sudo systemctl hibernate"
 alias theme="java -jar ~/dotfiles/clj_scripts/theme/target/uberjar/theme-0.1.0-SNAPSHOT-standalone.jar $1"
 alias wtheme="theme 'w'"
 alias btheme="theme 'b'"
 alias c="clear"
-alias fz='bash ~/fuz.sh'
 
 # notes
 alias todo='vim ~/wiki/todo.md -c ":cd %:p:h"'
