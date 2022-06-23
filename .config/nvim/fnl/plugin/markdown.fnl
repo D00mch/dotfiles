@@ -81,8 +81,8 @@
   ;; insert markdown links
   (u.bm :n :<space>K "vaw\"9di[<C-r>9](<C-r>*)<Esc>")
   (u.bm :x :<space>K "<Esc>`>a](<C-r>*)<C-o>`<[<Esc>")
-  (u.bm :n :<space>N "vaw\"9di[<C-r>9]: <C-r>*<Esc>")
-  (u.bm :x :<space>N "<Esc>`>a]: <C-r>*<C-o>`<[<Esc>")
+  (u.bm :n :<space>N "vaw\"9di[<C-r>9]: <C-r>*<Esc>F[yi[")
+  (u.bm :x :<space>N "<Esc>`>a]: <C-r>*<C-o>`<[<Esc>yi[")
   (u.bm :n :<space>L "caw[]<Esc>hpla[]<Esc>i")
   (u.bm :x :<space>L "<Esc>`>a][<C-r>*]<C-o>`<[<Esc>"))
 
