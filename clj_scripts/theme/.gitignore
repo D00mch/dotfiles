@@ -19,6 +19,8 @@ pom.xml.asc
 /reports
 dartclj-aarch64-darwin
 dartclj-aarch64-linux
+theme
+theme.build_artifacts.txt
 
 # Lint
 .clj-kondo/*
