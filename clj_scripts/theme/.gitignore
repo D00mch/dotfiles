@@ -13,3 +13,14 @@ pom.xml.asc
 /.idea
 /theme.iml
 *.iml
+
+# Native
+/META-INF
+/reports
+dartclj-aarch64-darwin
+dartclj-aarch64-linux
+
+# Lint
+.clj-kondo/*
+!.clj-kondo/config.edn
+.lsp/
