@@ -7,7 +7,7 @@
 
 ;; jack in
 (def- run-lein-cmd "lein repl")
-(def- run-deps-cmd "clj -M:REPL")
+(def- run-deps-cmd "clj -M:nrepl:add-libs")
 (def- run-flutter-cmd "clj -M -m cljd.build flutter")
 
 ;; jack in with Lein or Deps or Flutter based on root project file
