@@ -21,6 +21,7 @@ echo 'fi' >> ~/.zprofile
 
 # installing utilities 
 brew install neovim
+brew install --cask neovide
 brew install koekeishiya/formulae/skhd
 # https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(from-HEAD)
 brew install yabai
