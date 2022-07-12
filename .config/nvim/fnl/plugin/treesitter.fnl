@@ -6,8 +6,8 @@
 (set nvim.o.foldexpr "nvim_treesitter#foldexpr()")
 
 (treesitter.setup
-  {:ensure_installed [:clojure :fennel :java :lua :yaml :json :markdown :bash 
-                      :kotlin]
+  {:ensure_installed [:clojure :fennel :java :lua :yaml :json :bash :kotlin
+                      :markdown :markdown_inline]
    :highlight {:enable true
                ;:additional_vim_regex_highlighting false
                }
