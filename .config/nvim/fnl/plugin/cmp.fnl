@@ -55,7 +55,7 @@
                       :<C-Space> (cmp.mapping.complete)
                       :<C-e> (cmp.mapping.close)
                       :<CR> (cmp.mapping.confirm {:behavior cmp.ConfirmBehavior.Replace
-                                                  :select true})}
+                                                  :select false})}
             :sources cmp-srcs
             :confirm_opts {:behavior cmp.ConfirmBehavior.Replace
                            :select false}
