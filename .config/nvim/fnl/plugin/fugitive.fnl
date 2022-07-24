@@ -5,8 +5,8 @@
    require-macros [macros]})
 
 (defn fugitive-toggle []
-  (let [current-dir (vim.fn.expand "%")
-        in-git? (string.match current-dir ".*%.git/index")]
+  (let [current-dir (vim.fn.expand "%") ;; :echo expand('%:p')
+        in-git? (string.match current-dir "^fugitive://")]
     (vim.api.nvim_command (if in-git? "q" "G"))))
 
 (vim.api.nvim_command "set splitbelow")
