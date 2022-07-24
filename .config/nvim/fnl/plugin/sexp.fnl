@@ -8,9 +8,6 @@
 
 (nvim.set_keymap :n :<space>ks "<Plug>(sexp_capture_next_element)" {:noremap true})
 
-;; RefactorDefine: to declare binding in repl, put cursor on val name  
-(u.m :n :<Leader>rd "vie<space>mr\"9y:ConjureEval (def <c-r>9)<cr>" {:noremap false})
-
 (set nvim.g.sexp_mappings {:sexp_capture_next_element  :<space>ks
                            :sexp_capture_prev_element  :<space>kS
                            :sexp_emit_tail_element     :<space>kb 
