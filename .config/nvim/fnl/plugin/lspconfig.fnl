@@ -1,16 +1,16 @@
 (module plugin.lspconfig
   {autoload {nvim aniseed.nvim
-             installer nvim-lsp-installer
              lsp lspconfig
              util util
              tel  telescope
              flut flutter-tools
+             mason mason
              cmplsp cmp_nvim_lsp}})
 
 (def- map nvim.buf_set_keymap)
 
-(installer.setup 
-  {:ensure_installed [:clojure_lsp :jdtls :kotlin_language_server]})
+(mason.setup)
+;(installer.setup {:ensure_installed [:clojure_lsp :jdtls :kotlin_language_server]})
 
 (vim.diagnostic.config {:float {:source true}})
 
