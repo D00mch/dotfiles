@@ -1,7 +1,10 @@
 # open finder
 cmd - m : open ~/.
-shift + alt - e : bash ~/dotfiles/vimanywhere.sh
 cmd - g : open /Applications/Neovide.app -n
+
+# theme
+shift + alt - w : java -jar ~/dotfiles/clj_scripts/theme/target/uberjar/theme-0.1.0-SNAPSHOT-standalone.jar w 
+shift + alt - b : java -jar ~/dotfiles/clj_scripts/theme/target/uberjar/theme-0.1.0-SNAPSHOT-standalone.jar b
 
 # focus window
 alt - h : yabai -m window --focus west
