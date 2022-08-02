@@ -98,7 +98,7 @@
   :tpope/vim-commentary {}
   :tpope/vim-fugitive {:mod :fugitive}
   :vim-scripts/ReplaceWithRegister {}
-  :jiangmiao/auto-pairs {:mod :auto-pairs}
+  :windwp/nvim-autopairs {:mod :nvim-autopairs}
   :mbbill/undotree {:mod :undotree}
   :airblade/vim-rooter {:mod :rooter}
   :folke/which-key.nvim {:mod :which}
