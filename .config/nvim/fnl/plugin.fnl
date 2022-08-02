@@ -39,7 +39,7 @@
   ;; sexp
   :guns/vim-sexp {:mod :sexp}
   :tpope/vim-repeat {}
-  :tpope/vim-surround {}
+  :kylechui/nvim-surround {:mod :nvim-surround}
 
   ;; tree
   :kyazdani42/nvim-tree.lua {:mod :tree}
