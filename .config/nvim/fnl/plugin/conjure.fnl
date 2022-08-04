@@ -12,6 +12,7 @@
 (set nvim.g.conjure#mapping#eval_comment_current_form "sf")
 (set nvim.g.conjure#extract#tree_sitter#enabled true)
 (set nvim.g.conjure#client#clojure#nrepl#eval#raw_out true)
+(set nvim.g.conjure#eval#inline#prefix "| ")
 
 ;; unmap
 (set nvim.g.conjure#client#clojure#nrepl#mapping#disconnect false)

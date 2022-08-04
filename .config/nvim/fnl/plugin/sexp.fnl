@@ -3,7 +3,7 @@
             u util}})
 
 (set nvim.g.sexp_filetypes "clojure,scheme,lisp,timl,fennel,janet,markdown")
-(set nvim.g.sexp_enable_insert_mode_mappings 0) ;set up with auto-pairs
+(set nvim.g.sexp_enable_insert_mode_mappings 1)
 (set nvim.g.sexp_insert_after_wrap 0) ;do not insert spaces
 
 (nvim.set_keymap :n :<space>ks "<Plug>(sexp_capture_next_element)" {:noremap true})
