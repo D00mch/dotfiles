@@ -4,6 +4,8 @@
   {:extra-deps {nrepl/nrepl       {:mvn/version "0.9.0"}
                 cider/cider-nrepl {:mvn/version "0.28.5"}
                 criterium/criterium {:mvn/version "0.4.6"}
+                com.github.jpmonettas/flow-storm-dbg {:mvn/version "2.3.131"}
+                com.github.jpmonettas/flow-storm-inst {:mvn/version "2.3.131"}
                 com.clojure-goes-fast/clj-java-decompiler {:mvn/version "0.3.1"}}
    :main-opts  ["-m" "nrepl.cmdline" ;"--port" "14563" 
                 "--middleware" "[\"cider.nrepl/cider-middleware\"]"]}
