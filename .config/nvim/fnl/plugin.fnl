@@ -59,7 +59,6 @@
   ;; theme
   :EdenEast/nightfox.nvim {:mod :theme}
   :sainnhe/everforest {}
-  :cormacrelf/vim-colors-github {}
   :sainnhe/sonokai {}
 
   ;; telescope
