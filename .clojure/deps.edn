@@ -1,20 +1,22 @@
 {:aliases 
- {
-  :nrepl
-  {:extra-deps {nrepl/nrepl       {:mvn/version "0.9.0"}
-                cider/cider-nrepl {:mvn/version "0.28.5"}
-                criterium/criterium {:mvn/version "0.4.6"}
-                com.github.jpmonettas/flow-storm-dbg {:mvn/version "2.3.131"}
-                com.github.jpmonettas/flow-storm-inst {:mvn/version "2.3.131"}
-                com.clojure-goes-fast/clj-java-decompiler {:mvn/version "0.3.1"}}
-   :main-opts  ["-m" "nrepl.cmdline" ;"--port" "14563" 
-                "--middleware" "[\"cider.nrepl/cider-middleware\"]"]}
+ {:nrepl
+  {:extra-deps 
+   {org.clojure/clojure {:mvn/version "1.11.0"}
+    nrepl/nrepl {:mvn/version "0.9.0"}
+    refactor-nrepl/refactor-nrepl {:mvn/version "3.5.4"}
+    cider/cider-nrepl {:mvn/version "0.28.5"}
+    djblue/portal {:mvn/version "0.29.1"}
+    criterium/criterium {:mvn/version "0.4.6"}
+    com.clojure-goes-fast/clj-java-decompiler {:mvn/version "0.3.1"}
+    com.github.jpmonettas/flow-storm-dbg {:mvn/version "2.3.131"}
+    com.github.jpmonettas/flow-storm-inst {:mvn/version "2.3.131"}}
+   :main-opts  
+   ["-m" "nrepl.cmdline" ;"--port" "14563" 
+    "--middleware" 
+    "[cider.nrepl/cider-middleware,refactor-nrepl.middleware/wrap-refactor]"]}
 
   :add-libs 
   {:extra-deps {org.clojure/tools.deps.alpha ; add-lib3 branch
                 {:git/url "https://github.com/clojure/tools.deps.alpha"
                  :sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}}}
-
-  :test 
-  {:extra-paths ["test"]}
   }}
