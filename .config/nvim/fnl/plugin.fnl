@@ -35,6 +35,7 @@
 
   ;; repl
   :Olical/conjure {:branch :master :mod :conjure}
+  :wlangstroth/vim-racket {:ft [:scheme :racket]}
 
   ;; sexp
   :guns/vim-sexp {:mod :sexp}

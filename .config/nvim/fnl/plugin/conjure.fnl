@@ -26,3 +26,10 @@
 ; (set nvim.g.conjure#client#clojure#nrepl#mapping#run_alternate_ns_tests false)
 ; (set nvim.g.conjure#client#clojure#nrepl#mapping#run_current_test false)
 ; (set nvim.g.conjure#client#clojure#nrepl#mapping#run_all_tests false)
+
+;; racket
+(set nvim.g.conjure#client#racket#nrepl#eval#raw_out true)
+
+;; chicken scheme
+(set nvim.g.conjure#client#scheme#stdio#command  "csi -quiet -:c")
+(set nvim.g.conjure#client#scheme#stdio#prompt_pattern "\n-#;%d-> ")

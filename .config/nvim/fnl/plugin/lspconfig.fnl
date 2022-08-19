@@ -85,22 +85,15 @@
         (map bufnr :n :<leader>fu ":lua require('telescope.builtin').lsp_references()<cr>" {:noremap true})
         (map bufnr :n :<leader>fi
              ":lua require('telescope.builtin').lsp_implementations()<cr>" {:noremap true})
-        (map bufnr :n :∫ :<leader>fu {:noremap false}))]
+        (map bufnr :n :∫ :<leader>fu {:noremap false}))
+      default-map {:on_attach on_attach
+                   :handlers handlers
+                   :capabilities capabilities}]
 
-  (lsp.clojure_lsp.setup
-    {:on_attach on_attach
-     :handlers handlers
-     :capabilities capabilities})
-
-  (lsp.jdtls.setup 
-    {:on_attach on_attach
-     :handlers handlers
-     :capabilities capabilities})
-
-  (lsp.kotlin_language_server.setup 
-    {:on_attach on_attach
-     :handlers handlers
-     :capabilities capabilities})
+  (lsp.clojure_lsp.setup default-map)
+  (lsp.jdtls.setup default-map)
+  (lsp.kotlin_language_server.setup default-map)
+  (lsp.racket_langserver.setup default-map)
 
   (flut.setup
     {:lsp

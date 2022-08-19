@@ -32,10 +32,13 @@ brew install leiningen
 brew install clojure
 brew install borkdude/brew/clj-kondo
 brew install ripgrep
+# brew install chicken
+# brew install racket
+# raco pkg install racket-langserver # extremely long
 
 # install rust (for parinfer-rust, neovide)
-brew install cmake
-brew install rustup-init
+# brew install cmake
+# brew install rustup-init
 
 # for lualine and nerdtree icons
 brew tap homebrew/cask-fonts

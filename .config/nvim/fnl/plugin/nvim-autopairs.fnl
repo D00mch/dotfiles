@@ -3,7 +3,7 @@
             rule nvim-autopairs.rule
             conds nvim-autopairs.conds}})
 
-(npairs.setup {:disable_filetype [:clojure :scheme :lisp :timl :fennel :janet]})
+(npairs.setup {:disable_filetype [:clojure :scheme :lisp :timl :fennel :janet :racket]})
 
 ; (defn override-for-lisp [p] 
 ;   (npairs.remove_rule p)
