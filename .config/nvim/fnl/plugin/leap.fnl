@@ -10,9 +10,9 @@
    :labels      [:f :j :k :l :o :d :w :e :h :m :v :g :u :t
                  :c :. :z :/ :A :F :L :N :H :G :M :U :T :? :Z]
    :special_keys {
-     :repeat_search :n
-     :next_match    :n
-     :prev_match    :p
+     :repeat_search :<tab>
+     :next_match    :<tab>
+     :prev_match    :<s-tab>
      :next_group    :<space>}})
 
 
