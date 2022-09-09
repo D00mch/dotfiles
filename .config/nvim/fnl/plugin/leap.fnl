@@ -3,6 +3,8 @@
             leap leap
             {:m map :map remap} util}})
 
+(vim.api.nvim_set_hl 0 :LeapBackdrop { :fg :#707070 })
+
 (leap.setup
   {:case_sensitive false
    :safe_labels [:f :j :k :l :o :d :w :e :h :m :v :g :u :t
@@ -19,5 +21,3 @@
 (map "" :q "<Plug>(leap-forward)" {:noremap false})
 (map "" :Q "<Plug>(leap-backward)" {:noremap false})
 (map "" :gq "<Plug>(leap-cross-window)" {:noremap false})
-
-(vim.api.nvim_set_hl 0 :LeapBackdrop { :fg :#707070 })
