@@ -2,14 +2,14 @@
  {:nrepl
   {:extra-deps 
    {org.clojure/clojure {:mvn/version "1.11.0"}
-    nrepl/nrepl {:mvn/version "1.0.0"}
+    nrepl/nrepl {:mvn/version "1.1.0-alpha1"}
     refactor-nrepl/refactor-nrepl {:mvn/version "3.5.5"}
-    cider/cider-nrepl {:mvn/version "0.28.5"}
+    cider/cider-nrepl {:mvn/version "0.28.6"}
     djblue/portal {:mvn/version "0.30.0"}
     criterium/criterium {:mvn/version "0.4.6"}
     com.clojure-goes-fast/clj-java-decompiler {:mvn/version "0.3.2"}
-    com.github.jpmonettas/flow-storm-dbg {:mvn/version "2.3.146"}
-    com.github.jpmonettas/flow-storm-inst {:mvn/version "2.3.146"}}
+    com.github.jpmonettas/flow-storm-dbg {:mvn/version "3.0.188"}
+    com.github.jpmonettas/flow-storm-inst {:mvn/version "3.0.188"}}
    :main-opts  
    ["-m" "nrepl.cmdline" ;"--port" "14563" 
     "--middleware" 
