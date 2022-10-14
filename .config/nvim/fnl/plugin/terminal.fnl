@@ -1,9 +1,10 @@
 (module plugin.terminal
   {require {nvim aniseed.nvim
              term toggleterm
-             {:m map} util}})
+             {:map map :m m} util}})
 
-(map :x :√ ":ToggleTermSendVisualSelection<cr>")
+(m :x :√ ":ToggleTermSendVisualSelection<cr>")
+(map :<leader>ee "vip√")
 
 (term.setup 
   {:size 30
