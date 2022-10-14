@@ -78,6 +78,8 @@
         (map bufnr :n :<leader>r= "<cmd>lua vim.lsp.buf.formatting()<CR>" {:noremap true})
         (map bufnr :n "]s" "<cmd>lua vim.diagnostic.goto_next()<CR>" {:noremap true})
         (map bufnr :n "[s" "<cmd>lua vim.diagnostic.goto_prev()<CR>" {:noremap true})
+        (map bufnr :n :<tab> "<cmd>lua vim.diagnostic.goto_next()<CR>" {:noremap true})
+        (map bufnr :n :<S-tab> "<cmd>lua vim.diagnostic.goto_prev()<CR>" {:noremap true})
         ;telescope
         (map bufnr :n :<leader>ra "<cmd>lua vim.lsp.buf.code_action()<CR>" {:noremap true})
         (map bufnr :n :® :<leader>ra {:noremap false})

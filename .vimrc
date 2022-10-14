@@ -92,7 +92,7 @@ set cursorcolumn
         nnoremap – <C-w>5<+
 
     "SPACEMACS-LIKE COMMANDS 
-        noremap <space>bd :silent! bd!<cr>
+        noremap <space>bd :silent! :bp<bar>sp<bar>bn<bar>bd<CR><cr>
 
     "SEARCH
         set ignorecase
@@ -104,6 +104,9 @@ set cursorcolumn
         " vnoremap / /\v
 
 "SYNTAX
+    nnoremap <esc> :noh<Enter>:echom ""<Enter>
+    nnoremap <tab> ]s
+    nnoremap <s-tab> [s
     "FOLDING
         "no foldings by default
         set nofen 
@@ -111,7 +114,6 @@ set cursorcolumn
         autocmd BufRead *.txt set foldmethod=indent
 
     "TABS
-        nnoremap <tab> :noh<Enter>:echom ""<Enter>
         set smartindent
         set shiftwidth=4 smarttab expandtab
         set tags=./tags,tags;$HOME
