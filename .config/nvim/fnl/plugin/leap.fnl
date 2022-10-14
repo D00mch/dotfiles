@@ -7,10 +7,10 @@
 
 (leap.setup
   {:case_sensitive false
-   :safe_labels [:f :j :k :l :o :d :w :e :h :m :v :g :u :t
-                 :c :. :z :/ :A :F :L :N :H :G :M :U :T :? :Z]
-   :labels      [:f :j :k :l :o :d :w :e :h :m :v :g :u :t
-                 :c :. :z :/ :A :F :L :N :H :G :M :U :T :? :Z]
+   ; :safe_labels [:f :j :k :l :o :d :w :e :h :m :v :g :u :t
+   ;               :c :. :z :/ :A :F :L :N :H :G :M :U :T :? :Z]
+   ; :labels      [:f :j :k :l :o :d :w :e :h :m :v :g :u :t
+   ;               :c :. :z :/ :A :F :L :N :H :G :M :U :T :? :Z]
    :special_keys {
      :repeat_search :<tab>
      :next_match    :<tab>
