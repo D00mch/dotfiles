@@ -55,8 +55,9 @@
 
 (defn setup-pensil []
 ; (u.bm :x := "gq")
-  (vim.api.nvim_set_option_value :formatoptions :t {:scope :local})
-  (vim.api.nvim_set_option_value :textwidth 80 {:scope :local}))
+;  (vim.api.nvim_set_option_value :formatoptions :t {:scope :local})
+;  (vim.api.nvim_set_option_value :textwidth 80 {:scope :local})
+  )
 
 (defn setup-md []
 
