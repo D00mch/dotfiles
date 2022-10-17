@@ -2,8 +2,10 @@
   {autoload {wk which-key}})
 
 (wk.setup 
-  {:plugins {:spelling {:enabled false
-                        :suggestions 12}}})
+  {:plugins        {:spelling    {:enabled false
+                                  :suggestions 12}}
+   :popup_mappings {:scroll_down :<right>
+                    :scroll_up   :<left>}})
 
 (defn toggle [key name cmd buf]
   (wk.register {:t {:name :toggle
