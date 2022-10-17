@@ -31,7 +31,7 @@
 (highlight-line-symbol)
 
 (defn- highlight-symbols [client]
-  (if client.resolved_capabilities.document_highlight
+  (if client.server_capabilities.document_highlight
     (do 
       (highlight-line-symbol)
       (vim.api.nvim_create_autocmd :ColorScheme {:buffer 0 :callback highlight-line-symbol})
@@ -62,8 +62,6 @@
                 (vim.lsp.with
                   vim.lsp.handlers.signature_help
                   {:border "single"})}
-      capabilities (cmplsp.update_capabilities
-                     (vim.lsp.protocol.make_client_capabilities))
       on_attach
       (fn [client bufnr]
         (highlight-symbols client)
@@ -90,7 +88,7 @@
         (map bufnr :n :∫ :<leader>fu {:noremap false}))
       default-map {:on_attach on_attach
                    :handlers handlers
-                   :capabilities capabilities}]
+                   :capabilities (cmplsp.default_capabilities)}]
 
   (lsp.clojure_lsp.setup default-map)
   (lsp.jdtls.setup default-map)
