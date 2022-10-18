@@ -16,5 +16,5 @@
 
 (vim.api.nvim_command "set splitbelow")
 (vim.keymap.set [:n :x :i] :ª fugitive-toggle) ;; alt+9, (mapped to cmd+9 with karabiner) 
-(vim.keymap.set [:n :x :i] :<space>ga annotate-toggle)
+(vim.keymap.set [:n :x] :<space>ga annotate-toggle)
 (util.m :i :ª "<Esc>ª" {:noremap false})
