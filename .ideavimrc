@@ -48,6 +48,8 @@ set ReplaceWithRegister
     "ERRORS
         nnoremap ]s :action GotoNextError<cr>
         nnoremap [s :action GotoPreviousError<cr>
+        nnoremap <tab> :action GotoNextError<cr>
+        nnoremap <s-tab> :action GotoPreviousError<cr>
 
     "SPACEMACS-LIKE
         map <space>; :action CommentByLineComment<cr>
