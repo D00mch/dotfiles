@@ -32,6 +32,8 @@ set ReplaceWithRegister
         nnoremap <space>pf :action GotoFile<cr>
         nnoremap <space>pa :action GotoSymbol<cr>
         nnoremap <space>bm :action CloseAllEditors<cr>
+        nnoremap <space>ga :action Annotate<cr>
+        nnoremap <space>gb :action Git.Branches<cr>
     "CIDER-LIKE
         
     "SEARCH
