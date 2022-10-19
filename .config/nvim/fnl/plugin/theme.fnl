@@ -16,6 +16,6 @@
     (let [theme* (if term? "papercolor" "nightfox")]
       (set nvim.o.background "dark")
       (vim.api.nvim_command (.. "colorscheme " theme*)))
-    (let [theme* (if term? "papercolor" "github_light")]
+    (let [theme* (if term? "papercolor" "dayfox")]
       (set nvim.o.background "light")
       (vim.api.nvim_command (.. "colorscheme " theme*)))))

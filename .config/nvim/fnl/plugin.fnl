@@ -59,8 +59,6 @@
 
   ;; theme
   :EdenEast/nightfox.nvim {:mod :theme}
-  :sonph/onehalf {:rtp "vim/"}
-  :projekt0n/github-nvim-theme {}
   :sainnhe/everforest {}
   :sainnhe/sonokai {}
 
