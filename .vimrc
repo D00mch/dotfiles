@@ -63,7 +63,7 @@ set cursorcolumn
         nnoremap <space>q q
 
     "INCLUTION
-        nnoremap db vbd
+        nnoremap db vb
 
 "NAVIGATION
     " set current path
