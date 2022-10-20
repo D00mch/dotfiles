@@ -26,7 +26,7 @@ require("impatient")
 -- Enable Aniseed's automatic compilation and loading of Fennel source code.
 vim.g["aniseed#env"] = {
   module = "init",
-  compile = false
+  compile = true
 }
 
 vim.cmd([[
