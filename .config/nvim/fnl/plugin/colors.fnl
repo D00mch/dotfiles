@@ -9,5 +9,5 @@
    :callback (fn []
                (set nvim.g.colorizer_hex_pattern [:0xFF "\\%(\\x\\{6}\\)" ""]))})
 
-(u.m "" :<Space>c "<Plug>Colorizer")
-(u.m :x :<Space>c ":'<,'>ColorHighlight<Cr>")
+(u.m "" :<Space>cc "<Plug>Colorizer")
+(u.m :x :<Space>cc ":'<,'>ColorHighlight<Cr>")

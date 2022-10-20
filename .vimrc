@@ -67,7 +67,7 @@ set cursorcolumn
 
 "NAVIGATION
     " set current path
-    nnoremap <leader>sd :cd %:p:h<CR>
+    nnoremap <space>sd :cd %:p:h<CR>
 
     " to be able to search on files through path
     set path=$PWD/**
@@ -96,7 +96,11 @@ set cursorcolumn
         nnoremap – <C-w>5<+
 
     "SPACEMACS-LIKE COMMANDS 
-        noremap <space>bd :silent! :bp<bar>sp<bar>bn<bar>bd<CR><cr>
+        nnoremap <space>d :silent! :bp<bar>sp<bar>bn<bar>bd<CR><cr>
+        nnoremap <space>a :w <bar> silent %bd! <bar> e# <bar> bd# <CR>
+        "alt + x to delete a buffer
+        nnoremap ≈ :close<cr>
+        imap     ≈ <Esc>≈
 
     "SEARCH
         set ignorecase

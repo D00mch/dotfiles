@@ -14,7 +14,7 @@
 (preview.setup {:height 25
                 :bufhidden :wipe
                 :post_open_hook (fn [] (nvim.echo (vim.fn.expand "%:p")))})
-(util.map :<leader>i "<cmd>lua require('goto-preview').goto_preview_definition()<CR>" {:noremap true})
+(util.map :<leader>d "<cmd>lua require('goto-preview').goto_preview_definition()<CR>" {:noremap true})
 
 (mason.setup)
 ;(installer.setup {:ensure_installed [:clojure_lsp :jdtls :kotlin_language_server]})
@@ -70,15 +70,15 @@
                   vim.lsp.handlers.signature_help
                   {:border "single"})}
       on_attach
-      (fn [client bufnr]
+      ( fn [client bufnr]
         (highlight-symbols client)
         (map bufnr :n :gd "<Cmd>lua vim.lsp.buf.definition()<CR>" {:noremap true})
-        (map bufnr :n :<leader>hh "<Cmd>lua vim.lsp.buf.hover()<CR><Cmd>lua vim.lsp.buf.hover()<CR>" {:noremap true})
+        (map bufnr :n :<leader>h "<Cmd>lua vim.lsp.buf.hover()<CR><Cmd>lua vim.lsp.buf.hover()<CR>" {:noremap true})
         (map bufnr :n :<leader>gD "<Cmd>lua vim.lsp.buf.declaration()<CR>" {:noremap true})
         ;(map bufnr :n :<leader>tD "<cmd>lua vim.lsp.buf.type_definition()<CR>" {:noremap true})
-        (map bufnr :n :<leader>hs "<cmd>lua vim.lsp.buf.signature_help()<CR>" {:noremap true})
+        ;(map bufnr :n :<leader>hs "<cmd>lua vim.lsp.buf.signature_help()<CR>" {:noremap true})
         (map bufnr :n :<leader>rr "<cmd>lua vim.lsp.buf.rename()<CR>" {:noremap true})
-        (map bufnr :n :<leader>d "<cmd>lua vim.diagnostic.open_float()<CR>" {:noremap true})
+        (map bufnr :n :<leader>a "<cmd>lua vim.diagnostic.open_float()<CR>" {:noremap true})
         (map bufnr :n :<leader>re "<cmd>lua vim.diagnostic.setloclist()<CR>" {:noremap true})
         (map bufnr :n :<leader>r= "<cmd>lua vim.lsp.buf.formatting()<CR>" {:noremap true})
         (map bufnr :n "]s" "<cmd>lua vim.diagnostic.goto_next()<CR>" {:noremap true})
@@ -89,10 +89,10 @@
         (map bufnr :n :<leader>ra "<cmd>lua vim.lsp.buf.code_action()<CR>" {:noremap true})
         (map bufnr :n :® :<leader>ra {:noremap false})
         (map bufnr :v :<leader>ra ":'<,'>:lua vim.lsp.buf.range_code_action()<CR>" {:noremap true})
-        (map bufnr :n :<leader>fu ":lua require('telescope.builtin').lsp_references()<cr>" {:noremap true})
-        (map bufnr :n :<leader>fi
-             ":lua require('telescope.builtin').lsp_implementations()<cr>" {:noremap true})
-        (map bufnr :n :∫ :<leader>fu {:noremap false}))
+        ;; alt + b
+        (map bufnr :n :∫ ":lua require('telescope.builtin').lsp_references()<cr>" {:noremap true})
+        ;; alt + i
+        (map bufnr :n :ˆ ":lua require('telescope.builtin').lsp_implementations()<cr>" {:noremap true}))
       default-map {:on_attach on_attach
                    :handlers handlers
                    :capabilities (cmplsp.default_capabilities)}]

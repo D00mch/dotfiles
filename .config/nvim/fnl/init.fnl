@@ -18,6 +18,7 @@
 ;; terminal, go in normal mode
 (map :t "®" "<C-\\><C-n>") ; alt+r
 (map :t "π" "<Esc>pa") ; alt+p to paste (karabiner map cmd+v to alt+p for vims)
+(util.m :t "≈" "®:close<cr>" {:noremap false})
 (map :t "<Esc>" "<C-\\><C-n>")
 
 ;; restore last known position
@@ -45,10 +46,6 @@
 
 ;; navigation settngs
 ;; delete all buffers except this one
-(map :n :<space>bd ":silent! BD!<cr>")
-(map :n :<space>ba ":w <bar> silent %bd! <bar> e# <bar> bd# <CR>") 
-(map :n :≈ ":close<cr>") ;; alt + x to delete a buffer
-(util.m :i :≈ "<Esc>≈" {:noremap false})
 (set nvim.o.mouse "a")
 
 ;; language setup
@@ -113,4 +110,4 @@
       (string.format ftype ftype)
       vim.cmd)))
 
-(vim.keymap.set :x :<Space>d compare-to-clipboard)
+(vim.keymap.set :x :<Space>cb compare-to-clipboard)

@@ -61,7 +61,7 @@
 (telescope.load_extension :project) 
 
 (u.m :n :<space>pf ":Telescope find_files hidden=true no_ignore=false<cr>")
-(u.m :n :<space>bb ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")
+(u.m :n :<space>b ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")
 (u.m :n :<space>pa ":Telescope live_grep<cr>")
 (u.m :n :<space>pp ":Telescope project display_type=minimal<cr>") ;; full
 (u.m :n :<space>vm ":Telescope keymaps<cr>")
