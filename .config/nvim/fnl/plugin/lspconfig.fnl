@@ -72,7 +72,7 @@
       (fn [client bufnr]
         (highlight-symbols client)
         (map bufnr :n :gd "<Cmd>lua vim.lsp.buf.definition()<CR>" {:noremap true})
-        (map bufnr :n :<leader>hh "<Cmd>lua vim.lsp.buf.hover()<CR>" {:noremap true})
+        (map bufnr :n :<leader>hh "<Cmd>lua vim.lsp.buf.hover()<CR><Cmd>lua vim.lsp.buf.hover()<CR>" {:noremap true})
         (map bufnr :n :<leader>gD "<Cmd>lua vim.lsp.buf.declaration()<CR>" {:noremap true})
         ;(map bufnr :n :<leader>tD "<cmd>lua vim.lsp.buf.type_definition()<CR>" {:noremap true})
         (map bufnr :n :<leader>hs "<cmd>lua vim.lsp.buf.signature_help()<CR>" {:noremap true})
