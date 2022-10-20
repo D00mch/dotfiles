@@ -40,7 +40,8 @@
   {:update_cwd true
    :git {:enable false}
    :view 
-   {:mappings
+   {:adaptive_size true
+    :mappings
     {:list [{:key :t :action :tabnew}
             {:key :S :cb (fn [opts] (launch-telescope "live_grep" opts)) }
             {:key :q :action ""} ;; unmap
