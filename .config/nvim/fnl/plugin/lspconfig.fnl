@@ -5,9 +5,15 @@
              tel  telescope
              flut flutter-tools
              mason mason
+             preview goto-preview
              cmplsp cmp_nvim_lsp}})
 
 (def- map nvim.buf_set_keymap)
+
+;preview
+(preview.setup {:height 35
+                :bufhidden :wipe})
+(util.map :<leader>i "<cmd>lua require('goto-preview').goto_preview_definition()<CR>" {:noremap true})
 
 (mason.setup)
 ;(installer.setup {:ensure_installed [:clojure_lsp :jdtls :kotlin_language_server]})

@@ -77,7 +77,8 @@
 
   ;; lsp
   :neovim/nvim-lspconfig {:mod :lspconfig
-                          :requires [:williamboman/mason.nvim]}
+                          :requires [:williamboman/mason.nvim
+                                     :rmagatti/goto-preview]}
 
   ;; autocomplete
   :hrsh7th/nvim-cmp {:requires [:hrsh7th/cmp-buffer
