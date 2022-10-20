@@ -62,6 +62,9 @@ set cursorcolumn
         map <space>; gcc
         nnoremap <space>q q
 
+    "INCLUTION
+        nnoremap db vbd
+
 "NAVIGATION
     " set current path
     nnoremap <leader>sd :cd %:p:h<CR>
