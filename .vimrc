@@ -86,6 +86,7 @@ set cursorcolumn
         nnoremap gl <C-w>l
         nnoremap gj <C-w>j
         nnoremap gk <C-w>k
+        nnoremap gw <C-w>w
 
         "RESIZE
         nnoremap g= <C-w>5+
