@@ -15,8 +15,8 @@
 (set nvim.g.conjure#eval#inline#prefix "| ")
 
 ;; floating window size
-(set nvim.g.conjure#log#hud#height 0.6)
-(set nvim.g.conjure#log#hud#width 0.7)
+; (set nvim.g.conjure#log#hud#height 0.6)
+; (set nvim.g.conjure#log#hud#width 0.7)
 
 ;; unmap
 (set nvim.g.conjure#client#clojure#nrepl#mapping#disconnect false)
