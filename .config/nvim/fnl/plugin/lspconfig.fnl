@@ -11,8 +11,9 @@
 (def- map nvim.buf_set_keymap)
 
 ;preview
-(preview.setup {:height 35
-                :bufhidden :wipe})
+(preview.setup {:height 25
+                :bufhidden :wipe
+                :post_open_hook (fn [] (nvim.echo (vim.fn.expand "%:p")))})
 (util.map :<leader>i "<cmd>lua require('goto-preview').goto_preview_definition()<CR>" {:noremap true})
 
 (mason.setup)
