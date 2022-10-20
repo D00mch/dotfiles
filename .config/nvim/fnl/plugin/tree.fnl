@@ -17,8 +17,7 @@
     (fn []
       (actions.close prompt-funr)
       (let [selection (action-state.get_selected_entry)
-            filename selection.filename
-            filename (if (= filename nil) (. selection 1) filename)]
+            filename  (or selection.filename (. selection 1))]
         (openfile.fn :preview filename))))
   true)
 
