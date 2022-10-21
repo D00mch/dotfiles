@@ -9,7 +9,7 @@
 (set nvim.g.conjure#mapping#eval_visual "v")
 (set nvim.g.conjure#mapping#eval_file "b")
 (set nvim.g.conjure#mapping#eval_root_form "f")
-(set nvim.g.conjure#mapping#eval_current_form "ee")
+(set nvim.g.conjure#mapping#eval_current_form "q")
 (set nvim.g.conjure#mapping#eval_comment_current_form "es")
 (set nvim.g.conjure#extract#tree_sitter#enabled true)
 (set nvim.g.conjure#client#clojure#nrepl#eval#raw_out true)
