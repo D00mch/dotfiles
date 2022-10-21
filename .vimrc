@@ -98,7 +98,8 @@ set cursorcolumn
     "SPACEMACS-LIKE COMMANDS 
         nnoremap <space>d :silent! :bp<bar>sp<bar>bn<bar>bd<CR><cr>
         nnoremap <space>a :w <bar> silent %bd! <bar> e# <bar> bd# <CR>
-        "alt + x to delete a buffer
+
+        "alt + x to delete a buffer; cmd+w with karabiner
         nnoremap ≈ :close<cr>
         imap     ≈ <Esc>≈
 
