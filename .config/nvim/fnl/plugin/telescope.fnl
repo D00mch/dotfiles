@@ -36,6 +36,24 @@
                    :<Left>  actions.preview_scrolling_up
                    :∂       actions.delete_buffer   ; alt + d
                    :Ã·      actions.which_key}}}    ; alt + ?
+   :pickers {:git_branches {:mappings 
+                            {:n {:<Cr>  actions.git_switch_branch
+                                 :ga    actions.git_create_branch
+                                 :gh    actions.git_reset_hard
+                                 :gs    actions.git_reset_soft
+                                 :gm    actions.git_merge_branch
+                                 :gd    actions.git_delete_branch
+                                 :gr    actions.git_rebase_branch}
+                             :i {:<Cr>  actions.git_switch_branch
+                                 :<C-∂> actions.git_delete_branch
+                                 :<C-a> actions.git_create_branch
+                                 :<C-h> actions.git_reset_hard
+                                 :<C-s> actions.git_reset_soft
+                                 :<C-m> actions.git_merge_branch
+                                 :<C-r> actions.git_rebase_branch}}}
+             :git_commits  {:mappings
+                            {:n {:h actions.git_reset_hard}
+                             :i {:<Cr> actions.git_checkout_current_buffer}}}}
    :extensions {:file_browser {:theme :ivy
                                :mappings {:n
                                           {:u fb_actions.goto_parent_dir 
@@ -73,3 +91,4 @@
 (u.m :n :<space>gc ":Telescope git_commits<cr>")
 (u.m :n :<space>gs ":Telescope git_status<cr>")
 (u.m :n :<space>gb ":Telescope git_branches<cr>")
+
