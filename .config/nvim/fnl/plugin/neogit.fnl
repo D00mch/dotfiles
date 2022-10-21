@@ -10,10 +10,16 @@
    :mappings {:status {:o :Toggle
                        :q "" }}})
 
+; (string.match "diffview://" "^diffview://")
+
 (defn neogit-toggle []
   (let [current-dir (vim.fn.expand "%") ;; :echo expand('%:p')
-        in-git? (string.match current-dir "NeogitStatus$")]
-    (vim.api.nvim_command (if in-git? "q" "Neogit"))))
+        in-git? (string.match current-dir "NeogitStatus$")
+        diff-view? (string.match current-dir "^diffview://")]
+    (vim.api.nvim_command (if
+                            diff-view? "tabc"
+                            in-git? "q" 
+                            "Neogit"))))
 
 (vim.keymap.set [:n :x :i] :ª neogit-toggle) ;; alt+9, (mapped to cmd+9 with karabiner) 
 (util.m :i :ª "<Esc>ª" {:noremap false})     ;; alt+9
