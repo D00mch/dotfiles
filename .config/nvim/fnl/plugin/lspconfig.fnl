@@ -37,21 +37,20 @@
 
 (highlight-line-symbol)
 
-(defn- highlight-symbols [client]
-  (if client.server_capabilities.document_highlight
-    (do 
-      (highlight-line-symbol)
-      (vim.api.nvim_create_autocmd :ColorScheme {:buffer 0 :callback highlight-line-symbol})
-      (vim.cmd "hi! link LspReferenceWrite TSConstMacro")
-      (vim.api.nvim_create_augroup :lsp_document_highlight {})
-      (vim.api.nvim_create_autocmd [:CursorHold :CursorHoldI]
-                                   {:group :lsp_document_highlight
-                                    :buffer 0
-                                    :callback vim.lsp.buf.document_highlight})
-      (vim.api.nvim_create_autocmd :CursorMoved
-                                   {:group :lsp_document_highlight
-                                    :buffer 0
-                                    :callback vim.lsp.buf.clear_references}))))
+(defn- highlight-symbols [client bufnr]
+  (when client.server_capabilities.documentHighlightProvider
+    (highlight-line-symbol)
+    (vim.api.nvim_create_autocmd :ColorScheme {:buffer bufnr :callback highlight-line-symbol})
+    (vim.cmd "hi! link LspReferenceWrite TSConstMacro")
+    (vim.api.nvim_create_augroup :lsp_document_highlight {})
+    (vim.api.nvim_create_autocmd [:CursorHold :CursorHoldI]
+                                 {:group :lsp_document_highlight
+                                  :buffer bufnr
+                                  :callback vim.lsp.buf.document_highlight})
+    (vim.api.nvim_create_autocmd :CursorMoved
+                                 {:group :lsp_document_highlight
+                                  :buffer bufnr
+                                  :callback vim.lsp.buf.clear_references})))
 
 (let [handlers {"textDocument/publishDiagnostics"
                 (vim.lsp.with
@@ -70,8 +69,8 @@
                   vim.lsp.handlers.signature_help
                   {:border "single"})}
       on_attach
-      ( fn [client bufnr]
-        (highlight-symbols client)
+      (fn [client bufnr]
+        (highlight-symbols client bufnr)
         (map bufnr :n :gd "<Cmd>lua vim.lsp.buf.definition()<CR>" {:noremap true})
         (map bufnr :n :<leader>h "<Cmd>lua vim.lsp.buf.hover()<CR><Cmd>lua vim.lsp.buf.hover()<CR>" {:noremap true})
         (map bufnr :n :<leader>gD "<Cmd>lua vim.lsp.buf.declaration()<CR>" {:noremap true})
