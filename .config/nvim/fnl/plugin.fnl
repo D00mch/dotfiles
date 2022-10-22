@@ -59,6 +59,7 @@
 
   ;; theme
   :EdenEast/nightfox.nvim {:mod :theme}
+  :rose-pine/neovim {}
   :sainnhe/everforest {}
   :sainnhe/sonokai {}
 
