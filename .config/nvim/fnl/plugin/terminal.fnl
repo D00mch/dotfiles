@@ -3,9 +3,9 @@
              term toggleterm
              {:m m} util}})
 
-(m :x :<leader>v ":ToggleTermSendVisualSelection<cr>")
+(m :x :<leader>q ":ToggleTermSendVisualSelection<cr>")
 (m :x :√         "<leader>v" {:noremap false})
-(m :n :<leader>f "vip<leader>v" {:noremap false})
+(m :n :<leader>f "vip<leader>q" {:noremap false})
 
 (term.setup 
   {:size 30

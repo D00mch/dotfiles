@@ -6,7 +6,7 @@
 (set nvim.g.conjure#eval#result_register "*")
 (set nvim.g.conjure#log#botright true)
 ;(set nvim.g.conjure#mapping#doc_word "hh") ; K by default
-(set nvim.g.conjure#mapping#eval_visual "v")
+(set nvim.g.conjure#mapping#eval_visual "q")
 (set nvim.g.conjure#mapping#eval_file "b")
 (set nvim.g.conjure#mapping#eval_root_form "f")
 (set nvim.g.conjure#mapping#eval_current_form "q")
