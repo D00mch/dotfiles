@@ -10,7 +10,12 @@
 
 (nvim.set_keymap
   :n
-  :<leader>ut
+  :<Space>ut
   ":UndotreeShow<cr>:UndotreeFocus<cr>"
   {:noremap true
    :silent true})
+
+(vim.cmd "function g:Undotree_CustomMap()
+           nmap <buffer> ≈ q
+           map <buffer> d D
+         endfunction")
