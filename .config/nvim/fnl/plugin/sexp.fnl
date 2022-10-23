@@ -2,7 +2,7 @@
   {require {nvim aniseed.nvim
             u util}})
 
-(set nvim.g.sexp_filetypes "clojure,scheme,lisp,timl,fennel,janet,markdown,json")
+(set nvim.g.sexp_filetypes "clojure,scheme,lisp,timl,fennel,janet,markdown,json,http")
 (set nvim.g.sexp_enable_insert_mode_mappings 1)
 (set nvim.g.sexp_insert_after_wrap 0) ;do not insert spaces
 

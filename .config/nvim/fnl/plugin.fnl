@@ -36,6 +36,8 @@
   ;; repl
   :Olical/conjure {:branch :master :mod :conjure}
   :wlangstroth/vim-racket {:ft [:scheme :racket]}
+  :akinsho/toggleterm.nvim {:mod :terminal}
+  :rest-nvim/rest.nvim {:mod :rest}
 
   ;; sexp
   :guns/vim-sexp {:mod :sexp}
@@ -96,7 +98,6 @@
   :chrisbra/Colorizer {:mod :colors}
   :gcmt/taboo.vim {}
   :qpkorr/vim-bufkill {}
-  :akinsho/toggleterm.nvim {:mod :terminal}
   :mhinz/vim-startify {:mod :startify}
   :tpope/vim-commentary {}
   :tpope/vim-fugitive {:mod :fugitive}

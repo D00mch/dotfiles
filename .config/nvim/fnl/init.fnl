@@ -28,6 +28,8 @@
   "if line(\"'\\\"\") > 1 && line(\"'\\\"\") <= line(\"$\") | exe \"normal! g'\\\"\" | endif")
 
 (autocmd :FileType :dart "set shiftwidth=2 smarttab expandtab")
+(autocmd :FileType :json "set shiftwidth=2 smarttab expandtab")
+(autocmd :FileType :http "set shiftwidth=2 smarttab expandtab")
 
 (vim.api.nvim_create_autocmd 
   "FileType"
