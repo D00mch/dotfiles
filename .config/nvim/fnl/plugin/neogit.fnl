@@ -1,15 +1,24 @@
 (module plugin.neogit
   {require {nvim aniseed.nvim
+            dview diffview
+            actions diffview.actions
             {: toggle} plugin.which
             neogit neogit
             util util}})
 
 (neogit.setup
-  {:kind :tab
+  {:kind :split
    :integrations {:diffview true}
    :disable_commit_confirmation true
+   :sections {:untracked {:folded true}
+              :recent    {:folded false}}
    :mappings {:status {:o :Toggle
                        :q "" }}})
+
+(dview.setup
+  {:hooks {:diff_buf_read (fn [bufnr] (vim.api.nvim_buf_del_keymap bufnr :n :<Esc>))}
+   :keymaps {:option_panel {}
+             :file_panel {}}})
 
 ; (string.match "diffview://" "^diffview://")
 
@@ -25,7 +34,6 @@
 (vim.keymap.set [:n :x :i] :ª neogit-toggle) ;; alt+9, (mapped to cmd+9 with karabiner) 
 (util.m :i :ª "<Esc>ª" {:noremap false})     ;; alt+9
 
-
 (defn annotate-toggle []
   (let [current-dir (vim.fn.expand "%")
         in-annotate? (string.match current-dir "DiffviewFileHistoryPanel$")]
@@ -38,6 +46,7 @@
 (set nvim.g.gitgutter_enabled 0)
 (toggle "g" "GitGutterToggle" ::GitGutterToggle<cr>)
 (vim.keymap.set [:n :x] :gs ::GitGutterStageHunk<cr> {})
+
 ;; code in case they don't approve my pr https://github.com/TimUntersberger/neogit/pull/375
 ; (def group (vim.api.nvim_create_augroup :MyCustomNeogitEvents {:clear true}))
 ; (vim.api.nvim_create_autocmd
