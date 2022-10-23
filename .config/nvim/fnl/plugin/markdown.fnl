@@ -53,10 +53,11 @@
   (vim.cmd "call textobj#quote#init({'educate':0})")
   (toggle "q" "auto quotes" ":ToggleEducate<Cr>" 0))
 
+
 (defn setup-pensil []
-; (u.bm :x := "gq")
-;  (vim.api.nvim_set_option_value :formatoptions :t {:scope :local})
-;  (vim.api.nvim_set_option_value :textwidth 80 {:scope :local})
+  (u.bm :x := "gq")
+  ;  (vim.api.nvim_set_option_value :formatoptions :t {:scope :local})
+  ;  (vim.api.nvim_set_option_value :textwidth 80 {:scope :local})
   )
 
 (defn setup-md []
