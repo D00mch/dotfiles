@@ -102,7 +102,8 @@
   :tpope/vim-commentary {}
   :tpope/vim-fugitive {:mod :fugitive}
   :Liverm0r/neogit {:requires [:nvim-lua/plenary.nvim
-                               :sindrets/diffview.nvim]
+                               :sindrets/diffview.nvim
+                               :airblade/vim-gitgutter]
                     :mod :neogit}
   :vim-scripts/ReplaceWithRegister {}
   :windwp/nvim-autopairs {:mod :nvim-autopairs}

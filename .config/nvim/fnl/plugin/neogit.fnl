@@ -1,5 +1,6 @@
 (module plugin.neogit
   {require {nvim aniseed.nvim
+            {: toggle} plugin.which
             neogit neogit
             util util}})
 
@@ -33,6 +34,10 @@
 (vim.keymap.set [:n] :<space>ga annotate-toggle)
 (util.m :x :<space>ga ":DiffviewFileHistory<cr>" {:noremap false})
 
+(set nvim.g.gitgutter_map_keys 0)
+(set nvim.g.gitgutter_enabled 0)
+(toggle "g" "GitGutterToggle" ::GitGutterToggle<cr>)
+(vim.keymap.set [:n :x] :gs ::GitGutterStageHunk<cr> {})
 ;; code in case they don't approve my pr https://github.com/TimUntersberger/neogit/pull/375
 ; (def group (vim.api.nvim_create_augroup :MyCustomNeogitEvents {:clear true}))
 ; (vim.api.nvim_create_autocmd
