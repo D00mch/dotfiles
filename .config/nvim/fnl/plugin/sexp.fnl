@@ -1,17 +1,23 @@
 (module plugin.sexp
   {require {nvim aniseed.nvim
+            {: toggle} plugin.which
             u util}})
 
-(set nvim.g.sexp_filetypes "clojure,scheme,lisp,timl,fennel,janet,markdown,json,http")
+(set nvim.g.sexp_filetypes "*")
 (set nvim.g.sexp_enable_insert_mode_mappings 1)
 (set nvim.g.sexp_insert_after_wrap 0) ;do not insert spaces
-
-(nvim.set_keymap :n :<space>ks "<Plug>(sexp_capture_next_element)" {:noremap true})
 
 (set nvim.g.sexp_mappings {:sexp_capture_next_element  :<space>ks
                            :sexp_capture_prev_element  :<space>kS
                            :sexp_emit_tail_element     :<space>kb 
                            :sexp_emit_head_element     :<space>kB 
+
+                           :sexp_move_to_prev_bracket  "{"
+                           :sexp_move_to_next_bracket  "}"
+
+                           ;; textobj
+                           :sexp_inner_string          :iq
+                           :sexp_outer_string          :aq
 
                            ;; move
                            :sexp_move_to_next_element_tail :<space>mr
