@@ -8,13 +8,13 @@ yabai -m config mouse_follows_focus          on
 yabai -m config focus_follows_mouse          off
 yabai -m config window_placement             second_child
 yabai -m config window_topmost               on
-yabai -m config window_shadow                on
-yabai -m config window_opacity               on
+yabai -m config window_shadow                off
+yabai -m config window_opacity               off
 yabai -m config window_opacity_duration      0.0
 yabai -m config active_window_opacity        1.0
 yabai -m config normal_window_opacity        0.90
 yabai -m config window_border                off
-yabai -m config window_border_width          2
+yabai -m config window_border_width          0
 yabai -m config active_window_border_color   0xff775759
 yabai -m config normal_window_border_color   0x00FFFFFF
 yabai -m config insert_feedback_color        0xffd75f5f
@@ -27,23 +27,24 @@ yabai -m config mouse_drop_action            swap
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  10
-yabai -m config bottom_padding               10
-yabai -m config left_padding                 10
-yabai -m config right_padding                10
-yabai -m config window_gap                   10
+yabai -m config top_padding                  7
+yabai -m config bottom_padding               7
+yabai -m config left_padding                 7
+yabai -m config right_padding                7
+yabai -m config window_gap                   7
 
 echo "yabai configuration loaded.."
 
 # automation for common apps
 # yabai -m query --windows | jq ".[] | { App: .app, Title: .title }" 
+yabai -m rule --add app="^Terminal$" manage=off
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^Karabiner-EventViewer$" manage=off
 yabai -m rule --add app="^System Information$" manage=off
 yabai -m rule --add app="^Tunnelblick$" manage=off
 yabai -m rule --add app="^(IntelliJ IDEA|Android Studio)$" \
-    title="(Preferences|Project Structure)" manage=off
+    title="(Preferences|Project Structure|Choose Process)" manage=off
 yabai -m rule --add app="^VimR$" title="last-buffer.*" manage=off
 yabai -m rule --add app="^VimR$" title="Preferences" manage=off
 yabai -m rule --add app="^Yandex.Disk$" \
