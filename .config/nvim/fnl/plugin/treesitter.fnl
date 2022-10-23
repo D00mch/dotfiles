@@ -11,7 +11,8 @@
                       :markdown :markdown_inline
                       :http :json ]
    :highlight {:enable true
-               :additional_vim_regex_highlighting true}
+               ;:additional_vim_regex_highlighting true
+               }
    :indent    {:enable true}
    :rainbow   {:enable true
                :extended_mode true

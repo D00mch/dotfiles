@@ -15,10 +15,6 @@
                            :sexp_move_to_prev_bracket  "{"
                            :sexp_move_to_next_bracket  "}"
 
-                           ;; textobj
-                           :sexp_inner_string          :iq
-                           :sexp_outer_string          :aq
-
                            ;; move
                            :sexp_move_to_next_element_tail :<space>mr
                            :sexp_move_to_prev_element_tail :<space>ml

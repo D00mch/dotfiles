@@ -26,6 +26,8 @@ set cursorcolumn
         onoremap W iW
         nnoremap dw daw
         nnoremap dW daW
+        onoremap iq i"
+        onoremap aq a"
 
     "COMMON
         "alt p - to paste in edit mode
