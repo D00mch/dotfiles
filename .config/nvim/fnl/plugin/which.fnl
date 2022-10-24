@@ -1,7 +1,7 @@
 (module plugin.which
   {autoload {wk which-key}})
 
-(wk.setup 
+(wk.setup
   {:plugins        {:spelling    {:enabled false
                                   :suggestions 12}}
    :popup_mappings {:scroll_down :<right>

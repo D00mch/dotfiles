@@ -22,7 +22,7 @@
 (kset :t "<Esc>" "<C-\\><C-n>")
 
 ;; restore last known position
-(autocmd                                    
+(autocmd
   :BufReadPost
   "*"
   "if line(\"'\\\"\") > 1 && line(\"'\\\"\") <= line(\"$\") | exe \"normal! g'\\\"\" | endif")
@@ -31,17 +31,17 @@
 (autocmd :FileType :json "set shiftwidth=2 smarttab expandtab")
 (autocmd :FileType :http "set shiftwidth=2 smarttab expandtab")
 
-(vim.api.nvim_create_autocmd 
+(vim.api.nvim_create_autocmd
   "FileType"
   {:pattern "clojure"
-   :callback (fn [args] 
+   :callback (fn [args]
                (let [clj (require :lang.clojure)]
                  (clj.set-up-mappings)))})
 
-(vim.api.nvim_create_autocmd 
+(vim.api.nvim_create_autocmd
   "BufRead,BufNewFile"
   {:pattern "*.cljd"
-   :callback (fn [args] 
+   :callback (fn [args]
                (vim.api.nvim_command "setfiletype clojure")
                ;; until https://github.com/nvim-lua/plenary.nvim/pull/356
                (plenary.add_file "ext"))})
@@ -79,13 +79,13 @@
 (set nvim.g.neovide_cursor_vfx_mode "railgun")
 (toggle "t" "transparency" ":NeovideToggleTransparency<Cr>")
 
-(vim.api.nvim_create_user_command :NeovideToggleTransparency 
-                                  (fn []                                  
+(vim.api.nvim_create_user_command :NeovideToggleTransparency
+                                  (fn []
                                     (vim.cmd (..  "let g:neovide_transparency="
                                                  (if (= 1 nvim.g.neovide_transparency) 0.9 1))) )
                                   {:nargs :* :desc "Insert markdown header"})
 
-(kset [:i :t :n] :<C-y> :<Esc>gt) ;; karabiner: cmd < 
+(kset [:i :t :n] :<C-y> :<Esc>gt) ;; karabiner: cmd <
 (kset [:i :t :n] :<C-t> :<Esc>gT) ;; karabiner: cmd >
 (kset [:n :t] ">>" ":tabmove +1<cr>")
 (kset [:n :t] "<<" ":tabmove -1<cr>")
@@ -93,7 +93,7 @@
 ;; diff split
 (defn- compare-to-clipboard []
   (let [ftype (vim.api.nvim_eval "&filetype")]
-    (-> 
+    (->
       "execute 'normal! \"xy'
       vsplit
       enew

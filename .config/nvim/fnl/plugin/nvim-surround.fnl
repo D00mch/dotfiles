@@ -2,7 +2,7 @@
   {require {surr nvim-surround}})
 
 (surr.setup
-  {:surrounds 
+  {:surrounds
    { "(" {:add [["(" ] [")" ]]}
      ")" {:add [["( "] [" )"]]}
      "{" {:add [["{" ] ["}" ]]}

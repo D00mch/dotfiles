@@ -9,8 +9,8 @@
 
 (set nvim.g.sexp_mappings {:sexp_capture_next_element  :<space>ks
                            :sexp_capture_prev_element  :<space>kS
-                           :sexp_emit_tail_element     :<space>kb 
-                           :sexp_emit_head_element     :<space>kB 
+                           :sexp_emit_tail_element     :<space>kb
+                           :sexp_emit_head_element     :<space>kB
 
                            :sexp_move_to_prev_bracket  "{"
                            :sexp_move_to_next_bracket  "}"
@@ -28,9 +28,9 @@
                            :sexp_round_head_wrap_list  ""
 
                            ;; move element under cursor
-                           :sexp_swap_list_forward     :<C-j> 
-                           :sexp_swap_list_backward    :<C-k> 
-                           :sexp_swap_element_backward :<C-h> 
+                           :sexp_swap_list_forward     :<C-j>
+                           :sexp_swap_list_backward    :<C-k>
+                           :sexp_swap_element_backward :<C-h>
                            :sexp_swap_element_forward  :<C-l>})
 
 (kset :n :<Leader>c :gcaf)

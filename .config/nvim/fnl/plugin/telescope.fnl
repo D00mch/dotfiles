@@ -10,13 +10,13 @@
              {: kset} util}})
 
 (def- M (mt.transform_mod
-          {:yank-entry 
+          {:yank-entry
            (fn [prompt_bufnr]
              (let [entry (state.get_selected_entry prompt_bufnr) ]
                (vim.fn.setreg "*" entry.value)
                (actions.close prompt_bufnr)))}))
 
-(telescope.setup 
+(telescope.setup
   {:defaults
    {:vimgrep_arguments ["rg" "--color=never" "--no-heading"
                         "--with-filename" "--line-number" "--column"
@@ -31,12 +31,12 @@
                    :<Left>  actions.preview_scrolling_up
                    :t       actions.select_tab}
                :i {:≈       actions.close           ; alt+x
-                   :?       actions.which_key 
+                   :?       actions.which_key
                    :<Right> actions.preview_scrolling_down
                    :<Left>  actions.preview_scrolling_up
                    :∂       actions.delete_buffer   ; alt + d
                    :Ã·      actions.which_key}}}    ; alt + ?
-   :pickers {:git_branches {:mappings 
+   :pickers {:git_branches {:mappings
                             {:n {:<Cr>  actions.git_switch_branch
                                  :ga    actions.git_create_branch
                                  :gh    actions.git_reset_hard
@@ -56,7 +56,7 @@
                              :i {:<Cr> actions.git_checkout_current_buffer}}}}
    :extensions {:file_browser {:theme :ivy
                                :mappings {:n
-                                          {:u fb_actions.goto_parent_dir 
+                                          {:u fb_actions.goto_parent_dir
                                            :f fb_actions.open
                                            :a fb_actions.create
                                            :o actions.select_default
@@ -66,17 +66,17 @@
                                            :d fb_actions.remove
                                            :h fb_actions.toggle_hidden}}}
                 :project {:base_dirs ["~/IdeaProjects"]
-                          :mappings {:n ;; nerdtree-like mappings, doesn't work yet 
+                          :mappings {:n ;; nerdtree-like mappings, doesn't work yet
                                      {:r pr_actions.rename_project
                                       :a pr_actions.add_project
                                       :<Cr> pr_actions.recent_project_files
                                       :o actions.select_default}}}
-                :ui-select [(themes.get_dropdown {})]}})                     
+                :ui-select [(themes.get_dropdown {})]}})
 
-;; after telescope setup 
-(telescope.load_extension :ui-select) 
-(telescope.load_extension :file_browser) 
-(telescope.load_extension :project) 
+;; after telescope setup
+(telescope.load_extension :ui-select)
+(telescope.load_extension :file_browser)
+(telescope.load_extension :project)
 
 (kset :n :<space>pf ":Telescope find_files hidden=true no_ignore=false<cr>")
 (kset :n :<space>b ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")

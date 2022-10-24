@@ -7,7 +7,7 @@
 (kset :x :√         "<leader>v" {:noremap false})
 (kset :n :<leader>f "vip<leader>q" {:noremap false})
 
-(term.setup 
+(term.setup
   {:size 30
    :open_mapping "•" ; alt + 8 (cmd + 8 from karabinner)
    :hide_numbers true

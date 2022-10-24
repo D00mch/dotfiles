@@ -6,7 +6,7 @@
 (set nvim.g.sonokai_style "espresso")
 (set nvim.g.everforest_background "hard")
 
-(fox.setup 
+(fox.setup
   {:dim_inactive false
    :options {:terminal_colors true}})
 
