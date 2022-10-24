@@ -20,8 +20,8 @@
 ; (set nvim.g.conjure#log#hud#width 0.7)
 
 ;; unmap
-(set nvim.g.conjure#client#clojure#nrepl#mapping#disconnect false)
-(set nvim.g.conjure#client#clojure#nrepl#mapping#connect_port_file false)
+; (set nvim.g.conjure#client#clojure#nrepl#mapping#disconnect false)
+; (set nvim.g.conjure#client#clojure#nrepl#mapping#connect_port_file false)
 
 ;; RefactorDefine: to declare binding in repl, put cursor on val nam 
 (kset :n :<Leader>rd "vie<space>mr\"9y:ConjureEval (def <c-r>9)<cr>" {:noremap false})
