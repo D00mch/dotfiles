@@ -1,6 +1,5 @@
 (module plugin
   {autoload {nvim aniseed.nvim
-             util util
              packer packer}
    require {{: assoc : count} aniseed.core}})
 

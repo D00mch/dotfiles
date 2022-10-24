@@ -1,9 +1,9 @@
 (module plugin.rest
   {autoload {nvim aniseed.nvim
             rest rest-nvim
-            util util}})
+            {: kset} util}})
 
-(util.m :v :gjq :!jq<cr>)
+(kset :v :gjq :!jq<cr>)
 
 (rest.setup
   {:result_split_in_place true

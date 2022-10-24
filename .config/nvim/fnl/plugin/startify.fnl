@@ -1,13 +1,13 @@
 (module plugin.startify
   {require {nvim aniseed.nvim
-            ut   util}
+            {: kset} util}
    require-macros [macros]})
 
 (set nvim.g.startify_files_number 28)
 (set nvim.g.startify_change_to_vcs_root 1)
 (set nvim.g.webdevicons_enable_startify 1)
 
-(ut.nmap "<Leader>mp" ":Startify<cr>")
+(kset :n "<Leader>mp" ":Startify<cr>")
 
 (set nvim.g.startify_lists 
      [{:type "sessions"  :header ["    Sessions"]}

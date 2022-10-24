@@ -4,22 +4,22 @@
             key which-key
             {: toggle} plugin.which
             plenary plenary.filetype
-            util util}
+            {: kset} util}
    require-macros [macros]})
 
 (require :plugin)
 
 (defn- map [mode from to]
-  (util.m mode from to {:noremap true}))
+  (kset [mode] from to {:noremap true}))
 
 ;; open Help in full window
 (vim.api.nvim_command "command! -nargs=1 -complete=help H help <args> | silent only")
 
 ;; terminal, go in normal mode
-(map :t "®" "<C-\\><C-n>") ; alt+r
-(map :t "π" "<Esc>pa") ; alt+p to paste (karabiner map cmd+v to alt+p for vims)
-(util.m :t "≈" "®:close<cr>" {:noremap false})
-(map :t "<Esc>" "<C-\\><C-n>")
+(kset :t "®" "<C-\\><C-n>") ; alt+r
+(kset :t "π" "<Esc>pa") ; alt+p to paste (karabiner map cmd+v to alt+p for vims)
+(kset :t "≈" "®:close<cr>" {:noremap false})
+(kset :t "<Esc>" "<C-\\><C-n>")
 
 ;; restore last known position
 (autocmd                                    
@@ -73,8 +73,8 @@
         size (-> (nvim.o.guifont:match "h(%d+)$") tonumber (+ diff))]
     (set nvim.o.guifont (font:gsub "%d+$" size))))
 
-(vim.keymap.set :n :<Space>+ (fn [] (font-size! 1)))
-(vim.keymap.set :n :<Space>- (fn [] (font-size! -1)))
+(kset :n :<Space>+ (fn [] (font-size! 1)))
+(kset :n :<Space>- (fn [] (font-size! -1)))
 
 (set nvim.g.neovide_cursor_vfx_mode "railgun")
 (toggle "t" "transparency" ":NeovideToggleTransparency<Cr>")
@@ -85,13 +85,10 @@
                                                  (if (= 1 nvim.g.neovide_transparency) 0.9 1))) )
                                   {:nargs :* :desc "Insert markdown header"})
 
-;; tabs (remaped with common aproach with karabiner)
-(map "" :<C-y> :gt)
-(map "" :<C-t> :gT)
-(map :i :<C-y> :<Esc>gt)
-(map :i :<C-t> :<Esc>gT)
-(map :n ">>" ":tabmove +1<cr>")
-(map :n "<<" ":tabmove -1<cr>")
+(kset [:i :t :n] :<C-y> :<Esc>gt) ;; karabiner: cmd < 
+(kset [:i :t :n] :<C-t> :<Esc>gT) ;; karabiner: cmd >
+(kset [:n :t] ">>" ":tabmove +1<cr>")
+(kset [:n :t] "<<" ":tabmove -1<cr>")
 
 ;; diff split
 (defn- compare-to-clipboard []
@@ -112,4 +109,4 @@
       (string.format ftype ftype)
       vim.cmd)))
 
-(vim.keymap.set :x :<Space>cb compare-to-clipboard)
+(kset [] :<Space>cb compare-to-clipboard {:desc "compare to clipboard"})

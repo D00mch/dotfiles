@@ -5,12 +5,12 @@
             actions telescope.actions
             action-state telescope.actions.state
             {: merge} aniseed.core
-            {: nmap :m map} util}})
+            {: kset} util}})
 
-(nmap "<space>pt" ":NvimTreeFindFileToggle<cr>")
+(kset :n "<space>pt" ":NvimTreeFindFileToggle<cr>")
 
-(nmap "¡" ":NvimTreeFindFileToggle<cr>") ; alt+1
-(map :i "¡" "<Esc>¡" {:noremap false})
+(kset :n "¡" ":NvimTreeFindFileToggle<cr>") ; alt+1
+(kset :i "¡" "<Esc>¡" {:noremap false})
 
 (defn view-selection [prompt-funr map]
   (actions.select_default:replace 

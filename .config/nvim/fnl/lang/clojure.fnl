@@ -1,6 +1,6 @@
 (module lang.clojure
   {require {nvim aniseed.nvim
-            u util
+            {: kset : bkset} util
             {: some} aniseed.core}})
 
 (set nvim.g.surround_99 "#_\r")
@@ -30,6 +30,6 @@
 
 ;; setup
 (defn set-up-mappings []
-  (u.bm :n :<Leader>c :ysafc {:noremap false})
-  (u.bm :n :<Leader>uc "<Cmd>let s=@/<CR>l?\\v(#_)+<CR>dgn:let @/=s<CR>")
-  (vim.keymap.set :n "<Leader>k" run-appropriate-clojure-repl))
+  (bkset :n :<Leader>c :ysafc {:noremap false})
+  (bkset :n :<Leader>uc "<Cmd>let s=@/<CR>l?\\v(#_)+<CR>dgn:let @/=s<CR>")
+  (kset :n "<Leader>k" run-appropriate-clojure-repl))

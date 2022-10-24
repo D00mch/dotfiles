@@ -1,7 +1,7 @@
 (module plugin.sexp
   {require {nvim aniseed.nvim
             {: toggle} plugin.which
-            u util}})
+            {: kset} util}})
 
 (set nvim.g.sexp_filetypes "*")
 (set nvim.g.sexp_enable_insert_mode_mappings 1)
@@ -33,4 +33,4 @@
                            :sexp_swap_element_backward :<C-h> 
                            :sexp_swap_element_forward  :<C-l>})
 
-(u.map :<Leader>c :gcaf)
+(kset :n :<Leader>c :gcaf)

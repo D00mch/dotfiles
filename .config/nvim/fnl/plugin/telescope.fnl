@@ -7,7 +7,7 @@
              pr_actions telescope._extensions.project.actions
              state telescope.actions.state
              mt telescope.actions.mt
-             u util}})
+             {: kset} util}})
 
 (def- M (mt.transform_mod
           {:yank-entry 
@@ -78,17 +78,17 @@
 (telescope.load_extension :file_browser) 
 (telescope.load_extension :project) 
 
-(u.m :n :<space>pf ":Telescope find_files hidden=true no_ignore=false<cr>")
-(u.m :n :<space>b ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")
-(u.m :n :<space>pa ":Telescope live_grep<cr>")
-(u.m :n :<space>pp ":Telescope project display_type=minimal<cr>") ;; full
-(u.m :n :<space>vm ":Telescope keymaps<cr>")
-(u.m :n :<space>vc ":Telescope colorscheme<cr>")
-(u.m :n :<space>ff ":Telescope file_browser<cr>")
-(u.m :n :z= ":Telescope spell_suggest<cr>")
+(kset :n :<space>pf ":Telescope find_files hidden=true no_ignore=false<cr>")
+(kset :n :<space>b ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")
+(kset :n :<space>pa ":Telescope live_grep<cr>")
+(kset :n :<space>pp ":Telescope project display_type=minimal<cr>") ;; full
+(kset :n :<space>vm ":Telescope keymaps<cr>")
+(kset :n :<space>vc ":Telescope colorscheme<cr>")
+(kset :n :<space>ff ":Telescope file_browser<cr>")
+(kset :n :z= ":Telescope spell_suggest<cr>")
 
 ;; git
-(u.m :n :<space>gc ":Telescope git_commits<cr>")
-(u.m :n :<space>gs ":Telescope git_status<cr>")
-(u.m :n :<space>gb ":Telescope git_branches<cr>")
+(kset :n :<space>gc ":Telescope git_commits<cr>")
+(kset :n :<space>gs ":Telescope git_status<cr>")
+(kset :n :<space>gb ":Telescope git_branches<cr>")
 
