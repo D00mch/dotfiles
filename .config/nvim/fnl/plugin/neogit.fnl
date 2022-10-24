@@ -16,7 +16,11 @@
                        :q "" }}})
 
 (dview.setup
-  {:hooks {:diff_buf_read (fn [bufnr] (vim.api.nvim_buf_del_keymap bufnr :n :<Esc>))}
+  {:hooks {:diff_buf_read 
+           (fn [b]
+             ;; alt+1, cmd+1
+             (kset [:n :i :x] :¡ ::DiffviewToggleFiles<cr> {:buffer b})
+             (vim.api.nvim_buf_del_keymap b :n :<esc>))}
    :keymaps {:option_panel {}
              :file_panel {}}})
 
