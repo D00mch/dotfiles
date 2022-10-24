@@ -24,8 +24,8 @@ set cursorcolumn
     "OBJECTS
         onoremap w iw
         onoremap W iW
-        nnoremap dw daw
-        nnoremap dW daW
+        nnoremap vw viw
+        nnoremap vW viW
         onoremap iq i"
         onoremap aq a"
 
