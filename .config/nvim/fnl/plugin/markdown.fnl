@@ -25,7 +25,7 @@
 
 (defn- toggle-task-line [s]
   (let [selection (string.match s "^- %[(.)%]")]
-    (if 
+    (if
       (= " " selection)   (s:gsub "^- %[.%]" "- %[X%]")
       (= "X" selection)   (s:gsub "^- %[.%]" "- %[ %]")
       (= (s:sub 1 1) "-") (s:gsub "^- " "- %[ %] ")

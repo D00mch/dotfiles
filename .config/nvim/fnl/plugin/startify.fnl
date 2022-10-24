@@ -9,7 +9,7 @@
 
 (kset :n "<Leader>mp" ":Startify<cr>")
 
-(set nvim.g.startify_lists 
+(set nvim.g.startify_lists
      [{:type "sessions"  :header ["    Sessions"]}
       {:type "files"     :header ["    Files"]}
       {:type "bookmarks" :header ["    Bookmarks"]}

@@ -13,7 +13,7 @@
 (kset :i "¡" "<Esc>¡" {:noremap false})
 
 (defn view-selection [prompt-funr map]
-  (actions.select_default:replace 
+  (actions.select_default:replace
     (fn []
       (actions.close prompt-funr)
       (let [selection (action-state.get_selected_entry)
@@ -25,7 +25,7 @@
   ;; see https://github.com/kyazdani42/nvim-tree.lua/wiki/Find-file-from-node-in-telescope
   (let [node (lib.get_node_at_cursor)
         folder? (and node.fs_stat (= node.fs_stat.type :directory))
-        basedir (and folder? (or node.absolute_path 
+        basedir (and folder? (or node.absolute_path
                                  (vim.fn.fnamemodify node.absolute_path ":h")))
         basedir (if (and (= node.name "..") (not= TreeExplorer nil))
                   TreeExplorer.cwd
@@ -36,10 +36,10 @@
                :attach_mappings view-selection}
               opts))))
 
-(tree.setup 
+(tree.setup
   {:update_cwd true
    :git {:enable false}
-   :view 
+   :view
    {:adaptive_size true
     :mappings
     {:list [{:key :t :action :tabnew}

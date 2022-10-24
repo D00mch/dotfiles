@@ -16,7 +16,7 @@
                        :q "" }}})
 
 (dview.setup
-  {:hooks {:diff_buf_read 
+  {:hooks {:diff_buf_read
            (fn [b]
              ;; alt+1, cmd+1
              (kset [:n :i :x] :¡ ::DiffviewToggleFiles<cr> {:buffer b})
@@ -32,10 +32,10 @@
         diff-view? (string.match current-dir "^diffview://")]
     (vim.api.nvim_command (if
                             diff-view? "tabc"
-                            in-git? "q" 
+                            in-git? "q"
                             "Neogit"))))
 
-(vim.keymap.set [:n :x :i] :ª neogit-toggle) ;; alt+9, (mapped to cmd+9 with karabiner) 
+(vim.keymap.set [:n :x :i] :ª neogit-toggle) ;; alt+9, (mapped to cmd+9 with karabiner)
 (kset [:i] :ª "<Esc>ª" {:noremap false})     ;; alt+9
 
 (defn annotate-toggle []

@@ -28,7 +28,7 @@
            (= (behind:match "%s") nil)))))
 
 (defn snippy-tab [fallback]
-  (if 
+  (if
     (cmp.visible)
     (cmp.select_next_item)
 
@@ -65,5 +65,5 @@
                         :sources (cmp.config.sources [{:name :buffer :max_item_count 18}])})
 
 (cmp.setup.cmdline ":" {:mapping (cmp.mapping.preset.cmdline)
-                        :sources (cmp.config.sources [{:name :cmdline :max_item_count 18} 
+                        :sources (cmp.config.sources [{:name :cmdline :max_item_count 18}
                                                       {:name :path :max_item_count 12}])})
