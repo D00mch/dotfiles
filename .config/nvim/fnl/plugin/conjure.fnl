@@ -1,6 +1,6 @@
 (module plugin.conjure
   {require {nvim aniseed.nvim
-            u util}})
+            {: kset} util}})
 
 (set nvim.g.conjure#log#wrap true)
 (set nvim.g.conjure#eval#result_register "*")
@@ -24,7 +24,7 @@
 (set nvim.g.conjure#client#clojure#nrepl#mapping#connect_port_file false)
 
 ;; RefactorDefine: to declare binding in repl, put cursor on val name  
-(u.m :n :<Leader>rd "vie<space>mr\"9y:ConjureEval (def <c-r>9)<cr>" {:noremap false})
+(kset :n :<Leader>rd "vie<space>mr\"9y:ConjureEval (def <c-r>9)<cr>" {:noremap false})
 
 ;; tests
 ; (set nvim.g.conjure#client#clojure#nrepl#mapping#run_current_ns_tests false)

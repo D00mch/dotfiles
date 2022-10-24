@@ -1,9 +1,9 @@
 (module plugin.toggleterm
   {autoload {nvim aniseed.nvim
-             {:m map} util
+             {: kset} util
              translate translate}})
 
-(map :n :<Space>te "viw:Translate RU -source=EN<CR>")
-(map :x :<Space>te ":Translate RU -source=en<CR>")
-(map :n :<Space>tr "viw:Translate EN -source=RU<CR>")
-(map :x :<Space>tr ":Translate EN -source=RU<CR>")
+(kset :n :<Space>te "viw:Translate RU -source=EN<CR>")
+(kset :x :<Space>te ":Translate RU -source=en<CR>")
+(kset :n :<Space>tr "viw:Translate EN -source=RU<CR>")
+(kset :x :<Space>tr ":Translate EN -source=RU<CR>")

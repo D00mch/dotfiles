@@ -1,7 +1,7 @@
 (module plugin.lspconfig
   {autoload {nvim aniseed.nvim
              lsp lspconfig
-             util util
+             {: kset} util
              tel  telescope
              flut flutter-tools
              mason mason
@@ -14,7 +14,7 @@
 (preview.setup {:height 25
                 :bufhidden :wipe
                 :post_open_hook (fn [] (nvim.echo (vim.fn.expand "%:p")))})
-(util.map :<leader>d "<cmd>lua require('goto-preview').goto_preview_definition()<CR>" {:noremap true})
+(kset [:n] :<leader>d "<cmd>lua require('goto-preview').goto_preview_definition()<CR>")
 
 (mason.setup)
 ;(installer.setup {:ensure_installed [:clojure_lsp :jdtls :kotlin_language_server]})

@@ -1,15 +1,6 @@
 (module util
   {require {nvim aniseed.nvim
-            a aniseed.core}})
-
-(defn expand [path]
-  (nvim.fn.expand path))
-
-(defn glob [path]
-  (nvim.fn.glob path true true true))
-
-(defn add-glob [n f]
-  (tset _G n f))
+            {: assoc} aniseed.core}})
 
 (defn exists? [path]
   (= (nvim.fn.filereadable path) 1))
@@ -19,16 +10,8 @@
 
 (def config-path (nvim.fn.stdpath "config"))
 
-(defn m [mode from to opts]
-  (vim.api.nvim_set_keymap mode from to (if opts opts {:noremap true})))
+(defn kset [modes from to opts]
+  (vim.keymap.set modes from to (or opts {})))
 
-(defn bm [mode from to opts]
-  (vim.api.nvim_buf_set_keymap 0 mode from to (if opts opts {:noremap true})))
-
-(defn nmap [from to]
-  (m :n from to))
-
-(def nnoremap nmap)
-
-(defn map [from to]
-  (m :n from to {:noremap false}))
+(defn bkset [modes from to opts]
+  (vim.keymap.set modes from to (assoc opts :buffer 0)))

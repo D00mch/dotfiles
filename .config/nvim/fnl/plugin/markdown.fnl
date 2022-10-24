@@ -3,7 +3,7 @@
             {: first : last : map} aniseed.core
             {: toggle} plugin.which
             {: join} aniseed.string
-            u util}
+            {: kset : bkset} util}
    require-macros [macros]})
 
 ;; headers
@@ -55,7 +55,7 @@
 
 
 (defn setup-pensil []
-  (u.bm :x := "gq")
+  (bkset :x := "gq")
   ;  (vim.api.nvim_set_option_value :formatoptions :t {:scope :local})
   ;  (vim.api.nvim_set_option_value :textwidth 80 {:scope :local})
   )
@@ -64,17 +64,17 @@
 
   ;; setup lines
   (vim.cmd "set wrap linebreak nolist") ;; wrap without bracking a word
-  (u.bm :x := :gq)
-  (u.bm :n :g= :vapgq)
+  (bkset :x := :gq)
+  (bkset :n :g= :vapgq)
 
-  (u.bm :n :<Cr> :o) ;; unmap follow-md-links <Cr>
-  (u.bm :n :gd ":lua require('follow-md-links').follow_link()<cr>")
+  (bkset :n :<Cr> :o) ;; unmap follow-md-links <Cr>
+  (bkset :n :gd ":lua require('follow-md-links').follow_link()<cr>")
 
   (setup-pensil)
   (setup-quote)
 
   ;; rest-client feature
-  (u.m :n :<Leader>ef :vic:ToggleTermSendVisualSelection<cr> {:noremap false})
+  (kset :n :<Leader>ef :vic:ToggleTermSendVisualSelection<cr> {:noremap false})
 
   ;; insert headers
   (vim.keymap.set :n := insert-header {:buffer true})
@@ -82,15 +82,15 @@
 
   ;; insert list tasks
   (vim.keymap.set :n :- toggle-task)
-  (u.bm :x :- "<Esc>:MarkdownTaskToggleSelection<cr>")
+  (bkset :x :- "<Esc>:MarkdownTaskToggleSelection<cr>")
 
   ;; insert markdown links
-  (u.bm :n :<space>K "vaw\"9di[<C-r>9](<C-r>*)<Esc>")
-  (u.bm :x :<space>K "<Esc>`>a](<C-r>*)<C-o>`<[<Esc>")
-  (u.bm :n :<space>N "vaw\"9di[<C-r>9]: <C-r>*<Esc>F[yi[")
-  (u.bm :x :<space>N "<Esc>`>a]: <C-r>*<C-o>`<[<Esc>yi[")
-  (u.bm :n :<space>L "caw[]<Esc>hpla[]<Esc>i")
-  (u.bm :x :<space>L "<Esc>`>a][<C-r>*]<C-o>`<[<Esc>"))
+  (bkset :n :<space>K "vaw\"9di[<C-r>9](<C-r>*)<Esc>")
+  (bkset :x :<space>K "<Esc>`>a](<C-r>*)<C-o>`<[<Esc>")
+  (bkset :n :<space>N "vaw\"9di[<C-r>9]: <C-r>*<Esc>F[yi[")
+  (bkset :x :<space>N "<Esc>`>a]: <C-r>*<C-o>`<[<Esc>yi[")
+  (bkset :n :<space>L "caw[]<Esc>hpla[]<Esc>i")
+  (bkset :x :<space>L "<Esc>`>a][<C-r>*]<C-o>`<[<Esc>"))
 
 (vim.api.nvim_create_autocmd
   :BufWinEnter

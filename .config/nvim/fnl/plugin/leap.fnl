@@ -1,7 +1,7 @@
 (module plugin.leap
   {require {nvim aniseed.nvim
             leap leap
-            {:m map :map remap} util}})
+            {: kset} util}})
 
 (vim.api.nvim_set_hl 0 :LeapBackdrop { :fg :#707070 })
 
@@ -16,6 +16,6 @@
                   :prev_target   :<tab>
                   :next_group    :<space>}})
 
-(map "" :q "<Plug>(leap-forward)" {:noremap false})
-(map "" :Q "<Plug>(leap-backward)" {:noremap false})
-(map "" :gq "<Plug>(leap-cross-window)" {:noremap false})
+(kset [:n :x] :q "<Plug>(leap-forward)" {:noremap false})
+(kset [:n :x] :Q "<Plug>(leap-backward)" {:noremap false})
+(kset [:n :x] :gq "<Plug>(leap-cross-window)" {:noremap false})
