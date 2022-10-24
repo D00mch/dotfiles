@@ -15,16 +15,16 @@
    :mappings {:status {:o :Toggle
                        :q "" }}})
 
-(dview.setup
-  {:hooks {:diff_buf_read
-           (fn [b]
-             ;; alt+1, cmd+1
-             (kset [:n :i :x] :¡ ::DiffviewToggleFiles<cr> {:buffer b})
-             (vim.api.nvim_buf_del_keymap b :n :<esc>))}
-   :keymaps {:option_panel {}
-             :file_panel {}}})
+(def toggle-files ::DiffviewToggleFiles<cr>)
 
-; (string.match "diffview://" "^diffview://")
+(defn on-diffview [b]
+  (kset [:n :i :x] :¡ toggle-files {:buffer b}) ;; alt+1, cmd+1
+  (vim.api.nvim_buf_del_keymap b :n :<esc>))
+
+(dview.setup
+  {:hooks {:diff_buf_read on-diffview}
+   :keymaps {:option_panel {:¡ toggle-files}
+             :file_panel {:¡ toggle-files}}})
 
 (defn neogit-toggle []
   (let [current-dir (vim.fn.expand "%") ;; :echo expand('%:p')
