@@ -40,11 +40,18 @@
 
 (defn annotate-toggle []
   (let [current-dir (vim.fn.expand "%")
+        in-annotate? (string.match current-dir "fugitiveblame$")]
+    (vim.api.nvim_command (if in-annotate? "q" "G blame"))))
+
+(kset [:n :x] :<space>ga annotate-toggle)
+
+(defn history-toggle []
+  (let [current-dir (vim.fn.expand "%")
         in-annotate? (string.match current-dir "DiffviewFileHistoryPanel$")]
     (vim.api.nvim_command (if in-annotate? "q" "DiffviewFileHistory %"))))
 
-(vim.keymap.set [:n] :<space>ga annotate-toggle)
-(kset [:x] :<space>ga ":DiffviewFileHistory<cr>" {:noremap false})
+(kset [:n] :<space>gh history-toggle)
+(kset [:x] :<space>gh ":DiffviewFileHistory<cr>" {:noremap false})
 
 (set nvim.g.gitgutter_map_keys 0)
 (set nvim.g.gitgutter_enabled 0)
