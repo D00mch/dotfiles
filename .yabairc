@@ -38,7 +38,7 @@ echo "yabai configuration loaded.."
 # automation for common apps
 # yabai -m query --windows | jq ".[] | { App: .app, Title: .title }" 
 yabai -m rule --add app="^Terminal$" manage=off
-yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^Karabiner-EventViewer$" manage=off
 yabai -m rule --add app="^System Information$" manage=off
