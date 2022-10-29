@@ -48,7 +48,7 @@
   :ryanoasis/vim-devicons {}
 
   ;; flutter
-  :akinsho/flutter-tools.nvim {:requires [[:nvim-lua/plenary.nvim]]}
+  :akinsho/flutter-tools.nvim {:requires [:nvim-lua/plenary.nvim]}
 
   ;; writing
   :jghauser/follow-md-links.nvim {:mod :markdown }
@@ -66,16 +66,16 @@
 
   ;; telescope
   :nvim-telescope/telescope.nvim {:mod :telescope
-                                  :requires [[:nvim-lua/popup.nvim]
-                                             [:nvim-lua/plenary.nvim]
-                                             [:nvim-telescope/telescope-ui-select.nvim]
-                                             [:nvim-telescope/telescope-project.nvim]
-                                             [:nvim-telescope/telescope-file-browser.nvim]]}
+                                  :requires [:nvim-lua/popup.nvim
+                                             :nvim-lua/plenary.nvim
+                                             :nvim-telescope/telescope-ui-select.nvim
+                                             :nvim-telescope/telescope-project.nvim
+                                             :nvim-telescope/telescope-file-browser.nvim]}
 
   ;; parsing system
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
                                     :commit "f76a6b6"
-                                    :requires [[:p00f/nvim-ts-rainbow]]
+                                    :requires [:p00f/nvim-ts-rainbow]
                                     :mod :treesitter}
 
   ;; lsp
