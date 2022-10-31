@@ -109,4 +109,4 @@
       (string.format ftype ftype)
       vim.cmd)))
 
-(kset [] :<Space>cb compare-to-clipboard {:desc "compare to clipboard"})
+(kset [:x] :<Space>cb compare-to-clipboard {:desc "compare to clipboard"})
