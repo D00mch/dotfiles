@@ -1,17 +1,31 @@
+import liveplugin.show
+
 // set it up with live plugin
 // https://plugins.jetbrains.com/plugin/7282-liveplugin
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
+import com.intellij.openapi.application.ApplicationManager
+import com.intellij.openapi.command.CommandProcessor
 import com.intellij.openapi.editor.Document
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
-import liveplugin.executeCommand
-import liveplugin.registerAction
-import liveplugin.show
+import liveplugin.*
 import kotlin.math.max
 import kotlin.math.min
 
 show("Current project: ${project?.name}")
+
+fun Document.executeCommand(project: Project, name: String, call: Document.() -> Unit) {
+    ApplicationManager.getApplication().runWriteAction {
+        CommandProcessor.getInstance().executeCommand(
+            project,
+            { call() },
+            name,
+            com.intellij.openapi.command.UndoConfirmationPolicy.DEFAULT,
+            this
+        )
+    }
+}
 
 registerAction("DeleteAForm", function = { event ->
     val (project, editor) = prepareOrNull(event) ?: return@registerAction
