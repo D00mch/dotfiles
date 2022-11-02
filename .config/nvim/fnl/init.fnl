@@ -72,8 +72,8 @@
 
   (vim.api.nvim_create_user_command :NeovideToggleTransparency
                                     (fn []
-                                      (vim.cmd (..  "let g:neovide_transparency="
-                                                   (if (= 1 nvim.g.neovide_transparency) 0.9 1))) )
+                                      (set nvim.g.neovide_transparency 
+                                           (if (= 1 nvim.g.neovide_transparency) 0.9 1)))
                                     {:nargs :* :desc "Insert markdown header"}))
 
 
