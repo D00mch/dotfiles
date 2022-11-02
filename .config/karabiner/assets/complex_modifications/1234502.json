@@ -368,7 +368,7 @@
           "to": [
             {
               "mouse_key": {
-                "speed_multiplier": 4.0
+                "speed_multiplier": 4
               }
             }
           ],
@@ -443,3 +443,4 @@
     }
   ]
 }
+

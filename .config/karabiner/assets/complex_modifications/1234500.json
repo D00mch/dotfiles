@@ -1,156 +1,212 @@
 {
-    "title": "Hotkeys",
-    "maintainers": [ "dumch" ],
-    "rules": [
+  "title": "Hotkeys",
+  "maintainers": [
+    "dumch"
+  ],
+  "rules": [
+    {
+      "description": "left cmd + d = return",
+      "manipulators": [
         {
-            "description": "left cmd + d = return",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "d",
-                        "modifiers": {
-                            "optional": [ "any" ],
-                            "mandatory": [ "left_command" ]
-                        }
-                    },
-                    "to": [
-                        {
-                            "key_code": "return_or_enter"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "description": "right cmd + ,/. —>  cmd + shift + [/]",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "comma",
-                        "modifiers": { "mandatory": ["right_command"] }
-                    },
-                    "to": [
-                        {
-                            "key_code": "open_bracket",
-                            "modifiers": [ "shift", "right_command" ]
-                        }
-                    ],
-                    "conditions": [
-                        {
-                            "type": "frontmost_application_unless",
-                            "bundle_identifiers": [
-                                "^com.qvacua.VimR$",
-                                "^com.neovide.neovide$"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "period",
-                        "modifiers": { "mandatory": ["right_command"] }
-                    },
-                    "to": [
-                        {
-                            "key_code": "close_bracket",
-                            "modifiers": [ "shift", "right_command" ]
-                        }
-                    ],
-                    "conditions": [
-                        {
-                            "type": "frontmost_application_unless",
-                            "bundle_identifiers": [
-                                "^com.qvacua.VimR$",
-                                "^com.neovide.neovide$"
-                            ]
-                        }
-                    ]
-
-                }
-            ]
-        },
-        {
-            "description": "Right cmd + p — =/+",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "p",
-                        "modifiers": {
-                            "mandatory": [ "right_command" ],
-                            "optional": [ "any" ]
-                        }
-                    },
-                    "to": [ { "key_code": "equal_sign" } ]
-                }
-            ]
-        },
-        {
-            "description": "Right cmd + o — delete",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "o",
-                        "modifiers": {
-                            "mandatory": [ "right_command" ],
-                            "optional": [ "any" ]
-                        }
-                    },
-                    "to": [ { "key_code": "delete_or_backspace" } ]
-                }
-            ]
-        },
-        {
-            "description": "Right cmd + i — shift",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "i",
-                        "modifiers": {
-                            "mandatory": [ "right_command" ]
-                        }
-                    },
-                    "to": [ { "key_code": "right_shift" } ]
-                }
-            ]
-        },
-        {
-            "description": "Left cmd + e — shift",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "e",
-                        "modifiers": {
-                            "mandatory": [ "left_command" ]
-                        }
-                    },
-                    "to": [ { "key_code": "left_shift" } ]
-                }
-            ]
-        },
-        {
-            "description": "Right cmd + quote — quote",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "quote",
-                        "modifiers": {
-                            "mandatory": [ "right_command" ]
-                        }
-                    },
-                    "to": [ { "key_code": "quote",
-                              "modifiers": [ "right_shift" ]} ]
-                }
-            ]
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "optional": [
+                "any"
+              ],
+              "mandatory": [
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter"
+            }
+          ]
         }
-    ]
+      ]
+    },
+    {
+      "description": "right cmd + ,/. —>  cmd + shift + [/]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": [
+                "shift",
+                "right_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com.qvacua.VimR$",
+                "^com.neovide.neovide$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": [
+                "shift",
+                "right_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com.qvacua.VimR$",
+                "^com.neovide.neovide$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Right cmd + p — =/+",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "equal_sign"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Right cmd + o — delete",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Right cmd + i — shift",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_shift"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Left cmd + e — shift",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": [
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Right cmd + quote — quote",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "quote",
+              "modifiers": [
+                "right_shift"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
+
 
 
