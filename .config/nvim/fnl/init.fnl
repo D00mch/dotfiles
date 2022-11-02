@@ -77,10 +77,13 @@
                                     {:nargs :* :desc "Insert markdown header"}))
 
 
+;; tabs
 (kset [:i :t :n] :<C-y> :<Esc>gt) ;; karabiner: cmd <
 (kset [:i :t :n] :<C-t> :<Esc>gT) ;; karabiner: cmd >
 (kset [:n :t] ">>" ":tabmove +1<cr>")
 (kset [:n :t] "<<" ":tabmove -1<cr>")
+; alt + t; cmd + t with karabiner
+(kset [:n :t :x] :† (fn [] (vim.cmd "tabnew\nStartify")))
 
 ;; diff split
 (defn- compare-to-clipboard []
