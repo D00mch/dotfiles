@@ -87,6 +87,7 @@
   (let [ftype (vim.api.nvim_eval "&filetype")]
     (->
       "execute 'normal! \"xy'
+      tabnew
       vsplit
       enew
       normal! P
