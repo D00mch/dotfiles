@@ -99,7 +99,7 @@ set cursorcolumn
         nnoremap ≠ <C-w>5>+
         nnoremap – <C-w>5<+
 
-    "SPACEMACS-LIKE COMMANDS 
+    "SPACEMACS-LIKE COMMANDS
         nnoremap <space>d :silent! :bp<bar>sp<bar>bn<bar>bd!<CR><cr>
         nnoremap <space>a :w <bar> silent %bd! <bar> e# <bar> bd# <CR>
 
@@ -151,7 +151,7 @@ set cursorcolumn
     nnoremap <s-tab> [s
     "FOLDING
         "no foldings by default
-        set nofen 
+        set nofen
         autocmd Filetype vim set foldmethod=indent
         autocmd BufRead *.txt set foldmethod=indent
 
@@ -184,10 +184,10 @@ set cursorcolumn
             if getline(v:lnum) =~ '^###### .*$'
                 return ">6"
             endif
-            return "=" 
+            return "="
         endfunction
-        au BufEnter *.md setlocal foldexpr=MarkdownLevel()  
-        au BufEnter *.md setlocal foldmethod=expr    
+        au BufEnter *.md setlocal foldexpr=MarkdownLevel()
+        au BufEnter *.md setlocal foldmethod=expr
 
         vnoremap <silent> ic :<C-U>call <SID>MdCodeBlockTextObj('i')<CR>
         onoremap <silent> ic :<C-U>call <SID>MdCodeBlockTextObj('i')<CR>
