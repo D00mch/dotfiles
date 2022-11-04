@@ -63,6 +63,8 @@ set cursorcolumn
     "SPACEMACS-LIKE
         map <space>; gcc
         nnoremap <space>q q
+        "remove unnecessary spaces at the end of lines
+        nnoremap <space>sr :%s/\s\s*$//g<cr><c-o>:noh<cr>:echom ""<cr>
 
     "INCLUTION
         nnoremap db vb
