@@ -72,6 +72,7 @@
       (fn [client bufnr]
         (highlight-symbols client bufnr)
         (map bufnr :n :gd "<Cmd>lua vim.lsp.buf.definition()<CR>" {:noremap true})
+        (map bufnr :n :gD "<Cmd>tab split | lua vim.lsp.buf.definition()<CR>" {:noremap true})
         (map bufnr :n :<leader>h "<Cmd>lua vim.lsp.buf.hover()<CR><Cmd>lua vim.lsp.buf.hover()<CR>" {:noremap true})
         (map bufnr :n :<leader>gD "<Cmd>lua vim.lsp.buf.declaration()<CR>" {:noremap true})
         ;(map bufnr :n :<leader>tD "<cmd>lua vim.lsp.buf.type_definition()<CR>" {:noremap true})
