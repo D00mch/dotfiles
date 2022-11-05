@@ -1,6 +1,6 @@
 (module plugin.startify
   {require {nvim aniseed.nvim
-            {: kset} util}
+            {: kset : bkset} util}
    require-macros [macros]})
 
 (set nvim.g.startify_files_number 28)
@@ -23,7 +23,16 @@
       {:z "~/dotfiles/.zshrc"}
       {:t "~/wiki/todo.md"}])
 
-(autocmd :User :Startified "execute 'nunmap <buffer> q'" )
+; (autocmd :User :Startified "execute 'nunmap <buffer> q'" )
+
+(def group (vim.api.nvim_create_augroup :StartifyGroup {:clear true}))
+(vim.api.nvim_create_autocmd
+  :User
+  {:pattern :Startified
+   :group   group
+   :callback (fn []
+               (bkset :n :<Space>d ":silent! bd!<Cr>")
+               (vim.keymap.del :n :q {:buffer 0}))})
 
 ; nvim larry 3d
  (set nvim.g.startify_custom_header [
