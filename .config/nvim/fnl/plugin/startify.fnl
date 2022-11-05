@@ -21,6 +21,7 @@
       {:v "~/dotfiles/.vimrc"}
       {:d "~/dotfiles/.ideavimrc"}
       {:z "~/dotfiles/.zshrc"}
+      {:s "~/wiki/scratch.md"}
       {:t "~/wiki/todo.md"}])
 
 ; (autocmd :User :Startified "execute 'nunmap <buffer> q'" )

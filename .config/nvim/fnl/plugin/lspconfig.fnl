@@ -3,6 +3,7 @@
              lsp lspconfig
              {: kset : bkset} util
              telescope  telescope
+             {: assoc : update} aniseed.core
              {: lsp_references : lsp_implementations} telescope.builtin
              flut flutter-tools
              mason mason
@@ -99,6 +100,8 @@
   (lsp.jdtls.setup default-map)
   (lsp.kotlin_language_server.setup default-map)
   (lsp.racket_langserver.setup default-map)
+  (lsp.ltex.setup (assoc default-map
+                         :filetypes ["markdown" "NeogitCommitMessage"]))
 
   (flut.setup
     {:lsp
