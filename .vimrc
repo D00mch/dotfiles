@@ -64,7 +64,8 @@ set cursorcolumn
         map <space>; gcc
         nnoremap <space>q q
         "remove unnecessary spaces at the end of lines
-        nnoremap <space>sr :%s/\s\s*$//g<cr><c-o>:noh<cr>:echom ""<cr>
+        nnoremap <space>sr mX:%s/\s\s*$//g<cr>`X
+        vnoremap <space>sr :s/\s\s*$//g<cr>
 
     "INCLUTION
         nnoremap db vb
