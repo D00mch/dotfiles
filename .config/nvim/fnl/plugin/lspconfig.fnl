@@ -1,8 +1,9 @@
 (module plugin.lspconfig
   {autoload {nvim aniseed.nvim
              lsp lspconfig
-             {: kset} util
-             tel  telescope
+             {: kset : bkset} util
+             telescope  telescope
+             {: lsp_references : lsp_implementations} telescope.builtin
              flut flutter-tools
              mason mason
              preview goto-preview
@@ -34,8 +35,6 @@
     sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn
     sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
     sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint"))
-
-(highlight-line-symbol)
 
 (defn- highlight-symbols [client bufnr]
   (when client.server_capabilities.documentHighlightProvider
@@ -69,30 +68,29 @@
                   vim.lsp.handlers.signature_help
                   {:border "single"})}
       on_attach
-      (fn [client bufnr]
-        (highlight-symbols client bufnr)
-        (map bufnr :n :gd "<Cmd>lua vim.lsp.buf.definition()<CR>" {:noremap true})
-        (map bufnr :n :gD "<Cmd>tab split | lua vim.lsp.buf.definition()<CR>" {:noremap true})
-        (map bufnr :n :<leader>h "<Cmd>lua vim.lsp.buf.hover()<CR><Cmd>lua vim.lsp.buf.hover()<CR>" {:noremap true})
-        (map bufnr :n :<leader>gD "<Cmd>lua vim.lsp.buf.declaration()<CR>" {:noremap true})
-        ;(map bufnr :n :<leader>tD "<cmd>lua vim.lsp.buf.type_definition()<CR>" {:noremap true})
-        ;(map bufnr :n :<leader>hs "<cmd>lua vim.lsp.buf.signature_help()<CR>" {:noremap true})
-        (map bufnr :n :<leader>rr "<cmd>lua vim.lsp.buf.rename()<CR>" {:noremap true})
-        (map bufnr :n :<leader>a "<cmd>lua vim.diagnostic.open_float()<CR>" {:noremap true})
-        (map bufnr :n :<leader>re "<cmd>lua vim.diagnostic.setloclist()<CR>" {:noremap true})
-        (map bufnr :n :<leader>r= "<cmd>lua vim.lsp.buf.formatting()<CR>" {:noremap true})
-        (map bufnr :n "]s" "<cmd>lua vim.diagnostic.goto_next()<CR>" {:noremap true})
-        (map bufnr :n "[s" "<cmd>lua vim.diagnostic.goto_prev()<CR>" {:noremap true})
-        (map bufnr :n :<tab> "<cmd>lua vim.diagnostic.goto_next()<CR>" {:noremap true})
-        (map bufnr :n :<S-tab> "<cmd>lua vim.diagnostic.goto_prev()<CR>" {:noremap true})
-        ;telescope
-        (map bufnr :n :<leader>ra "<cmd>lua vim.lsp.buf.code_action()<CR>" {:noremap true})
-        (map bufnr :n :® :<leader>ra {:noremap false})
-        (map bufnr :v :<leader>ra ":'<,'>:lua vim.lsp.buf.range_code_action()<CR>" {:noremap true})
-        ;; alt + b
-        (map bufnr :n :∫ ":lua require('telescope.builtin').lsp_references()<cr>" {:noremap true})
-        ;; alt + i
-        (map bufnr :n :ˆ ":lua require('telescope.builtin').lsp_implementations()<cr>" {:noremap true}))
+      (fn [client b]
+        (highlight-symbols client b)
+        (bkset :n :gd (fn  [] (vim.lsp.buf.definition)) b)
+        (bkset :n
+               :<leader>h
+               (fn [] (vim.lsp.buf.hover) (vim.lsp.buf.hover))
+               b)
+        (bkset :n :<leader>gD (fn [] (vim.lsp.buf.declaration)) b)
+        (bkset :n :<leader>tD (fn [] (vim.lsp.buf.type_definition)) b)
+        (bkset [:i :n] :… (fn [] (vim.lsp.buf.signature_help)) b) ; alt+;
+        (bkset :n :<leader>rr (fn [] (vim.lsp.buf.rename)) b)
+        (bkset :n :<leader>a (fn [] (vim.diagnostic.open_float)))
+        (bkset :n :<leader>re (fn [] (vim.diagnostic.setloclist)))
+        (bkset :n :<leader>r= (fn [] (vim.lsp.buf.formatting)) b)
+        (bkset :n "]s" (fn [] (vim.diagnostic.goto_next)) b)
+        (bkset :n "[s" (fn [] (vim.diagnostic.goto_prev)) b)
+        (bkset :n :<tab> (fn [] (vim.diagnostic.goto_next)) b)
+        (bkset :n :<S-tab> (fn [] (vim.diagnostic.goto_prev)) b)
+        ;; TELESCOPE
+        (bkset :n :∫ (fn [] (lsp_references))) ; alt+b
+        (bkset :n :ˆ (fn [] (lsp_implementations))) ; alt+i
+        (bkset [:n :x] :® (fn [] (vim.lsp.buf.code_action)) b) ;; alt+r
+        (bkset [:n :x] :<leader>ra (fn [] (vim.lsp.buf.code_action)) b))
       default-map {:on_attach on_attach
                    :handlers handlers
                    :capabilities (cmplsp.default_capabilities)}]
@@ -112,7 +110,5 @@
       :on_attach
       (fn [client b]
         (on_attach client b)
-        (map b :n :<leader>fa
-             ":lua require('telescope').extensions.flutter.commands()<cr>"
-             {:noremap true})
-        (tel.load_extension "flutter"))}}))
+        (bkset [:n] :<leader>fa (fn [] (telescope.extensions.flutter.commands)) b)
+        (telescope.load_extension "flutter"))}}))

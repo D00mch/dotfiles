@@ -420,6 +420,34 @@
               ]
             }
           ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "semicolon",
+              "modifiers": [
+                "right_option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.qvacua.VimR$",
+                "^com.neovide.neovide$"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -462,6 +490,7 @@
     }
   ]
 }
+
 
 
 
