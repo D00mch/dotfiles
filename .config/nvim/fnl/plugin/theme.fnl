@@ -14,7 +14,7 @@
 (let [(ok? msg) (pcall vim.fn.system "defaults read -g AppleInterfaceStyle")
       neovide?  vim.g.neovide]
   (if (string.find msg "Dark")
-    (let [theme* (if neovide? "nightfox" "papercolor")]
+    (let [theme* (if neovide? "terafox" "papercolor")]
       (set nvim.o.background "dark")
       (vim.api.nvim_command (.. "colorscheme " theme*)))
     (let [theme* (if neovide? "dayfox" "papercolor")]
