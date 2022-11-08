@@ -481,7 +481,8 @@
                 "^com.apple.Terminal$",
                 "^com.googlecode.iterm2$",
                 "^com.jetbrains.intellij.ce$",
-                "^com.google.android.studio"
+                "^com.google.android.studio$",
+                "^co.zeit.hyper$"
               ]
             }
           ]
