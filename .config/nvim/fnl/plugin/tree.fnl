@@ -44,6 +44,8 @@
     :mappings
     {:list [{:key :t :action :tabnew}
             {:key :S :cb (fn [opts] (launch-telescope "live_grep" opts)) }
+            {:key :G :action :cd}
+            {:key :M :action :bulk_move}
             {:key :q :action ""} ;; unmap
             {:key :s :action :split}
             {:key :v :action :vplit}
