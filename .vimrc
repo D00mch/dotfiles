@@ -30,8 +30,6 @@ set cursorcolumn
         onoremap aq a"
 
     "COMMON
-        "alt p - to paste in edit mode
-        noremap! π <C-r>*
         "alt o - to remove word
         noremap! ø <C-w>
         "alt a - select all
@@ -46,6 +44,9 @@ set cursorcolumn
         nnoremap cl mX"9yy"9p`Xj
         "below - empty line
         nnoremap <space>o mXo<Esc><Esc>`X
+
+        "alt p - to paste in edit mode
+        noremap! π <C-r><C-o>*
 
     "SAVING
         "alt + q
