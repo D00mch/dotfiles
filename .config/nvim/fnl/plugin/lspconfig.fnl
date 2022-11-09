@@ -77,7 +77,7 @@
                :<leader>h
                (fn [] (vim.lsp.buf.hover) (vim.lsp.buf.hover))
                b)
-        (bkset :n :gD "<Cmd>tab split | lua vim.lsp.buf.definition()<CR>"  b)
+        (bkset :n :gD "<c-w><c-]><c-w>T" b)
         (bkset :n :<leader>tD (fn [] (vim.lsp.buf.type_definition)) b)
         (bkset [:i :n] :… (fn [] (vim.lsp.buf.signature_help)) b) ; alt+;
         (bkset :n :<leader>rr (fn [] (vim.lsp.buf.rename)) b)
