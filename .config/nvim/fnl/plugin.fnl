@@ -80,6 +80,7 @@
   ;; lsp
   :neovim/nvim-lspconfig {:mod :lspconfig
                           :requires [:williamboman/mason.nvim
+                                     :wiliamks/nice-reference.nvim ; cmd+b like in idea
                                      :rmagatti/goto-preview]}
 
   ;; autocomplete

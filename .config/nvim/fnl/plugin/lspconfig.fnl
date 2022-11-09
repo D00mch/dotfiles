@@ -1,6 +1,7 @@
 (module plugin.lspconfig
   {autoload {nvim aniseed.nvim
              lsp lspconfig
+             refs nice-reference
              {: kset : bkset} util
              telescope  telescope
              {: assoc : update} aniseed.core
@@ -87,8 +88,9 @@
         (bkset :n "[s" (fn [] (vim.diagnostic.goto_prev)) b)
         (bkset :n :<tab> (fn [] (vim.diagnostic.goto_next)) b)
         (bkset :n :<S-tab> (fn [] (vim.diagnostic.goto_prev)) b)
+        (bkset :n :∫ (fn [] (refs.references)) b) ; alt+b
         ;; TELESCOPE
-        (bkset :n :∫ (fn [] (lsp_references))) ; alt+b
+        (bkset :n :<leader>gr (fn [] (lsp_references))) ; alt+b
         (bkset :n :ˆ (fn [] (lsp_implementations))) ; alt+i
         (bkset [:n :x] :® (fn [] (vim.lsp.buf.code_action)) b) ;; alt+r
         (bkset [:n :x] :<leader>ra (fn [] (vim.lsp.buf.code_action)) b))
