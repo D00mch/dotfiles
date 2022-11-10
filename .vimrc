@@ -102,7 +102,7 @@ set cursorcolumn
         nnoremap – <C-w>5<+
 
     "SPACEMACS-LIKE COMMANDS
-        nnoremap <space>d :BW<CR>
+        nnoremap <space>d :BW!<CR>
         nnoremap <space>ab :w <bar> silent %bd! <bar> e# <bar> bd# <CR>
 
         "alt + x to delete a buffer; cmd+w with karabiner
