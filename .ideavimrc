@@ -12,13 +12,16 @@ set highlightedyank
 set commentary
 set surround
 set ReplaceWithRegister
-set ReplaceWithRegister
 
 "PLUGINS SETUPS
     set ideamarks
     "needs ideavim extension plugin
     set keep-english-in-normal-and-restore-in-insert
     set highlightedyank
+
+    nmap q :action KJumpAction<cr>
+    nmap Q :action KJumpAction.Word0<cr>
+    nmap <leader><leader>l :action KJumpAction.Line<cr>
 
 "NAVIGATION
     set path+=**
