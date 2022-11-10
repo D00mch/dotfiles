@@ -109,4 +109,4 @@
   :mbbill/undotree {:mod :undotree}
   :airblade/vim-rooter {:mod :rooter}
   :folke/which-key.nvim {:mod :which}
-  :ggandor/leap.nvim {:mod :leap})
+  :https://gitlab.com/madyanov/svart.nvim {:mod :svart})
