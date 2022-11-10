@@ -91,7 +91,7 @@
   :dcampos/nvim-snippy {:requires [:dcampos/cmp-snippy]}
 
   :chrisbra/Colorizer {:mod :colors}
-  :gcmt/taboo.vim {}
+  :akinsho/bufferline.nvim {:mod :tabs}
   :qpkorr/vim-bufkill {}
   :mhinz/vim-startify {:mod :startify}
   :tpope/vim-commentary {}
