@@ -122,3 +122,11 @@ endfunction")
 
 (kset :n :cq ":call SetupCR()<CR>*``qz")
 (kset :n :cQ ":call SetupCR()<CR>*``qz")
+
+;; yank highlight
+(vim.api.nvim_create_autocmd
+  :TextYankPost
+  {:group (vim.api.nvim_create_augroup :yank_highlight {})
+   :pattern :*
+   :callback 
+   (fn [] (vim.highlight.on_yank {:higroup :IncSearch :timeout 300}))})
