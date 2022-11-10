@@ -3,9 +3,9 @@
              icons nvim-web-devicons}})
  
 (lualine.setup
-  {:options
-   {:icons_enabled true
-    ;:theme :ayu
-    }})
+  {:sections
+   {:lualine_a []
+    :lualine_c [{1 :filename :path 1}]}
+   })
 
 (icons.setup {})
