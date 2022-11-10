@@ -42,9 +42,9 @@ set cursorcolumn
     "PASTE
         "below - current line
         nnoremap cl mX"9yy"9p`Xj
-        "below - empty line
-        nnoremap <space>o mXo<Esc><Esc>`X
-
+        "below - paste from buffer
+        nnoremap <space>o mXo<C-r><C-o>*<Esc><Esc>`X
+        
         "alt p - to paste in edit mode
         noremap! π <C-r><C-o>*
 
