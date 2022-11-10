@@ -95,11 +95,11 @@ set cursorcolumn
         nnoremap gw <C-w>w
 
         "RESIZE
-        nnoremap g= <C-w>5+
-        nnoremap g- <C-w>5-
+        nnoremap ˘ <C-w>5+
+        nnoremap ¯ <C-w>5-
         "alt+
-        nnoremap ≠ <C-w>5>+
-        nnoremap – <C-w>5<+
+        nnoremap ≥ <C-w>5>+
+        nnoremap ≤ <C-w>5<+
 
     "SPACEMACS-LIKE COMMANDS
         nnoremap <space>d :BW!<CR>
