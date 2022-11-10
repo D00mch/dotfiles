@@ -5,6 +5,10 @@ local fn = vim.fn
 local pack_path = fn.stdpath("data") .. "/site/pack"
 local fmt = string.format
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
+
 -- Ensures a given github.com/USER/REPO is cloned in the pack/packer/start directory.
 function ensure (user, repo)
   local install_path = fmt("%s/packer/start/%s", pack_path, repo)

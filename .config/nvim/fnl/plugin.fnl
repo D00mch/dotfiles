@@ -28,9 +28,10 @@
   :Olical/aniseed {}
   :lewis6991/impatient.nvim {}
 
-  ;; status line
-  :kyazdani42/nvim-web-devicons {}
+  ;; status line, tree
+  :nvim-tree/nvim-web-devicons {}
   :nvim-lualine/lualine.nvim {:mod :lualine}
+  :nvim-tree/nvim-tree.lua {:mod :tree}
 
   ;; repl
   :Olical/conjure {:branch :master :mod :conjure}
@@ -42,10 +43,6 @@
   :guns/vim-sexp {:mod :sexp}
   :tpope/vim-repeat {}
   :kylechui/nvim-surround {:mod :nvim-surround}
-
-  ;; tree
-  :kyazdani42/nvim-tree.lua {:mod :tree}
-  :ryanoasis/vim-devicons {}
 
   ;; flutter
   :akinsho/flutter-tools.nvim {:requires [:nvim-lua/plenary.nvim]}
