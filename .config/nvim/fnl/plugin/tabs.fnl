@@ -20,4 +20,8 @@
 (kset :n  :<leader>9 ":BufferLineGoToBuffer -1<CR>")
 
 (bufferline.setup
-  {:options {:numbers  :ordinal}})
+  {:options {:numbers  :ordinal
+             ;:indicator {:style :underline}
+             :always_show_bufferline false}
+   :highlights {:buffer_selected {:bold true
+                                  :italic false}}})
