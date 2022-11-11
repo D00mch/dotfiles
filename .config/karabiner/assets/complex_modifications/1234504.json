@@ -523,6 +523,79 @@
           ]
         }
       ]
+    },
+    {
+      "description": "Jump insert mode",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "left_option",
+                "right_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.qvacua.VimR$",
+                "^com.neovide.neovide$",
+                "^com.apple.Terminal$",
+                "^com.googlecode.iterm2$",
+                "^com.jetbrains.intellij.ce$",
+                "^com.google.android.studio$",
+                "^co.zeit.hyper$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "left_option",
+                "right_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.qvacua.VimR$",
+                "^com.neovide.neovide$",
+                "^com.apple.Terminal$",
+                "^com.googlecode.iterm2$",
+                "^com.jetbrains.intellij.ce$",
+                "^com.google.android.studio$",
+                "^co.zeit.hyper$"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ] 
 }
