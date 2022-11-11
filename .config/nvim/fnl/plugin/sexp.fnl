@@ -12,9 +12,6 @@
                            :sexp_emit_tail_element     :<space>kb
                            :sexp_emit_head_element     :<space>kB
 
-                           :sexp_move_to_prev_bracket  "{"
-                           :sexp_move_to_next_bracket  "}"
-
                            ;; move
                            :sexp_move_to_next_element_tail :<space>mr
                            :sexp_move_to_prev_element_tail :<space>ml
