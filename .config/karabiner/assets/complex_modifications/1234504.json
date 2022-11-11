@@ -452,7 +452,7 @@
       ]
     },
     {
-      "description": "Alt-o —> delete a word",
+      "description": "Backspace for everyone",
       "manipulators": [
         {
           "type": "basic",
@@ -460,7 +460,8 @@
             "key_code": "o",
             "modifiers": {
               "mandatory": [
-                "left_option"
+                "left_option",
+                "right_command"
               ]
             }
           },
@@ -486,12 +487,42 @@
               ]
             }
           ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "right_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "u",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.qvacua.VimR$",
+                "^com.neovide.neovide$",
+                "^com.apple.Terminal$",
+                "^com.googlecode.iterm2$",
+                "^com.jetbrains.intellij.ce$",
+                "^com.google.android.studio$",
+                "^co.zeit.hyper$"
+              ]
+            }
+          ]
         }
       ]
     }
-  ]
+  ] 
 }
-
-
-
-
