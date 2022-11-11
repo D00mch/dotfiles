@@ -9,14 +9,8 @@
 (kset [:t :n] "<<" ::BufferLineMovePrev<CR> ) 
 (kset [:n :t :x :i] :† ::Startify<cr>) 
 
-(kset :n  :<leader>1 ":BufferLineGoToBuffer 1<CR>")
-(kset :n  :<leader>2 ":BufferLineGoToBuffer 2<CR>")
-(kset :n  :<leader>3 ":BufferLineGoToBuffer 3<CR>")
-(kset :n  :<leader>4 ":BufferLineGoToBuffer 4<CR>")
-(kset :n  :<leader>5 ":BufferLineGoToBuffer 5<CR>")
-(kset :n  :<leader>6 ":BufferLineGoToBuffer 6<CR>")
-(kset :n  :<leader>7 ":BufferLineGoToBuffer 7<CR>")
-(kset :n  :<leader>8 ":BufferLineGoToBuffer 8<CR>")
+(for [i 1 8]
+  (kset :n (.. :<leader> i) (.. ":BufferLineGoToBuffer " i :<Cr>)))
 (kset :n  :<leader>9 ":BufferLineGoToBuffer -1<CR>")
 
 (bufferline.setup
