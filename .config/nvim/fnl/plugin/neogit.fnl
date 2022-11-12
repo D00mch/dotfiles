@@ -7,15 +7,6 @@
             neogit neogit
             {: kset} util}})
 
-(neogit.setup
-  {:kind :split
-   :integrations {:diffview true}
-   :disable_commit_confirmation true
-   :sections {:untracked {:folded true}
-              :recent    {:folded false}}
-   :mappings {:status {:o :Toggle
-                       :q "" }}})
-
 (def toggle-files ::DiffviewToggleFiles<cr>)
 
 (defn on-diffview [b]
@@ -49,21 +40,39 @@
 
 (dview.setup
   {:hooks {:diff_buf_read on-diffview}
-   :keymaps {:disable_defaults false
-             :view               (merge 
-                                   diffview-unmap
-                                   diffview-common-mappings)
-             :diff3              [
-                                  [[:n :x] :ggo (actions.conflict_choose "ours")]
-                                  [[:n :x] :ggt (actions.conflict_choose "theirs")]
-                                  [[:n :x] :ggb (actions.conflict_choose "base")]
-                                  [[:n :x] :gga (actions.conflict_choose "all")]
-                                  [[:n :x] :ggn actions.next_conflict]
-                                  [[:n :x] :ggp actions.prev_conflict]
-                                  ]
-             :file_panel         panel-mappings
-             :file_history_panel panel-mappings 
-             :option_panel       panel-mappings}})
+   :keymaps 
+   {:disable_defaults   false
+    :view               (merge 
+                          diffview-unmap
+                          diffview-common-mappings)
+    :diff3              [[[:n :x] :ggo (actions.conflict_choose "ours")]
+                         [[:n :x] :ggt (actions.conflict_choose "theirs")]
+                         [[:n :x] :ggb (actions.conflict_choose "base")]
+                         [[:n :x] :gga (actions.conflict_choose "all")]
+                         [[:n :x] :ggn actions.next_conflict]
+                         [[:n :x] :ggp actions.prev_conflict]]
+    :file_panel         panel-mappings
+    :file_history_panel panel-mappings 
+    :option_panel       panel-mappings}})
+
+(defn history-toggle []
+  (let [current-dir (vim.fn.expand "%")
+        in-annotate? (string.match current-dir "DiffviewFileHistoryPanel$")]
+    (vim.api.nvim_command (if in-annotate? "q" "DiffviewFileHistory %"))))
+
+(kset [:n] :<space>gh history-toggle)
+(kset [:x] :<space>gh ":DiffviewFileHistory<cr>" {:noremap false})
+
+;;; neogit
+
+(neogit.setup
+  {:kind :split
+   :integrations {:diffview true}
+   :disable_commit_confirmation true
+   :sections {:untracked {:folded true}
+              :recent    {:folded false}}
+   :mappings {:status {:o :Toggle
+                       :q "" }}})
 
 (defn neogit-toggle []
   (let [current-dir (vim.fn.expand "%") ;; :echo expand('%:p')
@@ -77,6 +86,8 @@
 (vim.keymap.set [:n :x :i] :ª neogit-toggle) ;; alt+9, (mapped to cmd+9 with karabiner)
 (kset [:i] :ª "<Esc>ª" {:noremap false})     ;; alt+9
 
+;;; fugitive
+
 (defn annotate-toggle []
   (let [current-dir (vim.fn.expand "%")
         in-annotate? (string.match current-dir "fugitiveblame$")]
@@ -84,13 +95,7 @@
 
 (kset [:n :x] :<space>ga annotate-toggle)
 
-(defn history-toggle []
-  (let [current-dir (vim.fn.expand "%")
-        in-annotate? (string.match current-dir "DiffviewFileHistoryPanel$")]
-    (vim.api.nvim_command (if in-annotate? "q" "DiffviewFileHistory %"))))
-
-(kset [:n] :<space>gh history-toggle)
-(kset [:x] :<space>gh ":DiffviewFileHistory<cr>" {:noremap false})
+;;; gitgutter
 
 (set nvim.g.gitgutter_map_keys 0)
 (set nvim.g.gitgutter_enabled 0)
