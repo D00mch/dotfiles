@@ -50,3 +50,4 @@ yabai -m rule --add app="^VimR$" title="Preferences" manage=off
 yabai -m rule --add app="^Yandex.Disk$" \
     title="General|Account|Screenshots|Proxy|Camera Uploads|More" manage=off
 yabai -m rule --add app="^Gifski$" manage=off
+yabai -m rule --add app="^OpenVPN Connect$" manage=off
