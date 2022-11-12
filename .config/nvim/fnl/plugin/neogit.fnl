@@ -1,11 +1,12 @@
 (module plugin.neogit
   {require {nvim aniseed.nvim
+            gs gitsigns
             dview diffview
             actions diffview.actions
             {: merge} aniseed.core
             {: toggle} plugin.which
             neogit neogit
-            {: kset} util}})
+            {: kset : bkset} util}})
 
 (def toggle-files ::DiffviewToggleFiles<cr>)
 
@@ -95,12 +96,30 @@
 
 (kset [:n :x] :<space>ga annotate-toggle)
 
-;;; gitgutter
+;;; gitsigns
 
-(set nvim.g.gitgutter_map_keys 0)
-(set nvim.g.gitgutter_enabled 0)
-(toggle "g" "GitGutterToggle" ::GitGutterToggle<cr>)
-(kset [:n :x] :gs ::GitGutterStageHunk<cr> {})
+(gs.setup
+  {:signcolumn false
+   :numhl      true
+   :current_line_blame_opts {:overlay true
+                             :delay 300}
+   :on_attach
+   (fn [b]
+     (bkset :n :gn (fn [] (vim.schedule gs.next_hunk)) b)
+     (bkset :n :gp (fn [] (vim.schedule gs.prev_hunk)) b)
+     (bkset [:n :x] :gs gs.stage_hunk b)
+     (bkset :n :gus gs.undo_stage_hunk b)
+     (bkset :n :gb (fn [] (gs.blame_line {:full true})) b)
+     (bkset :n :gl (fn [] (gs.toggle_current_line_blame)) b)
+
+     ;; preview
+     (bkset :n :gd gs.diffthis b)
+     (bkset :n :gD (fn [] (gs.diffthis "~")) b)
+
+     ;; toggle
+     (bkset :n :gt (fn []
+                     (gs.toggle_linehl)
+                     (gs.toggle_word_diff))))})
 
 ;; code in case they don't approve my pr https://github.com/TimUntersberger/neogit/pull/375
 ; (def group (vim.api.nvim_create_augroup :MyCustomNeogitEvents {:clear true}))

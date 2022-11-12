@@ -98,7 +98,7 @@
   :tpope/vim-fugitive {:mod :fugitive}
   :TimUntersberger/neogit {:requires [:nvim-lua/plenary.nvim
                                       :sindrets/diffview.nvim
-                                      :airblade/vim-gitgutter]
+                                      :lewis6991/gitsigns.nvim]
                            :commit :691cf89f59ed887809db7854b670cdb944dc9559
                            :mod :neogit}
   :vim-scripts/ReplaceWithRegister {}
