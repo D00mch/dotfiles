@@ -4,8 +4,8 @@
  
 (lualine.setup
   {:sections
-   {:lualine_a [{1 :filename :path 1}]
-    :lualine_b [:branch]
+   {:lualine_b [{1 :filename :path 1}]
+    :lualine_a [:branch]
     :lualine_c []
     :lualine_x [:encoding :filetype]}})
 

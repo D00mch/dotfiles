@@ -11,13 +11,15 @@
 ; alt + t; cmd + t with karabiner
 (kset [:n :t :x] :† (fn [] (vim.cmd "tabnew\nStartify")))
 
-(for [i 1 9]
+(for [i 1 8]
   (kset :n (.. :<leader> i) (.. i :gt)))
-
+(kset :n :<leader>9 (fn [] (bufferline.go_to_buffer -1 true)))
 
 (bufferline.setup
   {:options {:mode :tabs
              :numbers  :ordinal
+             :separator_style :slant
+             :enforce_regular_tabs true
              ;:indicator {:style :underline}
              :always_show_bufferline false}
    :highlights {:numbers_selected {:italic false}
