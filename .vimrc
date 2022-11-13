@@ -16,6 +16,8 @@ set cursorcolumn
     noremap <space>h ^
     noremap <space>l g_
     nnoremap <Bs> <C-o>
+    nmap \ gcc
+    vmap \ gcc
 
     "INFO
         noremap <leader>z g<C-g>
