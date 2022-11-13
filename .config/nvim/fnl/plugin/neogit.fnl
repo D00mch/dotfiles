@@ -113,8 +113,8 @@
      (bkset :n :gl (fn [] (gs.toggle_current_line_blame)) b)
 
      ;; preview
-     (bkset :n :gd gs.diffthis b)
-     (bkset :n :gD (fn [] (gs.diffthis "~")) b)
+     (bkset :n :gD gs.diffthis b)
+     (bkset :n :gM (fn [] (gs.diffthis "~")) b)
 
      ;; toggle
      (bkset :n :gt (fn []
