@@ -1,8 +1,9 @@
 (module plugin.theme
   {require {nvim aniseed.nvim
-             str aniseed.string
-             fox nightfox
-             {: kset} util}})
+            str aniseed.string
+            fox nightfox
+            {: toggle} plugin.which
+            {: kset} util}})
 
 (set nvim.g.sonokai_style "espresso")
 (set nvim.g.everforest_background "hard")
@@ -11,15 +12,15 @@
   {:dim_inactive false
    :options {:terminal_colors true}})
 
-(let [(ok? msg) (pcall vim.fn.system "defaults read -g AppleInterfaceStyle")
-      neovide?  vim.g.neovide]
-  (if (string.find msg "Dark")
-    (let [theme* (if neovide? "terafox" "papercolor")]
-      (set nvim.o.background "dark")
-      (vim.api.nvim_command (.. "colorscheme " theme*)))
-    (let [theme* (if neovide? "dayfox" "papercolor")]
-      (set nvim.o.background "light")
-      (vim.api.nvim_command (.. "colorscheme " theme*)))))
+(defn set-theme [dark?]
+  (when (not vim.g.neovide) (set nvim.o.background (if dark? "dark" "light")))
+  (vim.api.nvim_command
+    (.. "colorscheme " (if (not vim.g.neovide) "papercolor" dark? "nightfox" "dayfox"))))
+
+(let [(ok? msg) (pcall vim.fn.system "defaults read -g AppleInterfaceStyle")]
+  (set-theme (string.find msg "Dark")))
+
+(toggle "c" "coloscheme" (fn [] (set-theme (not (= vim.o.background "dark")))))
 
 ;;; font
 

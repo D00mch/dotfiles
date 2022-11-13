@@ -98,6 +98,10 @@
 
 ;;; gitsigns
 
+(defn gitsigns []
+  (gs.toggle_linehl)
+  (gs.toggle_word_diff))
+
 (gs.setup
   {:signcolumn false
    :numhl      true
@@ -117,9 +121,8 @@
      (bkset :n :gM (fn [] (gs.diffthis "~")) b)
 
      ;; toggle
-     (bkset :n :gt (fn []
-                     (gs.toggle_linehl)
-                     (gs.toggle_word_diff))))})
+     (toggle :g "gitsigns" gitsigns)
+     (bkset :n :gt gitsigns))})
 
 ;; code in case they don't approve my pr https://github.com/TimUntersberger/neogit/pull/375
 ; (def group (vim.api.nvim_create_augroup :MyCustomNeogitEvents {:clear true}))
