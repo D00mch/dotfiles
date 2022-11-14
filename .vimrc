@@ -103,6 +103,10 @@ set cursorcolumn
         nnoremap ≥ <C-w>5>+
         nnoremap ≤ <C-w>5<+
 
+        "experimental with CMD
+        nnoremap <D-.> <C-w>5>+
+        nnoremap <D-,> <C-w>5<+
+
     "SPACEMACS-LIKE COMMANDS
         nnoremap <space>d :BD!<CR>
         nnoremap <space>ab :w <bar> silent %bd! <bar> e# <bar> bd# <CR>

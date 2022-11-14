@@ -15,6 +15,9 @@
 (set nvim.g.conjure#client#clojure#nrepl#eval#raw_out true)
 (set nvim.g.conjure#eval#inline#prefix "| ")
 
+(kset [:n :x :i] :<D-l> "<Leader>lg" {:remap true})
+(kset [:n :x :i] :<D-r> "<Leader>ra" {:remap true})
+
 ;; floating window size
 ; (set nvim.g.conjure#log#hud#height 0.6)
 ; (set nvim.g.conjure#log#hud#width 0.7)
