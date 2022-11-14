@@ -10,10 +10,6 @@
 
 (def toggle-files ::DiffviewToggleFiles<cr>)
 
-(defn on-diffview [b]
-  (kset [:n :i :x] :¡ toggle-files {:buffer b}) ;; alt+1, cmd+1
-  (vim.api.nvim_buf_del_keymap b :n :<esc>))
-
 (def diffview-common-mappings
   {:gf actions.goto_file_tab
    :¡ toggle-files
@@ -40,8 +36,7 @@
      :s actions.toggle_stage_entry}))
 
 (dview.setup
-  {:hooks {:diff_buf_read on-diffview}
-   :keymaps 
+  {:keymaps 
    {:disable_defaults   false
     :view               (merge 
                           diffview-unmap
