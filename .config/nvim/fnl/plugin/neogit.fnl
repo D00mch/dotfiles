@@ -114,11 +114,11 @@
      (bkset [:n :x] :gs gs.stage_hunk b)
      (bkset :n :gus gs.undo_stage_hunk b)
      (bkset :n :gb (fn [] (gs.blame_line {:full true})) b)
-     (bkset :n :gl (fn [] (gs.toggle_current_line_blame)) b)
+     (bkset :n :gsl (fn [] (gs.toggle_current_line_blame)) {:buffer b :desc "go show line"})
 
      ;; preview
-     (bkset :n :gD gs.diffthis b)
-     (bkset :n :gM (fn [] (gs.diffthis "~")) b)
+     (bkset :n :gsd gs.diffthis {:buffer b :desc "go git diff"})
+     (bkset :n :gsm (fn [] (gs.diffthis "~")) {:buffer b :desc "go git diff unmerged"})
 
      ;; toggle
      (toggle :g "gitsigns" gitsigns)
