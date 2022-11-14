@@ -21,20 +21,18 @@
         (openfile.fn :preview filename))))
   true)
 
-(defn launch-telescope [fun-name opts]
+(defn launch-telescope [fun-name node]
   ;; see https://github.com/kyazdani42/nvim-tree.lua/wiki/Find-file-from-node-in-telescope
-  (let [node (lib.get_node_at_cursor)
-        folder? (and node.fs_stat (= node.fs_stat.type :directory))
+  (let [folder? (and node.fs_stat (= node.fs_stat.type :directory))
         basedir (and folder? (or node.absolute_path
                                  (vim.fn.fnamemodify node.absolute_path ":h")))
         basedir (if (and (= node.name "..") (not= TreeExplorer nil))
                   TreeExplorer.cwd
                   basedir)
         f (. (require "telescope.builtin") fun-name)]
-    (f (merge {:cwd basedir
-               :search_dirs [basedir]
-               :attach_mappings view-selection}
-              opts))))
+    (f {:cwd basedir
+        :search_dirs [basedir]
+        :attach_mappings view-selection})))
 
 (tree.setup
   {:update_cwd true
@@ -43,7 +41,10 @@
    {:adaptive_size true
     :mappings
     {:list [{:key :t :action :tabnew}
-            {:key :S :cb (fn [opts] (launch-telescope "live_grep" opts)) }
+            {:key       [:S :<D-f>] 
+             :action    "`live-grep` the node"
+             :action_cb (fn [opts] 
+                          (launch-telescope "live_grep" opts))}
             {:key :G :action :cd}
             {:key :M :action :bulk_move}
             {:key :q :action ""} ;; unmap
