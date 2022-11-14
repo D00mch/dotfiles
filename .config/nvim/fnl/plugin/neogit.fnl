@@ -111,6 +111,7 @@
    (fn [b]
      (bkset :n :gn (fn [] (vim.schedule gs.next_hunk)) b)
      (bkset :n :gp (fn [] (vim.schedule gs.prev_hunk)) b)
+     (bkset :n :gS (fn [] (vim.schedule gs.stage_buffer)) b)
      (bkset [:n :x] :gs gs.stage_hunk b)
      (bkset :n :gus gs.undo_stage_hunk b)
      (bkset :n :gb (fn [] (gs.blame_line {:full true})) b)
