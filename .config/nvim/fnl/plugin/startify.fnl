@@ -7,7 +7,7 @@
 (set nvim.g.startify_change_to_vcs_root 1)
 (set nvim.g.webdevicons_enable_startify 1)
 
-(kset :n "<Leader>mp" ":Startify<cr>")
+(kset :n "<Leader>m" ":Startify<cr>")
 
 (set nvim.g.startify_lists
      [{:type "sessions"  :header ["    Sessions"]}

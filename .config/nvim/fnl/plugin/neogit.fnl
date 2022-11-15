@@ -26,7 +26,8 @@
    "[x" false
    "]x" false
    :dx false
-   :q false})
+   :q false
+   :<esc> false})
 
 (def panel-mappings
   (merge 
@@ -41,12 +42,12 @@
     :view               (merge 
                           diffview-unmap
                           diffview-common-mappings)
-    :diff3              [[[:n :x] :ggo (actions.conflict_choose "ours")]
-                         [[:n :x] :ggt (actions.conflict_choose "theirs")]
-                         [[:n :x] :ggb (actions.conflict_choose "base")]
-                         [[:n :x] :gga (actions.conflict_choose "all")]
-                         [[:n :x] :ggn actions.next_conflict]
-                         [[:n :x] :ggp actions.prev_conflict]]
+    :diff3              [[[:n :x] :go (actions.conflict_choose "ours")]
+                         [[:n :x] :gt (actions.conflict_choose "theirs")]
+                         [[:n :x] :gb (actions.conflict_choose "base")]
+                         [[:n :x] :ga (actions.conflict_choose "all")]
+                         [[:n :x] :gn actions.next_conflict]
+                         [[:n :x] :gp actions.prev_conflict]]
     :file_panel         panel-mappings
     :file_history_panel panel-mappings 
     :option_panel       panel-mappings}})
@@ -101,20 +102,23 @@
   {:signcolumn false
    :numhl      true
    :current_line_blame_opts {:overlay true
-                             :delay 300}
+                             :delay 1000}
    :on_attach
    (fn [b]
      (bkset :n :gn (fn [] (vim.schedule gs.next_hunk)) b)
      (bkset :n :gp (fn [] (vim.schedule gs.prev_hunk)) b)
+
      (bkset :n :gS (fn [] (vim.schedule gs.stage_buffer)) b)
      (bkset [:n :x] :gs gs.stage_hunk b)
+     (bkset [:n :x] :gx gs.reset_hunk b)
+
      (bkset :n :gus gs.undo_stage_hunk b)
      (bkset :n :gb (fn [] (gs.blame_line {:full true})) b)
-     (bkset :n :gsl (fn [] (gs.toggle_current_line_blame)) {:buffer b :desc "go show line"})
+     (bkset :n :<Space>gl (fn [] (gs.toggle_current_line_blame)) {:buffer b :desc "go show line"})
 
      ;; preview
-     (bkset :n :gsd gs.diffthis {:buffer b :desc "go git diff"})
-     (bkset :n :gsm (fn [] (gs.diffthis "~")) {:buffer b :desc "go git diff unmerged"})
+     (bkset :n :<Space>gd gs.diffthis {:buffer b :desc "go git diff"})
+     (bkset :n :<Space>gm (fn [] (gs.diffthis "~")) {:buffer b :desc "go git diff unmerged"})
 
      ;; toggle
      (toggle :g "gitsigns" gitsigns)
