@@ -112,7 +112,7 @@ set cursorcolumn
         nnoremap <space>ab :w <bar> silent %bd! <bar> e# <bar> bd# <CR>
 
         "alt + x to delete a buffer; cmd+w with karabiner
-        nnoremap ≈ :close<cr>
+        nnoremap ≈ :quit<cr>
         imap     ≈ <Esc>≈
 
     "SEARCH

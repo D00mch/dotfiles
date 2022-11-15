@@ -92,6 +92,7 @@
 
   :chrisbra/Colorizer {:mod :colors}
   :akinsho/bufferline.nvim {:mod :tabs}
+  :AndrewRadev/undoquit.vim {}
   :qpkorr/vim-bufkill {}
   :mhinz/vim-startify {:mod :startify}
   :tpope/vim-commentary {}

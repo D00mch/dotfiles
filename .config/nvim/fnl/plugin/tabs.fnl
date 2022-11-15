@@ -10,6 +10,8 @@
 (kset [:n :t] "<<" ":tabmove -1<cr>")
 ; alt + t; cmd + t with karabiner
 (kset [:n :t :x] :† (fn [] (vim.cmd "tabnew\nStartify")))
+; alt + shift + t; cmd + shift + t with karabiner
+(kset [:n :t :x] :ˇ (fn [] (vim.cmd "Undoquit")))
 
 (for [i 1 8]
   (kset :n (.. :<leader> i) (.. i :gt)))
