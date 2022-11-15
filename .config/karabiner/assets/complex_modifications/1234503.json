@@ -29,15 +29,15 @@
       ]
     },
     {
-      "description": "Left cmd + u/p -> (/)",
+      "description": "Right cmd + a/f -> (/)",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "u",
+            "key_code": "a",
             "modifiers": {
               "mandatory": [
-                "left_command"
+                "right_command"
               ],
               "optional": [
                 "any"
@@ -56,10 +56,10 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "p",
+            "key_code": "f",
             "modifiers": {
               "mandatory": [
-                "left_command"
+                "right_command"
               ],
               "optional": [
                 "any"
@@ -121,12 +121,12 @@
       ]
     },
     {
-      "description": "Right cmd + w/e — {/}",
+      "description": "Right cmd + s/d — {/}",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "w",
+            "key_code": "s",
             "modifiers": {
               "mandatory": [
                 "right_command"
@@ -148,7 +148,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "e",
+            "key_code": "d",
             "modifiers": {
               "mandatory": [
                 "right_command"
@@ -170,12 +170,12 @@
       ]
     },
     {
-      "description": "Right cmd + a -> |",
+      "description": "Right cmd + u -> |",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "a",
+            "key_code": "u",
             "modifiers": {
               "mandatory": [
                 "right_command"

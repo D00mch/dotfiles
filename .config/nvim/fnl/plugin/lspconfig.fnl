@@ -93,6 +93,7 @@
         (bkset :n :<leader>gr (fn [] (lsp_references))) ; alt+b
         (bkset :n :ˆ (fn [] (lsp_implementations))) ; alt+i
         (bkset [:n :x] :® (fn [] (vim.lsp.buf.code_action)) b) ;; alt+r
+        (bkset [:n :x] :<C-r> (fn [] (vim.lsp.buf.code_action)) b)
         (bkset [:n :x] :<leader>ra (fn [] (vim.lsp.buf.code_action)) b))
       default-map {:on_attach on_attach
                    :handlers handlers

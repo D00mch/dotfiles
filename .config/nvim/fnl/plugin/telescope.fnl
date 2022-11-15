@@ -67,7 +67,10 @@
                                            :m fb_actions.move ;; several items
                                            :c fb_actions.copy
                                            :d fb_actions.remove
-                                           :h fb_actions.toggle_hidden}}}
+                                           :h fb_actions.toggle_hidden
+                                           :H fb_actions.goto_cwd
+                                           :<Esc> false
+                                           :≈ actions.close}}}
                 :project {:base_dirs ["~/IdeaProjects"]
                           :mappings {:n ;; nerdtree-like mappings, doesn't work yet
                                      {:r pr_actions.rename_project
