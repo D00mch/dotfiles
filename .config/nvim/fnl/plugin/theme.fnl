@@ -5,7 +5,6 @@
             {: toggle} plugin.which
             {: kset} util}})
 
-(set nvim.g.sonokai_style "espresso")
 (set nvim.g.everforest_background "hard")
 
 (fox.setup

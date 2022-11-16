@@ -58,7 +58,7 @@
   :EdenEast/nightfox.nvim {:mod :theme}
   :rose-pine/neovim {}
   :sainnhe/everforest {}
-  :sainnhe/sonokai {}
+  :Yazeed1s/oh-lucy.nvim {}
 
   ;; telescope
   :nvim-telescope/telescope.nvim {:mod :telescope
