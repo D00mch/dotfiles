@@ -1,13 +1,12 @@
 (module init
-  {require {nvim aniseed.nvim
+  {require {_ plugin
+            nvim aniseed.nvim
             u aniseed.nvim.util
             key which-key
             {: toggle} plugin.which
             plenary plenary.filetype
             {: kset} util}
    require-macros [macros]})
-
-(require :plugin)
 
 (defn- map [mode from to]
   (kset [mode] from to {:noremap true}))
