@@ -1,11 +1,24 @@
 (module plugin.startify
   {require {nvim aniseed.nvim
+            icons nvim-web-devicons
             {: kset : bkset} util}
    require-macros [macros]})
 
 (set nvim.g.startify_files_number 28)
 (set nvim.g.startify_change_to_vcs_root 1)
 (set nvim.g.webdevicons_enable_startify 1)
+
+(defn _G.webDevIcons [path]
+  (let [filename (vim.fn.fnamemodify path ":t")
+        extension (vim.fn.fnamemodify path ":e")]
+    (icons.get_icon filename extension {:default true})))
+
+(vim.cmd
+  "
+function! StartifyEntryFormat() abort
+  return 'v:lua.webDevIcons(absolute_path) . \" \" . entry_path'
+endfunction
+  ")
 
 (kset :n "<Leader>m" ":Startify<cr>")
 
