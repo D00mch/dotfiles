@@ -37,6 +37,7 @@ set ReplaceWithRegister
         nnoremap <space>a :action CloseAllEditors<cr>
         nnoremap <space>ga :action Annotate<cr>
         nnoremap <space>gb :action Git.Branches<cr>
+        nnoremap <space><tab> :e#<cr>
     "CIDER-LIKE
         
     "SEARCH
