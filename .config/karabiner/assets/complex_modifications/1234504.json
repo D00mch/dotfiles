@@ -190,7 +190,7 @@
           },
           "to": [
             {
-              "key_code": "x",
+              "key_code": "w",
               "modifiers": [
                 "left_option"
               ]

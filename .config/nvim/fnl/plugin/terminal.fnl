@@ -5,7 +5,7 @@
 
 (kset :x :<leader>q ":ToggleTermSendVisualSelection<cr>")
 (kset :x :√         "<leader>v" {:noremap false})
-(kset :n :<leader>f "vip<leader>q" {:noremap false})
+(kset :n :<leader>e "vip<leader>q" {:noremap false})
 
 (term.setup
   {:size 30

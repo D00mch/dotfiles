@@ -46,7 +46,7 @@ set cursorcolumn
         nnoremap cl mX"9yy"9p`Xj
         "below - paste from buffer
         nnoremap <space>o mXo<C-r><C-o>*<Esc><Esc>`X
-        
+
         "alt p - to paste in edit mode
         noremap! π <C-r><C-o>*
 
@@ -88,13 +88,24 @@ set cursorcolumn
     nnoremap <silent> <space><tab> <cmd>exe v:count ? v:count . 'b' : 'b' . (bufloaded(0) ? '#' : 'n')<cr>
 
     "WINDOWS
-        "alt + w
-        nnoremap ∑ <C-w>
-        nnoremap gh <C-w>h
-        nnoremap gl <C-w>l
-        nnoremap gj <C-w>j
-        nnoremap gk <C-w>k
+        nmap gh <C-w>h
+        nmap gl <C-w>l
+        nmap gj <C-w>j
+        nmap gk <C-w>k
+        nmap gH <C-w>H
+        nmap gL <C-w>L
+        nmap gJ <C-w>J
+        nmap gK <C-w>K
+
+        nmap gal <C-w>v
+        nmap gah <C-w>v<C-w>L
+        nmap gaj <C-w>s
+        nmap gak <C-w>s<C-w>J
+
+        " jump on float window
         nnoremap gw <C-w>w
+        " set the only window
+        nnoremap go :on<Cr>
 
         "RESIZE
         nnoremap ˘ <C-w>5+
@@ -111,8 +122,8 @@ set cursorcolumn
         nnoremap <space>d :BD!<CR>
         nnoremap <space>ab :w <bar> silent %bd! <bar> e# <bar> bd# <CR>
 
-        "alt + x to delete a buffer; cmd+w with karabiner
-        nnoremap ≈ :quit<cr>
+        "alt + w to delete a buffer; cmd+w with karabiner
+        nnoremap ∑ :close<cr>
         imap     ≈ <Esc>≈
 
     "SEARCH

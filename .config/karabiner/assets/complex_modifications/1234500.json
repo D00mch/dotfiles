@@ -92,7 +92,7 @@
       ]
     },
     {
-      "description": "Right cmd + p — =/+",
+      "description": "Right cmd + p — =",
       "manipulators": [
         {
           "type": "basic",
@@ -101,15 +101,36 @@
             "modifiers": {
               "mandatory": [
                 "right_command"
-              ],
-              "optional": [
-                "any"
               ]
             }
           },
           "to": [
             {
               "key_code": "equal_sign"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Right cmd + w — +",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "equal_sign",
+              "modifiers": [
+                "right_shift"
+              ]
             }
           ]
         }

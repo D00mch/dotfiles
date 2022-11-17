@@ -11,7 +11,8 @@
 
 (defn setup-rest []
   (kset :n :<Leader>a :<Plug>RestNvimPreview)
-  (kset :n :<Leader>f :<Plug>RestNvim))
+  (kset :n :<Leader>e :<Plug>RestNvim)
+  (kset :n :<Leader>q :<Plug>RestNvim))
 
 (vim.api.nvim_create_autocmd
   :BufWinEnter

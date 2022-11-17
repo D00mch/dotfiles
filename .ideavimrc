@@ -42,9 +42,6 @@ set ReplaceWithRegister
         
     "SEARCH
         hi Search ctermfg=3
-    "TABS
-        nnoremap gh :action PreviousTab<cr>
-        nnoremap gl :action NextTab<cr>
 
 "SYNTAX
     "INDENTS

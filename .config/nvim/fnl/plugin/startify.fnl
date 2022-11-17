@@ -20,7 +20,7 @@ function! StartifyEntryFormat() abort
 endfunction
   ")
 
-(kset :n "<Leader>m" ":Startify<cr>")
+(kset :n "<Leader><Space>" ":Startify<cr>")
 
 (set nvim.g.startify_lists
      [{:type "sessions"  :header ["    Sessions"]}

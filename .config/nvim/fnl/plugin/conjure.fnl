@@ -6,14 +6,22 @@
 (set nvim.g.conjure#eval#result_register "*")
 (set nvim.g.conjure#log#botright true)
 ;(set nvim.g.conjure#mapping#doc_word "hh") ; K by default
-(set nvim.g.conjure#mapping#eval_visual "q")
-(set nvim.g.conjure#mapping#eval_buf "b")
-(set nvim.g.conjure#mapping#eval_root_form "f")
-(set nvim.g.conjure#mapping#eval_current_form "q")
-(set nvim.g.conjure#mapping#eval_comment_current_form "es")
 (set nvim.g.conjure#extract#tree_sitter#enabled true)
 (set nvim.g.conjure#client#clojure#nrepl#eval#raw_out true)
 (set nvim.g.conjure#eval#inline#prefix "| ")
+
+;; eval
+(set nvim.g.conjure#mapping#eval_visual "q")
+(set nvim.g.conjure#mapping#eval_buf "b")
+(set nvim.g.conjure#mapping#eval_root_form "e")
+(set nvim.g.conjure#mapping#eval_word "w")
+(set nvim.g.conjure#mapping#eval_marked_form "m")
+(set nvim.g.conjure#mapping#eval_current_form "q")
+(set nvim.g.conjure#mapping#eval_file false)
+(set nvim.g.conjure#mapping#eval_replace_form false)
+(set nvim.g.conjure#mapping#eval_comment_word false)
+(set nvim.g.conjure#mapping#eval_comment_root_form false)
+(set nvim.g.conjure#mapping#eval_comment_current_form ";")
 
 (kset [:n :x :i] :<D-l> "<Leader>lg" {:remap true})
 
