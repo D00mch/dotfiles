@@ -8,11 +8,11 @@
             neogit neogit
             {: kset : bkset} util}})
 
-(def toggle-files ::DiffviewToggleFiles<cr>)
+;;; diffview
 
 (def diffview-common-mappings
   {:gf actions.goto_file_tab
-   :¡ toggle-files
+   :¡ ":DiffviewToggleFiles<cr>"
    ::ggn actions.next_conflict
    ::ggp actions.prev_conflict})
 
@@ -57,8 +57,9 @@
         in-annotate? (string.match current-dir "DiffviewFileHistoryPanel$")]
     (vim.api.nvim_command (if in-annotate? "q" "DiffviewFileHistory %"))))
 
-(kset [:n] :<space>gh history-toggle)
-(kset [:x] :<space>gh ":DiffviewFileHistory<cr>" {:noremap false})
+(kset [:n] :<space>gh history-toggle {:desc "Toggle git history"})
+(kset [:x] :<space>gh ":DiffviewFileHistory<cr>" {:desc "Toggle git history"})
+(kset [:n] :<space>gv ":DiffviewOpen" {:desc "DiffviewOpen"})
 
 ;;; neogit
 
