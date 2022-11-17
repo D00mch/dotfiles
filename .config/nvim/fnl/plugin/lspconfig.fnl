@@ -72,29 +72,28 @@
       on_attach
       (fn [client b]
         (highlight-symbols client b)
-        (bkset :n :gd (fn  [] (vim.lsp.buf.definition)) b)
         (bkset :n
                :<leader>h
                (fn [] (vim.lsp.buf.hover) (vim.lsp.buf.hover))
-               b)
-        (bkset :n :gD "<c-w><c-]><c-w>T" b)
-        (bkset :n :<leader>tD (fn [] (vim.lsp.buf.type_definition)) b)
-        (bkset [:i :n] :… (fn [] (vim.lsp.buf.signature_help)) b) ; alt+;
-        (bkset :n :<leader>rr (fn [] (vim.lsp.buf.rename)) b)
-        (bkset :n :<leader>a (fn [] (vim.diagnostic.open_float)))
-        (bkset :n :<leader>re (fn [] (vim.diagnostic.setloclist)))
-        (bkset :n :<leader>r= (fn [] (vim.lsp.buf.formatting)) b)
-        (bkset :n "]s" (fn [] (vim.diagnostic.goto_next)) b)
-        (bkset :n "[s" (fn [] (vim.diagnostic.goto_prev)) b)
-        (bkset :n :<tab> (fn [] (vim.diagnostic.goto_next)) b)
-        (bkset :n :<S-tab> (fn [] (vim.diagnostic.goto_prev)) b)
-        (bkset :n :∫ (fn [] (refs.references)) b) ; alt+b
+               {:buffer b :desc "Show docs"})
+        (bkset :n :gd vim.lsp.buf.definition {:buffer b :desc "Go definition"})
+        (bkset :n :gD "<c-w><c-]><c-w>T" {:buffer b :desc "Go definition new tab"})
+        (bkset :n :<leader>tD vim.lsp.buf.type_definition {:buffer b :desc "Type definition"})
+        (bkset [:i :n] :… vim.lsp.buf.signature_help {:buffer b :desc "Signiture help"}) ; alt+;
+        (bkset :n :<leader>rr vim.lsp.buf.rename {:buffer b :desc "Rename"})
+        (bkset :n :<leader>a vim.diagnostic.open_float {:buffer b :desc "Show diantostics"})
+        (bkset :n :<leader>re vim.diagnostic.setloclist {:buffer b :desc "List diagnostics"})
+        (bkset :n :<leader>r= vim.lsp.buf.formatting {:buffer b :desc "Apply formatting"})
+        (bkset :n "]s" vim.diagnostic.goto_next {:buffer b :desc "Goto next erro"})
+        (bkset :n "[s" vim.diagnostic.goto_prev {:buffer b :desc "Goto prev erro"})
+        (bkset :n :<tab> vim.diagnostic.goto_next {:buffer b :desc "Goto next erro"})
+        (bkset :n :<S-tab> vim.diagnostic.goto_prev {:buffer b :desc "Goto prev erro"})
+        (bkset :n :∫ refs.references {:buffer b :desc "Show refs (Idea)"}) ; alt+b
         ;; TELESCOPE
-        (bkset :n :<leader>gr (fn [] (lsp_references))) ; alt+b
-        (bkset :n :ˆ (fn [] (lsp_implementations))) ; alt+i
-        (bkset [:n :x] :® (fn [] (vim.lsp.buf.code_action)) b) ;; alt+r
-        (bkset [:n :x] :<C-r> (fn [] (vim.lsp.buf.code_action)) b)
-        (bkset [:n :x] :<leader>ra (fn [] (vim.lsp.buf.code_action)) b))
+        (bkset :n :<leader>gr lsp_references {:buffer b :desc "Go to references"}) ; alt+b
+        (bkset :n :ˆ lsp_implementations {:buffer b :desc "Go to implementations"}) ; alt+i
+        (bkset [:n :x] :<C-r> vim.lsp.buf.code_action {:buffer b :desc "Code actions"})
+        (bkset [:n :x] :<leader>ra vim.lsp.buf.code_action {:buffer b :desc "Code actions"}))
       default-map {:on_attach on_attach
                    :handlers handlers
                    :capabilities (cmplsp.default_capabilities)}]
