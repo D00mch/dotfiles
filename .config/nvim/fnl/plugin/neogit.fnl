@@ -6,7 +6,7 @@
             {: merge} aniseed.core
             {: toggle} plugin.which
             neogit neogit
-            {: kset : bkset} util}})
+            {: kset : bkset : vis-op} util}})
 
 ;;; diffview
 
@@ -106,23 +106,22 @@
                              :delay 1000}
    :on_attach
    (fn [b]
-     (bkset :n :gn (fn [] (vim.schedule gs.next_hunk)) {:buffer b :desc "Next hunk"})
-     (bkset :n :gp (fn [] (vim.schedule gs.prev_hunk)) {:buffer b :desc "Prev hunk"})
+     (bkset :n :gn (fn [] (vim.schedule gs.next_hunk)) {:buffer b :desc "Gitsigns next"})
+     (bkset :n :gp (fn [] (vim.schedule gs.prev_hunk)) {:buffer b :desc "Gitsigns prev"})
+     (bkset :n :gs gs.stage_hunk {:buffer b :desc "Gitsigns stage hunk"})
+     (bkset :x :gs (vis-op gs.stage_hunk) {:buffer b :desc "Gitsigns stage hunk"})
 
-     (bkset :n :gS (fn [] (vim.schedule gs.stage_buffer)) {:buffer b :desc "Stage buffer"})
-     (bkset [:n :x] :gs gs.stage_hunk {:buffer b :desc "Stage hunk"})
-     (bkset :n :gus gs.undo_stage_hunk {:buffer b :desc "Undo staged hunk"})
-     (bkset [:n :x] :gx gs.reset_hunk {:buffer b :desc "Reset hunk"})
-     (bkset :n :gb (fn [] (gs.blame_line {:full true})) {:buffer b :desc "Gitsigns blame"})
-
-     ;; preview
+     (bkset :n :<Space>gS (fn [] (vim.schedule gs.stage_buffer)) {:buffer b :desc "Gitsigns stage buffer"})
+     (bkset :n :<Space>gr gs.reset_hunk {:buffer b :desc "Gitsigns stage hunk"})
+     (bkset :x :<Space>gr (vis-op gs.reset_hunk) {:buffer b :desc "Gitsigns stage hunk"})
+     (bkset :n :<Space>gu gs.undo_stage_hunk {:buffer b :desc "Gitsigns undo staged"})
+     (bkset :n :<Space>gm (fn [] (gs.blame_line {:full true})) {:buffer b :desc "Gitsigns blame message"})
      (bkset :n :<Space>gl (fn [] (gs.toggle_current_line_blame)) {:buffer b :desc "Gitsigns blame line"})
      (bkset :n :<Space>gd gs.diffthis {:buffer b :desc "Gitsigns diff"})
-     (bkset :n :<Space>gm (fn [] (gs.diffthis "~")) {:buffer b :desc "Gitsigns diff unmerged"})
 
      ;; toggle
      (toggle :g "gitsigns" gitsigns)
-     (bkset :n :gt gitsigns))})
+     (bkset :n :<Space>gt gitsigns))})
 
 ;; code in case they don't approve my pr https://github.com/TimUntersberger/neogit/pull/375
 ; (def group (vim.api.nvim_create_augroup :MyCustomNeogitEvents {:clear true}))
