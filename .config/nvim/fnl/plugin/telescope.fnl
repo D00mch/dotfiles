@@ -30,7 +30,7 @@
                    :<Right> actions.preview_scrolling_down
                    :<Left>  actions.preview_scrolling_up
                    :t       actions.select_tab}
-               :i {:≈       actions.close           ; alt+x
+               :i {:∑       actions.close           ; alt+x
                    :?       actions.which_key
                    :<Right> actions.preview_scrolling_down
                    :<Left>  actions.preview_scrolling_up
