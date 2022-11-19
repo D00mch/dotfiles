@@ -123,6 +123,15 @@ set cursorcolumn
         nnoremap <space>d :BD!<CR>
         nnoremap <space>ab :w <bar> silent %bd! <bar> e# <bar> bd# <CR>
 
+        "go to previous tab when current one is closed
+        let s:prevtabnum=tabpagenr('$')
+        augroup TabClosed
+            autocmd! TabEnter * :if tabpagenr('$')<s:prevtabnum && tabpagenr()>1
+                        \       |   tabprevious
+                        \       |endif
+                        \       |let s:prevtabnum=tabpagenr('$')
+        augroup END
+
         "alt + w to delete a buffer; cmd+w with karabiner
         nnoremap ∑ :close<cr>
         imap     ≈ <Esc>≈
