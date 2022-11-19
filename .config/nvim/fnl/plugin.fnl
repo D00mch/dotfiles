@@ -79,6 +79,7 @@
                           :requires [:williamboman/mason.nvim
                                      :wiliamks/nice-reference.nvim ; cmd+b like in idea
                                      :barreiroleo/ltex-extra.nvim  ; ltex code actions
+                                     :jose-elias-alvarez/null-ls.nvim
                                      :rmagatti/goto-preview]}
 
   ;; autocomplete
