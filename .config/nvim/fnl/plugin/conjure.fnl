@@ -17,11 +17,12 @@
 (set nvim.g.conjure#mapping#eval_word "w")
 (set nvim.g.conjure#mapping#eval_marked_form "m")
 (set nvim.g.conjure#mapping#eval_current_form "q")
+(set nvim.g.conjure#mapping#eval_comment_current_form ";")
+(set nvim.g.conjure#client#clojure#nrepl#mapping#interrupt "i")
 (set nvim.g.conjure#mapping#eval_file false)
 (set nvim.g.conjure#mapping#eval_replace_form false)
 (set nvim.g.conjure#mapping#eval_comment_word false)
 (set nvim.g.conjure#mapping#eval_comment_root_form false)
-(set nvim.g.conjure#mapping#eval_comment_current_form ";")
 
 (kset [:n :x :i] :<D-l> "<Leader>lg" {:remap true})
 

@@ -103,9 +103,9 @@ set cursorcolumn
         nmap gak <C-w>s<C-w>J
 
         " jump on float window
-        nnoremap gw <C-w>w
-        " set the only window
-        nnoremap go :on<Cr>
+        nmap gw <C-w>w
+        nmap go :on<Cr>
+        nmap g= <C-w>=
 
         "RESIZE
         nnoremap ˘ <C-w>5+

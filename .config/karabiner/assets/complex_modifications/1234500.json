@@ -101,6 +101,9 @@
             "modifiers": {
               "mandatory": [
                 "right_command"
+              ],
+              "optional": [
+                "any"
               ]
             }
           },
