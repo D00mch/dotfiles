@@ -133,7 +133,7 @@ set cursorcolumn
         augroup END
 
         "alt + w to delete a buffer; cmd+w with karabiner
-        nnoremap ∑ :close<cr>
+        nnoremap ∑ :q<cr>
         imap     ≈ <Esc>≈
 
     "SEARCH
