@@ -3,15 +3,14 @@
              lsp lspconfig
              refs nice-reference
              {: kset : bkset} util
+             {: kset : bkset : vis-op+} util
              telescope  telescope
-             {: assoc : update} aniseed.core
+             {: merge : update : first} aniseed.core
              {: lsp_references : lsp_implementations} telescope.builtin
              flut flutter-tools
              mason mason
              preview goto-preview
              cmplsp cmp_nvim_lsp}})
-
-(def- map nvim.buf_set_keymap)
 
 ;preview
 (preview.setup {:height 25
@@ -22,11 +21,9 @@
 (mason.setup)
 ;(installer.setup {:ensure_installed [:clojure_lsp :jdtls :kotlin_language_server]})
 
-(vim.diagnostic.config {:float {:source true}})
-
 (set vim.o.updatetime 250)
 
-(defn highlight-line-symbol []
+(defn- highlight-line-symbol []
   ;; highlight line number instead of having icons in sigh column
   (vim.cmd "
     highlight! DiagnosticLineNrError guibg=#51202A guifg=#FF0000 gui=bold
@@ -53,14 +50,16 @@
                                   :buffer bufnr
                                   :callback vim.lsp.buf.clear_references})))
 
-(let [handlers {"textDocument/publishDiagnostics"
-                (vim.lsp.with
-                  vim.lsp.diagnostic.on_publish_diagnostics
-                  {:severity_sort true
+(def- diagnostics {:severity_sort true
                    :update_in_insert false
                    :underline true
                    :signs true
                    :virtual_text false})
+
+(def- handlers {"textDocument/publishDiagnostics"
+                (vim.lsp.with
+                  vim.lsp.diagnostic.on_publish_diagnostics
+                  diagnostics)
                 "textDocument/hover"
                 (vim.lsp.with
                   vim.lsp.handlers.hover
@@ -68,52 +67,54 @@
                 "textDocument/signatureHelp"
                 (vim.lsp.with
                   vim.lsp.handlers.signature_help
-                  {:border "single"})}
-      on_attach
-      (fn [client b]
-        (highlight-symbols client b)
-        (bkset :n
-               :<leader>h
-               (fn [] (vim.lsp.buf.hover) (vim.lsp.buf.hover))
-               {:buffer b :desc "Show docs"})
-        (bkset :n :gd vim.lsp.buf.definition {:buffer b :desc "Go definition"})
-        (bkset :n :gD "<c-w><c-]><c-w>T" {:buffer b :desc "Go definition new tab"})
-        (bkset :n :<leader>tD vim.lsp.buf.type_definition {:buffer b :desc "Type definition"})
-        (bkset [:i :n] :… vim.lsp.buf.signature_help {:buffer b :desc "Signiture help"}) ; alt+;
-        (bkset :n :<leader>rr vim.lsp.buf.rename {:buffer b :desc "Rename"})
-        (bkset :n :<leader>a vim.diagnostic.open_float {:buffer b :desc "Show diantostics"})
-        (bkset :n :<leader>re vim.diagnostic.setloclist {:buffer b :desc "List diagnostics"})
-        (bkset :n :<leader>r= vim.lsp.buf.formatting {:buffer b :desc "Apply formatting"})
-        (bkset :n "]s" vim.diagnostic.goto_next {:buffer b :desc "Goto next erro"})
-        (bkset :n "[s" vim.diagnostic.goto_prev {:buffer b :desc "Goto prev erro"})
-        (bkset :n :<tab> vim.diagnostic.goto_next {:buffer b :desc "Goto next erro"})
-        (bkset :n :<S-tab> vim.diagnostic.goto_prev {:buffer b :desc "Goto prev erro"})
-        (bkset :n :∫ refs.references {:buffer b :desc "Show refs (Idea)"}) ; alt+b
-        ;; TELESCOPE
-        (bkset :n :<leader>gr lsp_references {:buffer b :desc "Go to references"}) ; alt+b
-        (bkset :n :ˆ lsp_implementations {:buffer b :desc "Go to implementations"}) ; alt+i
-        (bkset [:n :x] :<C-r> vim.lsp.buf.code_action {:buffer b :desc "Code actions"})
-        (bkset [:n :x] :<leader>ra vim.lsp.buf.code_action {:buffer b :desc "Code actions"}))
-      default-map {:on_attach on_attach
+                  {:border "single"})})
+
+(defn- on_attach [client b]
+  (highlight-symbols client b)
+  (bkset :n
+         :<leader>h
+         (fn [] (vim.lsp.buf.hover) (vim.lsp.buf.hover))
+         {:buffer b :desc "Show docs"})
+  (bkset :n :gd vim.lsp.buf.definition {:buffer b :desc "Go definition"}) ;[
+  (bkset :n :gD "<c-w><c-]><c-w>T" {:buffer b :desc "Go definition new tab"})
+  (bkset :n :<leader>tD vim.lsp.buf.type_definition {:buffer b :desc "Type definition"})
+  (bkset [:i :n] :… vim.lsp.buf.signature_help {:buffer b :desc "Signiture help"}) ; alt+;
+  (bkset :n :<leader>rr vim.lsp.buf.rename {:buffer b :desc "Rename"})
+  (bkset :n :<leader>a vim.diagnostic.open_float {:buffer b :desc "Show diantostics"})
+  (bkset :n :<leader>re vim.diagnostic.setloclist {:buffer b :desc "List diagnostics"})
+  (bkset :n :<leader>= ":lua vim.lsp.buf.format({async = true})<Cr>" {:buffer b :desc "Apply formatting"}) ;[
+  (bkset :x :<leader>= (vis-op+ vim.lsp.buf.format {:async true}) {:buffer b :desc "Apply formatting"})
+  (bkset :n "]s" vim.diagnostic.goto_next {:buffer b :desc "Goto next erro"})
+  (bkset :n "[s" vim.diagnostic.goto_prev {:buffer b :desc "Goto prev erro"}) ;]
+  (bkset :n :<tab> vim.diagnostic.goto_next {:buffer b :desc "Goto next erro"})
+  (bkset :n :<S-tab> vim.diagnostic.goto_prev {:buffer b :desc "Goto prev erro"})
+  (bkset :n :∫ refs.references {:buffer b :desc "Show refs (Idea)"}) ; alt+b
+  ;; TELESCOPE
+  (bkset :n :<leader>gr lsp_references {:buffer b :desc "Go to references"}) ; alt+b
+  (bkset :n :ˆ lsp_implementations {:buffer b :desc "Go to implementations"}) ; alt+i
+  (bkset [:n :x] :<C-r> vim.lsp.buf.code_action {:buffer b :desc "Code actions"})
+  (bkset [:n :x] :<leader>ra vim.lsp.buf.code_action {:buffer b :desc "Code actions"}))
+
+(def- default-map {:on_attach on_attach
                    :handlers handlers
-                   :capabilities (cmplsp.default_capabilities)}]
+                   :capabilities (cmplsp.default_capabilities)})
 
-  (lsp.clojure_lsp.setup default-map)
-  (lsp.jdtls.setup default-map)
-  (lsp.kotlin_language_server.setup default-map)
-  (lsp.racket_langserver.setup default-map)
-  (lsp.ltex.setup (assoc default-map
-                         :filetypes ["markdown" "NeogitCommitMessage"]))
+(lsp.clojure_lsp.setup default-map)
+(lsp.jdtls.setup default-map)
+(lsp.kotlin_language_server.setup default-map)
+(lsp.racket_langserver.setup default-map)
 
-  (flut.setup
-    {:lsp
-     {:closing_tags {:highlight "ErrorMsg"
-                     :prefix ">"
-                     :enabled true}
-      :handlers handlers
-      :capabilities capabilities
-      :on_attach
-      (fn [client b]
-        (on_attach client b)
-        (bkset [:n] :<leader>fa (fn [] (telescope.extensions.flutter.commands)) b)
-        (telescope.load_extension "flutter"))}}))
+(lsp.ltex.setup default-map)
+
+(flut.setup
+  {:lsp
+   {:closing_tags {:highlight "ErrorMsg"
+                   :prefix ">"
+                   :enabled true}
+    :handlers handlers
+    :capabilities capabilities
+    :on_attach
+    (fn [client b]
+      (on_attach client b)
+      (bkset [:n] :<leader>fa (fn [] (telescope.extensions.flutter.commands)) b)
+      (telescope.load_extension "flutter"))}})
