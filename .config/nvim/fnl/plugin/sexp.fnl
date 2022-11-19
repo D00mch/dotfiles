@@ -13,11 +13,15 @@
       :sexp_emit_tail_element         :<space>kb
       :sexp_emit_head_element         :<space>kB
 
-      :sexp_round_head_wrap_element   :<Leader>f 
-      :sexp_square_head_wrap_element  ""
-      :sexp_square_tail_wrap_element  ""
-      :sexp_curly_head_wrap_element   ""
-      :sexp_curly_tail_wrap_element   ""
+      :sexp_round_head_wrap_element   :<leader>f 
+      :sexp_square_head_wrap_element  "<leader>["
+      :sexp_square_tail_wrap_element  "<leader>]"
+      :sexp_curly_head_wrap_element   "<leader>{"
+      :sexp_curly_tail_wrap_element   "<leader>}"
+      :sexp_square_head_wrap_list     ""
+      :sexp_square_tail_wrap_list     ""
+      :sexp_curly_head_wrap_list      ""
+      :sexp_curly_tail_wrap_list      ""
 
       ;; move
       :sexp_move_to_next_element_tail :<space>mr
