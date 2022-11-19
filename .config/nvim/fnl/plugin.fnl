@@ -109,3 +109,5 @@
   :airblade/vim-rooter {:mod :rooter}
   :folke/which-key.nvim {:mod :which}
   :https://gitlab.com/madyanov/svart.nvim {:mod :svart})
+
+; (do (vim.cmd "AniseedEvalFile") (vim.cmd "PackerSync"))
