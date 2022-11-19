@@ -78,6 +78,7 @@
   :neovim/nvim-lspconfig {:mod :lspconfig
                           :requires [:williamboman/mason.nvim
                                      :wiliamks/nice-reference.nvim ; cmd+b like in idea
+                                     :barreiroleo/ltex-extra.nvim  ; ltex code actions
                                      :rmagatti/goto-preview]}
 
   ;; autocomplete

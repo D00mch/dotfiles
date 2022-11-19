@@ -1,6 +1,7 @@
 (module plugin.lspconfig
   {autoload {nvim aniseed.nvim
              lsp lspconfig
+             ltex ltex_extra
              refs nice-reference
              {: kset : bkset} util
              {: kset : bkset : vis-op+} util
@@ -104,7 +105,17 @@
 (lsp.kotlin_language_server.setup default-map)
 (lsp.racket_langserver.setup default-map)
 
-(lsp.ltex.setup default-map)
+(lsp.ltex.setup
+  (merge default-map
+         {:on_attach (fn [client b]
+                       (on_attach client b)
+                       (ltex.setup
+                         {:load_langs [:en-US]
+                          :init_check true
+                          :path (.. (vim.fn.expand "~") "/.config/nvim/data/ltex")
+                          :log_level :debug}))
+          :filetypes ["markdown" "NeogitCommitMessage"]
+          :settings {:ltex {}}}))
 
 (flut.setup
   {:lsp
