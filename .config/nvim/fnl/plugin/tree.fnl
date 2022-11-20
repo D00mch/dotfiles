@@ -45,7 +45,7 @@
              :action    "`live-grep` the node"
              :action_cb (fn [opts] 
                           (launch-telescope "live_grep" opts))}
-            {:key :G :action :cd}
+            {:key :D :action :cd}
             {:key :M :action :bulk_move}
             {:key :q :action ""} ;; unmap
             {:key :s :action :split}
