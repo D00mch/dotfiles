@@ -8,3 +8,4 @@ VALERIYA
 icloud
 Alesya
 Dotfiles
+Wezterm

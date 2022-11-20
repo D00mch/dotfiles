@@ -260,7 +260,8 @@
                 "^com.neovide.neovide$",
                 "^com.apple.Terminal$",
                 "^com.googlecode.iterm2$",
-                "^co.zeit.hyper$"
+                "^co.zeit.hyper$",
+                "^com.github.wez.wezterm$"
               ]
             }
           ]
@@ -291,7 +292,8 @@
                 "^com.neovide.neovide$",
                 "^com.apple.Terminal$",
                 "^com.googlecode.iterm2$",
-                "^co.zeit.hyper$"
+                "^co.zeit.hyper$",
+                "^com.github.wez.wezterm$"
               ]
             }
           ]
@@ -378,7 +380,8 @@
                 "^com.neovide.neovide$",
                 "^com.apple.Terminal$",
                 "^com.googlecode.iterm2$",
-                "^co.zeit.hyper$"
+                "^co.zeit.hyper$",
+                "^com.github.wez.wezterm$"
               ]
             }
           ]
@@ -465,7 +468,8 @@
                 "^com.neovide.neovide$",
                 "^com.apple.Terminal$",
                 "^com.googlecode.iterm2$",
-                "^co.zeit.hyper$"
+                "^co.zeit.hyper$",
+                "^com.github.wez.wezterm$"
               ]
             }
           ]
@@ -496,7 +500,8 @@
                 "^com.neovide.neovide$",
                 "^com.apple.Terminal$",
                 "^com.googlecode.iterm2$",
-                "^co.zeit.hyper$"
+                "^co.zeit.hyper$",
+                "^com.github.wez.wezterm$"
               ]
             }
           ]
@@ -535,7 +540,8 @@
                 "^com.googlecode.iterm2$",
                 "^com.jetbrains.intellij.ce$",
                 "^com.google.android.studio$",
-                "^co.zeit.hyper$"
+                "^co.zeit.hyper$",
+                "^com.github.wez.wezterm$"
               ]
             }
           ]
@@ -569,7 +575,8 @@
                 "^com.googlecode.iterm2$",
                 "^com.jetbrains.intellij.ce$",
                 "^com.google.android.studio$",
-                "^co.zeit.hyper$"
+                "^co.zeit.hyper$",
+                "^com.github.wez.wezterm$"
               ]
             }
           ]
@@ -608,7 +615,8 @@
                 "^com.googlecode.iterm2$",
                 "^com.jetbrains.intellij.ce$",
                 "^com.google.android.studio$",
-                "^co.zeit.hyper$"
+                "^co.zeit.hyper$",
+                "^com.github.wez.wezterm$"
               ]
             }
           ]
@@ -642,7 +650,8 @@
                 "^com.googlecode.iterm2$",
                 "^com.jetbrains.intellij.ce$",
                 "^com.google.android.studio$",
-                "^co.zeit.hyper$"
+                "^co.zeit.hyper$",
+                "^com.github.wez.wezterm$"
               ]
             }
           ]

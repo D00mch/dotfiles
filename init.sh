@@ -12,6 +12,7 @@ ln    -s   $DOTFILES_PATH/fuz.sh                     ~/
 ln    -s   $DOTFILES_PATH/.yabairc                   ~/ 
 ln    -s   $DOTFILES_PATH/.skhdrc                    ~/ 
 ln    -s   $DOTFILES_PATH/.clojure                   ~/ 
+ln    -s   $DOTFILES_PATH/.wezterm.lua               ~/ 
 
 touch      ~/.ssh-aliases.sh # zshrc source it
 
