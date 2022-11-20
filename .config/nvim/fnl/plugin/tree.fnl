@@ -9,8 +9,7 @@
 
 (kset :n "<space>pt" ":NvimTreeFindFileToggle<cr>")
 
-(kset :n "¡" ":NvimTreeFindFileToggle<cr>") ; alt+1
-(kset :i "¡" "<Esc>¡" {:noremap false})
+(kset :n :<Space>1 ":NvimTreeFindFileToggle<cr>")
 
 (defn view-selection [prompt-funr map]
   (actions.select_default:replace

@@ -12,7 +12,7 @@
 
 (def diffview-common-mappings
   {:gf actions.goto_file_tab
-   :¡ ":DiffviewToggleFiles<cr>"
+   :<Space>1 ":DiffviewToggleFiles<cr>"
    ::ggn actions.next_conflict
    ::ggp actions.prev_conflict})
 
@@ -81,8 +81,7 @@
                             in-git? "q"
                             "Neogit"))))
 
-(vim.keymap.set [:n :x :i] :ª neogit-toggle) ;; alt+9, (mapped to cmd+9 with karabiner)
-(kset [:i] :ª "<Esc>ª" {:noremap false})     ;; alt+9
+(vim.keymap.set [:n :x] :<Space>9 neogit-toggle {:desc "Toggle NeoGit"})
 
 ;;; fugitive
 

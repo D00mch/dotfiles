@@ -14,8 +14,8 @@
 (kset [:n :t :x] :ˇ (fn [] (vim.cmd "Undoquit")))
 
 (for [i 1 8]
-  (kset :n (.. :<leader> i) (.. i :gt)))
-(kset :n :<leader>9 (fn [] (bufferline.go_to_buffer -1 true)))
+  (kset :n (.. "<D-" i ">") (.. i :gt)))
+(kset :n :<D-9> (fn [] (bufferline.go_to_buffer -1 true)))
 
 (bufferline.setup
   {:options {:mode :tabs
