@@ -2,6 +2,7 @@
   {require {nvim aniseed.nvim
             str aniseed.string
             fox nightfox
+            auto auto-dark-mode
             {: toggle} plugin.which
             {: kset} util}})
 
@@ -32,3 +33,11 @@
 
 (kset :n :<Space>+ (fn [] (font-size! 1)))
 (kset :n :<Space>- (fn [] (font-size! -1)))
+
+;;; autodark
+
+(auto.setup
+  {:update_interval 2000
+   :set_dark_mode (fn [] (set-theme true))
+   :set_light_mode (fn [] (set-theme false))})
+(auto.init)

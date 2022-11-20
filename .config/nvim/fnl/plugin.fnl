@@ -59,6 +59,7 @@
   :rose-pine/neovim {}
   :sainnhe/everforest {}
   :Yazeed1s/oh-lucy.nvim {}
+  :f-person/auto-dark-mode.nvim {}
 
   ;; telescope
   :nvim-telescope/telescope.nvim {:mod :telescope
