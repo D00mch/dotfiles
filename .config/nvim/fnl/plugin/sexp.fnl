@@ -1,10 +1,10 @@
 (module plugin.sexp
   {require {nvim aniseed.nvim
+            {: some} aniseed.core
             {: toggle} plugin.which
             {: kset} util}})
 
 (set nvim.g.sexp_filetypes "*")
-(set nvim.g.sexp_enable_insert_mode_mappings 1)
 (set nvim.g.sexp_insert_after_wrap 0) ;do not insert spaces
 
 (set nvim.g.sexp_mappings
@@ -42,3 +42,15 @@
       :sexp_swap_element_forward      :<C-l>})
 
 (kset [:n] "<Leader>c" :gcaf {:remap true})
+
+(def lisps [:clojure :scheme :lisp :cl :timl :fennel :janet])
+
+(vim.api.nvim_create_autocmd
+  "Filetype"
+  {:pattern :*
+   :callback 
+   (fn []
+     (set nvim.g.sexp_enable_insert_mode_mappings  
+          (if (some (fn [v] (= vim.bo.filetype v)) lisps)
+            1
+            0)))})
