@@ -37,6 +37,7 @@
   :Olical/conjure {:branch :master :mod :conjure}
   :wlangstroth/vim-racket {:ft [:scheme :racket]}
   :akinsho/toggleterm.nvim {:mod :terminal}
+  :samjwill/nvim-unception {} ; no nesting vim sessions.
   :rest-nvim/rest.nvim {:mod :rest}
 
   ;; sexp
