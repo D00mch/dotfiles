@@ -155,4 +155,6 @@
           :sources (let [diagnostics {:diagnostic_config diagnostics
                                       :diagnostics_format "[#{c}] #{m} (#{s})"}]
                      [null-ls.builtins.hover.dictionary
+                      (null-ls.builtins.formatting.pg_format.with ;; install `pgformatter`
+                        {:extra_args ["-s" "2"]})
                       (null-ls.builtins.diagnostics.alex.with diagnostics)])}))
