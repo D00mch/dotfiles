@@ -19,4 +19,6 @@ wezterm.on("window-config-reloaded", function(window, pane)
 end)
 
 return {
+    font = wezterm.font('Hack Nerd Font Mono', { weight = 'Bold' }),
+    font_size = 14
 }
