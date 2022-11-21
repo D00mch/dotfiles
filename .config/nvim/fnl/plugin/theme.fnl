@@ -41,3 +41,6 @@
    :set_dark_mode (fn [] (set-theme true))
    :set_light_mode (fn [] (set-theme false))})
 (auto.init)
+
+;;; removing ~ shit
+(set vim.opt.fillchars { :eob " "})
