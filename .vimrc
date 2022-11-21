@@ -49,7 +49,6 @@ set cursorcolumn
 
         "alt p - to paste in edit mode
         noremap! π <C-r><C-o>*
-        noremap! <D-v> <C-r><C-o>*
 
     "SAVING
         "alt + q

@@ -83,6 +83,7 @@
   (bkset :n :gD "<c-w><c-]><c-w>T" {:buffer b :desc "Go definition new tab"})
   (bkset :n :<leader>tD vim.lsp.buf.type_definition {:buffer b :desc "Type definition"})
   (bkset [:i :n] :… vim.lsp.buf.signature_help {:buffer b :desc "Signiture help"}) ; alt+;
+  (bkset [:i :n] "<D-;>" vim.lsp.buf.signature_help {:buffer b :desc "Signiture help"})
   (bkset :n :<leader>rr vim.lsp.buf.rename {:buffer b :desc "Rename"})
   (bkset :n :<leader>a vim.diagnostic.open_float {:buffer b :desc "Show diantostics"})
   (bkset :n :<leader>re vim.diagnostic.setloclist {:buffer b :desc "List diagnostics"})
@@ -95,6 +96,7 @@
   (bkset :n :∫ refs.references {:buffer b :desc "Show refs (Idea)"}) ; alt+b
   ;; TELESCOPE
   (bkset :n :<leader>gr lsp_references {:buffer b :desc "Go to references"}) ; alt+b
+  (bkset :n :<D-b> lsp_references {:buffer b :desc "Go to references"}) ; alt+b
   (bkset :n :ˆ lsp_implementations {:buffer b :desc "Go to implementations"}) ; alt+i
   (bkset [:n :x] :<C-r> vim.lsp.buf.code_action {:buffer b :desc "Code actions"})
   (bkset [:n :x] :<leader>ra vim.lsp.buf.code_action {:buffer b :desc "Code actions"}))

@@ -8,8 +8,9 @@
 (kset [:i :t :n] :<C-t> ":BufferLineCyclePrev<Cr>") ;; karabiner: cmd >
 (kset [:n :t] ">>" ":tabmove +1<cr>")
 (kset [:n :t] "<<" ":tabmove -1<cr>")
-; alt + t; cmd + t with karabiner
+; alt + t
 (kset [:n :t :x] :† (fn [] (vim.cmd "tabnew\nStartify")))
+(kset [:n :t :x] :<D-t> :† {:remap true})
 ; alt + shift + t; cmd + shift + t with karabiner
 (kset [:n :t :x] :ˇ (fn [] (vim.cmd "Undoquit")))
 

@@ -1,5 +1,4 @@
 # open finder
-cmd - m : open ~/.
 cmd - g : open /Applications/Neovide.app -n
 
 # theme

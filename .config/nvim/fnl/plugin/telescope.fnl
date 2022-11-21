@@ -36,23 +36,26 @@
                    :<Left>  actions.preview_scrolling_up
                    :∂       actions.delete_buffer   ; alt + d
                    :†       actions.select_tab      ; alt + t
+                   :<D-t>   actions.select_tab
                    :Ã·      actions.which_key}}}    ; alt + ?
    :pickers {:git_branches {:mappings
                             {:n {:<Cr>  actions.git_switch_branch
                                  :ga    actions.git_create_branch
                                  :gh    actions.git_reset_hard
                                  :gs    actions.git_reset_soft
-                                 :gm    actions.git_merge_branch
+                                 :<D-m>   actions.git_merge_branch
                                  :gd    actions.git_delete_branch
                                  :gr    actions.git_rebase_branch}
                              :i {:<Cr>  actions.git_switch_branch
-                                 :<C-∂> actions.git_delete_branch
+                                 :∂     actions.git_delete_branch  ; alt + d
                                  :<C-a> actions.git_create_branch
-                                 :å     actions.git_create_branch  ; cmd + a
+                                 :å     actions.git_create_branch  ; alt + a
+                                 :<D-a> actions.git_create_branch
                                  :<C-h> actions.git_reset_hard
                                  :<C-s> actions.git_reset_soft
                                  :<C-m> actions.git_merge_branch
-                                 :∫     actions.git_rebase_branch
+                                 :<C-b> actions.git_rebase_branch
+                                 :<D-b> actions.git_rebase_branch
                                  :<C-r> actions.git_rebase_branch}}}
              :git_commits  {:mappings
                             {:n {:h actions.git_reset_hard}

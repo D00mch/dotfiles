@@ -14,6 +14,29 @@
 ;; open Help in full window
 (vim.api.nvim_command "command! -nargs=1 -complete=help H help <args> | silent only")
 
+;; cmd
+
+(kset :x :<D-c> :y)
+
+(kset :n :<D-v> :p)
+(kset [:i :t :c] :<D-v> :<C-r><C-o>* {:remap true})
+
+(kset :n :<D-s> ":w<Cr>")
+(kset :i :<D-s> :<Esc>:w<CR>a)
+
+(kset :n :<D-a> :ggVG)
+(kset :x :<D-a> :<Esc>ggVG)
+(kset :i :<D-a> :<Esc><D-a> {:remap true})
+(kset :c :<D-a> :<C-f><Esc><D-a> {:remap true})
+
+(kset [:n :x] :<D-w> ":q<Cr>")
+(kset :i :<D-w> :<Esc><D-w> {:remap true})
+(kset :c :<D-w> :<Esc><Esc>)
+
+(kset :n :<D-z> :u)
+(kset :x :<D-z> :<Esc>ugv)
+(kset :i :<D-z> :<Esc><D-z>a {:remap true})
+
 ;; terminal, go in normal mode
 (kset :t "®" "<C-\\><C-n>") ; alt+r
 (kset :t "π" "<Esc>pa") ; alt+p to paste (karabiner map cmd+v to alt+p for vims)
