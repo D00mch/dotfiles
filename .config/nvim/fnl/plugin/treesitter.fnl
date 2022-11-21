@@ -9,7 +9,7 @@
   {:ensure_installed [:java :lua :yaml :bash :kotlin
                       :clojure :fennel :scheme :racket
                       :markdown :markdown_inline
-                      :http :json ]
+                      :http :json :sql]
    :highlight {:enable true
                ;:additional_vim_regex_highlighting true
                }
