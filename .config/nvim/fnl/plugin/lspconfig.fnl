@@ -22,7 +22,7 @@
 
 (mason.setup)
 ; (installer.setup {:ensure_installed [:clojure_lsp :jdtls :kotlin_language_server
-;                                      :sqlfluff :codespell :alex ;; null-ls
+;                                      :codespell :alex ;; null-ls
 ;                                      :ltex-ls]})
 
 (set vim.o.updatetime 250)
@@ -140,7 +140,7 @@
     key
     (.. "Null_ls: " source)
     (fn []
-      (let [source (null-ls.get_source {:name "sql"})]
+      (let [source (null-ls.get_source {:name source})]
         (if (. (first source) :_disabled)
           (null-ls.enable source)
           (null-ls.disable source))))))
@@ -150,13 +150,9 @@
          {:on_attach (fn [c b]
                        (on_attach c b)
                        (highlight-symbols c b)
-                       (null-toggle :sql :s)
                        (null-toggle :alex :a)
                        (vim.api.nvim_buf_set_option b :formatexpr ""))
           :sources (let [diagnostics {:diagnostic_config diagnostics
-                                      :diagnostics_format "[#{c}] #{m} (#{s})"}
-                         sql-fluf (merge diagnostics {:extra_args ["--dialect" "postgres"]})]
+                                      :diagnostics_format "[#{c}] #{m} (#{s})"}]
                      [null-ls.builtins.hover.dictionary
-                      (null-ls.builtins.diagnostics.sqlfluff.with sql-fluf)
-                      (null-ls.builtins.formatting.sqlfluff.with sql-fluf)
                       (null-ls.builtins.diagnostics.alex.with diagnostics)])}))
