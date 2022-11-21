@@ -4,8 +4,8 @@
             {: kset} util}})
 
 ;; tabs
-(kset [:i :t :n] :<C-y> :<Esc>gt) ;; karabiner: cmd <
-(kset [:i :t :n] :<C-t> :<Esc>gT) ;; karabiner: cmd >
+(kset [:i :t :n] :<C-y> ":BufferLineCycleNext<Cr>") ;; karabiner: cmd <
+(kset [:i :t :n] :<C-t> ":BufferLineCyclePrev<Cr>") ;; karabiner: cmd >
 (kset [:n :t] ">>" ":tabmove +1<cr>")
 (kset [:n :t] "<<" ":tabmove -1<cr>")
 ; alt + t; cmd + t with karabiner
