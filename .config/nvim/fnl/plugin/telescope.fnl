@@ -94,7 +94,7 @@
 (kset :n :<space>pp ":Telescope project display_type=minimal<cr>") ;; full
 (kset :n :<space>ff ":Telescope file_browser<cr>")
 
-(kset :n :<space>vm ":Telescope keymaps<cr>")
+(kset :n :<space>vk ":Telescope keymaps<cr>")
 (kset :n :<space>vc ":Telescope colorscheme<cr>")
 (kset :n :<space>v:":Telescope commands<cr>")
 (kset :n :<space>vo":Telescope vim_options<cr>")
