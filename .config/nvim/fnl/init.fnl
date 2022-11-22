@@ -120,7 +120,7 @@
       (string.format ftype ftype)
       vim.cmd)))
 
-(kset [:x] :<Space>cb compare-to-clipboard {:desc "compare to clipboard"})
+(kset [:x] :<Space>cd compare-to-clipboard {:desc "Clipboard Diff"})
 
 ;; multicursor
 (kset :n :cn "*``cgn")
