@@ -99,7 +99,7 @@
   :AndrewRadev/undoquit.vim {}
   :qpkorr/vim-bufkill {}
   :mhinz/vim-startify {:mod :startify}
-  :terrortylor/nvim-comment {:mod :comment}
+  :tpope/vim-commentary {}
   :tpope/vim-fugitive {:mod :fugitive}
   :TimUntersberger/neogit {:requires [:nvim-lua/plenary.nvim
                                       :sindrets/diffview.nvim
