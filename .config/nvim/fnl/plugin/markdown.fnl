@@ -67,9 +67,6 @@
   (bkset :x := :gq)
   (bkset :n :g= :vapgq)
 
-  (bkset :n :<Cr> :o) ;; unmap follow-md-links <Cr>
-  (bkset :n :gd ":lua require('follow-md-links').follow_link()<cr>")
-
   (setup-pensil)
   (setup-quote)
 
