@@ -88,16 +88,23 @@
 (telescope.load_extension :project)
 
 (kset :n :<space>pf ":Telescope find_files hidden=true no_ignore=false<cr>")
+(kset :n :<space>pr ":Telescope resume<cr>")
 (kset :n :<space>bb ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")
 (kset :n :<space>pa ":Telescope live_grep<cr>")
 (kset :n :<space>pp ":Telescope project display_type=minimal<cr>") ;; full
+(kset :n :<space>ff ":Telescope file_browser<cr>")
+
 (kset :n :<space>vm ":Telescope keymaps<cr>")
 (kset :n :<space>vc ":Telescope colorscheme<cr>")
-(kset :n :<space>ff ":Telescope file_browser<cr>")
+(kset :n :<space>v:":Telescope commands<cr>")
+(kset :n :<space>vo":Telescope vim_options<cr>")
+(kset :n :<space>vm":Telescope marks<cr>")
+(kset :n :<space>vr":Telescope registers<cr>")
+
 (kset :n :z= ":Telescope spell_suggest<cr>")
 
 ;; git
 (kset :n :<space>gc ":Telescope git_commits<cr>")
-(kset :n :<space>gs ":Telescope git_status<cr>")
+(kset :n :<space>gs ":Telescope git_stash<cr>")
 (kset :n :<space>gb ":Telescope git_branches<cr>")
 
