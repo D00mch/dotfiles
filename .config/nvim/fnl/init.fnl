@@ -19,7 +19,8 @@
 (kset :x :<D-c> :y)
 
 (kset :n :<D-v> :p)
-(kset [:i :t :c] :<D-v> :<C-r><C-o>* {:remap true})
+(kset :t :<D-v> :<Esc>pa)
+(kset [:i :c] :<D-v> :<C-r><C-o>*)
 
 (kset :n :<D-s> ":w<Cr>")
 (kset :i :<D-s> :<Esc>:w<CR>a)
