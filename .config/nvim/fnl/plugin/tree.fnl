@@ -48,7 +48,7 @@
             {:key :M :action :bulk_move}
             {:key :q :action ""} ;; unmap
             {:key :s :action :split}
-            {:key :v :action :vplit}
+            {:key :v :action :vsplit}
             {:key :f :action :system_open}
             {:key :i :action :toggle_file_info}
             {:key :u :action :dir_up}]}}})
