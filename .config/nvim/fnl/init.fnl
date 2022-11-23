@@ -145,3 +145,11 @@ endfunction")
    :pattern :*
    :callback 
    (fn [] (vim.highlight.on_yank {:higroup :IncSearch :timeout 300}))})
+
+;; formatters
+
+(key.register
+  {:g
+   {:f [{:j ["!jq<cr>" "Json"]
+         :s ["!pg_format -s 2<cr>" "SQL"]}
+        "Format"]}})

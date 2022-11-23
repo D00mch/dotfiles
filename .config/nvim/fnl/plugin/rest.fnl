@@ -3,8 +3,6 @@
             rest rest-nvim
             {: kset} util}})
 
-(kset :v :gjq :!jq<cr>)
-
 (rest.setup
   {:result_split_in_place true
    :jump_to_request true})
