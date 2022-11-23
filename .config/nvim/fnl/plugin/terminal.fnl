@@ -7,7 +7,7 @@
 (kset :x :√         "<leader>v" {:remap true})
 (kset :n :<leader>e "vip<leader>q" {:remap true})
 
-(kset :t :∑ :<Esc>:q<Cr> {:remap true})
+(kset :t :<D-w> :<Esc>:q<Cr> {:remap true})
 
 (term.setup
   {:size 30
