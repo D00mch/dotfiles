@@ -93,10 +93,9 @@
   (bkset :n "[s" vim.diagnostic.goto_prev {:buffer b :desc "Goto prev erro"}) ;]
   (bkset :n :<tab> vim.diagnostic.goto_next {:buffer b :desc "Goto next erro"})
   (bkset :n :<S-tab> vim.diagnostic.goto_prev {:buffer b :desc "Goto prev erro"})
-  (bkset :n :∫ refs.references {:buffer b :desc "Show refs (Idea)"}) ; alt+b
+  (bkset :n :<D-b> refs.references {:buffer b :desc "Show refs (Idea)"}) ; alt+b
   ;; TELESCOPE
   (bkset :n :<leader>gr lsp_references {:buffer b :desc "Go to references"}) ; alt+b
-  (bkset :n :<D-b> lsp_references {:buffer b :desc "Go to references"}) ; alt+b
   (bkset :n :ˆ lsp_implementations {:buffer b :desc "Go to implementations"}) ; alt+i
   (bkset [:n :x] :<C-r> vim.lsp.buf.code_action {:buffer b :desc "Code actions"})
   (bkset [:n :x] :<leader>ra vim.lsp.buf.code_action {:buffer b :desc "Code actions"}))
