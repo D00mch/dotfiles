@@ -60,6 +60,7 @@
   :rose-pine/neovim {}
   :sainnhe/everforest {}
   :Yazeed1s/oh-lucy.nvim {}
+  :sam4llis/nvim-tundra {}
   :f-person/auto-dark-mode.nvim {}
 
   ;; telescope

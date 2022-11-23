@@ -3,6 +3,7 @@
             str aniseed.string
             fox nightfox
             auto auto-dark-mode
+            tundra nvim-tundra
             {: toggle} plugin.which
             {: kset} util}})
 
@@ -11,6 +12,16 @@
 (fox.setup
   {:dim_inactive false
    :options {:terminal_colors true}})
+
+(tundra.setup
+  {:plugins {:lsp        true
+             :treesitter true
+             :telescope  true
+             :nvimtree   true
+             :cmp        true
+             :gitsigns   true
+             :context    false
+             :dbui       false}})
 
 (defn set-theme [dark?]
   (when (not vim.g.neovide) (set nvim.o.background (if dark? "dark" "light")))
