@@ -149,7 +149,7 @@ endfunction")
 ;; formatters
 
 (key.register
-  {:g
-   {:f [{:j ["!jq<cr>" "Json"]
+  {:<Space>
+   {:f [{:j [:!jq<cr> "Json"]
          :s ["!pg_format -s 2<cr>" "SQL"]}
         "Format"]}})
