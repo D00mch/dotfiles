@@ -58,6 +58,7 @@
 (autocmd :FileType :dart "set shiftwidth=2 smarttab expandtab")
 (autocmd :FileType :json "set shiftwidth=2 smarttab expandtab")
 (autocmd :FileType :http "set shiftwidth=2 smarttab expandtab")
+(autocmd :FileType :sql "set shiftwidth=2 smarttab expandtab")
 
 (vim.api.nvim_create_autocmd
   "FileType"
@@ -157,4 +158,5 @@ endfunction")
   {:<Space>
    {:f [{:j [:!jq<cr> "Json"]
          :s ["!pg_format -s 2<cr>" "SQL"]}
-        "Format"]}})
+        "Format"]}}
+  {:mode :x})
