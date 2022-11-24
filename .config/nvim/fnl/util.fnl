@@ -17,13 +17,17 @@
   (update opts :buffer (fn [b] (or b buffer))))
 
 (defn kset [modes from to opts]
-  (vim.keymap.set modes from to (+docs opts to)))
+  (let [opts  (if 
+                (= (type opts) "table")  opts
+                (= (type opts) "string") {:desc opts})]
+    (vim.keymap.set modes from to (+docs opts to))))
 
 ;; opts could be options map or just a buffer
 (defn bkset [modes from to opts]
   (let [opts  (if 
                 (= (type opts) "table")  (+buffer opts 0)
                 (= (type opts) "number") {:buffer opts}
+                (= (type opts) "string") {:desc opts}
                 {:buffer 0})]
     (vim.keymap.set modes from to (+docs opts to))))
 

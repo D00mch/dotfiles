@@ -57,9 +57,9 @@
         in-annotate? (string.match current-dir "DiffviewFileHistoryPanel$")]
     (vim.api.nvim_command (if in-annotate? "q" "DiffviewFileHistory %"))))
 
-(kset [:n] :<space>gh history-toggle {:desc "Toggle git history"})
-(kset [:x] :<space>gh ":DiffviewFileHistory<cr>" {:desc "Toggle git history"})
-(kset [:n] :<space>gv ":DiffviewOpen" {:desc "DiffviewOpen"})
+(kset [:n] :<space>gh history-toggle "Toggle git history")
+(kset [:x] :<space>gh ":DiffviewFileHistory<cr>" "Toggle git history")
+(kset [:n] :<space>gv ":DiffviewOpen"  "DiffviewOpen")
 
 ;;; neogit
 
@@ -81,7 +81,7 @@
                             in-git? "q"
                             "Neogit"))))
 
-(vim.keymap.set [:n :x] :<Space>9 neogit-toggle {:desc "Toggle NeoGit"})
+(kset [:n :x] :<Space>9 neogit-toggle "Toggle NeoGit")
 
 ;;; fugitive
 
