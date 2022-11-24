@@ -38,6 +38,11 @@
 (kset :x :<D-z> :<Esc>ugv)
 (kset :i :<D-z> :<Esc><D-z>a {:remap true})
 
+;; Cmd line
+
+(kset [:n :x] :<D-f> :/)
+(kset [:i :t] :<D-f> :<Esc><D-f> {:remap true})
+
 ;; terminal, go in normal mode
 (kset :t "®" "<C-\\><C-n>") ; alt+r
 (kset :t "π" "<Esc>pa") ; alt+p to paste (karabiner map cmd+v to alt+p for vims)
