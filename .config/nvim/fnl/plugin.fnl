@@ -73,7 +73,6 @@
 
   ;; parsing system
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
-                                    :commit "f76a6b6"
                                     :requires [:p00f/nvim-ts-rainbow]
                                     :mod :treesitter}
 
