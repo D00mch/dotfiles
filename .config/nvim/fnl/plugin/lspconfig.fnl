@@ -3,7 +3,7 @@
              lsp lspconfig
              null-ls null-ls
              ltex ltex_extra
-             refs nice-reference
+             glance glance
              which plugin.which
              {: kset : bkset : vis-op+} util
              telescope  telescope
@@ -24,6 +24,12 @@
 ; (installer.setup {:ensure_installed [:clojure_lsp :jdtls :kotlin_language_server
 ;                                      :codespell :alex ;; null-ls
 ;                                      :ltex-ls]})
+
+(glance.setup
+  {:mappings
+   {:list {:gh (glance.actions.enter_win :preview)}
+    :preview {:gl (glance.actions.enter_win :list)}}
+   :height 25})
 
 (set vim.o.updatetime 250)
 
@@ -93,7 +99,7 @@
   (bkset :n "[s" vim.diagnostic.goto_prev {:buffer b :desc "Goto prev erro"}) ;]
   (bkset :n :<tab> vim.diagnostic.goto_next {:buffer b :desc "Goto next erro"})
   (bkset :n :<S-tab> vim.diagnostic.goto_prev {:buffer b :desc "Goto prev erro"})
-  (bkset :n :<D-b> refs.references {:buffer b :desc "Show refs (Idea)"}) ; alt+b
+  (bkset :n :<D-b> ":Glance references<Cr>" {:buffer b :desc "Show refs (Idea)"}) ; cmd+b
   ;; TELESCOPE
   (bkset :n :<leader>gr lsp_references {:buffer b :desc "Go to references"}) ; alt+b
   (bkset :n :ˆ lsp_implementations {:buffer b :desc "Go to implementations"}) ; alt+i
