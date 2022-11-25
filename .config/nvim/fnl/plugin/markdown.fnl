@@ -65,7 +65,6 @@
   ;; setup lines
   (vim.cmd "set wrap linebreak nolist") ;; wrap without bracking a word
   (bkset :x := :gq)
-  (bkset :n :g= :vapgq)
 
   (setup-pensil)
   (setup-quote)
