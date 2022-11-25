@@ -48,6 +48,7 @@
 (vim.api.nvim_create_autocmd
   "Filetype"
   {:pattern :*
+   :group (vim.api.nvim_create_augroup :SexpInsert {:clear true})
    :callback 
    (fn []
      (set nvim.g.sexp_enable_insert_mode_mappings  

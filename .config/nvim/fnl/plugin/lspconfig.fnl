@@ -48,17 +48,21 @@
 (defn- highlight-symbols [client bufnr]
   (when client.server_capabilities.documentHighlightProvider
     (highlight-line-symbol)
-    (vim.api.nvim_create_autocmd :ColorScheme {:buffer bufnr :callback highlight-line-symbol})
+    (vim.api.nvim_create_autocmd
+      :ColorScheme
+      {:buffer   bufnr
+       :group    (vim.api.nvim_create_augroup :HighlightColors {:clear true})
+       :callback highlight-line-symbol})
     (vim.cmd "hi! link LspReferenceWrite TSConstMacro")
-    (vim.api.nvim_create_augroup :lsp_document_highlight {})
-    (vim.api.nvim_create_autocmd [:CursorHold :CursorHoldI]
-                                 {:group :lsp_document_highlight
-                                  :buffer bufnr
-                                  :callback vim.lsp.buf.document_highlight})
-    (vim.api.nvim_create_autocmd :CursorMoved
-                                 {:group :lsp_document_highlight
-                                  :buffer bufnr
-                                  :callback vim.lsp.buf.clear_references})))
+    (let [group (vim.api.nvim_create_augroup :lsp_document_highlight {})]
+      (vim.api.nvim_create_autocmd [:CursorHold :CursorHoldI]
+                                   {:group group
+                                    :buffer bufnr
+                                    :callback vim.lsp.buf.document_highlight})
+      (vim.api.nvim_create_autocmd :CursorMoved
+                                   {:group group
+                                    :buffer bufnr
+                                    :callback vim.lsp.buf.clear_references}))))
 
 (def- diagnostics {:severity_sort true
                    :update_in_insert false

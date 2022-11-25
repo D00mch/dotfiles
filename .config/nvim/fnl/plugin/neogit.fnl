@@ -121,11 +121,3 @@
      ;; toggle
      (toggle :g "gitsigns" gitsigns)
      (bkset :n :<Space>gt gitsigns))})
-
-;; code in case they don't approve my pr https://github.com/TimUntersberger/neogit/pull/375
-; (def group (vim.api.nvim_create_augroup :MyCustomNeogitEvents {:clear true}))
-; (vim.api.nvim_create_autocmd
-;   :User
-;   {:pattern :NeogitStatusRefreshed
-;    :group   group
-;    :callback (fn [] (util.bm "" :q "<Plug>(leap-forward)" {:noremap false}))})

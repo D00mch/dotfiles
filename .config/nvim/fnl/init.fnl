@@ -50,19 +50,16 @@
 (kset :t "<Esc>" "<C-\\><C-n>")
 
 ;; restore last known position
-(autocmd
+(vim.api.nvim_create_autocmd
   :BufReadPost
-  "*"
-  "if line(\"'\\\"\") > 1 && line(\"'\\\"\") <= line(\"$\") | exe \"normal! g'\\\"\" | endif")
-
-(autocmd :FileType :dart "set shiftwidth=2 smarttab expandtab")
-(autocmd :FileType :json "set shiftwidth=2 smarttab expandtab")
-(autocmd :FileType :http "set shiftwidth=2 smarttab expandtab")
-(autocmd :FileType :sql "set shiftwidth=2 smarttab expandtab")
+  {:pattern :*
+   :group (vim.api.nvim_create_augroup :LastPosition {:clear true})
+   :callback (fn [] (vim.cmd "if line(\"'\\\"\") > 1 && line(\"'\\\"\") <= line(\"$\") | exe \"normal! g'\\\"\" | endif"))})
 
 (vim.api.nvim_create_autocmd
-  "FileType"
+  :FileType
   {:pattern "clojure"
+   :group    (vim.api.nvim_create_augroup :ClojureSetup {:clear true})
    :callback (fn [args]
                (let [clj (require :lang.clojure)]
                  (clj.set-up-mappings)))})
@@ -70,6 +67,7 @@
 (vim.api.nvim_create_autocmd
   "BufRead,BufNewFile"
   {:pattern "*.cljd"
+   :group    (vim.api.nvim_create_augroup :ClojureDartSetup {:clear true})
    :callback (fn [args]
                (vim.api.nvim_command "setfiletype clojure")
                ;; until https://github.com/nvim-lua/plenary.nvim/pull/356

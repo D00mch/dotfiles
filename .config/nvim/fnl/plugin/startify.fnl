@@ -37,13 +37,10 @@ endfunction
       {:s "~/wiki/scratch.md"}
       {:t "~/wiki/todo.md"}])
 
-; (autocmd :User :Startified "execute 'nunmap <buffer> q'" )
-
-(def group (vim.api.nvim_create_augroup :StartifyGroup {:clear true}))
 (vim.api.nvim_create_autocmd
   :User
   {:pattern :Startified
-   :group   group
+   :group    (vim.api.nvim_create_augroup :StartifyGroup {:clear true})
    :callback (fn []
                (bkset :n :<Space>d ":silent! bd!<Cr>")
                (vim.keymap.del :n :q {:buffer 0}))})

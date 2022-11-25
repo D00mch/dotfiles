@@ -193,7 +193,7 @@ set cursorcolumn
         " noremap <expr> k v:count ? 'k' : 'gk'
         " noremap <space>h g0
         " noremap <space>l g$
-    "Markdown
+    "MARKDOWN
         vnoremap <silent> ic :<C-U>call <SID>MdCodeBlockTextObj('i')<CR>
         onoremap <silent> ic :<C-U>call <SID>MdCodeBlockTextObj('i')<CR>
 
@@ -217,4 +217,15 @@ set cursorcolumn
           call setpos("'>", [buf_num, end_row, 1, 0])
           execute 'normal! `<V`>'
         endfunction
+
+    "AUTOCMD
+        
+        augroup tabs_settings
+          au FileType dart,json,http,sql set shiftwidth=2 smarttab expandtab
+        augroup end
+
+        augroup sql_settings
+            au FileType sql setl formatprg=/opt/homebrew/bin/pg_format\ -s\ 2
+        augroup end
+
 "END
