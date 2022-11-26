@@ -4,7 +4,8 @@
              themes telescope.themes
              actions telescope.actions
              fb_actions telescope._extensions.file_browser.actions
-             pr_actions telescope._extensions.project.actions
+             prj_actions telescope._extensions.project.actions
+             prj telescope._extensions.project
              state telescope.actions.state
              mt telescope.actions.mt
              {: kset} util}})
@@ -74,12 +75,8 @@
                                            :H fb_actions.goto_cwd
                                            :<Esc> false
                                            :≈ actions.close}}}
-                :project {:base_dirs ["~/IdeaProjects"]
-                          :mappings {:n ;; nerdtree-like mappings, doesn't work yet
-                                     {:r pr_actions.rename_project
-                                      :a pr_actions.add_project
-                                      :<Cr> pr_actions.recent_project_files
-                                      :o actions.select_default}}}
+                :project {:base_dirs {:path "~/IdeaProjects"
+                                      :max_depth 4}}
                 :ui-select [(themes.get_dropdown {})]}})
 
 ;; after telescope setup
@@ -91,8 +88,16 @@
 (kset :n :<space>pr ":Telescope resume<cr>")
 (kset :n :<space>bb ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")
 (kset :n :<space>pa ":Telescope live_grep<cr>")
-(kset :n :<space>pp ":Telescope project display_type=minimal<cr>") ;; full
-(kset :n :<space>ff ":Telescope file_browser<cr>")
+
+(defn projects []
+  (prj.exports.project
+    {:display_type :minimal
+     :attach_mappings 
+     (fn [b map]
+       (map :i :<cr> prj_actions.recent_project_files)
+       true)}))
+
+(kset :n :<space>pp projects "Projects")
 
 (kset :n :<space>vk ":Telescope keymaps<cr>")
 (kset :n :<space>vc ":Telescope colorscheme<cr>")
@@ -107,4 +112,3 @@
 (kset :n :<space>gc ":Telescope git_commits<cr>")
 (kset :n :<space>gs ":Telescope git_stash<cr>")
 (kset :n :<space>gb ":Telescope git_branches<cr>")
-
