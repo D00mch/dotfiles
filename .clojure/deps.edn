@@ -18,4 +18,6 @@
   {:extra-deps {org.clojure/tools.deps.alpha ; add-lib3 branch
                 {:git/url "https://github.com/clojure/tools.deps.alpha"
                  :sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}}}
-  }}
+
+  :clj-kondo
+  {:extra-deps {clj-kondo/clj-kondo {:mvn/version "LATEST"}}}}}
