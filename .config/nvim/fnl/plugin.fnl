@@ -68,7 +68,7 @@
                                   :requires [:nvim-lua/popup.nvim
                                              :nvim-lua/plenary.nvim
                                              :nvim-telescope/telescope-ui-select.nvim
-                                             :nvim-telescope/telescope-project.nvim
+                                             :ahmedkhalf/project.nvim
                                              :nvim-telescope/telescope-file-browser.nvim]}
 
   ;; parsing system
@@ -108,7 +108,6 @@
   :vim-scripts/ReplaceWithRegister {}
   :windwp/nvim-autopairs {:mod :nvim-autopairs}
   :mbbill/undotree {:mod :undotree}
-  ;:airblade/vim-rooter {:mod :rooter}
   :folke/which-key.nvim {:mod :which}
   :https://gitlab.com/madyanov/svart.nvim {:mod :svart})
 

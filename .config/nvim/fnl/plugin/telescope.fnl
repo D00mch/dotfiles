@@ -4,11 +4,13 @@
              themes telescope.themes
              actions telescope.actions
              fb_actions telescope._extensions.file_browser.actions
-             prj_actions telescope._extensions.project.actions
-             prj telescope._extensions.project
+             prj project_nvim
              state telescope.actions.state
              mt telescope.actions.mt
              {: kset} util}})
+
+(prj.setup
+  {:patterns [".git" "Makefile" "package.json" "deps.edn" "project.clj"]})
 
 (def- M (mt.transform_mod
           {:yank-entry
@@ -75,36 +77,25 @@
                                            :H fb_actions.goto_cwd
                                            :<Esc> false
                                            :≈ actions.close}}}
-                :project {:base_dirs {:path "~/IdeaProjects"
-                                      :max_depth 4}}
                 :ui-select [(themes.get_dropdown {})]}})
 
 ;; after telescope setup
 (telescope.load_extension :ui-select)
 (telescope.load_extension :file_browser)
-(telescope.load_extension :project)
+(telescope.load_extension :projects)
 
 (kset :n :<space>pf ":Telescope find_files hidden=true no_ignore=false<cr>")
 (kset :n :<space>pr ":Telescope resume<cr>")
 (kset :n :<space>bb ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")
 (kset :n :<space>pa ":Telescope live_grep<cr>")
-
-(defn projects []
-  (prj.exports.project
-    {:display_type :minimal
-     :attach_mappings 
-     (fn [b map]
-       (map :i :<cr> prj_actions.recent_project_files)
-       true)}))
-
-(kset :n :<space>pp projects "Projects")
+(kset :n :<space>pp ":Telescope projects<cr>" "Projects")
 
 (kset :n :<space>vk ":Telescope keymaps<cr>")
 (kset :n :<space>vc ":Telescope colorscheme<cr>")
-(kset :n :<space>v:":Telescope commands<cr>")
-(kset :n :<space>vo":Telescope vim_options<cr>")
-(kset :n :<space>vm":Telescope marks<cr>")
-(kset :n :<space>vr":Telescope registers<cr>")
+(kset :n :<space>v: ":Telescope commands<cr>")
+(kset :n :<space>vo ":Telescope vim_options<cr>")
+(kset :n :<space>vm ":Telescope marks<cr>")
+(kset :n :<space>vr ":Telescope registers<cr>")
 
 (kset :n :z= ":Telescope spell_suggest<cr>")
 
