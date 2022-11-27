@@ -5,6 +5,7 @@
             key which-key
             {: toggle} plugin.which
             plenary plenary.filetype
+            {: dec : inc} aniseed.core
             {: kset} util}
    require-macros [macros]})
 
@@ -155,6 +156,53 @@ endfunction")
 (key.register
   {:<Space>
    {:f [{:j [:!jq<cr> "Json"]
-         :s ["!pg_format -s 2<cr>" "SQL"]}
+         :p ["!pg_format -s 2<cr>" "pSQL"]
+         :c ["<Esc>:ReplaceSelection tocamel<Cr>" "CamelCase"]
+         :s ["<Esc>:ReplaceSelection tosnake<Cr>" "SnakeCase"]         
+         :k ["<Esc>:ReplaceSelection tokebab<Cr>" "KebabCase"]}
         "Format"]}}
   {:mode :x})
+
+;; cases
+
+(defn tocamel [s]
+  (s:gsub "[_|-](%w+)"
+          (fn [part]
+            (let [(before after) (values (part:sub 1 1) (part:sub 2))]
+              (.. (before:upper) after)))))
+
+(defn tosnake [s]
+  (: (: (: (: (: (s:gsub "%f[^%l]%u" "_%1") :gsub "%f[^%a]%d"
+                 "_%1") :gsub
+              "%f[^%d]%a" "_%1")
+           :gsub "(%u)(%u%l)" "%1_%2")
+        :lower)
+     :gsub "-" "_"))
+
+(defn tokebab [s]
+  (: (: (: (: (: (s:gsub "%f[^%l]%u" "-%1") :gsub "%f[^%a]%d"
+                 "_%1") :gsub
+              "%f[^%d]%a" "-%1")
+           :gsub "(%u)(%u%l)" "%1-%2")
+        :lower)
+     :gsub "_" "-"))
+
+(defn replace-selection [{:args f}]
+  (let [[sr sc] (vim.api.nvim_buf_get_mark 0 "<")
+        [sr sc] [(dec sr) sc]
+        [er ec] (vim.api.nvim_buf_get_mark 0 ">")
+        [er ec] [(dec er) (inc ec)]
+        [word]  (vim.api.nvim_buf_get_text 0 sr sc er ec {})
+        result ((if
+                  (= f "tokebab") tokebab
+                  (= f "tosnake") tosnake
+                  (= f "tocamel") tocamel) word)]
+    (vim.api.nvim_buf_set_text 0 sr sc er ec [result])))
+
+(vim.api.nvim_create_user_command
+  :ReplaceSelection replace-selection
+  {:nargs 1 :desc "Replace selected word with result function"})
+
+(kset :x :<Space>cc "<Esc>:ReplaceSelection tocamel<Cr>" "camelCase")
+(kset :x :<Space>fs "<Esc>:ReplaceSelection tosnake<Cr>" "camelCase")
+(kset :x :<Space>fk "<Esc>:ReplaceSelection tokebab<Cr>" "camelCase")
