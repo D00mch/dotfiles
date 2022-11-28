@@ -4,10 +4,10 @@
             {: kset} util}})
 
 ;; tabs
-(kset [:t :n] "<D-.>" ":BufferLineCycleNext<Cr>") ;; karabiner: cmd <
+(kset [:t :n :x] "<D-.>" ":BufferLineCycleNext<Cr>") ;; karabiner: cmd <
 (kset [:i :c] "<D-.>" "<Esc><D-.>" {:remap true})
 
-(kset [:t :n] "<D-,>" ":BufferLineCyclePrev<Cr>") ;; karabiner: cmd >
+(kset [:t :n :x] "<D-,>" ":BufferLineCyclePrev<Cr>") ;; karabiner: cmd >
 (kset [:i :c] "<D-,>" "<Esc><D-,>" {:remap true})
 
 (kset [:n :t] ">>" ":tabmove +1<cr>")

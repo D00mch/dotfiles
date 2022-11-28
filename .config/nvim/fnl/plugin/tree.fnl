@@ -43,6 +43,7 @@
    {:adaptive_size true
     :mappings
     {:list [{:key :t :action :tabnew}
+            {:key :<D-t> :action :tabnew}
             {:key       [:S :<D-f>] 
              :action    "`live-grep` the node"
              :action_cb (fn [opts] 
