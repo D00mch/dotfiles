@@ -26,3 +26,10 @@
 
 ;; modifiable
 (toggle "m" "modifiable" (fn [] (set vim.bo.modifiable (not vim.bo.modifiable))))
+
+;; fan
+(wk.register {:t
+              {:a [{:r ["<cmd>CellularAutomaton make_it_rain<CR>" "Rain"]
+                    :g ["<cmd>CellularAutomaton game_of_life<CR>" "Game of Life"]}
+                   "Animation"]}}
+             {:prefix :<space>})

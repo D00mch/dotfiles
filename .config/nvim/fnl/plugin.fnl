@@ -94,6 +94,7 @@
                      :mod :cmp}
   :dcampos/nvim-snippy {:requires [:dcampos/cmp-snippy]}
 
+  :eandrju/cellular-automaton.nvim {}
   :chrisbra/Colorizer {:mod :colors}
   :akinsho/bufferline.nvim {:mod :tabs}
   :AndrewRadev/undoquit.vim {}
