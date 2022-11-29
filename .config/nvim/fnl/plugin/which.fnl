@@ -1,5 +1,6 @@
 (module plugin.which
-  {autoload {wk which-key}})
+  {autoload {wk which-key
+             {: assoc} aniseed.core}})
 
 (wk.setup
   {:plugins        {:spelling    {:enabled false
@@ -9,16 +10,14 @@
 
 (defn toggle [key name cmd opts]
   ; `opts` could be a tables with :buf and :mode keys, mode string, or buf number
-  (let [{: buf : mode}  (if 
-                          (= (type opts) "table")  opts
-                          (= (type opts) "number") {:buf opts}
-                          (= (type opts) "string") {:mode opts}
-                          {})]
+  (let [opts  (if 
+                (= (type opts) "table")  opts
+                (= (type opts) "number") {:buffer opts}
+                (= (type opts) "string") {:mode opts}
+                {})]
     (wk.register {:t {:name :toggle
                       key [cmd name]}}
-                 {:prefix :<space>
-                  :buffer buf}
-                 {:mode opts})))
+                 (assoc opts :prefix :<Space>))))
 
 ;; showing tabs, spaces, end-of-lines
 (set vim.o.listchars "eol:¬,space:·,tab:→-,extends:▸,precedes:◂,multispace:···⬝,leadmultispace:│   ")
@@ -28,8 +27,6 @@
 (toggle "m" "modifiable" (fn [] (set vim.bo.modifiable (not vim.bo.modifiable))))
 
 ;; fan
-(wk.register {:t
-              {:a [{:r ["<cmd>CellularAutomaton make_it_rain<CR>" "Rain"]
-                    :g ["<cmd>CellularAutomaton game_of_life<CR>" "Game of Life"]}
-                   "Animation"]}}
-             {:prefix :<space>})
+(toggle "a" "Animation")
+(toggle "ar" "Rain" "<cmd>CellularAutomaton make_it_rain<CR>")
+(toggle "ag" "Game" "<cmd>CellularAutomaton game_of_life<CR>")

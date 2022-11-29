@@ -119,5 +119,5 @@
      (bkset :n :<Space>gd gs.diffthis {:buffer b :desc "Gitsigns diff"})
 
      ;; toggle
-     (toggle :g "gitsigns" gitsigns)
+     (toggle :g "gitsigns" gitsigns b)
      (bkset :n :<Space>gt gitsigns))})
