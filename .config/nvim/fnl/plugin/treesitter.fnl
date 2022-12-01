@@ -13,6 +13,9 @@
    :highlight {:enable true
                ;:additional_vim_regex_highlighting true
                }
+   :refactor {:highlight_definitions {:enable true}
+              :smart_rename {:enable true
+                             :keymaps {:smart_rename :<Space>rr}}}
    :indent    {:enable true}
    :rainbow   {:enable true
                :extended_mode true

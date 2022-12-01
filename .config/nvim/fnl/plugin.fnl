@@ -75,6 +75,7 @@
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
                                     :requires [:p00f/nvim-ts-rainbow]
                                     :mod :treesitter}
+  :nvim-treesitter/nvim-treesitter-refactor {}
 
   ;; lsp
   :neovim/nvim-lspconfig {:mod :lspconfig
