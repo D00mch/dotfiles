@@ -102,7 +102,11 @@
   :akinsho/bufferline.nvim {:mod :tabs}
   :AndrewRadev/undoquit.vim {}
   :qpkorr/vim-bufkill {}
-  :mhinz/vim-startify {:mod :startify}
+  :goolord/alpha-nvim {:mod :alpha
+                       ;; don't update as I have code fixed locally;
+                       ;; https://github.com/goolord/alpha-nvim/issues/147
+                       :commit :21a0f2520ad3a7c32c0822f943368dc063a569fb}
+  :Shatur/neovim-session-manager {}
   :tpope/vim-commentary {}
   :tpope/vim-fugitive {:mod :fugitive}
   :TimUntersberger/neogit {:requires [:nvim-lua/plenary.nvim
