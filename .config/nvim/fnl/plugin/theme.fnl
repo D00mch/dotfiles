@@ -7,6 +7,46 @@
             {: toggle} plugin.which
             {: kset} util}})
 
+(defn dark? [] (= nvim.o.background "dark"))
+
+;;; neovide
+
+(defn transparent? [] (= 0 nvim.g.neovide_transparency))
+
+(defn make-transparent [dark?]
+  (set vim.g.neovide_transparency 0.0)
+  (set vim.g.transparency 0.9)
+  (if dark?
+    (vim.cmd "let g:neovide_background_color = '#0f1117'.printf('%x', float2nr(255 * g:transparency))")
+    (vim.cmd "let g:neovide_background_color = '#FFFFFF'.printf('%x', float2nr(255 * g:transparency))")))
+
+(defn make-non-transparent [dark?]
+  (set vim.g.neovide_transparency 1.0)
+  (set vim.g.transparency 1.0)
+  (if dark?
+     (vim.cmd "let g:neovide_background_color = '#0f1117'")
+     (vim.cmd "let g:neovide_background_color = '#FFF'")))
+
+(when vim.g.neovide
+  (set nvim.g.neovide_cursor_vfx_mode "railgun")
+  (toggle "t"
+          "transparency"
+          (fn []
+            (if (transparent?)
+              (make-non-transparent (dark?))
+              (make-transparent (dark?))))))
+
+(vim.api.nvim_create_autocmd
+      :ColorScheme
+      {:buffer   bufnr
+       :group    (vim.api.nvim_create_augroup :HighlightColors {:clear true})
+       :callback (fn []
+                   (if (transparent?)
+                     (make-transparent (dark?))
+                     (make-non-transparent (dark?))))})
+
+;;; theme
+
 (set nvim.g.everforest_background "hard")
 
 (fox.setup
@@ -31,7 +71,7 @@
 (let [(ok? msg) (pcall vim.fn.system "defaults read -g AppleInterfaceStyle")]
   (set-theme (string.find msg "Dark")))
 
-(toggle "c" "coloscheme" (fn [] (set-theme (not (= vim.o.background "dark")))))
+(toggle "c" "coloscheme" (fn [] (set-theme (not (dark?)))))
 
 ;;; font
 

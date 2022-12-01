@@ -93,18 +93,6 @@
             "lang en_US.UTF-8<bar>"
             "setlocal spell! spelllang=ru_ru,en_us<cr>") "set eng lang"]}})
 
-(when vim.g.neovide
-
-  (set nvim.g.neovide_cursor_vfx_mode "railgun")
-  (toggle "t" "transparency" ":NeovideToggleTransparency<Cr>")
-
-  (vim.api.nvim_create_user_command :NeovideToggleTransparency
-                                    (fn []
-                                      (set nvim.g.neovide_transparency 
-                                           (if (= 1 nvim.g.neovide_transparency) 0.9 1)))
-                                    {:nargs :* :desc "Insert markdown header"}))
-
-
 ;; diff split
 (defn- compare-to-clipboard []
   (let [ftype (vim.api.nvim_eval "&filetype")]
