@@ -109,11 +109,11 @@
      (bkset :n :gp (fn [] (vim.schedule gs.prev_hunk)) {:buffer b :desc "Gitsigns prev"})
      (bkset :n :gs gs.stage_hunk {:buffer b :desc "Gitsigns stage hunk"})
      (bkset :x :gs (vis-op gs.stage_hunk) {:buffer b :desc "Gitsigns stage hunk"})
+     (bkset :n :gus gs.undo_stage_hunk {:buffer b :desc "Gitsigns undo staged"})
 
      (bkset :n :<Space>gS (fn [] (vim.schedule gs.stage_buffer)) {:buffer b :desc "Gitsigns stage buffer"})
      (bkset :n :<Space>gr gs.reset_hunk {:buffer b :desc "Gitsigns stage hunk"})
      (bkset :x :<Space>gr (vis-op gs.reset_hunk) {:buffer b :desc "Gitsigns stage hunk"})
-     (bkset :n :<Space>gu gs.undo_stage_hunk {:buffer b :desc "Gitsigns undo staged"})
      (bkset :n :<Space>gm (fn [] (gs.blame_line {:full true})) {:buffer b :desc "Gitsigns blame message"})
      (bkset :n :<Space>gl (fn [] (gs.toggle_current_line_blame)) {:buffer b :desc "Gitsigns blame line"})
      (bkset :n :<Space>gd gs.diffthis {:buffer b :desc "Gitsigns diff"})
