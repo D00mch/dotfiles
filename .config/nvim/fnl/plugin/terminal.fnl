@@ -7,7 +7,12 @@
 (kset :x :√         "<leader>v" {:remap true})
 (kset :n :<leader>e "vip<leader>q" {:remap true})
 
-(kset :t :<D-w> :<Esc>:q<Cr> {:remap true})
+(kset :t :<D-w> "<C-\\><C-n>:q<Cr>" {:remap true})
+
+(kset :t "®" "<C-\\><C-n>") ; alt+r
+(kset :t "π" "<Esc>pa") ; alt+p to paste (karabiner map cmd+v to alt+p for vims)
+(kset :t "≈" "®:close<cr>" {:noremap false})
+(kset :t "<D-Esc>" "<C-\\><C-n>")
 
 (term.setup
   {:size 30

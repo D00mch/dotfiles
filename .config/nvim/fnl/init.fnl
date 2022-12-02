@@ -44,12 +44,6 @@
 (kset [:n :x] :<D-f> :/)
 (kset [:i :t] :<D-f> :<Esc><D-f> {:remap true})
 
-;; terminal, go in normal mode
-(kset :t "®" "<C-\\><C-n>") ; alt+r
-(kset :t "π" "<Esc>pa") ; alt+p to paste (karabiner map cmd+v to alt+p for vims)
-(kset :t "≈" "®:close<cr>" {:noremap false})
-(kset :t "<Esc>" "<C-\\><C-n>")
-
 ;; restore last known position
 (vim.api.nvim_create_autocmd
   :BufReadPost
