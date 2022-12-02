@@ -9,7 +9,7 @@
             {: merge} aniseed.core
             {: kset} util}})
 
-(kset :n "<space>pt" ":NvimTreeFindFileToggle<cr>")
+(kset :n "<space>pt" (fn [] (api.tree.toggle false true)) "Tree Toggle")
 
 (kset :n :<Space>1 ":NvimTreeFindFile<cr>")
 
@@ -68,4 +68,7 @@
             {:key :v :action :vsplit}
             {:key :f :action :system_open}
             {:key :i :action :toggle_file_info}
-            {:key :u :action :dir_up}]}}})
+            {:key :u :action :dir_up}]}}
+   :renderer {:symlink_destination true
+              :indent_markers {:enable true}}
+   :filters {:custom [:^.git$]}})
