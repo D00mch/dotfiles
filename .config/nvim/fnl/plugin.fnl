@@ -38,7 +38,8 @@
   :wlangstroth/vim-racket {:ft [:scheme :racket]}
   :akinsho/toggleterm.nvim {:mod :terminal}
   :samjwill/nvim-unception {} ; no nesting vim sessions.
-  :rest-nvim/rest.nvim {:mod :rest}
+  :rest-nvim/rest.nvim {:mod :rest
+                        :ft [:http]}
 
   ;; sexp
   :guns/vim-sexp {:mod :sexp}
@@ -59,7 +60,6 @@
   :EdenEast/nightfox.nvim {:mod :theme}
   :rose-pine/neovim {}
   :sainnhe/everforest {}
-  :Yazeed1s/oh-lucy.nvim {}
   :sam4llis/nvim-tundra {}
   :f-person/auto-dark-mode.nvim {}
 
@@ -98,7 +98,8 @@
   :chrisbra/csv.vim {:ft [:csv :csv_semicolon :csv_whitespace :csv_pipe
                           :tsv :rfc_csv :rfc_semicolon]}
   :eandrju/cellular-automaton.nvim {}
-  :chrisbra/Colorizer {:mod :colors}
+  :chrisbra/Colorizer {:mod :colors
+                       :ft [:dart :kotlin :xml :css :scss :js :vue]}
   :akinsho/bufferline.nvim {:mod :tabs}
   :AndrewRadev/undoquit.vim {}
   :qpkorr/vim-bufkill {}
