@@ -95,7 +95,8 @@
                      :mod :cmp}
   :dcampos/nvim-snippy {:requires [:dcampos/cmp-snippy]}
 
-  :chrisbra/csv.vim {:ft [:csv :csv_semicolon :csv_whitespace :csv_pipe
+  :chrisbra/csv.vim {:mod :csv
+                     :ft [:csv :csv_semicolon :csv_whitespace :csv_pipe
                           :tsv :rfc_csv :rfc_semicolon]}
   :eandrju/cellular-automaton.nvim {}
   :chrisbra/Colorizer {:mod :colors
