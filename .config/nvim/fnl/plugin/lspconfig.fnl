@@ -95,7 +95,7 @@
   (bkset [:i :n] :… vim.lsp.buf.signature_help {:buffer b :desc "Signiture help"}) ; alt+;
   (bkset [:i :n] "<D-;>" vim.lsp.buf.signature_help {:buffer b :desc "Signiture help"})
   (bkset :n :<leader>rr vim.lsp.buf.rename {:buffer b :desc "Rename"})
-  (bkset :n :<leader>a vim.diagnostic.open_float {:buffer b :desc "Show diantostics"})
+  (bkset :n :<leader>p vim.diagnostic.open_float {:buffer b :desc "Preview diagnostics"})
   (bkset :n :<leader>re vim.diagnostic.setloclist {:buffer b :desc "List diagnostics"})
   (bkset :n :<leader>= ":lua vim.lsp.buf.format({async = true})<Cr>" {:buffer b :desc "Apply formatting"}) ;[
   (bkset :x :<leader>= (vis-op+ vim.lsp.buf.format {:async true}) {:buffer b :desc "Apply formatting"})

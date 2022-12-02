@@ -28,5 +28,5 @@
 
 ;; fan
 (toggle "a" "Animation")
-(toggle "ar" "Rain" "<cmd>CellularAutomaton make_it_rain<CR>")
-(toggle "ag" "Game" "<cmd>CellularAutomaton game_of_life<CR>")
+(toggle "1" "Rain" "<cmd>CellularAutomaton make_it_rain<CR>")
+(toggle "2" "Game" "<cmd>CellularAutomaton game_of_life<CR>")
