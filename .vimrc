@@ -10,6 +10,8 @@ let maplocalleader=","
 set cursorline
 set cursorcolumn
 
+cd $HOME
+
 "EDITING
     "redo
     nnoremap U <C-r>
