@@ -1,6 +1,8 @@
 (module plugin.telescope
   {autoload {nvim aniseed.nvim
              telescope telescope
+             harpoon harpoon
+             hmark harpoon.mark
              themes telescope.themes
              actions telescope.actions
              fb_actions telescope._extensions.file_browser.actions
@@ -8,6 +10,9 @@
              state telescope.actions.state
              mt telescope.actions.mt
              {: kset} util}})
+
+(harpoon.setup)
+(kset :n :<Space>am hmark.add_file "Add mark")
 
 (prj.setup
   {:patterns [".git" "Makefile" "package.json" "deps.edn" "project.clj"]})
@@ -83,12 +88,14 @@
 (telescope.load_extension :ui-select)
 (telescope.load_extension :file_browser)
 (telescope.load_extension :projects)
+(telescope.load_extension :harpoon)
 
 (kset :n :<space>pf ":Telescope find_files hidden=true no_ignore=false<cr>")
 (kset :n :<space>pr ":Telescope resume<cr>")
 (kset :n :<space>bb ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")
 (kset :n :<space>pa ":Telescope live_grep<cr>")
 (kset :n :<space>pp ":Telescope projects<cr>" "Projects")
+(kset :n :<space>ph ":Telescope harpoon marks<cr>" "Harpoon")
 
 (kset :n :<space>vk ":Telescope keymaps<cr>")
 (kset :n :<space>vc ":Telescope colorscheme<cr>")

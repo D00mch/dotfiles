@@ -32,14 +32,26 @@
   :nvim-tree/nvim-web-devicons {}
   :nvim-lualine/lualine.nvim {:mod :lualine}
   :nvim-tree/nvim-tree.lua {:mod :tree}
+  :nvim-telescope/telescope.nvim
+  {:mod :telescope
+   :requires [:nvim-lua/popup.nvim
+              :nvim-lua/plenary.nvim
+              :nvim-telescope/telescope-ui-select.nvim
+              :ahmedkhalf/project.nvim
+              :nvim-telescope/telescope-file-browser.nvim]}
+  :goolord/alpha-nvim {:mod :alpha
+                       ;; don't update as I have code fixed locally;
+                       ;; https://github.com/goolord/alpha-nvim/issues/147
+                       :commit :21a0f2520ad3a7c32c0822f943368dc063a569fb}
+  :Shatur/neovim-session-manager {}
+  :ThePrimeagen/harpoon {:mod :harpoon}
 
   ;; repl
   :Olical/conjure {:branch :master :mod :conjure}
   :wlangstroth/vim-racket {:ft [:scheme :racket]}
   :akinsho/toggleterm.nvim {:mod :terminal}
   :samjwill/nvim-unception {} ; no nesting vim sessions.
-  :rest-nvim/rest.nvim {:mod :rest
-                        :ft [:http]}
+  :rest-nvim/rest.nvim {:mod :rest}
 
   ;; sexp
   :guns/vim-sexp {:mod :sexp}
@@ -62,14 +74,6 @@
   :sainnhe/everforest {}
   :sam4llis/nvim-tundra {}
   :f-person/auto-dark-mode.nvim {}
-
-  ;; telescope
-  :nvim-telescope/telescope.nvim {:mod :telescope
-                                  :requires [:nvim-lua/popup.nvim
-                                             :nvim-lua/plenary.nvim
-                                             :nvim-telescope/telescope-ui-select.nvim
-                                             :ahmedkhalf/project.nvim
-                                             :nvim-telescope/telescope-file-browser.nvim]}
 
   ;; parsing system
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
@@ -104,11 +108,6 @@
   :akinsho/bufferline.nvim {:mod :tabs}
   :AndrewRadev/undoquit.vim {}
   :qpkorr/vim-bufkill {}
-  :goolord/alpha-nvim {:mod :alpha
-                       ;; don't update as I have code fixed locally;
-                       ;; https://github.com/goolord/alpha-nvim/issues/147
-                       :commit :21a0f2520ad3a7c32c0822f943368dc063a569fb}
-  :Shatur/neovim-session-manager {}
   :tpope/vim-commentary {}
   :tpope/vim-fugitive {:mod :fugitive}
   :TimUntersberger/neogit {:requires [:nvim-lua/plenary.nvim
