@@ -119,6 +119,7 @@
 (lsp.kotlin_language_server.setup default-map)
 (lsp.racket_langserver.setup default-map)
 (lsp.tsserver.setup default-map)
+(lsp.volar.setup default-map)
 
 (lsp.ltex.setup
   (merge default-map
