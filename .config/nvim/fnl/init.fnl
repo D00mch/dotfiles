@@ -31,7 +31,12 @@
 (kset :i :<D-a> :<Esc><D-a> {:remap true})
 (kset :c :<D-a> :<C-f><Esc><D-a> {:remap true})
 
-(kset [:n :x] :<D-w> ":q<Cr>")
+(defn close-and-move-focus-on-prev []
+  (let [prev-win (vim.fn.winnr)]
+    (vim.cmd "wincmd p")
+    (vim.cmd (.. prev-win "wincmd q"))))
+
+(kset [:n :x] :<D-w> close-and-move-focus-on-prev)
 (kset :i :<D-w> :<Esc><D-w> {:remap true})
 (kset :c :<D-w> :<Esc><Esc>)
 

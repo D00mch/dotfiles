@@ -125,7 +125,7 @@ cd $HOME
         nnoremap <space>ba :w <bar> silent %bd! <bar> e# <bar> bd# <CR>
         nnoremap <space>bd <Esc>:diffthis<Cr>gg<C-w>w:diffthis<Cr>gg
 
-        "go to previous tab when current one is closed
+    "GO TO PREVIOUS TAB WHEN CURRENT ONE IS CLOSED
         let s:prevtabnum=tabpagenr('$')
         augroup TabClosed
             autocmd! TabEnter * :if tabpagenr('$')<s:prevtabnum && tabpagenr()>1
@@ -133,10 +133,6 @@ cd $HOME
                         \       |endif
                         \       |let s:prevtabnum=tabpagenr('$')
         augroup END
-
-        "alt + w to delete a buffer; cmd+w with karabiner
-        nnoremap ∑ :q<cr>
-        imap     ≈ <Esc>≈
 
     "SEARCH
         set ignorecase
