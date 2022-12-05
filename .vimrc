@@ -69,8 +69,8 @@ cd $HOME
         map <space>; gcc
         nnoremap <space>q q
         "remove unnecessary spaces at the end of lines
-        nnoremap <space>sr mX:%s/\s\s*$//g<cr>`X
-        vnoremap <space>sr :s/\s\s*$//g<cr>
+        nnoremap <space>as mX:%s/\s\s*$//g<cr>`X
+        vnoremap <space>as :s/\s\s*$//g<cr>
 
     "INCLUTION
         nnoremap db vb
