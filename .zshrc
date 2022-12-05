@@ -37,11 +37,11 @@ ZSH_THEME="ys"
 plugins=(
     git
     adb
+    vi-mode
     python
     lein
     brew
     gradle
-    zsh-vi-mode
 )
 source $ZSH/oh-my-zsh.sh
 
