@@ -37,8 +37,10 @@
     :mappings {:n {:y       M.yank-entry
                    :<Right> actions.preview_scrolling_down
                    :<Left>  actions.preview_scrolling_up
-                   :t       actions.select_tab}
+                   :t       actions.select_tab
+                   :q       (+ actions.smart_send_to_qflist actions.open_qflist)}
                :i {:∑       actions.close           ; alt+x
+                   :<C-q>   (+ actions.smart_send_to_qflist actions.open_qflist)
                    :?       actions.which_key
                    :<Right> actions.preview_scrolling_down
                    :<Left>  actions.preview_scrolling_up
@@ -51,7 +53,7 @@
                                  :ga    actions.git_create_branch
                                  :gh    actions.git_reset_hard
                                  :gs    actions.git_reset_soft
-                                 :<D-m>   actions.git_merge_branch
+                                 :<D-m> actions.git_merge_branch
                                  :gd    actions.git_delete_branch
                                  :gr    actions.git_rebase_branch}
                              :i {:<Cr>  actions.git_switch_branch
@@ -97,6 +99,7 @@
 (kset :n :<space>pa ":Telescope live_grep<cr>")
 (kset :n :<space>pp ":Telescope projects<cr>" "Projects")
 (kset :n :<space>ph ":Telescope harpoon marks<cr>" "Harpoon")
+(kset :n :<space>pq ":Telescope quickfix<cr>" "QuickFix")
 
 (kset :n :<space>vk ":Telescope keymaps<cr>")
 (kset :n :<space>vc ":Telescope colorscheme<cr>")
