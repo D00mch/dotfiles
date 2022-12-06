@@ -67,7 +67,8 @@
                                  :<C-r> actions.git_rebase_branch}}}
              :git_commits  {:mappings
                             {:n {:h actions.git_reset_hard}
-                             :i {:<Cr> actions.git_checkout_current_buffer}}}}
+                             :i {:<Cr> actions.git_checkout_current_buffer}}}
+             :live_grep {:only_sort_text true}}
    :extensions {:file_browser {:theme :ivy
                                :mappings {:n
                                           {:u fb_actions.goto_parent_dir
