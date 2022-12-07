@@ -145,8 +145,8 @@ endfunction")
    {:f [{:j [:!jq<cr> "Json"]
          :p ["!pg_format -s 2<cr>" "pSQL"]
          :c ["<Esc>:ReplaceSelection tocamel<Cr>" "CamelCase"]
-         :s ["<Esc>:ReplaceSelection tosnake<Cr>" "SnakeCase"]         
-         :k ["<Esc>:ReplaceSelection tokebab<Cr>" "KebabCase"]}
+         :s ["<Esc>:ReplaceSelection tosnake<Cr>" "snake_case"]         
+         :k ["<Esc>:ReplaceSelection tokebab<Cr>" "kebab-case"]}
         "Format"]}}
   {:mode :x})
 
@@ -189,7 +189,3 @@ endfunction")
 (vim.api.nvim_create_user_command
   :ReplaceSelection replace-selection
   {:nargs 1 :desc "Replace selected word with result function"})
-
-(kset :x :<Space>cc "<Esc>:ReplaceSelection tocamel<Cr>" "camelCase")
-(kset :x :<Space>fs "<Esc>:ReplaceSelection tosnake<Cr>" "camelCase")
-(kset :x :<Space>fk "<Esc>:ReplaceSelection tokebab<Cr>" "camelCase")
