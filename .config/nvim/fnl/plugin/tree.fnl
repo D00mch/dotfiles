@@ -11,7 +11,12 @@
 
 (kset :n "<space>pt" (fn [] (api.tree.toggle false true)) "Tree Toggle")
 
-(kset :n :<Space>1 ":NvimTreeFindFile<cr>")
+(defn collapse-and-show []
+  (api.tree.toggle false true)
+  (lib.collapse_all)
+  (api.tree.focus))
+
+(kset :n :<Space>1 collapse-and-show "Collapse and show")
 
 (defn view-selection [prompt-funr map]
   (actions.select_default:replace
