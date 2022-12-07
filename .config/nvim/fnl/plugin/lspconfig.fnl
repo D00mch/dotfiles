@@ -14,10 +14,18 @@
              preview goto-preview
              cmplsp cmp_nvim_lsp}})
 
+(defn close-and-move-focus-on-prev []
+  (let [prev-win (vim.fn.winnr)]
+    (vim.cmd "wincmd p")
+    (vim.cmd (.. prev-win "wincmd q"))))
+
 ;preview
 (preview.setup {:height 25
                 :bufhidden :wipe
-                :post_open_hook (fn [] (nvim.echo (vim.fn.expand "%:p")))})
+                :post_open_hook
+                (fn [b w]
+                  (vim.keymap.set :n :<D-w> close-and-move-focus-on-prev {:buffer b})
+                  (nvim.echo (vim.fn.expand "%:p")))})
 (kset [:n] :<leader>d "<cmd>lua require('goto-preview').goto_preview_definition()<CR>")
 
 (mason.setup)
