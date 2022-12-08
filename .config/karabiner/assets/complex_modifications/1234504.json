@@ -10,6 +10,34 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "x",
+            "modifiers": {
+              "mandatory": [
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.qvacua.VimR$",
+                "^com.neovide.neovide$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "q",
             "modifiers": {
               "mandatory": [
@@ -206,38 +234,6 @@
                 "^com.googlecode.iterm2$",
                 "^com.jetbrains.intellij.ce$",
                 "^com.google.android.studio$",
-                "^co.zeit.hyper$",
-                "^com.github.wez.wezterm$"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "x",
-            "modifiers": {
-              "mandatory": [
-                "left_command"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "6",
-              "modifiers": [
-                "left_control"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com.qvacua.VimR$",
-                "^com.neovide.neovide$",
-                "^com.apple.Terminal$",
-                "^com.googlecode.iterm2$",
                 "^co.zeit.hyper$",
                 "^com.github.wez.wezterm$"
               ]
