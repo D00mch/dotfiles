@@ -2,6 +2,8 @@
   {autoload {wk which-key
              {: assoc} aniseed.core}})
 
+(set vim.o.timeoutlen 250)
+
 (wk.setup
   {:plugins        {:spelling    {:enabled false
                                   :suggestions 12}}
