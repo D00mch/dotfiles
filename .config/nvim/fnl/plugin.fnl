@@ -80,6 +80,7 @@
                                     :requires [:p00f/nvim-ts-rainbow]
                                     :mod :treesitter}
   :nvim-treesitter/nvim-treesitter-refactor {}
+  :cshuaimin/ssr.nvim {}
 
   ;; lsp
   :neovim/nvim-lspconfig {:mod :lspconfig

@@ -1,6 +1,8 @@
 (module plugin.treesitter
   {autoload {treesitter nvim-treesitter.configs
-             nvim aniseed.nvim}})
+             ssr ssr
+             nvim aniseed.nvim
+             {: kset} util}})
 
 (set nvim.o.foldmethod :expr)
 (set nvim.o.foldexpr "nvim_treesitter#foldexpr()")
@@ -20,3 +22,9 @@
    :rainbow   {:enable true
                :extended_mode true
                :max_file_lines nil}})
+
+;; structural search and replace
+(ssr.setup
+  {:keymaps {:close :<D-w>}})
+
+(kset [:n :x] :<Leader>sr ssr.open "Search/Replace")
