@@ -35,7 +35,7 @@
 (set nvim.g.conjure#client#clojure#nrepl#mapping#connect_port_file false)
 
 ;; RefactorDefine: to declare binding in repl, put cursor on val nam 
-(kset :n :<Leader>rd "vie<space>mr\"9y:ConjureEval (def <c-r>9)<cr>" {:noremap false})
+(kset :n :<Leader>rd "mZ\"8yieW\"9yie:ConjureEval (def <c-r>8 <c-r>9)<cr>`Z" {:remap true})
 
 ;; tests
 ; (set nvim.g.conjure#client#clojure#nrepl#mapping#run_current_ns_tests false)
