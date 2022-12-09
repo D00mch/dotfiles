@@ -47,7 +47,7 @@
                          [[:n :x] :gb (actions.conflict_choose "base")]
                          [[:n :x] :ga (actions.conflict_choose "all")]
                          [[:n :x] :gn actions.next_conflict]
-                         [[:n :x] :gp actions.prev_conflict]]
+                         [[:n :x] :gN actions.prev_conflict]]
     :file_panel         panel-mappings
     :file_history_panel panel-mappings 
     :option_panel       panel-mappings}})
@@ -106,7 +106,7 @@
    :on_attach
    (fn [b]
      (bkset :n :gn (fn [] (vim.schedule gs.next_hunk)) {:buffer b :desc "Gitsigns next"})
-     (bkset :n :gp (fn [] (vim.schedule gs.prev_hunk)) {:buffer b :desc "Gitsigns prev"})
+     (bkset :n :gN (fn [] (vim.schedule gs.prev_hunk)) {:buffer b :desc "Gitsigns prev"})
      (bkset :n :gs gs.stage_hunk {:buffer b :desc "Gitsigns stage hunk"})
      (bkset :x :gs (vis-op gs.stage_hunk) {:buffer b :desc "Gitsigns stage hunk"})
      (bkset :n :gus gs.undo_stage_hunk {:buffer b :desc "Gitsigns undo staged"})
