@@ -81,6 +81,7 @@
                                     :mod :treesitter}
   :nvim-treesitter/nvim-treesitter-refactor {}
   :cshuaimin/ssr.nvim {}
+  :kevinhwang91/nvim-bqf {}
 
   ;; lsp
   :neovim/nvim-lspconfig {:mod :lspconfig

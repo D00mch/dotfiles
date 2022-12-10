@@ -99,7 +99,7 @@
 (kset :n :<space>pa ":Telescope live_grep<cr>")
 (kset :n :<space>pp ":Telescope projects<cr>" "Projects")
 (kset :n :<space>ph ":Telescope harpoon marks<cr>" "Harpoon")
-(kset :n :<space>pq ":Telescope quickfix<cr>" "QuickFix")
+;(kset :n :<space>pq ":Telescope quickfix<cr>" "QuickFix")
 
 (kset :n :<space>vk ":Telescope keymaps<cr>")
 (kset :n :<space>vc ":Telescope colorscheme<cr>")
