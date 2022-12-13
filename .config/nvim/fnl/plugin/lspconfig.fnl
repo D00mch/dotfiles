@@ -97,10 +97,7 @@
 
 (defn- on_attach [client b]
   (highlight-symbols client b)
-  (bkset :n
-         :<leader>h
-         (fn [] (vim.lsp.buf.hover) (vim.lsp.buf.hover))
-         {:buffer b :desc "Show docs"})
+  (bkset :n :<leader>h #(vim.lsp.buf.hover) {:buffer b :desc "Show docs"})
   (bkset :n :gd vim.lsp.buf.definition {:buffer b :desc "Go definition"}) ;[
   (bkset :n :gD "<c-w><c-]><c-w>T" {:buffer b :desc "Go definition new tab"})
   (bkset :n :<leader>tD vim.lsp.buf.type_definition {:buffer b :desc "Type definition"})
@@ -117,7 +114,7 @@
   (bkset :n :<S-tab> vim.diagnostic.goto_prev {:buffer b :desc "Goto prev erro"})
   (bkset :n :<D-b> "mZg*`Z:Glance references<Cr>" {:buffer b :desc "Show refs (Idea)"}) ; cmd+b
   ;; TELESCOPE
-  (bkset :n :<leader>gr (fn [] (lsp_references {:jump_type :never})) {:buffer b :desc "Go to references"}) ; alt+b
+  (bkset :n :<leader>gr #(lsp_references {:jump_type :never}) {:buffer b :desc "Go to references"}) ; alt+b
   (bkset :n :ˆ lsp_implementations {:buffer b :desc "Go to implementations"}) ; alt+i
   (bkset [:n :x] :<C-r> vim.lsp.buf.code_action {:buffer b :desc "Code actions"})
   (bkset [:n :x] :<leader>ra vim.lsp.buf.code_action {:buffer b :desc "Code actions"}))
@@ -164,11 +161,10 @@
   (which.toggle
     key
     (.. "Null_ls: " source)
-    (fn []
-      (let [source (null-ls.get_source {:name source})]
-        (if (. (first source) :_disabled)
-          (null-ls.enable source)
-          (null-ls.disable source))))))
+    #(let [source (null-ls.get_source {:name source})]
+       (if (. (first source) :_disabled)
+         (null-ls.enable source)
+         (null-ls.disable source)))))
 
 (null-ls.setup
   (merge default-map

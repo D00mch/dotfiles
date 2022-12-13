@@ -23,10 +23,10 @@
 
 ;; showing tabs, spaces, end-of-lines
 (set vim.o.listchars "eol:¬,space:·,tab:→-,extends:▸,precedes:◂,multispace:···⬝,leadmultispace:│   ")
-(toggle "l" "list; invisibele chars" (fn [] (set vim.o.list (not vim.o.list))))
+(toggle "l" "list; invisibele chars" #(set vim.o.list (not vim.o.list)))
 
 ;; modifiable
-(toggle "m" "modifiable" (fn [] (set vim.bo.modifiable (not vim.bo.modifiable))))
+(toggle "m" "modifiable" #(set vim.bo.modifiable (not vim.bo.modifiable)))
 
 ;; fan
 (toggle "a" "Animation")

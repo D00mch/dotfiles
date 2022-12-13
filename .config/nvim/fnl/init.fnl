@@ -49,15 +49,14 @@
   :BufReadPost
   {:pattern :*
    :group (vim.api.nvim_create_augroup :LastPosition {:clear true})
-   :callback (fn [] (vim.cmd "if line(\"'\\\"\") > 1 && line(\"'\\\"\") <= line(\"$\") | exe \"normal! g'\\\"\" | endif"))})
+   :callback #(vim.cmd "if line(\"'\\\"\") > 1 && line(\"'\\\"\") <= line(\"$\") | exe \"normal! g'\\\"\" | endif")})
 
 (vim.api.nvim_create_autocmd
   :FileType
   {:pattern "clojure"
    :group    (vim.api.nvim_create_augroup :ClojureSetup {:clear true})
-   :callback (fn [args]
-               (let [clj (require :lang.clojure)]
-                 (clj.set-up-mappings)))})
+   :callback #(let [clj (require :lang.clojure)]
+                (clj.set-up-mappings))})
 
 (vim.api.nvim_create_autocmd
   "BufRead,BufNewFile"

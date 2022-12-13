@@ -31,19 +31,17 @@
   (set nvim.g.neovide_cursor_vfx_mode "railgun")
   (toggle "t"
           "transparency"
-          (fn []
-            (if (transparent?)
-              (make-non-transparent (dark?))
-              (make-transparent (dark?))))))
+          #(if (transparent?)
+             (make-non-transparent (dark?))
+             (make-transparent (dark?)))))
 
 (vim.api.nvim_create_autocmd
       :ColorScheme
       {:buffer   bufnr
        :group    (vim.api.nvim_create_augroup :HighlightColors {:clear true})
-       :callback (fn []
-                   (if (transparent?)
-                     (make-transparent (dark?))
-                     (make-non-transparent (dark?))))})
+       :callback #(if (transparent?)
+                    (make-transparent (dark?))
+                    (make-non-transparent (dark?)))})
 
 ;;; theme
 
@@ -71,7 +69,7 @@
 (let [(ok? msg) (pcall vim.fn.system "defaults read -g AppleInterfaceStyle")]
   (set-theme (string.find msg "Dark")))
 
-(toggle "c" "coloscheme" (fn [] (set-theme (not (dark?)))))
+(toggle "c" "coloscheme" #(set-theme (not (dark?))))
 
 ;;; font
 
@@ -82,15 +80,15 @@
         size (-> (nvim.o.guifont:match "h(%d+)$") tonumber (+ diff))]
     (set nvim.o.guifont (font:gsub "%d+$" size))))
 
-(kset :n :<Space>+ (fn [] (font-size! 1)))
-(kset :n :<Space>- (fn [] (font-size! -1)))
+(kset :n :<Space>= #(font-size! 1))
+(kset :n :<Space>- #(font-size! -1))
 
 ;;; autodark
 
 (auto.setup
   {:update_interval 2000
-   :set_dark_mode (fn [] (set-theme true))
-   :set_light_mode (fn [] (set-theme false))})
+   :set_dark_mode #(set-theme true)
+   :set_light_mode #(set-theme false)})
 (auto.init)
 
 ;;; removing ~ shit

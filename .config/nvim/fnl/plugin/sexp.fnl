@@ -51,8 +51,7 @@
   {:pattern :*
    :group (vim.api.nvim_create_augroup :SexpInsert {:clear true})
    :callback 
-   (fn []
-     (set nvim.g.sexp_enable_insert_mode_mappings  
-          (if (some (fn [v] (= vim.bo.filetype v)) lisps)
-            1
-            0)))})
+   #(set nvim.g.sexp_enable_insert_mode_mappings  
+         (if (some #(= vim.bo.filetype $1) lisps)
+           1
+           0))})

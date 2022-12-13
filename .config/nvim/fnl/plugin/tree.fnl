@@ -9,7 +9,7 @@
             {: merge} aniseed.core
             {: kset} util}})
 
-(kset :n "<space>pt" (fn [] (api.tree.toggle false true)) "Tree Toggle")
+(kset :n "<space>pt" #(api.tree.toggle false true) "Tree Toggle")
 
 (defn collapse-and-show []
   (api.tree.toggle false true)
@@ -62,10 +62,10 @@
              :action_cb swap-then-open-tab}
             {:key       [:S] 
              :action    "`live-grep` the node"
-             :action_cb (fn [opts] (launch-telescope "live_grep" opts))}
+             :action_cb #(launch-telescope "live_grep" $1)}
             {:key       [:F :<D-f>] 
              :action    "`find-files` the node"
-             :action_cb (fn [opts] (launch-telescope "find_files" opts))}
+             :action_cb #(launch-telescope "find_files" $1)}
             {:key :D :action :cd}
             {:key :M :action :bulk_move}
             {:key :q :action ""} ;; unmap

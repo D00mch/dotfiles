@@ -13,9 +13,9 @@
 ;; jack in with Lein or Deps or Flutter based on root project file
 (defn run-appropriate-clojure-repl []
   (let [root-files (nvim.fn.readdir (nvim.fn.getcwd))
-        has-pubspec (some (fn [s] (= s "pubspec.yaml")) root-files) 
-        has-lein (some (fn [s] (= s "project.clj")) root-files)
-        has-deps (some (fn [s] (= s "deps.edn")) root-files)]
+        has-pubspec (some #(= $1 "pubspec.yaml") root-files) 
+        has-lein (some #(= $1 "project.clj") root-files)
+        has-deps (some #(= $1 "deps.edn") root-files)]
     (if 
       has-pubspec
       (do (nvim.echo "found flutter")

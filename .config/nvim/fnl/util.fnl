@@ -33,15 +33,13 @@
 
 ;; maps operation to visual, rows only
 (defn vis-op [op args]
-  (fn []
-    (op
+  #(op
      [(vim.fn.line ".") (vim.fn.line "v")]
-     args)))
+     args))
 
 ;; maps operation to visual
 (defn vis-op+ [op args]
-  (fn []
-    (op
+  #(op
      [(vim.api.nvim_buf_get_mark 0 "<")
       (vim.api.nvim_buf_get_mark 0 ">")]
-     args)))
+     args))

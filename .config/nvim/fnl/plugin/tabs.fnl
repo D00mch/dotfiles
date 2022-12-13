@@ -13,14 +13,14 @@
 (kset [:n :t] ">>" ":tabmove +1<cr>")
 (kset [:n :t] "<<" ":tabmove -1<cr>")
 ; alt + t
-(kset [:n :t :x] :† (fn [] (vim.cmd "tabnew\nAlpha")))
+(kset [:n :t :x] :† #(vim.cmd "tabnew\nAlpha"))
 (kset [:n :t :x] :<D-t> :† {:remap true})
 ; alt + shift + t; cmd + shift + t with karabiner
-(kset [:n :t :x] :ˇ (fn [] (vim.cmd "Undoquit")))
+(kset [:n :t :x] :ˇ #(vim.cmd "Undoquit"))
 
 (for [i 1 8]
   (kset :n (.. "<D-" i ">") (.. i :gt)))
-(kset :n :<D-9> (fn [] (bufferline.go_to_buffer -1 true)))
+(kset :n :<D-9> #(bufferline.go_to_buffer -1 true))
 
 (bufferline.setup
   {:options {:mode :tabs
