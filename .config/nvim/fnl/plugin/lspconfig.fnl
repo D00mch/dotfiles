@@ -97,7 +97,7 @@
 
 (defn- on_attach [client b]
   (highlight-symbols client b)
-  (bkset :n :<leader>h #(vim.lsp.buf.hover) {:buffer b :desc "Show docs"})
+  (bkset :n :<leader>h (fn [] (vim.lsp.buf.hover) (vim.lsp.buf.hover)) {:buffer b :desc "Show docs"})
   (bkset :n :gd vim.lsp.buf.definition {:buffer b :desc "Go definition"}) ;[
   (bkset :n :gD "<c-w><c-]><c-w>T" {:buffer b :desc "Go definition new tab"})
   (bkset :n :<leader>tD vim.lsp.buf.type_definition {:buffer b :desc "Type definition"})
