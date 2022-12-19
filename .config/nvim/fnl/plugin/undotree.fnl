@@ -1,5 +1,6 @@
 (module plugin.undotree
-  {autoload {nvim aniseed.nvim}})
+  {autoload {nvim aniseed.nvim
+             {: kset} util}})
 
 (nvim.ex.set :undofile)
 
@@ -8,14 +9,9 @@
 (set nvim.o.undolevels 1000)
 (set nvim.o.undoreload 10000)
 
-(nvim.set_keymap
-  :n
-  :<Space>ut
-  ":UndotreeShow<cr>:UndotreeFocus<cr>"
-  {:noremap true
-   :silent true})
+(kset :n :<Space>ut ":UndotreeShow<cr>:UndotreeFocus<cr>" {:silent true})
 
 (vim.cmd "function g:Undotree_CustomMap()
-           nmap <buffer> ≈ q
+           nmap <buffer> <D-w> q
            map <buffer> d D
          endfunction")
