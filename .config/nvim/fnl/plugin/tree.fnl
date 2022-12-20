@@ -11,12 +11,7 @@
 
 (kset :n "<space>pt" #(api.tree.toggle false true) "Tree Toggle")
 
-(defn collapse-and-show []
-  (api.tree.toggle false true)
-  (lib.collapse_all)
-  (api.tree.focus))
-
-(kset :n :<Space>1 collapse-and-show "Collapse and show")
+(kset :n :<Space>1 #(vim.cmd "NvimTreeCollapseKeepBuffers|NvimTreeFindFile") "Collapse and show")
 
 (defn view-selection [prompt-funr map]
   (actions.select_default:replace
@@ -74,6 +69,6 @@
             {:key :f :action :system_open}
             {:key :i :action :toggle_file_info}
             {:key :u :action :dir_up}]}}
-   :renderer {:symlink_destination true
+   :renderer {:symlink_destination false
               :indent_markers {:enable true}}
    :filters {:custom [:^.git$]}})
