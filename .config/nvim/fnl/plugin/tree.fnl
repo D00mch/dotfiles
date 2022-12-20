@@ -11,7 +11,7 @@
 
 (kset :n "<space>pt" #(api.tree.toggle false true) "Tree Toggle")
 
-(kset :n :<Space>1 #(vim.cmd "NvimTreeCollapseKeepBuffers|NvimTreeFindFile") "Collapse and show")
+(kset :n :<Space>1 #(vim.cmd "NvimTreeCollapse|NvimTreeFindFile") "Collapse and show")
 
 (defn view-selection [prompt-funr map]
   (actions.select_default:replace
