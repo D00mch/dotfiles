@@ -15,7 +15,7 @@
 (kset :n :<Space>am hmark.add_file "Add mark")
 
 (prj.setup
-  {:patterns [".git" "Makefile" "package.json" "deps.edn" "project.clj"]})
+  {:patterns [".git" "package.json" "deps.edn" "project.clj"]})
 
 (def- M (mt.transform_mod
           {:yank-entry
