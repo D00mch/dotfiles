@@ -139,7 +139,7 @@
                           :init_check true
                           :path (.. (vim.fn.expand "~") "/.config/nvim/data/ltex")
                           :log_level :debug}))
-          :filetypes ["markdown" "NeogitCommitMessage"]
+          :filetypes ["markdown" "NeogitCommitMessage" "text"]
           :settings {:ltex {}}}))
 
 (flut.setup
