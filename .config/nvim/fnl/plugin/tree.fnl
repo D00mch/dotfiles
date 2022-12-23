@@ -47,7 +47,7 @@
                          :update_root true}
    :git {:enable false}
    :view
-   {:adaptive_size true
+   {;:adaptive_size true
     :mappings
     {:list [;{:key :t
             ; :action "swap-then-open-tab"
@@ -61,12 +61,18 @@
             {:key       [:F :<D-f>] 
              :action    "`find-files` the node"
              :action_cb #(launch-telescope "find_files" $1)}
-            {:key "<D-,>"
-             :action "BufferLineCyclePrev"
+            {:key      "<D-,>"
+             :action   "BufferLineCyclePrev"
              :action_cb #(vim.cmd (.. "wincmd l" "|" "BufferLineCyclePrev"))}
-            {:key "<D-.>"
-             :action "BufferLineCycleNext"
+            {:key       "<D-.>"
+             :action    "BufferLineCycleNext"
              :action_cb #(vim.cmd (.. "wincmd l" "|" "BufferLineCycleNext"))}
+            {:key       :≥
+             :action    :resizeRight
+             :action_cb #(vim.cmd "NvimTreeResize +5")}
+            {:key       :≤
+             :action    :resizeLeft
+             :action_cb #(vim.cmd "NvimTreeResize -5")}
             {:key :D :action :cd}
             {:key :M :action :bulk_move}
             {:key :q :action ""} ;; unmap
