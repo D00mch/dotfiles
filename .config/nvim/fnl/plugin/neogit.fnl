@@ -36,18 +36,22 @@
     {:x actions.restore_entry
      :s actions.toggle_stage_entry}))
 
+(def diff-keys [[[:n :x] :go (actions.conflict_choose :ours)]
+                [[:n :x] :gt (actions.conflict_choose :theirs)]
+                [[:n :x] :gb (actions.conflict_choose :base)]
+                [[:n :x] :ga (actions.conflict_choose :all)]
+                [[:n :x] :gn actions.next_conflict]
+                [[:n :x] :gN actions.prev_conflict]])
+
 (dview.setup
-  {:keymaps 
+  {:view {:merge_tool {:layout "diff1_plain"}}
+   :keymaps 
    {:disable_defaults   false
     :view               (merge 
                           diffview-unmap
                           diffview-common-mappings)
-    :diff3              [[[:n :x] :go (actions.conflict_choose "ours")]
-                         [[:n :x] :gt (actions.conflict_choose "theirs")]
-                         [[:n :x] :gb (actions.conflict_choose "base")]
-                         [[:n :x] :ga (actions.conflict_choose "all")]
-                         [[:n :x] :gn actions.next_conflict]
-                         [[:n :x] :gN actions.prev_conflict]]
+    :diff1              diff-keys              
+    :diff3              diff-keys              
     :file_panel         panel-mappings
     :file_history_panel panel-mappings 
     :option_panel       panel-mappings}})
