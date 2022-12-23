@@ -11,7 +11,7 @@
 ;;; diffview
 
 (def diffview-common-mappings
-  {:gf actions.goto_file_tab
+  {:gf actions.goto_file_edit
    :<Space>1 ":DiffviewToggleFiles<cr>"
    ::ggn actions.next_conflict
    ::ggp actions.prev_conflict})

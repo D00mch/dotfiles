@@ -40,7 +40,7 @@
                    :<Right> actions.preview_scrolling_down
                    :<Left>  actions.preview_scrolling_up
                    :t       actions.select_tab
-                   :<D-t>   actions.select_tab
+                   ;:<D-t>   actions.select_tab
                    :q       (+ actions.smart_send_to_qflist actions.open_qflist)}
                :i {:∑       actions.close           ; alt+x
                    :<C-q>   (+ actions.smart_send_to_qflist actions.open_qflist)
@@ -49,7 +49,7 @@
                    :<Left>  actions.preview_scrolling_up
                    :∂       actions.delete_buffer   ; alt + d
                    :†       actions.select_tab      ; alt + t
-                   :<D-t>   actions.select_tab
+                   ;:<D-t>   actions.select_tab
                    :Ã·      actions.which_key}}}    ; alt + ?
    :pickers {:git_branches {:mappings
                             {:n {:<Cr>  actions.git_switch_branch

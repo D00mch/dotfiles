@@ -36,11 +36,12 @@
 (glance.setup
   {:mappings
    {:list {:gh (glance.actions.enter_win :preview)
-           :<D-t> glance.actions.jump_tab
+           ;:<D-t> glance.actions.jump_tab
            :<left> (glance.actions.preview_scroll_win 5)
            :<right> (glance.actions.preview_scroll_win -5)}
     :preview {:gl (glance.actions.enter_win :list)
-              :<D-t> glance.actions.jump_tab}}
+              ;:<D-t> glance.actions.jump_tab
+              }}
    :height 25})
 
 (set vim.o.updatetime 250)

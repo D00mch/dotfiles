@@ -31,7 +31,11 @@
 (kset :i :<D-a> :<Esc><D-a> {:remap true})
 (kset :c :<D-a> :<C-f><Esc><D-a> {:remap true})
 
-(kset [:n :x] :<D-w> ":q<Cr>")
+(defn close-or-buffer-delete []
+  (if (not (pcall vim.cmd "close"))
+    (vim.cmd "bd")))
+
+(kset [:n :x] :<D-w> close-or-buffer-delete {:desc "Close or :bd"})
 (kset :i :<D-w> :<Esc><D-w> {:remap true})
 (kset :c :<D-w> :<Esc><Esc>)
 

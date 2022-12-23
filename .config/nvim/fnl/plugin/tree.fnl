@@ -35,10 +35,10 @@
         :search_dirs [basedir]
         :attach_mappings view-selection})))
 
-(defn swap-then-open-tab []
-  (let [node (lib.get_node_at_cursor)]
-    (vim.cmd "wincmd l")
-    (api.node.open.tab node)))
+; (defn swap-then-open-tab []
+;   (let [node (lib.get_node_at_cursor)]
+;     (vim.cmd "wincmd l")
+;     (api.node.open.tab node)))
 
 (tree.setup
   {:sync_root_with_cwd true
@@ -49,12 +49,12 @@
    :view
    {:adaptive_size true
     :mappings
-    {:list [{:key :t
-             :action "swap-then-open-tab"
-             :action_cb swap-then-open-tab}
-            {:key :<D-t>
-             :action "swap-then-open-tab"
-             :action_cb swap-then-open-tab}
+    {:list [;{:key :t
+            ; :action "swap-then-open-tab"
+            ; :action_cb swap-then-open-tab}
+            ; {:key :<D-t>
+            ;  :action "swap-then-open-tab"
+            ;  :action_cb swap-then-open-tab}
             {:key       [:S] 
              :action    "`live-grep` the node"
              :action_cb #(launch-telescope "live_grep" $1)}
