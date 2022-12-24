@@ -21,6 +21,10 @@ cd $HOME
     nmap \ gcc
     vmap \ gcc
 
+    "AUTOREAD
+        au FocusGained,BufEnter * :silent! !
+        au FocusLost,WinLeave * :silent! noautocmd w
+
     "INFO
         noremap <leader>z g<C-g>
         vnoremap <leader>z g<C-g>:<C-U>echo v:statusmsg<CR>
