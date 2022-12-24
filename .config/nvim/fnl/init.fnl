@@ -2,8 +2,6 @@
   {require {_ plugin
             nvim aniseed.nvim
             u aniseed.nvim.util
-            key which-key
-            {: toggle} plugin.which
             plenary plenary.filetype
             {: dec : inc} aniseed.core
             {: kset} util}
@@ -75,21 +73,6 @@
 ;; delete all buffers except this one
 (set nvim.o.mouse "a")
 
-;; language setup
-(vim.cmd "lang en_US.UTF-8") ;; tmp fix until nvim 0.7.1 https://github.com/neovim/neovim/issues/5683#issuecomment-1114756116
-(vim.api.nvim_command "set keymap=russian-jcukenmac")
-(set nvim.o.iminsert 0)
-(set nvim.o.imsearch 0)
-
-(key.register
-  {:<Space>
-   {:r [(.. "<Cmd>set iminsert=1 imsearch=1<bar>"
-            "lang ru_RU.UTF-8<bar>"
-            "setlocal spell! spelllang=ru_ru,en_us<cr>") "set rus lang"]
-    :e [(.. "<Cmd>set iminsert=0 imsearch=0<bar>"
-            "lang en_US.UTF-8<bar>"
-            "setlocal spell! spelllang=ru_ru,en_us<cr>") "set eng lang"]}})
-
 ;; diff split
 (defn- compare-to-clipboard []
   (let [ftype (vim.api.nvim_eval "&filetype")]
@@ -135,55 +118,3 @@ endfunction")
    :pattern :*
    :callback 
    (fn [] (vim.highlight.on_yank {:higroup :IncSearch :timeout 300}))})
-
-;; formatters
-
-(key.register
-  {:<Space>
-   {:f [{:j [:!jq<cr> "Json"]
-         :p ["!pg_format -s 2<cr>" "pSQL"]
-         :c ["<Esc>:ReplaceSelection tocamel<Cr>" "CamelCase"]
-         :s ["<Esc>:ReplaceSelection tosnake<Cr>" "snake_case"]         
-         :k ["<Esc>:ReplaceSelection tokebab<Cr>" "kebab-case"]}
-        "Format"]}}
-  {:mode :x})
-
-;; cases
-
-(defn tocamel [s]
-  (s:gsub "[_|-](%w+)"
-          (fn [part]
-            (let [(before after) (values (part:sub 1 1) (part:sub 2))]
-              (.. (before:upper) after)))))
-
-(defn tosnake [s]
-  (: (: (: (: (: (s:gsub "%f[^%l]%u" "_%1") :gsub "%f[^%a]%d"
-                 "_%1") :gsub
-              "%f[^%d]%a" "_%1")
-           :gsub "(%u)(%u%l)" "%1_%2")
-        :lower)
-     :gsub "-" "_"))
-
-(defn tokebab [s]
-  (: (: (: (: (: (s:gsub "%f[^%l]%u" "-%1") :gsub "%f[^%a]%d"
-                 "_%1") :gsub
-              "%f[^%d]%a" "-%1")
-           :gsub "(%u)(%u%l)" "%1-%2")
-        :lower)
-     :gsub "_" "-"))
-
-(defn replace-selection [{:args f}]
-  (let [[sr sc] (vim.api.nvim_buf_get_mark 0 "<")
-        [sr sc] [(dec sr) sc]
-        [er ec] (vim.api.nvim_buf_get_mark 0 ">")
-        [er ec] [(dec er) (inc ec)]
-        [word]  (vim.api.nvim_buf_get_text 0 sr sc er ec {})
-        result ((if
-                  (= f "tokebab") tokebab
-                  (= f "tosnake") tosnake
-                  (= f "tocamel") tocamel) word)]
-    (vim.api.nvim_buf_set_text 0 sr sc er ec [result])))
-
-(vim.api.nvim_create_user_command
-  :ReplaceSelection replace-selection
-  {:nargs 1 :desc "Replace selected word with result function"})

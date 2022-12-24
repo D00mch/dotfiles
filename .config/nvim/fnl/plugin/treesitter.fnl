@@ -18,7 +18,7 @@
                }
    :refactor {:highlight_definitions {:enable true}
               :smart_rename {:enable true
-                             :keymaps {:smart_rename :<Space>rr}}}
+                             :keymaps {:smart_rename :<Leader>rr}}}
    :indent    {:enable true}
    :rainbow   {:enable true
                :extended_mode true

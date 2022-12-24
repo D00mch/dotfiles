@@ -1,4 +1,4 @@
-(module plugin.toggleterm
+(module plugin.translate
   {autoload {nvim aniseed.nvim
              {: kset} util
              translate translate}})

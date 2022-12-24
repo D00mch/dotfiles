@@ -1,7 +1,6 @@
 (module plugin.sexp
   {require {nvim aniseed.nvim
             {: some} aniseed.core
-            {: toggle} plugin.which
             {: kset} util}})
 
 (set nvim.g.sexp_filetypes "*")
