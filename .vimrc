@@ -38,12 +38,6 @@ cd $HOME
         onoremap aq a"
 
     "COMMON
-        "alt o - to remove word
-        noremap! ø <C-w>
-        "alt a - select all
-        nnoremap å ggVG
-        "alt o - to remove word
-        nnoremap ø <C-o>
         "v to change visual
         vnoremap v <C-v>
 
@@ -53,18 +47,10 @@ cd $HOME
         "below - paste from buffer
         nnoremap <space>o mXo<C-r><C-o>*<Esc><Esc>`X
 
-        "alt p - to paste in edit mode
-        noremap! π <C-r><C-o>*
-
     "SAVING
         "alt + q
         nnoremap œ :silent! wa<bar>qa!<cr>
         imap œ <Esc>œ
-
-        "alt + s
-        noremap ß :w<CR>
-        inoremap ß <Esc>:w<CR>a
-
 
     "COPY FILE, PATH
         nnoremap yp :let @+=expand("%:p")<cr>:echom expand("%:p")<cr>

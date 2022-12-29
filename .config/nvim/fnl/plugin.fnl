@@ -46,6 +46,9 @@
   :Shatur/neovim-session-manager {}
   :RomanoZumbe/harpoon {:mod :harpoon}
 
+  ;; ai
+  :zbirenbaum/copilot.lua {:mod :copilot}
+
   ;; repl
   :Olical/conjure {:branch :master :mod :conjure}
   :wlangstroth/vim-racket {:ft [:scheme :racket]}
