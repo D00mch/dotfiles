@@ -67,10 +67,10 @@
             {:key       "<D-.>"
              :action    "BufferLineCycleNext"
              :action_cb #(vim.cmd (.. "wincmd l" "|" "BufferLineCycleNext"))}
-            {:key       :≥
+            {:key       :<M-.>
              :action    :resizeRight
              :action_cb #(vim.cmd "NvimTreeResize +5")}
-            {:key       :≤
+            {:key       "<M-,>"
              :action    :resizeLeft
              :action_cb #(vim.cmd "NvimTreeResize -5")}
             {:key :D :action :cd}

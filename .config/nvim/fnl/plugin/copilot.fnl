@@ -11,16 +11,15 @@
     {:suggestion {:enabled true
                   :auto_trigger true
                   :debounce 75
-                  :keymap {:accept :å ;; alt+a
+                  :keymap {:accept :<M-a>
                            :accept_word false
                            :accept_line false
-                           :next :<c-n>
-                           :prev :<c-p>
+                           :next :<M-n>
+                           :prev :<M-p>
                            :dismiss :<c-x>}}
      :copilot_node_command :node})
   (suggestion.toggle_auto_trigger))
 
 (toggle :p "coPilot" copilot-setup)
 
-;; alt + p
-(kset [:n :i] :π panel.open {:desc "Open Copilot panel"})
+(kset [:n :i] :<M-p> panel.open {:desc "Open Copilot panel"})

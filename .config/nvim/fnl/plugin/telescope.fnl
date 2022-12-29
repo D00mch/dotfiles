@@ -42,15 +42,15 @@
                    :t       actions.select_tab
                    ;:<D-t>   actions.select_tab
                    :q       (+ actions.smart_send_to_qflist actions.open_qflist)}
-               :i {:∑       actions.close           ; alt+x
+               :i {:<M-x>   actions.close
                    :<C-q>   (+ actions.smart_send_to_qflist actions.open_qflist)
                    :?       actions.which_key
                    :<Right> actions.preview_scrolling_down
                    :<Left>  actions.preview_scrolling_up
-                   :∂       actions.delete_buffer   ; alt + d
-                   :†       actions.select_tab      ; alt + t
+                   :<M-d>   actions.delete_buffer
+                   :<M-t>   actions.select_tab
                    ;:<D-t>   actions.select_tab
-                   :Ã·      actions.which_key}}}    ; alt + ?
+                   :<M-?>   actions.which_key}}}
    :pickers {:git_branches {:mappings
                             {:n {:<Cr>  actions.git_switch_branch
                                  :ga    actions.git_create_branch
@@ -60,9 +60,9 @@
                                  :gd    actions.git_delete_branch
                                  :gr    actions.git_rebase_branch}
                              :i {:<Cr>  actions.git_switch_branch
-                                 :∂     actions.git_delete_branch  ; alt + d
+                                 :<M-d> actions.git_delete_branch
                                  :<C-a> actions.git_create_branch
-                                 :å     actions.git_create_branch  ; alt + a
+                                 :<M-a> actions.git_create_branch
                                  :<D-a> actions.git_create_branch
                                  :<C-h> actions.git_reset_hard
                                  :<C-s> actions.git_reset_soft
@@ -88,7 +88,7 @@
                                            :h fb_actions.toggle_hidden
                                            :H fb_actions.goto_cwd
                                            :<Esc> false
-                                           :≈ actions.close}}}
+                                           :<M-w> actions.close}}}
                 :ui-select [(themes.get_dropdown {})]}})
 
 ;; after telescope setup

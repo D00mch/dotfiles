@@ -17,13 +17,9 @@
 ; (kset [:n :t] ">>" ":tabmove +1<cr>")
 ; (kset [:n :t] "<<" ":tabmove -1<cr>")
 
-; alt + t
-(kset [:n :t :x] :† #(vim.cmd "tabnew\nAlpha"))
+(kset [:n :t :x] :<M-t> #(vim.cmd "tabnew\nAlpha"))
 (kset [:n :t :x] :<D-t> :<Leader><Space> {:remap true})
 ;(kset [:n :t :x] :<D-t> :† {:remap true})
-
-; alt + shift + t; cmd + shift + t with karabiner
-(kset [:n :t :x] :ˇ #(vim.cmd "Undoquit"))
 
 (for [i 1 8]
   ;(kset :n (.. "<D-" i ">") (.. i :gt))

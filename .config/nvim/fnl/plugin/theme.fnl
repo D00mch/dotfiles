@@ -29,6 +29,7 @@
 
 (when vim.g.neovide
   (set nvim.g.neovide_cursor_vfx_mode "railgun")
+  (set nvim.g.neovide_input_macos_alt_is_meta true)
   (toggle "t"
           "transparency"
           #(if (transparent?)

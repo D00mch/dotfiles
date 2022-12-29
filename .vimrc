@@ -48,9 +48,8 @@ cd $HOME
         nnoremap <space>o mXo<C-r><C-o>*<Esc><Esc>`X
 
     "SAVING
-        "alt + q
-        nnoremap œ :silent! wa<bar>qa!<cr>
-        imap œ <Esc>œ
+        nnoremap <M-q> :silent! wa<bar>qa!<cr>
+        imap <M-q> <Esc>œ
 
     "COPY FILE, PATH
         nnoremap yp :let @+=expand("%:p")<cr>:echom expand("%:p")<cr>
@@ -100,15 +99,10 @@ cd $HOME
         nmap g= <C-w>=
 
         "RESIZE
-        nnoremap ˘ <C-w>5+
-        nnoremap ¯ <C-w>5-
-        "alt+
-        nnoremap ≥ <C-w>5>+
-        nnoremap ≤ <C-w>5<+
-
-        "experimental with CMD
-        nnoremap <D-.> <C-w>5>+
-        nnoremap <D-,> <C-w>5<+
+        nnoremap <M->> <C-w>5+
+        nnoremap <M-<> <C-w>5-
+        nnoremap <M-.> <C-w>5>
+        nnoremap <M-,> <C-w>5<
 
     "SPACEMACS-LIKE COMMANDS
         nnoremap <space>d :bd!<CR>
