@@ -6,6 +6,7 @@
              themes telescope.themes
              actions telescope.actions
              fb_actions telescope._extensions.file_browser.actions
+             undo_actions telescope-undo.actions
              prj project_nvim
              state telescope.actions.state
              mt telescope.actions.mt
@@ -75,7 +76,9 @@
                                  :<Esc> false}
                              :i {:<Cr> actions.git_checkout_current_buffer}}}
              :live_grep {:only_sort_text true}}
-   :extensions {:file_browser {:theme :ivy
+   :extensions {:undo {:mappings {:n {:y undo_actions.yank_additions
+                                      :Y undo_actions.yank_deletions}}}
+                :file_browser {:theme :ivy
                                :mappings {:n
                                           {:u fb_actions.goto_parent_dir
                                            :f fb_actions.open
@@ -96,6 +99,7 @@
 (telescope.load_extension :file_browser)
 (telescope.load_extension :projects)
 (telescope.load_extension :harpoon)
+(telescope.load_extension :undo)
 
 (kset :n :<space>pf ":Telescope find_files hidden=true no_ignore=false<cr>")
 (kset :n :<space>pr ":Telescope resume<cr>")
@@ -103,6 +107,7 @@
 (kset :n :<space>pa ":Telescope live_grep<cr>")
 (kset :n :<space>pp ":Telescope projects<cr>" "Projects")
 (kset :n :<space>ph ":Telescope harpoon marks<cr>" "Harpoon")
+(kset :n :<space>pu ":Telescope undo<Cr>" "Undo")
 ;(kset :n :<space>pq ":Telescope quickfix<cr>" "QuickFix")
 
 (kset :n :<space>vk ":Telescope keymaps<cr>")

@@ -38,6 +38,7 @@
               :nvim-lua/plenary.nvim
               :nvim-telescope/telescope-ui-select.nvim
               :ahmedkhalf/project.nvim
+              :debugloop/telescope-undo.nvim
               :nvim-telescope/telescope-file-browser.nvim]}
   :goolord/alpha-nvim {:mod :alpha
                        ;; don't update as I have code fixed locally;
