@@ -49,6 +49,7 @@
 
   ;; ai
   :zbirenbaum/copilot.lua {:mod :copilot}
+  :zbirenbaum/copilot-cmp {}
 
   ;; repl
   :Olical/conjure {:branch :master :mod :conjure}
