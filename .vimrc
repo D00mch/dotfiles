@@ -122,6 +122,8 @@ cd $HOME
         set ignorecase
         set incsearch
         set hlsearch
+        vnoremap / <Esc>/\%V
+        
 
     "SEARCH
         " nnoremap / /\v
