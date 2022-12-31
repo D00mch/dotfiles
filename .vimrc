@@ -56,7 +56,23 @@ cd $HOME
         nnoremap yd :let @+=expand("%:p:h")<cr>:echom expand("%:p:h")<cr>
     "SPACEMACS-LIKE
         map <space>; gcc
-        nnoremap <space>q q
+
+        " Record in 'f' with <Space>q
+        
+        function! ToggleRecordingF()
+            let mode = mode()
+
+            if mode == 'n'
+                " Not currently recording, so start recording
+                normal! qf
+            elseif mode == 'r'
+                stoprecord
+            endif
+        endfunction
+        nnoremap <space>q :call ToggleRecordingF()<Cr>
+        nnoremap <space>Q q
+        nnoremap <space>f @f
+
         "remove unnecessary spaces at the end of lines
         nnoremap <space>as mX:%s/\s\s*$//g<cr>`X
         vnoremap <space>as :s/\s\s*$//g<cr>

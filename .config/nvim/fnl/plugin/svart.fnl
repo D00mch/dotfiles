@@ -5,7 +5,7 @@
 
 (kset [:n :x :o] :q "<Cmd>Svart<CR>")
 (kset [:n :x :o] :Q "<Cmd>SvartRegex<CR>")
-(kset [:n :o] :gq "<Cmd>SvartRepeat<CR>")
+;(kset [:n :o] :gq "<Cmd>SvartRepeat<CR>")
 
 (svart.configure
   {})
