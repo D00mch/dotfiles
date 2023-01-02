@@ -106,6 +106,7 @@
                      :mod :cmp}
   :dcampos/nvim-snippy {:requires [:dcampos/cmp-snippy]}
 
+  :EtiamNullam/deferred-clipboard.nvim {}
   :chrisbra/csv.vim {:mod :csv
                      :ft [:csv :csv_semicolon :csv_whitespace :csv_pipe
                           :tsv :rfc_csv :rfc_semicolon]}
