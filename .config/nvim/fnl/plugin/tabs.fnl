@@ -12,10 +12,10 @@
 (kset [:i :c] "<D-,>" "<Esc><D-,>" {:remap true})
 (kset :t "<D-,>" "<C-\\><C-n><D-,>" {:remap true})
 
-(kset [:n :t] ">>" ":BufferLineMoveNext<cr>")
-(kset [:n :t] "<<" ":BufferLineMovePrev<cr>")
-; (kset [:n :t] ">>" ":tabmove +1<cr>")
-; (kset [:n :t] "<<" ":tabmove -1<cr>")
+(kset [:n] ">>" ":BufferLineMoveNext<cr>")
+(kset [:n] "<<" ":BufferLineMovePrev<cr>")
+; (kset [:n] ">>" ":tabmove +1<cr>")
+; (kset [:n] "<<" ":tabmove -1<cr>")
 
 (kset [:n :t :x] :<M-t> #(vim.cmd "tabnew\nAlpha"))
 (kset [:n :t :x] :<D-t> :<Leader><Space> {:remap true})
