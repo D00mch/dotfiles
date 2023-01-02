@@ -22,7 +22,7 @@
 
 (kset :x :<D-c> :y)
 
-(kset :n :<D-v> :p)
+(kset [:n :x] :<D-v> :p)
 (kset :t :<D-v> :<Esc>pa)
 (kset [:i :c] :<D-v> :<C-r><C-o>*)
 
