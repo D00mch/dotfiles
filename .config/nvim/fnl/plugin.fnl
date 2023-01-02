@@ -75,7 +75,7 @@
 
   ;; theme
   :EdenEast/nightfox.nvim {:mod :theme}
-  :rose-pine/neovim {}
+  :kvrohit/substrata.nvim {}
   :sainnhe/everforest {}
   :sam4llis/nvim-tundra {}
   :f-person/auto-dark-mode.nvim {}
