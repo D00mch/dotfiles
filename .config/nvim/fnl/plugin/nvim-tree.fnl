@@ -1,4 +1,4 @@
-(module plugin.tree
+(module plugin.nvim-tree
   {require {tree nvim-tree
             lib nvim-tree.lib
             api nvim-tree.api
@@ -84,3 +84,19 @@
    :renderer {:symlink_destination false
               :indent_markers {:enable true}}
    :filters {:custom [:^.git$]}})
+
+;; Autoclose when nvim-tree is the last buffer
+(vim.api.nvim_create_autocmd
+  :BufEnter
+  {:group (vim.api.nvim_create_augroup :NvimTreeClose {:clear true})
+   :pattern :NvimTree_*
+   :callback (fn []
+               (local layout
+                 (vim.api.nvim_call_function :winlayout {}))
+               (when (and (= (. layout 1) :leaf)
+                          (= (vim.api.nvim_buf_get_option
+                               (vim.api.nvim_win_get_buf (. layout 2))
+                               :filetype)
+                             :NvimTree)
+                          (= (. layout 3) nil))
+                 (vim.cmd "bd")))})	

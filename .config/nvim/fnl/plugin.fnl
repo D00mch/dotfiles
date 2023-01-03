@@ -31,7 +31,7 @@
   ;; status line, tree
   :nvim-tree/nvim-web-devicons {}
   :nvim-lualine/lualine.nvim {:mod :lualine}
-  :nvim-tree/nvim-tree.lua {:mod :tree}
+  :nvim-tree/nvim-tree.lua {:mod :nvim-tree}
   :nvim-telescope/telescope.nvim
   {:mod :telescope
    :requires [:nvim-lua/popup.nvim
