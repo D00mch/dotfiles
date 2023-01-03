@@ -3,13 +3,11 @@
             nvim aniseed.nvim
             u aniseed.nvim.util
             plenary plenary.filetype
-            clipboard deferred-clipboard
             numb numb
             {: dec : inc} aniseed.core
             {: kset} util}
    require-macros [macros]})
 
-(clipboard.setup) ;; do not put every 'x' to clipboard
 (numb.setup)
 
 (defn- map [mode from to]

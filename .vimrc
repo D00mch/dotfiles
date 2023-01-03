@@ -1,6 +1,6 @@
 set relativenumber
 set number
-"set clipboard+=unnamed  "for osx
+set clipboard+=unnamed  "for osx
 set nocompatible
 set fileencoding=utf-8
 
