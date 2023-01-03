@@ -68,7 +68,7 @@
 ;;; neogit
 
 (neogit.setup
-  {:kind :split
+  {:kind :replace
    :integrations {:diffview true}
    :disable_commit_confirmation true
    :sections {:untracked {:folded true}
@@ -82,7 +82,7 @@
         diff-view? (string.match current-dir "^diffview://")]
     (vim.api.nvim_command (if
                             diff-view? "tabc"
-                            in-git? "q"
+                            in-git? "bd"
                             "Neogit"))))
 
 (kset [:n :x] :<Space>9 neogit-toggle "Toggle NeoGit")
