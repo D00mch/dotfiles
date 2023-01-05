@@ -19,10 +19,7 @@
    :refactor {:highlight_definitions {:enable true}
               :smart_rename {:enable true
                              :keymaps {:smart_rename :<Leader>rr}}}
-   :indent    {:enable true}
-   :rainbow   {:enable true
-               :extended_mode true
-               :max_file_lines nil}})
+   :indent    {:enable true}})
 
 ;; structural search and replace
 (ssr.setup
