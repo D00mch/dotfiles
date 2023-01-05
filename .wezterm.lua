@@ -2,7 +2,7 @@ local wezterm = require 'wezterm'
 
 function scheme_for_appearance(appearance)
   if appearance:find("Dark") then
-    return "Firewatch"
+    return "SeaShells"
   else
     return "dawnfox"
   end
@@ -20,5 +20,6 @@ end)
 
 return {
     font = wezterm.font('Hack Nerd Font Mono', { weight = 'Bold' }),
-    font_size = 14
+    font_size = 14,
+    enable_scroll_bar = true,
 }
