@@ -74,7 +74,8 @@
   :uga-rosa/translate.nvim {:mod :translate}
 
   ;; theme
-  :EdenEast/nightfox.nvim {:mod :theme}
+  :EdenEast/nightfox.nvim {:mod :theme
+                           :commit :5cb26387c3b3c34cd0603fc36dd2b5300adcb526}
   :kvrohit/substrata.nvim {}
   :sainnhe/everforest {}
   :sam4llis/nvim-tundra {}
