@@ -9,7 +9,7 @@
 
 (defn copilot-setup []
   (copilot.setup
-    {:suggestion {:enabled true
+    {:suggestion {:enabled false
                   :auto_trigger true
                   :debounce 75
                   :keymap {:accept :<M-a>
@@ -18,14 +18,14 @@
                            :next :<C-n>
                            :prev :<C-p>
                            :dismiss :<c-x>}}
+     :panel {:enabled false}
      :cmp {:enabled true
            :method :getCompletionsCycling}
      :copilot_node_command :node})
   (c-cmp.setup
     {:method :getCompletionsCycling})
-  ; (vim.cmd "Copilot suggestion")
-  ;(suggestion.toggle_auto_trigger)
-  )
+  (vim.cmd "Copilot suggestion")
+  (suggestion.toggle_auto_trigger))
 
 (toggle :p "coPilot" copilot-setup)
 
