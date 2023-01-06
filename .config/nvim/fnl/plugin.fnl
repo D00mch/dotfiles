@@ -95,6 +95,7 @@
                                      :barreiroleo/ltex-extra.nvim  ; ltex code actions
                                      :jose-elias-alvarez/null-ls.nvim
                                      :rmagatti/goto-preview]}
+  :ray-x/lsp_signature.nvim {}
 
   ;; autocomplete
   :hrsh7th/nvim-cmp {:requires [:hrsh7th/cmp-buffer
