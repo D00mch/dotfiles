@@ -88,13 +88,13 @@
   :kevinhwang91/nvim-bqf {}
 
   ;; lsp
-  :neovim/nvim-lspconfig {:mod :lspconfig
-                          :requires [:williamboman/mason.nvim
-                                     :DNLHC/glance.nvim            ; cmd+b like in idea
-                                     :barreiroleo/ltex-extra.nvim  ; ltex code actions
-                                     :jose-elias-alvarez/null-ls.nvim
-                                     :rmagatti/goto-preview]}
+  :neovim/nvim-lspconfig {:mod :lspconfig}
+  ;:jose-elias-alvarez/null-ls.nvim {}
   :ray-x/lsp_signature.nvim {}
+  :williamboman/mason.nvim {}     ; install lsp servers      
+  :DNLHC/glance.nvim {}           ; cmd+b like in idea
+  :barreiroleo/ltex-extra.nvim {} ; ltex code actions
+  :rmagatti/goto-preview {}        ; preview definition
 
   ;; autocomplete
   :hrsh7th/nvim-cmp {:requires [:hrsh7th/cmp-buffer

@@ -2,7 +2,7 @@
   {autoload {nvim aniseed.nvim
              lsp lspconfig
              signature lsp_signature
-             null-ls null-ls
+             ;null-ls null-ls
              ltex ltex_extra
              glance glance
              which plugin.which
@@ -15,15 +15,14 @@
              preview goto-preview
              cmplsp cmp_nvim_lsp}})
 
-
 (signature.setup)
 
+;preview
 (defn close-and-move-focus-on-prev []
   (let [prev-win (vim.fn.winnr)]
     (vim.cmd "wincmd p")
     (vim.cmd (.. prev-win "wincmd q"))))
 
-;preview
 (preview.setup {:height 25
                 :bufhidden :wipe
                 :post_open_hook
@@ -162,25 +161,23 @@
 
 ;;; Null-ls
 
-(defn- null-toggle [source key]
-  (which.toggle
-    key
-    (.. "Null_ls: " source)
-    #(let [source (null-ls.get_source {:name source})]
-       (if (. (first source) :_disabled)
-         (null-ls.enable source)
-         (null-ls.disable source)))))
+; (defn- null-toggle [source key]
+;   (which.toggle
+;     key
+;     (.. "Null_ls: " source)
+;     #(let [source (null-ls.get_source {:name source})]
+;        (if (. (first source) :_disabled)
+;          (null-ls.enable source)
+;          (null-ls.disable source)))))
 
-(null-ls.setup
-  (merge default-map
-         {:on_attach (fn [c b]
-                       (on_attach c b)
-                       (highlight-symbols c b)
-                       (null-toggle :alex :a)
-                       (vim.api.nvim_buf_set_option b :formatexpr ""))
-          :sources (let [diagnostics {:diagnostic_config diagnostics
-                                      :diagnostics_format "[#{c}] #{m} (#{s})"}]
-                     [null-ls.builtins.hover.dictionary
-                      (null-ls.builtins.formatting.pg_format.with ;; install `pgformatter`
-                        {:extra_args ["-s" "2"]})
-                      (null-ls.builtins.diagnostics.alex.with diagnostics)])}))
+; (null-ls.setup
+;   (merge default-map
+;          {:on_attach (fn [c b]
+;                        (on_attach c b)
+;                        (highlight-symbols c b)
+;                        (null-toggle :alex :a)
+;                        (vim.api.nvim_buf_set_option b :formatexpr ""))
+;           :sources (let [diagnostics {:diagnostic_config diagnostics
+;                                       :diagnostics_format "[#{c}] #{m} (#{s})"}]
+;                      [null-ls.builtins.hover.dictionary
+;                       (null-ls.builtins.diagnostics.alex.with diagnostics)])}))
