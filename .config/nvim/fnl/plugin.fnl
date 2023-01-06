@@ -78,6 +78,7 @@
   :kvrohit/substrata.nvim {}
   :sainnhe/everforest {}
   :sam4llis/nvim-tundra {}
+  :rmehri01/onenord.nvim {}
 
   ;; parsing system
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"

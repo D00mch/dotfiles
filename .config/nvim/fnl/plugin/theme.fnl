@@ -60,7 +60,7 @@
 (defn set-theme [dark?]
   (set nvim.o.background (if dark? "dark" "light"))
   (vim.api.nvim_command
-    (.. "colorscheme " (if (not vim.g.neovide) "papercolor" dark? "substrata" "everforest"))))
+    (.. "colorscheme " (if dark? "everforest" "onenord"))))
 
 (let [(ok? msg) (pcall vim.fn.system "defaults read -g AppleInterfaceStyle")]
   (set-theme (string.find msg "Dark")))
