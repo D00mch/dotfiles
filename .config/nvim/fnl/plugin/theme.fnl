@@ -1,7 +1,6 @@
 (module plugin.theme
   {require {nvim aniseed.nvim
             str aniseed.string
-            fox nightfox
             auto auto-dark-mode
             tundra nvim-tundra
             {: toggle} plugin.which
@@ -48,10 +47,6 @@
 
 (set nvim.g.everforest_background "hard")
 
-(fox.setup
-  {:dim_inactive false
-   :options {:terminal_colors true}})
-
 (tundra.setup
   {:plugins {:lsp        true
              :treesitter true
@@ -63,9 +58,9 @@
              :dbui       false}})
 
 (defn set-theme [dark?]
-  (when (not vim.g.neovide) (set nvim.o.background (if dark? "dark" "light")))
+  (set nvim.o.background (if dark? "dark" "light"))
   (vim.api.nvim_command
-    (.. "colorscheme " (if (not vim.g.neovide) "papercolor" dark? "carbonfox" "dayfox"))))
+    (.. "colorscheme " (if (not vim.g.neovide) "papercolor" dark? "substrata" "everforest"))))
 
 (let [(ok? msg) (pcall vim.fn.system "defaults read -g AppleInterfaceStyle")]
   (set-theme (string.find msg "Dark")))
