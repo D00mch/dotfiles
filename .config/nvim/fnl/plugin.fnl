@@ -45,7 +45,7 @@
                        ;; https://github.com/goolord/alpha-nvim/issues/147
                        :commit :21a0f2520ad3a7c32c0822f943368dc063a569fb}
   :Shatur/neovim-session-manager {}
-  :RomanoZumbe/harpoon {:mod :harpoon}
+  :RomanoZumbe/harpoon {}
 
   ;; ai
   :zbirenbaum/copilot.lua {:mod :copilot}
