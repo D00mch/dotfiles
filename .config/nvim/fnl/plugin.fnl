@@ -32,6 +32,7 @@
   :nvim-tree/nvim-web-devicons {}
   :nvim-lualine/lualine.nvim {:mod :lualine}
   :nvim-tree/nvim-tree.lua {:mod :nvim-tree}
+  :stevearc/oil.nvim {:mod :oil}
   :nvim-telescope/telescope.nvim
   {:mod :telescope
    :requires [:nvim-lua/popup.nvim
