@@ -10,9 +10,6 @@
 
 (numb.setup)
 
-(defn- map [mode from to]
-  (kset [mode] from to {:noremap true}))
-
 ;; open Help in full window
 (vim.api.nvim_command "command! -nargs=1 -complete=help H help <args> | silent only")
 
