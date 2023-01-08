@@ -108,6 +108,7 @@
                      :mod :cmp}
   :dcampos/nvim-snippy {:requires [:dcampos/cmp-snippy]}
 
+  :tpope/vim-sleuth {} ; adjust shiftwidth, expandtab based on file
   :nacro90/numb.nvim {}
   :chrisbra/csv.vim {:mod :csv
                      :ft [:csv :csv_semicolon :csv_whitespace :csv_pipe

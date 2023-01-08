@@ -238,10 +238,6 @@ cd $HOME
 
     "AUTOCMD
         
-        augroup tabs_settings
-          au FileType dart,json,http,sql set shiftwidth=2 smarttab expandtab
-        augroup end
-
         augroup sql_settings
             au FileType sql setl formatprg=/opt/homebrew/bin/pg_format\ -s\ 2
         augroup end
