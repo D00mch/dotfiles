@@ -80,6 +80,7 @@
   :sainnhe/everforest {}
   :sam4llis/nvim-tundra {}
   :rmehri01/onenord.nvim {}
+  :stevearc/dressing.nvim {:config "require('dressing').setup ({})"}
 
   ;; parsing system
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
