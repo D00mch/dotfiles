@@ -92,7 +92,7 @@
                                            :H fb_actions.goto_cwd
                                            :<Esc> false
                                            :<M-w> actions.close}}}
-                :ui-select [(themes.get_dropdown {})]}})
+                :ui-select [(themes.get_cursor {})]}})
 
 ;; after telescope setup
 (telescope.load_extension :ui-select)
