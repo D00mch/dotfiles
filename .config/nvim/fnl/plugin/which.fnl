@@ -1,7 +1,7 @@
 (module plugin.which
   {autoload {wk which-key
              nvim aniseed.nvim
-             {: assoc} aniseed.core}})
+             {: assoc : dec : inc} aniseed.core}})
 
 (set vim.o.timeoutlen 250)
 
