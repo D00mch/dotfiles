@@ -39,6 +39,8 @@
 
         :m [#(set vim.bo.modifiable (not vim.bo.modifiable)) :Modifiable]
         :l [#(set vim.o.list (not vim.o.list)) "List invisible chars"]
+        :f [#(set nvim.g.neovide_fullscreen (not nvim.g.neovide_fullscreen)) "Full Screen"]
+        :r [#(set vim.o.relativenumber (not vim.o.relativenumber)) "Relative Numbers"]
 
         ;; fan
         :a {:name :Animation
