@@ -31,7 +31,7 @@
 
 (defn close-or-buffer-delete []
   (if (not (pcall vim.cmd "close"))
-    (vim.cmd "bd")))
+    (vim.cmd "BD")))
 
 (kset [:n :x] :<D-w> close-or-buffer-delete {:desc "Close or :bd"})
 (kset :i :<D-w> :<Esc><D-w> {:remap true})

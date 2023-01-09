@@ -118,7 +118,7 @@
                        :ft [:dart :kotlin :xml :css :scss :js :vue]}
   :akinsho/bufferline.nvim {:mod :tabs}
   ; :AndrewRadev/undoquit.vim {}
-  ; :qpkorr/vim-bufkill {}
+  :qpkorr/vim-bufkill {}
   :tpope/vim-commentary {}
   :tpope/vim-fugitive {:mod :fugitive}
   :TimUntersberger/neogit {:requires [:nvim-lua/plenary.nvim

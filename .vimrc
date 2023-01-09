@@ -121,7 +121,7 @@ cd $HOME
         nnoremap <M-,> <C-w>5<
 
     "SPACEMACS-LIKE COMMANDS
-        nnoremap <space>d :bd!<CR>
+        nnoremap <space>d :BD!<CR>
         nnoremap <space>ba :w <bar> silent %bd! <bar> e# <bar> bd# <CR>
         nnoremap <space>bd <Esc>:diffthis<Cr>gg<C-w>w:diffthis<Cr>gg
 
