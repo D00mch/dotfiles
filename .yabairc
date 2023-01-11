@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-# sudo yabai --load-sa
+sudo yabai --load-sa
 
 # global settings
 yabai -m config mouse_follows_focus          on
@@ -51,3 +51,17 @@ yabai -m rule --add app="^Yandex.Disk$" \
     title="General|Account|Screenshots|Proxy|Camera Uploads|More" manage=off
 yabai -m rule --add app="^Gifski$" manage=off
 yabai -m rule --add app="^OpenVPN Connect$" manage=off
+
+
+ # fix popups behind the app
+yabai -m config window_topmost off
+# applications with custom rules
+applications="(Calendar|Mail|Reminders|Notes|Microsoft Outlook|Discord|Messages|Slack|Firefox|Chrome|Code|Microsoft Word|Preview|Terminal|iTerm2|QuickTime|Player|Spotify|Music|Brave Browser|Kitty|Alacritty|Trello)"
+
+# NOTE: you need to set the settings for the applications in the 
+#       list first, or else they don't apply properly and you can end up with
+#       some weird border/float/window behaviours
+
+# everything listed gets sent to below layer to prevent 
+# them from covering floating applications/popup windows
+yabai -m rule --add app="^${applications}$"    manage=on layer=below
