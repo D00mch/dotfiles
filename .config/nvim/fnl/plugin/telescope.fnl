@@ -31,6 +31,7 @@
                         "--with-filename" "--line-number" "--column"
                         "--smart-case" "--hidden" "--follow"
                         "-g" "!.git/" "-g" "!.clj-kondo/"]
+    :cache_picker {:num_pickers 3}
     :layout_config {:height 0.9
                     :width 0.9}
     :layout_strategy :vertical ; cursor horizontal bottom_pane
@@ -102,7 +103,7 @@
 (telescope.load_extension :undo)
 
 (kset :n :<space>pf ":Telescope find_files hidden=true no_ignore=false<cr>")
-(kset :n :<space>pr ":Telescope resume<cr>")
+(kset :n :<space>pr ":Telescope pickers<cr>")
 (kset :n :<space>bb ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")
 (kset :n :<space>pa ":Telescope live_grep<cr>")
 (kset :n :<space>pp ":Telescope projects<cr>" "Projects")
