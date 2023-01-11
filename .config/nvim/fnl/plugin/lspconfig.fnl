@@ -1,7 +1,6 @@
 (module plugin.lspconfig
   {autoload {nvim aniseed.nvim
              lsp lspconfig
-             signature lsp_signature
              ;null-ls null-ls
              ltex ltex_extra
              glance glance
@@ -14,8 +13,6 @@
              mason mason
              preview goto-preview
              cmplsp cmp_nvim_lsp}})
-
-(signature.setup)
 
 ;preview
 (defn close-and-move-focus-on-prev []

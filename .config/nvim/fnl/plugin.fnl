@@ -92,7 +92,6 @@
   ;; lsp
   :neovim/nvim-lspconfig {:mod :lspconfig}
   ;:jose-elias-alvarez/null-ls.nvim {}
-  :ray-x/lsp_signature.nvim {}
   :williamboman/mason.nvim {}     ; install lsp servers      
   :DNLHC/glance.nvim {}           ; cmd+b like in idea
   :barreiroleo/ltex-extra.nvim {} ; ltex code actions
