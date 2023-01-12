@@ -1,7 +1,6 @@
 (module plugin.treesitter
   {autoload {treesitter nvim-treesitter.configs
              ssr ssr
-             bqf bqf
              nvim aniseed.nvim
              {: kset} util}})
 
@@ -26,9 +25,3 @@
   {:keymaps {:close :<D-w>}})
 
 (kset [:n :x] :<Leader>sr ssr.open "Search/Replace")
-
-;; quickfix
-(bqf.setup
-  {:func_map {}})
-
-(kset :n :<Space>pq :<Cmd>copen<Cr> "Quickfix")

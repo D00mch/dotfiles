@@ -87,7 +87,6 @@
                                     :mod :treesitter}
   :nvim-treesitter/nvim-treesitter-refactor {}
   :cshuaimin/ssr.nvim {}
-  :kevinhwang91/nvim-bqf {}
 
   ;; lsp
   :neovim/nvim-lspconfig {:mod :lspconfig}
@@ -107,6 +106,7 @@
                      :mod :cmp}
   :dcampos/nvim-snippy {:requires [:dcampos/cmp-snippy]}
 
+  :kevinhwang91/nvim-bqf {:mod :quickfix}
   :tpope/vim-sleuth {} ; adjust shiftwidth, expandtab based on file
   :nacro90/numb.nvim {}
   :chrisbra/csv.vim {:mod :csv
