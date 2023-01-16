@@ -27,7 +27,7 @@ cd $HOME
 
     "INFO
         noremap <leader>z g<C-g>
-        vnoremap <leader>z g<C-g>:<C-U>echo v:statusmsg<CR>
+        vnoremap <leader>z g<C-g>2gs
 
     "OBJECTS
         onoremap w iw
