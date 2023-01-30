@@ -41,6 +41,7 @@
         :l [#(set vim.o.list (not vim.o.list)) "List invisible chars"]
         :f [#(set nvim.g.neovide_fullscreen (not nvim.g.neovide_fullscreen)) "Full Screen"]
         :r [#(set vim.o.relativenumber (not vim.o.relativenumber)) "Relative Numbers"]
+        :R [#(vim.cmd "e %") "Refresh file"]
 
         ;; fan
         :a {:name :Animation
@@ -56,7 +57,8 @@
          :p ["!pg_format -s 2<cr>" "pSQL"]
          :c ["<Esc>:ReplaceSelection tocamel<Cr>" "CamelCase"]
          :s ["<Esc>:ReplaceSelection tosnake<Cr>" "snake_case"]         
-         :k ["<Esc>:ReplaceSelection tokebab<Cr>" "kebab-case"]}
+         :k ["<Esc>:ReplaceSelection tokebab<Cr>" "kebab-case"]
+         :8 ["<Esc>:set tw=80<Cr>gvgq" "80 width"]}
         "Format"]
     }}
   {:mode :x})
