@@ -2,7 +2,6 @@
   {require {nvim aniseed.nvim
             str aniseed.string
             auto auto-dark-mode
-            tundra nvim-tundra
             {: toggle} plugin.which
             {: kset} util}})
 
@@ -47,25 +46,15 @@
 
 (set nvim.g.everforest_background "hard")
 
-(tundra.setup
-  {:plugins {:lsp        true
-             :treesitter true
-             :telescope  true
-             :nvimtree   true
-             :cmp        true
-             :gitsigns   true
-             :context    false
-             :dbui       false}})
-
 (defn set-theme [dark?]
   (set nvim.o.background (if dark? "dark" "light"))
   (vim.api.nvim_command
-    (.. "colorscheme " (if dark? "everforest" "onenord"))))
+    (.. "colorscheme " (if dark? "everforest" "ayu-light"))))
 
 (let [(ok? msg) (pcall vim.fn.system "defaults read -g AppleInterfaceStyle")]
   (set-theme (string.find msg "Dark")))
 
-(toggle "c" "coloscheme" #(set-theme (not (dark?))))
+;(toggle "c" "coloscheme" #(set-theme (not (dark?))))
 
 ;;; font
 

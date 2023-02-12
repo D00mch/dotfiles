@@ -82,9 +82,9 @@
   :f-person/auto-dark-mode.nvim {:mod :theme}
   :kvrohit/substrata.nvim {}
   :sainnhe/everforest {}
-  :sam4llis/nvim-tundra {}
-  :rmehri01/onenord.nvim {}
   :stevearc/dressing.nvim {:config "require('dressing').setup ({})"}
+  :rebelot/kanagawa.nvim {}
+  :Shatur/neovim-ayu {}
 
   ;; parsing system
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
