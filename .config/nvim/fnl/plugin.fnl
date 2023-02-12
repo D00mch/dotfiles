@@ -68,11 +68,15 @@
   :akinsho/flutter-tools.nvim {:requires [:nvim-lua/plenary.nvim]}
 
   ;; writing
-  :jghauser/follow-md-links.nvim {:mod :markdown }
+  :jghauser/follow-md-links.nvim {}
   :preservim/vim-textobj-sentence {:ft [:markdown]}
   :preservim/vim-textobj-quote {:ft [:markdown]
                                 :requires [:kana/vim-textobj-user]}
   :uga-rosa/translate.nvim {:mod :translate}
+  :iamcco/markdown-preview.nvim
+  {:mod :markdown
+   :run (fn []
+          ((. vim.fn "mkdp#util#install")))}
 
   ;; theme
   :f-person/auto-dark-mode.nvim {:mod :theme}

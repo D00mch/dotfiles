@@ -6,6 +6,12 @@
             {: kset : bkset} util}
    require-macros [macros]})
 
+;; preview
+;((. vim.fn "mkdp#util#install"))
+
+(set nvim.g.mkdp_auto_close 0)
+(toggle "p" "MarkdownPreview" ":MarkdownPreviewToggle<Cr>")
+
 ;; headers
 
 (defn insert-header []
