@@ -7,9 +7,11 @@
             {: toggle} plugin.which
             {: kset} util}})
 
-(defn copilot-setup []
+(set nvim.g.copilot_started? false)
+
+(defn init []
   (copilot.setup
-    {:suggestion {:enabled false
+    {:suggestion {:enabled true
                   :auto_trigger true
                   :debounce 75
                   :keymap {:accept :<M-a>
@@ -18,16 +20,22 @@
                            :next :<C-n>
                            :prev :<C-p>
                            :dismiss :<c-x>}}
-     :panel {:enabled false}
-     :cmp {:enabled true
+     :panel {:enabled true}
+     :cmp {:enabled false
            :method :getCompletionsCycling}
      :copilot_node_command :node})
-  (c-cmp.setup
-    {:method :getCompletionsCycling})
+  ; (c-cmp.setup
+      ;   {:method :getCompletionsCycling})
   (vim.cmd "Copilot suggestion")
-  (suggestion.toggle_auto_trigger))
+  (suggestion.toggle_auto_trigger)
+  (set nvim.g.copilot_started? true))
 
-(toggle :p "coPilot" copilot-setup)
+(defn copilot-toggle []
+  (if nvim.g.copilot_started?
+    (vim.cmd "Copilot toggle")
+    (init)))
+
+(toggle :c "Copilot" copilot-toggle)
 
 ; (kset [:n :i] :<M-n> suggestion.next {:desc "Open Copilot panel"})
 ; (kset [:n :i] :<M-p> suggestion.prev {:desc "Open Copilot panel"})
