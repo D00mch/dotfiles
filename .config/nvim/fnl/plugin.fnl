@@ -51,6 +51,7 @@
   ;; ai
   ; :zbirenbaum/copilot.lua {:mod :copilot}
   ; :zbirenbaum/copilot-cmp {}
+  :Exafunction/codeium.vim {:mod :codeium}
 
   ;; repl
   :Olical/conjure {:branch :master :mod :conjure}
