@@ -106,8 +106,8 @@ cd $HOME
 
         nmap gal <C-w>v
         nmap gah <C-w>v<C-w>L
-        nmap gaj <C-w>s
-        nmap gak <C-w>s<C-w>J
+        nmap gaj <C-w>s<C-w>K
+        nmap gak <C-w>s
 
         " jump on float window
         nmap gw <C-w>w

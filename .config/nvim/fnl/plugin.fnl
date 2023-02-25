@@ -124,11 +124,10 @@
   ; :AndrewRadev/undoquit.vim {}
   :qpkorr/vim-bufkill {}
   :tpope/vim-commentary {}
-  :tpope/vim-fugitive {:mod :fugitive}
-  :TimUntersberger/neogit {:requires [:nvim-lua/plenary.nvim
-                                      :sindrets/diffview.nvim
-                                      :lewis6991/gitsigns.nvim]
-                           :mod :neogit}
+  :tpope/vim-fugitive {:mod :git}
+  :sindrets/diffview.nvim {}
+  :lewis6991/gitsigns.nvim {}
+  ; :TimUntersberger/neogit {}
   :vim-scripts/ReplaceWithRegister {}
   :windwp/nvim-autopairs {:mod :nvim-autopairs}
   :mbbill/undotree {:mod :undotree}

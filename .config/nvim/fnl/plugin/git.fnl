@@ -1,11 +1,11 @@
-(module plugin.neogit
+(module plugin.git
   {require {nvim aniseed.nvim
             gs gitsigns
             dview diffview
             actions diffview.actions
             {: merge} aniseed.core
             {: toggle} plugin.which
-            neogit neogit
+            ; neogit neogit
             {: kset : bkset : vis-op} util}})
 
 ;;; diffview
@@ -67,25 +67,25 @@
 
 ;;; neogit
 
-(neogit.setup
-  {:kind :replace
-   :integrations {:diffview true}
-   :disable_commit_confirmation true
-   :sections {:untracked {:folded true}
-              :recent    {:folded false}}
-   :mappings {:status {:o :Toggle
-                       :q "" }}})
+; (neogit.setup
+;   {:kind :replace
+;    :integrations {:diffview true}
+;    :disable_commit_confirmation true
+;    :sections {:untracked {:folded true}
+;               :recent    {:folded false}}
+;    :mappings {:status {:o :Toggle
+;                        :q "" }}})
 
-(defn neogit-toggle []
-  (let [current-dir (vim.fn.expand "%") ;; :echo expand('%:p')
-        in-git? (string.match current-dir "NeogitStatus$")
-        diff-view? (string.match current-dir "^diffview://")]
-    (vim.api.nvim_command (if
-                            diff-view? "tabc"
-                            in-git? "bd"
-                            "Neogit"))))
+; (defn neogit-toggle []
+;   (let [current-dir (vim.fn.expand "%") ;; :echo expand('%:p')
+;         in-git? (string.match current-dir "NeogitStatus$")
+;         diff-view? (string.match current-dir "^diffview://")]
+;     (vim.api.nvim_command (if
+;                             diff-view? "tabc"
+;                             in-git? "bd"
+;                             "Neogit"))))
 
-(kset [:n :x] :<Space>9 neogit-toggle "Toggle NeoGit")
+; (kset [:n :x] :<Space>9 neogit-toggle "Toggle NeoGit")
 
 ;;; fugitive
 
@@ -95,6 +95,19 @@
     (vim.api.nvim_command (if in-annotate? "q" "G blame"))))
 
 (kset [:n :x] :<space>ga annotate-toggle)
+
+(defn fugitive-toggle []
+  (let [current-dir (vim.fn.expand "%") ;; :echo expand('%:p')
+        in-git? (string.match current-dir "^fugitive://")
+        diff-view? (string.match current-dir "^diffview://")]
+    (vim.api.nvim_command (if
+                            diff-view? "tabc"
+                            in-git? "bd"
+                            in-git? "q"
+                            "G"))))
+
+(vim.api.nvim_command "set splitbelow")
+(vim.keymap.set [:n :x] :<Space>9 fugitive-toggle) ;; alt+9, (mapped to cmd+9 with karabiner) 
 
 ;;; gitsigns
 
