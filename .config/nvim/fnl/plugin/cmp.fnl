@@ -1,14 +1,14 @@
 (module plugin.cmp
   {autoload {nvim aniseed.nvim
              {: first} aniseed.core
-             copilot-format copilot_cmp.format
+             ; copilot-format copilot_cmp.format
              cmp cmp
              snippy snippy}})
 
 (def- cmp-src-menu-items
   {:buffer "buff"
    :conjure "conj"
-   :copilot "copilot"
+   ; :copilot "copilot"
    :path "path"
    :nvim_lsp "lsp"})
 
@@ -18,7 +18,7 @@
    {:name :buffer}
    {:name :path}
    {:name :spell}
-   {:name :copilot}
+   ; {:name :copilot}
    {:name :snippy}])
 
 ;; snippy tab
@@ -49,8 +49,8 @@
    {:format (fn [entry item]
               (set item.menu (or (. cmp-src-menu-items entry.source.name) ""))
               item)}
-   :formatters 
-   {:insert_text copilot-format.remove_existing}
+   ; :formatters 
+   ; {:insert_text copilot-format.remove_existing}
 
    :mapping
    {:<Tab> (cmp.mapping snippy-tab [:i :s])

@@ -49,8 +49,8 @@
   :RomanoZumbe/harpoon {}
 
   ;; ai
-  :zbirenbaum/copilot.lua {:mod :copilot}
-  :zbirenbaum/copilot-cmp {}
+  ; :zbirenbaum/copilot.lua {:mod :copilot}
+  ; :zbirenbaum/copilot-cmp {}
 
   ;; repl
   :Olical/conjure {:branch :master :mod :conjure}
