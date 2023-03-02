@@ -86,6 +86,7 @@
   :stevearc/dressing.nvim {:config "require('dressing').setup ({})"}
   :rebelot/kanagawa.nvim {}
   :Shatur/neovim-ayu {}
+  :askfiy/visual_studio_code {}
 
   ;; parsing system
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
