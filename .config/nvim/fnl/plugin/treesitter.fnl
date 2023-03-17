@@ -18,13 +18,17 @@
    :highlight {:enable true
                ;:additional_vim_regex_highlighting true
                }
-   :refactor {:highlight_definitions {:enable true}
-              :smart_rename {:enable true
-                             :keymaps {:smart_rename :<Leader>rr}}}
+   ; :refactor {:highlight_definitions {:enable true}
+   ;            :smart_rename {:enable true
+   ;                           :keymaps {:smart_rename :<Leader>rr}}}
    :indent    {:enable true}})
 
 ;; structural search and replace
 (ssr.setup
-  {:keymaps {:close :<D-w>}})
+  {:keymaps {:close :<D-w>
+             :next_match :n
+             :prev_match :N
+             :replace_confirm :<CR>
+             :replace_all :<Leader><Cr>}})
 
 (kset [:n :x] :<Leader>sr ssr.open "Search/Replace")
