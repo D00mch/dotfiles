@@ -1,6 +1,5 @@
 (module plugin.nvim-autopairs
   {require {npairs nvim-autopairs
-            sentiment sentiment
             rule nvim-autopairs.rule
             conds nvim-autopairs.conds}})
 
@@ -14,5 +13,3 @@
 
 ; (override-for-lisp "'")
 ; (override-for-lisp "`")
-
-(sentiment.setup {})

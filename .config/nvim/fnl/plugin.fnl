@@ -131,7 +131,6 @@
   ; :TimUntersberger/neogit {}
   :vim-scripts/ReplaceWithRegister {}
   :windwp/nvim-autopairs {:mod :nvim-autopairs}
-  :utilyre/sentiment.nvim {}
   :mbbill/undotree {:mod :undotree}
   :folke/which-key.nvim {:mod :which}
   :https://gitlab.com/madyanov/svart.nvim {:mod :svart})
