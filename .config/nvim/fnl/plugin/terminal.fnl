@@ -22,8 +22,3 @@
    :terminal_mappings false
    :direction :horizontal
    :persist_size true})
-
-(set nvim.g.unception_open_buffer_in_new_tab true)
-(set nvim.g.unception_block_while_host_edits 1)
-;
-;(vim.keymap.del :n :<leader>ef)
