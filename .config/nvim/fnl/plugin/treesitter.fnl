@@ -2,6 +2,7 @@
   {autoload {treesitter nvim-treesitter.configs
              ssr ssr
              nvim aniseed.nvim
+             ts-rainbow ts-rainbow
              {: kset} util}})
 
 (set nvim.o.foldmethod :expr)
@@ -12,6 +13,8 @@
                       :clojure :fennel :scheme :racket
                       :markdown :markdown_inline
                       :http :json :sql :dart :vim]
+   :rainbow {:enable true
+             :strategy ts-rainbow.strategy.global}
    :highlight {:enable true
                ;:additional_vim_regex_highlighting true
                }

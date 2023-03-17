@@ -91,6 +91,7 @@
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
                                     :mod :treesitter}
   :nvim-treesitter/nvim-treesitter-refactor {}
+  :HiPhish/nvim-ts-rainbow2 {}
   :cshuaimin/ssr.nvim {}
 
   ;; lsp
