@@ -11,7 +11,7 @@
 
 (kset :n "<space>pt" #(api.tree.toggle false true) "Tree Toggle")
 
-(kset :n :<Space>1 #(vim.cmd "NvimTreeCollapse|NvimTreeFindFile") "Collapse and show")
+(kset :n :<Space>1 #(vim.cmd "NvimTreeCollapse|NvimTreeToggle") "Collapse and show")
 
 (defn view-selection [prompt-funr map]
   (actions.select_default:replace
@@ -41,8 +41,8 @@
 ;     (api.node.open.tab node)))
 
 (tree.setup
-  {:sync_root_with_cwd true
-   :respect_buf_cwd true
+  {:sync_root_with_cwd false
+   :respect_buf_cwd false
    :update_focused_file {:enable true
                          :update_root true}
    :git {:enable false}
