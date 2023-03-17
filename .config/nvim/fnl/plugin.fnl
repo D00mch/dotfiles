@@ -80,12 +80,11 @@
 
   ;; theme
   :f-person/auto-dark-mode.nvim {:mod :theme}
-  :kvrohit/substrata.nvim {}
   :neanias/everforest-nvim {}
   :stevearc/dressing.nvim {:config "require('dressing').setup ({})"}
-  :rebelot/kanagawa.nvim {}
   :Shatur/neovim-ayu {}
   :askfiy/visual_studio_code {}
+  :savq/melange-nvim {}
 
   ;; parsing system
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
