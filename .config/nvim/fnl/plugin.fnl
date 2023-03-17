@@ -81,7 +81,7 @@
   ;; theme
   :f-person/auto-dark-mode.nvim {:mod :theme}
   :kvrohit/substrata.nvim {}
-  :sainnhe/everforest {}
+  :neanias/everforest-nvim {}
   :stevearc/dressing.nvim {:config "require('dressing').setup ({})"}
   :rebelot/kanagawa.nvim {}
   :Shatur/neovim-ayu {}

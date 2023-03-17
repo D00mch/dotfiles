@@ -2,6 +2,7 @@
   {require {nvim aniseed.nvim
             str aniseed.string
             auto auto-dark-mode
+            everforest everforest
             {: toggle} plugin.which
             {: kset} util}})
 
@@ -44,17 +45,14 @@
 
 ;;; theme
 
-(set nvim.g.everforest_background "hard")
+(everforest.setup {:background :hard})
+
+; (set nvim.g.everforest_background "hard")
 
 (defn set-theme [dark?]
   (set nvim.o.background (if dark? "dark" "light"))
   (vim.api.nvim_command
-    (.. "colorscheme " (if dark? "everforest" "ayu-light"))))
-
-(let [(ok? msg) (pcall vim.fn.system "defaults read -g AppleInterfaceStyle")]
-  (set-theme (string.find msg "Dark")))
-
-;(toggle "c" "coloscheme" #(set-theme (not (dark?))))
+    (.. "colorscheme " (if dark? "visual_studio_code_dark" "ayu-light"))))
 
 ;;; font
 
