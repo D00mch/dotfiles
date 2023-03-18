@@ -111,6 +111,8 @@
                      :mod :cmp}
   :dcampos/nvim-snippy {:requires [:dcampos/cmp-snippy]}
 
+  :kevinhwang91/nvim-ufo {:mod :ufo
+                          :requires [:kevinhwang91/promise-async]}
   :kevinhwang91/nvim-bqf {:mod :quickfix}
   :tpope/vim-sleuth {} ; adjust shiftwidth, expandtab based on file
   :nacro90/numb.nvim {}
