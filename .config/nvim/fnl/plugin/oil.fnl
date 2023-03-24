@@ -8,6 +8,7 @@
   {:keymaps
    {:th actions.toggle_hidden
     :<Tab> actions.preview
-    :<Leader>v actions.select_vsplit}})
+    :<Cr> actions.select_vsplit
+    :<S-Cr> actions.select}})
 
 (kset :n :<Space>ff oil.open)
