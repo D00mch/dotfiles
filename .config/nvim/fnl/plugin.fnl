@@ -86,12 +86,14 @@
   :askfiy/visual_studio_code {}
   :savq/melange-nvim {}
 
-  ;; parsing system
+  ;; parsing, refactoring
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
                                     :mod :treesitter}
+  :vim-scripts/ReplaceWithRegister {}
   :nvim-treesitter/nvim-treesitter-refactor {}
   :HiPhish/nvim-ts-rainbow2 {}
-  :cshuaimin/ssr.nvim {}
+  :cshuaimin/ssr.nvim {} ;; structural search replace
+  :kevinhwang91/nvim-bqf {:mod :quickfix}
 
   ;; lsp
   :neovim/nvim-lspconfig {:mod :lspconfig}
@@ -113,7 +115,6 @@
 
   :kevinhwang91/nvim-ufo {:mod :ufo
                           :requires [:kevinhwang91/promise-async]}
-  :kevinhwang91/nvim-bqf {:mod :quickfix}
   :tpope/vim-sleuth {} ; adjust shiftwidth, expandtab based on file
   :nacro90/numb.nvim {}
   :chrisbra/csv.vim {:mod :csv
@@ -130,7 +131,6 @@
   :sindrets/diffview.nvim {}
   :lewis6991/gitsigns.nvim {}
   ; :TimUntersberger/neogit {}
-  :vim-scripts/ReplaceWithRegister {}
   :windwp/nvim-autopairs {:mod :nvim-autopairs}
   :mbbill/undotree {:mod :undotree}
   :folke/which-key.nvim {:mod :which}
