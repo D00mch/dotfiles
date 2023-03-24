@@ -21,13 +21,6 @@ cd $HOME
     nmap \ gcc
     vmap \ gcc
 
-    "AUTOREAD
-        set autoread
-        augroup auto_checktime
-            autocmd!
-            autocmd FocusGained,BufEnter,CursorHold * silent! checktime
-        augroup end
-
     "INFO
         noremap <leader>z g<C-g>
         vnoremap <leader>z g<C-g>2gs
