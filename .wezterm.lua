@@ -1,4 +1,5 @@
 local wezterm = require 'wezterm'
+local act = wezterm.action
 
 function scheme_for_appearance(appearance)
   if appearance:find("Dark") then
@@ -18,8 +19,14 @@ wezterm.on("window-config-reloaded", function(window, pane)
   end
 end)
 
-return {
-    font = wezterm.font('Hack Nerd Font Mono', { weight = 'Bold' }),
-    font_size = 14,
-    enable_scroll_bar = true,
+local config = {
+  font = wezterm.font('Hack Nerd Font Mono', { weight = 'Bold' }),
+  font_size = 14,
+  enable_scroll_bar = true,
+  keys = {
+    { key = '.', mods = 'CMD', action = act.MoveTabRelative(1) },
+    { key = ',', mods = 'CMD', action = act.MoveTabRelative(-1) },
+  }
 }
+
+return config
