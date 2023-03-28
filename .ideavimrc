@@ -14,16 +14,17 @@ set surround
 set ReplaceWithRegister
 
 "VIM HOTKEYS
+    nnoremap g; :action JumpToLastChange<cr>
 
-nmap <space>0 :action ActivateCommitToolWindow<cr>
-nmap <space>1 :action ActivateProjectToolWindow<cr>
-nmap <space>2 :action ActivateBookmarksToolWindow<cr>
-nmap <space>3 :action ActivateFindToolWindow<cr>
-nmap <space>4 :action ActivateRunToolWindow<cr>
-nmap <space>5 :action ActivateDebugToolWindow<cr>
-nmap <space>7 :action ActivateAndroidProfilerToolWindow<cr>
-nmap <space>8 :action ActivateTerminalToolWindow<cr>
-nmap <space>9 :action ActivateVersionControlToolWindow<cr>
+    nmap <space>0 :action ActivateCommitToolWindow<cr>
+    nmap <space>1 :action SelectInProjectView<cr>
+    nmap <space>2 :action ActivateBookmarksToolWindow<cr>
+    nmap <space>3 :action ActivateFindToolWindow<cr>
+    nmap <space>4 :action ActivateRunToolWindow<cr>
+    nmap <space>5 :action ActivateDebugToolWindow<cr>
+    nmap <space>7 :action ActivateAndroidProfilerToolWindow<cr>
+    nmap <space>8 :action ActivateTerminalToolWindow<cr>
+    nmap <space>9 :action ActivateVersionControlToolWindow<cr>
 
 "PLUGINS SETUPS
     set ideamarks
@@ -41,7 +42,7 @@ nmap <space>9 :action ActivateVersionControlToolWindow<cr>
     "SPACEMACS-LIKE
         nnoremap <space>b :action RecentFiles<cr>
         nnoremap <space>pb :action RecentFiles<cr>
-        nnoremap <space>pt :action SelectInProjectView<cr>
+        nnoremap <space>pt :action ActivateProjectToolWindow<cr>
         nnoremap <space>d :q<cr>
         nnoremap <space>wu :action ReopenClosedTab<cr>
         nnoremap <space>pf :action GotoFile<cr>
@@ -98,19 +99,20 @@ nmap <space>9 :action ActivateVersionControlToolWindow<cr>
             vnoremap <Leader>O :action :cursive.actions.paredit/raise<cr>
 
         "CLOJURE-REPL
-            nnoremap <C-c><C-c> :action :cursive.repl.actions/interrupt<cr>
+            nnoremap <Leader>i :action :cursive.repl.actions/interrupt<cr>
             nnoremap <Leader>sp :action :cursive.repl.actions/jump-to-output<cr>
             nnoremap <Leader>lv :action :cursive.repl.actions/jump-to-repl<cr>
             nnoremap <Leader>ls :action :cursive.repl.actions/jump-to-repl<cr>
-            nnoremap <Leader>eb :action :cursive.repl.actions/load-file<cr>
-            nnoremap <Leader>em :action :cursive.repl.actions/macroexpansion<cr>
-            nnoremap <Leader>se :action :cursive.repl.actions/run-last-sexp<cr>
+            nnoremap <Leader>b :action :cursive.repl.actions/load-file<cr>
+            " nnoremap <Leader>em :action :cursive.repl.actions/macroexpansion<cr>
+            " nnoremap <Leader>se :action :cursive.repl.actions/run-last-sexp<cr>
             nnoremap <Leader>sv :action :cursive.repl.actions/send-selection<cr>
             nnoremap <Leader>sf :action :cursive.repl.actions/run-top-sexp<cr>
             nnoremap <Leader>e :action Clj.Stuff.EvaluateTopForm<cr>
-            nnoremap <Leader>b :action :cursive.repl.actions/switch-namespace<cr>
+            " nnoremap <Leader>b :action :cursive.repl.actions/switch-namespace<cr>
             nnoremap <Leader>sx :action :cursive.repl.actions/sync-files<cr>
-            "nnoremap <Leader>ee :action Clj.Stuff.EvaluatePrevForm<cr>
+            nnoremap <Leader>q :action Clj.Stuff.EvaluatePrevForm<cr>
+            nnoremap <Leader>lr :action :cursive.repl.actions/clear-repl<cr>
             "https://www.reddit.com/r/Clojure/comments/lzx0zb/did_you_know_that_ideacursive_repl_results_may_be/
             nnoremap <space>e :action Cursive.Repl.Command.eval-to-file<cr> :action Synchronize<cr>
 
@@ -141,7 +143,7 @@ nmap <space>9 :action ActivateVersionControlToolWindow<cr>
         "CLOJURE-TESTS
             nnoremap <Leader>tx :action :cursive.testing.actions/remove-test-markers<cr>
             nnoremap <Leader>tr :action :cursive.testing.actions/rerun-last-test <cr>
-            nnoremap <Leader>ta :action :cursive.testing.actions/run-ns-tests <cr>
-            nnoremap <Leader>tt :action :cursive.testing.actions/run-single-test<cr>
+            nnoremap <Leader>tn :action :cursive.testing.actions/run-ns-tests <cr>
+            nnoremap <Leader>tc :action :cursive.testing.actions/run-single-test<cr>
 
 "END
