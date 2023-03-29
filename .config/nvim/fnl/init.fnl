@@ -4,6 +4,7 @@
             u aniseed.nvim.util
             plenary plenary.filetype
             numb numb
+            spider spider
             {: dec : inc} aniseed.core
             {: kset} util}
    require-macros [macros]})
@@ -12,6 +13,13 @@
 
 ;; open Help in full window
 (vim.api.nvim_command "command! -nargs=1 -complete=help H help <args> | silent only")
+
+;; motions
+
+(kset ["n" "o" "x"] "w"  #(spider.motion "w")  "Spider-w" )
+(kset ["n" "o" "x"] "e"  #(spider.motion "e")  "Spider-e" )
+(kset ["n" "o" "x"] "b"  #(spider.motion "b")  "Spider-b" )
+(kset ["n" "o" "x"] "ge" #(spider.motion "ge") "Spider-ge")
 
 ;; cmd
 
