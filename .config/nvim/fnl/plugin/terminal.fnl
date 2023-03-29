@@ -7,12 +7,15 @@
 (kset :x :√         "<leader>v" {:remap true})
 (kset :n :<leader>e "vip<leader>q" {:remap true})
 
-(kset :t :<D-w> "<C-\\><C-n>:q<Cr>" {:remap true})
+(kset :t :<D-w> "<C-\\><C-n>:hide<Cr>" {:remap true})
 (kset :t :<D-v> "<Esc>pa")
 (kset :t "<D-Esc>" "<C-\\><C-n>")
 
 (term.setup
   {:size 30
+   :on_open (fn [t]
+              (if (= (vim.fn.mode) "n")
+                (vim.cmd "startinsert!")))
    :open_mapping :<space>8
    :hide_numbers true
    :shade_terminals false
