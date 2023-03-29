@@ -113,7 +113,6 @@
                      :mod :cmp}
   :dcampos/nvim-snippy {:requires [:dcampos/cmp-snippy]}
 
-  :chrisgrieser/nvim-spider {}
   :kevinhwang91/nvim-ufo {:mod :ufo
                           :requires [:kevinhwang91/promise-async]}
   :tpope/vim-sleuth {} ; adjust shiftwidth, expandtab based on file
