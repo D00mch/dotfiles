@@ -82,7 +82,6 @@
   :f-person/auto-dark-mode.nvim {:mod :theme}
   :neanias/everforest-nvim {}
   :stevearc/dressing.nvim {:config "require('dressing').setup ({})"}
-  :Shatur/neovim-ayu {}
   :askfiy/visual_studio_code {}
   :savq/melange-nvim {}
   :sainnhe/edge {}
