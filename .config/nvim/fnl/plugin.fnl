@@ -85,6 +85,7 @@
   :Shatur/neovim-ayu {}
   :askfiy/visual_studio_code {}
   :savq/melange-nvim {}
+  :sainnhe/edge {}
 
   ;; parsing, refactoring
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
