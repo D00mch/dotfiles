@@ -19,6 +19,7 @@
    {:name :path}
    {:name :spell}
    ; {:name :copilot}
+   {:name :codeium}
    {:name :snippy}])
 
 ;; snippy tab
