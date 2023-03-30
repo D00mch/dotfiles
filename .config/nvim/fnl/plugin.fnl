@@ -53,6 +53,12 @@
   ; :zbirenbaum/copilot-cmp {}
   :jcdickinson/codeium.nvim {:mod :codeium}
 
+  ;; Debuggers
+  :mfussenegger/nvim-dap {:mod :dap}
+  :ravenxrz/DAPInstall.nvim {}
+  :rcarriga/nvim-dap-ui {}
+
+
   ;; repl
   :Olical/conjure {:branch :master :mod :conjure}
   :wlangstroth/vim-racket {:ft [:scheme :racket]}
