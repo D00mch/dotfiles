@@ -56,6 +56,10 @@ set ReplaceWithRegister
     "SEARCH
         hi Search ctermfg=3
 
+    "GIT
+        nnoremap gn :action VcsShowNextChangeMarker<cr>
+        nnoremap gN :action VcsShowPrevChangeMarker<cr>
+
 "SYNTAX
     "INDENTS
         set fdm=indent
