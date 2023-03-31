@@ -85,6 +85,7 @@
   :askfiy/visual_studio_code {}
   :savq/melange-nvim {}
   :sainnhe/edge {}
+  :briones-gabriel/darcula-solid.nvim {:requires [:rktjmp/lush.nvim]}
 
   ;; parsing, refactoring
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
