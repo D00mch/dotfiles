@@ -1,7 +1,8 @@
 (module plugin.which
   {autoload {wk which-key
              nvim aniseed.nvim
-             {: assoc : dec : inc} aniseed.core}})
+             {: assoc} aniseed.core
+             {: get-word-under-selection} util}})
 
 (set vim.o.timeoutlen 250)
 
@@ -96,15 +97,12 @@
      :gsub "_" "-"))
 
 (defn replace-selection [{:args f}]
-  (let [[sr sc] (vim.api.nvim_buf_get_mark 0 "<")
-        [sr sc] [(dec sr) sc]
-        [er ec] (vim.api.nvim_buf_get_mark 0 ">")
-        [er ec] [(dec er) (inc ec)]
-        [word]  (vim.api.nvim_buf_get_text 0 sr sc er ec {})
-        result ((if
-                  (= f "tokebab") tokebab
-                  (= f "tosnake") tosnake
-                  (= f "tocamel") tocamel) word)]
+  (let [[word sr sc er ec] (get-word-under-selection)  
+        f                  (if
+                             (= f "tokebab") tokebab
+                             (= f "tosnake") tosnake
+                             (= f "tocamel") tocamel)
+        result             (f word)]
     (vim.api.nvim_buf_set_text 0 sr sc er ec [result])))
 
 (vim.api.nvim_create_user_command

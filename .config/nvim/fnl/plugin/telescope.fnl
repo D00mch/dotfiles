@@ -1,5 +1,6 @@
 (module plugin.telescope
   {autoload {nvim aniseed.nvim
+             builtin telescope.builtin
              telescope telescope
              harpoon harpoon
              hmark harpoon.mark
@@ -10,7 +11,7 @@
              prj project_nvim
              state telescope.actions.state
              mt telescope.actions.mt
-             {: kset} util}})
+             {: kset : get-word-under-cursor : get-word-under-selection} util}})
 
 (harpoon.setup)
 (kset :n :<Space>am hmark.add_file "Add mark")
@@ -124,3 +125,16 @@
 (kset :n :<space>gc ":Telescope git_commits<cr>")
 (kset :n :<space>gs ":Telescope git_stash<cr>")
 (kset :n :<space>gb ":Telescope git_branches<cr>")
+
+;; search for a word under cursor
+(defn search-word-under-cursor []
+  (let [[word] (get-word-under-cursor)]
+    (builtin.live_grep {:default_text word})))
+
+(defn search-word-under-selection []
+  (let [[word] (get-word-under-selection)]
+    (builtin.live_grep {:default_text word})))
+
+(kset :n :<D-b> search-word-under-cursor)
+(kset :x :<D-b> search-word-under-selection)
+(kset :n :<Leader>gr search-word-under-cursor)
