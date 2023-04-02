@@ -104,7 +104,7 @@
   (bkset :n :gD "<c-w><c-]><c-w>T" {:buffer b :desc "Go definition new tab"})
   (bkset :n :<leader>tD vim.lsp.buf.type_definition {:buffer b :desc "Type definition"})
   (bkset [:i :n] "<M-;>" vim.lsp.buf.signature_help {:buffer b :desc "Signiture help"})
-  (bkset [:i :n] "<D-;>" vim.lsp.buf.signature_help {:buffer b :desc "Signiture help"})
+  (bkset [:i :n] "<D-p>" vim.lsp.buf.signature_help {:buffer b :desc "Signiture help"})
   (bkset :n :<leader>rr vim.lsp.buf.rename {:buffer b :desc "Rename"})
   (bkset :n :<leader>p vim.diagnostic.open_float {:buffer b :desc "Preview diagnostics"})
   (bkset :n :<leader>re vim.diagnostic.setloclist {:buffer b :desc "List diagnostics"})
