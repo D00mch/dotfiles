@@ -8,5 +8,5 @@
   {:func_map {}})
 
 (kset :n :<Space>pq :<Cmd>copen<Cr> "Quickfix")
-(kset :n "]q" ":cn<cr>")
-(kset :n "[q" ":cp<cr>")
+(kset :n "]q" ":cn<cr>" "Quickfix: next item")
+(kset :n "[q" ":cp<cr>" "Quickfix: prev item")
