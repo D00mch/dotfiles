@@ -36,6 +36,14 @@ set ReplaceWithRegister
     nmap Q :action KJumpAction.Word0<cr>
     nmap <leader><leader>l :action KJumpAction.Line<cr>
 
+    nnoremap <C-n> :action codeium.i<cr>
+    nnoremap <C-p> :action codeium.j<cr>
+
+"EDITING
+
+    "GIT
+        nnoremap <space>gr :action Vcs.RollbackChangedLines<cr>
+
 "NAVIGATION
     set path+=**
 
