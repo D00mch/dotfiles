@@ -19,6 +19,92 @@
 (prj.setup
   {:patterns [".git" "package.json" "deps.edn" "project.clj"]})
 
+;; visually select a file path
+;; source: https://github.com/drybalka/dotfiles/blob/main/.config/nvim/lua/common/telescope.lua#L173-L202
+(defn generate-offset [str tabsize]
+  (let [offset (% (- tabsize (% (vim.fn.strdisplaywidth str) tabsize)) tabsize)]
+    (string.rep " " offset)))
+
+(defn generate-display [pieces]
+  (var res-text "")
+  (local res-highlight {})
+  (each [_ piece (ipairs pieces)]
+    (local (text highlight) (unpack piece))
+    (when (not= highlight nil)
+      (table.insert res-highlight [[(length res-text)
+                                    (+ (length res-text) (length text))]
+                                   highlight]))
+    (set res-text (.. res-text text)))
+  (values res-text res-highlight))
+
+(defn refine-filename [filename cwd]
+  (when (not= cwd nil) (set-forcibly! cwd (vim.loop.cwd)))
+  (local relative-filename (: (: (require :plenary.path) :new filename)
+                              :make_relative cwd))
+  (local name (relative-filename:match "[^/]*$"))
+  (local dir (or (relative-filename:match "^.*/") ""))
+  (var (icon hl-icon)
+    ((. (require :telescope.utils) :transform_devicons) filename))
+  (set icon (.. icon (generate-offset icon 3)))
+  (values [icon hl-icon] [dir :TelescopeResultsSpecialComment] [name]))
+
+(defn lsp-entry-maker [entry]
+  (let [res (((. (require :telescope.make_entry) :gen_from_quickfix)) entry)]
+    (set res.display
+         (fn [entry-tbl]
+           (let [(icon dir name) (refine-filename entry-tbl.filename)
+                 pos (.. " " entry-tbl.lnum ":" entry-tbl.col)
+                 offset (generate-offset (.. (. icon 1) (. dir 1) (. name 1)
+                                             pos "  ")
+                                         10)
+                 trimmed-text (entry-tbl.text:gsub "^%s*(.-)%s*$" "%1")]
+             (generate-display [icon
+                                dir
+                                name
+                                [pos :TelescopeResultsLineNr]
+                                [(.. offset trimmed-text)]]))))
+    res))
+
+(defn files-entry-maker [entry]
+  (let [res (((. (require :telescope.make_entry) :gen_from_file)) entry)]
+    (set res.display
+         (fn [entry-tbl]
+           (generate-display [(refine-filename (. entry-tbl 1))])))
+    res))
+
+(defn grep-entry-maker [entry]
+  (let [res (((. (require :telescope.make_entry) :gen_from_vimgrep)) entry)]
+    (set res.display
+         (fn [entry-tbl]
+           (let [(_ _ filename pos text) (string.find (. entry-tbl 1)
+                                                      "^(.*):(%d+:%d+):(.*)$")
+                 (icon dir name) (refine-filename filename)
+                 offset (generate-offset (.. (. icon 1) (. dir 1) (. name 1)
+                                             " " pos "  ")
+                                         10)]
+             (generate-display [icon
+                                dir
+                                name
+                                [(.. " " pos) :TelescopeResultsLineNr]
+                                [(.. offset text)]]))))
+    res))
+
+(defn buffers-entry-maker [entry]
+  (let [res (((. (require :telescope.make_entry) :gen_from_buffer)) entry)]
+    (set res.display
+         (fn [entry-tbl]
+           (let [(icon dir name) (refine-filename entry-tbl.filename)
+                 offset (generate-offset (tostring entry-tbl.bufnr) 4)]
+             (generate-display [[(.. (tostring entry-tbl.bufnr) offset)
+                                 :TelescopeResultsNumber]
+                                [entry-tbl.indicator :TelescopeResultsComment]
+                                icon
+                                dir
+                                name
+                                [(.. " " (tostring entry-tbl.lnum))
+                                 :TelescopeResultsLineNr]]))))
+    res))
+
 (def- M (mt.transform_mod
           {:yank-entry
            (fn [prompt_bufnr]
@@ -32,7 +118,7 @@
                         "--with-filename" "--line-number" "--column"
                         "--smart-case" "--hidden" "--follow"
                         "-g" "!.git/" "-g" "!.clj-kondo/"]
-    :cache_picker {:num_pickers 3}
+    :cache_picker {:num_pickers 5}
     :layout_config {:height 0.9
                     :width 0.9}
     :layout_strategy :vertical ; cursor horizontal bottom_pane
@@ -54,30 +140,37 @@
                    :<M-t>   actions.select_tab
                    ;:<D-t>   actions.select_tab
                    :<M-?>   actions.which_key}}}
-   :pickers {:git_branches {:mappings
-                            {:n {:<Cr>  actions.git_switch_branch
-                                 :ga    actions.git_create_branch
-                                 :gh    actions.git_reset_hard
-                                 :gs    actions.git_reset_soft
-                                 :<D-m> actions.git_merge_branch
-                                 :gd    actions.git_delete_branch
-                                 :gr    actions.git_rebase_branch}
-                             :i {:<Cr>  actions.git_switch_branch
-                                 :<M-d> actions.git_delete_branch
-                                 :<C-a> actions.git_create_branch
-                                 :<M-a> actions.git_create_branch
-                                 :<D-a> actions.git_create_branch
-                                 :<C-h> actions.git_reset_hard
-                                 :<C-s> actions.git_reset_soft
-                                 :<C-m> actions.git_merge_branch
-                                 :<C-b> actions.git_rebase_branch
-                                 :<D-b> actions.git_rebase_branch
-                                 :<C-r> actions.git_rebase_branch}}}
-             :git_commits  {:mappings
-                            {:n {:h actions.git_reset_hard
-                                 :<Esc> false}
-                             :i {:<Cr> actions.git_checkout_current_buffer}}}
-             :live_grep {:only_sort_text true}}
+   :pickers {:git_branches        {:mappings
+                                   {:n {:<Cr>  actions.git_switch_branch
+                                        :ga    actions.git_create_branch
+                                        :gh    actions.git_reset_hard
+                                        :gs    actions.git_reset_soft
+                                        :<D-m> actions.git_merge_branch
+                                        :gd    actions.git_delete_branch
+                                        :gr    actions.git_rebase_branch}
+                                    :i {:<Cr>  actions.git_switch_branch
+                                        :<M-d> actions.git_delete_branch
+                                        :<C-a> actions.git_create_branch
+                                        :<M-a> actions.git_create_branch
+                                        :<D-a> actions.git_create_branch
+                                        :<C-h> actions.git_reset_hard
+                                        :<C-s> actions.git_reset_soft
+                                        :<C-m> actions.git_merge_branch
+                                        :<C-b> actions.git_rebase_branch
+                                        :<D-b> actions.git_rebase_branch
+                                        :<C-r> actions.git_rebase_branch}}}
+             :git_commits         {:mappings
+                                   {:n {:h     actions.git_reset_hard
+                                        :<Esc> false}
+                                    :i {:<Cr> actions.git_checkout_current_buffer}}}
+             :find_files          {:entry_maker files-entry-maker}
+             :buffers             {:entry_maker buffers-entry-maker
+                                   :sort_mru true}
+             :lsp_references      {:entry_maker lsp-entry-maker}
+             :lsp_implementations {:entry_maker lsp-entry-maker}
+             :live_grep           {:only_sort_text  true
+                                   :additional_args ["--trim"]
+                                   :entry_maker     grep-entry-maker}}
    :extensions {:undo {:mappings {:n {:y undo_actions.yank_additions
                                       :Y undo_actions.yank_deletions}}}
                 :file_browser {:theme :ivy
