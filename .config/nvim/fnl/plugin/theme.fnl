@@ -56,7 +56,9 @@
 
 ;;; font
 
-(set nvim.o.guifont "Hack Nerd Font Mono:h15")
+(set nvim.o.guifont "JetBrainsMono Nerd Font:h15")
+; (set nvim.o.guifont "Hack Nerd Font Mono:h15")
+; (set nvim.o.guifont "Hack NF:h15")
 
 (defn font-size! [diff]
   (let [font nvim.o.guifont
