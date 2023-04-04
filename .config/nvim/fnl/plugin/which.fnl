@@ -42,7 +42,7 @@
         :l [#(set vim.o.list (not vim.o.list)) "List invisible chars"]
         :f [#(set nvim.g.neovide_fullscreen (not nvim.g.neovide_fullscreen)) "Full Screen"]
         :r [#(set vim.o.relativenumber (not vim.o.relativenumber)) "Relative Numbers"]
-        :R [#(vim.cmd "e %") "Refresh file"]
+        :R ["mZ:BD!<cr>`Z" "Refresh file"]
 
         ;; fan
         :a {:name :Animation
