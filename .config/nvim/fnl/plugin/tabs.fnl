@@ -1,7 +1,9 @@
 (module plugin.tabs
   {require {nvim aniseed.nvim
             bufferline bufferline
-            {: kset} util}})
+            {: join} aniseed.string
+            {: map : filter : reduce} aniseed.core
+            {: kset : println} util}})
 
 ;; tabs
 (kset [:n :x] "<D-.>" ":BufferLineCycleNext<Cr>") ;; karabiner: cmd <
@@ -28,14 +30,37 @@
 
 (kset :n :<D-9> #(bufferline.go_to_buffer -1 true))
 
+(defn split-name [name]
+  (let [subwords {}]
+    (var current-subword "")
+    (for [i 1 (length name)]
+      (local char (name:sub i i))
+      (local is-delimiter (char:match "[%.%-%_]"))
+      (local is-uppercase (char:match "[A-Z]"))
+      (when (or is-delimiter
+                (and (and is-uppercase (> i 1)) (not= current-subword "")))
+        (when (> (length current-subword) 0)
+          (table.insert subwords current-subword))
+        (set current-subword ""))
+      (when (not is-delimiter) (set current-subword (.. current-subword char))))
+    (when (not= current-subword "") (table.insert subwords current-subword))
+    subwords))	
+
 (bufferline.setup
   {:options {;:mode :tabs
              :numbers  :ordinal
              :separator_style :slant
              :enforce_regular_tabs true
-             ;:indicator {:style :underline}
-             ;:always_show_bufferline false
-             }
+             :tab_size 12
+             :name_formatter
+             #(let [name     (vim.fn.fnamemodify $.name ":t:r")
+                    subwords (split-name name)]
+                (if 
+                  (<= (length name) 8) name
+                  (< (length subwords) 2) name
+                  (->> subwords
+                       (map (fn [subword] (subword:sub 1 2)))
+                       (join ".")))) }
    :highlights {:numbers_selected {:italic false}
                 :buffer_selected {:bold true
                                   :italic false}}})
