@@ -48,7 +48,7 @@
 
 (bufferline.setup
   {:options {;:mode :tabs
-             :numbers  :ordinal
+             ;:numbers  :ordinal
              :separator_style :slant
              :enforce_regular_tabs true
              :tab_size 12
