@@ -59,8 +59,9 @@
                   (<= (length name) 8) name
                   (< (length subwords) 2) name
                   (->> subwords
-                       (map (fn [subword] (subword:sub 1 2)))
-                       (join ".")))) }
+                       (map (fn [subword] (subword:sub 1 3)))
+                       (map (fn [two-letters] (two-letters:gsub "^%l" string.upper)))
+                       join))) }
    :highlights {:numbers_selected {:italic false}
                 :buffer_selected {:bold true
                                   :italic false}}})
