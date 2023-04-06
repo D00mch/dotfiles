@@ -47,6 +47,7 @@ set ReplaceWithRegister
 "NAVIGATION
     set path+=**
 
+
     "SPACEMACS-LIKE
         nnoremap <space>b :action RecentFiles<cr>
         nnoremap <space>pb :action RecentFiles<cr>
@@ -59,6 +60,7 @@ set ReplaceWithRegister
         nnoremap <space>ga :action Annotate<cr>
         nnoremap <space>gb :action Git.Branches<cr>
         nnoremap <space><tab> :e#<cr>
+        nnoremap <space>ba :action CloseAllEditorsButActive<cr>
     "CIDER-LIKE
         
     "SEARCH
