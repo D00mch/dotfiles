@@ -65,8 +65,8 @@
         size (-> (nvim.o.guifont:match "h(%d+)$") tonumber (+ diff))]
     (set nvim.o.guifont (font:gsub "%d+$" size))))
 
-(kset :n :<Space>= #(font-size! 1))
-(kset :n :<Space>- #(font-size! -1))
+(kset :n :<D-=> #(font-size! 1))
+(kset :n :<D--> #(font-size! -1))
 
 ;;; autodark
 

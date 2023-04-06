@@ -26,7 +26,7 @@
                 (fn [b w]
                   (vim.keymap.set :n :<D-w> close-and-move-focus-on-prev {:buffer b})
                   (nvim.echo (vim.fn.expand "%:p")))})
-(kset [:n] :<leader>d "<cmd>lua require('goto-preview').goto_preview_definition()<CR>")
+(kset [:n] :<leader>g "<cmd>lua require('goto-preview').goto_preview_definition()<CR>")
 
 (mason.setup)
 ; (installer.setup {:ensure_installed [:clojure_lsp :jdtls :kotlin_language_server
