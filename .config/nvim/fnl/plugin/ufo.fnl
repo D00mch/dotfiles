@@ -42,18 +42,40 @@
     (table.insert new-virt-text [suffix :MoreMsg])
     new-virt-text))	
 
-;; LSP
-(def language-servers (lsp-util.available_servers))
-(def capabilities (vim.lsp.protocol.make_client_capabilities))
+(defn get-comment-folds [bufnr]
+  (let [comment-folds {}
+        line-count (vim.api.nvim_buf_line_count bufnr)]
+    (var is-in-comment false)
+    (var comment-start 0)
+    (for [i 0 (- line-count 1)]
+      (local line (. (vim.api.nvim_buf_get_lines bufnr i (+ i 1) false) 1))
+      (if (and (not is-in-comment)
+               (line:match (.. "^%s*" (vim.o.commentstring:sub 1 1))))
+        (do
+          (set is-in-comment true) (set comment-start i))
+        (and is-in-comment
+             (not (line:match (.. "^%s*" (vim.o.commentstring:sub 1 1)))))
+        (do
+          (set is-in-comment false)
+          (table.insert comment-folds
+                        {:endLine (- i 1) :startLine comment-start}))))
+    (when is-in-comment
+      (table.insert comment-folds
+                    {:endLine (- line-count 1) :startLine comment-start}))
+    comment-folds))	
 
-(set capabilities.textDocument.foldingRange
-     {:dynamicRegistration false
-      :lineFoldingOnly true})
+(fn with-comment-folds [bufnr default]
+  (let [comment-folds (get-comment-folds bufnr)
+        default-folds (ufo.getFolds bufnr default)]
+    (each [_ fold (ipairs comment-folds)]
+      (table.insert default-folds fold))
+    default-folds))
+
+(def ft-map
+  {:clojure #(with-comment-folds $ :indent)
+   :fennel #(with-comment-folds $ :indent)})
 
 (ufo.setup
-  {:fold_virt_text_handler handler})
-
-;; Treesitter
-; (ufo.setup
-;   {:provider_selector (fn [bufnr filetype buftype]
-;                         [:treesitter :indent])})
+  {:fold_virt_text_handler handler
+   :provider_selector (fn [bufnr filetype buftype]
+                        (. ft-map filetype))})

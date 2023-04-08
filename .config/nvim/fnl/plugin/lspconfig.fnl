@@ -121,6 +121,11 @@
   (bkset [:n :x] :<C-r> vim.lsp.buf.code_action {:buffer b :desc "Code actions"})
   (bkset [:n :x] :<leader>ra vim.lsp.buf.code_action {:buffer b :desc "Code actions"}))
 
+(def capabilities (vim.lsp.protocol.make_client_capabilities))
+(set capabilities.textDocument.foldingRange
+     {:dynamicRegistration false
+      :lineFoldingOnly true})
+
 (def- default-map {:on_attach on_attach
                    :handlers handlers
                    :capabilities (cmplsp.default_capabilities)})
