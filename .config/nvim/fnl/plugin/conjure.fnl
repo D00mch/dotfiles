@@ -23,6 +23,7 @@
 (set nvim.g.conjure#mapping#eval_replace_form false)
 (set nvim.g.conjure#mapping#eval_comment_word false)
 (set nvim.g.conjure#mapping#eval_comment_root_form false)
+(set nvim.g.conjure#client#clojure#nrepl#mapping#refresh_all false)
 
 (kset [:n :x :i] :<D-l> "<Leader>lg" {:remap true})
 
