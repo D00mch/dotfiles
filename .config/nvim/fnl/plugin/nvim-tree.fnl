@@ -58,7 +58,7 @@
             {:key       [:S] 
              :action    "`live-grep` the node"
              :action_cb #(launch-telescope "live_grep" $1)}
-            {:key       [:F :<D-f>] 
+            {:key       [:F :<D-s-f>] 
              :action    "`find-files` the node"
              :action_cb #(launch-telescope "find_files" $1)}
             {:key      "<D-,>"
