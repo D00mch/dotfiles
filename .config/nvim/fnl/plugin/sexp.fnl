@@ -34,6 +34,7 @@
       :sexp_indent_top                ""
       :sexp_round_tail_wrap_list      ""
       :sexp_round_head_wrap_list      ""
+      :sexp_insert_at_list_head       ""
 
       ;; move element under cursor
       :sexp_swap_list_forward         :<C-j>
