@@ -16,7 +16,7 @@
    :rainbow {:enable true
              :strategy ts-rainbow.strategy.global}
    :highlight {:enable true
-               ;:additional_vim_regex_highlighting true
+               :additional_vim_regex_highlighting true
                }
    ; :refactor {:highlight_definitions {:enable true}
    ;            :smart_rename {:enable true
