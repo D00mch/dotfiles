@@ -25,6 +25,9 @@
                 (= (type opts) "string") {:desc opts})]
     (vim.keymap.set modes from to (+docs opts to))))
 
+(defn kdel [modes from opts]
+  (vim.keymap.del modes from opts))
+
 ;; opts could be options map or just a buffer
 (defn bkset [modes from to opts]
   (let [opts  (if 
@@ -33,6 +36,9 @@
                 (= (type opts) "string") {:desc opts}
                 {:buffer 0})]
     (vim.keymap.set modes from to (+docs opts to))))
+
+(defn bkdel [modes from b]
+  (vim.keymap.del modes from {:buffer (or b 0)}))
 
 ;; maps operation to visual, rows only
 (defn vis-op [op args]

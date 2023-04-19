@@ -7,7 +7,7 @@
             action-state telescope.actions.state
             builtin telescope.builtin
             {: merge} aniseed.core
-            {: kset} util}})
+            {: kset : bkset : kdel : bkdel} util}})
 
 (kset :n "<space>pt" #(api.tree.toggle false true) "Tree Toggle")
 
@@ -22,9 +22,10 @@
         (openfile.fn :preview filename))))
   true)
 
-(defn launch-telescope [fun-name node]
+(defn launch-telescope [fun-name]
   ;; see https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes#find-file-from-node-in-telescope
-  (let [folder? (and node.fs_stat (= node.fs_stat.type :directory))
+  (let [node    (api.tree.get_node_under_cursor)
+        folder? (and node.fs_stat (= node.fs_stat.type :directory))
         basedir (or (and folder? node.absolute_path)
                     (vim.fn.fnamemodify node.absolute_path ":h"))
         basedir (if (and (= node.name "..") (not= TreeExplorer nil))
@@ -35,52 +36,32 @@
         :search_dirs [basedir]
         :attach_mappings view-selection})))
 
-; (defn swap-then-open-tab []
-;   (let [node (lib.get_node_at_cursor)]
-;     (vim.cmd "wincmd l")
-;     (api.node.open.tab node)))
-
 (tree.setup
   {:sync_root_with_cwd false
    :respect_buf_cwd false
    :update_focused_file {:enable true
                          :update_root false}
    :git {:enable false}
-   :view
-   {;:adaptive_size true
-    :mappings
-    {:list [;{:key :t
-            ; :action "swap-then-open-tab"
-            ; :action_cb swap-then-open-tab}
-            ; {:key :<D-t>
-            ;  :action "swap-then-open-tab"
-            ;  :action_cb swap-then-open-tab}
-            {:key       [:S] 
-             :action    "`live-grep` the node"
-             :action_cb #(launch-telescope "live_grep" $1)}
-            {:key       [:F :<D-s-f>] 
-             :action    "`find-files` the node"
-             :action_cb #(launch-telescope "find_files" $1)}
-            {:key      "<D-,>"
-             :action   "BufferLineCyclePrev"
-             :action_cb #(vim.cmd (.. "wincmd l" "|" "BufferLineCyclePrev"))}
-            {:key       "<D-.>"
-             :action    "BufferLineCycleNext"
-             :action_cb #(vim.cmd (.. "wincmd l" "|" "BufferLineCycleNext"))}
-            {:key       :<M-.>
-             :action    :resizeRight
-             :action_cb #(vim.cmd "NvimTreeResize +5")}
-            {:key       "<M-,>"
-             :action    :resizeLeft
-             :action_cb #(vim.cmd "NvimTreeResize -5")}
-            {:key :D :action :cd}
-            {:key :M :action :bulk_move}
-            {:key :q :action ""} ;; unmap
-            {:key :s :action :split}
-            {:key :v :action :vsplit}
-            {:key :f :action :system_open}
-            {:key :i :action :toggle_file_info}
-            {:key :u :action :dir_up}]}}
+   :on_attach (fn [b]
+                (api.config.mappings.default_on_attach b)
+                (bkdel :n :q b)
+
+                (bkset :n :S #(launch-telescope "live_grep") b)
+                (bkset :n :<D-S-f> #(launch-telescope "find_files") b)
+
+                (bkset :n "<D-,>" #(vim.cmd (.. "wincmd l" "|" "BufferLineCyclePrev")) b)
+                (bkset :n "<D-.>" #(vim.cmd (.. "wincmd l" "|" "BufferLineCycleNext")) b)
+                (bkset :n "<M-.>" #(vim.cmd "NvimTreeResize +5") b)
+                (bkset :n "<M-,>" #(vim.cmd "NvimTreeResize -5") b)
+
+                (bkset :n :gal api.node.open.vertical b)
+                (bkset :n :gak api.node.open.horizontal b)
+                (bkset :n :gaj api.node.open.horizontal b)
+
+                (bkset :n :sd api.tree.change_root_to_node b)
+                (bkset :n :gf api.node.run.system b)
+                (bkset :n :i api.node.show_info_popup b))
+
    :renderer {:symlink_destination false
               :indent_markers {:enable true}}
    :filters {:custom [:^.git$]}})
