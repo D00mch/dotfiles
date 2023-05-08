@@ -1,5 +1,6 @@
 (module plugin.telescope
   {autoload {nvim aniseed.nvim
+             chatgpt chatgpt
              builtin telescope.builtin
              telescope telescope
              harpoon harpoon
@@ -231,3 +232,27 @@
 (kset :n :<D-b> search-word-under-cursor)
 (kset :x :<D-b> search-word-under-selection)
 (kset :n :<Leader>gr search-word-under-cursor)
+
+;; gpt setup
+
+(kset :n :<space>ga ":ChatGPTActAs<Cr>" "GPT acts as")
+(kset :n :<space>gg ":ChatGPT<Cr>" "GPT acts as")
+
+(chatgpt.setup
+  {:chat          {:keymaps {:close           :<D-w>
+                             :new_session     :<D-n>
+                             :cycle_modes     :<D-m>
+                             :yank_last       :<D-y>
+                             :scroll_down     :<Right>
+                             :scroll_up       :<Left>
+                             :toggle_settings "<D-,>"
+                             :select_session  :<Cr>
+                             :delete_session  :d
+                             :rename_session  :r
+                             }}
+
+   :openai_params {:model "gpt-4"}
+
+   :predefined_chat_gpt_prompts
+   "https://raw.githubusercontent.com/D00mch/dotfiles/master/gpt/prompts.csv"
+   })

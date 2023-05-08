@@ -41,6 +41,7 @@
               :ahmedkhalf/project.nvim
               :debugloop/telescope-undo.nvim
               :nvim-telescope/telescope-file-browser.nvim]}
+  :jackMort/ChatGPT.nvim {:requires :MunifTanjim/nui.nvim}
   :goolord/alpha-nvim {:mod :alpha
                        ;; don't update as I have code fixed locally;
                        ;; https://github.com/goolord/alpha-nvim/issues/147
