@@ -86,6 +86,7 @@
   :sainnhe/edge {}
   :briones-gabriel/darcula-solid.nvim {:requires [:rktjmp/lush.nvim]}
   :rebelot/kanagawa.nvim {}
+  :rose-pine/neovim {}
 
   ;; parsing, refactoring
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
