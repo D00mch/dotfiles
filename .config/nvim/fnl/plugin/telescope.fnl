@@ -235,8 +235,8 @@
 
 ;; gpt setup
 
-(kset :n :<space>ga ":ChatGPTActAs<Cr>" "GPT acts as")
-(kset :n :<space>gg ":ChatGPT<Cr>" "GPT acts as")
+(kset :n :<space>ca ":ChatGPTActAs<Cr>" "GPT acts as")
+(kset :n :<space>cg ":ChatGPT<Cr>" "GPT chat")
 
 (chatgpt.setup
   {:chat          {:keymaps {:close           :<D-w>
