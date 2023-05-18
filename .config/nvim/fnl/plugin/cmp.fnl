@@ -7,14 +7,12 @@
 
 (def- cmp-src-menu-items
   {:buffer "buff"
-   :conjure "conj"
    ; :copilot "copilot"
    :path "path"
    :nvim_lsp "lsp"})
 
 (def- cmp-srcs
   [{:name :nvim_lsp}
-   {:name :conjure}
    {:name :buffer}
    {:name :path}
    {:name :spell}

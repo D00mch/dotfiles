@@ -107,13 +107,12 @@
   :rmagatti/goto-preview {}        ; preview definition
 
   ;; autocomplete
-  :hrsh7th/nvim-cmp {:requires [:hrsh7th/cmp-buffer
-                                :hrsh7th/cmp-nvim-lsp
-                                :hrsh7th/cmp-path
-                                :hrsh7th/cmp-cmdline
-                                :f3fora/cmp-spell
-                                :PaterJason/cmp-conjure]
-                     :mod :cmp}
+  :hrsh7th/cmp-buffer {}
+  :hrsh7th/cmp-nvim-lsp {}
+  :hrsh7th/cmp-path {}
+  :hrsh7th/cmp-cmdline {}
+  :f3fora/cmp-spell {}
+  :hrsh7th/nvim-cmp {:mod :cmp}
   :dcampos/nvim-snippy {:requires [:dcampos/cmp-snippy]}
 
   :kevinhwang91/nvim-ufo {:mod :ufo
