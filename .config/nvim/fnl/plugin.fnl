@@ -105,6 +105,7 @@
   :DNLHC/glance.nvim {}           ; cmd+b like in idea
   :barreiroleo/ltex-extra.nvim {} ; ltex code actions
   :rmagatti/goto-preview {}        ; preview definition
+  :RRethy/vim-illuminate {}
 
   ;; autocomplete
   :hrsh7th/cmp-buffer {}

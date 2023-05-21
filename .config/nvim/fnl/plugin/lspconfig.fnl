@@ -1,6 +1,7 @@
 (module plugin.lspconfig
   {autoload {nvim aniseed.nvim
              lsp lspconfig
+             illuminate illuminate
              ;null-ls null-ls
              ltex ltex_extra
              glance glance
@@ -58,24 +59,7 @@
     sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
     sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint"))
 
-(defn- highlight-symbols [client bufnr]
-  (when client.server_capabilities.documentHighlightProvider
-    (highlight-line-symbol)
-    (vim.api.nvim_create_autocmd
-      :ColorScheme
-      {:buffer   bufnr
-       :group    (vim.api.nvim_create_augroup :HighlightColors {:clear true})
-       :callback highlight-line-symbol})
-    (vim.cmd "hi! link LspReferenceWrite TSConstMacro")
-    (let [group (vim.api.nvim_create_augroup :lsp_document_highlight {})]
-      (vim.api.nvim_create_autocmd [:CursorHold :CursorHoldI]
-                                   {:group group
-                                    :buffer bufnr
-                                    :callback vim.lsp.buf.document_highlight})
-      (vim.api.nvim_create_autocmd :CursorMoved
-                                   {:group group
-                                    :buffer bufnr
-                                    :callback vim.lsp.buf.clear_references}))))
+(illuminate.configure)
 
 (def- diagnostics {:severity_sort true
                    :update_in_insert false
@@ -97,7 +81,6 @@
                   {:border "single"})})
 
 (defn- on_attach [client b]
-  (highlight-symbols client b)
   (set client.server_capabilities.semanticTokensProvider nil)
   (bkset :n :<leader>h (fn [] (vim.lsp.buf.hover) (vim.lsp.buf.hover)) {:buffer b :desc "Show docs"})
   (bkset :n :gd vim.lsp.buf.definition {:buffer b :desc "Go definition"}) ;[
