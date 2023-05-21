@@ -73,6 +73,7 @@
 
 (def ft-map
   {:clojure #(with-comment-folds $ :indent)
+   :markdown :treesitter
    :fennel #(with-comment-folds $ :indent)})
 
 (ufo.setup
