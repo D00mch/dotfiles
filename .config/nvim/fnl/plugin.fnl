@@ -88,6 +88,7 @@
   :briones-gabriel/darcula-solid.nvim {:requires [:rktjmp/lush.nvim]}
   :rebelot/kanagawa.nvim {}
   :rose-pine/neovim {}
+  :projekt0n/github-nvim-theme {}
 
   ;; parsing, refactoring
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
