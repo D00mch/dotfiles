@@ -114,6 +114,7 @@
   :hrsh7th/cmp-path {}
   :hrsh7th/cmp-cmdline {}
   :f3fora/cmp-spell {}
+  :PaterJason/cmp-conjure {}
   :hrsh7th/nvim-cmp {:mod :cmp}
   :dcampos/nvim-snippy {:requires [:dcampos/cmp-snippy]}
 

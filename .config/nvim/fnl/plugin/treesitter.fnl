@@ -16,7 +16,10 @@
    :rainbow {:enable true
              :strategy ts-rainbow.strategy.global}
    :highlight {:enable true
-               :additional_vim_regex_highlighting true
+               ;; problems when I set this to 'true'
+               ;; - can't use `vaf`, `dif`, etc... inside strings
+               ;; - erorrs from cmp-conjure
+               :additional_vim_regex_highlighting false
                }
    ; :refactor {:highlight_definitions {:enable true}
    ;            :smart_rename {:enable true
