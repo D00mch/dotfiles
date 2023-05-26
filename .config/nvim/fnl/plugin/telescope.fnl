@@ -119,7 +119,7 @@
                         "--with-filename" "--line-number" "--column"
                         "--smart-case" "--hidden" "--follow"
                         "-g" "!.git/" "-g" "!.clj-kondo/"]
-    :cache_picker {:num_pickers 5}
+    :cache_picker {:num_pickers 10}
     :layout_config {:height 0.9
                     :width 0.9}
     :layout_strategy :vertical ; cursor horizontal bottom_pane
