@@ -9,7 +9,7 @@ local home = wezterm.home_dir .. '/dotfiles/resources/'
 local paralax_bg = {
   {
     source = {
-      File = home..'Alien_Ship_bg_vert_images/Backgrounds/spaceship_bg_1.png',
+      File = home..'Alien_Ship_bg_vert_images/Backgrounds/spaceship_bg_1@2x.png',
     },
     repeat_x = 'Mirror',
     hsb = dimmer,
@@ -17,7 +17,7 @@ local paralax_bg = {
   },
   {
     source = {
-      File = home .. 'Alien_Ship_bg_vert_images/Overlays/overlay_1_spines.png',
+      File = home .. 'Alien_Ship_bg_vert_images/Overlays/overlay_1_spines@2x.png',
     },
     width = '100%',
     repeat_x = 'NoRepeat',
@@ -28,7 +28,7 @@ local paralax_bg = {
   },
   {
     source = {
-      File = home .. 'Alien_Ship_bg_vert_images/Overlays/overlay_2_alienball.png',
+      File = home .. 'Alien_Ship_bg_vert_images/Overlays/overlay_2_alienball@2x.png',
     },
     width = '100%',
     repeat_x = 'NoRepeat',
@@ -39,7 +39,7 @@ local paralax_bg = {
   },
   {
     source = {
-      File = home .. 'Alien_Ship_bg_vert_images/Overlays/overlay_3_lobster.png',
+      File = home .. 'Alien_Ship_bg_vert_images/Overlays/overlay_3_lobster@2x.png',
     },
     width = '100%',
     repeat_x = 'NoRepeat',
@@ -50,7 +50,7 @@ local paralax_bg = {
   },
   {
     source = {
-      File = home .. 'Alien_Ship_bg_vert_images/Overlays/overlay_4_spiderlegs.png',
+      File = home .. 'Alien_Ship_bg_vert_images/Overlays/overlay_4_spiderlegs@2x.png',
     },
     width = '100%',
     repeat_x = 'NoRepeat',
