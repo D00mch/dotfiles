@@ -3,6 +3,7 @@
             gs gitsigns
             dview diffview
             actions diffview.actions
+            ufo ufo
             {: merge} aniseed.core
             {: toggle} plugin.which
             ; neogit neogit
@@ -45,6 +46,7 @@
 
 (dview.setup
   {:view {:merge_tool {:layout "diff1_plain"}}
+   :hooks {:diff_buf_read (fn [b] (ufo.detach))}
    :keymaps 
    {:disable_defaults   false
     :view               (merge 
