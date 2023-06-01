@@ -1,5 +1,6 @@
 (module plugin.conjure
   {require {nvim aniseed.nvim
+            {: toggle} plugin.which
             {: kset} util}})
 
 (set nvim.g.conjure#log#wrap true)
@@ -28,9 +29,16 @@
 
 (kset [:n :x :i] :<D-l> "<Leader>lg" {:remap true})
 
-;; floating window size
+;; floating window
 ; (set nvim.g.conjure#log#hud#height 0.6)
 ; (set nvim.g.conjure#log#hud#width 0.7)
+(set nvim.g.conjure#log#jump_to_latest#enabled true)
+
+(defn- toggle-log-mod []
+  (set nvim.g.conjure#log#jump_to_latest#enabled
+       (not nvim.g.conjure#log#jump_to_latest#enabled)))
+
+(toggle :l "conjure.log" toggle-log-mod)
 
 ;; unmap
 (set nvim.g.conjure#client#clojure#nrepl#mapping#disconnect false)
