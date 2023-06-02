@@ -89,6 +89,7 @@
   :rebelot/kanagawa.nvim {}
   :rose-pine/neovim {}
   :projekt0n/github-nvim-theme {}
+  :ribru17/bamboo.nvim {}
 
   ;; parsing, refactoring
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"

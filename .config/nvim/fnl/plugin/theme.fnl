@@ -3,6 +3,7 @@
             str aniseed.string
             auto auto-dark-mode
             everforest everforest
+            bamboo bamboo
             {: toggle} plugin.which
             {: kset} util}})
 
@@ -46,6 +47,7 @@
 ;;; theme
 
 (everforest.setup {:background :hard})
+(bamboo.load)
 
 ; (set nvim.g.everforest_background "hard")
 
