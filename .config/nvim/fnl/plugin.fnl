@@ -87,7 +87,6 @@
   :sainnhe/edge {}
   :briones-gabriel/darcula-solid.nvim {:requires [:rktjmp/lush.nvim]}
   :rebelot/kanagawa.nvim {}
-  :rose-pine/neovim {}
   :projekt0n/github-nvim-theme {}
   :ribru17/bamboo.nvim {}
 
