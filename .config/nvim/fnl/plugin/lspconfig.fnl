@@ -59,6 +59,16 @@
     sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
     sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint"))
 
+(defn- highlight-symbols [client bufnr]
+  (when client.server_capabilities.documentHighlightProvider
+    (highlight-line-symbol)
+    (vim.api.nvim_create_autocmd
+      :ColorScheme
+      {:buffer   bufnr
+       :group    (vim.api.nvim_create_augroup :HighlightColors {:clear true})
+       :callback highlight-line-symbol})
+    (vim.cmd "hi! link LspReferenceWrite TSConstMacro")))
+
 (illuminate.configure)
 
 (def- diagnostics {:severity_sort true
@@ -81,6 +91,7 @@
                   {:border "single"})})
 
 (defn- on_attach [client b]
+  (highlight-symbols client b)
   (set client.server_capabilities.semanticTokensProvider nil)
   (bkset :n :<leader>h (fn [] (vim.lsp.buf.hover) (vim.lsp.buf.hover)) {:buffer b :desc "Show docs"})
   (bkset :n :gd vim.lsp.buf.definition {:buffer b :desc "Go definition"}) ;[
