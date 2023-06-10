@@ -69,6 +69,7 @@
 
 (kset :n :<D-=> #(font-size! 1))
 (kset :n :<D--> #(font-size! -1))
+(kset :n :<D-0> #(set nvim.o.guifont "JetBrainsMono Nerd Font:h15"))
 
 ;;; autodark
 
