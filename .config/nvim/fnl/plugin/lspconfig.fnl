@@ -141,7 +141,8 @@
                          {:load_langs [:en-US]
                           :init_check true
                           :path (.. (vim.fn.expand "~") "/.config/nvim/data/ltex")
-                          :log_level :debug}))
+                          :log_level :debug})
+                       (highlight-line-symbol))
           :filetypes ["markdown" "NeogitCommitMessage" "gitcommit"]
           :settings {:ltex {}}}))
 
