@@ -87,8 +87,8 @@
   (bkset :x :- "<Esc>:MarkdownTaskToggleSelection<cr>")
 
   ;; insert markdown links
-  (bkset :n :<space>K "vaw\"9di[<C-r>9](<C-r>*)<Esc>")
-  (bkset :x :<space>K "<Esc>`>a](<C-r>*)<C-o>`<[<Esc>")
+  (bkset :n :<D-k> "viw\"9di[<C-r>9](<C-r>*)<Esc>")
+  (bkset :x :<D-k> "<Esc>`>a](<C-r>*)<C-o>`<[<Esc>")
   (bkset :n :<space>N "vaw\"9di[<C-r>9]: <C-r>*<Esc>F[yi[")
   (bkset :x :<space>N "<Esc>`>a]: <C-r>*<C-o>`<[<Esc>yi[")
   (bkset :n :<space>L "caw[]<Esc>hpla[]<Esc>i")
