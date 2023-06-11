@@ -254,5 +254,5 @@
    :openai_params {:model "gpt-4"}
 
    :predefined_chat_gpt_prompts
-   "https://raw.githubusercontent.com/D00mch/dotfiles/master/gpt/prompts.csv"
+   "https://raw.githubusercontent.com/D00mch/dotfiles/master/resources/gpt/prompts.csv"
    })
