@@ -1,0 +1,36 @@
+{
+  "title": "Slack",
+  "maintainers": [
+    "dumch"
+  ],
+  "rules": [
+    {
+      "description": "Insert link",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [ "left_command" ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "u",
+              "modifiers": [ "left_shift", "left_command" ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.tinyspeck.slackmacgap$"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
