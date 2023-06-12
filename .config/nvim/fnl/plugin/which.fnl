@@ -2,7 +2,7 @@
   {autoload {wk which-key
              nvim aniseed.nvim
              {: assoc} aniseed.core
-             {: get-word-under-selection} util}})
+             {: kset : get-word-under-selection} util}})
 
 (set vim.o.timeoutlen 250)
 
@@ -23,17 +23,33 @@
                       key [cmd name]}}
                  (assoc opts :prefix :<Space>))))
 
+;; language setup
+(vim.api.nvim_command "set keymap=russian-jcukenmac")
+(set nvim.o.iminsert 0)
+(set nvim.o.imsearch 0)
+
+(defn- set-lang-cmd [lang-name]
+  (let [n (if (= lang-name "en_US") 0 1)]
+    (.. "set iminsert=" n " imsearch=" n "|"
+        "lang " lang-name ".UTF-8|")))
+
+(defn- toggle-keyboard []
+  (-> (if (= nvim.o.iminsert 0) "ru_RU" "en_US")
+      set-lang-cmd
+      vim.cmd))
+
+;; Karabiner maps <CMD+X> to <CTRL+6> 
+(kset [:x :n] :<C-6> toggle-keyboard {:remap true})
+
 ;; key setup
 (wk.register
   {:<Space>
    {
     ;; language
-    :r [(.. "<Cmd>set iminsert=1 imsearch=1<bar>"
-            "lang ru_RU.UTF-8<bar>"
-            "setlocal spell! spelllang=ru_ru,en_us<cr>") "Set RUS lang"]
-    :e [(.. "<Cmd>set iminsert=0 imsearch=0<bar>"
-            "lang en_US.UTF-8<bar>"
-            "setlocal spell! spelllang=ru_ru,en_us<cr>") "Set ENG lang"]
+    :r [(.. "<Cmd>" (set-lang-cmd "ru_RU")
+            "setlocal spell! spelllang=ru_ru,en_us<cr>") "Set RUS, toggle grammar"]
+    :e [(.. "<Cmd>" (set-lang-cmd "ru_RU")
+            "setlocal spell! spelllang=ru_ru,en_us<cr>") "Set ENG, toggle grammar"]
 
     ;; toggle
     :t {:name :toggle
@@ -63,12 +79,6 @@
         "Format"]
     }}
   {:mode :x})
-
-;; language setup
-(vim.cmd "lang en_US.UTF-8") ;; tmp fix until nvim 0.7.1 https://github.com/neovim/neovim/issues/5683#issuecomment-1114756116
-(vim.api.nvim_command "set keymap=russian-jcukenmac")
-(set nvim.o.iminsert 0)
-(set nvim.o.imsearch 0)
 
 ;; showing tabs, spaces, end-of-lines
 (set vim.o.listchars "eol:¬,space:·,tab:→-,extends:▸,precedes:◂,multispace:···⬝,leadmultispace:│   ")
