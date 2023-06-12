@@ -106,8 +106,6 @@
   (bkset :x :<leader>= (vis-op+ vim.lsp.buf.format {:async true}) {:buffer b :desc "Apply formatting"})
   (bkset :n "]s" vim.diagnostic.goto_next {:buffer b :desc "Goto next erro"})
   (bkset :n "[s" vim.diagnostic.goto_prev {:buffer b :desc "Goto prev erro"}) ;]
-  (bkset :n :<tab> vim.diagnostic.goto_next {:buffer b :desc "Goto next erro"})
-  (bkset :n :<S-tab> vim.diagnostic.goto_prev {:buffer b :desc "Goto prev erro"})
   (bkset :n :<D-b> "mZg*`Z:Glance references<Cr>" {:buffer b :desc "Show refs (Idea)"}) ; cmd+b
   ;; TELESCOPE
   (bkset :n :<leader>gr #(lsp_references {:jump_type :never}) {:buffer b :desc "Go to references"})

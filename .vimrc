@@ -202,11 +202,7 @@ cd $HOME
         set smartindent
         set shiftwidth=4 smarttab expandtab
         set tags=./tags,tags;$HOME
-    "WRAP
-        " noremap <expr> j v:count ? 'j' : 'gj'
-        " noremap <expr> k v:count ? 'k' : 'gk'
-        " noremap <space>h g0
-        " noremap <space>l g$
+
     "MARKDOWN
         vnoremap <silent> ic :<C-U>call <SID>MdCodeBlockTextObj('i')<CR>
         onoremap <silent> ic :<C-U>call <SID>MdCodeBlockTextObj('i')<CR>

@@ -86,6 +86,12 @@
   (vim.keymap.set :n :- toggle-task)
   (bkset :x :- "<Esc>:MarkdownTaskToggleSelection<cr>")
 
+  ;; j/k, left/right for long lines
+  (bkset :n :j "v:count ? 'j' : 'gj'" {:expr true})
+  (bkset :n :k "v:count ? 'k' : 'gk'" {:expr true})
+  (bkset :n :<space>h "g0" {:remap false})
+  (bkset :n :<space>l "g$" {:remap false})
+
   ;; insert markdown links
   (bkset :n :<D-k> "viw\"9di[<C-r>9](<C-r>*)<Esc>")
   (bkset :x :<D-k> "<Esc>`>a](<C-r>*)<C-o>`<[<Esc>")
