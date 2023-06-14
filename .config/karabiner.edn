@@ -1,0 +1,147 @@
+{:main [{:des "yabai"
+         :rules [;; focus window
+                 [:!Oh [:yabai-win "--focus west"]] 
+                 [:!Ol [:yabai-win "--focus east"]] 
+                 [:!Oj [:yabai-win "--focus south"]] 
+                 [:!Ok [:yabai-win "--focus north"]] 
+
+                 ;; swap managed window
+                 [:!SOh  [:yabai-win "--swap west"]]
+                 [:!SOl  [:yabai-win "--swap east"]]
+                 [:!SOj  [:yabai-win "--swap south"]]
+                 [:!SOk  [:yabai-win "--swap north"]]
+
+                 ;; warp
+                 [:!STOh [:yabai-win  "--warp west"]]
+                 [:!STOl [:yabai-win  "--warp east"]]
+                 [:!STOj [:yabai-win  "--warp south"]]
+                 [:!STOk [:yabai-win  "--warp north"]]
+
+                 ; balance size of windows
+                 [:!SO0  [:yabai-space "--balance"]]
+
+                 ;; control window size, modified to be intuitive
+                 [:!OTh "/opt/homebrew/bin/yabai -m window --resize left:-20:0 || /opt/homebrew/bin/yabai -m window --resize right:-20:0"]
+                 [:!OTl "/opt/homebrew/bin/yabai -m window --resize right:20:0 || /opt/homebrew/bin/yabai -m window --resize left:20:0"]
+                 [:!OTj "/opt/homebrew/bin/yabai -m window --resize bottom:0:20 || /opt/homebrew/bin/yabai -m window --resize top:0:20"]
+                 [:!OTk "/opt/homebrew/bin/yabai -m window --resize top:0:-20 || /opt/homebrew/bin/yabai -m window --resize bottom:0:-20"]
+
+                 [:!QTOh "/opt/homebrew/bin/yabai -m window --resize left:-100:0 || /opt/homebrew/bin/yabai -m window --resize right:-100:0"]
+                 [:!OTQl "/opt/homebrew/bin/yabai -m window --resize right:100:0 || /opt/homebrew/bin/yabai -m window --resize left:100:0"]
+                 [:!OTdown_arrow "/opt/homebrew/bin/yabai -m window --resize bottom:0:100 || /opt/homebrew/bin/yabai -m window --resize top:0:100"]
+                 [:!OTup_arrow "/opt/homebrew/bin/yabai -m window --resize top:0:-100 || /opt/homebrew/bin/yabai -m window --resize bottom:0:-100"]
+
+                 ;; float / unfloat window and center on screen
+                 [:!Og "yabai -m window --toggle float; yabai -m window --grid 4:4:1:1:2:2"]
+
+                 ;; go zoom fullscreen
+                 [:!Of [:yabai-win "--toggle zoom-fullscreen"]]
+
+                 ;; toggle split type
+                 [:!Oe [:yabai-win "--toggle split"]]
+
+                 ;; send window to desktop
+                 [:!REx [:yabai-win "--space recent"]] 
+                 [:!RE1 [:yabai-win "--space 1"]] 
+                 [:!RE2 [:yabai-win "--space 2"]]
+                 [:!RE3 [:yabai-win "--space 3"]]
+                 [:!RE4 [:yabai-win "--space 4"]]
+                 [:!RE5 [:yabai-win "--space 5"]]
+                 [:!RE6 [:yabai-win "--space 6"]]
+                 [:!RE7 [:yabai-win "--space 7"]]
+                 [:!RE8 [:yabai-win "--space 8"]]
+                 [:!RE9 [:yabai-win "--space last"]]
+
+                 ;; focus space
+                 [:!O1 [:yabai-space "--focus 1"]]
+                 [:!O2 [:yabai-space "--focus 2"]]
+                 [:!O3 [:yabai-space "--focus 3"]]
+                 [:!O4 [:yabai-space "--focus 4"]]
+                 [:!O5 [:yabai-space "--focus 5"]]
+                 [:!O6 [:yabai-space "--focus 6"]]
+                 [:!O7 [:yabai-space "--focus 7"]]
+                 [:!O8 [:yabai-space "--focus 8"]]
+                 [:!O9 [:yabai-space "--focus last"]]
+
+                 ;; move space
+                 [:!QER1 [:yabai-space "--move 1"]]
+                 [:!QER2 [:yabai-space "--move 2"]]
+                 [:!QER3 [:yabai-space "--move 3"]]
+                 [:!QER4 [:yabai-space "--move 4"]]
+                 [:!QER5 [:yabai-space "--move 5"]]
+                 [:!QER6 [:yabai-space "--move 6"]]
+                 [:!QER7 [:yabai-space "--move 7"]]
+                 [:!QER8 [:yabai-space "--move 8"]]
+                 [:!QER9 [:yabai-space "--move last"]]]}
+
+        {:des "vim"
+         :rules [[:!Cx :!T6 [:neovide]]
+                 [:!Cq :!Oq [:neovide]]
+                 [:!Cr :!Tr [:terminalish]]
+                 [:!SOhyphen :!SChyphen [:neovide]]
+
+                 ;; cursor move/delete
+                 [:!OQo :!Tw [:terminalish]]
+                 [:!CQo :!Tu [:terminalish]]
+                 [:!OQh :!Sleft_arrow [:neovide]]
+                 [:!OQl :!Sright_arrow [:neovide]]]}
+
+        {:des "hotkeys"
+         :rules [;; arrow keys
+                 [:!Q##j :down_arrow]
+                 [:!Q##k :up_arrow]
+                 [:!Q##h :left_arrow]
+                 [:!Q##l :right_arrow]
+
+                 ;; main hotkeys
+                 [:!C##d :return_or_enter]
+                 [:!Q##p :equal_sign]
+                 [:!Qw :!Requal_sign]
+                 [:!Q##o :delete_or_backspace]
+                 [:!Qi :right_shift]
+                 [:!Ce :left_shift]
+                 [:!Qquote :!Rquote]
+
+                 ;; tabs
+                 [:!Qcomma :!CSopen_bracket [:!neovide]]
+                 [:!Qperiod :!CSclose_bracket [:!neovide]]
+
+                 ;; brackets
+                 [:!Q##slash :backslash]
+                 [:!Q##a :!S9]
+                 [:!Q##f :!S0]
+                 [:!Q##s :!Sopen_bracket]
+                 [:!Q##d :!Sclose_bracket]
+                 [:!Qu :!Sbackslash]
+                 [:!C##i :open_bracket]
+                 [:!C##o :close_bracket]]}
+        {:des "system scripts"
+         :rules [[:!SOw [:theme "w"]]
+                 [:!SOb [:theme "b"]]
+                 [:!TO1 "~/docker_and_repl.sh 1"]
+                 [:!TO2 "~/docker_and_repl.sh 2"]
+                 [:!TO3 "~/docker_and_repl.sh 3"]
+                 [:!Cg "open /Applications/Neovide.app -n"] ] }
+
+        ;; !  | means mandatory    Q  | right_command
+        ;; #  | means optional     W  | right_control
+        ;; C  | left_command       E  | right_option
+        ;; T  | left_control       R  | right_shift
+        ;; O  | left_option        P  | caps_lock
+        ;; S  | left_shift         !! | mandatory CTOS|QWER (hyper)
+        ;; F  | fn                 ## | optional any
+
+        ]
+
+ :templates {:theme "java -jar ~/dotfiles/clj_scripts/theme/target/default+uberjar/theme-0.1.0-SNAPSHOT-standalone.jar %s"
+             :yabai-win "/opt/homebrew/bin/yabai -m window %s"
+             :yabai-space "/opt/homebrew/bin/yabai -m space %s"}
+
+ :applications {:neovide ["^com.neovide.neovide$"]
+                :wezterm ["^com.github.wez.wezterm$"]
+                :terminalish ["^com.apple.Terminal$"
+                              "^com.neovide.neovide$"
+                              "^com.github.wez.wezterm$"]
+                :idea ["^com.jetbrains.intellij.ce$"]
+                :as ["^com.google.android.studio$"]}
+ }

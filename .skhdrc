@@ -1,13 +1,3 @@
-# open finder
-cmd - g : open /Applications/Neovide.app -n
-
-# theme
-shift + alt - w : java -jar ~/dotfiles/clj_scripts/theme/target/default+uberjar/theme-0.1.0-SNAPSHOT-standalone.jar w 
-shift + alt - b : java -jar ~/dotfiles/clj_scripts/theme/target/default+uberjar/theme-0.1.0-SNAPSHOT-standalone.jar b
-ctrl + alt - 1 : ~/docker_and_repl.sh 1
-ctrl + alt - 2 : ~/docker_and_repl.sh 2
-ctrl + alt - 3 : ~/docker_and_repl.sh 3
-
 # focus window
 alt - h : yabai -m window --focus west
 alt - l : yabai -m window --focus east

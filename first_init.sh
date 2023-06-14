@@ -22,7 +22,7 @@ echo 'fi' >> ~/.zprofile
 # installing utilities 
 brew install neovim
 brew install --cask neovide
-brew install koekeishiya/formulae/skhd
+brew install yqrashawn/goku/goku
 # https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(from-HEAD)
 brew install yabai
 brew install --cask karabiner-elements
@@ -39,7 +39,6 @@ brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
 
 # start services
-brew services start skhd
 brew services start yabai
 
 # set up java versions
