@@ -58,7 +58,10 @@
                 (bkset :n :gak api.node.open.horizontal b)
                 (bkset :n :gaj api.node.open.horizontal b)
 
-                (bkset :n :sd api.tree.change_root_to_node b)
+                (bkset :n "(" api.node.navigate.parent b)
+
+                (bkset :n :sd        api.tree.change_root_to_node b)
+                (bkset :n :<Space>sd api.tree.change_root_to_node b)
                 (bkset :n :gf api.node.run.system b)
                 (bkset :n :i api.node.show_info_popup b))
 
