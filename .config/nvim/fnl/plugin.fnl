@@ -105,8 +105,8 @@
   :williamboman/mason.nvim {}     ; install lsp servers      
   :DNLHC/glance.nvim {}           ; cmd+b like in idea
   :barreiroleo/ltex-extra.nvim {} ; ltex code actions
-  :rmagatti/goto-preview {}        ; preview definition
-  :RRethy/vim-illuminate {}
+  :rmagatti/goto-preview {}       ; preview definition
+  :RRethy/vim-illuminate {}       ; highlight selected
 
   ;; autocomplete
   :hrsh7th/cmp-buffer {}
