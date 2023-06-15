@@ -18,21 +18,22 @@
                  [:!STOk [:yabai-win  "--warp north"]]
 
                  ; balance size of windows
-                 [:!SO0  [:yabai-space "--balance"]]
+                 [:!SO0 [:yabai-space "--balance"]]
 
                  ;; control window size, modified to be intuitive
-                 [:!OTh "/opt/homebrew/bin/yabai -m window --resize left:-20:0 || /opt/homebrew/bin/yabai -m window --resize right:-20:0"]
-                 [:!OTl "/opt/homebrew/bin/yabai -m window --resize right:20:0 || /opt/homebrew/bin/yabai -m window --resize left:20:0"]
-                 [:!OTj "/opt/homebrew/bin/yabai -m window --resize bottom:0:20 || /opt/homebrew/bin/yabai -m window --resize top:0:20"]
-                 [:!OTk "/opt/homebrew/bin/yabai -m window --resize top:0:-20 || /opt/homebrew/bin/yabai -m window --resize bottom:0:-20"]
+                 [:!OTh [:yabai-size "left:-20:0" "right:-20:0"]]
+                 [:!OTl [:yabai-size "right:20:0" "left:20:0"]]
+                 [:!OTj [:yabai-size "bottom:0:20" "top:0:20"]]
+                 [:!OTk [:yabai-size "top:0:-20" "bottom:0:-20"]]
 
-                 [:!QTOh "/opt/homebrew/bin/yabai -m window --resize left:-100:0 || /opt/homebrew/bin/yabai -m window --resize right:-100:0"]
-                 [:!OTQl "/opt/homebrew/bin/yabai -m window --resize right:100:0 || /opt/homebrew/bin/yabai -m window --resize left:100:0"]
-                 [:!OTdown_arrow "/opt/homebrew/bin/yabai -m window --resize bottom:0:100 || /opt/homebrew/bin/yabai -m window --resize top:0:100"]
-                 [:!OTup_arrow "/opt/homebrew/bin/yabai -m window --resize top:0:-100 || /opt/homebrew/bin/yabai -m window --resize bottom:0:-100"]
+                 [:!QTOh [:yabai-size "left:-100:0" "right:-100:0"]]
+                 [:!OTQl [:yabai-size "right:100:0" "left:100:0"]]
+                 [:!OTdown_arrow [:yabai-size "bottom:0:100" "top:0:100"]]
+                 [:!OTup_arrow [:yabai-size "top:0:-100" "bottom:0:-100"]]
 
                  ;; float / unfloat window and center on screen
-                 [:!Og "yabai -m window --toggle float; yabai -m window --grid 4:4:1:1:2:2"]
+                 [:!Og "/opt/homebrew/bin/yabai -m window --toggle float;
+                        /opt/homebrew/bin/yabai -m window --grid 4:4:1:1:2:2"]
 
                  ;; go zoom fullscreen
                  [:!Of [:yabai-win "--toggle zoom-fullscreen"]]
@@ -139,7 +140,9 @@
 
  :templates {:theme "java -jar ~/dotfiles/clj_scripts/theme/target/default+uberjar/theme-0.1.0-SNAPSHOT-standalone.jar %s"
              :yabai-win "/opt/homebrew/bin/yabai -m window %s"
-             :yabai-space "/opt/homebrew/bin/yabai -m space %s"}
+             :yabai-space "/opt/homebrew/bin/yabai -m space %s"
+             :yabai-size "/opt/homebrew/bin/yabai -m window --resize %s ||
+                          /opt/homebrew/bin/yabai -m window --resize %s"}
 
  :applications {:neovide ["^com.neovide.neovide$"]
                 :wezterm ["^com.github.wez.wezterm$"]
