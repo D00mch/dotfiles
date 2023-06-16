@@ -1,5 +1,6 @@
 (module plugin.nvim-tree
   {require {tree nvim-tree
+            tree-view nvim-tree.view
             lib nvim-tree.lib
             api nvim-tree.api
             openfile nvim-tree.actions.node.open-file
@@ -11,7 +12,12 @@
 
 (kset :n "<space>pt" #(api.tree.toggle false true) "Tree Toggle")
 
-(kset :n :<Space>1 #(vim.cmd "NvimTreeCollapse|NvimTreeToggle") "Collapse and show")
+(kset :n :<Space>1
+      (fn []
+        (api.tree.toggle)
+        (if (tree-view.is_visible)
+          (api.tree.collapse_all true)))
+      "Collapse and show")
 
 (defn view-selection [prompt-funr map]
   (actions.select_default:replace
@@ -37,10 +43,10 @@
         :attach_mappings view-selection})))
 
 (tree.setup
-  {:sync_root_with_cwd false
+  {:sync_root_with_cwd true
    :respect_buf_cwd false
    :update_focused_file {:enable true
-                         :update_root false}
+                         :update_root true}
    :git {:enable false}
    :on_attach (fn [b]
                 (api.config.mappings.default_on_attach b)
