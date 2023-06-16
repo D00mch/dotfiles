@@ -28,8 +28,8 @@
 
                  [:!QTOh [:yabai-size "left:-100:0" "right:-100:0"]]
                  [:!OTQl [:yabai-size "right:100:0" "left:100:0"]]
-                 [:!OTdown_arrow [:yabai-size "bottom:0:100" "top:0:100"]]
-                 [:!OTup_arrow [:yabai-size "top:0:-100" "bottom:0:-100"]]
+                 [:!OTQj [:yabai-size "bottom:0:100" "top:0:100"]]
+                 [:!OTQk [:yabai-size "top:0:-100" "bottom:0:-100"]]
 
                  ;; float / unfloat window and center on screen
                  [:!Og "/opt/homebrew/bin/yabai -m window --toggle float;
