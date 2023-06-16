@@ -19,7 +19,7 @@
 ; (kset [:n] ">>" ":tabmove +1<cr>")
 ; (kset [:n] "<<" ":tabmove -1<cr>")
 
-(kset [:n :t :x] :<M-t> #(vim.cmd "tabnew\nAlpha"))
+;(kset [:n :t :x] :<M-t> #(vim.cmd "tabnew\nAlpha"))
 (kset [:n :t :x] :<D-t> :<Leader><Space> {:remap true})
 ;(kset [:n :t :x] :<D-t> :† {:remap true})
 

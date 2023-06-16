@@ -120,10 +120,15 @@
         {:des "system scripts"
          :rules [[:!SOw [:theme "w"]]
                  [:!SOb [:theme "b"]]
+                 [:!Qv  :!OSc]
                  [:!TO1 [:select_abc "~/docker_and_repl.sh 1"]]
                  [:!TO2 [:select_abc "~/docker_and_repl.sh 2"]]
                  [:!TO3 [:select_abc "~/docker_and_repl.sh 3"]]
-                 [:!Cg [:select_abc "open /Applications/Neovide.app -n"]]]}
+                 [:!Qc "open /Applications/Google\\ Chrome.app"]
+                 [:!Qt "open /Applications/Telegram\\ Lite.app/"]
+                 [:!Qn ["open /Applications/Neovide.app" :select_abc]]
+                 [:!Qz ["open /Applications/WezTerm.app" :select_abc]]
+                 [:!Cg ["open /Applications/Neovide.app -n" :select_abc]]]}
 
         ;; !  | means mandatory    Q  | right_command
         ;; #  | means optional     W  | right_control
@@ -135,8 +140,13 @@
 
         ]
 
- :input-sources {:abc {:input_source_id "^com\\.apple\\.keylayout\\.ABC$"}}
- :tos {:select_abc [{:input :abc}]}
+ :input-sources {:abc {:input_source_id "^com\\.apple\\.keylayout\\.ABC$"
+                       :language "en"}
+                 :ru  {:input_source_id "^com\\.apple\\.keylayout\\.RussianWin$"
+                       :language "ru"}}
+ :tos {:select_abc [{:input :abc}]
+       ;; for some reason, when I used :select_ru, any further :select_abc also selects :ru
+       :select_ru [{:input :ru}]}
 
  :templates {:theme "java -jar ~/dotfiles/clj_scripts/theme/target/default+uberjar/theme-0.1.0-SNAPSHOT-standalone.jar %s"
              :yabai-win "/opt/homebrew/bin/yabai -m window %s"
