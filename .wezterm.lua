@@ -126,6 +126,11 @@ local key_tables = {
       action = act.CopyMode 'MoveToEndOfLineContent',
     },
     {
+      key = 'l',
+      mods = 'LEADER',
+      action = act.CopyMode 'MoveToEndOfLineContent',
+    },
+    {
       key = '$',
       mods = 'SHIFT',
       action = act.CopyMode 'MoveToEndOfLineContent',
@@ -212,6 +217,11 @@ local key_tables = {
     {
       key = '^',
       mods = 'NONE',
+      action = act.CopyMode 'MoveToStartOfLineContent',
+    },
+    {
+      key = 'h',
+      mods = 'LEADER',
       action = act.CopyMode 'MoveToStartOfLineContent',
     },
     {
@@ -304,25 +314,33 @@ local key_tables = {
     },
     { key = 'LeftArrow',
       mods = 'NONE',
-      action = act.CopyMode { MoveByPage = -0.2 }, 
-    },
-    {
-      key = 'LeftArrow',
-      mods = 'ALT',
-      action = act.CopyMode 'MoveBackwardWord',
+      action = act.Multiple {
+        act.ScrollByLine(-20),
+        act.CopyMode { MoveByPage = -0.3 }
+      }, 
     },
     {
       key = 'RightArrow',
       mods = 'NONE',
-      action = act.CopyMode { MoveByPage = 0.2 },
+      action = act.Multiple {
+        act.ScrollByLine(20),
+        act.CopyMode { MoveByPage = 0.3 }
+      }, 
+    },
+    { key = 'UpArrow',
+      mods = 'NONE',
+      action = act.ScrollByLine(-2),
+    },
+    {
+      key = 'DownArrow',
+      mods = 'NONE',
+      action = act.ScrollByLine(2),
     },
     {
       key = 'RightArrow',
       mods = 'ALT',
       action = act.CopyMode 'MoveForwardWord',
     },
-    { key = 'UpArrow', mods = 'NONE', action = act.CopyMode 'MoveUp' },
-    { key = 'DownArrow', mods = 'NONE', action = act.CopyMode 'MoveDown' },
   },
 }
 
@@ -334,6 +352,7 @@ local key_tables = {
 local config = {
   font = wezterm.font('Hack Nerd Font Mono', { weight = 'Bold' }),
   font_size = 14,
+  leader = { key = "Space" },
   keys = keys,
   key_tables = key_tables,
   enable_scroll_bar = true,
