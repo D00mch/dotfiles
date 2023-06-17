@@ -9,6 +9,7 @@
 
 (kset :n :zR ufo.openAllFolds)
 (kset :n :zM ufo.closeAllFolds)
+(kset :n :zr :zMzv {:remap true})
 
 (set vim.o.foldcolumn :0)
 (set vim.o.fillchars "eob: ,fold: ,foldopen:,foldsep: ,foldclose:")
