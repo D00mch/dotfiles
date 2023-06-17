@@ -4,7 +4,7 @@
             {: kset} util}})
 
 (set nvim.g.conjure#log#wrap true)
-(set nvim.g.conjure#eval#result_register "*")
+(set nvim.g.conjure#eval#result_register "r")
 (set nvim.g.conjure#log#botright true)
 ;(set nvim.g.conjure#mapping#doc_word "hh") ; K by default
 (set nvim.g.conjure#extract#tree_sitter#enabled true)
@@ -39,6 +39,14 @@
        (not nvim.g.conjure#log#jump_to_latest#enabled)))
 
 (toggle :l "conjure.log" toggle-log-mod)
+
+(defn- toggle-result-register []
+  (set nvim.g.conjure#eval#result_register
+       (if (= nvim.g.conjure#eval#result_register "*")
+         "r"
+         "*")))
+
+(toggle :o "conjure.output" toggle-result-register)
 
 ;; unmap
 (set nvim.g.conjure#client#clojure#nrepl#mapping#disconnect false)
