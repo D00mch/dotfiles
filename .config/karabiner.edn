@@ -85,7 +85,9 @@
                  [:!OQo :!Tw [:terminalish]]
                  [:!CQo :!Tu [:terminalish]]
                  [:!OQh :!Sleft_arrow [:neovide]]
-                 [:!OQl :!Sright_arrow [:neovide]]]}
+                 [:!OQl :!Sright_arrow [:neovide]]
+                 [:!CQh :home [:terminalish]]
+                 [:!CQl :end [:terminalish]]]}
 
         {:des "hotkeys"
          :rules [;; arrow keys

@@ -15,8 +15,9 @@ cd $HOME
 "EDITING
     "redo
     nnoremap U <C-r>
-    noremap <space>h ^
-    noremap <space>l g_
+    " noremap <space>h ^
+    " noremap <space>l g_
+    noremap <home> ^
     nnoremap <Bs> <C-o>
     nmap \ gcc
     vmap \ gcc

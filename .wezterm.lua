@@ -126,8 +126,8 @@ local key_tables = {
       action = act.CopyMode 'MoveToEndOfLineContent',
     },
     {
-      key = 'l',
-      mods = 'LEADER',
+      key = 'RightArrow',
+      mods = 'CMD',
       action = act.CopyMode 'MoveToEndOfLineContent',
     },
     {
@@ -220,8 +220,8 @@ local key_tables = {
       action = act.CopyMode 'MoveToStartOfLineContent',
     },
     {
-      key = 'h',
-      mods = 'LEADER',
+      key = 'LeftArrow',
+      mods = 'CMD',
       action = act.CopyMode 'MoveToStartOfLineContent',
     },
     {
@@ -352,7 +352,6 @@ local key_tables = {
 local config = {
   font = wezterm.font('Hack Nerd Font Mono', { weight = 'Bold' }),
   font_size = 14,
-  leader = { key = "Space" },
   keys = keys,
   key_tables = key_tables,
   enable_scroll_bar = true,
