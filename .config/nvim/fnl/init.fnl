@@ -8,15 +8,13 @@
             {: kset} util}
    require-macros [macros]})
 
-(defn test-fn []
-  (+ 1 2))
-
 (numb.setup)
 
 ;; open Help in full window
 (vim.api.nvim_command "command! -nargs=1 -complete=help H help <args> | silent only")
 
 ;; cmd
+
 (kset :x :<D-c> :y)
 
 (kset [:n :x] :<D-v> :p)
