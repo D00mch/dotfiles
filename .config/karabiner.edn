@@ -86,8 +86,8 @@
                  [:!CQo :!Tu [:terminalish]]
                  [:!OQh :!Sleft_arrow [:neovide]]
                  [:!OQl :!Sright_arrow [:neovide]]
-                 [:!CQh :home [:terminalish]]
-                 [:!CQl :end [:terminalish]]]}
+                 [:!CQh :home [:codish]]
+                 [:!CQl :end [:codish]]]}
 
         {:des "hotkeys"
          :rules [;; arrow keys
@@ -161,6 +161,11 @@
                 :terminalish ["^com.apple.Terminal$"
                               "^com.neovide.neovide$"
                               "^com.github.wez.wezterm$"]
+                :codish ["^com.apple.Terminal$"
+                         "^com.neovide.neovide$"
+                         "^com.github.wez.wezterm$"
+                         "^com.google.android.studio$"
+                         "^com.jetbrains.intellij.ce$"]
                 :idea ["^com.jetbrains.intellij.ce$"]
                 :as ["^com.google.android.studio$"]}
  }
