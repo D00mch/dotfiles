@@ -48,7 +48,7 @@
     ;; language
     :r [(.. "<Cmd>" (set-lang-cmd "ru_RU")
             "setlocal spell! spelllang=ru_ru,en_us<cr>") "Set RUS, toggle grammar"]
-    :e [(.. "<Cmd>" (set-lang-cmd "ru_RU")
+    :e [(.. "<Cmd>" (set-lang-cmd "en_US")
             "setlocal spell! spelllang=ru_ru,en_us<cr>") "Set ENG, toggle grammar"]
 
     ;; toggle
