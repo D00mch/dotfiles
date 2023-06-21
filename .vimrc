@@ -18,6 +18,7 @@ cd $HOME
     " noremap <space>h ^
     " noremap <space>l g_
     noremap <home> ^
+    noremap <end> g_
     nnoremap <Bs> <C-o>
     nmap \ gcc
     vmap \ gcc
