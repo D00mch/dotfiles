@@ -137,6 +137,6 @@
   :windwp/nvim-autopairs {:mod :nvim-autopairs}
   :mbbill/undotree {:mod :undotree}
   :folke/which-key.nvim {:mod :which}
-  :https://gitlab.com/madyanov/svart.nvim {:mod :svart})
+  :folke/flash.nvim {:mod :flash})
 
 ; (do (vim.cmd "AniseedEvalFile") (vim.cmd "PackerSync"))

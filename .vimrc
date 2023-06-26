@@ -68,7 +68,7 @@ cd $HOME
             endif
         endfunction
         nnoremap <space>q :call ToggleRecordingF()<Cr>
-        nnoremap <space>Q q
+        nnoremap Q q
         nnoremap <space>f @f
 
         "remove unnecessary spaces at the end of lines
