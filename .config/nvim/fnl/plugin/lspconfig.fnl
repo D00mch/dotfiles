@@ -103,8 +103,8 @@
   (bkset :n :<leader>rr vim.lsp.buf.rename {:buffer b :desc "Rename"})
   (bkset :n :<leader>p vim.diagnostic.open_float {:buffer b :desc "Preview diagnostics"})
   (bkset :n :<leader>re vim.diagnostic.setloclist {:buffer b :desc "List diagnostics"})
-  (bkset :n :<leader>= ":lua vim.lsp.buf.format({async = true})<Cr>" {:buffer b :desc "Apply formatting"}) ;[
-  (bkset :x :<leader>= (vis-op+ vim.lsp.buf.format {:async true}) {:buffer b :desc "Apply formatting"})
+  (bkset :n := ":lua vim.lsp.buf.format({async = true})<Cr>" {:buffer b :desc "Apply formatting"}) ;[
+  (bkset :x := (vis-op+ vim.lsp.buf.format {:async true}) {:buffer b :desc "Apply formatting"})
   (bkset :n "]s" vim.diagnostic.goto_next {:buffer b :desc "Goto next erro"})
   (bkset :n "[s" vim.diagnostic.goto_prev {:buffer b :desc "Goto prev erro"}) ;]
   (bkset :n :<D-b> "mZg*`Z:Glance references<Cr>" {:buffer b :desc "Show refs (Idea)"}) ; cmd+b
