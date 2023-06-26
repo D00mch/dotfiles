@@ -58,9 +58,12 @@
 
 ;;; font
 
-(set nvim.o.guifont "JetBrainsMono Nerd Font:h15")
-; (set nvim.o.guifont "Hack Nerd Font Mono:h15")
-; (set nvim.o.guifont "Hack NF:h15")
+(def default-font "Hack Nerd Font Mono:h15")
+; (def default-font "JetBrainsMonoNL Nerd Font Mono:h15")
+; (def default-font "Iosevka Nerd Font Mono:h17")
+; (def default-font "Iosevka Nerd Font Propo:h17")
+; (def default-font "Hack NF:h15")
+(set nvim.o.guifont default-font)
 
 (defn font-size! [diff]
   (let [font nvim.o.guifont
@@ -69,7 +72,7 @@
 
 (kset :n :<D-=> #(font-size! 1))
 (kset :n :<D--> #(font-size! -1))
-(kset :n :<D-0> #(set nvim.o.guifont "JetBrainsMono Nerd Font:h15"))
+(kset :n :<D-0> #(set nvim.o.guifont default-font))
 
 ;;; autodark
 
