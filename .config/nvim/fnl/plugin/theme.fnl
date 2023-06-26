@@ -54,7 +54,7 @@
 (defn set-theme [dark?]
   (set nvim.o.background (if dark? "dark" "light"))
   (vim.api.nvim_command
-    (.. "colorscheme " (if dark? "visual_studio_code_dark" "edge"))))
+    (.. "colorscheme " (if dark? "everforest" "edge"))))
 
 ;;; font
 

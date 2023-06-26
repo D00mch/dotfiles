@@ -85,9 +85,7 @@
   :neanias/everforest-nvim {}
   :askfiy/visual_studio_code {}
   :sainnhe/edge {}
-  :briones-gabriel/darcula-solid.nvim {:requires [:rktjmp/lush.nvim]}
   :rebelot/kanagawa.nvim {}
-  :projekt0n/github-nvim-theme {}
   :ribru17/bamboo.nvim {}
 
   ;; parsing, refactoring
