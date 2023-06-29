@@ -15,6 +15,8 @@ set ReplaceWithRegister
 
 "VIM HOTKEYS
     nnoremap g; :action JumpToLastChange<cr>
+    nmap = :action ReformatCode<Cr>
+    vmap = :action ReformatCode<Cr>
 
     nmap <space>0 :action ActivateCommitToolWindow<cr>
     nmap <space>1 :action SelectInProjectView<cr>
