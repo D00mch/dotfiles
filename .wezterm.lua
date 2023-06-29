@@ -341,6 +341,11 @@ local key_tables = {
       mods = 'ALT',
       action = act.CopyMode 'MoveForwardWord',
     },
+    {
+      key = '/',
+      mods = 'NONE',
+      action = act.Search 'CurrentSelectionOrEmptyString'
+    }
   },
 }
 
