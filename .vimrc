@@ -34,6 +34,8 @@ cd $HOME
         nnoremap vW viW
         onoremap iq i"
         onoremap aq a"
+        xnoremap iq i"
+        xnoremap aq a"
 
     "COMMON
         "v to change visual
