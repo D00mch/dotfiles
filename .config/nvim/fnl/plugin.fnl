@@ -121,8 +121,7 @@
                      :ft [:csv :csv_semicolon :csv_whitespace :csv_pipe
                           :tsv :rfc_csv :rfc_semicolon]}
   :eandrju/cellular-automaton.nvim {}
-  :chrisbra/Colorizer {:mod :colors
-                       :ft [:dart :kotlin :xml :css :scss :js :vue]}
+  :norcalli/nvim-colorizer.lua {:mod :colors}
   :akinsho/bufferline.nvim {:mod :tabs}
   ; :AndrewRadev/undoquit.vim {}
   :qpkorr/vim-bufkill {}

@@ -1,13 +1,9 @@
 (module plugin.colors
   {autoload {nvim aniseed.nvim
+             colorizer colorizer
              {: kset} util
              {: first} aniseed.core}})
 
-(vim.api.nvim_create_autocmd
-  :BufWinEnter
-  {:pattern :*.dart
-   :group    (vim.api.nvim_create_augroup :DartColors {:clear true})
-   :callback #(set nvim.g.colorizer_hex_pattern [:0xFF "\\%(\\x\\{6}\\)" ""])})
+(colorizer.setup)
 
-(kset :n :<Space>cc "<Plug>Colorizer")
-(kset :x :<Space>cc ":'<,'>ColorHighlight<Cr>")
+(kset :n :<Space>cc ":ColorizerToggle<Cr>")
