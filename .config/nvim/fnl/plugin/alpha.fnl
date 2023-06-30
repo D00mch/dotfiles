@@ -17,7 +17,7 @@
 
 (kset :n :<Leader><Space> ":Alpha<Cr>")
 
-(set startify.section.mru_cwd.val [{:type :padding :value 0}])
+(set startify.section.mru.val [{:type :padding :value 0}])
 
 (set startify.section.top_buttons.val
      (concat 
