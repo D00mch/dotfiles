@@ -41,7 +41,7 @@
               :ahmedkhalf/project.nvim
               :debugloop/telescope-undo.nvim
               :nvim-telescope/telescope-file-browser.nvim]}
-  :jackMort/ChatGPT.nvim {:requires :MunifTanjim/nui.nvim}
+  ; :jackMort/ChatGPT.nvim {:requires :MunifTanjim/nui.nvim}
   :goolord/alpha-nvim {:mod :alpha}
   :Shatur/neovim-session-manager {}
   :RomanoZumbe/harpoon {}

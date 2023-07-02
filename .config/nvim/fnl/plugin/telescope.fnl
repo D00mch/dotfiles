@@ -1,6 +1,6 @@
 (module plugin.telescope
   {autoload {nvim aniseed.nvim
-             chatgpt chatgpt
+             ; chatgpt chatgpt
              builtin telescope.builtin
              telescope telescope
              harpoon harpoon
@@ -235,8 +235,8 @@
 
 ;; gpt setup
 
-(kset :n :<space>ca ":ChatGPTActAs<Cr>" "GPT acts as")
-(kset :n :<space>cg ":ChatGPT<Cr>" "GPT chat")
+; (kset :n :<space>ca ":ChatGPTActAs<Cr>" "GPT acts as")
+; (kset :n :<space>cg ":ChatGPT<Cr>" "GPT chat")
 
 (chatgpt.setup
   {:chat          {:keymaps {:close           :<D-w>
