@@ -72,8 +72,8 @@
   (vim.cmd "set wrap linebreak nolist") ;; wrap without bracking a word
   (bkset :x := :gq)
 
-  (setup-pensil)
-  (setup-quote)
+  ; (setup-pensil)
+  ; (setup-quote)
 
   ;; rest-client feature
   (kset :n :<Leader>ef :vic:ToggleTermSendVisualSelection<cr> {:noremap false})

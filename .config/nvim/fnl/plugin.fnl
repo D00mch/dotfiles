@@ -67,9 +67,9 @@
 
   ;; writing
   :jghauser/follow-md-links.nvim {}
-  :preservim/vim-textobj-sentence {:ft [:markdown]}
-  :preservim/vim-textobj-quote {:ft [:markdown]
-                                :requires [:kana/vim-textobj-user]}
+  ; :preservim/vim-textobj-sentence {:ft [:markdown]}
+  ; :preservim/vim-textobj-quote {:ft [:markdown]
+  ;                               :requires [:kana/vim-textobj-user]}
   :uga-rosa/translate.nvim {:mod :translate}
   :iamcco/markdown-preview.nvim
   {:mod :markdown
