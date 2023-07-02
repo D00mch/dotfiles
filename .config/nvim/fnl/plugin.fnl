@@ -84,6 +84,8 @@
   :sainnhe/edge {}
   :rebelot/kanagawa.nvim {}
   :ribru17/bamboo.nvim {}
+  :yorik1984/newpaper.nvim {}
+  :folke/tokyonight.nvim {}
 
   ;; parsing, refactoring
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
