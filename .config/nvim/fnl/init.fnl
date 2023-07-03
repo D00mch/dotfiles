@@ -22,7 +22,8 @@
 (kset [:i :c] :<D-v> :<C-r><C-o>*)
 
 (kset :n :<D-s> ":w<Cr>")
-(kset :i :<D-s> :<Esc>:w<CR>a)
+(kset :x :<D-s> :<Esc>:w<Cr>gv)
+(kset :i :<D-s> :<Esc>:w<Cr>a)
 
 (kset :n :<D-a> :ggVG)
 (kset :x :<D-a> :<Esc>ggVG)
