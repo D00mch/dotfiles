@@ -12,7 +12,11 @@
 (flash.setup
   {:labels english
    :modes {:char {:enabled false}
-           :treesitter {:enabled false}}})
+           :treesitter {:enabled false}}
+   :label {:uppercase false
+           :after false
+           :before true
+           :style :inline}})
 
 ; (tset config :labels russian)
 ; config.labels
