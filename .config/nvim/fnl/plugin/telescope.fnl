@@ -238,21 +238,21 @@
 ; (kset :n :<space>ca ":ChatGPTActAs<Cr>" "GPT acts as")
 ; (kset :n :<space>cg ":ChatGPT<Cr>" "GPT chat")
 
-(chatgpt.setup
-  {:chat          {:keymaps {:close           :<D-w>
-                             :new_session     :<D-n>
-                             :cycle_modes     :<D-m>
-                             :yank_last       :<D-y>
-                             :scroll_down     :<Right>
-                             :scroll_up       :<Left>
-                             :toggle_settings "<D-,>"
-                             :select_session  :<Cr>
-                             :delete_session  :d
-                             :rename_session  :r
-                             }}
+; (chatgpt.setup
+;   {:chat          {:keymaps {:close           :<D-w>
+;                              :new_session     :<D-n>
+;                              :cycle_modes     :<D-m>
+;                              :yank_last       :<D-y>
+;                              :scroll_down     :<Right>
+;                              :scroll_up       :<Left>
+;                              :toggle_settings "<D-,>"
+;                              :select_session  :<Cr>
+;                              :delete_session  :d
+;                              :rename_session  :r
+;                              }}
 
-   :openai_params {:model "gpt-4"}
+;    :openai_params {:model "gpt-4"}
 
-   :predefined_chat_gpt_prompts
-   "https://raw.githubusercontent.com/D00mch/dotfiles/master/resources/gpt/prompts.csv"
-   })
+;    :predefined_chat_gpt_prompts
+;    "https://raw.githubusercontent.com/D00mch/dotfiles/master/resources/gpt/prompts.csv"
+;    })
