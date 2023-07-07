@@ -3,7 +3,6 @@
             str aniseed.string
             auto auto-dark-mode
             everforest everforest
-            bamboo bamboo
             {: toggle} plugin.which
             {: kset} util}})
 
@@ -47,14 +46,14 @@
 ;;; theme
 
 (everforest.setup {:background :hard})
-(bamboo.load)
 
 ; (set nvim.g.everforest_background "hard")
 
 (defn set-theme [dark?]
+  (make-transparent dark?)
   (set nvim.o.background (if dark? "dark" "light"))
   (vim.api.nvim_command
-    (.. "colorscheme " (if dark? "everforest" "edge"))))
+    (.. "colorscheme " (if dark? "kanagawa-dragon" "edge"))))
 
 ;;; font
 
