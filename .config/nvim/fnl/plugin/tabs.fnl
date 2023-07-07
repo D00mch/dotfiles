@@ -50,6 +50,7 @@
   {:options {;:mode :tabs
              ;:numbers  :ordinal
              :separator_style :slant
+             :always_show_bufferline false
              :enforce_regular_tabs true
              :tab_size 12
              :name_formatter
