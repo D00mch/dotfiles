@@ -130,7 +130,7 @@
                  [:!Qt "open /Applications/Telegram\\ Lite.app/"]
                  [:!Qn ["open /Applications/Neovide.app" :select_abc]]
                  [:!Qz ["open /Applications/WezTerm.app" :select_abc]]
-                 [:!Cg ["open /Applications/Neovide.app -n" :select_abc]]]}
+                 [:!Cg ["open /Applications/Neovide.app -n --args --multigrid" :select_abc]]]}
 
         ;; !  | means mandatory    Q  | right_command
         ;; #  | means optional     W  | right_control
