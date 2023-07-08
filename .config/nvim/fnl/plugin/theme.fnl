@@ -52,6 +52,7 @@
 (defn set-theme [dark?]
   (make-transparent dark?)
   (set nvim.o.background (if dark? "dark" "light"))
+  (vim.api.nvim_command "colorscheme everforest")
   (vim.api.nvim_command
     (.. "colorscheme " (if dark? "kanagawa-dragon" "edge"))))
 
