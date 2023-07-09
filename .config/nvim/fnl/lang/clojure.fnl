@@ -28,8 +28,13 @@
         (vim.api.nvim_command (.. "terminal " run-deps-cmd)))
       (nvim.echo "can't find neither deps.edn nor project.clj in the root"))))
 
-;; setup
+(defn connect-shadow []
+  (println "Connecting to 7002:app")
+  (vim.cmd (.. "ConjureConnect " 7002))
+  (vim.cmd (.. "ConjureShadowSelect " :app)))
+
 (defn set-up-mappings []
+  (bkset :n :<Leader>rs connect-shadow "Shadow REPL:7002:app")
   (bkset :n :<Leader>c :ysafc {:remap true})
   (bkset :n :<Leader>uc "<Cmd>let s=@/<CR>l?\\v(#_)+<CR>dgn:let @/=s<CR>")
-  (kset :n "<Leader>k" run-appropriate-clojure-repl))
+  (bkset :n "<Leader>k" run-appropriate-clojure-repl))
