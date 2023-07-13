@@ -82,6 +82,9 @@
   :neanias/everforest-nvim {}
   :sainnhe/edge {}
   :rebelot/kanagawa.nvim {}
+  :EdenEast/nightfox.nvim {}
+  :xero/miasma.nvim {}
+  :dasupradyumna/midnight.nvim {}
 
   ;; parsing, refactoring
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"

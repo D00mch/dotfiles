@@ -3,6 +3,7 @@
             str aniseed.string
             auto auto-dark-mode
             everforest everforest
+            nightfox nightfox
             {: toggle} plugin.which
             {: kset} util}})
 
@@ -14,7 +15,7 @@
 
 (defn make-transparent [dark?]
   (set vim.g.neovide_transparency 0.0)
-  (set vim.g.transparency 0.9)
+  (set vim.g.transparency 0.92)
   (if dark?
     (vim.cmd "let g:neovide_background_color = '#0f1117'.printf('%x', float2nr(255 * g:transparency))")
     (vim.cmd "let g:neovide_background_color = '#FFFFFF'.printf('%x', float2nr(255 * g:transparency))")))
@@ -46,6 +47,11 @@
 ;;; theme
 
 (everforest.setup {:background :hard})
+(nightfox.setup
+  {:options
+   {:styles {:comments :italic
+             :types :italic
+             :functions :bold}}})
 
 ; (set nvim.g.everforest_background "hard")
 
@@ -54,7 +60,7 @@
   (set nvim.o.background (if dark? "dark" "light"))
   (vim.api.nvim_command "colorscheme everforest")
   (vim.api.nvim_command
-    (.. "colorscheme " (if dark? "kanagawa-dragon" "edge"))))
+    (.. "colorscheme " (if dark? "kanagawa-dragon" "dawnfox"))))
 
 ;;; font
 

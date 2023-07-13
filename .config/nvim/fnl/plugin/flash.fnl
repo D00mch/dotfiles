@@ -4,7 +4,7 @@
             config flash.config
             {: kset} util}})
 
-; (kset [:n :x :o] :q flash.jump)
+(kset [:n :x :o] :q flash.jump)
 
 (def english "asdfghjklqwertyuiopzxcvbnm")
 (def russian "фывапролджэйцукенгшщзхъячсмитьбю")
@@ -14,6 +14,8 @@
    :modes {:char {:enabled false}
            :treesitter {:enabled false}}
    :label {:uppercase false
+           :rainbow {:enabled false
+                     :shade 5}
            :after false
            :before true
            :style :inline}})

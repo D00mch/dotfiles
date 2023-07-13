@@ -293,7 +293,7 @@ local key_tables = {
 --
 
 local config = {
-  window_background_opacity = 0.85,
+  window_background_opacity = 0.82,
   macos_window_background_blur = 20,
 
   font = wezterm.font('Hack Nerd Font Mono', { weight = 'Bold' }),
