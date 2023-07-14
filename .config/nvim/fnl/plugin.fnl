@@ -125,7 +125,8 @@
   :norcalli/nvim-colorizer.lua {:mod :colors}
   :akinsho/bufferline.nvim {:mod :tabs}
   ; :AndrewRadev/undoquit.vim {}
-  :qpkorr/vim-bufkill {}
+  :famiu/bufdelete.nvim {}
+  :kwkarlwang/bufresize.nvim {}
   :tpope/vim-commentary {}
   :tpope/vim-fugitive {:mod :git}
   :sindrets/diffview.nvim {}

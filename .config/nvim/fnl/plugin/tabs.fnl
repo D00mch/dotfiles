@@ -1,6 +1,7 @@
 (module plugin.tabs
   {require {nvim aniseed.nvim
             bufferline bufferline
+            bufresize bufresize
             {: join} aniseed.string
             {: map : filter : reduce} aniseed.core
             {: kset : println} util}})
@@ -66,3 +67,5 @@
    :highlights {:numbers_selected {:italic false}
                 :buffer_selected {:bold true
                                   :italic false}}})
+
+(bufresize.setup)
