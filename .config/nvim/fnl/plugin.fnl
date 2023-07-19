@@ -124,6 +124,7 @@
   :eandrju/cellular-automaton.nvim {}
   :norcalli/nvim-colorizer.lua {:mod :colors}
   :akinsho/bufferline.nvim {:mod :tabs}
+  :tiagovla/scope.nvim {}
   ; :AndrewRadev/undoquit.vim {}
   :famiu/bufdelete.nvim {}
   :kwkarlwang/bufresize.nvim {}
