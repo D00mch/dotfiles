@@ -11,6 +11,7 @@ set NERDTree
 set highlightedyank
 set commentary
 set surround
+set matchit
 set ReplaceWithRegister
 
 "VIM HOTKEYS
