@@ -122,7 +122,7 @@ cd $HOME
 
     "SPACEMACS-LIKE COMMANDS
         nnoremap <space>d :Bd!<CR>
-        nnoremap <space>ba :w <bar> silent %bd! <bar> e# <bar> bd# <CR>
+        nnoremap <space>ba :wa <bar> silent %bd! <bar> e# <bar> bd# <CR>
         nnoremap <space>bd <Esc>:diffthis<Cr>gg<C-w>w:diffthis<Cr>gg
 
     "GO TO PREVIOUS TAB WHEN CURRENT ONE IS CLOSED
