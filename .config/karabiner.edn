@@ -79,6 +79,7 @@
          :rules [[:!Cx :!T6 [:neovide]]
                  [:!Cq :!Oq [:neovide]]
                  [:!Cr :!Tr [:terminalish]]
+                 [:!Cc :!Tc [:wezterm]]
                  [:!SOhyphen :!SChyphen [:neovide]]
 
                  ;; cursor move/delete

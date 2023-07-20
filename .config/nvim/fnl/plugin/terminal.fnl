@@ -10,6 +10,7 @@
 (kset :t :<D-w> "<C-\\><C-n>:hide<Cr>" {:remap true})
 (kset :t :<D-v> "<Esc>pa")
 (kset :t "<D-Esc>" "<C-\\><C-n>")
+(kset :t :<D-c> :<C-c>)
 
 (term.setup
   {:size 30
