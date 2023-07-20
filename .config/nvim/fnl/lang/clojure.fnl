@@ -1,6 +1,6 @@
 (module lang.clojure
   {require {nvim aniseed.nvim
-            {: kset : bkset} util
+            {: println : kset : bkset} util
             {: some} aniseed.core}})
 
 (set nvim.g.surround_99 "#_\r")
@@ -31,6 +31,7 @@
 (defn connect-shadow []
   (println "Connecting to 7002:app")
   (vim.cmd (.. "ConjureConnect " 7002))
+  (vim.cmd "sleep 1")
   (vim.cmd (.. "ConjureShadowSelect " :app)))
 
 (defn set-up-mappings []
