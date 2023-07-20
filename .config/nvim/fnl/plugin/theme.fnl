@@ -64,6 +64,7 @@
 
 ;;; font
 
+;; update from: https://github.com/ryanoasis/nerd-fonts/releases
 (def default-font "Hack Nerd Font Mono:h15")
 ; (def default-font "JetBrainsMonoNL Nerd Font Mono:h15")
 ; (def default-font "Iosevka Nerd Font Mono:h17")

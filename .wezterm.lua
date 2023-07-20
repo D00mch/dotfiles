@@ -10,9 +10,9 @@ local home = wezterm.home_dir .. '/dotfiles/resources/'
 
 function scheme_for_appearance(appearance)
   if appearance:find("Dark") then
-    return "SeaShells"
+    return "Laserwave (Gogh)"
   else
-    return "dawnfox"
+    return "Edge Light (base16)"
   end
 end
 
