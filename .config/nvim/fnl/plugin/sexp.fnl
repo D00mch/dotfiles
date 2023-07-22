@@ -43,6 +43,7 @@
       :sexp_swap_element_forward      :<C-l>})
 
 (kset [:n] "<Leader>c" :gcaf {:remap true})
+(kset [:n :x] "<M-up>" :vaf {:remap true})
 
 (def lisps [:clojure :scheme :lisp :cl :timl :fennel :janet])
 
