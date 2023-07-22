@@ -5,6 +5,12 @@ local fn = vim.fn
 local pack_path = fn.stdpath("data") .. "/site/pack"
 local fmt = string.format
 
+-- views can only be fully collapsed with the global statusline
+vim.opt.laststatus = 3
+-- Default splitting will cause your main splits to jump when opening an edgebar.
+-- To prevent this, set `splitkeep` to either `screen` or `topline`.
+vim.opt.splitkeep = "screen"
+
 vim.cmd("set nospell") -- set it with cmd <spece>e
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1

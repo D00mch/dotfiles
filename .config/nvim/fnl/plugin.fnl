@@ -135,6 +135,7 @@
   ; :TimUntersberger/neogit {}
   :windwp/nvim-autopairs {:mod :nvim-autopairs}
   :mbbill/undotree {:mod :undotree}
+  :folke/edgy.nvim {:mod :edgy}
   :folke/which-key.nvim {:mod :which}
   :folke/flash.nvim {:mod :flash})
 
