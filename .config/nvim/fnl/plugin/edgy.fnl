@@ -38,7 +38,9 @@
         :winhighlight ""}
 
    :keys {:<M-<> (fn [win] (win:resize :height 2))
-          :<M->> (fn [win] (win:resize :height (- 2)))}	
+          :<M->> (fn [win] (win:resize :height (- 2)))
+          :<M-.> (fn [win] (win:resize :width 2))
+          "<M-,>" (fn [win] (win:resize :width (- 2)))}	
 
    :animate {:enable true
              :fps 100
