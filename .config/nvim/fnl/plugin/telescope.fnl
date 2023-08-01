@@ -140,7 +140,8 @@
                    :<M-d>   actions.delete_buffer
                    :<M-t>   actions.select_tab
                    ;:<D-t>   actions.select_tab
-                   :<M-?>   actions.which_key}}}
+                   :<M-?>   actions.which_key
+                   :<C-u>   false}}}
    :pickers {:git_branches        {:mappings
                                    {:n {:<Cr>  actions.git_switch_branch
                                         :ga    actions.git_create_branch
