@@ -114,8 +114,10 @@
   :hrsh7th/nvim-cmp {:mod :cmp}
   :dcampos/nvim-snippy {:requires [:dcampos/cmp-snippy]}
 
-  :kevinhwang91/nvim-ufo {:mod :ufo
+  :kevinhwang91/nvim-ufo {:mod :fold
                           :requires [:kevinhwang91/promise-async]}
+  :chrisgrieser/nvim-origami {}
+
   :tpope/vim-sleuth {} ; adjust shiftwidth, expandtab based on file
   :nacro90/numb.nvim {}
   :chrisbra/csv.vim {:mod :csv
@@ -135,6 +137,7 @@
   ; :TimUntersberger/neogit {}
   :windwp/nvim-autopairs {:mod :nvim-autopairs}
   :mbbill/undotree {:mod :undotree}
+
   :folke/edgy.nvim {:mod :edgy}
   :folke/which-key.nvim {:mod :which}
   :folke/flash.nvim {:mod :flash})
