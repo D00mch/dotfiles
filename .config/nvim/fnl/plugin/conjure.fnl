@@ -67,3 +67,15 @@
 ;; chicken scheme
 (set nvim.g.conjure#client#scheme#stdio#command  "csi -quiet -:c")
 (set nvim.g.conjure#client#scheme#stdio#prompt_pattern "\n-#;%d-> ")
+
+; (defn set-width []
+;   (let [total-width (vim.api.nvim_get_option :columns)
+;         new-width (math.floor (* total-width 0.45))
+;         win (vim.api.nvim_get_current_win)]
+;     (vim.api.nvim_win_set_width win new-width)))
+
+; (vim.api.nvim_create_autocmd
+;   "BufWinEnter"
+;   {:pattern :conjure-log-*
+;    :group (vim.api.nvim_create_augroup :ConjureLog {:clear true})
+;    :callback set-width})
