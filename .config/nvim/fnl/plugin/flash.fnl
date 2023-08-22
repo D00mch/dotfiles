@@ -12,6 +12,7 @@
 (flash.setup
   {:labels english
    :modes {:char {:enabled false}
+           :search {:enabled false}
            :treesitter {:enabled false}}
    :label {:uppercase false
            :rainbow {:enabled false
