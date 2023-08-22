@@ -27,7 +27,7 @@ set ReplaceWithRegister
     nmap <space>5 :action ActivateDebugToolWindow<cr>
     nmap <space>7 :action ActivateAndroidProfilerToolWindow<cr>
     nmap <space>8 :action ActivateTerminalToolWindow<cr>
-    nmap <space>9 :action ActivateVersionControlToolWindow<cr>
+    nmap <space>9 :action ActivateCommitToolWindow<cr>
 
 "PLUGINS SETUPS
     set ideamarks
@@ -120,13 +120,13 @@ set ReplaceWithRegister
             nnoremap <Leader>sp :action :cursive.repl.actions/jump-to-output<cr>
             nnoremap <Leader>lv :action :cursive.repl.actions/jump-to-repl<cr>
             nnoremap <Leader>ls :action :cursive.repl.actions/jump-to-repl<cr>
-            nnoremap <Leader>b :action :cursive.repl.actions/load-file<cr>
+            " nnoremap <Leader>b :action :cursive.repl.actions/load-file<cr>
             " nnoremap <Leader>em :action :cursive.repl.actions/macroexpansion<cr>
             " nnoremap <Leader>se :action :cursive.repl.actions/run-last-sexp<cr>
             nnoremap <Leader>sv :action :cursive.repl.actions/send-selection<cr>
             nnoremap <Leader>sf :action :cursive.repl.actions/run-top-sexp<cr>
             nnoremap <Leader>e :action Clj.Stuff.EvaluateTopForm<cr>
-            " nnoremap <Leader>b :action :cursive.repl.actions/switch-namespace<cr>
+            nnoremap <Leader>b :action :cursive.repl.actions/switch-namespace<cr>
             nnoremap <Leader>sx :action :cursive.repl.actions/sync-files<cr>
             nnoremap <Leader>q :action Clj.Stuff.EvaluatePrevForm<cr>
             nnoremap <Leader>lr :action :cursive.repl.actions/clear-repl<cr>

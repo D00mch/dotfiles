@@ -13,7 +13,7 @@
 (kset :t :<D-c> :<C-c>)
 
 (term.setup
-  {;:size 30
+  {:size 30
    :on_open (fn [t]
               (if (= (vim.fn.mode) "n")
                 (vim.cmd "startinsert!")))

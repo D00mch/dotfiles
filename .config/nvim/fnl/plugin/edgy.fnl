@@ -43,5 +43,5 @@
           "<M-,>" (fn [win] (win:resize :width (- 2)))}	
 
    :animate {:enable true
-             :fps 100
-             :cps 300}})	
+             :fps 12
+             :cps 1000}})	

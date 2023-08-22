@@ -116,14 +116,6 @@
 (kset :x :cn "g:mc . \"``cgn\"" {:expr true})
 (kset :x :cN "g:mc . \"``cgN\"" {:expr true})
 
-(vim.cmd "
-function! SetupCR()
-  nnoremap <Enter> :nnoremap <lt>Enter> n@z<CR>q:<C-u>let @z=strpart(@z,0,strlen(@z)-1)<CR>n@z
-endfunction")
-
-(kset :n :cq ":call SetupCR()<CR>*``qz")
-(kset :n :cQ ":call SetupCR()<CR>*``qz")
-
 ;; yank highlight
 (vim.api.nvim_create_autocmd
   :TextYankPost

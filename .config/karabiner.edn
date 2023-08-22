@@ -167,6 +167,7 @@
                          "^com.neovide.neovide$"
                          "^com.github.wez.wezterm$"
                          "^com.google.android.studio$"
+                         "^com.jetbrains.WebStorm$"
                          "^com.jetbrains.intellij.ce$"]
                 :idea ["^com.jetbrains.intellij.ce$"]
                 :as ["^com.google.android.studio$"]}
