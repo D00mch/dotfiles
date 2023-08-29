@@ -116,7 +116,6 @@
 
   :kevinhwang91/nvim-ufo {:mod :fold
                           :requires [:kevinhwang91/promise-async]}
-  :chrisgrieser/nvim-origami {}
 
   :tpope/vim-sleuth {} ; adjust shiftwidth, expandtab based on file
   :nacro90/numb.nvim {}

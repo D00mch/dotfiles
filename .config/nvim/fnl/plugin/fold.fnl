@@ -2,7 +2,6 @@
   {require {nvim aniseed.nvim
             lsp-util lspconfig.util
             lspconfig lspconfig
-            origami origami
             ufo ufo
             {: kset} util}})
 
@@ -82,5 +81,3 @@
   {:fold_virt_text_handler handler
    :provider_selector (fn [bufnr filetype buftype]
                         (. ft-map filetype))})
-
-(origami.setup {})
