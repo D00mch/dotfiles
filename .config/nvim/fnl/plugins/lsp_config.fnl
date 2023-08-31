@@ -1,5 +1,5 @@
 (local {: autoload} (require :nfnl.module))
-(local {: bkset} (autoload :config.util))
+(local {: bkset : vis-op+} (autoload :config.util))
 (local {: merge} (autoload :nfnl.core))
 (local telescope (autoload :telescope))
 
@@ -77,8 +77,11 @@
                     (bkset :n :<leader>rr vim.lsp.buf.rename {:buffer b :desc "Rename"})
                     (bkset :n :<leader>p vim.diagnostic.open_float {:buffer b :desc "Preview diagnostics"})
                     (bkset :n :<leader>re vim.diagnostic.setloclist {:buffer b :desc "List diagnostics"})
-                    (bkset :n := ":lua vim.lsp.buf.format({async = true})<Cr>" {:buffer b :desc "Apply formatting"}) ;[
-                                                                                                                              ; (bkset :x := (vis-op+ vim.lsp.buf.format {:async true}) {:buffer b :desc "Apply formatting"})
+
+                    (when (not (string.find (vim.api.nvim_buf_get_name b) ".*.fnl$"))
+                      (bkset :n := ":lua vim.lsp.buf.format({async = true})<Cr>" {:buffer b :desc "Apply formatting"}) ;[
+                      (bkset :x := (vis-op+ vim.lsp.buf.format {:async true}) {:buffer b :desc "Apply formatting"}))
+
                     (bkset :n "[s" vim.diagnostic.goto_prev {:buffer b :desc "Goto prev erro"}) ;]
                     ;; TELESCOPE
                     (bkset :n :<leader>gr #(lsp_references {:jump_type :never}) {:buffer b :desc "Go to references"})

@@ -1,8 +1,7 @@
--- [nfnl] Compiled from fnl/plugins/theme.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from .config/nvim/fnl/plugins/theme.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local nvim = autoload("nvim")
-local str = autoload("nfnl.string")
 local _local_2_ = require("config.which")
 local toggle = _local_2_["toggle"]
 local _local_3_ = autoload("config.util")
@@ -70,45 +69,37 @@ local function _8_()
     toggle("t", "transparency", _9_)
   else
   end
-  local function _12_()
-    if transparent_3f() then
-      return make_transparent(dark_3f())
-    else
-      return make_non_transparent(dark_3f())
-    end
-  end
-  vim.api.nvim_create_autocmd("ColorScheme", {buffer = bufnr, group = vim.api.nvim_create_augroup("HighlightColors", {clear = true}), callback = _12_})
   do
     local everforest = require("everforest")
     local nightfox = require("nightfox")
     everforest.setup({background = "hard"})
     nightfox.setup({options = {styles = {comments = "italic", types = "italic", functions = "bold"}}})
   end
-  local function _14_()
+  local function _12_()
     return font_size_21(1)
   end
-  kset("n", "<D-=>", _14_)
-  local function _15_()
+  kset("n", "<D-=>", _12_)
+  local function _13_()
     return font_size_21(-1)
   end
-  kset("n", "<D-->", _15_)
-  local function _16_()
+  kset("n", "<D-->", _13_)
+  local function _14_()
     nvim.o.guifont = default_font
     return nil
   end
-  kset("n", "<D-0>", _16_)
+  kset("n", "<D-0>", _14_)
   vim.opt.fillchars = {eob = " "}
   return nil
 end
-local function _17_()
+local function _15_()
   local auto = require("auto-dark-mode")
-  local function _18_()
+  local function _16_()
     return set_theme(true)
   end
-  local function _19_()
+  local function _17_()
     return set_theme(false)
   end
-  auto.setup({update_interval = 2000, set_dark_mode = _18_, set_light_mode = _19_})
+  auto.setup({update_interval = 2000, set_dark_mode = _16_, set_light_mode = _17_})
   return auto.init()
 end
-return {{"f-person/auto-dark-mode.nvim", priority = 1000, dependencies = {"nvim-tree/nvim-web-devicons", "neanias/everforest-nvim", "sainnhe/edge", "rebelot/kanagawa.nvim", "EdenEast/nightfox.nvim"}, init = _8_, config = _17_, lazy = false}}
+return {{"f-person/auto-dark-mode.nvim", priority = 1000, dependencies = {"nvim-tree/nvim-web-devicons", "neanias/everforest-nvim", "sainnhe/edge", "rebelot/kanagawa.nvim", "EdenEast/nightfox.nvim"}, init = _8_, config = _15_, lazy = false}}

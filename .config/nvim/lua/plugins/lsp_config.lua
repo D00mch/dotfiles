@@ -1,12 +1,13 @@
--- [nfnl] Compiled from fnl/plugins/lsp_config.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from .config/nvim/fnl/plugins/lsp_config.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local _local_2_ = autoload("config.util")
 local bkset = _local_2_["bkset"]
+local vis_op_2b = _local_2_["vis-op+"]
 local _local_3_ = autoload("nfnl.core")
 local merge = _local_3_["merge"]
 local telescope = autoload("telescope")
-local diagnostics = {severity_sort = true, underline = true, signs = true, virtual_text = false, update_in_insert = false}
+local diagnostics = {severity_sort = true, underline = true, signs = true, update_in_insert = false, virtual_text = false}
 local handlers = {["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, diagnostics), ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = "single"}), ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = "single"})}
 local function highlight_line_symbol()
   return vim.cmd("highlight! DiagnosticLineNrError guibg=#51202A guifg=#FF0000 gui=bold\n    highlight! DiagnosticLineNrWarn guibg=#51412A guifg=#FFA500 gui=bold\n    highlight! DiagnosticLineNrInfo guibg=#1E535D guifg=#00FFFF gui=bold\n    highlight! DiagnosticLineNrHint guibg=#1E205D guifg=#0000FF gui=bold\n    sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError\n    sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn\n    sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo\n    sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint")
@@ -52,12 +53,16 @@ local function _6_()
     bkset("n", "<leader>rr", vim.lsp.buf.rename, {buffer = b, desc = "Rename"})
     bkset("n", "<leader>p", vim.diagnostic.open_float, {buffer = b, desc = "Preview diagnostics"})
     bkset("n", "<leader>re", vim.diagnostic.setloclist, {buffer = b, desc = "List diagnostics"})
-    bkset("n", "=", ":lua vim.lsp.buf.format({async = true})<Cr>", {buffer = b, desc = "Apply formatting"})
+    if not string.find(vim.api.nvim_buf_get_name(b), ".*.fnl$") then
+      bkset("n", "=", ":lua vim.lsp.buf.format({async = true})<Cr>", {buffer = b, desc = "Apply formatting"})
+      bkset("x", "=", vis_op_2b(vim.lsp.buf.format, {async = true}), {buffer = b, desc = "Apply formatting"})
+    else
+    end
     bkset("n", "[s", vim.diagnostic.goto_prev, {buffer = b, desc = "Goto prev erro"})
-    local function _10_()
+    local function _11_()
       return lsp_references({jump_type = "never"})
     end
-    bkset("n", "<leader>gr", _10_, {buffer = b, desc = "Go to references"})
+    bkset("n", "<leader>gr", _11_, {buffer = b, desc = "Go to references"})
     bkset("n", "<leader>gi", lsp_implementations, {buffer = b, desc = "Go to implementations"})
     bkset({"n", "x"}, "<C-r>", vim.lsp.buf.code_action, {buffer = b, desc = "Code actions"})
     return bkset({"n", "x"}, "<leader>ra", vim.lsp.buf.code_action, {buffer = b, desc = "Code actions"})
@@ -65,37 +70,37 @@ local function _6_()
   on_attach = _8_
   local capabilities = cmplsp.default_capabilities()
   local before_init
-  local function _11_(params)
+  local function _12_(params)
     params.workDoneToken = "1"
     return nil
   end
-  before_init = _11_
+  before_init = _12_
   local default_map = {on_attach = on_attach, before_init = before_init, handlers = handlers, capabilities = cmplsp.default_capabilities()}
   capabilities.textDocument.foldingRange = {lineFoldingOnly = true, dynamicRegistration = false}
   mason.setup()
   illuminate.configure()
-  local function _12_(client, b)
+  local function _13_(client, b)
     on_attach(client, b)
     return highlight_line_symbol()
   end
-  lsp.fennel_language_server.setup(merge(default_map, {settings = {fennel = {workspace = {library = vim.api.nvim_list_runtime_paths()}, diagnostics = {globals = {"vim", "comment"}}}}, filetypes = {"fennel"}, single_file_support = true, root_dir = lsp_util.root_pattern("fnl"), on_attach = _12_}))
+  lsp.fennel_language_server.setup(merge(default_map, {settings = {fennel = {workspace = {library = vim.api.nvim_list_runtime_paths()}, diagnostics = {globals = {"vim", "comment"}}}}, filetypes = {"fennel"}, single_file_support = true, root_dir = lsp_util.root_pattern("fnl"), on_attach = _13_}))
   lsp.clojure_lsp.setup(default_map)
   lsp.jdtls.setup(default_map)
   lsp.kotlin_language_server.setup(default_map)
-  local function _13_(client, b)
+  local function _14_(client, b)
     on_attach(client, b)
     ltex.setup({load_langs = {"en-US"}, init_check = true, path = (vim.fn.expand("~") .. "/.config/nvim/data/ltex"), log_level = "debug"})
     return highlight_line_symbol()
   end
-  lsp.ltex.setup(merge(default_map, {on_attach = _13_, filetypes = {"markdown", "NeogitCommitMessage", "gitcommit"}, settings = {ltex = {}}}))
-  local function _14_(client, b)
+  lsp.ltex.setup(merge(default_map, {on_attach = _14_, filetypes = {"markdown", "NeogitCommitMessage", "gitcommit"}, settings = {ltex = {}}}))
+  local function _15_(client, b)
     on_attach(client, b)
-    local function _15_()
+    local function _16_()
       return telescope.extensions.flutter.commands()
     end
-    bkset({"n"}, "<leader>fa", _15_, b)
+    bkset({"n"}, "<leader>fa", _16_, b)
     return telescope.load_extension("flutter")
   end
-  return flut.setup({lsp = {closing_tags = {highlight = "ErrorMsg", prefix = ">", enabled = true}, handlers = handlers, capabilities = capabilities, on_attach = _14_}})
+  return flut.setup({lsp = {closing_tags = {highlight = "ErrorMsg", prefix = ">", enabled = true}, handlers = handlers, capabilities = capabilities, on_attach = _15_}})
 end
 return {{"neovim/nvim-lspconfig", dependencies = {"williamboman/mason.nvim", "barreiroleo/ltex-extra.nvim", "RRethy/vim-illuminate", "akinsho/flutter-tools.nvim", "nvim-lua/plenary.nvim"}, init = _5_, config = _6_}}

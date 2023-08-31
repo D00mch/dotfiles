@@ -1,6 +1,5 @@
 (local {: autoload} (require :nfnl.module))
 (local nvim (autoload :nvim))
-(local {: assoc : update : dec : inc : first : second} (autoload :nfnl.core))
 (local {: kset} (autoload :config.util))
 
 (require :config.which)

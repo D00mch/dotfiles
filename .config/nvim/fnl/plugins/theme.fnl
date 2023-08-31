@@ -1,6 +1,5 @@
 (local {: autoload} (require :nfnl.module))
 (local nvim (autoload :nvim))
-(local str (autoload :nfnl.string))
 (local {: toggle} (require :config.which))
 (local {: kset} (autoload :config.util))
 
@@ -62,17 +61,16 @@
                        (make-non-transparent (dark?))
                        (make-transparent (dark?)))))
 
-          (vim.api.nvim_create_autocmd
-            :ColorScheme
-            {:buffer   bufnr
-             :group    (vim.api.nvim_create_augroup :HighlightColors {:clear true})
-             :callback #(if (transparent?)
-                          (make-transparent (dark?))
-                          (make-non-transparent (dark?)))})
+          ; (vim.api.nvim_create_autocmd
+          ;   :ColorScheme
+          ;   {:buffer   bufnr
+          ;    :group    (vim.api.nvim_create_augroup :HighlightColors {:clear true})
+          ;    :callback #(if (transparent?)
+          ;                 (make-transparent (dark?))
+          ;                 (make-non-transparent (dark?)))})
 
           (let [everforest (require :everforest)
-                nightfox (require :nightfox)
-                ]
+                nightfox (require :nightfox)]
             (everforest.setup {:background :hard})
             (nightfox.setup
               {:options

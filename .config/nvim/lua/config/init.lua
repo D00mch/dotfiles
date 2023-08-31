@@ -1,16 +1,9 @@
--- [nfnl] Compiled from fnl/config/init.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from .config/nvim/fnl/config/init.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local nvim = autoload("nvim")
-local _local_2_ = autoload("nfnl.core")
-local assoc = _local_2_["assoc"]
-local update = _local_2_["update"]
-local dec = _local_2_["dec"]
-local inc = _local_2_["inc"]
-local first = _local_2_["first"]
-local second = _local_2_["second"]
-local _local_3_ = autoload("config.util")
-local kset = _local_3_["kset"]
+local _local_2_ = autoload("config.util")
+local kset = _local_2_["kset"]
 require("config.which")
 require("config.markdown")
 vim.api.nvim_command("command! -nargs=1 -complete=help H help <args> | silent only")
@@ -43,24 +36,24 @@ do
   kset({"n", "x"}, "<D-f>", "/")
   kset({"i", "t"}, "<D-f>", "<Esc><D-f>", {remap = true})
 end
-local function _5_()
+local function _4_()
   return vim.cmd("if line(\"'\\\"\") > 1 && line(\"'\\\"\") <= line(\"$\") | exe \"normal! g'\\\"\" | endif")
 end
-vim.api.nvim_create_autocmd("BufReadPost", {pattern = "*", group = vim.api.nvim_create_augroup("LastPosition", {clear = true}), callback = _5_})
+vim.api.nvim_create_autocmd("BufReadPost", {pattern = "*", group = vim.api.nvim_create_augroup("LastPosition", {clear = true}), callback = _4_})
 vim.o.autoread = true
-local function _6_()
+local function _5_()
   return vim.cmd("silent! checktime")
 end
-vim.api.nvim_create_autocmd("FocusGained,BufEnter,CursorHold", {pattern = "*", group = vim.api.nvim_create_augroup("AutoChecktime", {clear = true}), callback = _6_})
+vim.api.nvim_create_autocmd("FocusGained,BufEnter,CursorHold", {pattern = "*", group = vim.api.nvim_create_augroup("AutoChecktime", {clear = true}), callback = _5_})
 nvim.o.mouse = "a"
 local function compare_to_clipboard()
   local ftype = vim.api.nvim_eval("&filetype")
   return vim.cmd(string.format("execute 'normal! \"xy'\n      tabnew\n      vsplit\n      enew\n      normal! P\n      setlocal buftype=nowrite\n      set filetype=%s\n      diffthis\n      execute \"normal! \\<C-w>\\<C-w>\"\n      enew\n      set filetype=%s\n      normal! \"xP\n      diffthis", ftype, ftype))
 end
 kset({"x"}, "<Space>cd", compare_to_clipboard, {desc = "Clipboard Diff"})
-local function _7_()
+local function _6_()
   return vim.highlight.on_yank({higroup = "IncSearch", timeout = 300})
 end
-vim.api.nvim_create_autocmd("TextYankPost", {group = vim.api.nvim_create_augroup("yank_highlight", {}), pattern = "*", callback = _7_})
+vim.api.nvim_create_autocmd("TextYankPost", {group = vim.api.nvim_create_augroup("yank_highlight", {}), pattern = "*", callback = _6_})
 kset("n", "<Leader>dm", ":let @*=trim(execute('messages'))<bar>echo 'copied' <cr>")
 return {}
