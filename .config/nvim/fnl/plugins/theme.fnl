@@ -6,12 +6,15 @@
 (fn dark? [] (= nvim.o.background "dark"))
 (fn transparent? [] (= 0 nvim.g.neovide_transparency))
 
+(fn alpha []
+  (string.format "%x" (math.floor (or (* 255 vim.g.transparency) 0.8))))	
+
 (fn make-transparent [dark?]
   (set vim.g.neovide_transparency 0.0)
   (set vim.g.transparency 0.92)
   (if dark?
-    (vim.cmd "let g:neovide_background_color = '#0f1117'.printf('%x', float2nr(255 * g:transparency))")
-    (vim.cmd "let g:neovide_background_color = '#FFFFFF'.printf('%x', float2nr(255 * g:transparency))")))
+    (set vim.g.neovide_background_color (.. "#0f1117" (alpha)))
+    (set vim.g.neovide_background_color (.. "#f2f2f2" (alpha)))))
 
 (fn make-non-transparent [dark?]
   (set vim.g.neovide_transparency 1.0)

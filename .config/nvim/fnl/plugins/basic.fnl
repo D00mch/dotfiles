@@ -1,9 +1,6 @@
 [{1 :bakpakin/fennel.vim
   :lazy true
   :ft [:fennel]}
- {1 :Olical/aniseed
-  :lazy true
-  :ft [:fennel]}
  {1 :nvim-tree/nvim-web-devicons
   :config true}
  {1 :windwp/nvim-autopairs

@@ -1,11 +1,11 @@
--- [nfnl] Compiled from fnl/plugins/tabs.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from .config/nvim/fnl/plugins/tabs.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local _local_2_ = autoload("config.util")
 local kset = _local_2_["kset"]
 local _local_3_ = autoload("nfnl.core")
 local map = _local_3_["map"]
-local _local_4_ = autoload("aniseed.string")
+local _local_4_ = autoload("nfnl.string")
 local join = _local_4_["join"]
 local function _5_()
   kset({"n", "x"}, "<D-.>", ":BufferLineCycleNext<Cr>")

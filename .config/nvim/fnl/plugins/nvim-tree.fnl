@@ -2,7 +2,7 @@
 (local actions (autoload :telescope.actions))
 (local action-state (autoload :telescope.actions.state))
 (local builtin (autoload :telescope.builtin))
-(local {: merge} (autoload :aniseed.core))
+(local {: merge} (autoload :nfnl.core))
 (local
   {: kset : bkset : bkdel}
   (autoload :config.util))

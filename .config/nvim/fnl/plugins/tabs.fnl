@@ -1,7 +1,7 @@
 (local {: autoload} (require :nfnl.module))
 (local {: kset} (autoload :config.util))
 (local {: map} (autoload :nfnl.core))
-(local {: join} (autoload :aniseed.string))
+(local {: join} (autoload :nfnl.string))
 
 
 [{1 :akinsho/bufferline.nvim

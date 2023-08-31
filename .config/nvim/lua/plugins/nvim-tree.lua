@@ -1,10 +1,10 @@
--- [nfnl] Compiled from fnl/plugins/nvim-tree.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from .config/nvim/fnl/plugins/nvim-tree.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local actions = autoload("telescope.actions")
 local action_state = autoload("telescope.actions.state")
 local builtin = autoload("telescope.builtin")
-local _local_2_ = autoload("aniseed.core")
+local _local_2_ = autoload("nfnl.core")
 local merge = _local_2_["merge"]
 local _local_3_ = autoload("config.util")
 local kset = _local_3_["kset"]

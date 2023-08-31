@@ -12,13 +12,18 @@ end
 local function transparent_3f()
   return (0 == nvim.g.neovide_transparency)
 end
+local function alpha()
+  return string.format("%x", math.floor(((255 * vim.g.transparency) or 0.8)))
+end
 local function make_transparent(dark_3f0)
   vim.g.neovide_transparency = 0
   vim.g.transparency = 0.92
   if dark_3f0 then
-    return vim.cmd("let g:neovide_background_color = '#0f1117'.printf('%x', float2nr(255 * g:transparency))")
+    vim.g.neovide_background_color = ("#0f1117" .. alpha())
+    return nil
   else
-    return vim.cmd("let g:neovide_background_color = '#FFFFFF'.printf('%x', float2nr(255 * g:transparency))")
+    vim.g.neovide_background_color = ("#f2f2f2" .. alpha())
+    return nil
   end
 end
 local function make_non_transparent(dark_3f0)
