@@ -17,6 +17,13 @@
   :config true}
  ; {1 :kwkarlwang/bufresize.nvim}
  {1 :tpope/vim-commentary}
+ {1 :kevinhwang91/nvim-fundo
+  :dependencies [:kevinhwang91/promise-async]
+  :build (fn []
+           (let [fundo (require :fundo)]
+             (fundo.install)))
+  :opts {}
+  :config true}
  {1 :folke/which-key.nvim
   :opts {:plugins        {:spelling    {:enabled false
                                         :suggestions 12}}
