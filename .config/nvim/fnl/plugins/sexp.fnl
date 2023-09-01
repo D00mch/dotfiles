@@ -15,6 +15,10 @@
            1
            0))})
 
+;; choose on of the successor in the future
+;; https://github.com/julienvincent/nvim-paredit
+;; https://github.com/PaterJason/nvim-treesitter-sexp
+
 [{1 :guns/vim-sexp
   :dependencies [:tpope/vim-sexp-mappings-for-regular-people
                  :tpope/vim-repeat
