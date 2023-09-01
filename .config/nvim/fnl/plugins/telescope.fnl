@@ -1,5 +1,4 @@
 (local {: autoload} (require :nfnl.module))
-(local nvim (autoload :nvim))
 (local
   {: kset : get-word-under-cursor : get-word-under-selection}
   (autoload :config.util))
@@ -41,6 +40,7 @@
           (kset :n :<space>gb ":Telescope git_branches<cr>")
 
           (let [;; search for a word under cursor
+                builtin (require :telescope.builtin)
                 search-word-under-cursor
                 (fn []
                   (let [[word] (get-word-under-cursor)]
@@ -67,8 +67,6 @@
                   themes (require :telescope.themes)
                   harpoon (require :harpoon)
                   prj (require :project_nvim)
-
-                  builtin (require :telescope.builtin)
                   actions (require :telescope.actions)
                   fb_actions (require :telescope._extensions.file_browser.actions)
                   undo_actions (require :telescope-undo.actions)

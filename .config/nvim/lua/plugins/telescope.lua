@@ -1,7 +1,6 @@
--- [nfnl] Compiled from fnl/plugins/telescope.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from .config/nvim/fnl/plugins/telescope.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
-local nvim = autoload("nvim")
 local _local_2_ = autoload("config.util")
 local kset = _local_2_["kset"]
 local get_word_under_cursor = _local_2_["get-word-under-cursor"]
@@ -29,6 +28,7 @@ local function _3_()
   kset("n", "<space>gs", ":Telescope git_stash<cr>")
   kset("n", "<space>gb", ":Telescope git_branches<cr>")
   do
+    local builtin = require("telescope.builtin")
     local search_word_under_cursor
     local function _4_()
       local _let_5_ = get_word_under_cursor()
@@ -60,7 +60,6 @@ local function _8_()
   local themes = require("telescope.themes")
   local harpoon = require("harpoon")
   local prj = require("project_nvim")
-  local builtin = require("telescope.builtin")
   local actions = require("telescope.actions")
   local fb_actions = require("telescope._extensions.file_browser.actions")
   local undo_actions = require("telescope-undo.actions")
