@@ -36,9 +36,9 @@
                 :sexp_round_head_wrap_element   :<leader>a 
                 :sexp_round_tail_wrap_element   :<leader>f 
                 :sexp_square_head_wrap_element  "<leader>["
-                                                          :sexp_square_tail_wrap_element  "<leader>]"
+                :sexp_square_tail_wrap_element  "<leader>]"
                 :sexp_curly_head_wrap_element   "<leader>{"
-                                                          :sexp_curly_tail_wrap_element   "<leader>}"
+                :sexp_curly_tail_wrap_element   "<leader>}"
                 :sexp_square_head_wrap_list     ""
                 :sexp_square_tail_wrap_list     ""
                 :sexp_curly_head_wrap_list      ""
