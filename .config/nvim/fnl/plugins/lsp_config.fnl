@@ -83,6 +83,7 @@
                       (bkset :x := (vis-op+ vim.lsp.buf.format {:async true}) {:buffer b :desc "Apply formatting"}))
 
                     (bkset :n "[s" vim.diagnostic.goto_prev {:buffer b :desc "Goto prev erro"}) ;]
+                    (bkset :n "]s" vim.diagnostic.goto_next {:buffer b :desc "Goto next erro"}) ;]
                     ;; TELESCOPE
                     (bkset :n :<leader>gr #(lsp_references {:jump_type :never}) {:buffer b :desc "Go to references"})
                     (bkset :n :<leader>gi lsp_implementations {:buffer b :desc "Go to implementations"})
