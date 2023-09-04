@@ -1,19 +1,14 @@
--- [nfnl] Compiled from fnl/plugins/alpha.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from .config/nvim/fnl/plugins/alpha.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
-local nvim = autoload("nvim")
 local _local_2_ = autoload("nfnl.core")
-local assoc = _local_2_["assoc"]
 local concat = _local_2_["concat"]
 local _local_3_ = autoload("config.util")
 local kset = _local_3_["kset"]
-local bkset = _local_3_["bkset"]
-local bkdel = _local_3_["bkdel"]
 local function _4_()
   local sessions = require("session_manager")
   local sconf = require("session_manager.config")
   local startify = require("alpha.themes.startify")
-  local icons = require("nvim-web-devicons")
   local alpha = require("alpha")
   sessions.setup({autoload_mode = sconf.AutoloadMode.Disabled})
   kset("n", "<Leader><Space>", ":Alpha<Cr>")

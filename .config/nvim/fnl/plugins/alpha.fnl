@@ -1,9 +1,6 @@
 (local {: autoload} (require :nfnl.module))
-(local nvim (autoload :nvim))
-(local {: assoc : concat} (autoload :nfnl.core))
-(local
-  {: kset : bkset : bkdel}
-  (autoload :config.util))
+(local {: concat} (autoload :nfnl.core))
+(local {: kset} (autoload :config.util))
 
 [{1 :goolord/alpha-nvim
   :dependencies [:Shatur/neovim-session-manager]
@@ -11,7 +8,6 @@
             (let [sessions (require :session_manager) 
                   sconf (require :session_manager.config)
                   startify (require :alpha.themes.startify)
-                  icons (require :nvim-web-devicons) 
                   alpha (require :alpha)]
               (sessions.setup
                 {:autoload_mode sconf.AutoloadMode.Disabled})
