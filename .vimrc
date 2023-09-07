@@ -116,8 +116,8 @@ cd $HOME
         nmap g= <C-w>=
 
         "RESIZE
-        nnoremap <M->> <C-w>5+
-        nnoremap <M-<> <C-w>5-
+        nnoremap <M-S-.> <C-w>5+
+        nnoremap <M-S-,> <C-w>5-
         nnoremap <M-.> <C-w>5>
         nnoremap <M-,> <C-w>5<
 
