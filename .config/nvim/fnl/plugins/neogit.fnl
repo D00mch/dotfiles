@@ -10,19 +10,17 @@
                             in-git? "bd"
                             "Neogit"))))
 
-[]
-; [{1 :TimUntersberger/neogit
-;   :lazy true
-;   :ft [:no-such-a-filetype]
+[{1 :TimUntersberger/neogit
+  :dependencies [:nvim-lua/plenary.nvim]
+  :init (fn []
+          (kset [:n :x] :<Space>9 neogit-toggle "Toggle NeoGit"))
 
-;   :init (fn []
-;           (kset [:n :x] :<Space>9 neogit-toggle "Toggle NeoGit"))
-
-;   :opts {:kind :replace
-;          :integrations {:diffview true}
-;          :disable_commit_confirmation true
-;          :sections {:untracked {:folded true}
-;                     :recent    {:folded false}}
-;          :mappings {:status {:o :Toggle
-;                              :q ""}}}
-;   :config true}]
+  :opts {:kind :split
+         :integrations {:diffview true
+                        :telescope true}
+         :disable_commit_confirmation true
+         :sections {:untracked {:folded true}
+                    :recent    {:folded false}}
+         :mappings {:status {:o :Toggle
+                             :q false}}}
+  :config true}]

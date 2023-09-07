@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/plugins/fugitive.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from .config/nvim/fnl/plugins/fugitive.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local _local_2_ = autoload("config.util")
@@ -37,4 +37,4 @@ local function _5_()
   vim.api.nvim_command("set splitbelow")
   return kset({"n", "x"}, "<Space>9", fugitive_toggle)
 end
-return {{"tpope/vim-fugitive", init = _5_}}
+return {{"tpope/vim-fugitive", lazy = true, init = _5_, cond = false}}
