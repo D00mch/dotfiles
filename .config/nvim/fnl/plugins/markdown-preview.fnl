@@ -3,9 +3,11 @@
 (local {: toggle} (autoload :config.which))
 
 {1 :iamcco/markdown-preview.nvim
-  :build "cd app && npm install"
-  :config (fn []
-            (toggle "p" "MarkdownPreview" ":MarkdownPreviewToggle<Cr>"))
-  :init (fn []
-          (set nvim.g.mkdp_auto_close 0)
-          (set vim.g.mkdp_filetypes [:markdown]))}
+ :lazy true
+ :ft [:markdown]
+ :build "cd app && npm install"
+ :config (fn []
+           (toggle "p" "MarkdownPreview" ":MarkdownPreviewToggle<Cr>"))
+ :init (fn []
+         (set nvim.g.mkdp_auto_close 0)
+         (set vim.g.mkdp_filetypes [:markdown]))}

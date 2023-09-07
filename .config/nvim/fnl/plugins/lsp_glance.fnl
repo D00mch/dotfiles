@@ -1,4 +1,7 @@
 [{1 :DNLHC/glance.nvim
+  :lazy true
+  :event [:BufReadPost :BufNewFile]
+  :cmd [:LspInfo :LspInstall :LspUninstall]
   :init (fn []
           (let [{: kset} (require :config.util)]
             (kset :n :<D-b> "mZg*`Z:Glance references<Cr>" {:desc "Show refs (Idea)"})))

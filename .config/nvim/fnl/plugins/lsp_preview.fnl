@@ -3,6 +3,9 @@
 (local {: kset : bkset} (autoload :config.util))
 
 [{1 :rmagatti/goto-preview
+  :lazy true
+  :event [:BufReadPost :BufNewFile]
+  :cmd [:LspInfo :LspInstall :LspUninstall]
   :config 
   (fn []
     (let [preview (require :goto-preview)

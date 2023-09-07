@@ -2,7 +2,7 @@
 (local {: kset} (autoload :config.util))
 
 [{1 :kevinhwang91/nvim-ufo
-
+  :lazy true
   :dependencies [:kevinhwang91/promise-async]
   :init (fn []
           (let [ufo (require :ufo)]

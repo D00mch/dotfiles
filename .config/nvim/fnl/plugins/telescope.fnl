@@ -10,8 +10,8 @@
                  :ahmedkhalf/project.nvim
                  :debugloop/telescope-undo.nvim
                  :nvim-telescope/telescope-file-browser.nvim
-                 :RomanoZumbe/harpoon
-                 ]
+                 :RomanoZumbe/harpoon]
+  :lazy true
   :init (fn []
           (let [hmark (require :harpoon.mark)]
             (kset :n :<Space>am hmark.add_file "Add mark"))
@@ -50,8 +50,6 @@
                 (fn []
                   (let [[word] (get-word-under-selection)]
                     (builtin.live_grep {:default_text word})))]
-            (kset :n :<D-b> search-word-under-cursor)
-            (kset :x :<D-b> search-word-under-selection)
             (kset :n :<Leader>gr search-word-under-cursor))
           
           (let [telescope (require :telescope)]

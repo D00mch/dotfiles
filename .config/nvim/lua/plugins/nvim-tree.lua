@@ -101,4 +101,4 @@ local function _8_()
   end
   return tree.setup({sync_root_with_cwd = true, update_focused_file = {enable = true, update_root = true}, git = {enable = false}, on_attach = _13_, renderer = {indent_markers = {enable = true}, symlink_destination = false}, filters = {custom = {"^.git$"}}, respect_buf_cwd = false})
 end
-return {{"nvim-tree/nvim-tree.lua", dependencies = {"nvim-tree/nvim-web-devicons"}, init = _4_, config = _8_}}
+return {{"nvim-tree/nvim-tree.lua", lazy = true, dependencies = {"nvim-tree/nvim-web-devicons"}, init = _4_, config = _8_}}

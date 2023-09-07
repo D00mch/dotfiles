@@ -3,11 +3,14 @@
 (local {: merge} (autoload :nfnl.core))
 
 (fn history-toggle []
-  (let [current-dir (vim.fn.expand "%")
+  (let [_ (require :diffview)
+        current-dir (vim.fn.expand "%")
         in-annotate? (string.match current-dir "DiffviewFileHistoryPanel$")]
     (vim.api.nvim_command (if in-annotate? "q" "DiffviewFileHistory %"))))
 
 [{1 :sindrets/diffview.nvim
+  :lazy true
+  :cmd ["DiffviewOpen" "DiffviewFileHistory"]
 
   :init
   (fn []

@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/plugins/fold.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from .config/nvim/fnl/plugins/fold.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local _local_2_ = autoload("config.util")
@@ -95,4 +95,4 @@ local function _4_()
   end
   return ufo.setup({fold_virt_text_handler = handler, provider_selector = _14_})
 end
-return {{"kevinhwang91/nvim-ufo", dependencies = {"kevinhwang91/promise-async"}, init = _3_, config = _4_}}
+return {{"kevinhwang91/nvim-ufo", lazy = true, dependencies = {"kevinhwang91/promise-async"}, init = _3_, config = _4_}}

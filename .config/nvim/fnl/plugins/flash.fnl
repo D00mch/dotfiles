@@ -5,6 +5,7 @@
 ; (local russian "фывапролджэйцукенгшщзхъячсмитьбю")
 
 [{1 :folke/flash.nvim
+  :lazy true
   :init (fn []
           (let [flash (require :flash)]
             (kset [:n :x :o] :q flash.jump)))

@@ -8,6 +8,11 @@
 ;; open Help in full window
 (vim.api.nvim_command "command! -nargs=1 -complete=help H help <args> | silent only")
 
+(kset :n
+      :<Space>d
+      #(let [bd (require :bufdelete)]
+         (bd.bufdelete 0 true)))
+
 (do ;cmd 
 
   (kset :x :<D-c> :y)

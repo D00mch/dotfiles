@@ -1,4 +1,9 @@
+(local {: kset} (require :config.util))
+(kset :n :<Space>8 #((. (require :toggleterm) :toggle)))
+
 [{1 :akinsho/toggleterm.nvim
+  :lazy true
+  :cmd [:ToggleTerm :ToggleTermSendVisualSelection]
   :init (fn []
           (let [{: kset} (require :config.util)]
             (kset :x :<leader>q ":ToggleTermSendVisualSelection<cr>")

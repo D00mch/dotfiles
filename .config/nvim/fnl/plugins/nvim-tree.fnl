@@ -8,6 +8,7 @@
   (autoload :config.util))
 
 [{1 :nvim-tree/nvim-tree.lua
+  :lazy true
   :dependencies [:nvim-tree/nvim-web-devicons]  
   :init (fn []
           (let [tree (require :nvim-tree)

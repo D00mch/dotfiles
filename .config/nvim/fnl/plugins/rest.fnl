@@ -7,6 +7,7 @@
   (bkset :n :<Leader>q :<Plug>RestNvim))
 
 [{1 :rest-nvim/rest.nvim
+  :lazy true
   :ft [:http]
   :init (fn []
           (vim.api.nvim_create_autocmd

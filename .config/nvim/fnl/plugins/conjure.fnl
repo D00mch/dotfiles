@@ -14,6 +14,8 @@
          "*")))
 
 [{1 :Olical/conjure
+  :lazy true
+  :ft [:clojure :fennel]
   :branch "master"
   :init (fn []
           (set nvim.g.conjure#log#wrap true)

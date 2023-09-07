@@ -3,6 +3,8 @@
 (local {: kset} (autoload :config.util))
 
 [{1 :nvim-treesitter/nvim-treesitter
+  :lazy true
+  :event :bufread
   :dependencies [:HiPhish/nvim-ts-rainbow2
                  :nvim-treesitter/nvim-treesitter-refactor]
   :build ":TSUpdate"

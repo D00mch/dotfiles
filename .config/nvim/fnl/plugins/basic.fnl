@@ -8,11 +8,14 @@
          [:clojure :scheme :lisp :timl :fennel :janet :racket]}
   :config true}
  {1 :tpope/vim-repeat}
- {1 :jghauser/follow-md-links.nvim}
+ {1 :jghauser/follow-md-links.nvim
+  :lazy true
+  :ft [:markdown]}
  {1 :vim-scripts/ReplaceWithRegister}
  {1 :tpope/vim-sleuth}
  {1 :eandrju/cellular-automaton.nvim}
- {1 :famiu/bufdelete.nvim}
+ {1 :famiu/bufdelete.nvim
+  :lazy true}
  {1 :kwkarlwang/bufresize.nvim
   :config true}
  ; {1 :kwkarlwang/bufresize.nvim}
@@ -25,6 +28,7 @@
   :opts {}
   :config true}
  {1 :folke/which-key.nvim
+  :lazy true
   :opts {:plugins        {:spelling    {:enabled false
                                         :suggestions 12}}
          :popup_mappings {:scroll_down :<right>

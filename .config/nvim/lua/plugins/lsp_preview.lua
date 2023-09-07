@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/plugins/lsp_preview.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from .config/nvim/fnl/plugins/lsp_preview.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local nvim = autoload("nvim")
@@ -21,4 +21,4 @@ local function _3_()
   preview.setup({height = 25, bufhidden = "wipe", post_open_hook = _5_})
   return kset({"n"}, "gp", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>")
 end
-return {{"rmagatti/goto-preview", config = _3_}}
+return {{"rmagatti/goto-preview", lazy = true, event = {"BufReadPost", "BufNewFile"}, cmd = {"LspInfo", "LspInstall", "LspUninstall"}, config = _3_}}
