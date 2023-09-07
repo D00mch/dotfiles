@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/config/which.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from .config/nvim/fnl/config/which.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local nvim = autoload("nvim")
@@ -29,7 +29,7 @@ local function toggle(key, name, cmd, opts)
   end
   return wk.register({t = {name = "toggle", [key] = {cmd, name}}}, assoc(opts0, "prefix", "<Space>"))
 end
-vim.api.nvim_command("set keymap=russian-jcukenmac")
+vim.api.nvim_command("set keymap=russian-jcukenwin")
 nvim.o.iminsert = 0
 nvim.o.imsearch = 0
 local function set_lang_cmd(lang_name)
