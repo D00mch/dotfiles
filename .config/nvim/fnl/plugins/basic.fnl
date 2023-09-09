@@ -14,11 +14,9 @@
  {1 :vim-scripts/ReplaceWithRegister}
  {1 :tpope/vim-sleuth}
  {1 :eandrju/cellular-automaton.nvim}
- {1 :famiu/bufdelete.nvim
-  :lazy true}
+ {1 :famiu/bufdelete.nvim}
  {1 :kwkarlwang/bufresize.nvim
   :config true}
- ; {1 :kwkarlwang/bufresize.nvim}
  {1 :tpope/vim-commentary}
  {1 :kevinhwang91/nvim-fundo
   :dependencies [:kevinhwang91/promise-async]
