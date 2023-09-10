@@ -81,6 +81,21 @@ cd $HOME
     "INCLUTION
         nnoremap db vb
 
+    " FIX J
+        " Like gJ, but always remove spaces
+        fun! s:join_spaceless()
+            execute 'normal! gJ'
+
+            " Remove character under the cursor if it's whitespace.
+            if matchstr(getline('.'), '\%' . col('.') . 'c.') =~ '\s'
+                execute 'normal! dw'
+            endif
+        endfun
+
+        " Map it to a key
+        nnoremap J :call <SID>join_spaceless()<CR>
+
+
 "NAVIGATION
     " set current path
     nnoremap <space>sd :cd %:p:h<CR>
