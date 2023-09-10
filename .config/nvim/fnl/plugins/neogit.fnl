@@ -20,7 +20,7 @@
                         :telescope true}
          :disable_commit_confirmation true
          :sections {:untracked {:folded true}
-                    :recent    {:folded false}}
+                    :recent    {:folded true}}
          :mappings {:status {:o :Toggle
                              :q false}}}
   :config true}]
