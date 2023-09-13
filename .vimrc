@@ -82,18 +82,14 @@ cd $HOME
         nnoremap db vb
 
     " FIX J
-        " Like gJ, but always remove spaces
-        fun! s:join_spaceless()
-            execute 'normal! gJ'
-
-            " Remove character under the cursor if it's whitespace.
-            if matchstr(getline('.'), '\%' . col('.') . 'c.') =~ '\s'
-                execute 'normal! dw'
-            endif
+        fun ListJ()
+            let l:line = getline('.')
+            let l:line = substitute(l:line, '\s\+\([]}]\)', '\1', "g")
+            let l:line = substitute(l:line, '\([[{]\)\s\+', '\1', "g")
+            call setline('.', l:line)
         endfun
-
-        " Map it to a key
-        nnoremap J :call <SID>join_spaceless()<CR>
+        nnoremap J J:call ListJ()<cr>
+        vnoremap J J:call ListJ()<cr>
 
 
 "NAVIGATION
