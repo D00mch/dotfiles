@@ -8,4 +8,4 @@ local function _3_()
   local flash = require("flash")
   return kset({"n", "x", "o"}, "q", flash.jump)
 end
-return {{"folke/flash.nvim", lazy = true, init = _3_, opts = {labels = english, modes = {char = {enabled = false}, search = {enabled = false}, treesitter = {enabled = false}}, label = {rainbow = {shade = 5, enabled = false}, before = true, style = "inline", uppercase = false, after = false}}, config = true}}
+return {{"folke/flash.nvim", lazy = true, init = _3_, opts = {labels = english, modes = {char = {enabled = false}, search = {enabled = true, incremental = true}, treesitter = {enabled = false}}, label = {rainbow = {shade = 5, enabled = false}, before = true, style = "inline", uppercase = false, after = false}}, config = true}}
