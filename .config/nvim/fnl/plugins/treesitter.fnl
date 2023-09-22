@@ -6,6 +6,7 @@
   :lazy true
   :event :bufread
   :dependencies [:HiPhish/nvim-ts-rainbow2
+                 :nvim-treesitter/nvim-treesitter-textobjects
                  :nvim-treesitter/nvim-treesitter-refactor]
   :build ":TSUpdate"
   :init (fn []
@@ -30,4 +31,9 @@
                  ; :refactor {:highlight_definitions {:enable true}
                  ;            :smart_rename {:enable true
                  ;                           :keymaps {:smart_rename :<Leader>rr}}}
+                 :textobjects {:select
+                               {:enable true
+                                :keymaps 
+                                {:am "@function.outer"
+                                 :im "@function.inner"}}}
                  :indent    {:enable true}})))}]
