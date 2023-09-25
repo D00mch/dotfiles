@@ -61,6 +61,11 @@
                  ; :formatters 
                  ; {:insert_text copilot-format.remove_existing}
 
+                 :preselect
+                 cmp.PreselectMode.None
+
+                 :complete {:completeopt "menu,menuone"}
+
                  :mapping
                  {:<Tab> (cmp.mapping snippy-tab [:i :s])
                   :<S-Tab> (cmp.mapping.select_prev_item {:behavior cmp.SelectBehavior.Select})

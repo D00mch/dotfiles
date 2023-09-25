@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/plugins/cmp.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from .config/nvim/fnl/plugins/cmp.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local _local_2_ = autoload("nfnl.core")
@@ -40,7 +40,7 @@ local function _5_()
   local function _9_(args)
     return snippy.expand_snippet(args.body)
   end
-  cmp.setup({formatting = {format = _8_}, mapping = {["<Tab>"] = cmp.mapping(snippy_tab, {"i", "s"}), ["<S-Tab>"] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Select}), ["<down>"] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Select}), ["<up>"] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Select}), ["<left>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), {"i", "c"}), ["<right>"] = cmp.mapping(cmp.mapping.scroll_docs(4), {"i", "c"}), ["<C-Space>"] = cmp.mapping.complete(), ["<C-e>"] = cmp.mapping.close(), ["<CR>"] = cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Replace, select = false})}, sources = cmp_srcs, confirm_opts = {behavior = cmp.ConfirmBehavior.Replace, select = false}, snippet = {expand = _9_}})
+  cmp.setup({formatting = {format = _8_}, preselect = cmp.PreselectMode.None, complete = {completeopt = "menu,menuone"}, mapping = {["<Tab>"] = cmp.mapping(snippy_tab, {"i", "s"}), ["<S-Tab>"] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Select}), ["<down>"] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Select}), ["<up>"] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Select}), ["<left>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), {"i", "c"}), ["<right>"] = cmp.mapping(cmp.mapping.scroll_docs(4), {"i", "c"}), ["<C-Space>"] = cmp.mapping.complete(), ["<C-e>"] = cmp.mapping.close(), ["<CR>"] = cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Replace, select = false})}, sources = cmp_srcs, confirm_opts = {behavior = cmp.ConfirmBehavior.Replace, select = false}, snippet = {expand = _9_}})
   cmp.setup.cmdline("/", {mapping = cmp.mapping.preset.cmdline(), sources = cmp.config.sources({{name = "buffer", max_item_count = 18}})})
   return cmp.setup.cmdline(":", {mapping = cmp.mapping.preset.cmdline(), sources = cmp.config.sources({{name = "cmdline", max_item_count = 18}, {name = "path", max_item_count = 12}})})
 end

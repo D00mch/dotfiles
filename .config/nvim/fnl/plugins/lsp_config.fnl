@@ -79,7 +79,7 @@
                     (bkset [:i :n] "<D-p>" vim.lsp.buf.signature_help {:buffer b :desc "Signiture help"})
                     (bkset :n :<leader>rr vim.lsp.buf.rename {:buffer b :desc "Rename"})
                     (bkset :n :<leader>p vim.diagnostic.open_float {:buffer b :desc "Preview diagnostics"})
-                    (bkset :n :<leader>re vim.diagnostic.setloclist {:buffer b :desc "List diagnostics"})
+                    ;(bkset :n :<leader>re vim.diagnostic.setloclist {:buffer b :desc "List diagnostics"})
 
                     (when (not (string.find (vim.api.nvim_buf_get_name b) ".*.fnl$"))
                       (bkset :n := ":lua vim.lsp.buf.format({async = true})<Cr>" {:buffer b :desc "Apply formatting"}) ;[
@@ -132,6 +132,15 @@
               (lsp.jdtls.setup default-map)
               (lsp.kotlin_language_server.setup default-map)
               (lsp.gopls.setup default-map)
+              (lsp.tsserver.setup default-map)
+
+              ;; div completions
+              (lsp.emmet_language_server.setup
+                (merge
+                  default-map
+                  {:filetypes [:css :html :javascript :typescript :typescriptreact :javascriptreact
+                               :svelte :vue :vue-html :less :scss :sass :sas]}))
+
 
               (lsp.ltex.setup
                 (merge default-map
