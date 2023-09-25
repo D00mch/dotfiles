@@ -12,6 +12,6 @@ end
 local function _4_()
   local treesitter = require("nvim-treesitter.configs")
   local ts_rainbow = require("ts-rainbow")
-  return treesitter.setup({ensure_installed = {"java", "lua", "yaml", "bash", "kotlin", "clojure", "fennel", "scheme", "racket", "markdown", "markdown_inline", "http", "json", "sql", "dart", "vim", "go"}, rainbow = {enable = true, strategy = ts_rainbow.strategy.global}, highlight = {enable = true, additional_vim_regex_highlighting = false}, textobjects = {select = {enable = true, keymaps = {am = "@function.outer", im = "@function.inner"}}}, indent = {enable = true}})
+  return treesitter.setup({ensure_installed = {"java", "lua", "yaml", "bash", "kotlin", "clojure", "fennel", "scheme", "racket", "markdown", "markdown_inline", "http", "json", "sql", "dart", "vim", "go", "typescript", "css"}, rainbow = {enable = true, strategy = ts_rainbow.strategy.global}, highlight = {enable = true, additional_vim_regex_highlighting = false}, textobjects = {select = {enable = true, keymaps = {am = "@function.outer", im = "@function.inner"}}}, indent = {enable = true}})
 end
 return {{"nvim-treesitter/nvim-treesitter", lazy = true, event = "bufread", dependencies = {"HiPhish/nvim-ts-rainbow2", "nvim-treesitter/nvim-treesitter-textobjects", "nvim-treesitter/nvim-treesitter-refactor"}, build = ":TSUpdate", init = _3_, config = _4_}}

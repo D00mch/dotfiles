@@ -19,7 +19,8 @@
                 {:ensure_installed [:java :lua :yaml :bash :kotlin
                                     :clojure :fennel :scheme :racket
                                     :markdown :markdown_inline
-                                    :http :json :sql :dart :vim :go]
+                                    :http :json :sql :dart :vim :go
+                                    :typescript :css]
                  :rainbow {:enable true
                            :strategy ts-rainbow.strategy.global}
                  :highlight {:enable true
