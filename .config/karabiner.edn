@@ -242,7 +242,9 @@
                          "^com.github.wez.wezterm$"
                          "^com.google.android.studio$"
                          "^com.jetbrains.WebStorm$"
+                         "^com.jetbrains.intellij$"
                          "^com.jetbrains.intellij.ce$"]
-                :idea ["^com.jetbrains.intellij.ce$"]
+                :idea ["^com.jetbrains.intellij.ce$"
+                       "^com.jetbrains.intellij$"]
                 :as ["^com.google.android.studio$"]}
  }
