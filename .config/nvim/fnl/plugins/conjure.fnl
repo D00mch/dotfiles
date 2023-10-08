@@ -42,6 +42,9 @@
           (set nvim.g.conjure#client#clojure#nrepl#mapping#refresh_all false)
           (set nvim.g.conjure#client#clojure#nrepl#mapping#refresh_changed false)
 
+          ;; for rust
+          (set nvim.g.conjure#extract#tree_sitter#enabled true)
+
           (kset [:n :x :i] :<D-l> "<Leader>lg" {:remap true})
 
           ;; floating window

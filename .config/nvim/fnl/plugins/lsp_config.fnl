@@ -131,6 +131,7 @@
               (lsp.clojure_lsp.setup default-map)
               (lsp.jdtls.setup default-map)
               (lsp.kotlin_language_server.setup default-map)
+              (lsp.rust_analyzer.setup default-map)
               (lsp.gopls.setup default-map)
               (lsp.tsserver.setup default-map)
 

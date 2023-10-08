@@ -39,6 +39,7 @@ local function _5_()
   nvim.g["conjure#mapping#eval_comment_root_form"] = false
   nvim.g["conjure#client#clojure#nrepl#mapping#refresh_all"] = false
   nvim.g["conjure#client#clojure#nrepl#mapping#refresh_changed"] = false
+  nvim.g["conjure#extract#tree_sitter#enabled"] = true
   kset({"n", "x", "i"}, "<D-l>", "<Leader>lg", {remap = true})
   nvim.g["conjure#log#jump_to_latest#enabled"] = true
   toggle("l", "conjure.log", toggle_log_mod)
