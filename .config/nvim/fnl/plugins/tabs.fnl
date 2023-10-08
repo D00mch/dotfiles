@@ -55,7 +55,7 @@
 
       (bufferline.setup
         {:options {;:mode :tabs
-                   ;:numbers  :ordinal
+                   :numbers  :ordinal
                    :separator_style :slant
                    :always_show_bufferline false
                    :show_duplicate_prefix true
