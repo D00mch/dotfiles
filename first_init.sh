@@ -34,6 +34,8 @@ brew install clojure
 brew install borkdude/brew/clj-kondo
 brew install ripgrep
 brew install wezterm
+brew install powerlevel10k
+echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
 
 # for lualine and nerdtree icons
 brew tap homebrew/cask-fonts

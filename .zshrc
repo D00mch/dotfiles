@@ -4,7 +4,6 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # help commands start
 alias vim=nvim
@@ -59,6 +58,7 @@ speedUpGit(){
     git config --add oh-my-zsh.hide-status 1
     git config --add oh-my-zsh.hide-dirty 1
 }
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
