@@ -49,6 +49,7 @@ plugins=(
     lein
     brew
     gradle
+    zsh-autosuggestions
 )
 source $ZSH/oh-my-zsh.sh
 
