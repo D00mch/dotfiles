@@ -34,7 +34,6 @@ brew install clojure
 brew install borkdude/brew/clj-kondo
 brew install ripgrep
 brew install wezterm
-brew install zsh-autosuggestions
 
 # for lualine and nerdtree icons
 brew tap homebrew/cask-fonts
