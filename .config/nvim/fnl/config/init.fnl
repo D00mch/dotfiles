@@ -68,11 +68,11 @@
 
 ;; handy setting to update opened files after switching branch
 (set vim.o.autoread true)
-(vim.api.nvim_create_autocmd
-  "FocusGained,BufEnter,CursorHold"
-  {:pattern "*"
-   :group (vim.api.nvim_create_augroup :AutoChecktime {:clear true})
-   :callback #(vim.cmd "silent! checktime")})
+; (vim.api.nvim_create_autocmd
+;   "FocusGained,BufEnter,CursorHold"
+;   {:pattern "*"
+;    :group (vim.api.nvim_create_augroup :AutoChecktime {:clear true})
+;    :callback #(vim.cmd "silent! checktime")})
 
 ;; navigation settngs
 ;; delete all buffers except this one

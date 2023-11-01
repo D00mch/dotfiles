@@ -10,11 +10,12 @@
                  :ahmedkhalf/project.nvim
                  :debugloop/telescope-undo.nvim
                  :nvim-telescope/telescope-file-browser.nvim
-                 :RomanoZumbe/harpoon]
+                 ; :RomanoZumbe/harpoon
+                 ]
   :lazy true
   :init (fn []
-          (let [hmark (require :harpoon.mark)]
-            (kset :n :<Space>am hmark.add_file "Add mark"))
+          ; (let [hmark (require :harpoon.mark)]
+          ;   (kset :n :<Space>am hmark.add_file "Add mark"))
 
           (kset :n :<space>pf ":Telescope find_files hidden=true no_ignore=false<cr>")
           (kset :n :<space>pr ":Telescope pickers<cr>")
@@ -57,13 +58,13 @@
             (telescope.load_extension :ui-select)
             (telescope.load_extension :file_browser)
             (telescope.load_extension :projects)
-            (telescope.load_extension :harpoon)
+            ;(telescope.load_extension :harpoon)
             (telescope.load_extension :undo)))
 
   :config (fn []
             (let [telescope (require :telescope)
                   themes (require :telescope.themes)
-                  harpoon (require :harpoon)
+                 ; harpoon (require :harpoon)
                   prj (require :project_nvim)
                   actions (require :telescope.actions)
                   fb_actions (require :telescope._extensions.file_browser.actions)
@@ -81,7 +82,7 @@
                            (vim.fn.setreg "*" entry.value)
                            (actions.close prompt_bufnr)))})]
 
-              (harpoon.setup)
+              ;(harpoon.setup)
               (prj.setup
                 {:patterns [".git" "package.json" "deps.edn" "project.clj"]})
 

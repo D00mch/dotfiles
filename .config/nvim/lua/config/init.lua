@@ -46,19 +46,15 @@ local function _5_()
 end
 vim.api.nvim_create_autocmd("BufReadPost", {pattern = "*", group = vim.api.nvim_create_augroup("LastPosition", {clear = true}), callback = _5_})
 vim.o.autoread = true
-local function _6_()
-  return vim.cmd("silent! checktime")
-end
-vim.api.nvim_create_autocmd("FocusGained,BufEnter,CursorHold", {pattern = "*", group = vim.api.nvim_create_augroup("AutoChecktime", {clear = true}), callback = _6_})
 nvim.o.mouse = "a"
 local function compare_to_clipboard()
   local ftype = vim.api.nvim_eval("&filetype")
   return vim.cmd(string.format("execute 'normal! \"xy'\n      tabnew\n      vsplit\n      enew\n      normal! P\n      setlocal buftype=nowrite\n      set filetype=%s\n      diffthis\n      execute \"normal! \\<C-w>\\<C-w>\"\n      enew\n      set filetype=%s\n      normal! \"xP\n      diffthis", ftype, ftype))
 end
 kset({"x"}, "<Space>cd", compare_to_clipboard, {desc = "Clipboard Diff"})
-local function _7_()
+local function _6_()
   return vim.highlight.on_yank({higroup = "IncSearch", timeout = 300})
 end
-vim.api.nvim_create_autocmd("TextYankPost", {group = vim.api.nvim_create_augroup("yank_highlight", {}), pattern = "*", callback = _7_})
+vim.api.nvim_create_autocmd("TextYankPost", {group = vim.api.nvim_create_augroup("yank_highlight", {}), pattern = "*", callback = _6_})
 kset("n", "<Leader>dm", ":let @*=trim(execute('messages'))<bar>echo 'copied' <cr>")
 return {}
