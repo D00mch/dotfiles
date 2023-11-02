@@ -9,6 +9,9 @@
 (fn alpha []
   (string.format "%x" (math.floor (or (* 255 vim.g.transparency) 0.8))))	
 
+(set vim.g.neovide_floating_blur_amount_x 8.0)
+(set vim.g.neovide_floating_blur_amount_y 8.0)
+
 (fn make-transparent [dark?]
   (set vim.g.neovide_transparency 0.0)
   (set vim.g.transparency 0.92)
