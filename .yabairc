@@ -29,7 +29,7 @@ yabai -m config mouse_drop_action            swap
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  38
+yabai -m config top_padding                  7
 yabai -m config bottom_padding               7
 yabai -m config left_padding                 7
 yabai -m config right_padding                7
@@ -53,6 +53,7 @@ yabai -m rule --add app="^Yandex.Disk$" \
     title="General|Account|Screenshots|Proxy|Camera Uploads|More" manage=off
 yabai -m rule --add app="^Gifski$" manage=off
 yabai -m rule --add app="^OpenVPN Connect$" manage=off
+yabai -m rule --add app="^Cisco AnyConnect*" manage=off
 
 
  # fix popups behind the app
