@@ -27,7 +27,7 @@ set ReplaceWithRegister
     nmap <space>5 :action ActivateDebugToolWindow<cr>
     nmap <space>7 :action ActivateAndroidProfilerToolWindow<cr>
     nmap <space>8 :action ActivateTerminalToolWindow<cr>
-    nmap <space>9 :action ActivateCommitToolWindow<cr>
+    nmap <space>9 :action ActivateVersionControlToolWindow<cr>
 
 "PLUGINS SETUPS
     set ideamarks
