@@ -46,7 +46,7 @@ yabai -m rule --add app="^Karabiner-EventViewer$" manage=off
 yabai -m rule --add app="^System Information$" manage=off
 yabai -m rule --add app="^Tunnelblick$" manage=off
 yabai -m rule --add app="^(IntelliJ IDEA|Android Studio)$" \
-    title="(Keyboard Shortcut|Settings|Preferences|Project Structure|Choose Process)" manage=off
+    title="(Keyboard Shortcut|Settings|Preferences|Project Structure|Choose Process|Evaluate)" manage=off
 yabai -m rule --add app="^VimR$" title="last-buffer.*" manage=off
 yabai -m rule --add app="^VimR$" title="Preferences" manage=off
 yabai -m rule --add app="^Yandex.Disk$" \

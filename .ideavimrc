@@ -87,6 +87,7 @@ set ReplaceWithRegister
         nnoremap <Leader>k :action Run<cr>
         nnoremap <Leader>dr :action Debug<cr>
         nnoremap <Leader>de :action EvaluateExpression<cr>
+        vnoremap <Leader>de :action EvaluateExpression<cr>
         nnoremap <Leader>sq :action Stop<cr>
         "android complements
         nnoremap <Leader>sg :action Android.SyncProject<cr>
