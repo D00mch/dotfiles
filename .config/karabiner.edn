@@ -128,6 +128,7 @@
                  [:!TO2 [:select_abc "~/docker_and_repl.sh 2"]]
                  [:!TO3 [:select_abc "~/docker_and_repl.sh 3"]]
                  [:!Eg "open /Applications/Google\\ Chrome.app"]
+                 [:!Ei "open /Applications/IntelliJ\\ IDEA.app"]
                  [:!Et "open /Applications/Telegram\\ Lite.app/"]
                  [:!En ["open /Applications/Neovide.app" :select_abc]]
                  [:!Ew ["open /Applications/WezTerm.app" :select_abc]]
