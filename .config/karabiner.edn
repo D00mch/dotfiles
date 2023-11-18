@@ -143,75 +143,70 @@
         ;; S  | left_shift         !! | mandatory CTOS|QWER (hyper)
         ;; F  | fn                 ## | optional any
 
-        {:des "wm focus"
-         :rules [[:h [:yabai-win "--focus west"] :wm-mode-focus]
-                 [:l [:yabai-win "--focus east"] :wm-mode-focus]
-                 [:j [:yabai-win "--focus south"] :wm-mode-focus]
-                 [:k [:yabai-win "--focus north"] :wm-mode-focus]
+        #_{:des "wm focus"
+           :rules [[:h [:yabai-win "--focus west"] :wm-mode-focus]
+                   [:l [:yabai-win "--focus east"] :wm-mode-focus]
+                   [:j [:yabai-win "--focus south"] :wm-mode-focus]
+                   [:k [:yabai-win "--focus north"] :wm-mode-focus]
 
-                 ;; focus space
-                 [:y [:yabai-space "--focus 1"] :wm-mode-focus]
-                 [:u [:yabai-space "--focus 2"] :wm-mode-focus]
-                 [:i [:yabai-space "--focus 3"] :wm-mode-focus]
-                 [:o [:yabai-space "--focus 4"] :wm-mode-focus]
-                 [:p [:yabai-space "--focus last"] :wm-mode-focus]
+                   ;; focus space
+                   [:y [:yabai-space "--focus 1"] :wm-mode-focus]
+                   [:u [:yabai-space "--focus 2"] :wm-mode-focus]
+                   [:i [:yabai-space "--focus 3"] :wm-mode-focus]
+                   [:o [:yabai-space "--focus 4"] :wm-mode-focus]
+                   [:p [:yabai-space "--focus last"] :wm-mode-focus]
 
-                 [:comma :!Tleft_arrow :wm-mode-focus]
-                 [:period :!Tright_arrow :wm-mode-focus]]}
+                   [:comma :!Tleft_arrow :wm-mode-focus]
+                   [:period :!Tright_arrow :wm-mode-focus]]}
 
-        {:des "wm move"
-         :rules [[:h  [:yabai-win "--swap west"] :wm-mode-move]
-                 [:l  [:yabai-win "--swap east"] :wm-mode-move]
-                 [:j  [:yabai-win "--swap south"] :wm-mode-move]
-                 [:k  [:yabai-win "--swap north"] :wm-mode-move]
+        #_{:des "wm move"
+           :rules [[:h  [:yabai-win "--swap west"] :wm-mode-move]
+                   [:l  [:yabai-win "--swap east"] :wm-mode-move]
+                   [:j  [:yabai-win "--swap south"] :wm-mode-move]
+                   [:k  [:yabai-win "--swap north"] :wm-mode-move]
 
-                 [:y [:yabai-win "--space 1"] :wm-mode-move]
-                 [:u [:yabai-win "--space 2"] :wm-mode-move]
-                 [:i [:yabai-win "--space 3"] :wm-mode-move]
-                 [:o [:yabai-win "--space 4"] :wm-mode-move]
-                 [:p [:yabai-win "--space 5"] :wm-mode-move]]}
+                   [:y [:yabai-win "--space 1"] :wm-mode-move]
+                   [:u [:yabai-win "--space 2"] :wm-mode-move]
+                   [:i [:yabai-win "--space 3"] :wm-mode-move]
+                   [:o [:yabai-win "--space 4"] :wm-mode-move]
+                   [:p [:yabai-win "--space 5"] :wm-mode-move]]}
 
-        {:des "wm warp"
-         :rules [[:h [:yabai-win  "--warp west"] :wm-mode-warp]
-                 [:l [:yabai-win  "--warp east"] :wm-mode-warp]
-                 [:j [:yabai-win  "--warp south"] :wm-mode-warp]
-                 [:k [:yabai-win  "--warp north"] :wm-mode-warp]
+        #_{:des "wm warp"
+           :rules [[:h [:yabai-win  "--warp west"] :wm-mode-warp]
+                   [:l [:yabai-win  "--warp east"] :wm-mode-warp]
+                   [:j [:yabai-win  "--warp south"] :wm-mode-warp]
+                   [:k [:yabai-win  "--warp north"] :wm-mode-warp]
 
-                 [:y [:yabai-space "--move 1"] :wm-mode-warp]
-                 [:u [:yabai-space "--move 2"] :wm-mode-warp]
-                 [:i [:yabai-space "--move 3"] :wm-mode-warp]
-                 [:o [:yabai-space "--move 4"] :wm-mode-warp]
-                 [:p [:yabai-space "--move last"] :wm-mode-warp]
-                 
-                 ;; float / unfloat window and center on screen
-                 [:f "/opt/homebrew/bin/yabai -m window --toggle float;
-                      /opt/homebrew/bin/yabai -m window --grid 4:4:1:1:2:2"
-                      :wm-mode-warp]
+                   [:y [:yabai-space "--move 1"] :wm-mode-warp]
+                   [:u [:yabai-space "--move 2"] :wm-mode-warp]
+                   [:i [:yabai-space "--move 3"] :wm-mode-warp]
+                   [:o [:yabai-space "--move 4"] :wm-mode-warp]
+                   [:p [:yabai-space "--move last"] :wm-mode-warp]
 
-                 ;; go zoom fullscreen
-                 [:m [:yabai-win "--toggle zoom-fullscreen"] :wm-mode-warp]
+                   ;; float / unfloat window and center on screen
+                   [:f "/opt/homebrew/bin/yabai -m window --toggle float;
+                    /opt/homebrew/bin/yabai -m window --grid 4:4:1:1:2:2"
+                    :wm-mode-warp]
 
-                 ;; toggle split type
-                 [:e [:yabai-win "--toggle split"] :wm-mode-warp]]}
+                   ;; go zoom fullscreen
+                   [:m [:yabai-win "--toggle zoom-fullscreen"] :wm-mode-warp]
 
-        {:des "wm size"
-         :rules [[:h [:yabai-size "left:-20:0" "right:-20:0"] :wm-mode-size]
-                 [:j [:yabai-size "bottom:0:20" "top:0:20"] :wm-mode-size]
-                 [:k [:yabai-size "top:0:-20" "bottom:0:-20"] :wm-mode-size]
-                 [:l [:yabai-size "right:20:0" "left:20:0"] :wm-mode-size]
+                   ;; toggle split type
+                   [:e [:yabai-win "--toggle split"] :wm-mode-warp]]}
 
-                 [:u [:yabai-size "left:-100:0" "right:-100:0"] :wm-mode-size]
-                 [:i [:yabai-size "bottom:0:100" "top:0:100"] :wm-mode-size]
-                 [:o [:yabai-size "top:0:-100" "bottom:0:-100"] :wm-mode-size]
-                 [:p [:yabai-size "right:100:0" "left:100:0"] :wm-mode-size]
+        #_{:des "wm size"
+           :rules [[:h [:yabai-size "left:-20:0" "right:-20:0"] :wm-mode-size]
+                   [:j [:yabai-size "bottom:0:20" "top:0:20"] :wm-mode-size]
+                   [:k [:yabai-size "top:0:-20" "bottom:0:-20"] :wm-mode-size]
+                   [:l [:yabai-size "right:20:0" "left:20:0"] :wm-mode-size]
 
-                 [:0 [:yabai-space "--balance"] :wm-mode-size]]}
+                   [:u [:yabai-size "left:-100:0" "right:-100:0"] :wm-mode-size]
+                   [:i [:yabai-size "bottom:0:100" "top:0:100"] :wm-mode-size]
+                   [:o [:yabai-size "top:0:-100" "bottom:0:-100"] :wm-mode-size]
+                   [:p [:yabai-size "right:100:0" "left:100:0"] :wm-mode-size]
 
-        {:des "wm open"
-         :rules [[:c "open /Applications/Google\\ Chrome.app" :wm-mode-open]
-                 [:t "open /Applications/Telegram\\ Lite.app/" :wm-mode-open]
-                 [:n ["open /Applications/Neovide.app" :select_abc] :wm-mode-open]
-                 [:w ["open /Applications/WezTerm.app" :select_abc] :wm-mode-open]]}]
+                   [:0 [:yabai-space "--balance"] :wm-mode-size]]}
+        ]
 
  :simlayers {:wm-mode-focus {:key :f}
              :wm-mode-move {:key :d}
