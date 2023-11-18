@@ -4,6 +4,7 @@
 
 [{1 :goolord/alpha-nvim
   :dependencies [:Shatur/neovim-session-manager]
+  :lazy false
   :config (fn []
             (let [sessions (require :session_manager) 
                   sconf (require :session_manager.config)
