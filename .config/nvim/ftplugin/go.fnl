@@ -5,3 +5,5 @@
 (bkset :n :<Leader>tc ":GoTestFunc -v -F<Cr>")
 (bkset :n :<Leader>ta ":GoTest -v -F<Cr>")
 (bkset :n :<Leader>re ":GoIfErr<Cr>g;")
+
+(bkset :n :<Leader>b ":GoRun % -F -v<Cr>")
