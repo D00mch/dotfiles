@@ -6,9 +6,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # help commands start
-alias vim=nvim
-alias v=vim
-alias vi=vim
 alias s='source ~/.zshrc; source ~/.zshenv'
 alias ~='cd ~'
 alias ip="ifconfig | grep 'inet' | grep -Fv 127.0.0.1 | awk '{print $2}'"
