@@ -90,7 +90,7 @@ set ReplaceWithRegister
         vnoremap <Leader>de :action EvaluateExpression<cr>
         nnoremap <Leader>sq :action Stop<cr>
         "android complements
-        nnoremap <Leader>sg :action Android.SyncProject<cr>
+        nnoremap <Leader>sg :action ExternalSystem.ProjectRefreshAction<cr>
         nnoremap <Leader>db :action ToggleLineBreakpoint<cr>
         nnoremap <Leader>h :action QuickJavaDoc<cr>
         nnoremap <Leader>rfu :action FindUsages<cr>
