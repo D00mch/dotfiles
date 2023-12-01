@@ -15,6 +15,9 @@ set matchit
 set ReplaceWithRegister
 
 "VIM HOTKEYS
+    nmap << :tabm-1<cr>    
+    nmap >> :tabm+1<cr>    
+
     nnoremap g; :action JumpToLastChange<cr>
     nmap = :action ReformatCode<Cr>
     vmap = :action ReformatCode<Cr>
