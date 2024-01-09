@@ -28,6 +28,7 @@ set ReplaceWithRegister
     nmap <space>3 :action ActivateFindToolWindow<cr>
     nmap <space>4 :action ActivateRunToolWindow<cr>
     nmap <space>5 :action ActivateDebugToolWindow<cr>
+    nmap <space>6 :action ActivateServicesToolWindow<cr>
     nmap <space>7 :action ActivateAndroidProfilerToolWindow<cr>
     nmap <space>8 :action ActivateTerminalToolWindow<cr>
     nmap <space>9 :action ActivateVersionControlToolWindow<cr>
@@ -37,10 +38,6 @@ set ReplaceWithRegister
     "needs ideavim extension plugin
     set keep-english-in-normal-and-restore-in-insert
     set highlightedyank
-
-    nmap q :action KJumpAction<cr>
-    nmap Q :action KJumpAction.Word0<cr>
-    nmap <leader><leader>l :action KJumpAction.Line<cr>
 
     nnoremap <C-n> :action codeium.i<cr>
     nnoremap <C-p> :action codeium.j<cr>
