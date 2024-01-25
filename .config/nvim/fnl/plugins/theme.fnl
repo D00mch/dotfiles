@@ -4,27 +4,16 @@
 (local {: kset} (autoload :config.util))
 
 (fn dark? [] (= nvim.o.background "dark"))
-(fn transparent? [] (= 0 nvim.g.neovide_transparency))
-
-(fn alpha []
-  (string.format "%x" (math.floor (or (* 255 vim.g.transparency) 0.8))))	
+(fn transparent? [] (not= 1 vim.g.neovide_transparency))
 
 (set vim.g.neovide_floating_blur_amount_x 8.0)
 (set vim.g.neovide_floating_blur_amount_y 8.0)
 
-(fn make-transparent [dark?]
-  (set vim.g.neovide_transparency 0.0)
-  (set vim.g.transparency 0.92)
-  (if dark?
-    (set vim.g.neovide_background_color (.. "#0f1117" (alpha)))
-    (set vim.g.neovide_background_color (.. "#f2f2f2" (alpha)))))
+(fn make-transparent []
+  (set vim.g.neovide_transparency 0.85))
 
-(fn make-non-transparent [dark?]
-  (set vim.g.neovide_transparency 1.0)
-  (set vim.g.transparency 1.0)
-  (if dark?
-     (vim.cmd "let g:neovide_background_color = '#0f1117'")
-     (vim.cmd "let g:neovide_background_color = '#FFF'")))
+(fn make-non-transparent []
+  (set vim.g.neovide_transparency 1))
 
 (fn set-theme [dark?]
   (make-transparent dark?)
@@ -64,8 +53,8 @@
             (toggle "t"
                     "transparency"
                     #(if (transparent?)
-                       (make-non-transparent (dark?))
-                       (make-transparent (dark?)))))
+                       (make-non-transparent)
+                       (make-transparent))))
 
           ; (vim.api.nvim_create_autocmd
           ;   :ColorScheme

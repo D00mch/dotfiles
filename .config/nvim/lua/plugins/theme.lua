@@ -1,4 +1,4 @@
--- [nfnl] Compiled from .config/nvim/fnl/plugins/theme.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from fnl/plugins/theme.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local nvim = autoload("nvim")
@@ -10,32 +10,17 @@ local function dark_3f()
   return (nvim.o.background == "dark")
 end
 local function transparent_3f()
-  return (0 == nvim.g.neovide_transparency)
-end
-local function alpha()
-  return string.format("%x", math.floor(((255 * vim.g.transparency) or 0.8)))
+  return (1 ~= vim.g.neovide_transparency)
 end
 vim.g.neovide_floating_blur_amount_x = 8
 vim.g.neovide_floating_blur_amount_y = 8
-local function make_transparent(dark_3f0)
-  vim.g.neovide_transparency = 0
-  vim.g.transparency = 0.92
-  if dark_3f0 then
-    vim.g.neovide_background_color = ("#0f1117" .. alpha())
-    return nil
-  else
-    vim.g.neovide_background_color = ("#f2f2f2" .. alpha())
-    return nil
-  end
+local function make_transparent()
+  vim.g.neovide_transparency = 0.85
+  return nil
 end
-local function make_non_transparent(dark_3f0)
+local function make_non_transparent()
   vim.g.neovide_transparency = 1
-  vim.g.transparency = 1
-  if dark_3f0 then
-    return vim.cmd("let g:neovide_background_color = '#0f1117'")
-  else
-    return vim.cmd("let g:neovide_background_color = '#FFF'")
-  end
+  return nil
 end
 local function set_theme(dark_3f0)
   make_transparent(dark_3f0)
@@ -45,14 +30,14 @@ local function set_theme(dark_3f0)
     nvim.o.background = "light"
   end
   vim.api.nvim_command("colorscheme everforest")
-  local function _7_()
+  local function _5_()
     if dark_3f0 then
       return "kanagawa-dragon"
     else
       return "dawnfox"
     end
   end
-  return vim.api.nvim_command(("colorscheme " .. _7_()))
+  return vim.api.nvim_command(("colorscheme " .. _5_()))
 end
 local default_font = "Hack Nerd Font Mono:h15"
 nvim.o.guifont = default_font
@@ -62,18 +47,18 @@ local function font_size_21(diff)
   nvim.o.guifont = font:gsub("%d+$", size)
   return nil
 end
-local function _8_()
+local function _6_()
   if vim.g.neovide then
     nvim.g.neovide_cursor_vfx_mode = "railgun"
     nvim.g.neovide_input_macos_alt_is_meta = true
-    local function _9_()
+    local function _7_()
       if transparent_3f() then
-        return make_non_transparent(dark_3f())
+        return make_non_transparent()
       else
-        return make_transparent(dark_3f())
+        return make_transparent()
       end
     end
-    toggle("t", "transparency", _9_)
+    toggle("t", "transparency", _7_)
   else
   end
   do
@@ -82,31 +67,31 @@ local function _8_()
     everforest.setup({background = "hard"})
     nightfox.setup({options = {styles = {comments = "italic", types = "italic", functions = "bold"}}})
   end
-  local function _12_()
+  local function _10_()
     return font_size_21(1)
   end
-  kset("n", "<D-=>", _12_)
-  local function _13_()
+  kset("n", "<D-=>", _10_)
+  local function _11_()
     return font_size_21(-1)
   end
-  kset("n", "<D-->", _13_)
-  local function _14_()
+  kset("n", "<D-->", _11_)
+  local function _12_()
     nvim.o.guifont = default_font
     return nil
   end
-  kset("n", "<D-0>", _14_)
+  kset("n", "<D-0>", _12_)
   vim.opt.fillchars = {eob = " "}
   return nil
 end
-local function _15_()
+local function _13_()
   local auto = require("auto-dark-mode")
-  local function _16_()
+  local function _14_()
     return set_theme(true)
   end
-  local function _17_()
+  local function _15_()
     return set_theme(false)
   end
-  auto.setup({update_interval = 2000, set_dark_mode = _16_, set_light_mode = _17_})
+  auto.setup({update_interval = 2000, set_dark_mode = _14_, set_light_mode = _15_})
   return auto.init()
 end
-return {{"f-person/auto-dark-mode.nvim", priority = 1000, dependencies = {"nvim-tree/nvim-web-devicons", "neanias/everforest-nvim", "sainnhe/edge", "rebelot/kanagawa.nvim", "EdenEast/nightfox.nvim"}, init = _8_, config = _15_, lazy = false}}
+return {{"f-person/auto-dark-mode.nvim", priority = 1000, dependencies = {"nvim-tree/nvim-web-devicons", "neanias/everforest-nvim", "sainnhe/edge", "rebelot/kanagawa.nvim", "EdenEast/nightfox.nvim"}, init = _6_, config = _13_, lazy = false}}
