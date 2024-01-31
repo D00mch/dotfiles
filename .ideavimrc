@@ -13,6 +13,8 @@ set commentary
 set surround
 set matchit
 set ReplaceWithRegister
+set which-key
+set notimeout
 
 "VIM HOTKEYS
     nmap << :tabm-1<cr>    
@@ -32,6 +34,22 @@ set ReplaceWithRegister
     nmap <space>7 :action ActivateAndroidProfilerToolWindow<cr>
     nmap <space>8 :action ActivateTerminalToolWindow<cr>
     nmap <space>9 :action ActivateVersionControlToolWindow<cr>
+
+    let g:relative_number_set = 1
+    function! ToggleRelativeNumber()
+        if g:relative_number_set
+            set relativenumber
+            let g:relative_number_set = 0
+        else
+            set norelativenumber
+            let g:relative_number_set = 1
+        endif
+    endfunction
+    nmap <space>tn :call ToggleRelativeNumber()<CR>
+
+    nnoremap <D-a> ggVG
+    xnoremap <D-a> <Esc>ggVG
+    inoremap <D-a> <Esc>ggVG
 
 "PLUGINS SETUPS
     set ideamarks
