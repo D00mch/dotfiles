@@ -20,6 +20,35 @@
    {:name :codeium}
    {:name :snippy}])
 
+(local kind-icons
+  {:Class "󰠱"
+   :Color "󰏘"
+   :Constant "󰏿"
+   :Constructor ""
+   :Enum ""
+   :EnumMember ""
+   :Event ""
+   :Field "󰇽"
+   :File "󰈙"
+   :Folder "󰉋"
+   :Function "󰊕"
+   :Interface ""
+   :Keyword "󰌋"
+   :Method "󰆧"
+   :Module ""
+   :Operator "󰆕"
+   :Property "󰜢"
+   :Reference ""
+   :Snippet ""
+   :Struct ""
+   :Text ""
+   :TypeParameter "󰅲"
+   :Unit ""
+   :Value "󰎠"
+   :Variable "󰂡"
+   :Text "󰭷"
+   :Conj ""})	
+
 (fn has-words-before []
   (let [[line col] (vim.api.nvim_win_get_cursor 0)]
     (and (~= col 0)
@@ -57,6 +86,8 @@
               (cmp.setup
                 {:formatting
                  {:format (fn [entry item]
+                            (set item.kind 
+                                 (string.format "%s %s" (. kind-icons item.kind) item.kind))
                             (set item.menu (or (. cmp-src-menu-items entry.source.name) ""))
                             item)}
                  ; :formatters 
@@ -78,7 +109,7 @@
                   :<C-e> (cmp.mapping.close)
                   :<CR> (cmp.mapping.confirm {:behavior cmp.ConfirmBehavior.Replace
                                               :select false})}
-                 :sources cmp-srcs
+                 :sources (cmp.config.sources cmp-srcs)
                  :confirm_opts {:behavior cmp.ConfirmBehavior.Replace
                                 :select false}
                  :snippet
