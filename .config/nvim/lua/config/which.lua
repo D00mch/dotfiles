@@ -1,4 +1,4 @@
--- [nfnl] Compiled from .config/nvim/fnl/config/which.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from fnl/config/which.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local nvim = autoload("nvim")
@@ -68,7 +68,7 @@ local function _10_()
   vim.o.relativenumber = not vim.o.relativenumber
   return nil
 end
-wk.register({["<Space>"] = {r = {("<Cmd>" .. set_lang_cmd("ru_RU") .. "setlocal spell! spelllang=ru_ru,en_us<cr>"), "Set RUS, toggle grammar"}, e = {("<Cmd>" .. set_lang_cmd("en_US") .. "setlocal spell! spelllang=ru_ru,en_us<cr>"), "Set ENG, toggle grammar"}, t = {name = "toggle", m = {_7_, "Modifiable"}, i = {_8_, "List invisible chars"}, f = {_9_, "Full Screen"}, r = {_10_, "Relative Numbers"}, R = {"mZ:Bd!<cr>`Z", "Refresh file"}, a = {name = "Animation", ["1"] = {"<cmd>CellularAutomaton make_it_rain<CR>", "Rain"}, ["2"] = {"<cmd>CellularAutomaton game_of_life<CR>", "Game"}}}}})
+wk.register({["<Space>"] = {r = {("<Cmd>" .. set_lang_cmd("ru_RU") .. "setlocal spell! spelllang=ru_ru,en_us<cr>"), "Set RUS, toggle grammar"}, e = {("<Cmd>" .. set_lang_cmd("en_US") .. "setlocal spell! spelllang=ru_ru,en_us<cr>"), "Set ENG, toggle grammar"}, t = {name = "toggle", m = {_7_, "Modifiable"}, i = {_8_, "List invisible chars"}, f = {_9_, "Full Screen"}, r = {_10_, "Relative Numbers"}, R = {"mZ:Bd!<cr>`Z", "Refresh file"}, a = {name = "Animation", ["1"] = {"<cmd>CellularAutomaton make_it_rain<CR>", "Rain"}, ["2"] = {"<cmd>CellularAutomaton game_of_life<CR>", "Game"}, ["3"] = {"<cmd>CellularAutomaton scramble<CR>", "Scramble"}}}}})
 wk.register({["<Space>"] = {f = {{j = {"!jq<cr>", "Json"}, p = {"!pg_format -s 2<cr>", "pSQL"}, c = {"<Esc>:ReplaceSelection tocamel<Cr>", "CamelCase"}, s = {"<Esc>:ReplaceSelection tosnake<Cr>", "snake_case"}, k = {"<Esc>:ReplaceSelection tokebab<Cr>", "kebab-case"}, ["8"] = {"<Esc>:set tw=80<Cr>gvgq", "80 width"}}, "Format"}}}, {mode = "x"})
 vim.o.listchars = "eol:\194\172,space:\194\183,tab:\226\134\146-,extends:\226\150\184,precedes:\226\151\130,multispace:\194\183\194\183\194\183\226\172\157,leadmultispace:\226\148\130   "
 local function tocamel(s)

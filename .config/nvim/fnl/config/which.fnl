@@ -62,8 +62,8 @@
         ;; fan
         :a {:name :Animation
             :1 ["<cmd>CellularAutomaton make_it_rain<CR>" :Rain]
-            :2 ["<cmd>CellularAutomaton game_of_life<CR>" :Game]}
-        }}})
+            :2 ["<cmd>CellularAutomaton game_of_life<CR>" :Game]
+            :3 ["<cmd>CellularAutomaton scramble<CR>" :Scramble]}}}})
 
 (wk.register
   {:<Space>
