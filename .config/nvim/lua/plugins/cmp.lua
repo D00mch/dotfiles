@@ -1,11 +1,11 @@
--- [nfnl] Compiled from .config/nvim/fnl/plugins/cmp.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from fnl/plugins/cmp.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local _local_2_ = autoload("nfnl.core")
 local merge = _local_2_["merge"]
 local telescope = autoload("telescope")
 local cmp_src_menu_items = {buffer = "buff", conjure = "conj", path = "path", nvim_lsp = "lsp"}
-local cmp_srcs = {{name = "nvim_lsp"}, {name = "conjure"}, {name = "buffer"}, {name = "path"}, {name = "spell"}, {name = "codeium"}, {name = "snippy"}}
+local cmp_srcs = {{name = "nvim_lsp"}, {name = "conjure"}, {name = "buffer"}, {name = "path"}, {name = "spell"}, {name = "cmp-dbee"}, {name = "codeium"}, {name = "snippy"}}
 local function has_words_before()
   local _let_3_ = vim.api.nvim_win_get_cursor(0)
   local line = _let_3_[1]
@@ -44,4 +44,4 @@ local function _5_()
   cmp.setup.cmdline("/", {mapping = cmp.mapping.preset.cmdline(), sources = cmp.config.sources({{name = "buffer", max_item_count = 18}})})
   return cmp.setup.cmdline(":", {mapping = cmp.mapping.preset.cmdline(), sources = cmp.config.sources({{name = "cmdline", max_item_count = 18}, {name = "path", max_item_count = 12}})})
 end
-return {{"hrsh7th/nvim-cmp", dependencies = {"hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-path", "hrsh7th/cmp-cmdline", "f3fora/cmp-spell", "PaterJason/cmp-conjure", "dcampos/cmp-snippy", "dcampos/nvim-snippy"}, config = _5_}}
+return {{"hrsh7th/nvim-cmp", dependencies = {"hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-path", "hrsh7th/cmp-cmdline", "f3fora/cmp-spell", "PaterJason/cmp-conjure", "dcampos/cmp-snippy", "dcampos/nvim-snippy", {"MattiasMTS/cmp-dbee", ft = "sql"}}, config = _5_}}

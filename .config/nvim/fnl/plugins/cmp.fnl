@@ -16,6 +16,7 @@
    {:name :path}
    {:name :spell}
    ; {:name :copilot}
+   {:name :cmp-dbee}
    {:name :codeium}
    {:name :snippy}])
 
@@ -28,14 +29,14 @@
 
 [{1 :hrsh7th/nvim-cmp
   :dependencies [:hrsh7th/cmp-buffer 
-  :hrsh7th/cmp-nvim-lsp 
-  :hrsh7th/cmp-path 
-  :hrsh7th/cmp-cmdline 
-  :f3fora/cmp-spell 
-  :PaterJason/cmp-conjure 
-  :dcampos/cmp-snippy
-  :dcampos/nvim-snippy
-                 ]
+                 :hrsh7th/cmp-nvim-lsp 
+                 :hrsh7th/cmp-path 
+                 :hrsh7th/cmp-cmdline 
+                 :f3fora/cmp-spell 
+                 :PaterJason/cmp-conjure 
+                 :dcampos/cmp-snippy
+                 :dcampos/nvim-snippy
+                 {1 :MattiasMTS/cmp-dbee :ft :sql}]
   :config (fn []
             (let [cmp (require :cmp)
                   snippy (require :snippy)
