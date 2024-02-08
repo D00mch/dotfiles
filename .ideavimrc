@@ -31,7 +31,7 @@ set notimeout
     nmap <space>4 :action ActivateRunToolWindow<cr>
     nmap <space>5 :action ActivateDebugToolWindow<cr>
     nmap <space>6 :action ActivateServicesToolWindow<cr>
-    nmap <space>7 :action ActivateAndroidProfilerToolWindow<cr>
+    nmap <space>7 :action ActivateBuildToolWindow<cr>
     nmap <space>8 :action ActivateTerminalToolWindow<cr>
     nmap <space>9 :action ActivateVersionControlToolWindow<cr>
 
