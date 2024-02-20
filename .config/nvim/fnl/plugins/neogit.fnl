@@ -22,5 +22,17 @@
          :sections {:untracked {:folded true}
                     :recent    {:folded true}}
          :mappings {:status {:o :Toggle
-                             :q false}}}
+                             :q false}
+                    ;;; neogit breaks if you update keys
+                    ;;; https://github.com/NeogitOrg/neogit/issues/1160
+                    ; :rebase_editor {:p false
+                    ;                 :r false
+                    ;                 :e false
+                    ;                 :s false
+                    ;                 :f false
+                    ;                 :x false
+                    ;                 :d false
+                    ;                 :b false
+                    ;                 :q false}
+                    }}
   :config true}]

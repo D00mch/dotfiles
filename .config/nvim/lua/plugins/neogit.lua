@@ -1,4 +1,4 @@
--- [nfnl] Compiled from .config/nvim/fnl/plugins/neogit.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from fnl/plugins/neogit.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local _local_2_ = autoload("config.util")
@@ -21,4 +21,4 @@ end
 local function _4_()
   return kset({"n", "x"}, "<Space>9", neogit_toggle, "Toggle NeoGit")
 end
-return {{"TimUntersberger/neogit", dependencies = {"nvim-lua/plenary.nvim"}, init = _4_, opts = {kind = "split", integrations = {diffview = true, telescope = true}, disable_commit_confirmation = true, sections = {untracked = {folded = true}, recent = {folded = false}}, mappings = {status = {o = "Toggle", q = false}}}, config = true}}
+return {{"TimUntersberger/neogit", dependencies = {"nvim-lua/plenary.nvim"}, init = _4_, opts = {kind = "split", integrations = {diffview = true, telescope = true}, disable_commit_confirmation = true, sections = {untracked = {folded = true}, recent = {folded = true}}, mappings = {status = {o = "Toggle", q = false}}}, config = true}}
