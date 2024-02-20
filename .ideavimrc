@@ -60,11 +60,6 @@ set notimeout
     nnoremap <C-n> :action codeium.i<cr>
     nnoremap <C-p> :action codeium.j<cr>
 
-"EDITING
-
-    "GIT
-        nnoremap <space>gr :action Vcs.RollbackChangedLines<cr>
-
 "NAVIGATION
     set path+=**
 
@@ -90,6 +85,8 @@ set notimeout
     "GIT
         nnoremap gn :action VcsShowNextChangeMarker<cr>
         nnoremap gN :action VcsShowPrevChangeMarker<cr>
+        nnoremap gs :action Vcs.ApplySelectedChanges<cr>
+        nnoremap <space>gr :action Vcs.RollbackChangedLines<cr>
 
 "SYNTAX
     "INDENTS
