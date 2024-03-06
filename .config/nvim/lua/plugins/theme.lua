@@ -15,7 +15,7 @@ end
 vim.g.neovide_floating_blur_amount_x = 8
 vim.g.neovide_floating_blur_amount_y = 8
 local function make_transparent()
-  vim.g.neovide_transparency = 0.85
+  vim.g.neovide_transparency = 0.9
   return nil
 end
 local function make_non_transparent()
