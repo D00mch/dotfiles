@@ -13,16 +13,13 @@
           (set nvim.o.foldmethod :expr)
           (set nvim.o.foldexpr "nvim_treesitter#foldexpr()"))
   :config (fn []
-            (let [treesitter (require :nvim-treesitter.configs)
-                  ts-rainbow (require :ts-rainbow)]
+            (let [treesitter (require :nvim-treesitter.configs)]
               (treesitter.setup
                 {:ensure_installed [:java :lua :yaml :bash :kotlin
                                     :clojure :fennel :scheme :racket
                                     :markdown :markdown_inline
                                     :http :json :sql :dart :vim :go
                                     :typescript :css :rust]
-                 :rainbow {:enable true
-                           :strategy ts-rainbow.strategy.global}
                  :highlight {:enable true
                              ;; problems when I set this to 'true'
                              ;; - can't use `vaf`, `dif`, etc... inside strings
