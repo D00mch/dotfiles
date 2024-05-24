@@ -14,7 +14,11 @@
 (local config-path (nvim.fn.stdpath "config"))
 
 (fn +docs [opts to]
-  (update opts :desc (fn [desc] (or desc to))))
+  (update opts :desc (fn [desc] 
+                       (if 
+                         (= (type to) "function") desc
+                         (= desc nil) to
+                         (.. desc " " to)))))
 
 (fn +buffer [opts buffer]
   (update opts :buffer (fn [b] (or b buffer))))

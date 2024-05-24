@@ -21,15 +21,21 @@ end
 local config_path = nvim.fn.stdpath("config")
 local function _2bdocs(opts, to)
   local function _3_(desc)
-    return (desc or to)
+    if (type(to) == "function") then
+      return desc
+    elseif (desc == nil) then
+      return to
+    else
+      return (desc .. " " .. to)
+    end
   end
   return update(opts, "desc", _3_)
 end
 local function _2bbuffer(opts, buffer)
-  local function _4_(b)
+  local function _5_(b)
     return (b or buffer)
   end
-  return update(opts, "buffer", _4_)
+  return update(opts, "buffer", _5_)
 end
 local function kset(modes, from, to, opts)
   local opts0
@@ -62,16 +68,16 @@ local function bkdel(modes, from, b)
   return vim.keymap.del(modes, from, {buffer = (b or 0)})
 end
 local function vis_op(op, args)
-  local function _7_()
+  local function _8_()
     return op({vim.fn.line("."), vim.fn.line("v")}, args)
   end
-  return _7_
+  return _8_
 end
 local function vis_op_2b(op, args)
-  local function _8_()
+  local function _9_()
     return op({vim.api.nvim_buf_get_mark(0, "<"), vim.api.nvim_buf_get_mark(0, ">")}, args)
   end
-  return _8_
+  return _9_
 end
 local function get_word_under_cursor()
   local cursor_pos = vim.api.nvim_win_get_cursor(0)
@@ -84,20 +90,20 @@ local function get_word_under_cursor()
   return {word, row, col}
 end
 local function get_word_under_selection()
-  local _let_9_ = vim.api.nvim_buf_get_mark(0, "<")
-  local sr = _let_9_[1]
-  local sc = _let_9_[2]
-  local _let_10_ = {dec(sr), sc}
-  local sr0 = _let_10_[1]
-  local sc0 = _let_10_[2]
-  local _let_11_ = vim.api.nvim_buf_get_mark(0, ">")
-  local er = _let_11_[1]
-  local ec = _let_11_[2]
-  local _let_12_ = {dec(er), inc(ec)}
-  local er0 = _let_12_[1]
-  local ec0 = _let_12_[2]
-  local _let_13_ = vim.api.nvim_buf_get_text(0, sr0, sc0, er0, ec0, {})
-  local word = _let_13_[1]
+  local _let_10_ = vim.api.nvim_buf_get_mark(0, "<")
+  local sr = _let_10_[1]
+  local sc = _let_10_[2]
+  local _let_11_ = {dec(sr), sc}
+  local sr0 = _let_11_[1]
+  local sc0 = _let_11_[2]
+  local _let_12_ = vim.api.nvim_buf_get_mark(0, ">")
+  local er = _let_12_[1]
+  local ec = _let_12_[2]
+  local _let_13_ = {dec(er), inc(ec)}
+  local er0 = _let_13_[1]
+  local ec0 = _let_13_[2]
+  local _let_14_ = vim.api.nvim_buf_get_text(0, sr0, sc0, er0, ec0, {})
+  local word = _let_14_[1]
   return {word, sr0, sc0, er0, ec0}
 end
 return {["config-path"] = config_path, ["lua-file"] = lua_file, println = println, ["exists?"] = exists_3f, kset = kset, bkset = bkset, bkdel = bkdel, ["vis-op"] = vis_op, ["vis-op+"] = vis_op_2b, ["get-word-under-cursor"] = get_word_under_cursor, ["get-word-under-selection"] = get_word_under_selection}

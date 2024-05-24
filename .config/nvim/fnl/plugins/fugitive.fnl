@@ -18,8 +18,8 @@
                             "G"))))
 
 [{1 :tpope/vim-fugitive
-  :lazy true
-  :cond false
+  :lazy false
+  :cond true
   :init (fn []
           (kset [:n :x] :<space>ga annotate-toggle)
           (vim.api.nvim_command "set splitbelow")
