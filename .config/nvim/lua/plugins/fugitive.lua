@@ -37,4 +37,4 @@ local function _5_()
   vim.api.nvim_command("set splitbelow")
   return kset({"n", "x"}, "<Space>9", fugitive_toggle)
 end
-return {{"tpope/vim-fugitive", cond = true, init = _5_, lazy = false}}
+return {{"tpope/vim-fugitive", cond = true, init = _5_}}

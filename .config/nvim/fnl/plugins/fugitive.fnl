@@ -18,7 +18,6 @@
                             "G"))))
 
 [{1 :tpope/vim-fugitive
-  :lazy false
   :cond true
   :init (fn []
           (kset [:n :x] :<space>ga annotate-toggle)

@@ -21,4 +21,4 @@ end
 local function _4_()
   return kset({"n", "x"}, "<Space>9", neogit_toggle, "Toggle NeoGit")
 end
-return {{"TimUntersberger/neogit", dependencies = {"nvim-lua/plenary.nvim"}, init = _4_, lazy = true, cond = true, opts = {kind = "split", integrations = {diffview = true, telescope = true}, disable_commit_confirmation = true, sections = {untracked = {folded = true}, recent = {folded = true}}, mappings = {status = {o = "Toggle", q = false}}}, config = true}}
+return {{"TimUntersberger/neogit", dependencies = {"nvim-lua/plenary.nvim"}, init = _4_, lazy = true, opts = {kind = "split", integrations = {diffview = true, telescope = true}, disable_commit_confirmation = true, sections = {untracked = {folded = true}, recent = {folded = true}}, mappings = {status = {o = "Toggle", q = false}}}, config = true, cond = false}}
