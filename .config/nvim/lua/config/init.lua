@@ -37,6 +37,7 @@ do
   kset("n", "<D-z>", "u")
   kset("x", "<D-z>", "<Esc>ugv")
   kset("i", "<D-z>", "<Esc><D-z>a", {remap = true})
+  kset("i", "<D-_>", "<C-k>-M")
   kset({"i", "c"}, "<D-->", "\226\128\148")
   kset({"n", "x"}, "<D-f>", "/")
   kset({"i", "t"}, "<D-f>", "<Esc><D-f>", {remap = true})

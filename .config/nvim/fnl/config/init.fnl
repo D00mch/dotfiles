@@ -42,6 +42,8 @@
   (kset :x :<D-z> :<Esc>ugv)
   (kset :i :<D-z> :<Esc><D-z>a {:remap true})
 
+  (kset :i :<D-_> :<C-k>-M)
+
   ;; hack mappings. I never use it directly, but it's mapped from karabiner to insert <alt+shift+->
   (kset [:i :c] :<D--> :—)
 
