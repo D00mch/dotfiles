@@ -74,7 +74,11 @@
          :c ["<Esc>:ReplaceSelection tocamel<Cr>" "CamelCase"]
          :s ["<Esc>:ReplaceSelection tosnake<Cr>" "snake_case"]         
          :k ["<Esc>:ReplaceSelection tokebab<Cr>" "kebab-case"]
-         :8 ["<Esc>:set tw=80<Cr>gvgq" "80 width"]}
+         :8 ["<Esc>:set tw=80<Cr>gvgq" "80 width"]
+         :b [ {:e ["c<c-r>=system('base64', @\")[:-2]<cr><c-\\><c-n>"    "Encode"]
+               :d ["c<c-r>=system('base64 --decode', @\")[:-1]<cr><c-\\><c-n>" "Decode"]}
+             "Base64"]
+         }
         "Format"]
     }}
   {:mode :x})

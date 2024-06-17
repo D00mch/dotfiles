@@ -14,7 +14,6 @@ alias theme="java -jar ~/dotfiles/clj_scripts/theme/target/default+uberjar/theme
 alias wtheme="theme 'w'"
 alias btheme="theme 'b'"
 alias c="clear"
-alias b64="echo `echo $1 | base64 --decode`"
 
 # notes
 alias todo='vim ~/wiki/todo.md -c ":cd %:p:h"'

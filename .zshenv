@@ -24,3 +24,13 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 # For vim-iced
 export PATH=$PATH:~/.local/share/nvim/plugged/vim-iced/bin
+
+# UTILS (Can be seen from vim)
+
+b64dec(){
+    echo "$1" | base64 --decode
+}
+
+b64(){
+    echo "$1" | base64
+}
