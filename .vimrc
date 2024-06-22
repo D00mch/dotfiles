@@ -50,6 +50,7 @@ cd $HOME
 
     "SAVING
         nnoremap <M-q> :silent! wa<bar>qa!<cr>
+        nnoremap œ :silent! wa<bar>qa!<cr>
         imap <M-q> <Esc>œ
 
     "COPY FILE, PATH
