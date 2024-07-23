@@ -33,7 +33,6 @@ export VI_MODE_SET_CURSOR=true
 ZSH_THEME="Agnoster"
 plugins=(
     git
-    adb
     vi-mode
     python
     lein
