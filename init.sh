@@ -26,3 +26,5 @@ mkdir -p   ~/.config/karabiner/
 ln    -s   $DOTFILES_PATH/.config/karabiner/assets   ~/.config/karabiner/ 
 
 cp    -r   $DOTFILES_PATH/.config/zathura            ~/.config/
+
+ln    -s   $DOTFILES_PATH/.vim/spell                 $DOTFILES_PATH/.config/nvim/spell

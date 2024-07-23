@@ -23,7 +23,7 @@
 
 
 ;; language setup
-(vim.api.nvim_command "set keymap=russian-jcukenwin")
+(vim.api.nvim_command "set keymap=russian-jcukenmac")
 (set nvim.o.iminsert 0)
 (set nvim.o.imsearch 0)
 
