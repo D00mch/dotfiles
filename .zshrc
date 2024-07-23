@@ -30,7 +30,7 @@ bindkey -v
 export KEYTIMEOUT=1
 export VI_MODE_SET_CURSOR=true
 
-ZSH_THEME="Agnoster"
+ZSH_THEME="Gozilla"
 plugins=(
     git
     vi-mode
