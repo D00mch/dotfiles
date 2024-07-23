@@ -29,7 +29,7 @@ local function toggle(key, name, cmd, opts)
   end
   return wk.register({t = {name = "toggle", [key] = {cmd, name}}}, assoc(opts0, "prefix", "<Space>"))
 end
-vim.api.nvim_command("set keymap=russian-jcukenmac")
+vim.api.nvim_command("set keymap=russian-jcukenwin")
 nvim.o.iminsert = 0
 nvim.o.imsearch = 0
 local function set_lang_cmd(lang_name)
