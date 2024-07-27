@@ -2,7 +2,6 @@
 (local nvim (autoload :nvim))
 (local {: println : kset : bkset} (autoload :config.util))
 (local {: some} (autoload :nfnl.core))
-(local {: toggle} (autoload :config.which))
 
 
 (set nvim.g.surround_99 "#_\r")
