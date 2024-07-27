@@ -38,6 +38,14 @@
 
               (let [dapui (require "dapui")]
                 (dapui.setup)
+
+                (vim.api.nvim_create_autocmd
+                  :FileType
+                  {:pattern "dapui_console"
+                   :group    (vim.api.nvim_create_augroup :DapUI {:clear true})
+                   :callback (fn [_ b]
+                               (bkset :n :j dap.step_over {:desc "Step Over" :buffer b}))})
+
                 (bkset :n :<leader>dd dapui.toggle "toggle")
                 (bkset :n :<leader>de dapui.eval "eval")
 
