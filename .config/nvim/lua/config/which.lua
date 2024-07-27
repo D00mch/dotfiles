@@ -19,7 +19,7 @@ vim.o.timeoutlen = 250
 local function _4_()
   return wk.show({global = false})
 end
-kset("n", "<space>?", _4_)
+kset("n", "g?", _4_)
 vim.api.nvim_command("set keymap=russian-jcukenwin")
 nvim.o.iminsert = 0
 nvim.o.imsearch = 0

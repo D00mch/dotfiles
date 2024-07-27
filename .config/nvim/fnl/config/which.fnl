@@ -10,7 +10,7 @@
 
 (set vim.o.timeoutlen 250)
 
-(kset :n :<space>? #(wk.show {:global false}))
+(kset :n :g? #(wk.show {:global false}))
 
 ;; language setup
 (vim.api.nvim_command "set keymap=russian-jcukenwin")

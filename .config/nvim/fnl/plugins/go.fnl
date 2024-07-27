@@ -1,5 +1,6 @@
 [{1 :ray-x/go.nvim
-  :dependencies [:ray-x/guihua.lua]
+  :dependencies [:ray-x/guihua.lua ;; floating window support
+                 ]
   :lazy true
   :ft [:go :gomod]
   :config true 
