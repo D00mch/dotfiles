@@ -58,7 +58,7 @@ local function bkset(modes, from, to, opts)
   elseif (type(opts) == "number") then
     opts0 = {buffer = opts}
   elseif (type(opts) == "string") then
-    opts0 = {desc = opts}
+    opts0 = _2bbuffer({desc = opts})
   else
     opts0 = {buffer = 0}
   end
@@ -93,17 +93,13 @@ local function get_word_under_selection()
   local _let_10_ = vim.api.nvim_buf_get_mark(0, "<")
   local sr = _let_10_[1]
   local sc = _let_10_[2]
-  local _let_11_ = {dec(sr), sc}
-  local sr0 = _let_11_[1]
-  local sc0 = _let_11_[2]
-  local _let_12_ = vim.api.nvim_buf_get_mark(0, ">")
-  local er = _let_12_[1]
-  local ec = _let_12_[2]
-  local _let_13_ = {dec(er), inc(ec)}
-  local er0 = _let_13_[1]
-  local ec0 = _let_13_[2]
-  local _let_14_ = vim.api.nvim_buf_get_text(0, sr0, sc0, er0, ec0, {})
-  local word = _let_14_[1]
+  local sr0,sc0 = dec(sr), sc
+  local _let_11_ = vim.api.nvim_buf_get_mark(0, ">")
+  local er = _let_11_[1]
+  local ec = _let_11_[2]
+  local er0,ec0 = dec(er), inc(ec)
+  local _let_12_ = vim.api.nvim_buf_get_text(0, sr0, sc0, er0, ec0, {})
+  local word = _let_12_[1]
   return {word, sr0, sc0, er0, ec0}
 end
 return {["config-path"] = config_path, ["lua-file"] = lua_file, println = println, ["exists?"] = exists_3f, kset = kset, bkset = bkset, bkdel = bkdel, ["vis-op"] = vis_op, ["vis-op+"] = vis_op_2b, ["get-word-under-cursor"] = get_word_under_cursor, ["get-word-under-selection"] = get_word_under_selection}

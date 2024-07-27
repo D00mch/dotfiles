@@ -37,7 +37,7 @@
   (let [opts  (if 
                 (= (type opts) "table")  (+buffer opts 0)
                 (= (type opts) "number") {:buffer opts}
-                (= (type opts) "string") {:desc opts}
+                (= (type opts) "string") (+buffer {:desc opts})
                 {:buffer 0})]
     (vim.keymap.set modes from to (+docs opts to))))
 
