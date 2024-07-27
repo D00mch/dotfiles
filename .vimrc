@@ -128,10 +128,14 @@ cd $HOME
         nmap g= <C-w>=
 
         "RESIZE
-        nnoremap <M-S-.> <C-w>5+
-        nnoremap <M-S-,> <C-w>5-
-        nnoremap <M-.> <C-w>5>
-        nnoremap <M-,> <C-w>5<
+        "alt+shift+.   <M-S-.>
+        nnoremap ˘ <C-w>5+
+        "alt+shift+,   <M-S-,>
+        nnoremap ¯ <C-w>5-
+        "alt+.   <M-.>
+        nnoremap ≥ <C-w>5>
+        "alt+,   <M-,>
+        nnoremap ≤ <C-w>5<
 
     "SPACEMACS-LIKE COMMANDS
         nnoremap <space>ba :wa <bar> silent %bd! <bar> e# <bar> bd# <CR>
