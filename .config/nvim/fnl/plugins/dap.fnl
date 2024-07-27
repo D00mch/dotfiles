@@ -6,15 +6,18 @@
   :dependencies [:nvim-neotest/nvim-nio ;; required by nvim-dap-ui
                  :rcarriga/nvim-dap-ui
                  :jay-babu/mason-nvim-dap.nvim
-                 :leoluz/nvim-dap-go]
+                 :leoluz/nvim-dap-go
+                 :theHamsta/nvim-dap-virtual-text]
   :lazy true
   :ft [:go :gomod]
   :config (fn []
             (let [mason (require :mason-nvim-dap)
-                  dap-go (require :dap-go :go)]
+                  dap-go (require :dap-go :go)
+                  dap-virtual (require "nvim-dap-virtual-text")]
               (mason.setup {:ensure_installed [:delve ;; go
                                                      ]})
-              (dap-go.setup))
+              (dap-go.setup)
+              (dap-virtual.setup))
 
             (wk.add {1 :<leader>d  :group :Debug :desc "+debug"})
             (let [dap (require :dap)]
@@ -38,8 +41,8 @@
                 (bkset :n :<leader>dd dapui.toggle "toggle")
                 (bkset :n :<leader>de dapui.eval "eval")
 
-                (tset dap.listeners.after.event_initialized :dapui_config
-                      (fn [] (dapui.open {})))
+                ; (tset dap.listeners.after.event_initialized :dapui_config
+                ;       (fn [] (dapui.open {})))
                 (tset dap.listeners.before.event_terminated :dapui_config
                       (fn [] (dapui.close {})))
                 (tset dap.listeners.before.event_exited :dapui_config (fn [] (dapui.close {}))))))}]

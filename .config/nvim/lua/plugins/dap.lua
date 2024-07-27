@@ -8,8 +8,10 @@ local function _3_()
   do
     local mason = require("mason-nvim-dap")
     local dap_go = require("dap-go", "go")
+    local dap_virtual = require("nvim-dap-virtual-text")
     mason.setup({ensure_installed = {"delve"}})
     dap_go.setup()
+    dap_virtual.setup()
   end
   wk.add({"<leader>d", group = "Debug", desc = "+debug"})
   local dap = require("dap")
@@ -32,17 +34,13 @@ local function _3_()
   bkset("n", "<leader>dd", dapui.toggle, "toggle")
   bkset("n", "<leader>de", dapui.eval, "eval")
   local function _4_()
-    return dapui.open({})
+    return dapui.close({})
   end
-  dap.listeners.after.event_initialized["dapui_config"] = _4_
+  dap.listeners.before.event_terminated["dapui_config"] = _4_
   local function _5_()
     return dapui.close({})
   end
-  dap.listeners.before.event_terminated["dapui_config"] = _5_
-  local function _6_()
-    return dapui.close({})
-  end
-  dap.listeners.before.event_exited["dapui_config"] = _6_
+  dap.listeners.before.event_exited["dapui_config"] = _5_
   return nil
 end
-return {{"mfussenegger/nvim-dap", dependencies = {"nvim-neotest/nvim-nio", "rcarriga/nvim-dap-ui", "jay-babu/mason-nvim-dap.nvim", "leoluz/nvim-dap-go"}, lazy = true, ft = {"go", "gomod"}, config = _3_}}
+return {{"mfussenegger/nvim-dap", dependencies = {"nvim-neotest/nvim-nio", "rcarriga/nvim-dap-ui", "jay-babu/mason-nvim-dap.nvim", "leoluz/nvim-dap-go", "theHamsta/nvim-dap-virtual-text"}, lazy = true, ft = {"go", "gomod"}, config = _3_}}
