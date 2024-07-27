@@ -15,10 +15,11 @@
   :config (fn []
             (let [treesitter (require :nvim-treesitter.configs)]
               (treesitter.setup
-                {:ensure_installed [:java :lua :yaml :bash :kotlin
+                {:ensure_installed [:java :yaml :bash :kotlin
                                     :clojure :fennel :scheme :racket
+                                    :lua :luadoc :vimdoc :vim
                                     :markdown :markdown_inline
-                                    :http :json :sql :dart :vim :go
+                                    :http :json :sql :dart :go
                                     :typescript :css :rust]
                  :highlight {:enable true
                              ;; problems when I set this to 'true'
