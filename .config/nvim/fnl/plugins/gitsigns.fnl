@@ -1,6 +1,5 @@
 (local {: autoload} (require :nfnl.module))
 (local {: bkset : vis-op} (autoload :config.util))
-(local {: toggle} (autoload :config.which))
 
 [{1 :lewis6991/gitsigns.nvim
 
@@ -31,5 +30,5 @@
            (bkset :n :<Space>gd gs.diffthis {:buffer b :desc "Gitsigns diff"})
 
            ;; toggle
-           (toggle :g "gitsigns" gitsigns b)
-           (bkset :n :<Space>gt gitsigns))})))}]
+           (bkset :n :<Space>tg gitsigns "gitsigns")
+           (bkset :n :<Space>gt gitsigns "gitsigns"))})))}]

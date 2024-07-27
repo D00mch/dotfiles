@@ -29,8 +29,8 @@
   :lazy true
   :opts {:plugins        {:spelling    {:enabled false
                                         :suggestions 12}}
-         :popup_mappings {:scroll_down :<right>
-                          :scroll_up   :<left>}}
+         :keys {:scroll_down :<right>
+                :scroll_up   :<left>}}
   :config true}
  {1 :Exafunction/codeium.nvim
   :config true}]

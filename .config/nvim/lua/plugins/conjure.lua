@@ -2,10 +2,8 @@
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local nvim = autoload("nvim")
-local _local_2_ = autoload("config.which")
-local toggle = _local_2_["toggle"]
-local _local_3_ = autoload("config.util")
-local kset = _local_3_["kset"]
+local _local_2_ = autoload("config.util")
+local kset = _local_2_["kset"]
 local function toggle_log_mod()
   nvim.g["conjure#log#jump_to_latest#enabled"] = not nvim.g["conjure#log#jump_to_latest#enabled"]
   return nil
@@ -18,7 +16,7 @@ local function toggle_result_register()
   end
   return nil
 end
-local function _5_()
+local function _4_()
   nvim.g["conjure#log#wrap"] = true
   nvim.g["conjure#eval#result_register"] = "r"
   nvim.g["conjure#log#botright"] = true
@@ -42,8 +40,8 @@ local function _5_()
   nvim.g["conjure#extract#tree_sitter#enabled"] = true
   kset({"n", "x", "i"}, "<D-l>", "<Leader>lg", {remap = true})
   nvim.g["conjure#log#jump_to_latest#enabled"] = true
-  toggle("l", "conjure.log", toggle_log_mod)
-  toggle("o", "conjure.output", toggle_result_register)
+  kset("n", "<Space>tl", toggle_log_mod, "conjure.log")
+  kset("n", "<Space>to", toggle_result_register, "conjure.output")
   nvim.g["conjure#client#clojure#nrepl#mapping#disconnect"] = false
   nvim.g["conjure#client#clojure#nrepl#mapping#connect_port_file"] = false
   kset("n", "<Leader>rd", "mZ\"8yieW\"9yie:ConjureEval (def <c-r>8 <c-r>9)<cr>`Z", {remap = true})
@@ -52,4 +50,4 @@ local function _5_()
   nvim.g["conjure#client#scheme#stdio#prompt_pattern"] = "\n-#;%d-> "
   return nil
 end
-return {{"Olical/conjure", lazy = true, ft = {"clojure", "fennel"}, branch = "master", init = _5_}}
+return {{"Olical/conjure", lazy = true, ft = {"clojure", "fennel"}, branch = "master", init = _4_}}

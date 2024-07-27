@@ -1,6 +1,5 @@
 (local {: autoload} (require :nfnl.module))
 (local nvim (autoload :nvim))
-(local {: toggle} (autoload :config.which))
 (local {: kset} (autoload :config.util))
 
 (fn toggle-log-mod []
@@ -52,9 +51,8 @@
           ; (set nvim.g.conjure#log#hud#width 0.7)
           (set nvim.g.conjure#log#jump_to_latest#enabled true)
 
-
-          (toggle :l "conjure.log" toggle-log-mod)
-          (toggle :o "conjure.output" toggle-result-register)
+          (kset :n :<Space>tl toggle-log-mod "conjure.log")
+          (kset :n :<Space>to toggle-result-register "conjure.output")
 
           ;; unmap
           (set nvim.g.conjure#client#clojure#nrepl#mapping#disconnect false)

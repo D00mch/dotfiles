@@ -1,6 +1,5 @@
 (local {: autoload} (require :nfnl.module))
 (local nvim (autoload :nvim))
-(local {: toggle} (require :config.which))
 (local {: kset} (autoload :config.util))
 
 (fn dark? [] (= nvim.o.background "dark"))
@@ -50,11 +49,11 @@
           (when vim.g.neovide
             (set nvim.g.neovide_cursor_vfx_mode "railgun")
             (set nvim.g.neovide_input_macos_option_key_is_meta true)
-            (toggle "t"
-                    "transparency"
+            (kset :n :<Space>tt
                     #(if (transparent?)
                        (make-non-transparent)
-                       (make-transparent))))
+                       (make-transparent))
+                    "transparency"))
 
           ; (vim.api.nvim_create_autocmd
           ;   :ColorScheme

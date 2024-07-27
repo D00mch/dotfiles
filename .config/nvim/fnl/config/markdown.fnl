@@ -1,6 +1,5 @@
 (local {: autoload} (require :nfnl.module))
 (local nvim (autoload :nvim))
-(local {: toggle} (autoload :config.which))
 (local {: first : last : map} (autoload :nfnl.core))
 (local {: join} (autoload :nfnl.string))
 (local {: kset : bkset} (autoload :config.util))
@@ -51,7 +50,7 @@
 
 (fn setup-quote []
   (vim.cmd "call textobj#quote#init({'educate':0})")
-  (toggle "q" "auto quotes" ":ToggleEducate<Cr>" 0))
+  (bkset :n :<Space>tq ":ToggleEducate<Cr>" "auto quotes"))
 
 
 (fn setup-pensil []

@@ -16,19 +16,10 @@ local bkset = _local_3_["bkset"]
 local bkdel = _local_3_["bkdel"]
 local get_word_under_selection = _local_3_["get-word-under-selection"]
 vim.o.timeoutlen = 250
-local function toggle(key, name, cmd, opts)
-  local opts0
-  if (type(opts) == "table") then
-    opts0 = opts
-  elseif (type(opts) == "number") then
-    opts0 = {buffer = opts}
-  elseif (type(opts) == "string") then
-    opts0 = {mode = opts}
-  else
-    opts0 = {}
-  end
-  return wk.register({t = {name = "toggle", [key] = {cmd, name}}}, assoc(opts0, "prefix", "<Space>"))
+local function _4_()
+  return wk.show({global = false})
 end
+kset("n", "<space>?", _4_)
 vim.api.nvim_command("set keymap=russian-jcukenwin")
 nvim.o.iminsert = 0
 nvim.o.imsearch = 0
@@ -52,24 +43,44 @@ local function toggle_keyboard()
   return vim.cmd(set_lang_cmd(_6_()))
 end
 kset({"x", "n"}, "<C-6>", toggle_keyboard, {remap = true})
+kset("n", "<Space>e", ("<Cmd>" .. set_lang_cmd("en_US") .. "setlocal spell! spelllang=ru_ru,en_us<cr>"), "Set ENG, toggle grammar")
+kset("n", "<Space>r", ("<Cmd>" .. set_lang_cmd("ru_RU") .. "setlocal spell! spelllang=ru_ru,en_us<cr>"), "Set RUS, toggle grammar")
+wk.add({"<space>t", group = "Toggle"})
+wk.add({"<space>ta", group = "Animation"})
+wk.add({"<space>f", group = "Format", mode = {"x", "v"}})
+wk.add({"<space>fb", group = "Base64", mode = {"x", "v"}})
 local function _7_()
   vim.bo.modifiable = not vim.bo.modifiable
   return nil
 end
+kset("n", "<space>tm", _7_, "Modifiable")
 local function _8_()
   vim.o.list = not vim.o.list
   return nil
 end
+kset("n", "<space>ti", _8_, "List invisible chars")
 local function _9_()
   nvim.g.neovide_fullscreen = not nvim.g.neovide_fullscreen
   return nil
 end
+kset("n", "<space>tf", _9_, "Full screen")
 local function _10_()
   vim.o.relativenumber = not vim.o.relativenumber
   return nil
 end
-wk.register({["<Space>"] = {r = {("<Cmd>" .. set_lang_cmd("ru_RU") .. "setlocal spell! spelllang=ru_ru,en_us<cr>"), "Set RUS, toggle grammar"}, e = {("<Cmd>" .. set_lang_cmd("en_US") .. "setlocal spell! spelllang=ru_ru,en_us<cr>"), "Set ENG, toggle grammar"}, t = {name = "toggle", m = {_7_, "Modifiable"}, i = {_8_, "List invisible chars"}, f = {_9_, "Full Screen"}, r = {_10_, "Relative Numbers"}, R = {"mZ:Bd!<cr>`Z", "Refresh file"}, a = {name = "Animation", ["1"] = {"<cmd>CellularAutomaton make_it_rain<CR>", "Rain"}, ["2"] = {"<cmd>CellularAutomaton game_of_life<CR>", "Game"}, ["3"] = {"<cmd>CellularAutomaton scramble<CR>", "Scramble"}}}}})
-wk.register({["<Space>"] = {f = {{j = {"!jq<cr>", "Json"}, p = {"!pg_format -s 2<cr>", "pSQL"}, c = {"<Esc>:ReplaceSelection tocamel<Cr>", "CamelCase"}, s = {"<Esc>:ReplaceSelection tosnake<Cr>", "snake_case"}, k = {"<Esc>:ReplaceSelection tokebab<Cr>", "kebab-case"}, ["8"] = {"<Esc>:set tw=80<Cr>gvgq", "80 width"}, b = {{e = {"c<c-r>=system('base64', @\")[:-2]<cr><c-\\><c-n>", "Encode"}, d = {"c<c-r>=system('base64 --decode', @\")[:-1]<cr><c-\\><c-n>", "Decode"}}, "Base64"}}, "Format"}}}, {mode = "x"})
+kset("n", "<space>tr", _10_, "Relative Numbers")
+kset("n", "<space>tR", "mZ:Bd!<cr>`Z", "Refresh file")
+kset("n", "<space>ta1", "<cmd>CellularAutomaton make_it_rain<CR>", "Rain")
+kset("n", "<space>ta2", "<cmd>CellularAutomaton game_of_life<CR>", "Game")
+kset("n", "<space>ta3", "<cmd>CellularAutomaton scramble<CR>", "Scramble")
+kset("x", "<space>fj", "!jq<cr>", "Json")
+kset("x", "<space>fp", "!pg_format -s 2<cr>", "pSQL")
+kset("x", "<space>fc", "<Esc>:ReplaceSelection tocamel<Cr>", "CamelCase")
+kset("x", "<space>fs", "<Esc>:ReplaceSelection tosnake<Cr>", "snake_case")
+kset("x", "<space>fk", "<Esc>:ReplaceSelection tokebab<Cr>", "kebab-case")
+kset("x", "<space>f8", "<Esc>:set tw=80<Cr>gvgq", "80 width")
+kset("x", "<space>fbe", "c<c-r>=system('base64', @\")[:-2]<cr><c-\\><c-n>", "Encode")
+kset("x", "<space>fbd", "c<c-r>=system('base64 --decode', @\")[:-1]<cr><c-\\><c-n>", "Decode")
 vim.o.listchars = "eol:\194\172,space:\194\183,tab:\226\134\146-,extends:\226\150\184,precedes:\226\151\130,multispace:\194\183\194\183\194\183\226\172\157,leadmultispace:\226\148\130   "
 local function tocamel(s)
   local function _11_(part)
@@ -85,14 +96,13 @@ local function tokebab(s)
   return s:gsub("%f[^%l]%u", "-%1"):gsub("%f[^%a]%d", "_%1"):gsub("%f[^%d]%a", "-%1"):gsub("(%u)(%u%l)", "%1-%2"):lower():gsub("_", "-")
 end
 local function replace_selection(_12_)
-  local _arg_13_ = _12_
-  local f = _arg_13_["args"]
-  local _let_14_ = get_word_under_selection()
-  local word = _let_14_[1]
-  local sr = _let_14_[2]
-  local sc = _let_14_[3]
-  local er = _let_14_[4]
-  local ec = _let_14_[5]
+  local f = _12_["args"]
+  local _let_13_ = get_word_under_selection()
+  local word = _let_13_[1]
+  local sr = _let_13_[2]
+  local sc = _let_13_[3]
+  local er = _let_13_[4]
+  local ec = _let_13_[5]
   local f0
   if (f == "tokebab") then
     f0 = tokebab
@@ -106,5 +116,4 @@ local function replace_selection(_12_)
   local result = f0(word)
   return vim.api.nvim_buf_set_text(0, sr, sc, er, ec, {result})
 end
-vim.api.nvim_create_user_command("ReplaceSelection", replace_selection, {nargs = 1, desc = "Replace selected word with result function"})
-return {toggle = toggle}
+return vim.api.nvim_create_user_command("ReplaceSelection", replace_selection, {nargs = 1, desc = "Replace selected word with result function"})

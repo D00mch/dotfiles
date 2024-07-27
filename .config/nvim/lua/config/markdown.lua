@@ -2,29 +2,26 @@
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local nvim = autoload("nvim")
-local _local_2_ = autoload("config.which")
-local toggle = _local_2_["toggle"]
-local _local_3_ = autoload("nfnl.core")
-local first = _local_3_["first"]
-local last = _local_3_["last"]
-local map = _local_3_["map"]
-local _local_4_ = autoload("nfnl.string")
-local join = _local_4_["join"]
-local _local_5_ = autoload("config.util")
-local kset = _local_5_["kset"]
-local bkset = _local_5_["bkset"]
+local _local_2_ = autoload("nfnl.core")
+local first = _local_2_["first"]
+local last = _local_2_["last"]
+local map = _local_2_["map"]
+local _local_3_ = autoload("nfnl.string")
+local join = _local_3_["join"]
+local _local_4_ = autoload("config.util")
+local kset = _local_4_["kset"]
+local bkset = _local_4_["bkset"]
 local function insert_header()
   local s = vim.api.nvim_get_current_line()
   local with_head_3f = string.find(s, "^#.*")
   local final_line
-  local function _6_()
-    if with_head_3f then
-      return "#"
-    else
-      return "# "
-    end
+  local _5_
+  if with_head_3f then
+    _5_ = "#"
+  else
+    _5_ = "# "
   end
-  final_line = (_6_() .. s)
+  final_line = (_5_ .. s)
   return vim.api.nvim_set_current_line(final_line)
 end
 local function remove_header()
@@ -69,7 +66,7 @@ end
 vim.api.nvim_create_user_command("MarkdownTaskToggleSelection", toggle_task_selection, {nargs = "*", desc = "Toggle taks in markdown selection"})
 local function setup_quote()
   vim.cmd("call textobj#quote#init({'educate':0})")
-  return toggle("q", "auto quotes", ":ToggleEducate<Cr>", 0)
+  return bkset("n", "<Space>tq", ":ToggleEducate<Cr>", "auto quotes")
 end
 local function setup_pensil()
   return bkset("x", "=", "gq")

@@ -2,10 +2,8 @@
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local nvim = autoload("nvim")
-local _local_2_ = require("config.which")
-local toggle = _local_2_["toggle"]
-local _local_3_ = autoload("config.util")
-local kset = _local_3_["kset"]
+local _local_2_ = autoload("config.util")
+local kset = _local_2_["kset"]
 local function dark_3f()
   return (nvim.o.background == "dark")
 end
@@ -30,20 +28,19 @@ local function set_theme(dark_3f0)
     nvim.o.background = "light"
   end
   vim.api.nvim_command("colorscheme everforest")
-  local function _5_()
-    if dark_3f0 then
-      return "kanagawa-dragon"
-    else
-      return "dawnfox"
-    end
+  local _4_
+  if dark_3f0 then
+    _4_ = "kanagawa-dragon"
+  else
+    _4_ = "dawnfox"
   end
-  return vim.api.nvim_command(("colorscheme " .. _5_()))
+  return vim.api.nvim_command(("colorscheme " .. _4_))
 end
 local default_font = "Hack Nerd Font Mono:h15"
 nvim.o.guifont = default_font
 local function font_size_21(diff)
   local font = nvim.o.guifont
-  local size = (tonumber((nvim.o.guifont):match("h(%d+)$")) + diff)
+  local size = (tonumber(nvim.o.guifont:match("h(%d+)$")) + diff)
   nvim.o.guifont = font:gsub("%d+$", size)
   return nil
 end
@@ -58,7 +55,7 @@ local function _6_()
         return make_transparent()
       end
     end
-    toggle("t", "transparency", _7_)
+    kset("n", "<Space>tt", _7_, "transparency")
   else
   end
   do

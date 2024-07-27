@@ -10,17 +10,7 @@
 
 (set vim.o.timeoutlen 250)
 
-(fn toggle [key name cmd opts]
-  ; `opts` could be a tables with :buf and :mode keys, mode string, or buf number
-  (let [opts  (if 
-                (= (type opts) "table")  opts
-                (= (type opts) "number") {:buffer opts}
-                (= (type opts) "string") {:mode opts}
-                {})]
-    (wk.register {:t {:name :toggle
-                      key [cmd name]}}
-                 (assoc opts :prefix :<Space>))))
-
+(kset :n :<space>? #(wk.show {:global false}))
 
 ;; language setup
 (vim.api.nvim_command "set keymap=russian-jcukenwin")
@@ -40,48 +30,42 @@
 ;; Karabiner maps <CMD+X> to <CTRL+6> 
 (kset [:x :n] :<C-6> toggle-keyboard {:remap true})
 
+;; language
+(kset :n :<Space>e 
+      (.. "<Cmd>" (set-lang-cmd "en_US") "setlocal spell! spelllang=ru_ru,en_us<cr>") 
+      "Set ENG, toggle grammar")
+(kset :n :<Space>r
+      (.. "<Cmd>" (set-lang-cmd "ru_RU") "setlocal spell! spelllang=ru_ru,en_us<cr>")
+      "Set RUS, toggle grammar")
+
 ;; key setup
-(wk.register
-  {:<Space>
-   {
-    ;; language
-    :r [(.. "<Cmd>" (set-lang-cmd "ru_RU")
-            "setlocal spell! spelllang=ru_ru,en_us<cr>") "Set RUS, toggle grammar"]
-    :e [(.. "<Cmd>" (set-lang-cmd "en_US")
-            "setlocal spell! spelllang=ru_ru,en_us<cr>") "Set ENG, toggle grammar"]
+(wk.add {1 :<space>t    :group :Toggle})
+(wk.add {1 :<space>ta   :group :Animation})
+(wk.add {1 :<space>f    :group :Format     :mode [:x :v]})
+(wk.add {1 :<space>fb   :group :Base64     :mode [:x :v]})
 
-    ;; toggle
-    :t {:name :toggle
+;; toggles
+(kset :n :<space>tm #(set vim.bo.modifiable (not vim.bo.modifiable)) :Modifiable)
+(kset :n :<space>ti #(set vim.o.list (not vim.o.list)) "List invisible chars")
+(kset :n :<space>tf #(set nvim.g.neovide_fullscreen (not nvim.g.neovide_fullscreen)) "Full screen")
+(kset :n :<space>tr #(set vim.o.relativenumber (not vim.o.relativenumber)) "Relative Numbers")
+(kset :n :<space>tR "mZ:Bd!<cr>`Z"  "Refresh file")
 
-        :m [#(set vim.bo.modifiable (not vim.bo.modifiable)) :Modifiable]
-        :i [#(set vim.o.list (not vim.o.list)) "List invisible chars"]
-        :f [#(set nvim.g.neovide_fullscreen (not nvim.g.neovide_fullscreen)) "Full Screen"]
-        :r [#(set vim.o.relativenumber (not vim.o.relativenumber)) "Relative Numbers"]
-        :R ["mZ:Bd!<cr>`Z" "Refresh file"]
+;; animations
+(kset :n :<space>ta1 "<cmd>CellularAutomaton make_it_rain<CR>" :Rain)
+(kset :n :<space>ta2 "<cmd>CellularAutomaton game_of_life<CR>" :Game)
+(kset :n :<space>ta3 "<cmd>CellularAutomaton scramble<CR>" :Scramble)
 
-        ;; fan
-        :a {:name :Animation
-            :1 ["<cmd>CellularAutomaton make_it_rain<CR>" :Rain]
-            :2 ["<cmd>CellularAutomaton game_of_life<CR>" :Game]
-            :3 ["<cmd>CellularAutomaton scramble<CR>" :Scramble]}}}})
+;; formatters
+(kset :x :<space>fj :!jq<cr> "Json")
+(kset :x :<space>fp "!pg_format -s 2<cr>" "pSQL")
+(kset :x :<space>fc "<Esc>:ReplaceSelection tocamel<Cr>" "CamelCase")
+(kset :x :<space>fs "<Esc>:ReplaceSelection tosnake<Cr>" "snake_case")         
+(kset :x :<space>fk "<Esc>:ReplaceSelection tokebab<Cr>" "kebab-case")
+(kset :x :<space>f8 "<Esc>:set tw=80<Cr>gvgq" "80 width")
 
-(wk.register
-  {:<Space>
-   {
-    ;; formatters
-    :f [{:j [:!jq<cr> "Json"]
-         :p ["!pg_format -s 2<cr>" "pSQL"]
-         :c ["<Esc>:ReplaceSelection tocamel<Cr>" "CamelCase"]
-         :s ["<Esc>:ReplaceSelection tosnake<Cr>" "snake_case"]         
-         :k ["<Esc>:ReplaceSelection tokebab<Cr>" "kebab-case"]
-         :8 ["<Esc>:set tw=80<Cr>gvgq" "80 width"]
-         :b [ {:e ["c<c-r>=system('base64', @\")[:-2]<cr><c-\\><c-n>"    "Encode"]
-               :d ["c<c-r>=system('base64 --decode', @\")[:-1]<cr><c-\\><c-n>" "Decode"]}
-             "Base64"]
-         }
-        "Format"]
-    }}
-  {:mode :x})
+(kset :x :<space>fbe "c<c-r>=system('base64', @\")[:-2]<cr><c-\\><c-n>" "Encode")
+(kset :x :<space>fbd "c<c-r>=system('base64 --decode', @\")[:-1]<cr><c-\\><c-n>" "Decode")
 
 ;; showing tabs, spaces, end-of-lines
 (set vim.o.listchars "eol:¬,space:·,tab:→-,extends:▸,precedes:◂,multispace:···⬝,leadmultispace:│   ")
@@ -121,5 +105,3 @@
 (vim.api.nvim_create_user_command
   :ReplaceSelection replace-selection
   {:nargs 1 :desc "Replace selected word with result function"})
-
-{: toggle}

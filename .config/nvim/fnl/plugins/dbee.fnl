@@ -2,7 +2,6 @@
 (local
   {: kset : get-word-under-cursor : get-word-under-selection}
   (autoload :config.util))
-(local {: toggle} (require :config.which))
 
 [{1 :kndndrj/nvim-dbee
   :dependencies [:MunifTanjim/nui.nvim]
@@ -11,7 +10,7 @@
              (dbee.install)))
   :init (fn []
           (let [dbee (require :dbee)]
-            (toggle "d" "Dbee" #(dbee.toggle))))
+            (kset :n :<Space>td #(dbee.toggle) "Dbee")))
   :config
   (fn []
     (let [dbee (require :dbee)]

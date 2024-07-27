@@ -43,6 +43,7 @@
                 :sexp_square_tail_wrap_list     ""
                 :sexp_curly_head_wrap_list      ""
                 :sexp_curly_tail_wrap_list      ""
+                :sexp_insert_at_list_tail ""
 
                 ;; move
                 :sexp_move_to_next_element_tail :<space>mr
