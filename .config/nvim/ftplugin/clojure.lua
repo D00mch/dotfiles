@@ -8,8 +8,6 @@ local kset = _local_2_["kset"]
 local bkset = _local_2_["bkset"]
 local _local_3_ = autoload("nfnl.core")
 local some = _local_3_["some"]
-local _local_4_ = autoload("config.which")
-local toggle = _local_4_["toggle"]
 nvim.g.surround_99 = "#_\13"
 local run_lein_cmd = "lein repl"
 local run_deps_cmd = "clj -M:local-nrepl:add-libs"
@@ -17,20 +15,20 @@ local run_flutter_cmd = "clj -M -m cljd.build flutter"
 local function run_appropriate_clojure_repl()
   local root_files = nvim.fn.readdir(nvim.fn.getcwd())
   local has_pubspec
-  local function _5_(_241)
+  local function _4_(_241)
     return (_241 == "pubspec.yaml")
   end
-  has_pubspec = some(_5_, root_files)
+  has_pubspec = some(_4_, root_files)
   local has_lein
-  local function _6_(_241)
+  local function _5_(_241)
     return (_241 == "project.clj")
   end
-  has_lein = some(_6_, root_files)
+  has_lein = some(_5_, root_files)
   local has_deps
-  local function _7_(_241)
+  local function _6_(_241)
     return (_241 == "deps.edn")
   end
-  has_deps = some(_7_, root_files)
+  has_deps = some(_6_, root_files)
   if has_pubspec then
     nvim.echo("found flutter")
     return vim.api.nvim_command(("terminal " .. run_flutter_cmd))
