@@ -222,7 +222,7 @@
        ;; for some reason, when I used :select_ru, any further :select_abc also selects :ru
        :select_ru [{:input :ru}]}
 
- :templates {:theme "~/dotfiles/scripts/darkmode/darkmode %s"
+ :templates {:theme "~/dotfiles/scripts/darkmode.sh %s"
              :yabai-win "/opt/homebrew/bin/yabai -m window %s"
              :yabai-space "/opt/homebrew/bin/yabai -m space %s"
              :yabai-size "/opt/homebrew/bin/yabai -m window --resize %s ||
