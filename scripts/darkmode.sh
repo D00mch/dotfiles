@@ -6,9 +6,8 @@ osascript -e 'tell application "System Events" to tell appearance preferences to
 # Open Google Chrome
 open -a "Google Chrome"
 
-# Use osascript to send alt+shift+d shortcut to Google Chrome
-# Wait a moment for Chrome to focus
-sleep 2
+# Click <alt+shift+d> to toggle Dark Reader
+sleep 0.1
 osascript <<EOF
 tell application "System Events"
     tell process "Google Chrome"
