@@ -133,6 +133,7 @@
                  [:!En ["open /Applications/Neovide.app" :select_abc]]
                  [:!Ew ["open /Applications/WezTerm.app" :select_abc]]
                  [:!Cg ["open /Applications/Neovide.app -n --args --frame transparent" :select_abc]]
+                 [:!Es ["open /Applications/sioyek.app"]]
                  #_[:!Cg ["open /Applications/Neovide.app -n --args --multigrid" :select_abc]]]}
 
         ;; !  | means mandatory    Q  | right_command
