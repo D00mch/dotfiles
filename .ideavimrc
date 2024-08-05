@@ -32,7 +32,7 @@ set notimeout
     nmap <space>5 :action ActivateDebugToolWindow<cr>
     nmap <space>6 :action ActivateServicesToolWindow<cr>
     nmap <space>7 :action ActivateBuildToolWindow<cr>
-    nmap <space>8 :action ActivateTerminalToolWindow<cr>
+    nmap <space>8 :!open /Applications/WezTerm.app --args start --cwd `pwd` --always-new-process<cr>
     nmap <space>9 :action ActivateVersionControlToolWindow<cr>
 
     let g:relative_number_set = 1
