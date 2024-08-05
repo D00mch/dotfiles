@@ -2,6 +2,17 @@
 (local {: bkset} (autoload :config.util))
 (local wk (autoload :which-key))
 
+(vim.fn.sign_define :DapBreakpoint
+                    {:linehl :DapBreakpoint
+                     :numhl :DapBreakpoint
+                     :text "🔴"
+                     :texthl :DapBreakpointSymbol})
+(vim.fn.sign_define :DapStopped
+                    {:linehl :DapBreakpoint
+                     :numhl :DapBreakpoint
+                     :text "🔴"
+                     :texthl :DapStoppedSymbol})	
+
 [{1 :mfussenegger/nvim-dap
   :dependencies [:nvim-neotest/nvim-nio ;; required by nvim-dap-ui
                  :rcarriga/nvim-dap-ui

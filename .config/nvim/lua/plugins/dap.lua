@@ -4,6 +4,8 @@ local autoload = _local_1_["autoload"]
 local _local_2_ = autoload("config.util")
 local bkset = _local_2_["bkset"]
 local wk = autoload("which-key")
+vim.fn.sign_define("DapBreakpoint", {linehl = "DapBreakpoint", numhl = "DapBreakpoint", text = "\240\159\148\180", texthl = "DapBreakpointSymbol"})
+vim.fn.sign_define("DapStopped", {linehl = "DapBreakpoint", numhl = "DapBreakpoint", text = "\240\159\148\180", texthl = "DapStoppedSymbol"})
 local function _3_()
   do
     local mason = require("mason-nvim-dap")
