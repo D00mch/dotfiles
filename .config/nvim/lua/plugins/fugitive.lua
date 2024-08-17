@@ -33,7 +33,6 @@ local function fugitive_toggle()
   return vim.api.nvim_command(_4_())
 end
 local function _5_()
-  kset({"n", "x"}, "<space>ga", annotate_toggle)
   vim.api.nvim_command("set splitbelow")
   return kset({"n", "x"}, "<Space>9", fugitive_toggle)
 end

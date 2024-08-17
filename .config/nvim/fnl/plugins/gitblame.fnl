@@ -3,5 +3,5 @@
 
 {1 :FabijanZulj/blame.nvim
  :init (fn []
-         (kset [:n :x] :<space>ga ::ToggleBlame<Cr>))
+         (kset [:n :x] :<space>ga ::BlameToggle<Cr>))
  :config {}}
