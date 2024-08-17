@@ -4,7 +4,7 @@ local kset = _local_1_["kset"]
 local function _2_()
   return require("oil").open()
 end
-kset("n", "<Space>ff", _2_)
+kset("n", "<Space>f", _2_)
 local function _3_()
   local oil = require("oil")
   local actions = require("oil.actions")

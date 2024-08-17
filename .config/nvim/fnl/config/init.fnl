@@ -101,7 +101,7 @@
       (string.format ftype ftype)
       vim.cmd)))
 
-(kset [:x] :<Space>cd compare-to-clipboard {:desc "Clipboard Diff"})
+(kset [:x] :<Space>cc compare-to-clipboard {:desc "Clipboard Compare"})
 
 ;; yank highlight
 (vim.api.nvim_create_autocmd

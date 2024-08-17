@@ -19,7 +19,7 @@
 
           (kset :n :<space>pf ":Telescope find_files hidden=true no_ignore=false<cr>")
           (kset :n :<space>pr ":Telescope pickers<cr>")
-          (kset :n :<space>bb ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")
+          (kset :n :<space>b ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")
           (kset :n :<space>pa ":Telescope live_grep<cr>")
           (kset :n :<space>pp ":Telescope projects<cr>" "Projects")
           (kset :n :<space>ph ":Telescope harpoon marks<cr>" "Harpoon")

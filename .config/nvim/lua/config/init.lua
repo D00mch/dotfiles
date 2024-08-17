@@ -52,7 +52,7 @@ local function compare_to_clipboard()
   local ftype = vim.api.nvim_eval("&filetype")
   return vim.cmd(string.format("execute 'normal! \"xy'\n      tabnew\n      vsplit\n      enew\n      normal! P\n      setlocal buftype=nowrite\n      set filetype=%s\n      diffthis\n      execute \"normal! \\<C-w>\\<C-w>\"\n      enew\n      set filetype=%s\n      normal! \"xP\n      diffthis", ftype, ftype))
 end
-kset({"x"}, "<Space>cd", compare_to_clipboard, {desc = "Clipboard Diff"})
+kset({"x"}, "<Space>cc", compare_to_clipboard, {desc = "Clipboard Compare"})
 local function _6_()
   return vim.highlight.on_yank({higroup = "IncSearch", timeout = 300})
 end

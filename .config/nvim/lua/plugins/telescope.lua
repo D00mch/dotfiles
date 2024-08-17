@@ -1,4 +1,4 @@
--- [nfnl] Compiled from .config/nvim/fnl/plugins/telescope.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from fnl/plugins/telescope.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local _local_2_ = autoload("config.util")
@@ -8,7 +8,7 @@ local get_word_under_selection = _local_2_["get-word-under-selection"]
 local function _3_()
   kset("n", "<space>pf", ":Telescope find_files hidden=true no_ignore=false<cr>")
   kset("n", "<space>pr", ":Telescope pickers<cr>")
-  kset("n", "<space>bb", ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")
+  kset("n", "<space>b", ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")
   kset("n", "<space>pa", ":Telescope live_grep<cr>")
   kset("n", "<space>pp", ":Telescope projects<cr>", "Projects")
   kset("n", "<space>ph", ":Telescope harpoon marks<cr>", "Harpoon")

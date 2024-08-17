@@ -1,5 +1,5 @@
 (local {: kset} (require :config.util))
-(kset :n :<Space>ff #((. (require :oil) :open)))
+(kset :n :<Space>f #((. (require :oil) :open)))
 
 [{1 :stevearc/oil.nvim
   :lazy true

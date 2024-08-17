@@ -76,7 +76,7 @@ set notimeout
         nnoremap <space>ga :action Annotate<cr>
         nnoremap <space>gb :action Git.Branches<cr>
         nnoremap <space><tab> :e#<cr>
-        nnoremap <space>ba :action CloseAllEditorsButActive<cr>
+        nnoremap <space>x :action CloseAllEditorsButActive<cr>
     "CIDER-LIKE
         
     "SEARCH

@@ -138,8 +138,8 @@ cd $HOME
         nnoremap ≤ <C-w>5<
 
     "SPACEMACS-LIKE COMMANDS
-        nnoremap <space>ba :wa <bar> silent %bd! <bar> e# <bar> bd# <CR>
-        nnoremap <space>bd <Esc>:diffthis<Cr>gg<C-w>w:diffthis<Cr>gg
+        nnoremap <space>x :wa <bar> silent %bd! <bar> e# <bar> bd# <CR>
+        nnoremap <space>cb <Esc>:diffthis<Cr>gg<C-w>w:diffthis<Cr>gg
 
     "GO TO PREVIOUS TAB WHEN CURRENT ONE IS CLOSED
         let s:prevtabnum=tabpagenr('$')
