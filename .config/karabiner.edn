@@ -128,12 +128,12 @@
                  [:!TO2 [:select_abc "~/docker_and_repl.sh 2"]]
                  [:!TO3 [:select_abc "~/docker_and_repl.sh 3"]]
                  [:!Eg "open /Applications/Google\\ Chrome.app"]
-                 [:!Ei "open /Applications/IntelliJ\\ IDEA.app"]
+                 [:!Ei "/bin/zsh `open /Applications/IntelliJ\\ IDEA.app`"]
                  [:!Et "open /Applications/Telegram\\ Lite.app/"]
-                 [:!En ["open /Applications/Neovide.app" :select_abc]]
-                 [:!Ew ["open /Applications/WezTerm.app" :select_abc]]
-                 [:!Cg ["open /Applications/Neovide.app -n --args --frame transparent" :select_abc]]
-                 [:!Es ["open /Applications/sioyek.app"]]
+                 [:!En ["/bin/zsh `open /Applications/Neovide.app`" :select_abc]]
+                 [:!Ew ["/bin/zsh `open /Applications/WezTerm.app`" :select_abc]]
+                 [:!Cg ["/bin/zsh `open /Applications/Neovide.app -n --args --frame transparent`" :select_abc]]
+                 [:!Es ["/bin/zsh `open /Applications/sioyek.app`"]]
                  #_[:!Cg ["open /Applications/Neovide.app -n --args --multigrid" :select_abc]]]}
 
         ;; !  | means mandatory    Q  | right_command
