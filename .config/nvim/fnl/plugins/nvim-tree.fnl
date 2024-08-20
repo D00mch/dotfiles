@@ -2,7 +2,6 @@
 (local actions (autoload :telescope.actions))
 (local action-state (autoload :telescope.actions.state))
 (local builtin (autoload :telescope.builtin))
-(local {: merge} (autoload :nfnl.core))
 (local
   {: kset : bkset : bkdel}
   (autoload :config.util))
@@ -11,11 +10,9 @@
   :lazy true
   :dependencies [:nvim-tree/nvim-web-devicons]  
   :init (fn []
-          (let [tree (require :nvim-tree)
+          (let [
                 tree-view (require :nvim-tree.view)
-                lib (require :nvim-tree.lib)
-                api (require :nvim-tree.api)
-                openfile (require :nvim-tree.actions.node.open-file)]
+                api (require :nvim-tree.api)]
 
             (kset :n "<space>pt" #(api.tree.toggle false true) "Tree Toggle")
             (kset :n :<Space>1
@@ -26,13 +23,11 @@
                   "Collapse and show")))
   :config (fn []
             (let [tree (require :nvim-tree)
-                  tree-view (require :nvim-tree.view)
-                  lib (require :nvim-tree.lib)
                   api (require :nvim-tree.api)
                   openfile (require :nvim-tree.actions.node.open-file)
 
                   view-selection
-                  (fn  [prompt-funr map]
+                  (fn  [prompt-funr _]
                     (actions.select_default:replace
                       (fn []
                         (actions.close prompt-funr)
@@ -62,6 +57,7 @@
                  :update_focused_file {:enable true
                                        :update_root true}
                  :git {:enable false}
+                 :actions {:open_file {:resize_window false}}
                  :on_attach (fn [b]
                               (api.config.mappings.default_on_attach b)
                               (bkdel :n :q b)
@@ -80,8 +76,8 @@
 
                               (bkset :n "(" api.node.navigate.parent b) ;)
 
-                              (bkset :n :sd        api.tree.change_root_to_node b)
-                              (bkset :n :<Space>sd api.tree.change_root_to_node b)
+                              (bkset :n :sd        api.tree.change_root_to_node {:buffer b :desc "Set root"})
+                              (bkset :n :<Space>sd api.tree.change_root_to_node {:buffer b :desc "Set root"})
                               (bkset :n :gf api.node.run.system b)
                               (bkset :n :i api.node.show_info_popup b))
 
