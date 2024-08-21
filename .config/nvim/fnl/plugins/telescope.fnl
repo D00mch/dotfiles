@@ -10,6 +10,7 @@
                  :ahmedkhalf/project.nvim
                  :debugloop/telescope-undo.nvim
                  :nvim-telescope/telescope-file-browser.nvim
+                 :nvim-telescope/telescope-frecency.nvim
                  ; :RomanoZumbe/harpoon
                  ]
   :lazy true
@@ -18,8 +19,9 @@
           ;   (kset :n :<Space>am hmark.add_file "Add mark"))
 
           (kset :n :<space>pf ":Telescope find_files hidden=true no_ignore=false<cr>")
+          (kset :n :<space>b ":Telescope frecency workspace=CWD path_display={\"shorten\"} theme=ivy hidden=true no_ignore=false<cr>")
           (kset :n :<space>pr ":Telescope pickers<cr>")
-          (kset :n :<space>b ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")
+          (kset :n :<space>pb ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")
           (kset :n :<space>pa ":Telescope live_grep<cr>")
           (kset :n :<space>pp ":Telescope projects<cr>" "Projects")
           (kset :n :<space>ph ":Telescope harpoon marks<cr>" "Harpoon")
@@ -58,6 +60,7 @@
             (telescope.load_extension :ui-select)
             (telescope.load_extension :file_browser)
             (telescope.load_extension :projects)
+            (telescope.load_extension :frecency)
             ;(telescope.load_extension :harpoon)
             (telescope.load_extension :undo)))
 
@@ -67,7 +70,6 @@
                  ; harpoon (require :harpoon)
                   prj (require :project_nvim)
                   actions (require :telescope.actions)
-                  fb_actions (require :telescope._extensions.file_browser.actions)
                   undo_actions (require :telescope-undo.actions)
                   state (require :telescope.actions.state)
                   mt (require :telescope.actions.mt)
@@ -144,18 +146,6 @@
                                                  :additional_args ["--trim"]}}
                  :extensions {:undo {:mappings {:n {:y undo_actions.yank_additions
                                                     :Y undo_actions.yank_deletions}}}
-                              :file_browser {:theme :ivy
-                                             :mappings {:n
-                                                        {:u fb_actions.goto_parent_dir
-                                                         :f fb_actions.open
-                                                         :a fb_actions.create
-                                                         :o actions.select_default
-                                                         :r fb_actions.rename
-                                                         :m fb_actions.move ;; several items
-                                                         :c fb_actions.copy
-                                                         :d fb_actions.remove
-                                                         :h fb_actions.toggle_hidden
-                                                         :H fb_actions.goto_cwd
-                                                         :<Esc> false
-                                                         :<M-w> actions.close}}}
-                              :ui-select [(themes.get_cursor {})]}})))}]
+                              :ui-select [(themes.get_cursor {})]
+                              :frecency {:ignore_patterns  ["*/.git" "*/.git/*" "*/.DS_Store"]
+                                         :db_safe_mode false}}})))}]
