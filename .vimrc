@@ -8,7 +8,7 @@ let mapleader=","
 let maplocalleader=","
 
 set cursorline
-set cursorcolumn
+"set cursorcolumn
 
 cd $HOME
 
