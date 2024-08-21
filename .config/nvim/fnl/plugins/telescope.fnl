@@ -10,7 +10,7 @@
                  :ahmedkhalf/project.nvim
                  :debugloop/telescope-undo.nvim
                  :nvim-telescope/telescope-file-browser.nvim
-                 :nvim-telescope/telescope-frecency.nvim
+                 :mollerhoj/telescope-recent-files.nvim
                  ; :RomanoZumbe/harpoon
                  ]
   :lazy true
@@ -19,7 +19,6 @@
           ;   (kset :n :<Space>am hmark.add_file "Add mark"))
 
           (kset :n :<space>pf ":Telescope find_files hidden=true no_ignore=false<cr>")
-          (kset :n :<space>b ":Telescope frecency workspace=CWD path_display={\"shorten\"} theme=ivy hidden=true no_ignore=false<cr>")
           (kset :n :<space>pr ":Telescope pickers<cr>")
           (kset :n :<space>pb ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")
           (kset :n :<space>pa ":Telescope live_grep<cr>")
@@ -60,7 +59,7 @@
             (telescope.load_extension :ui-select)
             (telescope.load_extension :file_browser)
             (telescope.load_extension :projects)
-            (telescope.load_extension :frecency)
+            (telescope.load_extension :recent-files)
             ;(telescope.load_extension :harpoon)
             (telescope.load_extension :undo)))
 
@@ -83,6 +82,10 @@
                          (let [entry (state.get_selected_entry prompt_bufnr)]
                            (vim.fn.setreg "*" entry.value)
                            (actions.close prompt_bufnr)))})]
+
+              (kset :n :<space>b
+                    #((. (. telescope.extensions :recent-files) :recent_files) {})	                
+                    "search files with priority to recent")
 
               ;(harpoon.setup)
               (prj.setup

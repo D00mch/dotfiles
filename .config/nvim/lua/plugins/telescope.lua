@@ -7,7 +7,6 @@ local get_word_under_cursor = _local_2_["get-word-under-cursor"]
 local get_word_under_selection = _local_2_["get-word-under-selection"]
 local function _3_()
   kset("n", "<space>pf", ":Telescope find_files hidden=true no_ignore=false<cr>")
-  kset("n", "<space>b", ":Telescope frecency workspace=CWD path_display={\"shorten\"} theme=ivy hidden=true no_ignore=false<cr>")
   kset("n", "<space>pr", ":Telescope pickers<cr>")
   kset("n", "<space>pb", ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")
   kset("n", "<space>pa", ":Telescope live_grep<cr>")
@@ -47,7 +46,7 @@ local function _3_()
   telescope.load_extension("ui-select")
   telescope.load_extension("file_browser")
   telescope.load_extension("projects")
-  telescope.load_extension("frecency")
+  telescope.load_extension("recent-files")
   return telescope.load_extension("undo")
 end
 local function _8_()
@@ -65,7 +64,11 @@ local function _8_()
     return actions.close(prompt_bufnr)
   end
   M = mt.transform_mod({["yank-entry"] = _9_})
+  local function _10_()
+    return telescope.extensions["recent-files"].recent_files({})
+  end
+  kset("n", "<space>b", _10_, "search files with priority to recent")
   prj.setup({patterns = {".git", "package.json", "deps.edn", "project.clj"}})
   return telescope.setup({defaults = {vimgrep_arguments = {"rg", "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case", "--hidden", "--follow", "-g", "!.git/", "-g", "!.clj-kondo/"}, cache_picker = {num_pickers = 10}, layout_config = {height = 0.9, width = 0.9}, layout_strategy = "vertical", wrap_results = true, mappings = {n = {y = M["yank-entry"], ["<D-w>"] = actions.close, ["<Right>"] = actions.preview_scrolling_down, ["<Left>"] = actions.preview_scrolling_up, t = actions.select_tab, q = (actions.smart_send_to_qflist + actions.open_qflist), ["<Esc>"] = false}, i = {["<M-x>"] = actions.close, ["<C-q>"] = (actions.smart_send_to_qflist + actions.open_qflist), ["?"] = actions.which_key, ["<Right>"] = actions.preview_scrolling_down, ["<Left>"] = actions.preview_scrolling_up, ["<M-d>"] = actions.delete_buffer, ["<M-t>"] = actions.select_tab, ["<M-?>"] = actions.which_key, ["<C-u>"] = false}}}, pickers = {git_branches = {mappings = {n = {["<Cr>"] = actions.git_switch_branch, ga = actions.git_create_branch, gh = actions.git_reset_hard, gs = actions.git_reset_soft, ["<D-m>"] = actions.git_merge_branch, gd = actions.git_delete_branch, gr = actions.git_rebase_branch}, i = {["<Cr>"] = actions.git_switch_branch, ["<M-d>"] = actions.git_delete_branch, ["<C-a>"] = actions.git_create_branch, ["<M-a>"] = actions.git_create_branch, ["<D-a>"] = actions.git_create_branch, ["<C-h>"] = actions.git_reset_hard, ["<C-s>"] = actions.git_reset_soft, ["<C-m>"] = actions.git_merge_branch, ["<C-b>"] = actions.git_rebase_branch, ["<D-b>"] = actions.git_rebase_branch, ["<C-r>"] = actions.git_rebase_branch}}}, git_commits = {mappings = {n = {h = actions.git_reset_hard, ["<Esc>"] = false}, i = {["<Cr>"] = actions.git_checkout_current_buffer}}}, buffers = {sort_mru = true}, live_grep = {only_sort_text = true, additional_args = {"--trim"}}}, extensions = {undo = {mappings = {n = {y = undo_actions.yank_additions, Y = undo_actions.yank_deletions}}}, ["ui-select"] = {themes.get_cursor({})}, frecency = {ignore_patterns = {"*/.git", "*/.git/*", "*/.DS_Store"}, db_safe_mode = false}}})
 end
-return {{"nvim-telescope/telescope.nvim", dependencies = {"nvim-lua/popup.nvim", "nvim-lua/plenary.nvim", "nvim-telescope/telescope-ui-select.nvim", "ahmedkhalf/project.nvim", "debugloop/telescope-undo.nvim", "nvim-telescope/telescope-file-browser.nvim", "nvim-telescope/telescope-frecency.nvim"}, lazy = true, init = _3_, config = _8_}}
+return {{"nvim-telescope/telescope.nvim", dependencies = {"nvim-lua/popup.nvim", "nvim-lua/plenary.nvim", "nvim-telescope/telescope-ui-select.nvim", "ahmedkhalf/project.nvim", "debugloop/telescope-undo.nvim", "nvim-telescope/telescope-file-browser.nvim", "mollerhoj/telescope-recent-files.nvim"}, lazy = true, init = _3_, config = _8_}}
