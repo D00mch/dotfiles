@@ -54,7 +54,7 @@
           ]
 
       (bufferline.setup
-        {:options {;:mode :tabs
+        {:options {:mode :tabs
                    :numbers  :ordinal
                    :separator_style :slant
                    :always_show_bufferline false

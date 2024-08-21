@@ -1,4 +1,4 @@
--- [nfnl] Compiled from .config/nvim/fnl/plugins/tabs.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from fnl/plugins/tabs.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local _local_2_ = autoload("config.util")
@@ -76,6 +76,6 @@ local function _8_()
       return join(map(_15_, map(_16_, subwords)))
     end
   end
-  return bufferline.setup({options = {numbers = "ordinal", separator_style = "slant", show_duplicate_prefix = true, tab_size = 12, name_formatter = _14_, always_show_bufferline = false}, highlights = {numbers_selected = {italic = false}, buffer_selected = {bold = true, italic = false}}})
+  return bufferline.setup({options = {mode = "tabs", numbers = "ordinal", separator_style = "slant", show_duplicate_prefix = true, tab_size = 12, name_formatter = _14_, always_show_bufferline = false}, highlights = {numbers_selected = {italic = false}, buffer_selected = {bold = true, italic = false}}})
 end
 return {{"akinsho/bufferline.nvim", init = _5_, config = _8_}}
