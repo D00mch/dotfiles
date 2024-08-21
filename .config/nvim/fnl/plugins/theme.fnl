@@ -41,6 +41,7 @@
   :lazy false
   :priority 1000
   :dependencies [:nvim-tree/nvim-web-devicons
+                 :rose-pine/neovim
                  :neanias/everforest-nvim
                  :sainnhe/edge
                  :rebelot/kanagawa.nvim
