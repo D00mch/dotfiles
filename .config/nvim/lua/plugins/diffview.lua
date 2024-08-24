@@ -1,4 +1,4 @@
--- [nfnl] Compiled from .config/nvim/fnl/plugins/diffview.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from fnl/plugins/diffview.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local _local_2_ = autoload("config.util")
@@ -21,14 +21,14 @@ end
 local function _5_()
   kset({"n"}, "<space>gh", history_toggle, "Toggle git history")
   kset({"x"}, "<space>gh", ":DiffviewFileHistory<cr>", "Toggle git history")
-  return kset({"n"}, "<space>gv", ":DiffviewOpen", "DiffviewOpen")
+  return kset({"n"}, "<space>gv", ":DiffviewOpen ", "DiffviewOpen")
 end
 local function _6_()
   local dview = require("diffview")
   local actions = require("diffview.actions")
   local ufo = require("ufo")
   local diffview_common_mappings = {gf = actions.goto_file_edit, ["<Space>1"] = ":DiffviewToggleFiles<cr>", [":ggn"] = actions.next_conflict, [":ggp"] = actions.prev_conflict}
-  local diffview_unmap = {["<leader>ca"] = false, ["]x"] = false, dx = false, ["<leader>cb"] = false, ["[x"] = false, ["<leader>co"] = false, ["<leader>ct"] = false, ["<leader>b"] = false, ["<leader>e"] = false, ["<esc>"] = false, q = false}
+  local diffview_unmap = {["<esc>"] = false, ["<leader>b"] = false, ["<leader>ca"] = false, ["<leader>cb"] = false, ["<leader>co"] = false, ["<leader>ct"] = false, ["<leader>e"] = false, ["[x"] = false, ["]x"] = false, dx = false, q = false}
   local panel_mappings = merge(diffview_unmap, diffview_common_mappings, {x = actions.restore_entry, s = actions.toggle_stage_entry})
   local diff_keys = {{{"n", "x"}, "go", actions.conflict_choose("ours")}, {{"n", "x"}, "gt", actions.conflict_choose("theirs")}, {{"n", "x"}, "gb", actions.conflict_choose("base")}, {{"n", "x"}, "ga", actions.conflict_choose("all")}, {{"n", "x"}, "gn", actions.next_conflict}, {{"n", "x"}, "gN", actions.prev_conflict}}
   local function _7_(_)

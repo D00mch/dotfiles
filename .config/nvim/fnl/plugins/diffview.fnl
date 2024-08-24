@@ -16,7 +16,7 @@
   (fn []
     (kset [:n] :<space>gh history-toggle "Toggle git history")
     (kset [:x] :<space>gh ":DiffviewFileHistory<cr>" "Toggle git history")
-    (kset [:n] :<space>gv ":DiffviewOpen"  "DiffviewOpen"))
+    (kset [:n] :<space>gv ":DiffviewOpen "  "DiffviewOpen"))
 
   :config
   (fn []
