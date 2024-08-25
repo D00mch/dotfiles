@@ -24,8 +24,7 @@ echo 'fi' >> ~/.zprofile
 brew install neovim
 brew install --cask neovide
 brew install yqrashawn/goku/goku
-# https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(from-HEAD)
-brew install yabai
+brew install --cask nikitabobko/tap/aerospace
 brew install --cask karabiner-elements
 brew install jq
 brew install java
@@ -40,9 +39,6 @@ echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >>~/.
 # for lualine and nerdtree icons
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
-
-# start services
-brew services start yabai
 
 # set up java versions
 source ~/.zshrc

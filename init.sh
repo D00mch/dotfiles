@@ -9,7 +9,6 @@ ln    -s   $DOTFILES_PATH/.zshenv                    ~/
 ln    -s   $DOTFILES_PATH/.zshrc                     ~/
 ln    -s   $DOTFILES_PATH/.ideavimrc                 ~/ 
 ln    -s   $DOTFILES_PATH/fuz.sh                     ~/ 
-ln    -s   $DOTFILES_PATH/.yabairc                   ~/ 
 ln    -s   $DOTFILES_PATH/.skhdrc                    ~/ 
 ln    -s   $DOTFILES_PATH/.clojure                   ~/ 
 ln    -s   $DOTFILES_PATH/.wezterm.lua               ~/ 
@@ -21,6 +20,7 @@ mkdir -p   ~/.config
 ln    -s   $DOTFILES_PATH/.config/nvim               ~/.config/
 ln    -s   $DOTFILES_PATH/.config/clj-kondo          ~/.config/
 ln    -s   $DOTFILES_PATH/.config/karabiner.edn      ~/.config/
+ln    -s   $DOTFILES_PATH/.config/aerospace          ~/.config/
 
 mkdir -p   ~/.config/karabiner/
 ln    -s   $DOTFILES_PATH/.config/karabiner/assets   ~/.config/karabiner/ 
