@@ -91,6 +91,7 @@ outer.right =      8
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-e = 'layout tiles horizontal vertical'
 alt-f = 'layout accordion horizontal vertical'
+alt-g = 'layout floating tiling'
 alt-shift-f = 'fullscreen'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
