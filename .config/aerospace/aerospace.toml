@@ -109,8 +109,8 @@ alt-shift-ctrl-h = ['join-with left', 'mode main']
 alt-shift-ctrl-l = ['join-with right', 'mode main']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-alt-ctrl-minus = 'resize smart -50'
-alt-ctrl-equal = 'resize smart +50'
+alt-minus = 'resize smart -50'
+alt-equal = 'resize smart +50'
 alt-shift-equal = ['flatten-workspace-tree', 'mode main']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
