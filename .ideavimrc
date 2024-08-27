@@ -17,6 +17,8 @@ set which-key
 set notimeout
 
 "VIM HOTKEYS
+    xmap zf :action CollapseSelection<cr>
+
     nmap << :tabm-1<cr>    
     nmap >> :tabm+1<cr>    
 
