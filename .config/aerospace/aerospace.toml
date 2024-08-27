@@ -154,4 +154,31 @@ r = ['flatten-workspace-tree', 'mode main'] # reset layout
 f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
 
+# https://nikitabobko.github.io/AeroSpace/guide#callbacks
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace 1'
 
+[[on-window-detected]]
+if.app-id = 'com.jetbrains.intellij.ce'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.jetbrains.intellij'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'j-enterprise'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Outlook'
+run = 'move-node-to-workspace 8'
+
+[[on-window-detected]]
+if.app-id = 'com.cisco.anyconnect.gui'
+run = ['layout floating',  'move-node-to-workspace 8']
+
+[[on-window-detected]]
+if.app-id = 'com.electron.dockerdesktop'
+run = 'move-node-to-workspace 9'
