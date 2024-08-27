@@ -9,8 +9,11 @@
               (vim.api.nvim_command "set splitright")
               (oil.setup
                {:keymaps
-                {:th actions.toggle_hidden
-                 :<Tab> actions.preview
-                 :<Cr> actions.select
-                 :<S-Cr> actions.select_vsplit
-                 }})))}]
+                {:th        actions.toggle_hidden
+                 :<Tab>     actions.preview
+                 :<Cr>      actions.select
+                 :<S-Cr>    actions.select_vsplit
+                 :<Space>ts {1     #(oil.set_columns [:icon :size])
+                             :desc "Toggle size"}}
+                ; :columns [:icon :size]
+                })))}]

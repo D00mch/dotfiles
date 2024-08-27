@@ -9,6 +9,9 @@ local function _3_()
   local oil = require("oil")
   local actions = require("oil.actions")
   vim.api.nvim_command("set splitright")
-  return oil.setup({keymaps = {th = actions.toggle_hidden, ["<Tab>"] = actions.preview, ["<Cr>"] = actions.select, ["<S-Cr>"] = actions.select_vsplit}})
+  local function _4_()
+    return oil.set_columns({"icon", "size"})
+  end
+  return oil.setup({keymaps = {th = actions.toggle_hidden, ["<Tab>"] = actions.preview, ["<Cr>"] = actions.select, ["<S-Cr>"] = actions.select_vsplit, ["<Space>ts"] = {_4_, desc = "Toggle size"}}})
 end
 return {{"stevearc/oil.nvim", lazy = true, config = _3_}}
