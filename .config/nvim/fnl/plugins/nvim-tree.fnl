@@ -77,6 +77,7 @@
                               (bkset :n "(" api.node.navigate.parent b) ;)
 
                               (bkset :n :sd        api.tree.change_root_to_node {:buffer b :desc "Set root"})
+                              (bkset :n :gx        api.node.run.system          {:buffer b :desc "Open system default"})
                               (bkset :n :<Space>sd api.tree.change_root_to_node {:buffer b :desc "Set root"})
                               (bkset :n :gf api.node.run.system b)
                               (bkset :n :i api.node.show_info_popup b))
