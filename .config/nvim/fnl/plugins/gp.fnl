@@ -1,2 +1,3 @@
 [{1 :Robitx/gp.nvim
-  :config true}]
+  :lazy true
+  :config false}]
