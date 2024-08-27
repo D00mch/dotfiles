@@ -17,6 +17,9 @@ set which-key
 set notimeout
 
 "VIM HOTKEYS
+    nmap <C-q> :action FindUsages<cr>
+    nmap ]q :action NextOccurence<cr>
+    nmap [q :action PreviousOccurence<cr>
     xmap zf :action CollapseSelection<cr>
 
     nmap << :tabm-1<cr>    
