@@ -144,6 +144,7 @@ alt-shift-semicolon = 'mode service'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 alt-r = 'mode resize'
+alt-0 = 'balance-sizes'
 
 [mode.resize.binding]
 h     = 'resize width -50'
