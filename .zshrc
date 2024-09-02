@@ -28,7 +28,7 @@ bindkey -v
 export KEYTIMEOUT=1
 export VI_MODE_SET_CURSOR=true
 
-ZSH_THEME="Gozilla"
+ZSH_THEME="avit"
 plugins=(
     git
     vi-mode
