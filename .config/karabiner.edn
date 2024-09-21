@@ -35,21 +35,16 @@
 
                  ;; brackets
                  [:!Q##slash :backslash]
-                 [:!Q##a :!S9]
-                 [:!Q##f :!S0]
-                 [:!Q##s :!Sopen_bracket]
-                 [:!Q##d :!Sclose_bracket]
+                 [:!Qa :!S9]
+                 [:!Qf :!S0]
+                 [:!Qs :!Sopen_bracket]
+                 [:!Qd :!Sclose_bracket]
                  [:!Qu :!Sbackslash]
-                 [:!C##i :open_bracket]
-                 [:!C##o :close_bracket]]}
+                 [:!Ci :open_bracket]
+                 [:!Co :close_bracket]]}
 
-        {:des "system scripts"
-         :rules [[:!SOw [:theme "w"]]
-                 [:!SOb [:theme "b"]]
-                 [:!Qv  :!OSc]
-                 [:!TO1 [:select_abc "~/docker_and_repl.sh 1"]]
-                 [:!TO2 [:select_abc "~/docker_and_repl.sh 2"]]
-                 [:!TO3 [:select_abc "~/docker_and_repl.sh 3"]]
+        {:des "quick app open"
+         :rules [
                  [:!Eg "open /Applications/Google\\ Chrome.app"]
                  [:!Ei "/bin/zsh `open /Applications/IntelliJ\\ IDEA.app`"]
                  [:!Et "open /Applications/Telegram\\ Lite.app/"]
@@ -57,7 +52,42 @@
                  [:!Ew ["/bin/zsh `open /Applications/WezTerm.app`" :select_abc]]
                  [:!Cg ["/bin/zsh `open /Applications/Neovide.app -n --args --frame transparent`" :select_abc]]
                  [:!Es ["/bin/zsh `open /Applications/sioyek.app`"]]
-                 #_[:!Cg ["open /Applications/Neovide.app -n --args --multigrid" :select_abc]]]}
+
+                 [:!CQg "open /Applications/Google\\ Chrome.app"]
+                 [:!CQi "/bin/zsh `open /Applications/IntelliJ\\ IDEA.app`"]
+                 [:!CQt "open /Applications/Telegram\\ Lite.app/"]
+                 [:!CQn ["/bin/zsh `open /Applications/Neovide.app`" :select_abc]]
+                 [:!CQw ["/bin/zsh `open /Applications/WezTerm.app`" :select_abc]]
+                 [:!CQg ["/bin/zsh `open /Applications/Neovide.app -n --args --frame transparent`" :select_abc]]
+                 [:!CQs ["/bin/zsh `open /Applications/sioyek.app`"]]
+
+                 #_[:!Cg ["open /Applications/Neovide.app -n --args --multigrid" :select_abc]]
+                 ]}
+
+        {:des "aerospace simplification: both cmds as right alt"
+         :rules [
+                 [:!CQ1 :!O1]
+                 [:!CQ2 :!O2]
+                 [:!CQ3 :!O3]
+                 [:!CQ4 :!O4]
+                 [:!CQ5 :!O5]
+                 [:!CQ6 :!O6]
+                 [:!CQ7 :!O7]
+                 [:!CQ8 :!O8]
+                 [:!CQ9 :!O9]
+                 [:!CQ0 :!O0]
+
+                 [:!CQf :!Of]
+                 [:!CQe :!Oe]
+                 ]}
+
+        {:des "system scripts"
+         :rules [[:!SOw [:theme "w"]]
+                 [:!SOb [:theme "b"]]
+                 [:!Qv  :!OSc]
+                 [:!TO1 [:select_abc "~/docker_and_repl.sh 1"]]
+                 [:!TO2 [:select_abc "~/docker_and_repl.sh 2"]]
+                 [:!TO3 [:select_abc "~/docker_and_repl.sh 3"]]]}
 
         ;; !  | means mandatory    Q  | right_command
         ;; #  | means optional     W  | right_control
@@ -103,5 +133,4 @@
                          "^com.jetbrains.intellij.ce$"]
                 :idea ["^com.jetbrains.intellij.ce$"
                        "^com.jetbrains.intellij$"]
-                :as ["^com.google.android.studio$"]}
- }
+                :as ["^com.google.android.studio$"]}}
