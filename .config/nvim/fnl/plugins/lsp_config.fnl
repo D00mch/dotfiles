@@ -132,9 +132,7 @@
               (lsp.jdtls.setup default-map)
               (lsp.kotlin_language_server.setup
                 (merge default-map {:autostart false}))
-              (lsp.rust_analyzer.setup default-map)
               (lsp.gopls.setup default-map)
-              (lsp.tsserver.setup default-map)
 
               ;; div completions
               (lsp.emmet_language_server.setup
@@ -142,7 +140,6 @@
                   default-map
                   {:filetypes [:css :html :javascript :typescript :typescriptreact :javascriptreact
                                :svelte :vue :vue-html :less :scss :sass :sas]}))
-
 
               (lsp.ltex.setup
                 (merge default-map
