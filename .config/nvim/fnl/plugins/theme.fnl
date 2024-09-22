@@ -25,11 +25,12 @@
 ;;; font
 
 ;; update from: https://github.com/ryanoasis/nerd-fonts/releases
-(local default-font "Hack Nerd Font Mono:h15")
-; (def default-font "JetBrainsMonoNL Nerd Font Mono:h15")
-; (def default-font "Iosevka Nerd Font Mono:h17")
-; (def default-font "Iosevka Nerd Font Propo:h17")
-; (def default-font "Hack NF:h15")
+(local default-font "Terminess Nerd Font:h19")
+; (local default-font "Hack Nerd Font Mono:h15")
+; (local default-font "JetBrainsMonoNL Nerd Font Mono:h15")
+; (local default-font "Iosevka Nerd Font Mono:h17")
+; (local default-font "Iosevka Nerd Font Propo:h17")
+; (local default-font "Hack NF:h15")
 (set nvim.o.guifont default-font)
 
 (fn font-size! [diff]

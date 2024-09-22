@@ -36,7 +36,7 @@ local function set_theme(dark_3f0)
   end
   return vim.api.nvim_command(("colorscheme " .. _4_))
 end
-local default_font = "Hack Nerd Font Mono:h15"
+local default_font = "Terminess Nerd Font:h19"
 nvim.o.guifont = default_font
 local function font_size_21(diff)
   local font = nvim.o.guifont
