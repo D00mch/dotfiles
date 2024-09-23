@@ -27,6 +27,8 @@
                  [:!Q##o :delete_or_backspace]
                  [:!Qi :right_shift]
                  [:!Ce :left_shift]
+                 [:!Cquote :grave_accent_and_tilde]
+                 [:!Squote :!Sgrave_accent_and_tilde]
                  [:!Qquote :!Rquote]
 
                  ;; tabs
