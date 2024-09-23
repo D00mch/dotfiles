@@ -296,8 +296,8 @@ local config = {
   window_background_opacity = 0.82,
   macos_window_background_blur = 20,
 
-  font = wezterm.font('Hack Nerd Font Mono', { weight = 'Bold' }),
-  font_size = 14,
+  font = wezterm.font('Terminess Nerd Font', { weight = 'Bold' }),
+  font_size = 16,
   keys = keys,
   key_tables = key_tables,
   enable_scroll_bar = true,
