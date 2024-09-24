@@ -44,9 +44,7 @@
   :dependencies [:nvim-tree/nvim-web-devicons
                  :rose-pine/neovim
                  :neanias/everforest-nvim
-                 :sainnhe/edge
                  :rebelot/kanagawa.nvim
-                 :ferdinandrau/lavish.nvim
                  :EdenEast/nightfox.nvim]
   :init (fn []
           (when vim.g.neovide
