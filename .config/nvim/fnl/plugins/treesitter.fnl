@@ -34,5 +34,11 @@
                                {:enable true
                                 :keymaps 
                                 {:am "@function.outer"
-                                 :im "@function.inner"}}}
+                                 :im "@function.inner"
+                                 :ac "@class.outer"
+                                 :ic "@class.inner"}}
+                               :swap
+                               {:enable true
+                                :swap_next {:g> "@parameter.inner"}
+                                :swap_previous {:g< "@parameter.inner"}}}
                  :indent    {:enable true}})))}]

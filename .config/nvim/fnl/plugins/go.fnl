@@ -3,6 +3,6 @@
                  ]
   :lazy true
   :ft [:go :gomod]
-  :config true 
+  :config {:textobjects false}
   :event [:CmdlineEnter]
   :build ":lua require(\"go.install\").update_all_sync()"}]
