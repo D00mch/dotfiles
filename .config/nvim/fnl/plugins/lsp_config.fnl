@@ -90,7 +90,7 @@
                     ;; TELESCOPE
                     (bkset :n :<leader>gr #(lsp_references {:jump_type :never}) {:buffer b :desc "Go to references"})
                     (bkset :n :<leader>gi lsp_implementations {:buffer b :desc "Go to implementations"})
-                    (bkset [:n :x] :<C-r> vim.lsp.buf.code_action {:buffer b :desc "Code actions"})
+                    (bkset [:i :n :x] :<C-r> vim.lsp.buf.code_action {:buffer b :desc "Code actions"})
                     (bkset [:n :x] :<leader>ra vim.lsp.buf.code_action {:buffer b :desc "Code actions"}))
 
                   capabilities
