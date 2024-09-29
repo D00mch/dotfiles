@@ -112,6 +112,8 @@ set notimeout
         nnoremap <Leader>db :action ToggleLineBreakpoint<cr>
         nnoremap <Leader>dj :action StepOver<cr>
         nnoremap <Leader>dk :action StepOut<cr>
+        nnoremap <Leader>tb gg:action RunClass<cr>
+        nnoremap <Leader>tc :action RunClass<cr>
         "android complements
         nnoremap <Leader>sg :action ExternalSystem.RefreshAllProjects<cr>
         nnoremap <Leader>h :action QuickJavaDoc<cr>
