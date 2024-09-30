@@ -122,6 +122,9 @@ set notimeout
         nnoremap <Leader>rr :action RenameElement<cr> 
         nnoremap <Leader>ra :action Refactorings.QuickListPopupAction<cr> 
 
+        nnoremap g> :action MoveElementRight<cr> 
+        nnoremap g< :action MoveElementLeft<cr>
+
         "CLOJURE-EDITING
             map <C-l> :action :cursive.actions.paredit/move-form-down<cr>
             map <C-h> :action :cursive.actions.paredit/move-form-up<cr>
