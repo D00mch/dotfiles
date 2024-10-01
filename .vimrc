@@ -105,7 +105,7 @@ cd $HOME
     noremap <up> 2<C-y>
     noremap <down> 2<C-e>
 
-    nnoremap <silent> <space><tab> <cmd>exe v:count ? v:count . 'b' : 'b' . (bufloaded(0) ? '#' : 'n')<cr>
+    nnoremap <silent> <space><esc> <cmd>exe v:count ? v:count . 'b' : 'b' . (bufloaded(0) ? '#' : 'n')<cr>
 
     "WINDOWS
         nmap gh <C-w>h

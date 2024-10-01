@@ -1,4 +1,16 @@
-{:main [{:des "vim"
+{:main [{:des "Numbers"
+         :rules [[:!T##u      :7]
+                 [:!T##i      :8]
+                 [:!T##o      :9]
+                 [:!T##j      :4]
+                 [:!T##k      :5]
+                 [:!T##l      :6]
+                 [:!T##m      :1]
+                 [:!T##comma  :2]
+                 [:!T##period :3]
+                 [:!T##p      :0]]}
+
+        {:des "vim"
          :rules [[:!Cx :!T6 [:neovide]]
                  [:!Cq :!Oq [:neovide]]
                  [:!Cr :!Tr [:terminalish]]
@@ -22,8 +34,6 @@
 
                  ;; main hotkeys
                  [:!C##d :return_or_enter]
-                 [:!Q##p :equal_sign]
-                 [:!Qw :!Requal_sign]
                  [:!Q##o :delete_or_backspace]
                  [:!Qi :right_shift]
                  [:!Ce :left_shift]
@@ -31,17 +41,29 @@
                  [:!Squote :!Sgrave_accent_and_tilde]
                  [:!Qquote :!Rquote]
 
+                 [:!Cescape :!Ctab] ;; cmd+caps -> cmd+tab
+
                  ;; tabs
                  [:!Qcomma :!CSopen_bracket [:!neovide]]
                  [:!Qperiod :!CSclose_bracket [:!neovide]]
 
+                 ;; special symbols
+                 [:!Qp :equal_sign]    ; =
+                 [:!Qw :!Requal_sign]  ; +
+                 [:!Qe :hyphen]        ; -
+                 [:!Qr :!S8]           ; *
+                 [:!Qc :!S3]           ; #
+                 [:!Qq :!S2]           ; @
+                 [:!Qn :!S5]           ; %
+                 [:!Cu :!S1]           ; !
+                 [:!Qu :!Sbackslash]   ; |
+                 [:!Qslash :backslash] ; \
+
                  ;; brackets
-                 [:!Q##slash :backslash]
                  [:!Qa :!S9]
                  [:!Qf :!S0]
                  [:!Qs :!Sopen_bracket]
                  [:!Qd :!Sclose_bracket]
-                 [:!Qu :!Sbackslash]
                  [:!Ci :open_bracket]
                  [:!Co :close_bracket]]}
 
@@ -68,17 +90,6 @@
 
         {:des "aerospace simplification: both cmds as right alt"
          :rules [
-                 [:!CQ1 :!O1]
-                 [:!CQ2 :!O2]
-                 [:!CQ3 :!O3]
-                 [:!CQ4 :!O4]
-                 [:!CQ5 :!O5]
-                 [:!CQ6 :!O6]
-                 [:!CQ7 :!O7]
-                 [:!CQ8 :!O8]
-                 [:!CQ9 :!O9]
-                 [:!CQ0 :!O0]
-
                  [:!CQf :!Of]
                  [:!CQe :!Oe]
                  [:!CQr :!Or]
