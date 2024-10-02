@@ -55,6 +55,7 @@
                  [:!Squote :!Sgrave_accent_and_tilde]
                  [:!Qquote :!Rquote]
 
+                 [:!Qm :tab]
                  [:!Cescape :!Ctab] ;; cmd+caps -> cmd+tab
 
                  ;; tabs
