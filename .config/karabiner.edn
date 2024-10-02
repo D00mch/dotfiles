@@ -67,6 +67,7 @@
                  [:!Qw :!Requal_sign]  ; +
                  [:!Qe :hyphen]        ; -
                  [:!Qr :!S8]           ; *
+                 [:!Qt :!Shyphen]       ; _
                  [:!Qc :!S3]           ; #
                  [:!Qq :!S2]           ; @
                  [:!Qn :!S5]           ; %
