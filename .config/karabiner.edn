@@ -1,4 +1,18 @@
-{:main [{:des "Numbers"
+{:main [{:des "aerospace remappings"
+         :rules [[:!CTm      :!SO1]
+                 [:!CTcomma  :!SO2]
+                 [:!CTperiod :!SO3]
+                 [:!CTj      :!SO4]
+                 [:!CTk      :!SO5]
+                 [:!CTl      :!SO6]
+                 [:!CTu      :!SO7]
+                 [:!CTi      :!SO8]
+                 [:!CTo      :!SO9]
+
+                 [:!CQf :!Of]
+                 [:!CQe :!Oe]
+                 [:!CQr :!Or]]}
+        {:des "Numbers"
          :rules [[:!T##u      :7]
                  [:!T##i      :8]
                  [:!T##o      :9]
@@ -86,13 +100,6 @@
                  [:!CQs ["/bin/zsh `open /Applications/sioyek.app`"]]
 
                  #_[:!Cg ["open /Applications/Neovide.app -n --args --multigrid" :select_abc]]
-                 ]}
-
-        {:des "aerospace simplification: both cmds as right alt"
-         :rules [
-                 [:!CQf :!Of]
-                 [:!CQe :!Oe]
-                 [:!CQr :!Or]
                  ]}
 
         {:des "system scripts"

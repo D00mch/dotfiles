@@ -110,15 +110,15 @@ alt-shift-ctrl-h = ['join-with left', 'mode main']
 alt-shift-ctrl-l = ['join-with right', 'mode main']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-cmd-1 = 'workspace 1'
-cmd-2 = 'workspace 2'
-cmd-3 = 'workspace 3'
-cmd-4 = 'workspace 4'
-cmd-5 = 'workspace 5'
-cmd-6 = 'workspace 6'
-cmd-7 = 'workspace 7'
-cmd-8 = 'workspace 8'
-cmd-9 = 'workspace 9'
+alt-shift-1 = 'workspace 1'
+alt-shift-2 = 'workspace 2'
+alt-shift-3 = 'workspace 3'
+alt-shift-4 = 'workspace 4'
+alt-shift-5 = 'workspace 5'
+alt-shift-6 = 'workspace 6'
+alt-shift-7 = 'workspace 7'
+alt-shift-8 = 'workspace 8'
+alt-shift-9 = 'workspace 9'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-1 = 'move-node-to-workspace 1'
