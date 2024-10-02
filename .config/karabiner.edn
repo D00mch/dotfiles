@@ -66,6 +66,7 @@
                  [:!Qp :equal_sign]    ; =
                  [:!Qw :!Requal_sign]  ; +
                  [:!Qe :hyphen]        ; -
+                 [:!Qt :!Shyphen]      ; _
                  [:!Qr :!S8]           ; *
                  [:!Qt :!Shyphen]       ; _
                  [:!Qc :!S3]           ; #
