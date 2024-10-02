@@ -55,8 +55,8 @@
                  [:!Squote :!Sgrave_accent_and_tilde]
                  [:!Qquote :!Rquote]
 
-                 [:!Qm :tab]
-                 [:!Cescape :!Ctab] ;; cmd+caps -> cmd+tab
+                 [:!Q##m :tab]
+                 [:!C##escape :!Ctab] ;; cmd+caps -> cmd+tab
 
                  ;; tabs
                  [:!Qcomma :!CSopen_bracket [:!neovide]]
