@@ -300,7 +300,7 @@ local config = {
   font_size = 16,
   keys = keys,
   key_tables = key_tables,
-  enable_scroll_bar = true,
+  enable_scroll_bar = false,
   min_scroll_bar_height = '2cell',
 
   -- Tab Bar
