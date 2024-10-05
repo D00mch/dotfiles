@@ -11,7 +11,7 @@
             (kset :n :<leader>e "vip<leader>q" {:remap true})
             (kset :t :<D-w> "<C-\\><C-n>:hide<Cr>" {:remap true})
             (kset :t :<D-v> "<Esc>pa")
-            (kset :t "<D-Esc>" "<C-\\><C-n>")
+            (kset :t "<C-[>" "<C-\\><C-n>")
             (kset :t :<D-c> :<C-c>)))
   :config (fn []
             (let [term (require :toggleterm)]

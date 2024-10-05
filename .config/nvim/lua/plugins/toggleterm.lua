@@ -13,7 +13,7 @@ local function _3_()
   kset0("n", "<leader>e", "vip<leader>q", {remap = true})
   kset0("t", "<D-w>", "<C-\\><C-n>:hide<Cr>", {remap = true})
   kset0("t", "<D-v>", "<Esc>pa")
-  kset0("t", "<D-Esc>", "<C-\\><C-n>")
+  kset0("t", "<C-[>", "<C-\\><C-n>")
   return kset0("t", "<D-c>", "<C-c>")
 end
 local function _5_()

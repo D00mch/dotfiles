@@ -36,7 +36,7 @@ local keys = {
   { key = '.', mods = 'CMD', action = act.MoveTabRelative(1) },
   { key = ',', mods = 'CMD', action = act.MoveTabRelative(-1) },
   { key = 'A', mods = 'CMD', action = act.ActivateCommandPalette },
-  { key = 'Escape', mods = 'CMD', action = act.ActivateCopyMode },
+  { key = '[', mods = 'CTRL', action = act.ActivateCopyMode },
 }
 local key_tables = {
   copy_mode = {
