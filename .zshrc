@@ -28,6 +28,9 @@ bindkey -v
 export KEYTIMEOUT=1
 export VI_MODE_SET_CURSOR=true
 
+# neovim cleanup
+alias rm_default_colors='rm -rf /opt/homebrew/Cellar/neovim/*/share/nvim/runtime/colors'
+
 ZSH_THEME="avit"
 plugins=(
     git
