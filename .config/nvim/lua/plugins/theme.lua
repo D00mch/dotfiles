@@ -13,7 +13,7 @@ end
 vim.g.neovide_floating_blur_amount_x = 8
 vim.g.neovide_floating_blur_amount_y = 8
 local function make_transparent()
-  vim.g.neovide_transparency = 0.9
+  vim.g.neovide_transparency = 0.93
   return nil
 end
 local function make_non_transparent()
@@ -30,7 +30,7 @@ local function set_theme(dark_3f0)
   vim.api.nvim_command("colorscheme everforest")
   local _4_
   if dark_3f0 then
-    _4_ = "kanagawa-dragon"
+    _4_ = "kanagawa-paper"
   else
     _4_ = "dawnfox"
   end
@@ -91,4 +91,4 @@ local function _13_()
   auto.setup({update_interval = 2000, set_dark_mode = _14_, set_light_mode = _15_})
   return auto.init()
 end
-return {{"f-person/auto-dark-mode.nvim", priority = 1000, dependencies = {"nvim-tree/nvim-web-devicons", "rose-pine/neovim", "neanias/everforest-nvim", "rebelot/kanagawa.nvim", "EdenEast/nightfox.nvim"}, init = _6_, config = _13_, lazy = false}}
+return {{"f-person/auto-dark-mode.nvim", priority = 1000, dependencies = {"nvim-tree/nvim-web-devicons", "rose-pine/neovim", "neanias/everforest-nvim", "rebelot/kanagawa.nvim", "sho-87/kanagawa-paper.nvim", "EdenEast/nightfox.nvim"}, init = _6_, config = _13_, lazy = false}}

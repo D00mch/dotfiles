@@ -9,7 +9,7 @@
 (set vim.g.neovide_floating_blur_amount_y 8.0)
 
 (fn make-transparent []
-  (set vim.g.neovide_transparency 0.90))
+  (set vim.g.neovide_transparency 0.93))
 
 (fn make-non-transparent []
   (set vim.g.neovide_transparency 1))
@@ -19,7 +19,7 @@
   (set nvim.o.background (if dark? "dark" "light"))
   (vim.api.nvim_command "colorscheme everforest")
   (vim.api.nvim_command
-    (.. "colorscheme " (if dark? "kanagawa-dragon" "dawnfox"))))
+    (.. "colorscheme " (if dark? "kanagawa-paper" "dawnfox"))))
 
 
 ;;; font
@@ -45,6 +45,7 @@
                  :rose-pine/neovim
                  :neanias/everforest-nvim
                  :rebelot/kanagawa.nvim
+                 :sho-87/kanagawa-paper.nvim
                  :EdenEast/nightfox.nvim]
   :init (fn []
           (when vim.g.neovide
