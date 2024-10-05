@@ -75,9 +75,9 @@
                          :functions :bold}}}))
 
 
-          (kset :n :<D-=> #(font-size! 1))
-          (kset :n :<D--> #(font-size! -1))
-          (kset :n :<D-0> #(set nvim.o.guifont default-font))
+          (kset :n :+ #(font-size! 1))
+          (kset :n :- #(font-size! -1))
+          (kset :n :<leader>sd #(set nvim.o.guifont default-font) "Default font size")
 
           ;;; removing `~` shit in empty files
           (set vim.opt.fillchars { :eob " "}))
