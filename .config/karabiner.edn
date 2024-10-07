@@ -51,9 +51,10 @@
                  [:!Q##o :delete_or_backspace]
                  [:!Qi :right_shift]
                  [:!Ce :left_shift]
-                 [:!Cquote :grave_accent_and_tilde]
-                 [:!Squote :!Sgrave_accent_and_tilde]
-                 [:!Qquote :!Rquote]
+                 [:!Osemicolon :!Oopen_bracket]
+                 [:!Qz :!Sgrave_accent_and_tilde]
+                 [:!Csemicolon :grave_accent_and_tilde]
+                 [:!Qsemicolon :!Rquote]
 
                  [:!Q##m :tab]
                  [:!C##escape :!Ctab] ;; cmd+caps -> cmd+tab
@@ -68,7 +69,6 @@
                  [:!Qe :hyphen]        ; -
                  [:!Qt :!Shyphen]      ; _
                  [:!Qr :!S8]           ; *
-                 [:!Qt :!Shyphen]       ; _
                  [:!Qc :!S3]           ; #
                  [:!Qq :!S2]           ; @
                  [:!Qn :!S5]           ; %
