@@ -114,6 +114,7 @@ set notimeout
         nnoremap <Leader>dk :action StepOut<cr>
         nnoremap <Leader>tb gg:action RunClass<cr>
         nnoremap <Leader>tc :action RunClass<cr>
+        nnoremap <Leader>gi :action GotoImplementation<cr>
         "android complements
         nnoremap <Leader>sg :action ExternalSystem.RefreshAllProjects<cr>
         nnoremap <Leader>h :action QuickJavaDoc<cr>
