@@ -106,9 +106,6 @@ alt-shift-j = 'move down'
 alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 
-alt-shift-ctrl-h = ['join-with left', 'mode main']
-alt-shift-ctrl-l = ['join-with right', 'mode main']
-
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-shift-1 = 'workspace 1'
 alt-shift-2 = 'workspace 2'
@@ -154,6 +151,10 @@ l     = 'resize width +50'
 enter = 'mode main'
 esc   = 'mode main'
 alt-r = 'mode main'
+left  = ['join-with left', 'mode main']
+right = ['join-with right', 'mode main']
+up    = ['join-with up', 'mode main']
+down  = ['join-with down', 'mode main']
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
