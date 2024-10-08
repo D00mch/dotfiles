@@ -102,6 +102,18 @@
                  [:!Ci :open_bracket]
                  [:!Co :close_bracket]]}
 
+        {:des "Numbers"
+         :rules [[:!O##u      :7]
+                 [:!O##i      :8]
+                 [:!O##o      :9]
+                 [:!O##j      :4]
+                 [:!O##k      :5]
+                 [:!O##l      :6]
+                 [:!O##m      :1]
+                 [:!O##comma  :2]
+                 [:!O##period :3]
+                 [:!O##p      :0]]}
+
         {:des "quick app open"
          :rules [
                  [:!Eg "open /Applications/Google\\ Chrome.app"]
