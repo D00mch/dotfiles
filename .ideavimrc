@@ -33,7 +33,7 @@ set notimeout
     nmap <space>m :action SelectInProjectView<cr>
     nmap <space>, :action ActivateBookmarksToolWindow<cr>
     nmap <space>. :action ActivateFindToolWindow<cr>
-    nmap <space>h :action ActivateRunToolWindow<cr>
+    nmap <space>j :action ActivateRunToolWindow<cr>
     nmap <space>l :action ActivateServicesToolWindow<cr>
     nmap <space>i :!open /Applications/WezTerm.app --args start --cwd `pwd` --always-new-process<cr>
     nmap <space>o :action ActivateVersionControlToolWindow<cr>
@@ -77,7 +77,7 @@ set notimeout
         nnoremap <space>a :action CloseAllEditors<cr>
         nnoremap <space>ga :action Annotate<cr>
         nnoremap <space>gb :action Git.Branches<cr>
-        nnoremap <space><esc> :e#<cr>
+        nnoremap <space><tab> :e#<cr>
         nnoremap <space>x :action CloseAllEditorsButActive<cr>
     "CIDER-LIKE
         
