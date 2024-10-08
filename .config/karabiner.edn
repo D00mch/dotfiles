@@ -31,18 +31,6 @@
                  [:g :!OSsemicolon ["semicolon-mode" 1]]
                  ]}
 
-        {:des "Numbers"
-         :rules [[:!O##u      :7]
-                 [:!O##i      :8]
-                 [:!O##o      :9]
-                 [:!O##j      :4]
-                 [:!O##k      :5]
-                 [:!O##l      :6]
-                 [:!O##m      :1]
-                 [:!O##comma  :2]
-                 [:!O##period :3]
-                 [:!O##p      :0]]}
-
         {:des "vim"
          :rules [[:!Cx :!T6 [:neovide]]
                  [:!Cq :!Oq [:neovide]]
@@ -152,12 +140,6 @@
         ;; F  | fn                 ## | optional any
 
         ]
-
- :simlayers {:wm-mode-focus {:key :f}
-             :wm-mode-move {:key :d}
-             :wm-mode-open {:key :o}
-             :wm-mode-warp {:key :w}
-             :wm-mode-size {:key :s}}
 
  :input-sources {:abc {:input_source_id "^com\\.apple\\.keylayout\\.ABC$"
                        :language "en"}
