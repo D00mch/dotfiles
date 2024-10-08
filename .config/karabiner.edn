@@ -75,9 +75,9 @@
                  [:!Qr :!S8]           ; *
                  [:!Qc :!S3]           ; #
                  [:!Qq :!S2]           ; @
-                 [:!Qf :!S4]           ; $
                  [:!Qu :!Sbackslash]   ; |
                  [:!Qslash :backslash] ; \
+                 [:!Cy :!S4]           ; $
                  [:!Cp :!S5]           ; %
                  [:!Cu :!S1]           ; !
                  [:!Cj :!S7]           ; &
