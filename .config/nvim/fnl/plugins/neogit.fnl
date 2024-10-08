@@ -13,7 +13,7 @@
 [{1 :TimUntersberger/neogit
   :dependencies [:nvim-lua/plenary.nvim]
   :init (fn []
-          (kset [:n :x] :<Space>9 neogit-toggle "Toggle NeoGit"))
+          (kset [:n :x] :<Space>o neogit-toggle "Toggle NeoGit"))
   :lazy true
   :cond false
 

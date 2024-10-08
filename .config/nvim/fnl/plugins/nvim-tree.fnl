@@ -15,7 +15,7 @@
                 api (require :nvim-tree.api)]
 
             (kset :n "<space>pt" #(api.tree.toggle false true) "Tree Toggle")
-            (kset :n :<Space>1
+            (kset :n :<Space>m
                   (fn []
                     (api.tree.toggle)
                     (if (tree-view.is_visible)

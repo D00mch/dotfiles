@@ -105,7 +105,7 @@ cd $HOME
     noremap <up> 2<C-y>
     noremap <down> 2<C-e>
 
-    nnoremap <silent> <space><esc> <cmd>exe v:count ? v:count . 'b' : 'b' . (bufloaded(0) ? '#' : 'n')<cr>
+    nnoremap <silent> <space><tab> <cmd>exe v:count ? v:count . 'b' : 'b' . (bufloaded(0) ? '#' : 'n')<cr>
 
     "WINDOWS
         nmap gh <C-w>h
@@ -128,14 +128,10 @@ cd $HOME
         nmap g= <C-w>=
 
         "RESIZE
-        "alt+shift+.   <M-S-.>
-        nnoremap ˘ <C-w>5+
-        "alt+shift+,   <M-S-,>
-        nnoremap ¯ <C-w>5-
-        "alt+.   <M-.>
-        nnoremap ≥ <C-w>5>
-        "alt+,   <M-,>
-        nnoremap ≤ <C-w>5<
+        nnoremap gsj <C-w>5+
+        nnoremap gs; <C-w>5-
+        nnoremap gsl <C-w>5>
+        nnoremap gsh <C-w>5<
 
     "SPACEMACS-LIKE COMMANDS
         nnoremap <space>x :wa <bar> silent %bd! <bar> e# <bar> bd# <CR>

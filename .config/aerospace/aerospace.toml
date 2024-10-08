@@ -89,44 +89,22 @@ outer.left =       [{ monitor."^built-in retina display$" = 2 }, 12]
 # '''
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-alt-e = 'layout tiles horizontal vertical'
-alt-f = 'layout accordion horizontal vertical'
-alt-g = 'layout floating tiling'
+alt-ctrl-d = 'layout tiles horizontal vertical'
+alt-ctrl-f = 'layout accordion horizontal vertical'
+alt-ctrl-a = 'layout floating tiling'
 # alt-shift-f = 'fullscreen'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-alt-h = 'focus left'
-alt-j = 'focus down'
-alt-k = 'focus up'
-alt-l = 'focus right'
+alt-ctrl-h = 'focus left'
+alt-ctrl-j = 'focus down'
+alt-ctrl-k = 'focus up'
+alt-ctrl-l = 'focus right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
-alt-shift-h = 'move left'
-alt-shift-j = 'move down'
-alt-shift-k = 'move up'
-alt-shift-l = 'move right'
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-alt-shift-1 = 'workspace 1'
-alt-shift-2 = 'workspace 2'
-alt-shift-3 = 'workspace 3'
-alt-shift-4 = 'workspace 4'
-alt-shift-5 = 'workspace 5'
-alt-shift-6 = 'workspace 6'
-alt-shift-7 = 'workspace 7'
-alt-shift-8 = 'workspace 8'
-alt-shift-9 = 'workspace 9'
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-alt-1 = 'move-node-to-workspace 1'
-alt-2 = 'move-node-to-workspace 2'
-alt-3 = 'move-node-to-workspace 3'
-alt-4 = 'move-node-to-workspace 4'
-alt-5 = 'move-node-to-workspace 5'
-alt-6 = 'move-node-to-workspace 6'
-alt-7 = 'move-node-to-workspace 7'
-alt-8 = 'move-node-to-workspace 8'
-alt-9 = 'move-node-to-workspace 9'
+alt-ctrl-shift-h = 'move left'
+alt-ctrl-shift-j = 'move down'
+alt-ctrl-shift-k = 'move up'
+alt-ctrl-shift-l = 'move right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
 alt-shift-m = 'move-workspace-to-monitor --wrap-around next'
@@ -140,7 +118,7 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 alt-shift-semicolon = 'mode service'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-alt-r = 'mode resize'
+alt-s = 'mode resize'
 alt-0 = 'balance-sizes'
 
 [mode.resize.binding]
@@ -150,11 +128,36 @@ k     = 'resize height -50'
 l     = 'resize width +50'
 enter = 'mode main'
 esc   = 'mode main'
-alt-r = 'mode main'
+alt-s = 'mode main'
 left  = ['join-with left', 'mode main']
 right = ['join-with right', 'mode main']
 up    = ['join-with up', 'mode main']
 down  = ['join-with down', 'mode main']
+# support movements here as well 
+alt-ctrl-h = 'focus left'
+alt-ctrl-j = 'focus down'
+alt-ctrl-k = 'focus up'
+alt-ctrl-l = 'focus right'
+# See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+q = ['workspace 1']
+w = ['workspace 2']
+e = ['workspace 3']
+r = ['workspace 4']
+t = ['workspace 5']
+y = ['workspace 6']
+u = ['workspace 7']
+i = ['workspace 8']
+o = ['workspace 9']
+# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
+cmd-1 = ['move-node-to-workspace 1']
+cmd-2 = ['move-node-to-workspace 2']
+cmd-3 = ['move-node-to-workspace 3']
+cmd-4 = ['move-node-to-workspace 4']
+cmd-5 = ['move-node-to-workspace 5']
+cmd-6 = ['move-node-to-workspace 6']
+cmd-7 = ['move-node-to-workspace 7']
+cmd-8 = ['move-node-to-workspace 8']
+cmd-9 = ['move-node-to-workspace 9']
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes

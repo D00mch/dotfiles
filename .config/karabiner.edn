@@ -1,4 +1,37 @@
-{:main [{:des "aerospace remappings"
+{:main [{:des "semicolon-mode"
+         :rules [[:semicolon ["semicolon-mode" 1] nil {:afterup ["semicolon-mode" 0]
+                                                       :alone   :semicolon}]
+                 ;; cmd+number
+                 [:q :!Q1 ["semicolon-mode" 1]]
+                 [:w :!Q2 ["semicolon-mode" 1]]
+                 [:e :!Q3 ["semicolon-mode" 1]]
+                 [:r :!Q4 ["semicolon-mode" 1]]
+                 [:t :!Q5 ["semicolon-mode" 1]]
+                 [:y :!Q6 ["semicolon-mode" 1]]
+                 [:u :!Q7 ["semicolon-mode" 1]]
+                 [:i :!Q8 ["semicolon-mode" 1]]
+                 [:o :!Q9 ["semicolon-mode" 1]]
+                 [:p :!Q0 ["semicolon-mode" 1]]
+
+                 ;; aerospace
+                 [:h   :!OTh ["semicolon-mode" 1]]
+                 [:l   :!OTl ["semicolon-mode" 1]]
+                 [:j   :!OTj ["semicolon-mode" 1]]
+                 [:k   :!OTk ["semicolon-mode" 1]]
+                 [:!Sh :!OTSh ["semicolon-mode" 1]]
+                 [:!Sl :!OTSl ["semicolon-mode" 1]]
+                 [:!Sj :!OTSj ["semicolon-mode" 1]]
+                 [:!Sk :!OTSk ["semicolon-mode" 1]]
+
+                 [:a :!OTa ["semicolon-mode" 1]]
+                 [:d :!OTd ["semicolon-mode" 1]]
+                 [:f :!OTf ["semicolon-mode" 1]]
+                 [:s :!Os  ["semicolon-mode" 1]]
+
+                 [:g :!OSsemicolon ["semicolon-mode" 1]]
+                 ]}
+
+        {:des "aerospace remappings"
          :rules [[:!CTm      :!SO1]
                  [:!CTcomma  :!SO2]
                  [:!CTperiod :!SO3]
@@ -13,16 +46,16 @@
                  [:!CQe :!Oe]
                  [:!CQr :!Or]]}
         {:des "Numbers"
-         :rules [[:!T##u      :7]
-                 [:!T##i      :8]
-                 [:!T##o      :9]
-                 [:!T##j      :4]
-                 [:!T##k      :5]
-                 [:!T##l      :6]
-                 [:!T##m      :1]
-                 [:!T##comma  :2]
-                 [:!T##period :3]
-                 [:!T##p      :0]]}
+         :rules [[:!O##u      :7]
+                 [:!O##i      :8]
+                 [:!O##o      :9]
+                 [:!O##j      :4]
+                 [:!O##k      :5]
+                 [:!O##l      :6]
+                 [:!O##m      :1]
+                 [:!O##comma  :2]
+                 [:!O##period :3]
+                 [:!O##p      :0]]}
 
         {:des "vim"
          :rules [[:!Cx :!T6 [:neovide]]
@@ -56,9 +89,6 @@
                  [:!Csemicolon :grave_accent_and_tilde]
                  [:!Qsemicolon :!Rquote]
 
-                 [:!Q##m :tab]
-                 [:!C##escape :!Ctab] ;; cmd+caps -> cmd+tab
-
                  ;; tabs
                  [:!Qcomma :!CSopen_bracket [:!neovide]]
                  [:!Qperiod :!CSclose_bracket [:!neovide]]
@@ -71,10 +101,12 @@
                  [:!Qr :!S8]           ; *
                  [:!Qc :!S3]           ; #
                  [:!Qq :!S2]           ; @
-                 [:!Qn :!S5]           ; %
-                 [:!Cu :!S1]           ; !
+                 [:!Qf :!S4]           ; $
                  [:!Qu :!Sbackslash]   ; |
                  [:!Qslash :backslash] ; \
+                 [:!Cp :!S5]           ; %
+                 [:!Cu :!S1]           ; !
+                 [:!Cj :!S7]           ; &
 
                  ;; brackets
                  [:!Qa :!S9]

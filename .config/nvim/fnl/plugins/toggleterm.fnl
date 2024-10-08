@@ -1,5 +1,5 @@
 (local {: kset} (require :config.util))
-(kset :n :<Space>8 #((. (require :toggleterm) :toggle)))
+(kset :n :<Space>i #((. (require :toggleterm) :toggle)))
 
 [{1 :akinsho/toggleterm.nvim
   :lazy true
@@ -20,7 +20,7 @@
                  :on_open (fn [t]
                             (if (= (vim.fn.mode) "n")
                               (vim.cmd "startinsert!")))
-                 :open_mapping :<space>8
+                 :open_mapping :<space>i
                  :hide_numbers true
                  :shade_terminals false
                  :shading_factor 2

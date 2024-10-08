@@ -38,7 +38,6 @@ local function _4_()
   nvim.g["conjure#client#clojure#nrepl#mapping#refresh_all"] = false
   nvim.g["conjure#client#clojure#nrepl#mapping#refresh_changed"] = false
   nvim.g["conjure#extract#tree_sitter#enabled"] = true
-  kset({"n", "x", "i"}, "<D-l>", "<Leader>lg", {remap = true})
   nvim.g["conjure#log#jump_to_latest#enabled"] = true
   kset("n", "<Space>tl", toggle_log_mod, "conjure.log")
   kset("n", "<Space>to", toggle_result_register, "conjure.output")

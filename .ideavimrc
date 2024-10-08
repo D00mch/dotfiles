@@ -30,15 +30,13 @@ set notimeout
     vmap = :action ReformatCode<Cr>
 
     nmap <space>0 :action ActivateCommitToolWindow<cr>
-    nmap <space>1 :action SelectInProjectView<cr>
-    nmap <space>2 :action ActivateBookmarksToolWindow<cr>
-    nmap <space>3 :action ActivateFindToolWindow<cr>
-    nmap <space>4 :action ActivateRunToolWindow<cr>
-    nmap <space>5 :action ActivateDebugToolWindow<cr>
-    nmap <space>6 :action ActivateServicesToolWindow<cr>
-    nmap <space>7 :action ActivateBuildToolWindow<cr>
-    nmap <space>8 :!open /Applications/WezTerm.app --args start --cwd `pwd` --always-new-process<cr>
-    nmap <space>9 :action ActivateVersionControlToolWindow<cr>
+    nmap <space>m :action SelectInProjectView<cr>
+    nmap <space>, :action ActivateBookmarksToolWindow<cr>
+    nmap <space>. :action ActivateFindToolWindow<cr>
+    nmap <space>h :action ActivateRunToolWindow<cr>
+    nmap <space>l :action ActivateServicesToolWindow<cr>
+    nmap <space>i :!open /Applications/WezTerm.app --args start --cwd `pwd` --always-new-process<cr>
+    nmap <space>o :action ActivateVersionControlToolWindow<cr>
 
     let g:relative_number_set = 1
     function! ToggleRelativeNumber()
@@ -104,6 +102,7 @@ set notimeout
     "SPACEMACS-LIKE
         map <space>; :action CommentByLineComment<cr>
         nnoremap <Leader>k :action Run<cr>
+        nnoremap <Leader>dd :action ActivateDebugToolWindow<cr>
         nnoremap <Leader>dr :action Debug<cr>
         nnoremap <Leader>de :action EvaluateExpression<cr>
         vnoremap <Leader>de :action EvaluateExpression<cr>

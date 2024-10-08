@@ -44,8 +44,6 @@
           ;; for rust
           (set nvim.g.conjure#extract#tree_sitter#enabled true)
 
-          (kset [:n :x :i] :<D-l> "<Leader>lg" {:remap true})
-
           ;; floating window
           ; (set nvim.g.conjure#log#hud#height 0.6)
           ; (set nvim.g.conjure#log#hud#width 0.7)

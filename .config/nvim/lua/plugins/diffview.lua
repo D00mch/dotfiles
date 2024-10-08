@@ -27,7 +27,7 @@ local function _6_()
   local dview = require("diffview")
   local actions = require("diffview.actions")
   local ufo = require("ufo")
-  local diffview_common_mappings = {gf = actions.goto_file_edit, ["<Space>1"] = ":DiffviewToggleFiles<cr>", [":ggn"] = actions.next_conflict, [":ggp"] = actions.prev_conflict}
+  local diffview_common_mappings = {gf = actions.goto_file_edit, ["<Space>m"] = ":DiffviewToggleFiles<cr>", [":ggn"] = actions.next_conflict, [":ggp"] = actions.prev_conflict}
   local diffview_unmap = {["<esc>"] = false, ["<leader>b"] = false, ["<leader>ca"] = false, ["<leader>cb"] = false, ["<leader>co"] = false, ["<leader>ct"] = false, ["<leader>e"] = false, ["[x"] = false, ["]x"] = false, dx = false, q = false}
   local panel_mappings = merge(diffview_unmap, diffview_common_mappings, {x = actions.restore_entry, s = actions.toggle_stage_entry})
   local diff_keys = {{{"n", "x"}, "go", actions.conflict_choose("ours")}, {{"n", "x"}, "gt", actions.conflict_choose("theirs")}, {{"n", "x"}, "gb", actions.conflict_choose("base")}, {{"n", "x"}, "ga", actions.conflict_choose("all")}, {{"n", "x"}, "gn", actions.next_conflict}, {{"n", "x"}, "gN", actions.prev_conflict}}

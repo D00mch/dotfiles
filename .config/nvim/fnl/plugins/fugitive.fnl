@@ -22,5 +22,5 @@
   :init (fn []
           ;; (kset [:n :x] :<space>ga annotate-toggle)
           (vim.api.nvim_command "set splitbelow")
-          (kset [:n :x] :<Space>9 fugitive-toggle) ;; alt+9, (mapped to cmd+9 with karabiner) 
+          (kset [:n :x] :<Space>o fugitive-toggle) ;; alt+9, (mapped to cmd+9 with karabiner) 
           )}]

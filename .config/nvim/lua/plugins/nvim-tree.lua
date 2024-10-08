@@ -23,7 +23,7 @@ local function _3_()
       return nil
     end
   end
-  return kset("n", "<Space>1", _5_, "Collapse and show")
+  return kset("n", "<Space>m", _5_, "Collapse and show")
 end
 local function _7_()
   local tree = require("nvim-tree")
