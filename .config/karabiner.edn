@@ -31,20 +31,6 @@
                  [:g :!OSsemicolon ["semicolon-mode" 1]]
                  ]}
 
-        {:des "aerospace remappings"
-         :rules [[:!CTm      :!SO1]
-                 [:!CTcomma  :!SO2]
-                 [:!CTperiod :!SO3]
-                 [:!CTj      :!SO4]
-                 [:!CTk      :!SO5]
-                 [:!CTl      :!SO6]
-                 [:!CTu      :!SO7]
-                 [:!CTi      :!SO8]
-                 [:!CTo      :!SO9]
-
-                 [:!CQf :!Of]
-                 [:!CQe :!Oe]
-                 [:!CQr :!Or]]}
         {:des "Numbers"
          :rules [[:!O##u      :7]
                  [:!O##i      :8]
