@@ -54,7 +54,6 @@ set notimeout
 
     nnoremap <D-a> ggVG
     xnoremap <D-a> <Esc>ggVG
-    inoremap <D-a> <Esc>ggVG
 
 "PLUGINS SETUPS
     set ideamarks
