@@ -29,7 +29,9 @@
                  [:s :!Os  ["semicolon-mode" 1]]
 
                  [:g :!OSsemicolon ["semicolon-mode" 1]]
-                 ]}
+
+                 ;; Russian
+                 [:m :close_bracket ["semicolon-mode" 1]]]}
 
         {:des "vim"
          :rules [[:!Cx :!T6 [:neovide]]
@@ -76,11 +78,13 @@
                  [:!Qc :!S3]           ; #
                  [:!Qq :!S2]           ; @
                  [:!Qu :!Sbackslash]   ; |
+                 [:!Qx :!S7]           ; &
                  [:!Qslash :backslash] ; \
                  [:!Cy :!S4]           ; $
-                 [:!Cp :!S5]           ; %
+                 [:!Cn :!S5]           ; ^
+                 [:!Cm :!S5]           ; %
                  [:!Cu :!S1]           ; !
-                 [:!Cj :!S7]           ; &
+                 [:!C##slash :quote]   ; ' э
 
                  ;; brackets
                  [:!Qa :!S9]
