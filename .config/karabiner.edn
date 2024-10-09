@@ -81,8 +81,8 @@
                  [:!Qx :!S7]           ; &
                  [:!Qslash :backslash] ; \
                  [:!Cy :!S4]           ; $
-                 [:!Cn :!S5]           ; ^
                  [:!Cm :!S5]           ; %
+                 [:!Cn :!S6]           ; ^
                  [:!Cu :!S1]           ; !
                  [:!C##slash :quote]   ; ' э
 
