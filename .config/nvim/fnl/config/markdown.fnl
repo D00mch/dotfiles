@@ -72,11 +72,11 @@
   (kset :n :<Leader>ef :vic:ToggleTermSendVisualSelection<cr> {:noremap false})
 
   ;; insert headers
-  (vim.keymap.set :n := insert-header {:buffer true})
-  (vim.keymap.set :n :+ remove-header {:buffer true})
+  (bkset :n := insert-header {:buffer true})
+  (bkset :n :+ remove-header {:buffer true})
 
   ;; insert list tasks
-  (vim.keymap.set :n :- toggle-task)
+  (bkset :n :- toggle-task)
   (bkset :x :- "<Esc>:MarkdownTaskToggleSelection<cr>")
 
   ;; j/k, left/right for long lines
