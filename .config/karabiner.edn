@@ -31,6 +31,7 @@
                  [:g :!OSsemicolon ["semicolon-mode" 1]]
 
                  ;; Russian
+                 [:spacebar :semicolon ["semicolon-mode" 1]]
                  [:m :close_bracket ["semicolon-mode" 1]]]}
 
         {:des "vim"
