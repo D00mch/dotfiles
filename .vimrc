@@ -124,12 +124,11 @@ cd $HOME
 
         " jump on float window
         nmap gw <C-w>w
-        nmap go :on<Cr>
         nmap g= <C-w>=
 
         "RESIZE
         nnoremap gsj <C-w>5+
-        nnoremap gs; <C-w>5-
+        nnoremap gsk <C-w>5-
         nnoremap gsl <C-w>5>
         nnoremap gsh <C-w>5<
 
