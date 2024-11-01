@@ -71,21 +71,21 @@
                  [:!Qperiod :!CSclose_bracket [:!neovide]]
 
                  ;; special symbols
-                 [:!Qp :equal_sign]    ; =
-                 [:!Qw :!Requal_sign]  ; +
-                 [:!Qe :hyphen]        ; -
-                 [:!Qt :!Shyphen]      ; _
-                 [:!Qr :!S8]           ; *
-                 [:!Qc :!S3]           ; #
-                 [:!Qq :!S2]           ; @
-                 [:!Qu :!Sbackslash]   ; |
-                 [:!Qx :!S7]           ; &
-                 [:!Qslash :backslash] ; \
-                 [:!Cy :!S4]           ; $
-                 [:!Cm :!S5]           ; %
-                 [:!Cn :!S6]           ; ^
-                 [:!Cu :!S1]           ; !
-                 [:!C##slash :quote]   ; ' э
+                 [:!Qp :equal_sign]      ; =
+                 [:!Q##w :!Requal_sign]  ; +
+                 [:!Q##e :hyphen]        ; -
+                 [:!Qt :!Shyphen]        ; _
+                 [:!Qr :!S8]             ; *
+                 [:!Qc :!S3]             ; #
+                 [:!Qq :!S2]             ; @
+                 [:!Qu :!Sbackslash]     ; |
+                 [:!Qx :!S7]             ; &
+                 [:!Qslash :backslash]   ; \
+                 [:!Cy :!S4]             ; $
+                 [:!Cm :!S5]             ; %
+                 [:!Cn :!S6]             ; ^
+                 [:!Cu :!S1]             ; !
+                 [:!C##slash :quote]     ; ' э
 
                  ;; brackets
                  [:!Qa :!S9]
@@ -111,9 +111,8 @@
          :rules [
                  [:!Eg "open /Applications/Google\\ Chrome.app"]
                  [:!Ei "/bin/zsh `open /Applications/IntelliJ\\ IDEA.app`"]
-                 [:!Et "open /Applications/Telegram\\ Lite.app/"]
                  [:!En ["/bin/zsh `open /Applications/Neovide.app`" :select_abc]]
-                 [:!Ew ["/bin/zsh `open /Applications/WezTerm.app`" :select_abc]]
+                 [:!Et ["/bin/zsh `open /Applications/WezTerm.app`" :select_abc]]
                  [:!Cg ["/bin/zsh `open /Applications/Neovide.app -n --args --frame transparent`" :select_abc]]
                  [:!Es ["/bin/zsh `open /Applications/sioyek.app`"]]
 
@@ -121,7 +120,7 @@
                  [:!CQi "/bin/zsh `open /Applications/IntelliJ\\ IDEA.app`"]
                  [:!CQt "open /Applications/Telegram\\ Lite.app/"]
                  [:!CQn ["/bin/zsh `open /Applications/Neovide.app`" :select_abc]]
-                 [:!CQw ["/bin/zsh `open /Applications/WezTerm.app`" :select_abc]]
+                 [:!CQt ["/bin/zsh `open /Applications/WezTerm.app`" :select_abc]]
                  [:!CQg ["/bin/zsh `open /Applications/Neovide.app -n --args --frame transparent`" :select_abc]]
                  [:!CQs ["/bin/zsh `open /Applications/sioyek.app`"]]
 
