@@ -13,7 +13,7 @@ local function _3_()
     local dap_virtual = require("nvim-dap-virtual-text")
     mason.setup({ensure_installed = {"delve"}})
     dap_go.setup()
-    dap_virtual.setup()
+    dap_virtual.setup({commented = true, virt_text_pos = "eol", virt_text_win_col = 80})
   end
   wk.add({"<leader>d", group = "Debug", desc = "+debug"})
   local dap = require("dap")
@@ -32,7 +32,7 @@ local function _3_()
   bkset("n", "<leader>ds", dap.session, "Session")
   bkset("n", "<leader>dx", dap.terminate, "Terminate")
   local dapui = require("dapui")
-  dapui.setup()
+  dapui.setup({layouts = {{elements = {{id = "scopes", size = 0.45}, {id = "breakpoints", size = 0.2}, {id = "stacks", size = 0.2}, {id = "watches", size = 0.15}}, position = "left", size = 85}, {elements = {{id = "repl", size = 0.5}, {id = "console", size = 0.5}}, position = "bottom", size = 10}}})
   local function _4_(_, b)
     return bkset("n", "j", dap.step_over, {desc = "Step Over", buffer = b})
   end
@@ -40,13 +40,17 @@ local function _3_()
   bkset("n", "<leader>dd", dapui.toggle, "toggle")
   bkset("n", "<leader>de", dapui.eval, "eval")
   local function _5_()
-    return dapui.close({})
+    return dapui.open({})
   end
-  dap.listeners.before.event_terminated["dapui_config"] = _5_
+  dap.listeners.after.event_initialized["dapui_config"] = _5_
   local function _6_()
     return dapui.close({})
   end
-  dap.listeners.before.event_exited["dapui_config"] = _6_
+  dap.listeners.before.event_terminated["dapui_config"] = _6_
+  local function _7_()
+    return dapui.close({})
+  end
+  dap.listeners.before.event_exited["dapui_config"] = _7_
   return nil
 end
 return {{"mfussenegger/nvim-dap", dependencies = {"nvim-neotest/nvim-nio", "rcarriga/nvim-dap-ui", "jay-babu/mason-nvim-dap.nvim", "leoluz/nvim-dap-go", "theHamsta/nvim-dap-virtual-text"}, lazy = true, ft = {"go", "gomod"}, config = _3_}}

@@ -28,7 +28,10 @@
               (mason.setup {:ensure_installed [:delve ;; go
                                                      ]})
               (dap-go.setup)
-              (dap-virtual.setup))
+              (dap-virtual.setup
+                {:commented true
+                 :virt_text_pos :eol
+                 :virt_text_win_col 80}))
 
             (wk.add {1 :<leader>d  :group :Debug :desc "+debug"})
             (let [dap (require :dap)]
@@ -48,7 +51,25 @@
               (bkset :n :<leader>dx dap.terminate         "Terminate")
 
               (let [dapui (require "dapui")]
-                (dapui.setup)
+                (dapui.setup
+                  {:layouts
+                   [{:elements [{:id :scopes
+                                 :size 0.45}
+                                {:id "breakpoints"
+                                 :size 0.20}
+                                {:id "stacks"
+                                 :size 0.20}
+                                {:id  "watches"
+                                 :size  0.15}]
+                     :position :left
+                     :size 85}
+
+                    {:elements [{:id  "repl"
+                                 :size  0.5}
+                                {:id  "console"
+                                 :size  0.5}]
+                     :position  "bottom"
+                     :size  10}]})
 
                 (vim.api.nvim_create_autocmd
                   :FileType
@@ -60,8 +81,9 @@
                 (bkset :n :<leader>dd dapui.toggle "toggle")
                 (bkset :n :<leader>de dapui.eval "eval")
 
-                ; (tset dap.listeners.after.event_initialized :dapui_config
-                ;       (fn [] (dapui.open {})))
+                ;; DAP UI auto open/close
+                (tset dap.listeners.after.event_initialized :dapui_config
+                      (fn [] (dapui.open {})))
                 (tset dap.listeners.before.event_terminated :dapui_config
                       (fn [] (dapui.close {})))
                 (tset dap.listeners.before.event_exited :dapui_config (fn [] (dapui.close {}))))))}]
