@@ -34,5 +34,5 @@
                 :scroll_up   :<left>}}
   :config true}
  {1 :Exafunction/codeium.nvim
-  :lazy (not pc-with-rights?)
-  :config pc-with-rights?}]
+  :cond pc-with-rights? 
+  :config true}]
