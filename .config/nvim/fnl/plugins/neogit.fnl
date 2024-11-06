@@ -10,13 +10,12 @@
                             in-git? "bd"
                             "Neogit"))))
 
-[{1 :TimUntersberger/neogit
+[{1 :NeogitOrg/neogit
   :dependencies [:nvim-lua/plenary.nvim]
   :init (fn []
           (kset [:n :x] :<Space>o neogit-toggle "Toggle NeoGit"))
-  :lazy true
-  :cond false
-
+  :lazy false
+  :cond true 
   :opts {:kind :split
          :integrations {:diffview true
                         :telescope true}
@@ -25,16 +24,14 @@
                     :recent    {:folded true}}
          :mappings {:status {:o :Toggle
                              :q false}
-                    ;;; neogit breaks if you update keys
-                    ;;; https://github.com/NeogitOrg/neogit/issues/1160
-                    ; :rebase_editor {:p false
-                    ;                 :r false
-                    ;                 :e false
-                    ;                 :s false
-                    ;                 :f false
-                    ;                 :x false
-                    ;                 :d false
-                    ;                 :b false
-                    ;                 :q false}
-                    }}
-  :config true}]
+                    :rebase_editor {:p false
+                                    :r false
+                                    :e false
+                                    :s false
+                                    :f false
+                                    :x false
+                                    :d false
+                                    :b false
+                                    :q false}}}
+  :config true 
+  }]
