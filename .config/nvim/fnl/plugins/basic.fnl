@@ -36,4 +36,4 @@
   :config true}
  {1 :Exafunction/codeium.nvim
   :lazy (not pc-with-rights?)
-  :config true}]
+  :config pc-with-rights?}]
