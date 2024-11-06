@@ -14,7 +14,6 @@
   :lazy true
   :ft [:markdown]}
  {1 :vim-scripts/ReplaceWithRegister}
- {1 :tpope/vim-sleuth}
  {1 :eandrju/cellular-automaton.nvim}
  {1 :famiu/bufdelete.nvim}
  {1 :kwkarlwang/bufresize.nvim
