@@ -1,3 +1,5 @@
+(local pc-with-rights? (os.getenv :OPENAI_API_KEY))
+
 [{1 :bakpakin/fennel.vim
   :lazy true
   :ft [:fennel]}
@@ -32,6 +34,6 @@
          :keys {:scroll_down :<right>
                 :scroll_up   :<left>}}
   :config true}
- ; {1 :Exafunction/codeium.nvim
- ;  :config true}
- ]
+ {1 :Exafunction/codeium.nvim
+  :lazy (not pc-with-rights?)
+  :config true}]
