@@ -91,8 +91,6 @@ outer.left =       [{ monitor."^built-in retina display$" = 2 }, 12]
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-ctrl-d = 'layout tiles horizontal vertical'
 alt-ctrl-f = 'layout accordion horizontal vertical'
-alt-ctrl-a = 'layout floating tiling'
-# alt-shift-f = 'fullscreen'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 alt-ctrl-h = 'focus left'
@@ -120,6 +118,24 @@ alt-shift-semicolon = 'mode service'
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 alt-s = 'mode resize'
 alt-0 = 'balance-sizes'
+
+alt-ctrl-a = 'mode floating'
+[mode.floating.binding]
+f = [
+    'exec-and-forget ~/.config/aerospace/toggle-floating-centered.sh',
+    'mode main'
+]
+esc = 'mode main'
+
+h = 'exec-and-forget ~/.config/aerospace/move-floating.sh -62 0'
+j = 'exec-and-forget ~/.config/aerospace/move-floating.sh 0 62'
+k = 'exec-and-forget ~/.config/aerospace/move-floating.sh 0 -62'
+l = 'exec-and-forget ~/.config/aerospace/move-floating.sh 62 0'
+
+left  = 'exec-and-forget ~/.config/aerospace/resize-floating-centered.sh -128 0'
+down  = 'exec-and-forget ~/.config/aerospace/resize-floating-centered.sh 0 -128'
+up    = 'exec-and-forget ~/.config/aerospace/resize-floating-centered.sh 0 128'
+right = 'exec-and-forget ~/.config/aerospace/resize-floating-centered.sh 128 0'
 
 [mode.resize.binding]
 h     = 'resize width -50'
