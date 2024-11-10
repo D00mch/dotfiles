@@ -15,6 +15,7 @@
   :init (fn []
           (kset [:n :x] :<Space>o neogit-toggle "Toggle NeoGit"))
   :lazy false
+  :commit :9fb8a932d21e03db2dfcf5137e6bd26f2f927d9f
   :cond true 
   :opts {:kind :split
          :integrations {:diffview true
@@ -33,5 +34,4 @@
                                     :d false
                                     :b false
                                     :q false}}}
-  :config true 
-  }]
+  :config true}]
