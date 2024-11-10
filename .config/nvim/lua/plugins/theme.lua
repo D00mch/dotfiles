@@ -21,7 +21,6 @@ local function make_non_transparent()
   return nil
 end
 local function set_theme(dark_3f0)
-  make_transparent(dark_3f0)
   if dark_3f0 then
     nvim.o.background = "dark"
   else
