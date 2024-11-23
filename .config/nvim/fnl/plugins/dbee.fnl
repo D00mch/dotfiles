@@ -1,9 +1,11 @@
 (local {: autoload} (require :nfnl.module))
-(local
-  {: kset : get-word-under-cursor : get-word-under-selection}
+(local {: kset}
   (autoload :config.util))
 
+(local pc-with-rights? (os.getenv :OPENAI_API_KEY))
+
 [{1 :kndndrj/nvim-dbee
+  :cond pc-with-rights?
   :dependencies [:MunifTanjim/nui.nvim]
   :build (fn []
            (let [dbee (require :dbee)]
