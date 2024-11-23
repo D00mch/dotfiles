@@ -47,7 +47,8 @@
    :Value "󰎠"
    :Variable "󰂡"
    :Text "󰭷"
-   :Conj ""})	
+   :Conj ""
+   :Codeium ""})	
 
 (fn has-words-before []
   (let [[line col] (vim.api.nvim_win_get_cursor 0)]
@@ -115,14 +116,19 @@
                  :snippet
                  {:expand (fn [args] (snippy.expand_snippet args.body))}})
 
+              (cmp.setup.filetype
+                "oil" 
+                {:sources 
+                 (cmp.config.sources [{:name :buffer}
+                                      {:name :path}])})             
 
-                (cmp.setup.cmdline 
-                  "/"
-                  {:mapping (cmp.mapping.preset.cmdline)
-                   :sources (cmp.config.sources [{:name :buffer :max_item_count 18}])})
+              (cmp.setup.cmdline 
+                "/"
+                {:mapping (cmp.mapping.preset.cmdline)
+                 :sources (cmp.config.sources [{:name :buffer :max_item_count 18}])})
 
-                (cmp.setup.cmdline
-                  ":"
-                  {:mapping (cmp.mapping.preset.cmdline)
-                   :sources (cmp.config.sources [{:name :cmdline :max_item_count 18}
-                                                 {:name :path :max_item_count 12}])})))}]
+              (cmp.setup.cmdline
+                ":"
+                {:mapping (cmp.mapping.preset.cmdline)
+                 :sources (cmp.config.sources [{:name :cmdline :max_item_count 18}
+                                               {:name :path :max_item_count 12}])})))}]
