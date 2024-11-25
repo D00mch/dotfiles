@@ -63,29 +63,29 @@
                  [:!Ce :left_shift]
                  [:!Osemicolon :!Oopen_bracket]
                  [:!Qz :!Sgrave_accent_and_tilde]
-                 [:!Csemicolon :grave_accent_and_tilde]
-                 [:!Qsemicolon :!Rquote]
 
                  ;; tabs
                  [:!Qcomma :!CSopen_bracket [:!neovide]]
                  [:!Qperiod :!CSclose_bracket [:!neovide]]
 
                  ;; special symbols
-                 [:!Qp :equal_sign]      ; =
-                 [:!Q##w :!Requal_sign]  ; +
-                 [:!Q##e :hyphen]        ; -
-                 [:!Qt :!Shyphen]        ; _
-                 [:!Qr :!S8]             ; *
-                 [:!Qc :!S3]             ; #
-                 [:!Qq :!S2]             ; @
-                 [:!Qu :!Sbackslash]     ; |
-                 [:!Qx :!S7]             ; &
-                 [:!Qslash :backslash]   ; \
-                 [:!Cy :!S4]             ; $
-                 [:!Cm :!S5]             ; %
-                 [:!Cn :!S6]             ; ^
-                 [:!Cu :!S1]             ; !
-                 [:!C##slash :quote]     ; ' э
+                 [:!Qp :equal_sign]                       ; =
+                 [:!Q##w :!Requal_sign]                   ; +
+                 [:!Q##e :hyphen]                         ; -
+                 [:!Qt :!Shyphen]                         ; _
+                 [:!Qr :!S8]                              ; *
+                 [:!Qc :!S3]                              ; #
+                 [:!Qq :!S2]                              ; @
+                 [:!Qu :!Sbackslash]                      ; |
+                 [:!Qx :!S7]                              ; &
+                 [:!Qslash :backslash]                    ; \
+                 [:!Cy :!S4]                              ; $
+                 [:!Cm :!S5]                              ; %
+                 [:!Cn :!S6]                              ; ^
+                 [:!Cu :!S1]                              ; !
+                 [:!C##slash :grave_accent_and_tilde]     ; ` ё
+                 [:!Csemicolon :quote]                    ; ' э
+                 [:!Qsemicolon :!Rquote]                  ; " Э
 
                  ;; brackets
                  [:!Qa :!S9]
