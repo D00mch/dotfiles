@@ -106,6 +106,7 @@ set notimeout
         nnoremap <Leader>dr :action Debug<cr>
         nnoremap <Leader>de :action EvaluateExpression<cr>
         vnoremap <Leader>de :action EvaluateExpression<cr>
+        nnoremap <Leader>dc :action Resume<cr>
         nnoremap <Leader>sq :action Stop<cr>
         nnoremap <Leader>db :action ToggleLineBreakpoint<cr>
         nnoremap <Leader>dj :action StepOver<cr>
