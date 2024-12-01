@@ -3,6 +3,29 @@
   {: kset : get-word-under-cursor : get-word-under-selection}
   (autoload :config.util))
 
+(fn setup-search-word-under-cursor []
+  (let [builtin (require :telescope.builtin)
+        search-word-under-cursor
+        (fn []
+          (let [[word] (get-word-under-cursor)]
+            (builtin.live_grep {:default_text word})))
+
+        search-word-under-selection
+        (fn []
+          (let [[word] (get-word-under-selection)]
+            (builtin.live_grep {:default_text word})))]
+    (kset :n :<Leader>gr search-word-under-cursor)))
+
+(fn load-extensions []
+  (let [telescope (require :telescope)]
+    (telescope.load_extension "ui-select")
+    (telescope.load_extension :ui-select)
+    (telescope.load_extension :file_browser)
+    (telescope.load_extension :projects)
+    (telescope.load_extension :recent-files)
+    ;(telescope.load_extension :harpoon)
+    (telescope.load_extension :undo)))
+
 [{1 :nvim-telescope/telescope.nvim
   :dependencies [:nvim-lua/popup.nvim
                  :nvim-lua/plenary.nvim
@@ -14,6 +37,8 @@
                  ; :RomanoZumbe/harpoon
                  ]
   :lazy true
+  :keys [[:<Space>b :n]]
+  :cmd [:Telescope]
   :init (fn []
           ; (let [hmark (require :harpoon.mark)]
           ;   (kset :n :<Space>am hmark.add_file "Add mark"))
@@ -39,29 +64,7 @@
           ;; git
           (kset :n :<space>gc ":Telescope git_commits<cr>")
           (kset :n :<space>gs ":Telescope git_stash<cr>")
-          (kset :n :<space>gb ":Telescope git_branches<cr>")
-
-          (let [;; search for a word under cursor
-                builtin (require :telescope.builtin)
-                search-word-under-cursor
-                (fn []
-                  (let [[word] (get-word-under-cursor)]
-                    (builtin.live_grep {:default_text word})))
-
-                search-word-under-selection
-                (fn []
-                  (let [[word] (get-word-under-selection)]
-                    (builtin.live_grep {:default_text word})))]
-            (kset :n :<Leader>gr search-word-under-cursor))
-          
-          (let [telescope (require :telescope)]
-            (telescope.load_extension "ui-select")
-            (telescope.load_extension :ui-select)
-            (telescope.load_extension :file_browser)
-            (telescope.load_extension :projects)
-            (telescope.load_extension :recent-files)
-            ;(telescope.load_extension :harpoon)
-            (telescope.load_extension :undo)))
+          (kset :n :<space>gb ":Telescope git_branches<cr>"))
 
   :config (fn []
             (let [telescope (require :telescope)
@@ -82,6 +85,9 @@
                          (let [entry (state.get_selected_entry prompt_bufnr)]
                            (vim.fn.setreg "*" entry.value)
                            (actions.close prompt_bufnr)))})]
+
+              (load-extensions)
+              (setup-search-word-under-cursor)
 
               (kset :n :<space>b
                     #((. (. telescope.extensions :recent-files) :recent_files) {})	                

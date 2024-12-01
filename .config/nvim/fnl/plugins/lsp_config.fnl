@@ -48,7 +48,7 @@
 
 [{1 :neovim/nvim-lspconfig
   :lazy true
-  :event [:BufReadPost :BufNewFile]
+  :ft [:clojure :go :dart :markdown :md]
   :cmd [:LspInfo :LspInstall :LspUninstall]
   :dependencies [:williamboman/mason.nvim
                  :barreiroleo/ltex-extra.nvim

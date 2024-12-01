@@ -1,28 +1,21 @@
-(local {: autoload} (require :nfnl.module))
-(local actions (autoload :telescope.actions))
-(local action-state (autoload :telescope.actions.state))
-(local builtin (autoload :telescope.builtin))
 (local
   {: kset : bkset : bkdel}
-  (autoload :config.util))
+  (require :config.util))
 
 [{1 :nvim-tree/nvim-tree.lua
   :lazy true
+  :cmd [:NvimTreeOpen :NvimTreeClose :NvimTreeToggle]
+  :event :VeryLazy
   :dependencies [:nvim-tree/nvim-web-devicons]  
   :init (fn []
-          (let [
-                tree-view (require :nvim-tree.view)
-                api (require :nvim-tree.api)]
-
-            (kset :n "<space>pt" #(api.tree.toggle false true) "Tree Toggle")
-            (kset :n :<Space>m
-                  (fn []
-                    (api.tree.toggle)
-                    (if (tree-view.is_visible)
-                      (api.tree.collapse_all true)))
-                  "Collapse and show")))
+          ;; simple command that do not require time to initialize
+          (kset :n "<space>pt" ::NvimTreeOpen<cr>)
+          (kset :n "<space>m" ::NvimTreeOpen<cr>))
   :config (fn []
             (let [tree (require :nvim-tree)
+                  tree-view (require :nvim-tree.view)
+                  actions (require :telescope.actions)
+                  action-state (require :telescope.actions.state)
                   api (require :nvim-tree.api)
                   openfile (require :nvim-tree.actions.node.open-file)
 
@@ -46,10 +39,18 @@
                           basedir (if (and (= node.name "..") (not= TreeExplorer nil))
                                     TreeExplorer.cwd
                                     basedir)
-                          f (. builtin fun-name)]
+                          f (. (require :telescope.builtin) fun-name)]
                       (f {:cwd basedir
                           :search_dirs [basedir]
                           :attach_mappings view-selection})))]
+
+              (kset :n "<space>pt" #(api.tree.toggle false true) "Tree Toggle")
+              (kset :n :<Space>m
+                  (fn []
+                    (api.tree.toggle)
+                    (if (tree-view.is_visible)
+                      (api.tree.collapse_all true)))
+                  "Collapse and show")
 
               (tree.setup
                 {:sync_root_with_cwd true

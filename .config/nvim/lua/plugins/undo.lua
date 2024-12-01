@@ -12,4 +12,4 @@ local function _3_()
   kset("n", "<Space>ut", ":UndotreeShow<cr>:UndotreeFocus<cr>", {silent = true})
   return vim.cmd("function g:Undotree_CustomMap()\n                   nmap <buffer> <D-w> q\n                   map <buffer> d D\n                   endfunction")
 end
-return {{"mbbill/undotree", init = _3_}}
+return {{"mbbill/undotree", cmd = "UndotreeShow", lazy = true, init = _3_}}

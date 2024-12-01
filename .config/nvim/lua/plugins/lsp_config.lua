@@ -105,4 +105,4 @@ local function _6_()
   end
   return flut.setup({lsp = {closing_tags = {highlight = "ErrorMsg", prefix = ">", enabled = true}, handlers = handlers, capabilities = capabilities, on_attach = _15_}})
 end
-return {{"neovim/nvim-lspconfig", lazy = true, event = {"BufReadPost", "BufNewFile"}, cmd = {"LspInfo", "LspInstall", "LspUninstall"}, dependencies = {"williamboman/mason.nvim", "barreiroleo/ltex-extra.nvim", "RRethy/vim-illuminate", "akinsho/flutter-tools.nvim", "nvim-lua/plenary.nvim"}, init = _5_, config = _6_}}
+return {{"neovim/nvim-lspconfig", lazy = true, ft = {"clojure", "go", "dart", "markdown", "md"}, cmd = {"LspInfo", "LspInstall", "LspUninstall"}, dependencies = {"williamboman/mason.nvim", "barreiroleo/ltex-extra.nvim", "RRethy/vim-illuminate", "akinsho/flutter-tools.nvim", "nvim-lua/plenary.nvim"}, init = _5_, config = _6_}}

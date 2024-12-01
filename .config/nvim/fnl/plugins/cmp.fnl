@@ -58,6 +58,8 @@
            (= (behind:match "%s") nil)))))
 
 [{1 :hrsh7th/nvim-cmp
+  :event :InsertEnter
+  :lazy true
   :dependencies [:hrsh7th/cmp-buffer 
                  :hrsh7th/cmp-nvim-lsp 
                  :hrsh7th/cmp-path 

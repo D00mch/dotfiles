@@ -1,4 +1,4 @@
-(local lazy? (not (os.getenv :OPENAI_API_KEY)))
+(local has-key (os.getenv :OPENAI_API_KEY))
 
 (fn map-key-bindings []
   (let [wk (require :which-key)
@@ -36,7 +36,9 @@
        (gp.cmd.ChatNew params chat-system-prompt)))})
 
 [{1 :Robitx/gp.nvim
-  :lazy lazy?
+  :lazy true
+  :event :VeryLazy
+  :cond has-key
   :config  #(let [gp (require :gp)
                   defaults (require :gp.defaults)]
 

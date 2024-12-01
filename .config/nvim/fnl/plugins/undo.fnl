@@ -3,6 +3,8 @@
 (local {: kset} (autoload :config.util))
 
 [{1 :mbbill/undotree
+  :cmd :UndotreeShow
+  :lazy true
   :init (fn []
           (nvim.ex.set :undofile)
 

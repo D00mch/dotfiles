@@ -5,7 +5,8 @@
 
 
 [{1 :akinsho/bufferline.nvim
-
+  :lazy true
+  :cmd [:Tabnew]
   :init
   (fn []
     (kset [:n :x] "<D-.>" ":BufferLineCycleNext<Cr>") ;; karabiner: cmd <
@@ -24,16 +25,15 @@
     ;(kset [:n :t :x] :<M-t> #(vim.cmd "tabnew\nAlpha"))
     (kset [:n :t :x] :<D-t> :<Leader><Space> {:remap true})
     ;(kset [:n :t :x] :<D-t> :† {:remap true})
+  )
 
+  :config
+  (fn []
     (let [bufferline (require :bufferline)]
       (for [i 1 8]
         ;(kset :n (.. "<D-" i ">") (.. i :gt))
         (kset :n (.. "<D-" i ">") #(bufferline.go_to_buffer i true)))
-
-      (kset :n :<D-9> #(bufferline.go_to_buffer -1 true))))
-
-  :config
-  (fn []
+      (kset :n :<D-9> #(bufferline.go_to_buffer -1 true)))
     (let [bufferline (require :bufferline)
           split-name 
           (fn [name]

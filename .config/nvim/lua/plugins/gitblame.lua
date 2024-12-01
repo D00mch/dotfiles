@@ -6,4 +6,4 @@ local kset = _local_2_["kset"]
 local function _3_()
   return kset({"n", "x"}, "<space>ga", ":BlameToggle<Cr>")
 end
-return {"FabijanZulj/blame.nvim", init = _3_, config = {}}
+return {"FabijanZulj/blame.nvim", cmd = "BlameToggle", lazy = true, init = _3_, config = {}}

@@ -16,20 +16,22 @@ local function _5_()
   kset("t", "<D-,>", "<C-\\><C-n><D-,>", {remap = true})
   kset({"n"}, ">>", ":BufferLineMoveNext<cr>")
   kset({"n"}, "<<", ":BufferLineMovePrev<cr>")
-  kset({"n", "t", "x"}, "<D-t>", "<Leader><Space>", {remap = true})
-  local bufferline = require("bufferline")
-  for i = 1, 8 do
-    local function _6_()
-      return bufferline.go_to_buffer(i, true)
-    end
-    kset("n", ("<D-" .. i .. ">"), _6_)
-  end
-  local function _7_()
-    return bufferline.go_to_buffer(-1, true)
-  end
-  return kset("n", "<D-9>", _7_)
+  return kset({"n", "t", "x"}, "<D-t>", "<Leader><Space>", {remap = true})
 end
-local function _8_()
+local function _6_()
+  do
+    local bufferline = require("bufferline")
+    for i = 1, 8 do
+      local function _7_()
+        return bufferline.go_to_buffer(i, true)
+      end
+      kset("n", ("<D-" .. i .. ">"), _7_)
+    end
+    local function _8_()
+      return bufferline.go_to_buffer(-1, true)
+    end
+    kset("n", "<D-9>", _8_)
+  end
   local bufferline = require("bufferline")
   local split_name
   local function _9_(name)
@@ -78,4 +80,4 @@ local function _8_()
   end
   return bufferline.setup({options = {mode = "tabs", numbers = "ordinal", separator_style = "slant", show_duplicate_prefix = true, tab_size = 12, name_formatter = _14_, always_show_bufferline = false}, highlights = {numbers_selected = {italic = false}, buffer_selected = {bold = true, italic = false}}})
 end
-return {{"akinsho/bufferline.nvim", init = _5_, config = _8_}}
+return {{"akinsho/bufferline.nvim", lazy = true, cmd = {"Tabnew"}, init = _5_, config = _6_}}

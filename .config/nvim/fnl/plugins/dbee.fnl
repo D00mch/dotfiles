@@ -2,17 +2,16 @@
 (local {: kset}
   (autoload :config.util))
 
-(local pc-with-rights? (os.getenv :OPENAI_API_KEY))
-
 [{1 :kndndrj/nvim-dbee
-  :cond pc-with-rights?
+  :lazy true
+  :cmd :Dbee
+  :cond (os.getenv :OPENAI_API_KEY)
   :dependencies [:MunifTanjim/nui.nvim]
   :build (fn []
            (let [dbee (require :dbee)]
              (dbee.install)))
   :init (fn []
-          (let [dbee (require :dbee)]
-            (kset :n :<Space>td #(dbee.toggle) "Dbee")))
+          (kset :n :<Space>td ":Dbee toggle<CR>" "Dbee"))
   :config
   (fn []
     (let [dbee (require :dbee)]

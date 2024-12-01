@@ -2,7 +2,8 @@
 (local {: bkset : vis-op} (autoload :config.util))
 
 [{1 :lewis6991/gitsigns.nvim
-
+  :lazy true
+  :event :VeryLazy
   :config
   (fn []
     (let [gs (require :gitsigns)

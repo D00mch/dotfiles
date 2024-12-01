@@ -17,7 +17,6 @@
 (fn set-theme [dark?]
   ;(make-transparent dark?)
   (set nvim.o.background (if dark? "dark" "light"))
-  (vim.api.nvim_command "colorscheme everforest")
   (vim.api.nvim_command
     (.. "colorscheme " (if dark? "kanagawa-paper" "dawnfox"))))
 
@@ -42,9 +41,6 @@
   :lazy false
   :priority 1000
   :dependencies [:nvim-tree/nvim-web-devicons
-                 :rose-pine/neovim
-                 :neanias/everforest-nvim
-                 :rebelot/kanagawa.nvim
                  :sho-87/kanagawa-paper.nvim
                  :EdenEast/nightfox.nvim]
   :init (fn []
@@ -65,9 +61,7 @@
           ;                 (make-transparent (dark?))
           ;                 (make-non-transparent (dark?)))})
 
-          (let [everforest (require :everforest)
-                nightfox (require :nightfox)]
-            (everforest.setup {:background :hard})
+          (let [nightfox (require :nightfox)]
             (nightfox.setup
               {:options
                {:styles {:comments :italic

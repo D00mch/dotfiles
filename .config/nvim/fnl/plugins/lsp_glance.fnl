@@ -1,6 +1,6 @@
 [{1 :DNLHC/glance.nvim
   :lazy true
-  :event [:BufReadPost :BufNewFile]
+  :ft [:clojure :go :dart :markdown :md]
   :cmd [:LspInfo :LspInstall :LspUninstall]
   :init (fn []
           (let [{: kset} (require :config.util)]

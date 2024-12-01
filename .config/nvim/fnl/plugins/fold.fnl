@@ -3,12 +3,9 @@
 
 [{1 :kevinhwang91/nvim-ufo
   :lazy true
+  :event :VeryLazy
   :dependencies [:kevinhwang91/promise-async]
   :init (fn []
-          (let [ufo (require :ufo)]
-            (kset :n :zR ufo.openAllFolds)
-            (kset :n :zM ufo.closeAllFolds))
-
           (kset :n :zr :zMzv {:remap true})
 
           (set vim.o.foldcolumn :0)
@@ -81,6 +78,8 @@
                   {:clojure #(with-comment-folds $ :indent)
                    :markdown :treesitter
                    :fennel #(with-comment-folds $ :indent)}]
+              (kset :n :zR ufo.openAllFolds)
+              (kset :n :zM ufo.closeAllFolds)
               (ufo.setup
                 {:fold_virt_text_handler handler
                  :provider_selector (fn [bufnr filetype buftype]

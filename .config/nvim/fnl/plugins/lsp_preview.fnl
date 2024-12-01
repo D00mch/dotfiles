@@ -4,7 +4,7 @@
 
 [{1 :rmagatti/goto-preview
   :lazy true
-  :event [:BufReadPost :BufNewFile]
+  :ft [:clojure :go :dart :markdown :md]
   :cmd [:LspInfo :LspInstall :LspUninstall]
   :config 
   (fn []

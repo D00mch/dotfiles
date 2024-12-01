@@ -48,4 +48,4 @@ local function _6_()
   cmp.setup.cmdline("/", {mapping = cmp.mapping.preset.cmdline(), sources = cmp.config.sources({{name = "buffer", max_item_count = 18}})})
   return cmp.setup.cmdline(":", {mapping = cmp.mapping.preset.cmdline(), sources = cmp.config.sources({{name = "cmdline", max_item_count = 18}, {name = "path", max_item_count = 12}})})
 end
-return {{"hrsh7th/nvim-cmp", dependencies = {"hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-path", "hrsh7th/cmp-cmdline", "f3fora/cmp-spell", "PaterJason/cmp-conjure", "dcampos/cmp-snippy", "dcampos/nvim-snippy", {"MattiasMTS/cmp-dbee", ft = "sql"}}, config = _6_}}
+return {{"hrsh7th/nvim-cmp", event = "InsertEnter", lazy = true, dependencies = {"hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-path", "hrsh7th/cmp-cmdline", "f3fora/cmp-spell", "PaterJason/cmp-conjure", "dcampos/cmp-snippy", "dcampos/nvim-snippy", {"MattiasMTS/cmp-dbee", ft = "sql"}}, config = _6_}}

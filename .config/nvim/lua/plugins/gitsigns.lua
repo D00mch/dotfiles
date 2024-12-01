@@ -44,4 +44,4 @@ local function _3_()
   end
   return gs.setup({numhl = true, current_line_blame_opts = {overlay = true, delay = 1000}, on_attach = _4_, signcolumn = false})
 end
-return {{"lewis6991/gitsigns.nvim", config = _3_}}
+return {{"lewis6991/gitsigns.nvim", lazy = true, event = "VeryLazy", config = _3_}}

@@ -4,7 +4,7 @@
 
 [{1 :nvim-treesitter/nvim-treesitter
   :lazy true
-  :event :bufread
+  :event :VeryLazy
   :dependencies [:HiPhish/nvim-ts-rainbow2
                  :nvim-treesitter/nvim-treesitter-textobjects
                  :nvim-treesitter/nvim-treesitter-refactor]

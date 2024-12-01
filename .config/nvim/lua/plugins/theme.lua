@@ -26,7 +26,6 @@ local function set_theme(dark_3f0)
   else
     nvim.o.background = "light"
   end
-  vim.api.nvim_command("colorscheme everforest")
   local _4_
   if dark_3f0 then
     _4_ = "kanagawa-paper"
@@ -58,9 +57,7 @@ local function _6_()
   else
   end
   do
-    local everforest = require("everforest")
     local nightfox = require("nightfox")
-    everforest.setup({background = "hard"})
     nightfox.setup({options = {styles = {comments = "italic", types = "italic", functions = "bold"}}})
   end
   local function _10_()
@@ -90,4 +87,4 @@ local function _13_()
   auto.setup({update_interval = 2000, set_dark_mode = _14_, set_light_mode = _15_})
   return auto.init()
 end
-return {{"f-person/auto-dark-mode.nvim", priority = 1000, dependencies = {"nvim-tree/nvim-web-devicons", "rose-pine/neovim", "neanias/everforest-nvim", "rebelot/kanagawa.nvim", "sho-87/kanagawa-paper.nvim", "EdenEast/nightfox.nvim"}, init = _6_, config = _13_, lazy = false}}
+return {{"f-person/auto-dark-mode.nvim", priority = 1000, dependencies = {"nvim-tree/nvim-web-devicons", "sho-87/kanagawa-paper.nvim", "EdenEast/nightfox.nvim"}, init = _6_, config = _13_, lazy = false}}

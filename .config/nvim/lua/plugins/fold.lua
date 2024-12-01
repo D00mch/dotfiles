@@ -1,14 +1,9 @@
--- [nfnl] Compiled from .config/nvim/fnl/plugins/fold.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from fnl/plugins/fold.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local _local_2_ = autoload("config.util")
 local kset = _local_2_["kset"]
 local function _3_()
-  do
-    local ufo = require("ufo")
-    kset("n", "zR", ufo.openAllFolds)
-    kset("n", "zM", ufo.closeAllFolds)
-  end
   kset("n", "zr", "zMzv", {remap = true})
   vim.o.foldcolumn = "0"
   vim.o.fillchars = "eob: ,fold: ,foldopen:\239\145\188,foldsep: ,foldclose:\239\145\160"
@@ -55,11 +50,11 @@ local function _4_()
     local is_in_comment = false
     local comment_start = 0
     for i = 0, (line_count - 1) do
-      local line = (vim.api.nvim_buf_get_lines(bufnr, i, (i + 1), false))[1]
-      if (not is_in_comment and line:match(("^%s*" .. (vim.o.commentstring):sub(1, 1)))) then
+      local line = vim.api.nvim_buf_get_lines(bufnr, i, (i + 1), false)[1]
+      if (not is_in_comment and line:match(("^%s*" .. vim.o.commentstring:sub(1, 1)))) then
         is_in_comment = true
         comment_start = i
-      elseif (is_in_comment and not line:match(("^%s*" .. (vim.o.commentstring):sub(1, 1)))) then
+      elseif (is_in_comment and not line:match(("^%s*" .. vim.o.commentstring:sub(1, 1)))) then
         is_in_comment = false
         table.insert(comment_folds, {endLine = (i - 1), startLine = comment_start})
       else
@@ -90,9 +85,11 @@ local function _4_()
     return with_comment_folds(_241, "indent")
   end
   ft_map = {clojure = _12_, markdown = "treesitter", fennel = _13_}
+  kset("n", "zR", ufo.openAllFolds)
+  kset("n", "zM", ufo.closeAllFolds)
   local function _14_(bufnr, filetype, buftype)
     return ft_map[filetype]
   end
   return ufo.setup({fold_virt_text_handler = handler, provider_selector = _14_})
 end
-return {{"kevinhwang91/nvim-ufo", lazy = true, dependencies = {"kevinhwang91/promise-async"}, init = _3_, config = _4_}}
+return {{"kevinhwang91/nvim-ufo", lazy = true, event = "VeryLazy", dependencies = {"kevinhwang91/promise-async"}, init = _3_, config = _4_}}

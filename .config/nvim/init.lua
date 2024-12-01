@@ -26,6 +26,8 @@ vim.g.loaded_logiPat = 1
 vim.g.loaded_rrhelper = 1
 vim.g.loaded_netrwSettings = 1
 vim.g.loaded_netrwFileHandlers = 1
+vim.g.loaded_man = 1
+vim.g.loaded_tohtml = 1
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 

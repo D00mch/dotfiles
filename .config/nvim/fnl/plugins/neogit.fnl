@@ -14,8 +14,8 @@
   :dependencies [:nvim-lua/plenary.nvim]
   :init (fn []
           (kset [:n :x] :<Space>o neogit-toggle "Toggle NeoGit"))
-  :lazy false
-  :cond true 
+  :cmd :Neogit
+  :lazy true
   :opts {:kind :split
          :integrations {:diffview true
                         :telescope true}
