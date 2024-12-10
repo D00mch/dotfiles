@@ -249,4 +249,9 @@ cd $HOME
             au FileType sql setl formatprg=/opt/homebrew/bin/pg_format\ -s\ 2
         augroup end
 
+"HACKS
+        if exists('g:neovide')
+          autocmd VimEnter * call timer_start(20, {tid -> execute('NeovideFocus')})
+        endif
+
 "END
