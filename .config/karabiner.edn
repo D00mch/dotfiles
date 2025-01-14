@@ -95,8 +95,13 @@
                  [:!Ci :open_bracket]
                  [:!Co :close_bracket]]}
 
-        {:des "Numbers"
-         :rules [[:!O##u      :7]
+        {:des "Alt layer"
+         :rules [
+                 [:!O##e       :!OShyphen]
+                 [:!O##w       :!OSequal_sign]
+
+                 ;; numbers
+                 [:!O##u      :7]
                  [:!O##i      :8]
                  [:!O##o      :9]
                  [:!O##j      :4]
