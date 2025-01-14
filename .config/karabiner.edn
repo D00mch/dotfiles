@@ -61,7 +61,6 @@
                  [:!Q##o :delete_or_backspace]
                  [:!Qi :right_shift]
                  [:!Ce :left_shift]
-                 [:!Osemicolon :!Oopen_bracket]
                  [:!Qz :!Sgrave_accent_and_tilde]
 
                  ;; tabs
@@ -99,6 +98,8 @@
          :rules [
                  [:!O##e       :!OShyphen]
                  [:!O##w       :!OSequal_sign]
+
+                 [:!O##semicolon :!Obackslash]
 
                  ;; numbers
                  [:!O##u      :7]
