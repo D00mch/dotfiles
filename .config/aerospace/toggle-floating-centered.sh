@@ -10,8 +10,8 @@ source ~/.config/aerospace/display-info.sh
 # new dimensions and position of the focused window
 calc() { printf %.2f "$(echo "$1" | bc -l)"; }
 
-new_width=$(calc "$screen_width / 5 * 3")
-new_height=$(calc "$screen_height / 5 * 3")
+new_width=$(calc "$screen_width / 11 * 4")
+new_height=$(calc "$screen_height / 19 * 18")
 
 new_x=$(calc "($screen_width - $new_width) / 2")
 new_y=$(calc "($screen_height - $new_height) / 2")
