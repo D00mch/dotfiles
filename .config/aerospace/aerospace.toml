@@ -156,15 +156,15 @@ alt-ctrl-j = 'focus down'
 alt-ctrl-k = 'focus up'
 alt-ctrl-l = 'focus right'
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-q = ['workspace 1']
-w = ['workspace 2']
-e = ['workspace 3']
-r = ['workspace 4']
-t = ['workspace 5']
-y = ['workspace 6']
-u = ['workspace 7']
-i = ['workspace 8']
-o = ['workspace 9']
+q = ['workspace 1', 'mode main']
+w = ['workspace 2', 'mode main']
+e = ['workspace 3', 'mode main']
+r = ['workspace 4', 'mode main']
+t = ['workspace 5', 'mode main']
+y = ['workspace 6', 'mode main']
+u = ['workspace 7', 'mode main']
+i = ['workspace 8', 'mode main']
+o = ['workspace 9', 'mode main']
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 cmd-1 = ['move-node-to-workspace 1']
 cmd-2 = ['move-node-to-workspace 2']
