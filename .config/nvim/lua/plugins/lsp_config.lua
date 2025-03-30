@@ -7,8 +7,8 @@ local vis_op_2b = _local_2_["vis-op+"]
 local _local_3_ = autoload("nfnl.core")
 local merge = _local_3_["merge"]
 local telescope = autoload("telescope")
-local diagnostics = {severity_sort = true, underline = true, signs = true, update_in_insert = false, virtual_text = false}
-local handlers = {["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, diagnostics), ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = "single"}), ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = "single"})}
+local diagnostics = {severity_sort = true, underline = true, signs = true, update_in_insert = false, virtual_lines = false, virtual_text = false}
+local handlers = {["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = "single"}), ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = "single"})}
 local function highlight_line_symbol()
   return vim.cmd("highlight! DiagnosticLineNrError guibg=#51202A guifg=#FF0000 gui=bold\n    highlight! DiagnosticLineNrWarn guibg=#51412A guifg=#FFA500 gui=bold\n    highlight! DiagnosticLineNrInfo guibg=#1E535D guifg=#00FFFF gui=bold\n    highlight! DiagnosticLineNrHint guibg=#1E205D guifg=#0000FF gui=bold\n    sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError\n    sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn\n    sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo\n    sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint")
 end
@@ -76,6 +76,7 @@ local function _6_()
   end
   before_init = _12_
   local default_map = {on_attach = on_attach, before_init = before_init, handlers = handlers, capabilities = cmplsp.default_capabilities()}
+  vim.diagnostic.config(diagnostics)
   capabilities.textDocument.foldingRange = {lineFoldingOnly = true, dynamicRegistration = false}
   mason.setup()
   illuminate.configure()

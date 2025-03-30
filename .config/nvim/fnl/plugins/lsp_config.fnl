@@ -8,14 +8,12 @@
    :update_in_insert false
    :underline true
    :signs true
-   :virtual_text false})
+   :virtual_text false
+   :virtual_lines false ; {:current_line true}
+   })
 
 (local handlers
-  {"textDocument/publishDiagnostics"
-   (vim.lsp.with
-     vim.lsp.diagnostic.on_publish_diagnostics
-     diagnostics)
-   "textDocument/hover"
+  {"textDocument/hover"
    (vim.lsp.with
      vim.lsp.handlers.hover
      {:border "single"})
@@ -105,6 +103,8 @@
                    :before_init before-init
                    :handlers handlers
                    :capabilities (cmplsp.default_capabilities)}]
+
+              (vim.diagnostic.config diagnostics)
 
               (set capabilities.textDocument.foldingRange
                    {:dynamicRegistration false
