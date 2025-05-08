@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/plugins/theme.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/plugins/theme.fnl
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local nvim = autoload("nvim")
@@ -87,4 +87,4 @@ local function _13_()
   auto.setup({update_interval = 2000, set_dark_mode = _14_, set_light_mode = _15_})
   return auto.init()
 end
-return {{"f-person/auto-dark-mode.nvim", priority = 1000, dependencies = {"nvim-tree/nvim-web-devicons", "sho-87/kanagawa-paper.nvim", "EdenEast/nightfox.nvim"}, init = _6_, config = _13_, lazy = false}}
+return {{"f-person/auto-dark-mode.nvim", priority = 1000, dependencies = {"nvim-tree/nvim-web-devicons", "webhooked/kanso.nvim", "sho-87/kanagawa-paper.nvim", "EdenEast/nightfox.nvim"}, init = _6_, config = _13_, lazy = false}}
