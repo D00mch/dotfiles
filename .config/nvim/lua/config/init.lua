@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/config/init.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/config/init.fnl
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local nvim = autoload("nvim")
@@ -6,6 +6,7 @@ local _local_2_ = autoload("config.util")
 local kset = _local_2_["kset"]
 require("config.which")
 require("config.markdown")
+require("config.misc")
 vim.api.nvim_command("command! -nargs=1 -complete=help H help <args> | silent only")
 local function _3_()
   local bd = require("bufdelete")

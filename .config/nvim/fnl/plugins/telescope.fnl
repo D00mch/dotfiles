@@ -21,21 +21,16 @@
     (telescope.load_extension "ui-select")
     (telescope.load_extension :ui-select)
     (telescope.load_extension :file_browser)
-    (telescope.load_extension :projects)
     (telescope.load_extension :recent-files)
-    ;(telescope.load_extension :harpoon)
     (telescope.load_extension :undo)))
 
 [{1 :nvim-telescope/telescope.nvim
   :dependencies [:nvim-lua/popup.nvim
                  :nvim-lua/plenary.nvim
                  :nvim-telescope/telescope-ui-select.nvim
-                 :ahmedkhalf/project.nvim
                  :debugloop/telescope-undo.nvim
                  :nvim-telescope/telescope-file-browser.nvim
-                 :mollerhoj/telescope-recent-files.nvim
-                 ; :RomanoZumbe/harpoon
-                 ]
+                 :mollerhoj/telescope-recent-files.nvim]
   :lazy true
   :keys [[:<Space>b :n]]
   :cmd [:Telescope]
@@ -47,7 +42,6 @@
           (kset :n :<space>pr ":Telescope pickers<cr>")
           (kset :n :<space>pb ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")
           (kset :n :<space>pa ":Telescope live_grep<cr>")
-          (kset :n :<space>pp ":Telescope projects<cr>" "Projects")
           (kset :n :<space>ph ":Telescope harpoon marks<cr>" "Harpoon")
           (kset :n :<space>pu ":Telescope undo<Cr>" "Undo")
           ;(kset :n :<space>pq ":Telescope quickfix<cr>" "QuickFix")
@@ -69,8 +63,6 @@
   :config (fn []
             (let [telescope (require :telescope)
                   themes (require :telescope.themes)
-                 ; harpoon (require :harpoon)
-                  prj (require :project_nvim)
                   actions (require :telescope.actions)
                   undo_actions (require :telescope-undo.actions)
                   state (require :telescope.actions.state)
@@ -92,11 +84,6 @@
               (kset :n :<space>b
                     #((. (. telescope.extensions :recent-files) :recent_files) {})	                
                     "search files with priority to recent")
-
-              ;(harpoon.setup)
-              (prj.setup
-                {:patterns [".git" "package.json" "deps.edn" "project.clj"]})
-
 
               (telescope.setup
                 {:defaults

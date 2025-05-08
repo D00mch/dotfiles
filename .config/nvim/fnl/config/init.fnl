@@ -4,6 +4,7 @@
 
 (require :config.which)
 (require :config.markdown)
+(require :config.misc)
 
 ;; open Help in full window
 (vim.api.nvim_command "command! -nargs=1 -complete=help H help <args> | silent only")
