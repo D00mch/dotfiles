@@ -19,3 +19,7 @@ homoiconic
 coroutines
 FlowStorm
 Goroutine
+Go-разработчиков
+Grigory
+Glushko
+idempotency
