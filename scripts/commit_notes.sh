@@ -8,6 +8,8 @@ git add .
 
 git commit -m "Daily update: $(date +'%Y-%m-%d %H:%M:%S')"
 
+git pull --rebase
+
 git push origin main
 
 # 0 12 * * * /Users/m1/dotfiles/scripts/commit_notes.sh >> /Users/m1/Documents/chone.log 2>&1
