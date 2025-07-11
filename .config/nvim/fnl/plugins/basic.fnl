@@ -44,7 +44,7 @@
  {1 :Exafunction/codeium.nvim
   :cond pc-with-rights? 
   :event :VeryLazy
-  :config true}
+  :config false}
  {1 :dstein64/vim-startuptime
   :lazy true
   :cmd :StartupTime}
