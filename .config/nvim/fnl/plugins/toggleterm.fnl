@@ -16,7 +16,7 @@
   :config (fn []
             (let [term (require :toggleterm)]
               (term.setup
-                {:size 30
+                {:size 20
                  :on_open (fn [t]
                             (if (= (vim.fn.mode) "n")
                               (vim.cmd "startinsert!")))

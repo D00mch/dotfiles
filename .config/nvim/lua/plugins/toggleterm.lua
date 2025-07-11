@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/plugins/toggleterm.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/plugins/toggleterm.fnl
 local _local_1_ = require("config.util")
 local kset = _local_1_["kset"]
 local function _2_()
@@ -25,6 +25,6 @@ local function _5_()
       return nil
     end
   end
-  return term.setup({size = 30, on_open = _6_, open_mapping = "<space>i", hide_numbers = true, shading_factor = 2, start_in_insert = true, direction = "horizontal", persist_size = true, insert_mappings = false, shade_terminals = false, terminal_mappings = false})
+  return term.setup({size = 20, on_open = _6_, open_mapping = "<space>i", hide_numbers = true, shading_factor = 2, start_in_insert = true, direction = "horizontal", persist_size = true, insert_mappings = false, shade_terminals = false, terminal_mappings = false})
 end
 return {{"akinsho/toggleterm.nvim", lazy = true, cmd = {"ToggleTerm", "ToggleTermSendVisualSelection"}, init = _3_, config = _5_}}
