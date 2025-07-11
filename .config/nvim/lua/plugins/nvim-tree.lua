@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/plugins/nvim-tree.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/plugins/nvim-tree.fnl
 local _local_1_ = require("config.util")
 local kset = _local_1_["kset"]
 local bkset = _local_1_["bkset"]
@@ -9,7 +9,6 @@ local function _2_()
 end
 local function _3_()
   local tree = require("nvim-tree")
-  local tree_view = require("nvim-tree.view")
   local actions = require("telescope.actions")
   local action_state = require("telescope.actions.state")
   local api = require("nvim-tree.api")
@@ -47,7 +46,7 @@ local function _3_()
   kset("n", "<space>pt", _8_, "Tree Toggle")
   local function _9_()
     api.tree.toggle()
-    if tree_view.is_visible() then
+    if api.tree.is_visible() then
       return api.tree.collapse_all(true)
     else
       return nil

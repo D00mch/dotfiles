@@ -13,7 +13,6 @@
           (kset :n "<space>m" ::NvimTreeOpen<cr>))
   :config (fn []
             (let [tree (require :nvim-tree)
-                  tree-view (require :nvim-tree.view)
                   actions (require :telescope.actions)
                   action-state (require :telescope.actions.state)
                   api (require :nvim-tree.api)
@@ -48,7 +47,7 @@
               (kset :n :<Space>m
                   (fn []
                     (api.tree.toggle)
-                    (if (tree-view.is_visible)
+                    (if (api.tree.is_visible)
                       (api.tree.collapse_all true)))
                   "Collapse and show")
 
