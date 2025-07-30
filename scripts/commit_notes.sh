@@ -4,6 +4,8 @@ NOTES_DIR="$HOME/Yandex.Disk.localized/wiki/"
 
 cd "$NOTES_DIR" || { echo "Directory not found: $NOTES_DIR"; exit 1; }
 
+git status
+
 git add .
 
 git commit -m "Daily update: $(date +'%Y-%m-%d %H:%M:%S')"
