@@ -30,12 +30,21 @@ set notimeout
     vmap = :action ReformatCode<Cr>
 
     nmap <space>0 :action ActivateCommitToolWindow<cr>
+    " 1
     nmap <space>m :action SelectInProjectView<cr>
+    " 2
     nmap <space>, :action ActivateBookmarksToolWindow<cr>
+    " 3
     nmap <space>. :action ActivateFindToolWindow<cr>
+    " 4
     nmap <space>j :action ActivateRunToolWindow<cr>
+    " 6
     nmap <space>l :action ActivateServicesToolWindow<cr>
+    " 7
+    nmap <space>u :action ActivateLogcatToolWindow<cr>
+    " 8
     nmap <space>i :!open /Applications/WezTerm.app --args start --cwd `pwd` --always-new-process<cr>
+    " 9
     nmap <space>o :action ActivateVersionControlToolWindow<cr>
 
     let g:relative_number_set = 1
