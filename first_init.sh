@@ -1,7 +1,6 @@
 # install oh my zsh
 cd ~
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # prepare dotfiles (after installing zsh) 
 rm -rf ~/.zshenv
@@ -33,12 +32,7 @@ brew install clojure
 brew install borkdude/brew/clj-kondo
 brew install ripgrep
 brew install wezterm
-brew install powerlevel10k
 echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
-
-# for lualine and nerdtree icons
-brew tap homebrew/cask-fonts
-brew install --cask font-hack-nerd-font
 
 # set up java versions
 source ~/.zshrc
