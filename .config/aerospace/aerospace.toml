@@ -89,7 +89,7 @@ outer.left =       [{ monitor."^built-in retina display$" = 2 }, 12]
 # '''
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-alt-ctrl-d = 'layout tiles horizontal vertical'
+alt-ctrl-d = 'layout tiles horizontal'
 alt-ctrl-f = 'layout accordion horizontal vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
@@ -216,3 +216,6 @@ run = 'move-node-to-workspace 9'
 [[on-window-detected]]
 if.app-id = 'net.java.openjdk.java'
 run = 'layout floating'
+
+[exec.env-vars]
+SHELL = "/bin/zsh"
