@@ -198,8 +198,8 @@ if.app-id = 'com.jetbrains.intellij'
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
-if.app-id = 'j-enterprise'
-run = 'move-node-to-workspace 4'
+if.app-id = 'j-enterprise2'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.Outlook'
