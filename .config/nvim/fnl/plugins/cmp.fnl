@@ -68,7 +68,7 @@
                  :PaterJason/cmp-conjure 
                  :dcampos/cmp-snippy
                  :dcampos/nvim-snippy
-                 {1 :MattiasMTS/cmp-dbee :ft :sql}]
+                 {1 :MattiasMTS/cmp-dbee :ft :sql :opts {}}]
   :config (fn []
             (let [cmp (require :cmp)
                   snippy (require :snippy)
