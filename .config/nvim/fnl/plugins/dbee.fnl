@@ -5,7 +5,7 @@
 [{1 :kndndrj/nvim-dbee
   :lazy true
   :cmd :Dbee
-  :cond (os.getenv :OPENAI_API_KEY)
+  :cond true
   :dependencies [:MunifTanjim/nui.nvim]
   :build (fn []
            (let [dbee (require :dbee)]
