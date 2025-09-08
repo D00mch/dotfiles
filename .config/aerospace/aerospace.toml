@@ -217,5 +217,9 @@ run = 'move-node-to-workspace 9'
 if.app-id = 'net.java.openjdk.java'
 run = 'layout floating'
 
+[[on-window-detected]]
+if.app-id = 'com.jetbrains.jbr.java'
+run = 'layout floating'
+
 [exec.env-vars]
 SHELL = "/bin/zsh"
