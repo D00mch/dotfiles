@@ -125,7 +125,7 @@
                  [:!CQg "open /Applications/Google\\ Chrome.app"]
                  [:!CQi "/bin/zsh `open /Applications/IntelliJ\\ IDEA\\ CE.app`"]
                  [:!CQa "/bin/zsh `open /Applications/Android\\ Studio.app`"]
-                 [:!CQt "open /Applications/Telegram\\ Lite.app/"]
+                 [:!CQt "open /Applications/Telegram.app"]
                  [:!CQn ["/bin/zsh `open /Applications/Neovide.app`" :select_abc]]
                  [:!CQt ["/bin/zsh `open /Applications/WezTerm.app`" :select_abc]]
                  [:!CQg ["/bin/zsh `open /Applications/Neovide.app -n --args --frame transparent`" :select_abc]]
