@@ -1,11 +1,11 @@
--- [nfnl] Compiled from fnl/plugins/lsp_config.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/plugins/lsp_config.fnl
 local _local_1_ = require("nfnl.module")
-local autoload = _local_1_["autoload"]
+local autoload = _local_1_.autoload
 local _local_2_ = autoload("config.util")
-local bkset = _local_2_["bkset"]
+local bkset = _local_2_.bkset
 local vis_op_2b = _local_2_["vis-op+"]
 local _local_3_ = autoload("nfnl.core")
-local merge = _local_3_["merge"]
+local merge = _local_3_.merge
 local telescope = autoload("telescope")
 local diagnostics = {severity_sort = true, underline = true, signs = true, update_in_insert = false, virtual_lines = false, virtual_text = false}
 local handlers = {["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = "single"}), ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = "single"})}
@@ -26,13 +26,13 @@ local function _5_()
   return nil
 end
 local function _6_()
-  local lsp = require("lspconfig")
+  local lsp = vim.lsp.config
   local lsp_util = require("lspconfig.util")
   local cmplsp = require("cmp_nvim_lsp")
   local flut = require("flutter-tools")
   local _let_7_ = require("telescope.builtin")
-  local lsp_references = _let_7_["lsp_references"]
-  local lsp_implementations = _let_7_["lsp_implementations"]
+  local lsp_references = _let_7_.lsp_references
+  local lsp_implementations = _let_7_.lsp_implementations
   local mason = require("mason")
   local illuminate = require("illuminate")
   local ltex = require("ltex_extra")
@@ -84,18 +84,19 @@ local function _6_()
     on_attach(client, b)
     return highlight_line_symbol()
   end
-  lsp.fennel_language_server.setup(merge(default_map, {settings = {fennel = {workspace = {library = vim.api.nvim_list_runtime_paths()}, diagnostics = {globals = {"vim", "comment"}}}}, filetypes = {"fennel"}, single_file_support = true, root_dir = lsp_util.root_pattern("fnl"), on_attach = _13_}))
-  lsp.clojure_lsp.setup(default_map)
-  lsp.jdtls.setup(default_map)
-  lsp.kotlin_language_server.setup(merge(default_map, {autostart = false}))
-  lsp.gopls.setup(default_map)
-  lsp.emmet_language_server.setup(merge(default_map, {filetypes = {"css", "html", "javascript", "typescript", "typescriptreact", "javascriptreact", "svelte", "vue", "vue-html", "less", "scss", "sass", "sas"}}))
+  lsp("fennel_language_server", merge(default_map, {settings = {fennel = {workspace = {library = vim.api.nvim_list_runtime_paths()}, diagnostics = {globals = {"vim", "comment"}}}}, filetypes = {"fennel"}, single_file_support = true, root_dir = lsp_util.root_pattern("fnl"), on_attach = _13_}))
+  lsp("clojure_lsp", default_map)
+  lsp("jdtls", default_map)
+  lsp("kotlin_language_server", merge(default_map, {autostart = false}))
+  lsp("vtsls", default_map)
+  lsp("emmet_language_server", merge({filetypes = {"css", "html", "javascript", "typescript", "typescriptreact", "javascriptreact", "svelte", "vue", "vue-html", "less", "scss", "sass", "sas"}}))
   local function _14_(client, b)
     on_attach(client, b)
     ltex.setup({load_langs = {"en-US"}, init_check = true, path = (vim.fn.expand("~") .. "/.config/nvim/data/ltex"), log_level = "debug"})
     return highlight_line_symbol()
   end
-  lsp.ltex.setup(merge(default_map, {on_attach = _14_, filetypes = {"markdown", "NeogitCommitMessage", "gitcommit"}, settings = {ltex = {}}}))
+  lsp("ltex", merge(default_map, {on_attach = _14_, filetypes = {"markdown", "NeogitCommitMessage", "gitcommit"}, settings = {ltex = {}}}))
+  vim.lsp.enable({"fennel_language_server", "clojure_lsp", "jdtls", "kotlin_language_server", "vtsls", "emmet_language_server", "ltex"})
   local function _15_(client, b)
     on_attach(client, b)
     local function _16_()

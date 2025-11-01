@@ -56,7 +56,7 @@
   :init (fn []
           (set vim.o.updatetime 250))
   :config (fn []
-            (let [lsp (require :lspconfig)
+            (let [lsp vim.lsp.config
                   lsp-util (require :lspconfig.util)
                   cmplsp (require :cmp_nvim_lsp)
                   flut (require :flutter-tools)
@@ -114,7 +114,7 @@
 
               (illuminate.configure)
 
-              (lsp.fennel_language_server.setup
+              (lsp :fennel_language_server
                 (merge 
                   default-map
                   {:settings
@@ -128,20 +128,20 @@
                                 (on-attach client b)
                                 (highlight-line-symbol))}))
 
-              (lsp.clojure_lsp.setup default-map)
-              (lsp.jdtls.setup default-map)
-              (lsp.kotlin_language_server.setup
+              (lsp :clojure_lsp default-map)
+              (lsp :jdtls default-map)
+              (lsp :kotlin_language_server
                 (merge default-map {:autostart false}))
-              (lsp.gopls.setup default-map)
+              (lsp :vtsls default-map)
 
               ;; div completions
-              (lsp.emmet_language_server.setup
+              (lsp :emmet_language_server
                 (merge
-                  default-map
+                  
                   {:filetypes [:css :html :javascript :typescript :typescriptreact :javascriptreact
                                :svelte :vue :vue-html :less :scss :sass :sas]}))
 
-              (lsp.ltex.setup
+              (lsp :ltex
                 (merge default-map
                        {:on_attach (fn [client b]
                                      (on-attach client b)
@@ -153,6 +153,15 @@
                                      (highlight-line-symbol))
                         :filetypes ["markdown" "NeogitCommitMessage" "gitcommit"]
                         :settings {:ltex {}}}))
+
+              (vim.lsp.enable [:fennel_language_server
+                               :clojure_lsp
+                               :jdtls
+                               :kotlin_language_server
+                               :vtsls
+                               :emmet_language_server
+                               :ltex
+                               ])
 
               (flut.setup
                 {:lsp
