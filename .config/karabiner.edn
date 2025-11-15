@@ -165,25 +165,6 @@
                  [:!O##period :3]
                  [:!O##p      :0]]}
 
-        {:des "quick app open"
-         :rules [[:!Eg "open /Applications/Google\\ Chrome.app"]
-                 [:!Ei "/bin/zsh `open /Applications/IntelliJ\\ IDEA\\ CE.app`"]
-                 [:!En ["/bin/zsh `open /Applications/Neovide.app`" :select_abc]]
-                 [:!Et ["/bin/zsh `open /Applications/WezTerm.app`" :select_abc]]
-                 [:!Cg ["/bin/zsh `open /Applications/Neovide.app -n --args --frame transparent`" :select_abc]]
-                 [:!Es ["/bin/zsh `open /Applications/sioyek.app`"]]
-
-                 [:!CQg "open /Applications/Google\\ Chrome.app"]
-                 [:!CQi "/bin/zsh `open /Applications/IntelliJ\\ IDEA\\ CE.app`"]
-                 [:!CQa "/bin/zsh `open /Applications/Android\\ Studio.app`"]
-                 [:!CQt "open /Applications/Telegram.app"]
-                 [:!CQn ["/bin/zsh `open /Applications/Neovide.app`" :select_abc]]
-                 [:!CQt ["/bin/zsh `open /Applications/WezTerm.app`" :select_abc]]
-                 [:!CQg ["/bin/zsh `open /Applications/Neovide.app -n --args --frame transparent`" :select_abc]]
-                 [:!CQs ["/bin/zsh `open /Applications/sioyek.app`"]]
-
-                 #_[:!Cg ["open /Applications/Neovide.app -n --args --multigrid" :select_abc]]]}
-
         {:des "system scripts"
          :rules [[:!SOw [:theme "w"]]
                  [:!SOb [:theme "b"]]
