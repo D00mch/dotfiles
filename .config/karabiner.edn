@@ -34,11 +34,64 @@
                  [:spacebar :semicolon ["semicolon-mode" 1]]
                  [:m :close_bracket ["semicolon-mode" 1]]]}
 
+        {:des "Leader Left-CMD ⌘ mode"
+         :rules [[:left_command
+                  :left_command
+                  nil
+                  {:delayed {:invoked ["left-command" 0]}
+                   :alone   ["left-command" 1]
+                   :params  {:delay 400}}]
+
+                 ;; help avoid ctr
+                 [:a :!Ta ["left-command" 1] {:afterup ["left-command" 0]}]
+                 [:g :!Tg ["left-command" 1] {:afterup ["left-command" 0]}]
+                 [:x :!Tx ["left-command" 1] {:afterup ["left-command" 0]}]
+                 [:q :!Tq ["left-command" 1] {:afterup ["left-command" 0]}]
+                 [:d :!Td ["left-command" 1] {:afterup ["left-command" 0]}]
+                 [:c :!Tc ["left-command" 1] {:afterup ["left-command" 0]}]
+                 [:r :!Tr ["left-command" 1] {:afterup ["left-command" 0]}]]}
+
+        {:des "Leader right-CMD ⌘ mode"
+         :rules [[:right_command
+                  :right_command
+                  nil
+                  {:delayed {:invoked ["right-command" 0]}
+                   :alone   ["right-command" 1]
+                   :params  {:delay 400}}]
+
+                 ;; focus/open apps
+                 [:s
+                  "/bin/zsh `open /Applications/sioyek.app`"
+                  ["right-command" 1]
+                  {:afterup ["right-command" 0]}]
+                 [:a
+                  "/bin/zsh `open /Applications/Android\\ Studio.app`"
+                  ["right-command" 1]
+                  {:afterup ["right-command" 0]}]
+                 [:i
+                  "/bin/zsh `open /Applications/IntelliJ\\ IDEA\\ CE.app`"
+                  ["right-command" 1]
+                  {:afterup ["right-command" 0]}]
+                 [:t
+                  "open /Applications/Telegram.app"
+                  ["right-command" 1]
+                  {:afterup ["right-command" 0]}]
+                 [:g
+                  "open /Applications/Google\\ Chrome.app"
+                  ["right-command" 1]
+                  {:afterup ["right-command" 0]}]
+                 [:w
+                  ["/bin/zsh `open /Applications/WezTerm.app`" :select_abc]
+                  ["right-command" 1]
+                  {:afterup ["right-command" 0]}]
+                 [:n
+                  ["/bin/zsh `open -a Neovide`" :select_abc]
+                  ["right-command" 1]
+                  {:afterup ["right-command" 0]}]]}
+
         {:des "vim"
          :rules [[:!Cx :!T6 [:neovide]]
                  [:!Cq :!Oq [:neovide]]
-                 [:!Cr :!Tr [:terminalish]]
-                 [:!Cc :!Tc [:wezterm]]
                  [:!SOhyphen :!SChyphen [:neovide]]
 
                  ;; cursor move/delete
@@ -95,8 +148,7 @@
                  [:!Co :close_bracket]]}
 
         {:des "Alt layer"
-         :rules [
-                 [:!O##e       :!OShyphen]
+         :rules [[:!O##e       :!OShyphen]
                  [:!O##w       :!OSequal_sign]
 
                  [:!O##semicolon :!Obackslash]
@@ -114,8 +166,7 @@
                  [:!O##p      :0]]}
 
         {:des "quick app open"
-         :rules [
-                 [:!Eg "open /Applications/Google\\ Chrome.app"]
+         :rules [[:!Eg "open /Applications/Google\\ Chrome.app"]
                  [:!Ei "/bin/zsh `open /Applications/IntelliJ\\ IDEA\\ CE.app`"]
                  [:!En ["/bin/zsh `open /Applications/Neovide.app`" :select_abc]]
                  [:!Et ["/bin/zsh `open /Applications/WezTerm.app`" :select_abc]]
@@ -131,8 +182,7 @@
                  [:!CQg ["/bin/zsh `open /Applications/Neovide.app -n --args --frame transparent`" :select_abc]]
                  [:!CQs ["/bin/zsh `open /Applications/sioyek.app`"]]
 
-                 #_[:!Cg ["open /Applications/Neovide.app -n --args --multigrid" :select_abc]]
-                 ]}
+                 #_[:!Cg ["open /Applications/Neovide.app -n --args --multigrid" :select_abc]]]}
 
         {:des "system scripts"
          :rules [[:!SOw [:theme "w"]]
@@ -149,9 +199,7 @@
         ;; O  | left_option        P  | caps_lock
         ;; S  | left_shift         !! | mandatory CTOS|QWER (hyper)
         ;; F  | fn                 ## | optional any
-
         ]
-
  :input-sources {:abc {:input_source_id "^com\\.apple\\.keylayout\\.ABC$"
                        :language "en"}
                  :ru  {:input_source_id "^com\\.apple\\.keylayout\\.RussianWin$"
