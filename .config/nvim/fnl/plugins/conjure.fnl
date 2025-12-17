@@ -15,7 +15,7 @@
 [{1 :Olical/conjure
   :lazy true
   :ft [:clojure :fennel]
-  :branch "master"
+  :branch "main"
   :init (fn []
           (set nvim.g.conjure#log#wrap true)
           (set nvim.g.conjure#eval#result_register "r")

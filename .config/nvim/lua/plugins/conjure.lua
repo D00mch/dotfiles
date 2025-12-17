@@ -1,9 +1,9 @@
--- [nfnl] Compiled from fnl/plugins/conjure.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/plugins/conjure.fnl
 local _local_1_ = require("nfnl.module")
-local autoload = _local_1_["autoload"]
+local autoload = _local_1_.autoload
 local nvim = autoload("nvim")
 local _local_2_ = autoload("config.util")
-local kset = _local_2_["kset"]
+local kset = _local_2_.kset
 local function toggle_log_mod()
   nvim.g["conjure#log#jump_to_latest#enabled"] = not nvim.g["conjure#log#jump_to_latest#enabled"]
   return nil
@@ -49,4 +49,4 @@ local function _4_()
   nvim.g["conjure#client#scheme#stdio#prompt_pattern"] = "\n-#;%d-> "
   return nil
 end
-return {{"Olical/conjure", lazy = true, ft = {"clojure", "fennel"}, branch = "master", init = _4_}}
+return {{"Olical/conjure", lazy = true, ft = {"clojure", "fennel"}, branch = "main", init = _4_}}

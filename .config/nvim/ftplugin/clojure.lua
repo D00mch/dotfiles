@@ -1,14 +1,14 @@
--- [nfnl] Compiled from ftplugin/clojure.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] ftplugin/clojure.fnl
 local _local_1_ = require("nfnl.module")
-local autoload = _local_1_["autoload"]
+local autoload = _local_1_.autoload
 local nvim = autoload("nvim")
 local _local_2_ = autoload("config.util")
-local println = _local_2_["println"]
-local kset = _local_2_["kset"]
-local bkset = _local_2_["bkset"]
+local println = _local_2_.println
+local kset = _local_2_.kset
+local bkset = _local_2_.bkset
 local _local_3_ = autoload("nfnl.core")
-local some = _local_3_["some"]
-nvim.g.surround_99 = "#_\13"
+local some = _local_3_.some
+nvim.g.surround_99 = "#_\r"
 local run_lein_cmd = "lein repl"
 local run_deps_cmd = "clj -M:local-nrepl:add-libs"
 local run_flutter_cmd = "clj -M -m cljd.build flutter"
