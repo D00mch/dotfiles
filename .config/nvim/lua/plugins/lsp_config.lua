@@ -29,7 +29,6 @@ local function _6_()
   local lsp = vim.lsp.config
   local lsp_util = require("lspconfig.util")
   local cmplsp = require("cmp_nvim_lsp")
-  local flut = require("flutter-tools")
   local _let_7_ = require("telescope.builtin")
   local lsp_references = _let_7_.lsp_references
   local lsp_implementations = _let_7_.lsp_implementations
@@ -96,15 +95,6 @@ local function _6_()
     return highlight_line_symbol()
   end
   lsp("ltex", merge(default_map, {on_attach = _14_, filetypes = {"markdown", "NeogitCommitMessage", "gitcommit"}, settings = {ltex = {}}}))
-  vim.lsp.enable({"fennel_language_server", "clojure_lsp", "jdtls", "kotlin_language_server", "vtsls", "emmet_language_server", "ltex"})
-  local function _15_(client, b)
-    on_attach(client, b)
-    local function _16_()
-      return telescope.extensions.flutter.commands()
-    end
-    bkset({"n"}, "<leader>fa", _16_, b)
-    return telescope.load_extension("flutter")
-  end
-  return flut.setup({lsp = {closing_tags = {highlight = "ErrorMsg", prefix = ">", enabled = true}, handlers = handlers, capabilities = capabilities, on_attach = _15_}})
+  return vim.lsp.enable({"fennel_language_server", "clojure_lsp", "jdtls", "kotlin_language_server", "vtsls", "emmet_language_server", "ltex"})
 end
-return {{"neovim/nvim-lspconfig", lazy = true, ft = {"clojure", "go", "dart", "markdown", "md"}, cmd = {"LspInfo", "LspInstall", "LspUninstall"}, dependencies = {"williamboman/mason.nvim", "barreiroleo/ltex-extra.nvim", "RRethy/vim-illuminate", "akinsho/flutter-tools.nvim", "nvim-lua/plenary.nvim"}, init = _5_, config = _6_}}
+return {{"neovim/nvim-lspconfig", lazy = true, ft = {"clojure", "go", "dart", "markdown", "md"}, cmd = {"LspInfo", "LspInstall", "LspUninstall"}, dependencies = {"williamboman/mason.nvim", "barreiroleo/ltex-extra.nvim", "RRethy/vim-illuminate", "nvim-lua/plenary.nvim"}, init = _5_, config = _6_}}

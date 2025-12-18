@@ -51,7 +51,6 @@
   :dependencies [:williamboman/mason.nvim
                  :barreiroleo/ltex-extra.nvim
                  :RRethy/vim-illuminate
-                 :akinsho/flutter-tools.nvim
                  :nvim-lua/plenary.nvim]
   :init (fn []
           (set vim.o.updatetime 250))
@@ -59,7 +58,6 @@
             (let [lsp vim.lsp.config
                   lsp-util (require :lspconfig.util)
                   cmplsp (require :cmp_nvim_lsp)
-                  flut (require :flutter-tools)
                   {: lsp_references : lsp_implementations} (require :telescope.builtin)
                   mason (require :mason)
                   illuminate (require :illuminate)
@@ -162,16 +160,4 @@
                                :emmet_language_server
                                :ltex
                                ])
-
-              (flut.setup
-                {:lsp
-                 {:closing_tags {:highlight "ErrorMsg"
-                                 :prefix ">"
-                                 :enabled true}
-                  :handlers handlers
-                  :capabilities capabilities
-                  :on_attach
-                  (fn [client b]
-                    (on-attach client b)
-                    (bkset [:n] :<leader>fa (fn [] (telescope.extensions.flutter.commands)) b)
-                    (telescope.load_extension "flutter"))}})))}]
+              ))}]
