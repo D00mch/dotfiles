@@ -5,7 +5,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # prepare dotfiles (after installing zsh) 
 rm -rf ~/.zshenv
 rm -rf ~/.zshrc
-bash init.sh $1
+
+DOTFILES_DIR="${1:-$HOME}"
+
+bash init.sh $DOTFILES_DIR 
 
 # installing brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
