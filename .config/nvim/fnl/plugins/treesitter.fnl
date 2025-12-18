@@ -3,17 +3,16 @@
 (local {: kset} (autoload :config.util))
 
 [{1 :nvim-treesitter/nvim-treesitter
-  :lazy true
+  :lazy false
   :event :VeryLazy
-  :dependencies [:HiPhish/nvim-ts-rainbow2
-                 :nvim-treesitter/nvim-treesitter-textobjects
-                 :nvim-treesitter/nvim-treesitter-refactor]
+  :dependencies [
+                 ]
   :build ":TSUpdate"
   :init (fn []
           (set nvim.o.foldmethod :expr)
           (set nvim.o.foldexpr "nvim_treesitter#foldexpr()"))
   :config (fn []
-            (let [treesitter (require :nvim-treesitter.configs)]
+            (let [treesitter (require :nvim-treesitter)]
               (treesitter.setup
                 {:ensure_installed [:java :yaml :bash :kotlin
                                     :clojure :fennel :scheme :racket
@@ -27,18 +26,4 @@
                              ;; - erorrs from cmp-conjure
                              :additional_vim_regex_highlighting false
                              }
-                 ; :refactor {:highlight_definitions {:enable true}
-                 ;            :smart_rename {:enable true
-                 ;                           :keymaps {:smart_rename :<Leader>rr}}}
-                 :textobjects {:select
-                               {:enable true
-                                :keymaps 
-                                {:am "@function.outer"
-                                 :im "@function.inner"
-                                 :ac "@class.outer"
-                                 :ic "@class.inner"}}
-                               :swap
-                               {:enable true
-                                :swap_next {:g> "@parameter.inner"}
-                                :swap_previous {:g< "@parameter.inner"}}}
                  :indent    {:enable true}})))}]
