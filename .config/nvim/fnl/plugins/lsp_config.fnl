@@ -131,6 +131,7 @@
               (lsp :kotlin_language_server
                 (merge default-map {:autostart false}))
               (lsp :vtsls default-map)
+              (lsp :rust_analyzer default-map)
 
               ;; div completions
               (lsp :emmet_language_server
@@ -159,5 +160,6 @@
                                :vtsls
                                :emmet_language_server
                                :ltex
+                               :rust_analyzer
                                ])
               ))}]
