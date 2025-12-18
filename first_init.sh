@@ -41,6 +41,5 @@ brew install --cask vlc
 
 echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
 
-# set up java versions
 source ~/.zshrc
 source ~/.zshenv
