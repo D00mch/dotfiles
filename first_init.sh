@@ -33,6 +33,12 @@ brew install clojure
 brew install borkdude/brew/clj-kondo
 brew install ripgrep
 brew install wezterm
+brew install go
+brew install --cask google-chrome
+brew install --cask sioyek
+brew install pgformatter
+brew install --cask vlc
+
 echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
 
 # set up java versions
