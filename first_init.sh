@@ -1,4 +1,15 @@
 # install oh my zsh
+
+# Set dotfiles directory (first arg or home directory by default)
+DOTFILES_DIR="${1:-$HOME}"
+DOTFILES_PATH="$DOTFILES_DIR/dotfiles"
+
+# Check if dotfiles directory exists
+if [ ! -d "$DOTFILES_PATH" ]; then
+    echo "Error: Dotfiles directory not found at $DOTFILES_PATH" >&2
+    exit 1
+fi
+
 cd ~
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -6,9 +17,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 rm -rf ~/.zshenv
 rm -rf ~/.zshrc
 
-DOTFILES_DIR="${1:-$HOME}"
-
-bash init.sh $DOTFILES_DIR 
+bash init.sh "$DOTFILES_PATH"
 
 # installing brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -41,8 +50,6 @@ brew install --cask google-chrome
 brew install --cask sioyek
 brew install pgformatter
 brew install --cask vlc
-
-echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
 
 source ~/.zshrc
 source ~/.zshenv
