@@ -27,6 +27,7 @@ brew install --cask nikitabobko/tap/aerospace
 brew install --cask karabiner-elements
 brew install jq
 brew install java
+sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 brew install leiningen
 brew install clojure
 brew install borkdude/brew/clj-kondo
