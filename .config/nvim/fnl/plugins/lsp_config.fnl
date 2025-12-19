@@ -45,10 +45,10 @@
     (vim.cmd "hi! link LspReferenceWrite TSConstMacro")))
 
 [{1 :neovim/nvim-lspconfig
-  :lazy true
+  :lazy false
   :ft [:clojure :go :dart :markdown :md]
   :cmd [:LspInfo :LspInstall :LspUninstall]
-  :dependencies [:williamboman/mason.nvim
+  :dependencies [:mason-org/mason.nvim
                  :barreiroleo/ltex-extra.nvim
                  :RRethy/vim-illuminate
                  :nvim-lua/plenary.nvim]
