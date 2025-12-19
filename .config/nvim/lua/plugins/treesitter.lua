@@ -7,10 +7,7 @@ local kset = _local_2_.kset
 local function _3_()
   nvim.o.foldmethod = "expr"
   nvim.o.foldexpr = "nvim_treesitter#foldexpr()"
-  return nil
-end
-local function _4_()
   local treesitter = require("nvim-treesitter")
-  return treesitter.setup({ensure_installed = {"java", "yaml", "bash", "kotlin", "clojure", "fennel", "scheme", "racket", "lua", "luadoc", "vimdoc", "vim", "markdown", "markdown_inline", "http", "json", "sql", "dart", "go", "typescript", "css", "rust"}, highlight = {enable = true, additional_vim_regex_highlighting = false}, indent = {enable = true}})
+  return treesitter.install({"java", "yaml", "bash", "kotlin", "clojure", "fennel", "scheme", "racket", "lua", "luadoc", "vimdoc", "vim", "markdown", "markdown_inline", "http", "json", "sql", "dart", "go", "typescript", "css", "rust"})
 end
-return {{"nvim-treesitter/nvim-treesitter", event = "VeryLazy", dependencies = {}, build = ":TSUpdate", init = _3_, config = _4_, lazy = false}}
+return {{"nvim-treesitter/nvim-treesitter", dependencies = {}, build = ":TSUpdate", init = _3_, config = true, lazy = false}}

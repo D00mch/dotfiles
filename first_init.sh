@@ -50,6 +50,8 @@ brew install --cask google-chrome
 brew install --cask sioyek
 brew install pgformatter
 brew install --cask vlc
+brew install rust
+cargo install --locked tree-sitter-cli
 
 source ~/.zshrc
 source ~/.zshenv
