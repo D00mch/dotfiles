@@ -1,8 +1,8 @@
--- [nfnl] Compiled from fnl/plugins/dap.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/plugins/dap.fnl
 local _local_1_ = require("nfnl.module")
-local autoload = _local_1_["autoload"]
+local autoload = _local_1_.autoload
 local _local_2_ = autoload("config.util")
-local bkset = _local_2_["bkset"]
+local bkset = _local_2_.bkset
 local wk = autoload("which-key")
 vim.fn.sign_define("DapBreakpoint", {linehl = "DapBreakpoint", numhl = "DapBreakpoint", text = "\240\159\148\180", texthl = "DapBreakpointSymbol"})
 vim.fn.sign_define("DapStopped", {linehl = "DapBreakpoint", numhl = "DapBreakpoint", text = "\240\159\148\180", texthl = "DapStoppedSymbol"})
@@ -53,4 +53,4 @@ local function _3_()
   dap.listeners.before.event_exited["dapui_config"] = _7_
   return nil
 end
-return {{"mfussenegger/nvim-dap", dependencies = {"nvim-neotest/nvim-nio", "rcarriga/nvim-dap-ui", "jay-babu/mason-nvim-dap.nvim", "leoluz/nvim-dap-go", "theHamsta/nvim-dap-virtual-text"}, lazy = true, ft = {"go", "gomod"}, config = _3_}}
+return {{"mfussenegger/nvim-dap", dependencies = {"nvim-neotest/nvim-nio", "rcarriga/nvim-dap-ui", "jay-babu/mason-nvim-dap.nvim", "leoluz/nvim-dap-go", "theHamsta/nvim-dap-virtual-text"}, lazy = true, ft = {"go", "gomod", "rust"}, config = _3_}}

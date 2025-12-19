@@ -20,7 +20,7 @@
                  :leoluz/nvim-dap-go
                  :theHamsta/nvim-dap-virtual-text]
   :lazy true
-  :ft [:go :gomod]
+  :ft [:go :gomod :rust]
   :config (fn []
             (let [mason (require :mason-nvim-dap)
                   dap-go (require :dap-go :go)
