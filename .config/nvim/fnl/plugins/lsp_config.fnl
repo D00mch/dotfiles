@@ -67,6 +67,13 @@
                   (fn [client b]
                     (highlight-symbols client b)
                     (set client.server_capabilities.semanticTokensProvider nil)
+
+                    (bkset :n :<space>th
+                           (fn []
+                             (vim.lsp.inlay_hint.enable 
+                               (not (vim.lsp.inlay_hint.is_enabled [0])) [0]))
+                           {:buffer b :desc "Inlay hints"})	
+
                     (bkset :n :<leader>h (fn [] (vim.lsp.buf.hover) (vim.lsp.buf.hover)) {:buffer b :desc "Show docs"})
                     (bkset :n :gd vim.lsp.buf.definition {:buffer b :desc "Go definition"}) ;[
                                                                                               (bkset :n :gD "<c-w><c-]><c-w>T" {:buffer b :desc "Go definition new tab"})
