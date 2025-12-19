@@ -49,4 +49,4 @@ local function _4_()
   nvim.g["conjure#client#scheme#stdio#prompt_pattern"] = "\n-#;%d-> "
   return nil
 end
-return {{"Olical/conjure", lazy = true, ft = {"clojure", "fennel"}, branch = "main", init = _4_}}
+return {{"Olical/conjure", lazy = true, ft = {"clojure", "fennel", "rust"}, branch = "main", init = _4_}}

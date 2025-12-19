@@ -51,6 +51,7 @@ brew install --cask sioyek
 brew install pgformatter
 brew install --cask vlc
 brew install rust
+cargo install --locked evcxr_repl # repl
 cargo install --locked tree-sitter-cli
 
 source ~/.zshrc
