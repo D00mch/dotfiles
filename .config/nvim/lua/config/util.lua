@@ -1,14 +1,14 @@
--- [nfnl] Compiled from fnl/config/util.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/config/util.fnl
 local _local_1_ = require("nfnl.module")
-local autoload = _local_1_["autoload"]
+local autoload = _local_1_.autoload
 local nvim = autoload("nvim")
 local _local_2_ = autoload("nfnl.core")
-local assoc = _local_2_["assoc"]
-local update = _local_2_["update"]
-local dec = _local_2_["dec"]
-local inc = _local_2_["inc"]
-local first = _local_2_["first"]
-local second = _local_2_["second"]
+local assoc = _local_2_.assoc
+local update = _local_2_.update
+local dec = _local_2_.dec
+local inc = _local_2_.inc
+local first = _local_2_.first
+local second = _local_2_.second
 local function println(message)
   return vim.api.nvim_echo({{message, "Normal"}}, true, {})
 end
@@ -102,4 +102,43 @@ local function get_word_under_selection()
   local word = _let_12_[1]
   return {word, sr0, sc0, er0, ec0}
 end
-return {["config-path"] = config_path, ["lua-file"] = lua_file, println = println, ["exists?"] = exists_3f, kset = kset, bkset = bkset, bkdel = bkdel, ["vis-op"] = vis_op, ["vis-op+"] = vis_op_2b, ["get-word-under-cursor"] = get_word_under_cursor, ["get-word-under-selection"] = get_word_under_selection}
+local _local_13_ = autoload("telescope.builtin")
+local lsp_references = _local_13_.lsp_references
+local lsp_implementations = _local_13_.lsp_implementations
+local lsp_definitions = _local_13_.lsp_definitions
+local function on_attach(_, b)
+  local function _14_()
+    return vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({0}), {0})
+  end
+  bkset("n", "<space>th", _14_, {buffer = b, desc = "Inlay hints"})
+  local function _15_()
+    vim.lsp.buf.hover()
+    return vim.lsp.buf.hover()
+  end
+  bkset("n", "<leader>h", _15_, {buffer = b, desc = "Show docs"})
+  local function _16_()
+    return lsp_definitions({initial_mode = "normal"})
+  end
+  bkset("n", "gd", _16_, {buffer = b, desc = "Go definition"})
+  bkset("n", "gD", "<c-w><c-]><c-w>T", {buffer = b, desc = "Go definition new tab"})
+  bkset("n", "<leader>tD", vim.lsp.buf.type_definition, {buffer = b, desc = "Type definition"})
+  bkset({"i", "n"}, "<M-;>", vim.lsp.buf.signature_help, {buffer = b, desc = "Signiture help"})
+  bkset({"i", "n"}, "<D-p>", vim.lsp.buf.signature_help, {buffer = b, desc = "Signiture help"})
+  bkset("n", "<leader>rr", vim.lsp.buf.rename, {buffer = b, desc = "Rename"})
+  bkset("n", "<leader>p", vim.diagnostic.open_float, {buffer = b, desc = "Preview diagnostics"})
+  if not string.find(vim.api.nvim_buf_get_name(b), ".*.fnl$") then
+    bkset("n", "=", ":lua vim.lsp.buf.format({async = true})<Cr>", {buffer = b, desc = "Apply formatting"})
+    bkset("x", "=", vis_op_2b(vim.lsp.buf.format, {async = true}), {buffer = b, desc = "Apply formatting"})
+  else
+  end
+  bkset("n", "[s", vim.diagnostic.goto_prev, {buffer = b, desc = "Goto prev erro"})
+  bkset("n", "]s", vim.diagnostic.goto_next, {buffer = b, desc = "Goto next erro"})
+  local function _18_()
+    return lsp_references({jump_type = "never"})
+  end
+  bkset("n", "<leader>gr", _18_, {buffer = b, desc = "Go to references"})
+  bkset("n", "<leader>gi", lsp_implementations, {buffer = b, desc = "Go to implementations"})
+  bkset({"i", "n", "x"}, "<C-r>", vim.lsp.buf.code_action, {buffer = b, desc = "Code actions"})
+  return bkset({"n", "x"}, "<leader>ra", vim.lsp.buf.code_action, {buffer = b, desc = "Code actions"})
+end
+return {["config-path"] = config_path, ["lua-file"] = lua_file, println = println, ["exists?"] = exists_3f, kset = kset, bkset = bkset, bkdel = bkdel, ["vis-op"] = vis_op, ["vis-op+"] = vis_op_2b, ["get-word-under-cursor"] = get_word_under_cursor, ["get-word-under-selection"] = get_word_under_selection, ["on-attach"] = on_attach}

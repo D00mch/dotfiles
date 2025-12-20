@@ -1,10 +1,14 @@
+;; fnl/plugins/rust.fnl
 (local {: autoload} (require :nfnl.module))
-(local nvim (autoload :nvim))
-(local {: kset : bkset} (autoload :config.util))
+(local {: bkset : vis-op+ : on-attach} (autoload :config.util))
+(local cmplsp (autoload "cmp_nvim_lsp"))
 
 [{1 :mrcjkb/rustaceanvim
-  :version :^6
+  :version :^7
   :lazy false ;; already lazy
   :tag :v7.0.6
-  :cond false
-  }]
+  :cond true
+  :init (fn []
+          (set vim.g.rustaceanvim
+               {:server {:on_attach on-attach
+                         :capabilities (cmplsp.default_capabilities)}}))}]

@@ -2,11 +2,9 @@
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_.autoload
 local _local_2_ = autoload("config.util")
-local bkset = _local_2_.bkset
-local vis_op_2b = _local_2_["vis-op+"]
+local on_attach_util = _local_2_["on-attach"]
 local _local_3_ = autoload("nfnl.core")
 local merge = _local_3_.merge
-local telescope = autoload("telescope")
 local diagnostics = {severity_sort = true, underline = true, signs = true, update_in_insert = false, virtual_lines = false, virtual_text = false}
 local handlers = {["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = "single"}), ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = "single"})}
 local function highlight_line_symbol()
@@ -27,83 +25,45 @@ local function _5_()
 end
 local function _6_()
   local lsp = vim.lsp.config
-  local lsp_util = require("lspconfig.util")
   local cmplsp = require("cmp_nvim_lsp")
-  local _let_7_ = require("telescope.builtin")
-  local lsp_references = _let_7_.lsp_references
-  local lsp_implementations = _let_7_.lsp_implementations
-  local lsp_definitions = _let_7_.lsp_definitions
   local mason = require("mason")
   local illuminate = require("illuminate")
   local ltex = require("ltex_extra")
   local on_attach
-  local function _8_(client, b)
-    highlight_symbols(client, b)
+  local function _7_(client, b)
     client.server_capabilities.semanticTokensProvider = nil
-    local function _9_()
-      return vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({0}), {0})
-    end
-    bkset("n", "<space>th", _9_, {buffer = b, desc = "Inlay hints"})
-    local function _10_()
-      vim.lsp.buf.hover()
-      return vim.lsp.buf.hover()
-    end
-    bkset("n", "<leader>h", _10_, {buffer = b, desc = "Show docs"})
-    local function _11_()
-      return lsp_definitions({initial_mode = "normal"})
-    end
-    bkset("n", "gd", _11_, {buffer = b, desc = "Go definition"})
-    bkset("n", "gD", "<c-w><c-]><c-w>T", {buffer = b, desc = "Go definition new tab"})
-    bkset("n", "<leader>tD", vim.lsp.buf.type_definition, {buffer = b, desc = "Type definition"})
-    bkset({"i", "n"}, "<M-;>", vim.lsp.buf.signature_help, {buffer = b, desc = "Signiture help"})
-    bkset({"i", "n"}, "<D-p>", vim.lsp.buf.signature_help, {buffer = b, desc = "Signiture help"})
-    bkset("n", "<leader>rr", vim.lsp.buf.rename, {buffer = b, desc = "Rename"})
-    bkset("n", "<leader>p", vim.diagnostic.open_float, {buffer = b, desc = "Preview diagnostics"})
-    if not string.find(vim.api.nvim_buf_get_name(b), ".*.fnl$") then
-      bkset("n", "=", ":lua vim.lsp.buf.format({async = true})<Cr>", {buffer = b, desc = "Apply formatting"})
-      bkset("x", "=", vis_op_2b(vim.lsp.buf.format, {async = true}), {buffer = b, desc = "Apply formatting"})
-    else
-    end
-    bkset("n", "[s", vim.diagnostic.goto_prev, {buffer = b, desc = "Goto prev erro"})
-    bkset("n", "]s", vim.diagnostic.goto_next, {buffer = b, desc = "Goto next erro"})
-    local function _13_()
-      return lsp_references({jump_type = "never"})
-    end
-    bkset("n", "<leader>gr", _13_, {buffer = b, desc = "Go to references"})
-    bkset("n", "<leader>gi", lsp_implementations, {buffer = b, desc = "Go to implementations"})
-    bkset({"i", "n", "x"}, "<C-r>", vim.lsp.buf.code_action, {buffer = b, desc = "Code actions"})
-    return bkset({"n", "x"}, "<leader>ra", vim.lsp.buf.code_action, {buffer = b, desc = "Code actions"})
+    highlight_symbols(client, b)
+    return on_attach_util(client, b)
   end
-  on_attach = _8_
+  on_attach = _7_
   local capabilities = cmplsp.default_capabilities()
   local before_init
-  local function _14_(params)
+  local function _8_(params)
     params.workDoneToken = "1"
     return nil
   end
-  before_init = _14_
+  before_init = _8_
   local default_map = {on_attach = on_attach, before_init = before_init, handlers = handlers, capabilities = cmplsp.default_capabilities()}
   vim.diagnostic.config(diagnostics)
   capabilities.textDocument.foldingRange = {lineFoldingOnly = true, dynamicRegistration = false}
   mason.setup()
   illuminate.configure()
-  local function _15_(client, b)
+  local function _9_(client, b)
     on_attach(client, b)
     return highlight_line_symbol()
   end
-  lsp("fennel_language_server", merge(default_map, {settings = {fennel = {workspace = {library = vim.api.nvim_list_runtime_paths()}, diagnostics = {globals = {"vim", "jit", "comment"}}}}, filetypes = {"fennel"}, cmd = {(vim.fn.stdpath("data") .. "/mason/bin/fennel-language-server")}, single_file_support = true, root_markers = {".git", "fnl", "lua"}, on_attach = _15_}))
+  lsp("fennel_language_server", merge(default_map, {settings = {fennel = {workspace = {library = vim.api.nvim_list_runtime_paths()}, diagnostics = {globals = {"vim", "jit", "comment"}}}}, filetypes = {"fennel"}, cmd = {(vim.fn.stdpath("data") .. "/mason/bin/fennel-language-server")}, single_file_support = true, root_markers = {".git", "fnl", "lua"}, on_attach = _9_}))
   lsp("clojure_lsp", default_map)
   lsp("jdtls", default_map)
   lsp("kotlin_language_server", merge(default_map, {autostart = false}))
   lsp("vtsls", default_map)
-  lsp("rust_analyzer", default_map)
   lsp("emmet_language_server", merge({filetypes = {"css", "html", "javascript", "typescript", "typescriptreact", "javascriptreact", "svelte", "vue", "vue-html", "less", "scss", "sass", "sas"}}))
-  local function _16_(client, b)
+  local function _10_(client, b)
     on_attach(client, b)
     ltex.setup({load_langs = {"en-US"}, init_check = true, path = (vim.fn.expand("~") .. "/.config/nvim/data/ltex"), log_level = "debug"})
     return highlight_line_symbol()
   end
-  lsp("ltex", merge(default_map, {on_attach = _16_, filetypes = {"markdown", "NeogitCommitMessage", "gitcommit"}, settings = {ltex = {}}}))
-  return vim.lsp.enable({"fennel_language_server", "clojure_lsp", "jdtls", "kotlin_language_server", "vtsls", "emmet_language_server", "ltex", "rust_analyzer"})
+  lsp("ltex", merge(default_map, {on_attach = _10_, filetypes = {"markdown", "NeogitCommitMessage", "gitcommit"}, settings = {ltex = {}}}))
+  return vim.lsp.enable({"fennel_language_server", "clojure_lsp", "jdtls", "kotlin_language_server", "vtsls", "emmet_language_server", "ltex"})
 end
-return {{"neovim/nvim-lspconfig", lazy = true, ft = {"clojure", "go", "dart", "markdown", "md", "fennel"}, cmd = {"LspInfo", "LspInstall", "LspUninstall", "LspStart"}, dependencies = {"mason-org/mason.nvim", "barreiroleo/ltex-extra.nvim", "RRethy/vim-illuminate", "nvim-lua/plenary.nvim"}, init = _5_, config = _6_}}
+return {{"neovim/nvim-lspconfig", ft = {"clojure", "go", "dart", "markdown", "md", "fennel"}, cmd = {"LspInfo", "LspInstall", "LspUninstall", "LspStart"}, dependencies = {"mason-org/mason.nvim", "barreiroleo/ltex-extra.nvim", "RRethy/vim-illuminate", "nvim-lua/plenary.nvim"}, init = _5_, config = _6_, lazy = false}}

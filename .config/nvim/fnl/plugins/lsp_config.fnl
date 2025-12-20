@@ -1,7 +1,6 @@
 (local {: autoload} (require :nfnl.module))
-(local {: bkset : vis-op+} (autoload :config.util))
+(local {:on-attach on-attach-util} (autoload :config.util))
 (local {: merge} (autoload :nfnl.core))
-(local telescope (autoload :telescope))
 
 (local diagnostics
   {:severity_sort true
@@ -45,7 +44,7 @@
     (vim.cmd "hi! link LspReferenceWrite TSConstMacro")))
 
 [{1 :neovim/nvim-lspconfig
-  :lazy true
+  :lazy false
   :ft [:clojure :go :dart :markdown :md :fennel]
   :cmd [:LspInfo :LspInstall :LspUninstall :LspStart]
   :dependencies [:mason-org/mason.nvim
@@ -56,46 +55,16 @@
           (set vim.o.updatetime 250))
   :config (fn []
             (let [lsp vim.lsp.config
-                  lsp-util (require :lspconfig.util)
                   cmplsp (require :cmp_nvim_lsp)
-                  {: lsp_references : lsp_implementations : lsp_definitions} (require :telescope.builtin)
                   mason (require :mason)
                   illuminate (require :illuminate)
                   ltex (require :ltex_extra)
 
                   on-attach 
                   (fn [client b]
-                    (highlight-symbols client b)
                     (set client.server_capabilities.semanticTokensProvider nil)
-
-                    (bkset :n :<space>th
-                           (fn []
-                             (vim.lsp.inlay_hint.enable 
-                               (not (vim.lsp.inlay_hint.is_enabled [0])) [0]))
-                           {:buffer b :desc "Inlay hints"})	
-
-                    (bkset :n :<leader>h (fn [] (vim.lsp.buf.hover) (vim.lsp.buf.hover)) {:buffer b :desc "Show docs"})
-                    (bkset :n :gd #(lsp_definitions {:initial_mode :normal}) {:buffer b :desc "Go definition"})
-
-                    (bkset :n :gD "<c-w><c-]><c-w>T" {:buffer b :desc "Go definition new tab"})
-                    (bkset :n :<leader>tD vim.lsp.buf.type_definition {:buffer b :desc "Type definition"})
-                    (bkset [:i :n] "<M-;>" vim.lsp.buf.signature_help {:buffer b :desc "Signiture help"})
-                    (bkset [:i :n] "<D-p>" vim.lsp.buf.signature_help {:buffer b :desc "Signiture help"})
-                    (bkset :n :<leader>rr vim.lsp.buf.rename {:buffer b :desc "Rename"})
-                    (bkset :n :<leader>p vim.diagnostic.open_float {:buffer b :desc "Preview diagnostics"})
-                    ;(bkset :n :<leader>re vim.diagnostic.setloclist {:buffer b :desc "List diagnostics"})
-
-                    (when (not (string.find (vim.api.nvim_buf_get_name b) ".*.fnl$"))
-                      (bkset :n := ":lua vim.lsp.buf.format({async = true})<Cr>" {:buffer b :desc "Apply formatting"}) ;[
-                      (bkset :x := (vis-op+ vim.lsp.buf.format {:async true}) {:buffer b :desc "Apply formatting"}))
-
-                    (bkset :n "[s" vim.diagnostic.goto_prev {:buffer b :desc "Goto prev erro"}) ;]
-                    (bkset :n "]s" vim.diagnostic.goto_next {:buffer b :desc "Goto next erro"}) ;]
-                    ;; TELESCOPE
-                    (bkset :n :<leader>gr #(lsp_references {:jump_type :never}) {:buffer b :desc "Go to references"})
-                    (bkset :n :<leader>gi lsp_implementations {:buffer b :desc "Go to implementations"})
-                    (bkset [:i :n :x] :<C-r> vim.lsp.buf.code_action {:buffer b :desc "Code actions"})
-                    (bkset [:n :x] :<leader>ra vim.lsp.buf.code_action {:buffer b :desc "Code actions"}))
+                    (highlight-symbols client b)
+                    (on-attach-util client b))
 
                   capabilities
                   (cmplsp.default_capabilities)
@@ -140,8 +109,7 @@
               (lsp :kotlin_language_server
                 (merge default-map {:autostart false}))
               (lsp :vtsls default-map)
-              (lsp :rust_analyzer default-map)
-
+              
               ;; div completions
               (lsp :emmet_language_server
                 (merge
@@ -169,6 +137,5 @@
                                :vtsls
                                :emmet_language_server
                                :ltex
-                               :rust_analyzer
                                ])
               ))}]
