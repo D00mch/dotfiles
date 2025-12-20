@@ -1,9 +1,9 @@
 -- [nfnl] fnl/config/init.fnl
 local _local_1_ = require("nfnl.module")
-local autoload = _local_1_["autoload"]
+local autoload = _local_1_.autoload
 local nvim = autoload("nvim")
 local _local_2_ = autoload("config.util")
-local kset = _local_2_["kset"]
+local kset = _local_2_.kset
 require("config.which")
 require("config.markdown")
 require("config.misc")
@@ -55,7 +55,7 @@ local function compare_to_clipboard()
 end
 kset({"x"}, "<Space>cc", compare_to_clipboard, {desc = "Clipboard Compare"})
 local function _6_()
-  return vim.highlight.on_yank({higroup = "IncSearch", timeout = 300})
+  return vim.hl.on_yank({higroup = "IncSearch", timeout = 300})
 end
 vim.api.nvim_create_autocmd("TextYankPost", {group = vim.api.nvim_create_augroup("yank_highlight", {}), pattern = "*", callback = _6_})
 kset("n", "<Leader>dm", ":let @*=trim(execute('messages'))<bar>echo 'copied' <cr>")

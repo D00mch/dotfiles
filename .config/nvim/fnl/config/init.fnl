@@ -110,7 +110,7 @@
   {:group (vim.api.nvim_create_augroup :yank_highlight {})
    :pattern :*
    :callback 
-   (fn [] (vim.highlight.on_yank {:higroup :IncSearch :timeout 300}))})
+   (fn [] (vim.hl.on_yank {:higroup :IncSearch :timeout 300}))})
 
 ;; debug
 (kset :n :<Leader>dm ":let @*=trim(execute('messages'))<bar>echo 'copied' <cr>")
