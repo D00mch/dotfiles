@@ -91,7 +91,7 @@ local function _6_()
     on_attach(client, b)
     return highlight_line_symbol()
   end
-  lsp("fennel_language_server", merge(default_map, {settings = {fennel = {workspace = {library = vim.api.nvim_list_runtime_paths()}, diagnostics = {globals = {"vim", "comment"}}}}, filetypes = {"fennel"}, single_file_support = true, root_dir = lsp_util.root_pattern("fnl"), on_attach = _15_}))
+  lsp("fennel_language_server", merge(default_map, {settings = {fennel = {workspace = {library = vim.api.nvim_list_runtime_paths()}, diagnostics = {globals = {"vim", "jit", "comment"}}}}, filetypes = {"fennel"}, cmd = {(vim.fn.stdpath("data") .. "/mason/bin/fennel-language-server")}, single_file_support = true, root_markers = {".git", "fnl", "lua"}, on_attach = _15_}))
   lsp("clojure_lsp", default_map)
   lsp("jdtls", default_map)
   lsp("kotlin_language_server", merge(default_map, {autostart = false}))
@@ -106,4 +106,4 @@ local function _6_()
   lsp("ltex", merge(default_map, {on_attach = _16_, filetypes = {"markdown", "NeogitCommitMessage", "gitcommit"}, settings = {ltex = {}}}))
   return vim.lsp.enable({"fennel_language_server", "clojure_lsp", "jdtls", "kotlin_language_server", "vtsls", "emmet_language_server", "ltex", "rust_analyzer"})
 end
-return {{"neovim/nvim-lspconfig", ft = {"clojure", "go", "dart", "markdown", "md"}, cmd = {"LspInfo", "LspInstall", "LspUninstall"}, dependencies = {"mason-org/mason.nvim", "barreiroleo/ltex-extra.nvim", "RRethy/vim-illuminate", "nvim-lua/plenary.nvim"}, init = _5_, config = _6_, lazy = false}}
+return {{"neovim/nvim-lspconfig", lazy = true, ft = {"clojure", "go", "dart", "markdown", "md", "fennel"}, cmd = {"LspInfo", "LspInstall", "LspUninstall", "LspStart"}, dependencies = {"mason-org/mason.nvim", "barreiroleo/ltex-extra.nvim", "RRethy/vim-illuminate", "nvim-lua/plenary.nvim"}, init = _5_, config = _6_}}

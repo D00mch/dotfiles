@@ -45,9 +45,9 @@
     (vim.cmd "hi! link LspReferenceWrite TSConstMacro")))
 
 [{1 :neovim/nvim-lspconfig
-  :lazy false
-  :ft [:clojure :go :dart :markdown :md]
-  :cmd [:LspInfo :LspInstall :LspUninstall]
+  :lazy true
+  :ft [:clojure :go :dart :markdown :md :fennel]
+  :cmd [:LspInfo :LspInstall :LspUninstall :LspStart]
   :dependencies [:mason-org/mason.nvim
                  :barreiroleo/ltex-extra.nvim
                  :RRethy/vim-illuminate
@@ -126,10 +126,11 @@
                   {:settings
                    {:fennel
                     {:workspace {:library (vim.api.nvim_list_runtime_paths)}
-                     :diagnostics {:globals [:vim :comment]}}}
+                     :diagnostics {:globals [:vim :jit :comment]}}}
                    :filetypes [:fennel]
+                   :cmd [(.. (vim.fn.stdpath "data") "/mason/bin/fennel-language-server")]
                    :single_file_support true
-                   :root_dir (lsp-util.root_pattern :fnl)
+                   :root_markers [:.git :fnl :lua]
                    :on_attach (fn [client b]
                                 (on-attach client b)
                                 (highlight-line-symbol))}))
