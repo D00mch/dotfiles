@@ -106,20 +106,33 @@ local _local_13_ = autoload("telescope.builtin")
 local lsp_references = _local_13_.lsp_references
 local lsp_implementations = _local_13_.lsp_implementations
 local lsp_definitions = _local_13_.lsp_definitions
-local function on_attach(_, b)
-  local function _14_()
+local function highlight_line_symbol()
+  return vim.cmd("highlight! DiagnosticLineNrError guibg=#51202A guifg=#FF0000 gui=bold\n    highlight! DiagnosticLineNrWarn guibg=#51412A guifg=#FFA500 gui=bold\n    highlight! DiagnosticLineNrInfo guibg=#1E535D guifg=#00FFFF gui=bold\n    highlight! DiagnosticLineNrHint guibg=#1E205D guifg=#0000FF gui=bold\n    sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError\n    sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn\n    sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo\n    sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint")
+end
+local function highlight_symbols(client, bufnr)
+  if client.server_capabilities.documentHighlightProvider then
+    highlight_line_symbol()
+    vim.api.nvim_create_autocmd("ColorScheme", {buffer = bufnr, group = vim.api.nvim_create_augroup("HighlightColors", {clear = true}), callback = highlight_line_symbol})
+    return vim.cmd("hi! link LspReferenceWrite TSConstMacro")
+  else
+    return nil
+  end
+end
+local function on_attach(c, b)
+  highlight_symbols(c, b)
+  local function _15_()
     return vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({0}), {0})
   end
-  bkset("n", "<space>th", _14_, {buffer = b, desc = "Inlay hints"})
-  local function _15_()
+  bkset("n", "<space>th", _15_, {buffer = b, desc = "Inlay hints"})
+  local function _16_()
     vim.lsp.buf.hover()
     return vim.lsp.buf.hover()
   end
-  bkset("n", "<leader>h", _15_, {buffer = b, desc = "Show docs"})
-  local function _16_()
+  bkset("n", "<leader>h", _16_, {buffer = b, desc = "Show docs"})
+  local function _17_()
     return lsp_definitions({initial_mode = "normal"})
   end
-  bkset("n", "gd", _16_, {buffer = b, desc = "Go definition"})
+  bkset("n", "gd", _17_, {buffer = b, desc = "Go definition"})
   bkset("n", "gD", "<c-w><c-]><c-w>T", {buffer = b, desc = "Go definition new tab"})
   bkset("n", "<leader>tD", vim.lsp.buf.type_definition, {buffer = b, desc = "Type definition"})
   bkset({"i", "n"}, "<M-;>", vim.lsp.buf.signature_help, {buffer = b, desc = "Signiture help"})
@@ -133,12 +146,12 @@ local function on_attach(_, b)
   end
   bkset("n", "[s", vim.diagnostic.goto_prev, {buffer = b, desc = "Goto prev erro"})
   bkset("n", "]s", vim.diagnostic.goto_next, {buffer = b, desc = "Goto next erro"})
-  local function _18_()
+  local function _19_()
     return lsp_references({jump_type = "never"})
   end
-  bkset("n", "<leader>gr", _18_, {buffer = b, desc = "Go to references"})
+  bkset("n", "<leader>gr", _19_, {buffer = b, desc = "Go to references"})
   bkset("n", "<leader>gi", lsp_implementations, {buffer = b, desc = "Go to implementations"})
   bkset({"i", "n", "x"}, "<C-r>", vim.lsp.buf.code_action, {buffer = b, desc = "Code actions"})
   return bkset({"n", "x"}, "<leader>ra", vim.lsp.buf.code_action, {buffer = b, desc = "Code actions"})
 end
-return {["config-path"] = config_path, ["lua-file"] = lua_file, println = println, ["exists?"] = exists_3f, kset = kset, bkset = bkset, bkdel = bkdel, ["vis-op"] = vis_op, ["vis-op+"] = vis_op_2b, ["get-word-under-cursor"] = get_word_under_cursor, ["get-word-under-selection"] = get_word_under_selection, ["on-attach"] = on_attach}
+return {["config-path"] = config_path, ["lua-file"] = lua_file, println = println, ["exists?"] = exists_3f, kset = kset, bkset = bkset, bkdel = bkdel, ["vis-op"] = vis_op, ["vis-op+"] = vis_op_2b, ["get-word-under-cursor"] = get_word_under_cursor, ["get-word-under-selection"] = get_word_under_selection, ["on-attach"] = on_attach, ["highlight-line-symbol"] = highlight_line_symbol}

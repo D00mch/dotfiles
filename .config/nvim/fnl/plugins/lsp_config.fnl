@@ -1,5 +1,5 @@
 (local {: autoload} (require :nfnl.module))
-(local {:on-attach on-attach-util} (autoload :config.util))
+(local {:on-attach on-attach-util : highlight-line-symbol} (autoload :config.util))
 (local {: merge} (autoload :nfnl.core))
 
 (local diagnostics
@@ -21,28 +21,6 @@
      vim.lsp.handlers.signature_help
      {:border "single"})})
 
-(fn highlight-line-symbol []
-  ;; highlight line number instead of having icons in sigh column
-  (vim.cmd 
-    "highlight! DiagnosticLineNrError guibg=#51202A guifg=#FF0000 gui=bold
-    highlight! DiagnosticLineNrWarn guibg=#51412A guifg=#FFA500 gui=bold
-    highlight! DiagnosticLineNrInfo guibg=#1E535D guifg=#00FFFF gui=bold
-    highlight! DiagnosticLineNrHint guibg=#1E205D guifg=#0000FF gui=bold
-    sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError
-    sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn
-    sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
-    sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint"))
-
-(fn highlight-symbols [client bufnr]
-  (when client.server_capabilities.documentHighlightProvider
-    (highlight-line-symbol)
-    (vim.api.nvim_create_autocmd
-      :ColorScheme
-      {:buffer   bufnr
-       :group    (vim.api.nvim_create_augroup :HighlightColors {:clear true})
-       :callback highlight-line-symbol})
-    (vim.cmd "hi! link LspReferenceWrite TSConstMacro")))
-
 [{1 :neovim/nvim-lspconfig
   :lazy false
   :ft [:clojure :go :dart :markdown :md :fennel]
@@ -63,7 +41,6 @@
                   on-attach 
                   (fn [client b]
                     (set client.server_capabilities.semanticTokensProvider nil)
-                    (highlight-symbols client b)
                     (on-attach-util client b))
 
                   capabilities
