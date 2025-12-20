@@ -5,4 +5,4 @@ local nvim = autoload("nvim")
 local _local_2_ = autoload("config.util")
 local kset = _local_2_.kset
 local bkset = _local_2_.bkset
-return {{"mrcjkb/rustaceanvim", version = "^6", tag = "v7.0.6", lazy = false}}
+return {{"mrcjkb/rustaceanvim", version = "^6", tag = "v7.0.6", cond = false, lazy = false}}

@@ -32,6 +32,7 @@ local function _6_()
   local _let_7_ = require("telescope.builtin")
   local lsp_references = _let_7_.lsp_references
   local lsp_implementations = _let_7_.lsp_implementations
+  local lsp_definitions = _let_7_.lsp_definitions
   local mason = require("mason")
   local illuminate = require("illuminate")
   local ltex = require("ltex_extra")
@@ -48,7 +49,10 @@ local function _6_()
       return vim.lsp.buf.hover()
     end
     bkset("n", "<leader>h", _10_, {buffer = b, desc = "Show docs"})
-    bkset("n", "gd", vim.lsp.buf.definition, {buffer = b, desc = "Go definition"})
+    local function _11_()
+      return lsp_definitions({initial_mode = "normal"})
+    end
+    bkset("n", "gd", _11_, {buffer = b, desc = "Go definition"})
     bkset("n", "gD", "<c-w><c-]><c-w>T", {buffer = b, desc = "Go definition new tab"})
     bkset("n", "<leader>tD", vim.lsp.buf.type_definition, {buffer = b, desc = "Type definition"})
     bkset({"i", "n"}, "<M-;>", vim.lsp.buf.signature_help, {buffer = b, desc = "Signiture help"})
@@ -62,10 +66,10 @@ local function _6_()
     end
     bkset("n", "[s", vim.diagnostic.goto_prev, {buffer = b, desc = "Goto prev erro"})
     bkset("n", "]s", vim.diagnostic.goto_next, {buffer = b, desc = "Goto next erro"})
-    local function _12_()
+    local function _13_()
       return lsp_references({jump_type = "never"})
     end
-    bkset("n", "<leader>gr", _12_, {buffer = b, desc = "Go to references"})
+    bkset("n", "<leader>gr", _13_, {buffer = b, desc = "Go to references"})
     bkset("n", "<leader>gi", lsp_implementations, {buffer = b, desc = "Go to implementations"})
     bkset({"i", "n", "x"}, "<C-r>", vim.lsp.buf.code_action, {buffer = b, desc = "Code actions"})
     return bkset({"n", "x"}, "<leader>ra", vim.lsp.buf.code_action, {buffer = b, desc = "Code actions"})
@@ -73,33 +77,33 @@ local function _6_()
   on_attach = _8_
   local capabilities = cmplsp.default_capabilities()
   local before_init
-  local function _13_(params)
+  local function _14_(params)
     params.workDoneToken = "1"
     return nil
   end
-  before_init = _13_
+  before_init = _14_
   local default_map = {on_attach = on_attach, before_init = before_init, handlers = handlers, capabilities = cmplsp.default_capabilities()}
   vim.diagnostic.config(diagnostics)
   capabilities.textDocument.foldingRange = {lineFoldingOnly = true, dynamicRegistration = false}
   mason.setup()
   illuminate.configure()
-  local function _14_(client, b)
+  local function _15_(client, b)
     on_attach(client, b)
     return highlight_line_symbol()
   end
-  lsp("fennel_language_server", merge(default_map, {settings = {fennel = {workspace = {library = vim.api.nvim_list_runtime_paths()}, diagnostics = {globals = {"vim", "comment"}}}}, filetypes = {"fennel"}, single_file_support = true, root_dir = lsp_util.root_pattern("fnl"), on_attach = _14_}))
+  lsp("fennel_language_server", merge(default_map, {settings = {fennel = {workspace = {library = vim.api.nvim_list_runtime_paths()}, diagnostics = {globals = {"vim", "comment"}}}}, filetypes = {"fennel"}, single_file_support = true, root_dir = lsp_util.root_pattern("fnl"), on_attach = _15_}))
   lsp("clojure_lsp", default_map)
   lsp("jdtls", default_map)
   lsp("kotlin_language_server", merge(default_map, {autostart = false}))
   lsp("vtsls", default_map)
-  lsp("rust_analyzer", merge(default_map, {settings = {["rust-analyzer"] = {inlayHints = {typeHints = {enable = false}}}}}))
+  lsp("rust_analyzer", default_map)
   lsp("emmet_language_server", merge({filetypes = {"css", "html", "javascript", "typescript", "typescriptreact", "javascriptreact", "svelte", "vue", "vue-html", "less", "scss", "sass", "sas"}}))
-  local function _15_(client, b)
+  local function _16_(client, b)
     on_attach(client, b)
     ltex.setup({load_langs = {"en-US"}, init_check = true, path = (vim.fn.expand("~") .. "/.config/nvim/data/ltex"), log_level = "debug"})
     return highlight_line_symbol()
   end
-  lsp("ltex", merge(default_map, {on_attach = _15_, filetypes = {"markdown", "NeogitCommitMessage", "gitcommit"}, settings = {ltex = {}}}))
+  lsp("ltex", merge(default_map, {on_attach = _16_, filetypes = {"markdown", "NeogitCommitMessage", "gitcommit"}, settings = {ltex = {}}}))
   return vim.lsp.enable({"fennel_language_server", "clojure_lsp", "jdtls", "kotlin_language_server", "vtsls", "emmet_language_server", "ltex", "rust_analyzer"})
 end
 return {{"neovim/nvim-lspconfig", ft = {"clojure", "go", "dart", "markdown", "md"}, cmd = {"LspInfo", "LspInstall", "LspUninstall"}, dependencies = {"mason-org/mason.nvim", "barreiroleo/ltex-extra.nvim", "RRethy/vim-illuminate", "nvim-lua/plenary.nvim"}, init = _5_, config = _6_, lazy = false}}

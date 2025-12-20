@@ -58,7 +58,7 @@
             (let [lsp vim.lsp.config
                   lsp-util (require :lspconfig.util)
                   cmplsp (require :cmp_nvim_lsp)
-                  {: lsp_references : lsp_implementations} (require :telescope.builtin)
+                  {: lsp_references : lsp_implementations : lsp_definitions} (require :telescope.builtin)
                   mason (require :mason)
                   illuminate (require :illuminate)
                   ltex (require :ltex_extra)
@@ -75,8 +75,9 @@
                            {:buffer b :desc "Inlay hints"})	
 
                     (bkset :n :<leader>h (fn [] (vim.lsp.buf.hover) (vim.lsp.buf.hover)) {:buffer b :desc "Show docs"})
-                    (bkset :n :gd vim.lsp.buf.definition {:buffer b :desc "Go definition"}) ;[
-                                                                                              (bkset :n :gD "<c-w><c-]><c-w>T" {:buffer b :desc "Go definition new tab"})
+                    (bkset :n :gd #(lsp_definitions {:initial_mode :normal}) {:buffer b :desc "Go definition"})
+
+                    (bkset :n :gD "<c-w><c-]><c-w>T" {:buffer b :desc "Go definition new tab"})
                     (bkset :n :<leader>tD vim.lsp.buf.type_definition {:buffer b :desc "Type definition"})
                     (bkset [:i :n] "<M-;>" vim.lsp.buf.signature_help {:buffer b :desc "Signiture help"})
                     (bkset [:i :n] "<D-p>" vim.lsp.buf.signature_help {:buffer b :desc "Signiture help"})
@@ -138,12 +139,7 @@
               (lsp :kotlin_language_server
                 (merge default-map {:autostart false}))
               (lsp :vtsls default-map)
-              (lsp :rust_analyzer
-                (merge default-map
-                       {:settings
-                        {:rust-analyzer
-                         {:inlayHints
-                          {:typeHints {:enable false}}}}}))
+              (lsp :rust_analyzer default-map)
 
               ;; div completions
               (lsp :emmet_language_server

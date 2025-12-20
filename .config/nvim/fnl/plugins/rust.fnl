@@ -6,4 +6,5 @@
   :version :^6
   :lazy false ;; already lazy
   :tag :v7.0.6
+  :cond false
   }]
