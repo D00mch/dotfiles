@@ -18,11 +18,6 @@ local function _4_()
   end
   tskset = _5_
   local parsers = {"java", "yaml", "bash", "sh", "kotlin", "clojure", "fennel", "scheme", "racket", "lua", "luadoc", "vimdoc", "vim", "markdown", "markdown_inline", "http", "json", "sql", "dart", "go", "typescript", "css", "rust"}
-  local enabled
-  do
-    local dict = {}
-    enabled = dict
-  end
   ts_objects.setup({select = {lookahead = true}})
   tskset("am", "@function.outer")
   tskset("im", "@inner")

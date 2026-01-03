@@ -24,11 +24,7 @@
                              :lua :luadoc :vimdoc :vim
                              :markdown :markdown_inline
                              :http :json :sql :dart :go
-                             :typescript :css :rust]
-                enabled     (let [dict {}]
-                              dict
-                              )
-                ]
+                             :typescript :css :rust]]
 
             ;; Objects setup
             (ts-objects.setup {:select {:lookahead true}})
