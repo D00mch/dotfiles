@@ -89,7 +89,7 @@ outer.left =       [{ monitor."^built-in retina display$" = -4 }, 12]
 # '''
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-alt-ctrl-d = 'layout tiles horizontal'
+alt-ctrl-d = 'layout tiles horizontal vertical'
 alt-ctrl-f = 'layout accordion horizontal vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
