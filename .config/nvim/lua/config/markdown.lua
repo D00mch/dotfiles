@@ -1,35 +1,42 @@
--- [nfnl] Compiled from fnl/config/markdown.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/config/markdown.fnl
 local _local_1_ = require("nfnl.module")
-local autoload = _local_1_["autoload"]
+local autoload = _local_1_.autoload
 local nvim = autoload("nvim")
 local _local_2_ = autoload("nfnl.core")
-local first = _local_2_["first"]
-local last = _local_2_["last"]
-local map = _local_2_["map"]
+local first = _local_2_.first
+local last = _local_2_.last
+local map = _local_2_.map
 local _local_3_ = autoload("nfnl.string")
-local join = _local_3_["join"]
+local join = _local_3_.join
 local _local_4_ = autoload("config.util")
-local kset = _local_4_["kset"]
-local bkset = _local_4_["bkset"]
+local kset = _local_4_.kset
+local bkset = _local_4_.bkset
+local function table_mode_enabled_3f(bufnr)
+  return (1 == vim.b.table_mode_active)
+end
 local function insert_header()
-  local s = vim.api.nvim_get_current_line()
-  local with_head_3f = string.find(s, "^#.*")
-  local final_line
-  local _5_
-  if with_head_3f then
-    _5_ = "#"
+  if table_mode_enabled_3f() then
+    return vim.cmd("call tablemode#table#Realign('.')")
   else
-    _5_ = "# "
+    local s = vim.api.nvim_get_current_line()
+    local with_head_3f = string.find(s, "^#.*")
+    local final_line
+    local _5_
+    if with_head_3f then
+      _5_ = "#"
+    else
+      _5_ = "# "
+    end
+    final_line = (_5_ .. s)
+    return vim.api.nvim_set_current_line(final_line)
   end
-  final_line = (_5_ .. s)
-  return vim.api.nvim_set_current_line(final_line)
 end
 local function remove_header()
   local s = vim.api.nvim_get_current_line()
   local with_head_3f = string.find(s, "^#.*")
   local with_heads_3f = string.find(s, "^##.*")
   local final_line
-  local function _7_()
+  local function _8_()
     if with_heads_3f then
       return 2
     elseif with_head_3f then
@@ -38,7 +45,7 @@ local function remove_header()
       return 0
     end
   end
-  final_line = string.sub(s, _7_())
+  final_line = string.sub(s, _8_())
   return vim.api.nvim_set_current_line(final_line)
 end
 local function toggle_task_line(s)
@@ -76,7 +83,6 @@ local function setup_md()
   bkset("x", "=", "gq")
   kset("n", "<Leader>ef", "vic:ToggleTermSendVisualSelection<cr>", {noremap = false})
   bkset("n", "=", insert_header, {buffer = true})
-  bkset("n", "+", remove_header, {buffer = true})
   bkset("n", "-", toggle_task)
   bkset("x", "-", "<Esc>:MarkdownTaskToggleSelection<cr>")
   bkset("n", "j", "v:count ? 'j' : 'gj'", {expr = true})

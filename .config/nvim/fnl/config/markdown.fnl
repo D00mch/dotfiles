@@ -6,11 +6,16 @@
 
 ;; headers
 
+(fn table-mode-enabled? [bufnr]
+  (= 1 vim.b.table_mode_active))	
+
 (fn insert-header []
-  (let [s (vim.api.nvim_get_current_line)
+  (if (table-mode-enabled?)
+    (vim.cmd "call tablemode#table#Realign('.')")
+    (let [s (vim.api.nvim_get_current_line)
         with-head? (string.find s "^#.*")
         final-line (.. (if with-head? "#" "# ") s)]
-    (vim.api.nvim_set_current_line final-line)))
+    (vim.api.nvim_set_current_line final-line))))
 
 (fn remove-header []
   (let [s (vim.api.nvim_get_current_line)
@@ -73,7 +78,7 @@
 
   ;; insert headers
   (bkset :n := insert-header {:buffer true})
-  (bkset :n :+ remove-header {:buffer true})
+  ;(bkset :n :+ remove-header {:buffer true})
 
   ;; insert list tasks
   (bkset :n :- toggle-task)

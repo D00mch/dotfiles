@@ -16,6 +16,9 @@
  {1 :jghauser/follow-md-links.nvim
   :lazy true
   :ft [:markdown]}
+ {1 :dhruvasagar/vim-table-mode
+  :lazy false
+  :ft [:markdown]}
  {1 :vim-scripts/ReplaceWithRegister 
   :event :VeryLazy}
  {1 :eandrju/cellular-automaton.nvim 
