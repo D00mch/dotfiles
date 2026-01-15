@@ -3,16 +3,16 @@
 (local {: kset} (autoload :config.util))
 
 (fn dark? [] (= nvim.o.background "dark"))
-(fn transparent? [] (not= 1 vim.g.neovide_transparency))
+(fn transparent? [] (not= 1 vim.g.neovide_opacity))
 
 (set vim.g.neovide_floating_blur_amount_x 8.0)
 (set vim.g.neovide_floating_blur_amount_y 8.0)
 
 (fn make-transparent []
-  (set vim.g.neovide_transparency 0.93))
+  (set vim.g.neovide_opacity 0.93))
 
 (fn make-non-transparent []
-  (set vim.g.neovide_transparency 1))
+  (set vim.g.neovide_opacity 1))
 
 (fn set-theme [dark?]
   ;(make-transparent dark?)

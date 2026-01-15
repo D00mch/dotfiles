@@ -1,23 +1,23 @@
 -- [nfnl] fnl/plugins/theme.fnl
 local _local_1_ = require("nfnl.module")
-local autoload = _local_1_["autoload"]
+local autoload = _local_1_.autoload
 local nvim = autoload("nvim")
 local _local_2_ = autoload("config.util")
-local kset = _local_2_["kset"]
+local kset = _local_2_.kset
 local function dark_3f()
   return (nvim.o.background == "dark")
 end
 local function transparent_3f()
-  return (1 ~= vim.g.neovide_transparency)
+  return (1 ~= vim.g.neovide_opacity)
 end
 vim.g.neovide_floating_blur_amount_x = 8
 vim.g.neovide_floating_blur_amount_y = 8
 local function make_transparent()
-  vim.g.neovide_transparency = 0.93
+  vim.g.neovide_opacity = 0.93
   return nil
 end
 local function make_non_transparent()
-  vim.g.neovide_transparency = 1
+  vim.g.neovide_opacity = 1
   return nil
 end
 local function set_theme(dark_3f0)
