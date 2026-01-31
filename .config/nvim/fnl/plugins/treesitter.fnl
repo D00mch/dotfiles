@@ -1,7 +1,10 @@
 (local {: autoload} (require :nfnl.module))
 (local nvim (autoload :nvim))
 (local {: kset} (autoload :config.util))
-(local {: contains?} (autoload :nfnl.core))
+
+(local langs 
+  [:java :yaml :bash :sh :kotlin :clojure :fennel :scheme :racket :lua :luadoc :vimdoc :vim 
+   :markdown :markdown_inline :http :json :sql :dart :go :typescript :css :rust])
 
 [{1 :nvim-treesitter/nvim-treesitter
   :lazy false ;; does not support lazy loading
@@ -9,6 +12,7 @@
                   :branch :main}]
   :branch :main
   :build ":TSUpdate"
+  :ft langs
   :init (fn []
           (let [ts-objects (require :nvim-treesitter-textobjects)
                 ts-select  (require :nvim-treesitter-textobjects.select)
@@ -19,12 +23,7 @@
                                (fn []
                                  ((. ts-select :select_textobject) obj
                                   :textobjects))))
-                parsers     [:java :yaml :bash :sh :kotlin :clojure 
-                             :fennel :scheme :racket
-                             :lua :luadoc :vimdoc :vim
-                             :markdown :markdown_inline
-                             :http :json :sql :dart :go
-                             :typescript :css :rust]]
+                parsers     langs]
 
             ;; Objects setup
             (ts-objects.setup {:select {:lookahead true}})
@@ -45,13 +44,8 @@
               (treesitter.install parsers)
               (treesitter.setup))
 
-            (vim.api.nvim_create_autocmd 
-              :FileType
-              {:pattern "*"
-               :callback (fn [ev]
-                           (let [ft (. nvim.bo ev.buf :filetype)
-                                 lang (or (vim.treesitter.language.get_lang ft) ft)]
-                             (when (contains? parsers lang)
-                               (pcall vim.treesitter.start ev.buf lang))))})
+           (vim.api.nvim_create_autocmd :FileType
+                                        {:callback (fn [] (vim.treesitter.start))
+                                         :pattern langs})
             ))
   :config true}]
