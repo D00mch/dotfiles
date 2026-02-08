@@ -43,7 +43,7 @@ local function _5_()
   lsp("fennel_language_server", merge(default_map, {settings = {fennel = {workspace = {library = vim.api.nvim_list_runtime_paths()}, diagnostics = {globals = {"vim", "jit", "comment"}}}}, filetypes = {"fennel"}, cmd = {(vim.fn.stdpath("data") .. "/mason/bin/fennel-language-server")}, single_file_support = true, root_markers = {".git", "fnl", "lua"}, on_attach = _8_}))
   lsp("clojure_lsp", default_map)
   lsp("jdtls", default_map)
-  lsp("kotlin_language_server", merge(default_map, {autostart = false}))
+  lsp("kotlin_lsp", merge(default_map, {autostart = false}))
   lsp("vtsls", default_map)
   lsp("emmet_language_server", merge({filetypes = {"css", "html", "javascript", "typescript", "typescriptreact", "javascriptreact", "svelte", "vue", "vue-html", "less", "scss", "sass", "sas"}}))
   local function _9_(client, b)
@@ -52,6 +52,6 @@ local function _5_()
     return highlight_line_symbol()
   end
   lsp("ltex", merge(default_map, {on_attach = _9_, filetypes = {"markdown", "NeogitCommitMessage", "gitcommit"}, settings = {ltex = {}}}))
-  return vim.lsp.enable({"fennel_language_server", "clojure_lsp", "jdtls", "kotlin_language_server", "vtsls", "emmet_language_server", "ltex"})
+  return vim.lsp.enable({"fennel_language_server", "clojure_lsp", "jdtls", "kotlin_lsp", "vtsls", "emmet_language_server", "ltex"})
 end
 return {{"neovim/nvim-lspconfig", ft = {"clojure", "go", "dart", "markdown", "md", "fennel"}, cmd = {"LspInfo", "LspInstall", "LspUninstall", "LspStart"}, dependencies = {"mason-org/mason.nvim", "barreiroleo/ltex-extra.nvim", "RRethy/vim-illuminate", "nvim-lua/plenary.nvim"}, init = _4_, config = _5_, lazy = false}}
