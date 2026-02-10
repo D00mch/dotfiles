@@ -3,7 +3,7 @@
 (local {: kset} (autoload :config.util))
 
 (local langs 
-  [:java :yaml :bash :sh :kotlin :clojure :fennel :scheme :racket :lua :luadoc :vimdoc :vim 
+  [:java :yaml :bash :kotlin :clojure :fennel :scheme :racket :lua :luadoc :vimdoc :vim 
    :markdown :markdown_inline :http :json :sql :dart :go :typescript :css :rust])
 
 [{1 :nvim-treesitter/nvim-treesitter

@@ -4,7 +4,7 @@ local autoload = _local_1_.autoload
 local nvim = autoload("nvim")
 local _local_2_ = autoload("config.util")
 local kset = _local_2_.kset
-local langs = {"java", "yaml", "bash", "sh", "kotlin", "clojure", "fennel", "scheme", "racket", "lua", "luadoc", "vimdoc", "vim", "markdown", "markdown_inline", "http", "json", "sql", "dart", "go", "typescript", "css", "rust"}
+local langs = {"java", "yaml", "bash", "kotlin", "clojure", "fennel", "scheme", "racket", "lua", "luadoc", "vimdoc", "vim", "markdown", "markdown_inline", "http", "json", "sql", "dart", "go", "typescript", "css", "rust"}
 local function _3_()
   local ts_objects = require("nvim-treesitter-textobjects")
   local ts_select = require("nvim-treesitter-textobjects.select")
