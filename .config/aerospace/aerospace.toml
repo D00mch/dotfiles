@@ -53,10 +53,10 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 [gaps]
 inner.horizontal = [{ monitor."^built-in retina display$" = -4 }, 12]
 inner.vertical =   [{ monitor."^built-in retina display$" = -4 }, 12]
-outer.top =        [{ monitor."^built-in retina display$" = 0 }, 164]
-outer.right =      [{ monitor."^built-in retina display$" = 0 }, 12]
-outer.bottom =     [{ monitor."^built-in retina display$" = 0 }, 164]
-outer.left =       [{ monitor."^built-in retina display$" = 0 }, 12]
+outer.top =        [{ monitor."^built-in retina display$" = 0 }, 12]
+outer.right =      [{ monitor."^built-in retina display$" = 0 }, 164]
+outer.bottom =     [{ monitor."^built-in retina display$" = 0 }, 12]
+outer.left =       [{ monitor."^built-in retina display$" = 0 }, 164]
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
