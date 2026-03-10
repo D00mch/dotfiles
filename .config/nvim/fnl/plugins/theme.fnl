@@ -46,7 +46,7 @@
                  :EdenEast/nightfox.nvim]
   :init (fn []
           (when vim.g.neovide
-            (set nvim.g.neovide_cursor_vfx_mode "torpedo")
+            (set nvim.g.neovide_cursor_vfx_mode "pixiedust")
             (set nvim.g.neovide_input_macos_option_key_is_meta true)
             (kset :n :<Space>tt
                     #(if (transparent?)

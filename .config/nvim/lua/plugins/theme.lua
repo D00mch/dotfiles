@@ -44,7 +44,7 @@ local function font_size_21(diff)
 end
 local function _6_()
   if vim.g.neovide then
-    nvim.g.neovide_cursor_vfx_mode = "torpedo"
+    nvim.g.neovide_cursor_vfx_mode = "pixiedust"
     nvim.g.neovide_input_macos_option_key_is_meta = true
     local function _7_()
       if transparent_3f() then
