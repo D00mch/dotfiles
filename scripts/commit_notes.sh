@@ -14,4 +14,5 @@ git pull --rebase
 
 git push origin main
 
-# 0 12 * * * /Users/m1/dotfiles/scripts/commit_notes.sh >> /Users/m1/Documents/chone.log 2>&1
+# every hour:
+# 0 * * * * "$HOME/dotfiles/scripts/commit_notes.sh" >> "$HOME/Documents/chrone.log" 2>&1
