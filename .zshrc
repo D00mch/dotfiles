@@ -6,6 +6,7 @@ alias sleep="sudo systemctl hybrid-sleep"
 alias wtheme="theme 'w'"
 alias btheme="theme 'b'"
 alias c="clear"
+alias syncnotes="$HOME/dotfiles/scripts/commit_notes.sh"
 
 # notes
 alias todo='vim ~/wiki/todo.md -c ":cd %:p:h"'
