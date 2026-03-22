@@ -8,7 +8,11 @@ git status
 
 git add .
 
-git commit -m "Daily update: $(date +'%Y-%m-%d %H:%M:%S')"
+MESSAGE="Daily update: $(date +'%Y-%m-%d %H:%M:%S')"
+
+git commit -m "$MESSAGE"
+
+echo "About to push. $MESSAGE"
 
 git pull --rebase
 
