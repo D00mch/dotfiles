@@ -13,12 +13,10 @@
 
 (local handlers
   {"textDocument/hover"
-   (vim.lsp.with
-     vim.lsp.handlers.hover
+   (vim.lsp.buf.hover
      {:border "single"})
    "textDocument/signatureHelp"
-   (vim.lsp.with
-     vim.lsp.handlers.signature_help
+   (vim.lsp.buf.signature_help
      {:border "single"})})
 
 [{1 :neovim/nvim-lspconfig

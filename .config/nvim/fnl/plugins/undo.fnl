@@ -6,7 +6,7 @@
   :cmd :UndotreeShow
   :lazy true
   :init (fn []
-          (nvim.ex.set :undofile)
+          (set vim.o.undofile true)
 
           ;; persistent undo settings
           (set nvim.o.undodir (.. (nvim.fn.stdpath "data") "/undo"))

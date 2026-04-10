@@ -7,7 +7,7 @@ local highlight_line_symbol = _local_2_["highlight-line-symbol"]
 local _local_3_ = autoload("nfnl.core")
 local merge = _local_3_.merge
 local diagnostics = {severity_sort = true, underline = true, signs = true, update_in_insert = false, virtual_lines = false, virtual_text = false}
-local handlers = {["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = "single"}), ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = "single"})}
+local handlers = {["textDocument/hover"] = vim.lsp.buf.hover({border = "single"}), ["textDocument/signatureHelp"] = vim.lsp.buf.signature_help({border = "single"})}
 local function _4_()
   vim.o.updatetime = 250
   return nil
