@@ -83,6 +83,7 @@
 
               (lsp :clojure_lsp default-map)
               (lsp :jdtls default-map)
+              (lsp :gopls default-map)
               (lsp :kotlin_lsp
                 (merge default-map {:autostart false}))
               (lsp :vtsls default-map)
@@ -110,6 +111,7 @@
               (vim.lsp.enable [:fennel_language_server
                                :clojure_lsp
                                :jdtls
+                               :gopls
                                :kotlin_lsp
                                :vtsls
                                :emmet_language_server
