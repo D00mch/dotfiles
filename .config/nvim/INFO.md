@@ -19,7 +19,6 @@ If you are not sure about something, leave a note for other developers to review
 ### Known caveats
 
 - Not every compiled Lua file currently has a tracked Fennel source. `lua/plugins/numb.lua` and `lua/config/lsp.lua` look like compiled artifacts but do not have matching `fnl/` files in this repo.
-- The checked-in `spell` entry is currently a broken symlink in the repo tree. Shared spell files appear to live under repo-root `.vim/spell`, and `init.sh` also links that root spell directory into the installed Neovim config.
 
 ## Startup Flow
 
@@ -78,7 +77,7 @@ If you are not sure about something, leave a note for other developers to review
 ├── data/
 │   ├── ltex/                             # LTEX dictionary and local language data
 │   └── plenary/filetypes/ext.lua         # Local filetype extension mapping (`.cljd` -> clojure)
-└── spell                                 # Intended shared spell data link; currently broken in repo
+└── spell                                 # Local symlink created by `init.sh` to shared repo-root `.vim/spell` (ignored by git)
 ```
 
 ## Functional Layout

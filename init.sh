@@ -25,4 +25,5 @@ ln    -s   $DOTFILES_PATH/.config/karabiner/assets   ~/.config/karabiner/
 
 cp    -r   $DOTFILES_PATH/.config/zathura            ~/.config/
 
-ln    -s   $DOTFILES_PATH/.vim/spell                 $DOTFILES_PATH/.config/nvim/spell
+# Keep Neovim spell data available from stdpath("config")/spell.
+ln    -sfn $DOTFILES_PATH/.vim/spell                 "$DOTFILES_PATH/.config/nvim/spell"
