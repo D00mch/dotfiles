@@ -295,6 +295,8 @@ local key_tables = {
 local config = {
   window_background_opacity = 0.82,
   macos_window_background_blur = 20,
+  send_composed_key_when_left_alt_is_pressed = true,
+  send_composed_key_when_right_alt_is_pressed = true,
 
   font = wezterm.font('Terminess Nerd Font', { weight = 'Bold' }),
   font_size = 16,

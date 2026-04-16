@@ -47,7 +47,7 @@
   :init (fn []
           (when vim.g.neovide
             (set nvim.g.neovide_cursor_vfx_mode "pixiedust")
-            (set nvim.g.neovide_input_macos_option_key_is_meta "both")
+            (set nvim.g.neovide_input_macos_option_key_is_meta "none")
             (kset :n :<Space>tt
                     #(if (transparent?)
                        (make-non-transparent)

@@ -45,7 +45,7 @@ end
 local function _6_()
   if vim.g.neovide then
     nvim.g.neovide_cursor_vfx_mode = "pixiedust"
-    nvim.g.neovide_input_macos_option_key_is_meta = "both"
+    nvim.g.neovide_input_macos_option_key_is_meta = "none"
     local function _7_()
       if transparent_3f() then
         return make_non_transparent()
