@@ -4,7 +4,7 @@
 
 (local langs 
   [:java :yaml :bash :kotlin :clojure :fennel :scheme :racket :lua :luadoc :vimdoc :vim 
-   :markdown :markdown_inline :http :json :sql :dart :go :typescript :css :rust])
+   :markdown :markdown_inline :http :json :sql :dart :go :typescript :css :rust :python])
 
 [{1 :nvim-treesitter/nvim-treesitter
   :lazy false ;; does not support lazy loading
