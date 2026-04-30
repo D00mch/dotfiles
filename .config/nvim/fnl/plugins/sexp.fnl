@@ -24,7 +24,7 @@
                  :tpope/vim-repeat
                  :tpope/vim-surround]
   :init (fn []
-          (set nvim.g.sexp_filetypes "*")
+          (set nvim.g.sexp_filetypes (table.concat lisps ","))
           (set nvim.g.sexp_insert_after_wrap 0) ;do not insert spaces
 
           (set nvim.g.sexp_mappings
