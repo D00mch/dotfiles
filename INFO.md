@@ -14,6 +14,7 @@ If you are not sure about something, leave a note for other developers to review
 - Preserve machine-specific assumptions unless the requested change is explicitly about setup portability.
 - `first_init.sh` is invasive: it installs packages, removes existing `~/.zshenv` and `~/.zshrc`, then delegates to `init.sh`.
 - `init.sh` symlinks most files into `$HOME` and `~/.config`, but copies `~/.config/zathura`.
+- `deinit.sh` removes only symlinks that still point back into this repository; it does not remove copied config directories.
 - Treat generated or stateful directories carefully, especially `.config/nvim/data/` and `.config/karabiner/automatic_backups/`.
 
 ## Project Structure
@@ -22,6 +23,7 @@ If you are not sure about something, leave a note for other developers to review
 .
 ├── first_init.sh                         # Full bootstrap for a new machine
 ├── init.sh                               # Symlink/copy repo files into $HOME and ~/.config
+├── deinit.sh                             # Remove symlinks created by init.sh when still owned by this repo
 ├── README.md                             # Short human-facing overview
 ├── .zshenv                               # Environment setup
 ├── .zshrc                                # Interactive shell config

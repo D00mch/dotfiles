@@ -14,6 +14,15 @@
 cd dotfiles
 bash first_init.sh ~/dotfiles
 ```
+
+### Deinit
+
+```bash
+cd dotfiles
+bash deinit.sh --dry-run
+bash deinit.sh
+```
+
 ### Keyboard visualization 
 
 ![layout](resources/keyboard_data/keyboard-layout.jpg)
