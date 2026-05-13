@@ -19,7 +19,6 @@ bash first_init.sh ~/dotfiles
 
 ```bash
 cd dotfiles
-bash deinit.sh --dry-run
 bash deinit.sh
 ```
 
