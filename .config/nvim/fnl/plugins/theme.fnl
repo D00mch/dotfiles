@@ -41,7 +41,6 @@
   :lazy false
   :priority 1000
   :dependencies [:nvim-tree/nvim-web-devicons
-                 :webhooked/kanso.nvim
                  :sho-87/kanagawa-paper.nvim
                  :EdenEast/nightfox.nvim]
   :init (fn []
