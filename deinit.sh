@@ -24,6 +24,7 @@ rm_symlink "$HOME/.clojure"
 rm_symlink "$HOME/.wezterm.lua"
 
 rm_symlink "$HOME/.config/nvim"
+rm_symlink "$HOME/.config/neovide"
 rm_symlink "$HOME/.config/clj-kondo"
 rm_symlink "$HOME/.config/karabiner.edn"
 rm_symlink "$HOME/.config/aerospace"

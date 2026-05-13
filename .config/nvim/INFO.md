@@ -22,7 +22,7 @@ If you are not sure about something, leave a note for other developers to review
 
 ## Startup Flow
 
-- `init.lua` disables several builtin Vim plugins, enables truecolor, bootstraps `lazy.nvim` if needed, enables the Lua loader, sets leader keys, then sources repo-root `~/.vimrc`.
+- `init.lua` disables several builtin Vim plugins, enables truecolor, sets the GUI font early for Neovide, bootstraps `lazy.nvim` if needed, enables the Lua loader, sets leader keys, then sources repo-root `~/.vimrc`.
 - After the legacy Vim config is sourced, Neovim plugin setup is delegated to `require("lazy").setup("plugins")`.
 - `lua/plugins.lua` is a small hand-authored bootstrap file that registers `lazy.nvim` itself and the `Olical/nfnl` plugin.
 - The `nfnl` plugin loads `require("config")`, which comes from the compiled `lua/config/init.lua` generated from `fnl/config/init.fnl`.

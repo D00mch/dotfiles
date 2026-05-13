@@ -14,6 +14,7 @@ If you are not sure about something, leave a note for other developers to review
 - Preserve machine-specific assumptions unless the requested change is explicitly about setup portability.
 - `first_init.sh` is invasive: it installs packages, removes existing `~/.zshenv` and `~/.zshrc`, then delegates to `init.sh`.
 - `init.sh` symlinks most files into `$HOME` and `~/.config`, but copies `~/.config/zathura`.
+- Neovide and WezTerm expect `Terminess Nerd Font`; `first_init.sh` installs the Homebrew cask for it.
 - `deinit.sh` removes known symlink paths created by `init.sh`; it does not remove copied config directories.
 - Treat generated or stateful directories carefully, especially `.config/nvim/data/` and `.config/karabiner/automatic_backups/`.
 
@@ -38,6 +39,7 @@ If you are not sure about something, leave a note for other developers to review
 │   ├── clj-kondo/                        # clj-kondo linter config
 │   ├── karabiner/                        # Karabiner assets, docs, backups, and JSON config
 │   ├── karabiner.edn                     # Goku source config for Karabiner generation
+│   ├── neovide/                          # Neovide GUI config, including startup font selection
 │   ├── nvim/                             # Neovim config in Lua/Fennel, snippets, ftplugins, lockfile
 │   └── zathura/                          # Zathura PDF reader config
 ├── scripts/

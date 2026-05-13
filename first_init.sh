@@ -34,6 +34,7 @@ echo 'fi' >> ~/.zprofile
 # installing utilities 
 brew install neovim
 brew install --cask neovide
+brew install --cask font-terminess-ttf-nerd-font
 brew install yqrashawn/goku/goku
 brew install --cask nikitabobko/tap/aerospace
 brew install --cask karabiner-elements

@@ -8,6 +8,7 @@ vim.cmd("set nospell") -- set it with cmd <spece>e
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
+vim.opt.guifont = "Terminess Nerd Font:h19"
 
 -- vim.g.loaded_gzip = 1
 -- vim.g.loaded_zip = 1
