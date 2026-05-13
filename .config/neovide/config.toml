@@ -1,0 +1,8 @@
+# Neovide reads this before Neovim starts, so keep a known-good font here
+# instead of relying on Neovide's platform default fallback list.
+[font]
+normal = ["Terminess Nerd Font"]
+bold = ["Terminess Nerd Font"]
+italic = ["Terminess Nerd Font"]
+bold_italic = ["Terminess Nerd Font"]
+size = 19.0

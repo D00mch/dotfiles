@@ -16,6 +16,7 @@ touch      ~/.ssh-aliases.sh # zshrc source it
 mkdir -p   ~/.config
 
 ln    -s   $DOTFILES_PATH/.config/nvim               ~/.config/
+ln    -s   $DOTFILES_PATH/.config/neovide            ~/.config/
 ln    -s   $DOTFILES_PATH/.config/clj-kondo          ~/.config/
 ln    -s   $DOTFILES_PATH/.config/karabiner.edn      ~/.config/
 ln    -s   $DOTFILES_PATH/.config/aerospace          ~/.config/
