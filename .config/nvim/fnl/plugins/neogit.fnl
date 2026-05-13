@@ -23,7 +23,12 @@
          :sections {:untracked {:folded true}
                     :recent    {:folded true}}
          :mappings {:status {:o :Toggle
+                             :v false
                              :q false}
+                    :popup {:v false
+                            :b false
+                            :j false
+                            :l false}
                     :rebase_editor {:p false
                                     :r false
                                     :e false
