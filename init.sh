@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DOTFILES_PATH="$1"
+DOTFILES_PATH="${1:-$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)}"
 echo "DOTFILES_PATH $DOTFILES_PATH"
 
 ln    -s   $DOTFILES_PATH/.vim                       ~/ 
