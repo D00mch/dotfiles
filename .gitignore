@@ -10,3 +10,6 @@
 
 .lsp/
 .clj-kondo/
+
+# Logs
+*.log
