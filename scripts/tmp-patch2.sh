@@ -24,7 +24,7 @@ fi
 
 mkdir -p "$(dirname "$output_path")"
 
-git diff "${base_ref}..${current_branch}" > "$output_path"
+git diff "${base_ref}...${current_branch}" > "$output_path"
 
 echo "Logs written to: $output_path"
 echo "Logs from the $base_ref, $current_branch"
