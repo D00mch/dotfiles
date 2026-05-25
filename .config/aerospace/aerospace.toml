@@ -214,8 +214,24 @@ if.app-id = 'com.cisco.anyconnect.gui'
 run = ['layout floating',  'move-node-to-workspace 8']
 
 [[on-window-detected]]
+if.app-id = 'com.openai.codex'
+run = ['move-node-to-workspace 2', 'move-workspace-to-monitor --workspace 2 "Gigabyte M32U"']
+
+[[on-window-detected]]
+if.app-id = 'com.tdesktop.Telegram'
+run = ['move-node-to-workspace 4', 'move-workspace-to-monitor --workspace 4 "Gigabyte M32U"']
+
+[[on-window-detected]]
+if.app-id = 'com.yourcompany.AmneziaVPN'
+run = ['move-node-to-workspace 9', 'move-workspace-to-monitor --workspace 9 "Gigabyte M32U"']
+
+[[on-window-detected]]
 if.app-id = 'com.electron.dockerdesktop'
-run = 'move-node-to-workspace 9'
+run = ['move-node-to-workspace 9', 'move-workspace-to-monitor --workspace 9 "Gigabyte M32U"']
+
+[[on-window-detected]]
+if.app-id = 'com.databridges.privacy.v2RayTun'
+run = ['move-node-to-workspace 9', 'move-workspace-to-monitor --workspace 9 "Gigabyte M32U"']
 
 [[on-window-detected]]
 if.app-id = 'net.java.openjdk.java'
