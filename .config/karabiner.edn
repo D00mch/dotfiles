@@ -13,6 +13,10 @@
                  [:o :!Q9 ["semicolon-mode" 1]]
                  [:p :!Q0 ["semicolon-mode" 1]]
 
+                 ;; screenshots
+                 [:v :!CS5  ["semicolon-mode" 1]]
+                 [:c :!CTS4  ["semicolon-mode" 1]]
+
                  ;; aerospace
                  [:h   :!OTh ["semicolon-mode" 1]]
                  [:l   :!OTl ["semicolon-mode" 1]]
