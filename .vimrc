@@ -27,6 +27,15 @@ cd $HOME
         noremap <leader>z g<C-g>
         vnoremap <leader>z g<C-g>2gs
 
+    "NUMBERS
+        "Ctrl-free alternatives for number increment/decrement. Counts still work.
+        nnoremap <leader>+ <C-a>
+        nnoremap <leader>- <C-x>
+        xnoremap <leader>+ <C-a>
+        xnoremap <leader>- <C-x>
+        xnoremap <leader>g+ g<C-a>
+        xnoremap <leader>g- g<C-x>
+
     "OBJECTS
         onoremap w iw
         onoremap W iW
