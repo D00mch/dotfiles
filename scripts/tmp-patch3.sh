@@ -38,13 +38,10 @@ new_commit="$(git rev-parse --verify "${base_ref}^{commit}")"
 mkdir -p "$(dirname "$output_path")"
 mkdir -p "$(dirname "$commit_path")"
 
-{
-  echo "Commits from $previous_commit to $new_commit ($base_ref):"
-  git log --oneline --decorate "${previous_commit}..${base_ref}"
-  echo
-  echo "Diff from $previous_commit to $base_ref:"
-  git diff "${previous_commit}...${base_ref}" -- . ':(exclude)admin_spa/**'
-} > "$output_path"
+echo "Commits from $previous_commit to $new_commit ($base_ref):"
+echo "Diff from $previous_commit to $base_ref:"
+
+git diff "${previous_commit}...${base_ref}" -- . ':(exclude)admin_spa/**' > "$output_path"
 
 printf '%s\n' "$new_commit" > "$commit_path"
 
