@@ -234,6 +234,10 @@ if.app-id = 'com.databridges.privacy.v2RayTun'
 run = ['move-node-to-workspace 9', 'move-workspace-to-monitor --workspace 9 "Gigabyte M32U"']
 
 [[on-window-detected]]
+if.app-id = 'hossin.asaadi.V2Box'
+run = ['move-node-to-workspace 9', 'move-workspace-to-monitor --workspace 9 "Gigabyte M32U"']
+
+[[on-window-detected]]
 if.app-id = 'net.java.openjdk.java'
 run = 'layout floating'
 
