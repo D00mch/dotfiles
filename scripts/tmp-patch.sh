@@ -35,6 +35,12 @@ if [[ -z "$(git status --porcelain)" ]]; then
 fi
 
 git add -A
+
+if git diff --binary --cached | grep -Eiq '\bcodex\b'; then
+  echo "Uncommitted changes contain Codex work" >&2
+  exit 1
+fi
+
 git commit -m "tmp"
 
 commit_hash="$(git rev-parse --verify HEAD)"
