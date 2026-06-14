@@ -13,3 +13,6 @@
 
 # Logs
 *.log
+
+# Karabiner generated/stateful files
+.config/karabiner/automatic_backups/
