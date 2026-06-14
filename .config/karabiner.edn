@@ -119,12 +119,7 @@
 
         {:des "quick app open"
          :rules [
-                 [:!Eg "open /Applications/Google\\ Chrome.app"]
-                 [:!Ei "/bin/zsh `open /Applications/IntelliJ\\ IDEA.app`"]
-                 [:!En ["/bin/zsh `open /Applications/Neovide.app`" :select_abc]]
-                 [:!Et ["/bin/zsh `open /Applications/WezTerm.app`" :select_abc]]
                  [:!Cg ["/bin/zsh `open /Applications/Neovide.app -n --args --frame transparent`" :select_abc]]
-                 [:!Es ["/bin/zsh `open /Applications/sioyek.app`"]]
 
                  [:!CQg "open /Applications/Google\\ Chrome.app"]
                  [:!CQi "/bin/zsh `open /Applications/IntelliJ\\ IDEA.app`"]
@@ -132,7 +127,7 @@
                  [:!CQc ["open /Applications/Codex.app" :select_abc]]
                  [:!CQt "open /Applications/Telegram.app"]
                  [:!CQn ["/bin/zsh `open /Applications/Neovide.app`" :select_abc]]
-                 [:!CQt ["/bin/zsh `open /Applications/WezTerm.app`" :select_abc]]
+                 [:!CQm ["/bin/zsh `open /Applications/WezTerm.app`" :select_abc]]
                  [:!CQg ["/bin/zsh `open /Applications/Neovide.app -n --args --frame transparent`" :select_abc]]
                  [:!CQs ["/bin/zsh `open /Applications/sioyek.app`"]]
 
