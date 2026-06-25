@@ -19,4 +19,4 @@ git pull --rebase
 git push origin main
 
 # every hour:
-# 0 * * * * "$HOME/dotfiles/scripts/commit_notes.sh" >> "$HOME/Documents/chrone.log" 2>&1
+# 0 * * * * "$HOME/dotfiles/scripts/commit_notes.sh" >> "$HOME/.local/state/wiki-sync/chrone.log" 2>&1
