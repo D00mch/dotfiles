@@ -41,6 +41,7 @@
   :event :VeryLazy
   :opts {:plugins        {:spelling    {:enabled false
                                         :suggestions 12}}
+         :preset :helix
          :keys {:scroll_down :<right>
                 :scroll_up   :<left>}}
   :config true}
