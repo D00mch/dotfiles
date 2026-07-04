@@ -38,6 +38,22 @@
                  [:spacebar :semicolon ["semicolon-mode" 1]]
                  [:m :close_bracket ["semicolon-mode" 1]]]}
 
+        ; {:des "escape-mode"
+        ;  :rules [[:escape ["escape-mode" 1] nil {:afterup ["escape-mode" 0]
+        ;                                             :alone   :escape}]
+        ;          ;; numbers with shift
+        ;          [:u      :!S7 ["escape-mode" 1]]
+        ;          [:i      :!S8 ["escape-mode" 1]]
+        ;          [:o      :!S9 ["escape-mode" 1]]
+        ;          [:j      :!S4 ["escape-mode" 1]]
+        ;          [:k      :!S5 ["escape-mode" 1]]
+        ;          [:l      :!S6 ["escape-mode" 1]]
+        ;          [:m      :!S1 ["escape-mode" 1]]
+        ;          [:comma  :!S2 ["escape-mode" 1]]
+        ;          [:period :!S3 ["escape-mode" 1]]
+        ;          [:p      :!S0 ["escape-mode" 1]]
+        ;          ]}
+
         {:des "vim"
          :rules [[:!Cx :!T6 [:neovide]]
                  [:!Cq :!Oq [:neovide]]
@@ -124,7 +140,7 @@
                  [:!CQg "open /Applications/Google\\ Chrome.app"]
                  [:!CQi "/bin/zsh `open /Applications/IntelliJ\\ IDEA.app`"]
                  [:!CQa "/bin/zsh `open /Applications/Android\\ Studio.app`"]
-                 [:!CQc ["open /Applications/Codex.app" :select_abc]]
+                 [:!CQc ["open -b com.openai.codex" :select_abc]]
                  [:!CQt "open /Applications/Telegram.app"]
                  [:!CQn ["/bin/zsh `open /Applications/Neovide.app`" :select_abc]]
                  [:!CQm ["/bin/zsh `open /Applications/WezTerm.app`" :select_abc]]
