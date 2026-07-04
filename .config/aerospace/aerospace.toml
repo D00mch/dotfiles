@@ -113,29 +113,28 @@ alt-tab = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-alt-shift-semicolon = 'mode service'
+alt-shift-semicolon = 'mode window'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 alt-s = 'mode resize'
 alt-0 = 'balance-sizes'
 
-alt-ctrl-a = 'mode floating'
-[mode.floating.binding]
-f = [
-    'exec-and-forget ~/.config/aerospace/toggle-floating-centered.sh',
-    'mode main'
-]
+alt-ctrl-a = ['layout floating', 'mode window']
+[mode.window.binding]
+f = 'layout floating tiling'
+c = ['layout floating', 'exec-and-forget ~/.config/aerospace/center-floating.sh']
 esc = 'mode main'
-
-h = 'exec-and-forget ~/.config/aerospace/move-floating.sh -62 0'
-j = 'exec-and-forget ~/.config/aerospace/move-floating.sh 0 62'
-k = 'exec-and-forget ~/.config/aerospace/move-floating.sh 0 -62'
-l = 'exec-and-forget ~/.config/aerospace/move-floating.sh 62 0'
-
-left  = 'exec-and-forget ~/.config/aerospace/resize-floating-centered.sh -128 0'
-down  = 'exec-and-forget ~/.config/aerospace/resize-floating-centered.sh 0 -128'
-up    = 'exec-and-forget ~/.config/aerospace/resize-floating-centered.sh 0 128'
-right = 'exec-and-forget ~/.config/aerospace/resize-floating-centered.sh 128 0'
+h = ['layout floating', 'exec-and-forget ~/.config/aerospace/move-floating.sh -62 0']
+j = ['layout floating', 'exec-and-forget ~/.config/aerospace/move-floating.sh 0 62']
+k = ['layout floating', 'exec-and-forget ~/.config/aerospace/move-floating.sh 0 -62']
+l = ['layout floating', 'exec-and-forget ~/.config/aerospace/move-floating.sh 62 0']
+left  = ['layout floating', 'exec-and-forget ~/.config/aerospace/resize-floating-centered.sh -128 0']
+down  = ['layout floating', 'exec-and-forget ~/.config/aerospace/resize-floating-centered.sh 0 -128']
+up    = ['layout floating', 'exec-and-forget ~/.config/aerospace/resize-floating-centered.sh 0 128']
+right = ['layout floating', 'exec-and-forget ~/.config/aerospace/resize-floating-centered.sh 128 0']
+r = ['flatten-workspace-tree', 'mode main']
+shift-r = ['reload-config', 'mode main']
+backspace = ['close-all-windows-but-current', 'mode main']
 
 [mode.resize.binding]
 h     = 'resize width -50'
@@ -175,14 +174,6 @@ cmd-6 = ['move-node-to-workspace 6']
 cmd-7 = ['move-node-to-workspace 7']
 cmd-8 = ['move-node-to-workspace 8']
 cmd-9 = ['move-node-to-workspace 9']
-
-# 'service' binding mode declaration.
-# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
-[mode.service.binding]
-esc = ['reload-config', 'mode main']
-r = ['flatten-workspace-tree', 'mode main'] # reset layout
-f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
-backspace = ['close-all-windows-but-current', 'mode main']
 
 # https://nikitabobko.github.io/AeroSpace/guide#callbacks
 [[on-window-detected]]
