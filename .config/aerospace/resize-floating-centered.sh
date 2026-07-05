@@ -22,9 +22,13 @@ min_height=240
 
 /usr/bin/osascript <<APPLESCRIPT
 tell application "System Events"
-  set _app to name of first application process whose frontmost is true
-  tell process _app
+  set _app to first application process whose frontmost is true
+  set frontmost of _app to true
+  tell _app
     set _window to front window
+    try
+      perform action "AXRaise" of _window
+    end try
     set {_x, _y} to position of _window
     set {_width, _height} to size of _window
     set _new_width to _width + ($delta_width)
@@ -35,7 +39,16 @@ tell application "System Events"
     set _new_y to _y - ((_new_height - _height) / 2)
     set position of _window to {_new_x as integer, _new_y as integer}
     set size of _window to {_new_width as integer, _new_height as integer}
-    activate
+    try
+      perform action "AXRaise" of _window
+    end try
+    try
+      set value of attribute "AXMain" of _window to true
+    end try
+    try
+      set value of attribute "AXFocused" of _window to true
+    end try
   end tell
+  set frontmost of _app to true
 end tell
 APPLESCRIPT

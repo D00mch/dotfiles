@@ -6,15 +6,40 @@ set -o pipefail
 
 log_file=/tmp/aerospace-window-mode.log
 script_name=${0##*/}
+aerospace_bin=${AEROSPACE_BIN:-}
 exec 2>>"$log_file"
 
 trap 'rc=$?; if [ "$rc" -ne 0 ]; then printf "%s %s failed rc=%s args=%s\n" "$(/bin/date -u +%Y-%m-%dT%H:%M:%SZ)" "$script_name" "$rc" "$*" >> "$log_file"; fi' EXIT
 
+if [ -z "$aerospace_bin" ]; then
+  if aerospace_bin=$(command -v aerospace 2>/dev/null); then
+    :
+  elif [ -x /opt/homebrew/bin/aerospace ]; then
+    aerospace_bin=/opt/homebrew/bin/aerospace
+  fi
+fi
+
+focused_window_id=
+if [ -n "$aerospace_bin" ]; then
+  focused_window_id=$("$aerospace_bin" list-windows --focused --format '%{window-id}' 2>/dev/null || true)
+  focused_window_id=${focused_window_id%%$'\n'*}
+fi
+
+if [ -n "$focused_window_id" ]; then
+  "$aerospace_bin" layout --window-id "$focused_window_id" floating 2>/dev/null || true
+  "$aerospace_bin" focus --window-id "$focused_window_id" 2>/dev/null || true
+  /bin/sleep 0.05
+fi
+
 window_rect=$(/usr/bin/osascript <<'APPLESCRIPT'
 tell application "System Events"
-  set _app to name of first application process whose frontmost is true
-  tell process _app
+  set _app to first application process whose frontmost is true
+  set frontmost of _app to true
+  tell _app
     set _window to front window
+    try
+      perform action "AXRaise" of _window
+    end try
     set {_x, _y} to position of _window
     set {_width, _height} to size of _window
     return (_x as integer) & " " & (_y as integer) & " " & (_width as integer) & " " & (_height as integer)
@@ -23,6 +48,7 @@ end tell
 APPLESCRIPT
 )
 
+window_rect=${window_rect//,/}
 read -r window_x window_y window_width window_height <<< "$window_rect"
 window_center_x=$((window_x + window_width / 2))
 window_center_y=$((window_y + window_height / 2))
@@ -68,12 +94,29 @@ new_y=$((screen_y + (screen_height - new_height) / 2))
 
 /usr/bin/osascript <<APPLESCRIPT
 tell application "System Events"
-  set _app to name of first application process whose frontmost is true
-  tell process _app
+  set _app to first application process whose frontmost is true
+  set frontmost of _app to true
+  tell _app
     set _window to front window
+    try
+      perform action "AXRaise" of _window
+    end try
     set position of _window to {$new_x, $new_y}
     set size of _window to {$new_width, $new_height}
-    activate
+    try
+      perform action "AXRaise" of _window
+    end try
+    try
+      set value of attribute "AXMain" of _window to true
+    end try
+    try
+      set value of attribute "AXFocused" of _window to true
+    end try
   end tell
+  set frontmost of _app to true
 end tell
 APPLESCRIPT
+
+if [ -n "$focused_window_id" ]; then
+  "$aerospace_bin" focus --window-id "$focused_window_id" 2>/dev/null || true
+fi

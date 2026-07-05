@@ -119,7 +119,7 @@ alt-shift-semicolon = 'mode window'
 alt-s = 'mode resize'
 alt-0 = 'balance-sizes'
 
-alt-ctrl-a = ['layout floating', 'mode window']
+alt-ctrl-a = ['exec-and-forget ~/.config/aerospace/center-floating.sh', 'mode window']
 [mode.window.binding]
 f = 'layout floating tiling'
 c = ['layout floating', 'exec-and-forget ~/.config/aerospace/center-floating.sh']
