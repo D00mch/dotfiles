@@ -54,14 +54,6 @@
   :cmd :StartupTime}
 
  ;;colorschemes
- {1 :rose-pine/neovim
-  :lazy true
-  :keys [[:<Space>vc :n]]}
- {1 :neanias/everforest-nvim
-  :lazy true
-  :keys [[:<Space>vc :n]]
-  :config true
-  :opts {:background :hard}}
  {1 :rebelot/kanagawa.nvim
   :lazy true
   :keys [[:<Space>vc :n]]}]
