@@ -7,7 +7,7 @@ set fileencoding=utf-8
 let mapleader=","
 let maplocalleader=","
 
-set cursorline
+"set cursorline
 "set cursorcolumn
 
 cd $HOME
