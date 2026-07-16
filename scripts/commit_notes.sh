@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NOTES_DIR="$HOME/Yandex.Disk.localized/wiki/"
+NOTES_DIR="$HOME/work/wiki/"
 
 cd "$NOTES_DIR" || { echo "Directory not found: $NOTES_DIR"; exit 1; }
 
