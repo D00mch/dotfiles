@@ -52,6 +52,12 @@
  {1 :dstein64/vim-startuptime
   :lazy true
   :cmd :StartupTime}
+ {1 :chentoast/marks.nvim
+  :event :VeryLazy
+  :opts {:default_mappings true
+         :builtin_marks []
+         :sign_priority {:lower 10
+                         :upper 15}}}
 
  ;;colorschemes
  {1 :rebelot/kanagawa.nvim
