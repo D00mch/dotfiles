@@ -1581,17 +1581,18 @@
                 {
                     "identifiers": {
                         "is_keyboard": true,
-                        "product_id": 9479,
-                        "vendor_id": 40283
+                        "is_pointing_device": true,
+                        "product_id": 8192,
+                        "vendor_id": 10473
                     },
-                    "ignore": true
+                    "ignore": false
                 },
                 {
                     "identifiers": {
                         "is_keyboard": true,
                         "is_pointing_device": true,
-                        "product_id": 8192,
-                        "vendor_id": 10473
+                        "product_id": 9479,
+                        "vendor_id": 40283
                     },
                     "ignore": false
                 }
