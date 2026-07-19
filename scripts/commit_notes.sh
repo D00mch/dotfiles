@@ -1,22 +1,44 @@
 #!/bin/bash
+set -euo pipefail
 
-NOTES_DIR="$HOME/work/wiki/"
+REPO="$HOME/work/wiki"
+STATE_DIR="$HOME/.local/state/wiki-sync"
+LOCK_DIR="$STATE_DIR/git-sync.lock"
 
-cd "$NOTES_DIR" || { echo "Directory not found: $NOTES_DIR"; exit 1; }
+log() {
+    printf '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$*"
+}
 
-git status
+mkdir -p "$STATE_DIR"
+mkdir "$LOCK_DIR" 2>/dev/null || {
+    log "Another wiki Git sync is already running."
+    exit 75
+}
+trap 'rmdir "$LOCK_DIR" 2>/dev/null || true' EXIT
 
-git add .
+cd "$REPO"
 
-MESSAGE="Daily update: $(date +'%Y-%m-%d %H:%M:%S')"
+branch="$(git branch --show-current)"
+[[ "$branch" == "main" ]] || {
+    log "Unexpected branch: $branch"
+    exit 1
+}
 
-git commit -m "$MESSAGE"
+log "Syncing $REPO"
+git status --short --branch
 
-echo "About to push. $MESSAGE"
+git add -A
 
-git pull --rebase
+if git diff --cached --quiet; then
+    log "No local changes to commit"
+else
+    message="Daily update: $(date +'%Y-%m-%d %H:%M:%S')"
+    git commit -m "$message"
+    log "Committed: $message"
+fi
 
+git fetch origin main
+git rebase origin/main
 git push origin main
 
-# every hour:
-# 0 * * * * "$HOME/dotfiles/scripts/commit_notes.sh" >> "$HOME/.local/state/wiki-sync/chrone.log" 2>&1
+log "Git sync completed successfully"
