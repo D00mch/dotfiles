@@ -5,7 +5,7 @@ local _local_2_ = autoload("nfnl.core")
 local merge = _local_2_["merge"]
 local telescope = autoload("telescope")
 local cmp_src_menu_items = {buffer = "buff", conjure = "conj", path = "path", nvim_lsp = "lsp"}
-local cmp_srcs = {{name = "nvim_lsp"}, {name = "conjure"}, {name = "buffer"}, {name = "path"}, {name = "spell"}, {name = "cmp-dbee"}, {name = "codeium"}, {name = "snippy"}}
+local cmp_srcs = {{name = "nvim_lsp"}, {name = "conjure"}, {name = "buffer", option = {keyword_pattern = "\\k\\+"}}, {name = "path"}, {name = "spell"}, {name = "cmp-dbee"}, {name = "codeium"}, {name = "snippy"}}
 local kind_icons = {Class = "\243\176\160\177", Color = "\243\176\143\152", Constant = "\243\176\143\191", Constructor = "\239\144\163", Enum = "\239\133\157", EnumMember = "\239\133\157", Event = "\239\131\167", Field = "\243\176\135\189", File = "\243\176\136\153", Folder = "\243\176\137\139", Function = "\243\176\138\149", Interface = "\239\131\168", Keyword = "\243\176\140\139", Method = "\243\176\134\167", Module = "\239\146\135", Operator = "\243\176\134\149", Property = "\243\176\156\162", Reference = "\239\146\129", Snippet = "\239\145\143", Struct = "\239\134\179", Text = "\243\176\173\183", TypeParameter = "\243\176\133\178", Unit = "\238\136\159", Value = "\243\176\142\160", Variable = "\243\176\130\161", Conj = "\238\154\176", Codeium = "\239\131\144"}
 local function has_words_before()
   local _let_3_ = vim.api.nvim_win_get_cursor(0)

@@ -12,7 +12,8 @@
 (local cmp-srcs
   [{:name :nvim_lsp}
    {:name :conjure}
-   {:name :buffer}
+   {:name :buffer
+    :option {:keyword_pattern "\\k\\+"}}
    {:name :path}
    {:name :spell}
    ; {:name :copilot}
