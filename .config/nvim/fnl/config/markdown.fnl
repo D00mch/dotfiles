@@ -77,12 +77,12 @@
   (kset :n :<Leader>ef :vic:ToggleTermSendVisualSelection<cr> {:noremap false})
 
   ;; insert headers
-  (bkset :n := insert-header {:buffer true})
+  (bkset :n :<leader>h insert-header {:buffer true})
   ;(bkset :n :+ remove-header {:buffer true})
 
   ;; insert list tasks
-  (bkset :n :- toggle-task)
-  (bkset :x :- "<Esc>:MarkdownTaskToggleSelection<cr>")
+  (bkset :n :<leader>l toggle-task)
+  (bkset :x :<leader>l "<Esc>:MarkdownTaskToggleSelection<cr>")
 
   ;; j/k, left/right for long lines
   (bkset :n :j "v:count ? 'j' : 'gj'" {:expr true})
