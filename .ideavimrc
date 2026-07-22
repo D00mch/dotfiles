@@ -45,7 +45,7 @@ set notimeout
     " 8
     nmap <space>i :!open /Applications/WezTerm.app --args start --cwd `pwd` --always-new-process<cr>
     " 9
-    nmap <space>o :action ActivateVersionControlToolWindow<cr>
+    nmap <space>o :action ActivateCommitToolWindow<cr>
 
     let g:relative_number_set = 1
     function! ToggleRelativeNumber()
