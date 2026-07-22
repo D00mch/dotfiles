@@ -31,7 +31,8 @@
            ::ggp actions.prev_conflict}
 
           diffview-unmap
-          {:<leader>e false
+          {:- false
+           :<leader>e false
            :<leader>b false
            :<leader>co false
            :<leader>ct false

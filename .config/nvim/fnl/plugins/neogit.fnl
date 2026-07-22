@@ -23,6 +23,8 @@
          :sections {:untracked {:folded true}
                     :recent    {:folded true}}
          :mappings {:status {:o :Toggle
+                             :- false
+                             :gr :Reverse
                              :v false
                              :q false}
                     :popup {:v false
