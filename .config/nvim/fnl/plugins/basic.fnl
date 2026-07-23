@@ -15,6 +15,7 @@
   :event :VeryLazy}
  {1 :jghauser/follow-md-links.nvim
   :lazy true
+  :dependencies [:stevearc/oil.nvim]
   :ft [:markdown]}
  {1 :dhruvasagar/vim-table-mode
   :lazy false
