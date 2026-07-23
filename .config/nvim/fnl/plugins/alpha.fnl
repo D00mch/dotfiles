@@ -33,7 +33,7 @@
                     (startify.button :i "Init.fnl" ":e ~/dotfiles/.config/nvim/fnl/config/init.fnl<Cr>")
                     (startify.button :v "Vimrc" ":e ~/dotfiles/.vimrc<Cr>")
                     (startify.button :z "Zshrc" ":e ~/dotfiles/.zshrc<Cr>")
-                    (startify.button :s "Scrutch" ":e ~/wiki/scratch.md<Cr>")
+                    (startify.button :s "Scratch" ":e ~/wiki/scratch.md<Cr>")
                     (startify.button :c "Career" ":e ~/wiki/programming/career.md<Cr>")
                     (startify.button :w "Windows" ":e /Volumes/exchange/<Cr>")
                     (startify.button :n "Nvim packages" ":e ~/.local/share/nvim/site/pack/packer/<Cr>")])
