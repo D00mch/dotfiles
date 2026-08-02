@@ -63,11 +63,11 @@ local function _6_()
   local function _10_()
     return font_size_21(1)
   end
-  kset("n", "+", _10_)
+  kset("n", "<D-+>", _10_)
   local function _11_()
     return font_size_21(-1)
   end
-  kset("n", "-", _11_)
+  kset("n", "<D-->", _11_)
   local function _12_()
     nvim.o.guifont = default_font
     return nil
