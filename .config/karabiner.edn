@@ -119,6 +119,7 @@
                  [:!O##e       :!OShyphen]
                  [:!O##w       :!OSequal_sign]
                  [:!O##q       :!Tq]
+                 [:!O##c       :!Tc]
 
                  [:!O##semicolon :!Obackslash]
 
