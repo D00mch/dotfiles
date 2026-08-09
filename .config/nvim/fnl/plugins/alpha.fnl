@@ -28,13 +28,12 @@
                         "Files for Session" ":SessionManager load_session<Cr>")]))
 
               (set startify.section.bottom_buttons.val
-                   [(startify.button :t "Tasks" ":e ~/wiki/todo.md<Cr>")
-                    (startify.button :p "Plugins" ":e ~/dotfiles/.config/nvim/fnl/plugins/basic.fnl<Cr>")
-                    (startify.button :i "Init.fnl" ":e ~/dotfiles/.config/nvim/fnl/config/init.fnl<Cr>")
-                    (startify.button :v "Vimrc" ":e ~/dotfiles/.vimrc<Cr>")
-                    (startify.button :z "Zshrc" ":e ~/dotfiles/.zshrc<Cr>")
+                   [(startify.button :t "Tasks"   ":e ~/wiki/todo.md<Cr>")
+                    (startify.button :i "Index"   ":e ~/wiki/index.md<Cr>")
+                    (startify.button :h "History" ":e ~/wiki/other/humanitarian/psychology/main_goal/history.md<Cr>")
+                    (startify.button :v "Vimrc"   ":e ~/dotfiles/.vimrc<Cr>")
+                    (startify.button :z "Zshrc"   ":e ~/dotfiles/.zshrc<Cr>")
                     (startify.button :s "Scratch" ":e ~/wiki/scratch.md<Cr>")
-                    (startify.button :c "Career" ":e ~/wiki/programming/career.md<Cr>")
                     (startify.button :w "Windows" ":e /Volumes/exchange/<Cr>")
                     (startify.button :n "Nvim packages" ":e ~/.local/share/nvim/site/pack/packer/<Cr>")])
 
