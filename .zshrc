@@ -22,6 +22,8 @@ alias idearc='vim ~/.ideavimrc'
 alias zathurarc='vim ~/.config/zathura/zathurarc'
 alias hotkeys='vim ~/.skhdrc'
 alias rehotkeys='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.skhd"'
+alias lines="git add -N -- . && git diff HEAD --numstat | awk '{a+=\$1; d+=\$2} END {printf \"+%d -%d\\n\", a, d}'"
+
 
 # vim start
 bindkey -v
