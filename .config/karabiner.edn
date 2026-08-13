@@ -84,8 +84,10 @@
                  [:!Qz :!Sgrave_accent_and_tilde]
 
                  ;; neru
-                 [:!CQf :!CSspacebar] ;; hints
+                 [:!CQf :!CSspacebar] ;; hints click
+                 [:!CQp :!CSp]        ;; hints right click
                  [:!CQa :!CSg]        ;; grid
+                 [:!CQs :!CSs]        ;; scroll
 
                  ;; tabs
                  [:!Qcomma :!CSopen_bracket [:!neovide]]
@@ -150,7 +152,6 @@
                  [:!CQn ["/bin/zsh `open /Applications/Neovide.app`" :select_abc]]
                  [:!CQm ["/bin/zsh `open /Applications/WezTerm.app`" :select_abc]]
                  [:!CQg ["/bin/zsh `open /Applications/Neovide.app -n --args --frame transparent`" :select_abc]]
-                 [:!CQs ["/bin/zsh `open /Applications/sioyek.app`"]]
 
                  #_[:!Cg ["open /Applications/Neovide.app -n --args --multigrid" :select_abc]]
                  ]}

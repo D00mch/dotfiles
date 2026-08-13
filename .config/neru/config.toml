@@ -41,6 +41,7 @@ text = "#E8EEFF"
 # See https://github.com/y3owk1n/neru/blob/main/docs/CLI.md
 [hotkeys]
 "Primary+Shift+Space" = "hints --action left_click"
+"Primary+Shift+P" = "hints --action right_click"
 "Primary+Shift+G" = "grid --action left_click"
 "Primary+Shift+C" = "recursive_grid"
 "Primary+Shift+S" = "scroll"
