@@ -1,6 +1,6 @@
 # Dotfiles
 
-This repository contains personal macOS-oriented dotfiles, bootstrap scripts, and small helper utilities for shell, editor, terminal, keyboard, window-management, and browser/PDF workflows.
+This repository contains personal macOS-oriented dotfiles, bootstrap scripts, and small helper utilities for shell, editor, terminal, keyboard, window-management, keyboard-driven mouse control, and browser/PDF workflows.
 
 ## Note for LLM
 
@@ -12,7 +12,7 @@ If you are not sure about something, leave a note for other developers to review
 - This is a config-and-bootstrap repository, not an application or library.
 - Prefer narrow, tool-specific edits over broad cleanup. Personal keybindings and workflow choices are intentional.
 - Preserve machine-specific assumptions unless the requested change is explicitly about setup portability.
-- `first_init.sh` is invasive: it installs packages, removes existing `~/.zshenv` and `~/.zshrc`, then delegates to `init.sh`.
+- `first_init.sh` is invasive: it accepts the dotfiles repo path as its first argument, defaults to `~/dotfiles`, installs packages, removes existing `~/.zshenv` and `~/.zshrc`, then delegates to `init.sh`.
 - `init.sh` symlinks most files into `$HOME` and `~/.config`, but copies `~/.config/zathura`.
 - Neovide and WezTerm expect `Terminess Nerd Font`; `first_init.sh` installs the Homebrew cask for it.
 - `deinit.sh` removes known symlink paths created by `init.sh`; it does not remove copied config directories.
@@ -39,6 +39,7 @@ If you are not sure about something, leave a note for other developers to review
 │   ├── clj-kondo/                        # clj-kondo linter config
 │   ├── karabiner/                        # Karabiner assets, docs, backups, and JSON config
 │   ├── karabiner.edn                     # Goku source config for Karabiner generation
+│   ├── neru/                             # Neru keyboard-driven mouse control config
 │   ├── neovide/                          # Neovide GUI config, including startup font selection
 │   ├── nvim/                             # Neovim config in Lua/Fennel, snippets, ftplugins, lockfile
 │   └── zathura/                          # Zathura PDF reader config

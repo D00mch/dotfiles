@@ -1,8 +1,7 @@
 # install oh my zsh
 
-# Set dotfiles directory (first arg or home directory by default)
-DOTFILES_DIR="${1:-$HOME}"
-DOTFILES_PATH="$DOTFILES_DIR/dotfiles"
+# Set dotfiles path (first arg or ~/dotfiles by default)
+DOTFILES_PATH="${1:-$HOME/dotfiles}"
 
 # Check if dotfiles directory exists
 if [ ! -d "$DOTFILES_PATH" ]; then
@@ -56,6 +55,8 @@ brew install rust
 brew install pandoc
 cargo install --locked evcxr_repl # repl
 cargo install --locked tree-sitter-cli
+brew tap y3owk1n/tap
+brew install --cask y3owk1n/tap/neru
 
 source ~/.zshrc
 source ~/.zshenv

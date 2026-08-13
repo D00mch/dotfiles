@@ -6,6 +6,7 @@
 - Sioyek (PDF reader)
 - Karabiner (key remap)
 - Aerospace (vm)
+- Neru (keyboard-driven mouse control)
 - Neovide as the default app for text and source files
 
 ### Installation

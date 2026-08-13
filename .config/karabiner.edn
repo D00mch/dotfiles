@@ -83,6 +83,10 @@
                  [:!Ce :left_shift]
                  [:!Qz :!Sgrave_accent_and_tilde]
 
+                 ;; neru
+                 [:!CQf :!CSspacebar] ;; hints
+                 [:!CQa :!CSg]        ;; grid
+
                  ;; tabs
                  [:!Qcomma :!CSopen_bracket [:!neovide]]
                  [:!Qperiod :!CSclose_bracket [:!neovide]]
@@ -141,7 +145,6 @@
 
                  [:!CQg "open /Applications/Google\\ Chrome.app"]
                  [:!CQi "/bin/zsh `open /Applications/IntelliJ\\ IDEA.app`"]
-                 [:!CQa "/bin/zsh `open /Applications/Android\\ Studio.app`"]
                  [:!CQc ["open -b com.openai.codex" :select_abc]]
                  [:!CQt "open /Applications/Telegram.app"]
                  [:!CQn ["/bin/zsh `open /Applications/Neovide.app`" :select_abc]]

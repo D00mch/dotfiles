@@ -710,6 +710,30 @@
           "type" : "basic"
         }, {
           "from" : {
+            "key_code" : "f",
+            "modifiers" : {
+              "mandatory" : [ "left_command", "right_command" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "spacebar",
+            "modifiers" : [ "left_command", "left_shift" ]
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "a",
+            "modifiers" : {
+              "mandatory" : [ "left_command", "right_command" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "g",
+            "modifiers" : [ "left_command", "left_shift" ]
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
             "key_code" : "comma",
             "modifiers" : {
               "mandatory" : [ "right_command" ]
@@ -1239,17 +1263,6 @@
           },
           "to" : [ {
             "shell_command" : "/bin/zsh `open /Applications/IntelliJ\\ IDEA.app`"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "a",
-            "modifiers" : {
-              "mandatory" : [ "left_command", "right_command" ]
-            }
-          },
-          "to" : [ {
-            "shell_command" : "/bin/zsh `open /Applications/Android\\ Studio.app`"
           } ],
           "type" : "basic"
         }, {

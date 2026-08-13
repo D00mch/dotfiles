@@ -20,6 +20,7 @@ ln    -s   $DOTFILES_PATH/.config/neovide            ~/.config/
 ln    -s   $DOTFILES_PATH/.config/clj-kondo          ~/.config/
 ln    -s   $DOTFILES_PATH/.config/karabiner.edn      ~/.config/
 ln    -s   $DOTFILES_PATH/.config/aerospace          ~/.config/
+ln    -s   $DOTFILES_PATH/.config/neru               ~/.config/
 
 mkdir -p   ~/.config/karabiner/
 ln    -s   $DOTFILES_PATH/.config/karabiner/assets   ~/.config/karabiner/ 

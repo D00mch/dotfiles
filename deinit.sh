@@ -28,6 +28,7 @@ rm_symlink "$HOME/.config/neovide"
 rm_symlink "$HOME/.config/clj-kondo"
 rm_symlink "$HOME/.config/karabiner.edn"
 rm_symlink "$HOME/.config/aerospace"
+rm_symlink "$HOME/.config/neru"
 rm_symlink "$HOME/.config/karabiner/assets"
 
 rm_symlink "$DOTFILES_PATH/.config/nvim/spell"
