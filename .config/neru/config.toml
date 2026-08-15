@@ -43,7 +43,7 @@ text = "#E8EEFF"
 "Primary+Shift+Space" = "hints --action left_click"
 "Primary+Shift+P" = "hints --action right_click"
 "Primary+Shift+G" = "grid --action left_click"
-"Primary+Shift+C" = "recursive_grid"
+# "Primary+Shift+C" = "recursive_grid"
 "Primary+Shift+S" = "scroll"
 
 # Macros — named action sequences, reused from any binding.
@@ -123,7 +123,7 @@ visible_check_enabled = false
 "Right" = "action move_mouse_relative --dx=10 --dy=0"
 
 [hints.ui]
-font_size = 10
+font_size = 12
 font_family = ""                            # Empty = system font
 border_radius = -1                          # -1 = auto pill
 padding_x = -1                              # -1 = auto based on font size
@@ -196,7 +196,7 @@ enable_gc = false                           # Periodic memory cleanup (adds CPU 
 "Right" = "action move_mouse_relative --dx=10 --dy=0"
 
 [grid.ui]
-font_size = 10
+font_size = 14
 font_family = ""
 border_width = 1
 background_color = "#00000000" # 0% opaque black
