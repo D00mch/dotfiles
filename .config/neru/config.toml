@@ -373,7 +373,7 @@ indicator_y_offset = 20
 # Sticky modifiers
 # See https://github.com/y3owk1n/neru/blob/main/docs/CONFIGURATION.md#sticky_modifiers
 [sticky_modifiers]
-enabled = true
+enabled = false
 tap_max_duration = 300
 
 [sticky_modifiers.ui]
