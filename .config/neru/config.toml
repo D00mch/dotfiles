@@ -199,7 +199,8 @@ enable_gc = false                           # Periodic memory cleanup (adds CPU 
 font_size = 14
 font_family = "monospace"
 border_width = 2
-background_color = "#807fffd4" # 0% opaque black
+background_color = "#992f4f4f" # 0% opaque black
+text_color = "#FFFFFFFF"
 
 
 # Recursive grid mode (recommended)
