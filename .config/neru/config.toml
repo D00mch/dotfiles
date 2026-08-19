@@ -197,9 +197,10 @@ enable_gc = false                           # Periodic memory cleanup (adds CPU 
 
 [grid.ui]
 font_size = 14
-font_family = ""
-border_width = 1
-background_color = "#00000000" # 0% opaque black
+font_family = "monospace"
+border_width = 2
+background_color = "#807fffd4" # 0% opaque black
+
 
 # Recursive grid mode (recommended)
 # See https://github.com/y3owk1n/neru/blob/main/docs/CONFIGURATION.md#recursive_grid
