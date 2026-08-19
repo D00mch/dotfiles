@@ -93,6 +93,9 @@
                  [:!Qcomma :!CSopen_bracket [:!neovide]]
                  [:!Qperiod :!CSclose_bracket [:!neovide]]
 
+                 ;; wezterm
+                 [:!CQw :!Cequal_sign [:wezterm]]            ; font/UI size +
+
                  ;; special symbols
                  [:!Qp :equal_sign]                       ; =
                  [:!Q##w :!Requal_sign]                   ; +
