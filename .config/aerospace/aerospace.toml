@@ -53,9 +53,9 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 [gaps]
 inner.horizontal = [{ monitor."^built-in retina display$" = 0 }, 12]
 inner.vertical =   [{ monitor."^built-in retina display$" = 0 }, 12]
-outer.top =        [{ monitor."^built-in retina display$" = 0 }, 0]
+outer.top =        [{ monitor."^gigabyte m32u$" = 0 }, 0]
 outer.right =      [{ monitor."^gigabyte m32u$" = 164 }, 0]
-outer.bottom =     [{ monitor."^built-in retina display$" = 0 }, 0]
+outer.bottom =     [{ monitor."^gigabyte m32u$" = 24 }, 0]
 outer.left =       [{ monitor."^gigabyte m32u$" = 164 }, 0]
 
 # 'main' binding mode declaration
