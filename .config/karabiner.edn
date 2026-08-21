@@ -129,6 +129,7 @@
                  [:!O##w       :!OSequal_sign]
                  [:!O##q       :!Tq]
                  [:!O##c       :!Tc]
+                 [:!O##r       :!Tr]
 
                  [:!O##semicolon :!Obackslash]
 

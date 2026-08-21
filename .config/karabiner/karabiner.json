@@ -1133,6 +1133,19 @@
           "type" : "basic"
         }, {
           "from" : {
+            "key_code" : "r",
+            "modifiers" : {
+              "mandatory" : [ "left_option" ],
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "r",
+            "modifiers" : [ "left_control" ]
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
             "key_code" : "semicolon",
             "modifiers" : {
               "mandatory" : [ "left_option" ],
