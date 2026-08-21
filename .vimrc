@@ -64,6 +64,7 @@ cd $HOME
 
     "COPY FILE, PATH
         nnoremap yp :let @+=expand("%:p")<cr>:echom expand("%:p")<cr>
+        nnoremap yr :let @+=expand("%:.")<cr>:echom expand("%:.")<cr>
         nnoremap yd :let @+=expand("%:p:h")<cr>:echom expand("%:p:h")<cr>
     "SPACEMACS-LIKE
         map <space>; gcc
