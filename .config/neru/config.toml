@@ -207,12 +207,15 @@ text_color = "#FFFFFFFF"
 # See https://github.com/y3owk1n/neru/blob/main/docs/CONFIGURATION.md#recursive_grid
 [recursive_grid]
 enabled = true
-grid_cols = 4                               # Number of columns (>= 1)
-grid_rows = 3                               # Number of rows (>= 1)
-keys = "uiopjkl;m,./"                          # Cell selection keys (must be grid_cols * grid_rows chars)
-min_size_width = 1                          # Stop subdividing below this width (px)
-min_size_height = 1                         # Stop subdividing below this height (px)
-max_depth = 10                              # Maximum recursion levels (1–20)
+grid_cols = 7                                        # Number of columns (>= 1)
+grid_rows = 6                                        # Number of rows (>= 1)
+keys = "1234567890qwertyuiopasdfghjkl;zxcvbnm,./[]"  # Cell selection keys (must be grid_cols * grid_rows chars)
+min_size_width = 1                                   # Stop subdividing below this width (px)
+min_size_height = 1                                  # Stop subdividing below this height (px)
+max_depth = 2                                        # Maximum recursion levels (1–20)
+layers = [
+  { depth = 2, grid_cols = 4, grid_rows = 3, keys = "uiopjkl;m,/." },
+]
 
 [recursive_grid.animation]
 enabled = true                              # Opt out from native depth transition animation on supported platforms
@@ -221,33 +224,36 @@ duration_ms = 50                            # Recursive-grid animation duration 
 [recursive_grid.hotkeys]
 "Escape" = "idle"
 "`" = "toggle-cursor-follow-selection"
-"Space" = "action reset"
+# "Space" = "action reset"
 "Backspace" = "action backspace"
 "Shift+M" = "action middle_click"
-"Shift+A" = "action left_click --state down"
+"Shift+G" = "action left_click --state down"
 "Shift+U" = "action left_click --state up"
 "Up" = "action move_mouse_relative --dx=0 --dy=-10"
 "Down" = "action move_mouse_relative --dx=0 --dy=10"
 "Left" = "action move_mouse_relative --dx=-10 --dy=0"
 "Right" = "action move_mouse_relative --dx=10 --dy=0"
-"a" = ["action left_click --bare", "idle"]
-"s" = ["action right_click --bare", "idle"]
+"Space" = ["action left_click --bare", "idle"]
+"Shift+Space" = ["action right_click --bare", "idle"]
 
 [recursive_grid.ui]
 line_width = 1
-font_size = 10
-font_family = ""
-label_background = false                    # Add rounded backgrounds behind cell labels
+font_size = 16
+font_family = "monospace"
+label_background = true                    # Add rounded backgrounds behind cell labels
 label_background_padding_x = -1
 label_background_padding_y = -1
 label_background_border_radius = -1
-label_background_border_width = 1
+label_background_border_width = 2
 label_char = ""                             # Override cell labels with a single character (e.g. "·"); empty = use key
 label_autohide_multiplier = 1.5             # Hide labels when cell < fontSize × multiplier (0 = disable)
 sub_key_preview = false                     # Draw miniature key grid inside each cell
 sub_key_preview_font_size = 8
 sub_key_preview_autohide_multiplier = 1.5
 sub_key_preview_label_char = ""             # Override sub-key preview labels with a single character (e.g. "·"); empty = use key
+border_width = 2
+background_color = "#992f4f4f" # 0% opaque black
+text_color = "#FFFFFFFF"
 
 # Virtual pointer
 # See https://github.com/y3owk1n/neru/blob/main/docs/CONFIGURATION.md#virtual_pointer
@@ -328,8 +334,8 @@ invert_scroll = false                       # Invert scroll direction (for tools
 "PageUp" = "action page_up"
 "d" = "action page_down"
 "PageDown" = "action page_down"
-"Shift+L" = "action left_click"
-"Shift+R" = "action right_click"
+"Space" = "action left_click"
+"Shift+Space" = "action right_click"
 "Shift+M" = "action middle_click"
 "Shift+I" = "action left_click --state down"
 "Shift+U" = "action left_click --state up"
