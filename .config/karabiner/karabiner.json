@@ -1146,6 +1146,32 @@
           "type" : "basic"
         }, {
           "from" : {
+            "key_code" : "a",
+            "modifiers" : {
+              "mandatory" : [ "left_option" ],
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "a",
+            "modifiers" : [ "left_control" ]
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "x",
+            "modifiers" : {
+              "mandatory" : [ "left_option" ],
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "x",
+            "modifiers" : [ "left_control" ]
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
             "key_code" : "semicolon",
             "modifiers" : {
               "mandatory" : [ "left_option" ],

@@ -125,11 +125,14 @@
 
         {:des "Alt layer"
          :rules [
+                 ;; ctrl
                  [:!O##e       :!OShyphen]
                  [:!O##w       :!OSequal_sign]
                  [:!O##q       :!Tq]
                  [:!O##c       :!Tc]
                  [:!O##r       :!Tr]
+                 [:!O##a       :!Ta]
+                 [:!O##x       :!Tx]
 
                  [:!O##semicolon :!Obackslash]
 
