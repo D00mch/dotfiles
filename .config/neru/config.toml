@@ -42,8 +42,12 @@ text = "#E8EEFF"
 [hotkeys]
 "Primary+Shift+Space" = "hints --action left_click"
 "Primary+Shift+P" = "hints --action right_click"
+# "Primary+Shift+G" = [
+#     "action move_mouse --center",
+#     "grid --action left_click",
+# ]
+
 "Primary+Shift+G" = "recursive_grid --action left_click"
-# "Primary+Shift+C" = "recursive_grid"
 "Primary+Shift+S" = "scroll"
 
 # Macros — named action sequences, reused from any binding.
@@ -123,7 +127,7 @@ visible_check_enabled = false
 "Right" = "action move_mouse_relative --dx=10 --dy=0"
 
 [hints.ui]
-font_size = 12
+font_size = 11
 font_family = ""                            # Empty = system font
 border_radius = -1                          # -1 = auto pill
 padding_x = -1                              # -1 = auto based on font size
@@ -174,7 +178,7 @@ generic_clickable_min_confidence = 0.5       # Minimum confidence for generic cl
 [grid]
 enabled = true
 characters = "abcdefghijklmnpqrstuvwxyz"    # Primary grid labels
-sublayer_keys = "abcdefghijklmnpqrstuvwxyz" # Subgrid labels (fallback to characters)
+sublayer_keys = "uiojklm,."                 # Subgrid labels (fallback to characters)
 live_match_update = true                    # Highlight cells as you type
 hide_unmatched = true                       # Hide non-matching cells
 prewarm_enabled = true                      # Pre-compute grid on startup (~1.5MB RAM)
@@ -182,11 +186,12 @@ enable_gc = false                           # Periodic memory cleanup (adds CPU 
 
 [grid.hotkeys]
 "Escape" = "idle"
-"`" = "toggle-cursor-follow-selection"
-"Space" = "action reset"
+# "`" = "toggle-cursor-follow-selection"
+"`" = "__disabled__"
+# "Space" = "action reset"
 "Backspace" = "action backspace"
-"Shift+L" = "action left_click"
-"Shift+R" = "action right_click"
+"Space" = "action left_click"
+"Shift+Space" = "action right_click"
 "Shift+M" = "action middle_click"
 "Shift+I" = "action left_click --state down"
 "Shift+U" = "action left_click --state up"
@@ -207,12 +212,12 @@ text_color = "#FFFFFFFF"
 # See https://github.com/y3owk1n/neru/blob/main/docs/CONFIGURATION.md#recursive_grid
 [recursive_grid]
 enabled = true
-grid_cols = 7                                        # Number of columns (>= 1)
-grid_rows = 6                                        # Number of rows (>= 1)
-keys = "1234567890qwertyuiopasdfghjkl;zxcvbnm,./[]"  # Cell selection keys (must be grid_cols * grid_rows chars)
-min_size_width = 1                                   # Stop subdividing below this width (px)
-min_size_height = 1                                  # Stop subdividing below this height (px)
-max_depth = 2                                        # Maximum recursion levels (1–20)
+grid_cols = 7                                                  # Number of columns (>= 1)
+grid_rows = 7                                                  # Number of rows (>= 1)
+keys = "1234567890qwertyuiopasdfghjkl;zxcvbnm,./[]\r-='\\\t`"  # Cell selection keys (must be grid_cols * grid_rows chars)
+min_size_width = 1                                             # Stop subdividing below this width (px)
+min_size_height = 1                                            # Stop subdividing below this height (px)
+max_depth = 2                                                  # Maximum recursion levels (1–20)
 layers = [
   { depth = 2, grid_cols = 4, grid_rows = 3, keys = "uiopjkl;m,/." },
 ]
@@ -223,7 +228,8 @@ duration_ms = 50                            # Recursive-grid animation duration 
 
 [recursive_grid.hotkeys]
 "Escape" = "idle"
-"`" = "toggle-cursor-follow-selection"
+# "`" = "toggle-cursor-follow-selection"
+"`" = "__disabled__"
 # "Space" = "action reset"
 "Backspace" = "action backspace"
 "Shift+M" = "action middle_click"
@@ -238,22 +244,36 @@ duration_ms = 50                            # Recursive-grid animation duration 
 
 [recursive_grid.ui]
 line_width = 1
-font_size = 16
+font_size = 13
 font_family = "monospace"
+border_width = 0
+label_background_border_width = 0
+line_color = {
+  light = "#99000000",
+  dark  = "#99FFFFFF",
+}
+highlight_color = {
+  light = "#4D0066FF",
+  dark  = "#4D66B3FF",
+}
+text_color = {
+  light = "#FF111111",
+  dark  = "#FFFFFFFF",
+}
+label_background_color = {
+  light = "#B3FFFFFF",
+  dark  = "#B3202020",
+}
 label_background = true                    # Add rounded backgrounds behind cell labels
 label_background_padding_x = -1
 label_background_padding_y = -1
 label_background_border_radius = -1
-label_background_border_width = 2
 label_char = ""                             # Override cell labels with a single character (e.g. "·"); empty = use key
 label_autohide_multiplier = 1.5             # Hide labels when cell < fontSize × multiplier (0 = disable)
 sub_key_preview = false                     # Draw miniature key grid inside each cell
 sub_key_preview_font_size = 8
 sub_key_preview_autohide_multiplier = 1.5
 sub_key_preview_label_char = ""             # Override sub-key preview labels with a single character (e.g. "·"); empty = use key
-border_width = 2
-background_color = "#992f4f4f" # 0% opaque black
-text_color = "#FFFFFFFF"
 
 # Virtual pointer
 # See https://github.com/y3owk1n/neru/blob/main/docs/CONFIGURATION.md#virtual_pointer
