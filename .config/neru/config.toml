@@ -42,12 +42,11 @@ text = "#E8EEFF"
 [hotkeys]
 "Primary+Shift+Space" = "hints --action left_click"
 "Primary+Shift+P" = "hints --action right_click"
-# "Primary+Shift+G" = [
-#     "action move_mouse --center",
-#     "grid --action left_click",
-# ]
-
-"Primary+Shift+G" = "recursive_grid --action left_click"
+"Primary+Shift+G" = [
+    "action move_mouse --center",
+    "grid --action left_click",
+]
+# "Primary+Shift+G" = "recursive_grid --action left_click"
 "Primary+Shift+S" = "scroll"
 
 # Macros — named action sequences, reused from any binding.
@@ -177,12 +176,13 @@ generic_clickable_min_confidence = 0.5       # Minimum confidence for generic cl
 # See https://github.com/y3owk1n/neru/blob/main/docs/CONFIGURATION.md#grid
 [grid]
 enabled = true
-characters = "abcdefghijklmnpqrstuvwxyz"    # Primary grid labels
-sublayer_keys = "uiojklm,."                 # Subgrid labels (fallback to characters)
-live_match_update = true                    # Highlight cells as you type
-hide_unmatched = true                       # Hide non-matching cells
-prewarm_enabled = true                      # Pre-compute grid on startup (~1.5MB RAM)
-enable_gc = false                           # Periodic memory cleanup (adds CPU overhead)
+max_label_length = 2
+characters = "qwertyuiopasdfghjkl;zxcvbnm,./[]-" # Primary grid labels
+sublayer_keys = "uiojklm,."                                 # Subgrid labels (fallback to characters)
+live_match_update = true                                    # Highlight cells as you type
+hide_unmatched = true                                       # Hide non-matching cells
+prewarm_enabled = true                                      # Pre-compute grid on startup (~1.5MB RAM)
+enable_gc = false                                           # Periodic memory cleanup (adds CPU overhead)
 
 [grid.hotkeys]
 "Escape" = "idle"
@@ -190,10 +190,10 @@ enable_gc = false                           # Periodic memory cleanup (adds CPU 
 "`" = "__disabled__"
 # "Space" = "action reset"
 "Backspace" = "action backspace"
-"Space" = "action left_click"
+"Space" = ["action left_click", "idle"]
 "Shift+Space" = "action right_click"
 "Shift+M" = "action middle_click"
-"Shift+I" = "action left_click --state down"
+"Shift+A" = "action left_click --state down"
 "Shift+U" = "action left_click --state up"
 "Up" = "action move_mouse_relative --dx=0 --dy=-10"
 "Down" = "action move_mouse_relative --dx=0 --dy=10"
@@ -201,7 +201,7 @@ enable_gc = false                           # Periodic memory cleanup (adds CPU 
 "Right" = "action move_mouse_relative --dx=10 --dy=0"
 
 [grid.ui]
-font_size = 14
+font_size = 12
 font_family = "monospace"
 border_width = 2
 background_color = "#992f4f4f" # 0% opaque black
@@ -212,18 +212,19 @@ text_color = "#FFFFFFFF"
 # See https://github.com/y3owk1n/neru/blob/main/docs/CONFIGURATION.md#recursive_grid
 [recursive_grid]
 enabled = true
-grid_cols = 7                                                  # Number of columns (>= 1)
-grid_rows = 7                                                  # Number of rows (>= 1)
-keys = "1234567890qwertyuiopasdfghjkl;zxcvbnm,./[]\r-='\\\t`"  # Cell selection keys (must be grid_cols * grid_rows chars)
-min_size_width = 1                                             # Stop subdividing below this width (px)
-min_size_height = 1                                            # Stop subdividing below this height (px)
-max_depth = 2                                                  # Maximum recursion levels (1–20)
+grid_cols = 15
+grid_rows = 3                                                  
+keys = "1234567890qwertyuiopasdfghjkl;zxcvbnm,./[]-=\t"  
+min_size_width = 1                                          
+min_size_height = 1                                         
+max_depth = 2                                              
 layers = [
-  { depth = 2, grid_cols = 4, grid_rows = 3, keys = "uiopjkl;m,/." },
+  { depth = 1, grid_cols = 3, grid_rows = 15, keys = "1234567890qwertyuiopasdfghjkl;zxcvbnm,./[]-=\t" },
+  { depth = 2, grid_cols = 4, grid_rows = 3, keys = "uiopjkl;m,./" },
 ]
 
 [recursive_grid.animation]
-enabled = true                              # Opt out from native depth transition animation on supported platforms
+enabled = false                              # Opt out from native depth transition animation on supported platforms
 duration_ms = 50                            # Recursive-grid animation duration in milliseconds
 
 [recursive_grid.hotkeys]
@@ -233,12 +234,12 @@ duration_ms = 50                            # Recursive-grid animation duration 
 # "Space" = "action reset"
 "Backspace" = "action backspace"
 "Shift+M" = "action middle_click"
-"Shift+G" = "action left_click --state down"
+"Shift+A" = "action left_click --state down"
 "Shift+U" = "action left_click --state up"
-"Up" = "action move_mouse_relative --dx=0 --dy=-10"
-"Down" = "action move_mouse_relative --dx=0 --dy=10"
-"Left" = "action move_mouse_relative --dx=-10 --dy=0"
-"Right" = "action move_mouse_relative --dx=10 --dy=0"
+"Up" = "action move_mouse_relative --dx=0 --dy=-5"
+"Down" = "action move_mouse_relative --dx=0 --dy=5"
+"Left" = "action move_mouse_relative --dx=-5 --dy=0"
+"Right" = "action move_mouse_relative --dx=5 --dy=0"
 "Space" = ["action left_click --bare", "idle"]
 "Shift+Space" = ["action right_click --bare", "idle"]
 
