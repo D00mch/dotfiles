@@ -195,10 +195,10 @@ enable_gc = false                                           # Periodic memory cl
 "Shift+M" = "action middle_click"
 "Shift+A" = "action left_click --state down"
 "Shift+U" = "action left_click --state up"
-"Up" = "action move_mouse_relative --dx=0 --dy=-10"
-"Down" = "action move_mouse_relative --dx=0 --dy=10"
-"Left" = "action move_mouse_relative --dx=-10 --dy=0"
-"Right" = "action move_mouse_relative --dx=10 --dy=0"
+"Up" = "action move_mouse_relative --dx=0 --dy=-5"
+"Down" = "action move_mouse_relative --dx=0 --dy=5"
+"Left" = "action move_mouse_relative --dx=-5 --dy=0"
+"Right" = "action move_mouse_relative --dx=5 --dy=0"
 
 [grid.ui]
 font_size = 12
