@@ -18,7 +18,7 @@ set notimeout
 
 "VIM HOTKEYS
     nnoremap yp :action CopyAbsolutePath<cr>
-    nnoremap yr :action CopyContentRootPath<cr>
+    nnoremap yr :action CopyPathFromRepositoryRootProvider<cr>
     nmap <C-q> :action FindUsages<cr>
     nmap ]q :action NextOccurence<cr>
     nmap [q :action PreviousOccurence<cr>
