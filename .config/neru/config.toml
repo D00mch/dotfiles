@@ -177,7 +177,7 @@ generic_clickable_min_confidence = 0.5       # Minimum confidence for generic cl
 [grid]
 enabled = true
 max_label_length = 2
-characters = "qwertyuiopasdfghjkl;zxcvbnm,./[]-" # Primary grid labels
+characters = "qwertyuiopasdfghjkl;zxcvbnm,./[]-123456789'-" # Primary grid labels
 sublayer_keys = "uiojklm,."                                 # Subgrid labels (fallback to characters)
 live_match_update = true                                    # Highlight cells as you type
 hide_unmatched = true                                       # Hide non-matching cells
@@ -214,12 +214,12 @@ text_color = "#FFFFFFFF"
 enabled = true
 grid_cols = 15
 grid_rows = 3                                                  
-keys = "1234567890qwertyuiopasdfghjkl;zxcvbnm,./[]-=\t"  
+keys = "123456789\\qwertyuiopasdfghjkl;zxcvbnm,./[]-=\t"  
 min_size_width = 1                                          
 min_size_height = 1                                         
 max_depth = 2                                              
 layers = [
-  { depth = 1, grid_cols = 3, grid_rows = 15, keys = "1234567890qwertyuiopasdfghjkl;zxcvbnm,./[]-=\t" },
+  { depth = 1, grid_cols = 3, grid_rows = 15, keys = "123456789\\qwertyuiopasdfghjkl;zxcvbnm,./[]-=\t" },
   { depth = 2, grid_cols = 4, grid_rows = 3, keys = "uiopjkl;m,./" },
 ]
 
@@ -358,7 +358,7 @@ invert_scroll = false                       # Invert scroll direction (for tools
 "Space" = "action left_click"
 "Shift+Space" = "action right_click"
 "Shift+M" = "action middle_click"
-"Shift+I" = "action left_click --state down"
+"Shift+A" = "action left_click --state down"
 "Shift+U" = "action left_click --state up"
 "Up" = "action move_mouse_relative --dx=0 --dy=-10"
 "Down" = "action move_mouse_relative --dx=0 --dy=10"
