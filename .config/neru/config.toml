@@ -176,8 +176,9 @@ generic_clickable_min_confidence = 0.5       # Minimum confidence for generic cl
 # See https://github.com/y3owk1n/neru/blob/main/docs/CONFIGURATION.md#grid
 [grid]
 enabled = true
+max_depth = 0
 max_label_length = 2
-characters = "qwertyuiopasdfghjkl;zxcvbnm,./[]-123456789'-" # Primary grid labels
+characters = "qwertyuiopasdfghjkl;zxcvbnm,./"               # Primary grid labels
 sublayer_keys = "uiojklm,."                                 # Subgrid labels (fallback to characters)
 live_match_update = true                                    # Highlight cells as you type
 hide_unmatched = true                                       # Hide non-matching cells
@@ -189,6 +190,7 @@ enable_gc = false                                           # Periodic memory cl
 # "`" = "toggle-cursor-follow-selection"
 "`" = "__disabled__"
 # "Space" = "action reset"
+"s" = "scroll"
 "Backspace" = "action backspace"
 "Space" = ["action left_click", "idle"]
 "Shift+Space" = "action right_click"
@@ -434,12 +436,12 @@ duration_per_pixel = 1.00                   # Ms per pixel for adaptive duration
 # Held-key repeat (fires scroll/page/mouse-move actions repeatedly while held)
 # See https://github.com/y3owk1n/neru/blob/main/docs/CONFIGURATION.md#held_repeat
 [held_repeat]
-enabled = false                         # Master toggle for held-key repeat
-initial_delay_ms = 50                   # Delay before first repeat fires (ms)
-interval_ms = 50                        # Interval between subsequent repeats (ms)
-accel_enabled = false                   # Ramp step distance up the longer the key is held
+enabled = true                          # Master toggle for held-key repeat
+initial_delay_ms = 40                   # Delay before first repeat fires (ms)
+interval_ms = 40                        # Interval between subsequent repeats (ms)
+accel_enabled = true                    # Ramp step distance up the longer the key is held
 accel_ramp_ms = 500                     # Hold time to reach accel_max_multiplier (ms)
-accel_max_multiplier = 4.0              # Step distance multiplier at full ramp
+accel_max_multiplier = 5.0              # Step distance multiplier at full ramp
 accel_targets = ["move_mouse_relative"] # Action names eligible for acceleration
 
 # Systray
