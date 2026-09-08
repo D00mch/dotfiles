@@ -84,7 +84,7 @@
               (lsp :gopls default-map)
               (lsp :basedpyright default-map)
               (lsp :kotlin_lsp
-                (merge default-map {:autostart false}))
+                (merge default-map {:autostart true}))
               (lsp :vtsls default-map)
               
               ;; div completions

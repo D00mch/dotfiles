@@ -44,8 +44,8 @@ local function _5_()
   lsp("clojure_lsp", default_map)
   lsp("jdtls", default_map)
   lsp("gopls", default_map)
-  lsp("Basedpyright", default_map)
-  lsp("kotlin_lsp", merge(default_map, {autostart = false}))
+  lsp("basedpyright", default_map)
+  lsp("kotlin_lsp", merge(default_map, {autostart = true}))
   lsp("vtsls", default_map)
   lsp("emmet_language_server", merge({filetypes = {"css", "html", "javascript", "typescript", "typescriptreact", "javascriptreact", "svelte", "vue", "vue-html", "less", "scss", "sass", "sas"}}))
   local function _9_(client, b)
@@ -54,6 +54,6 @@ local function _5_()
     return highlight_line_symbol()
   end
   lsp("ltex", merge(default_map, {on_attach = _9_, filetypes = {"markdown", "NeogitCommitMessage", "gitcommit"}, settings = {ltex = {}}}))
-  return vim.lsp.enable({"fennel_language_server", "clojure_lsp", "jdtls", "gopls", "kotlin_lsp", "vtsls", "emmet_language_server", "ltex", "Basedpyright"})
+  return vim.lsp.enable({"fennel_language_server", "clojure_lsp", "jdtls", "gopls", "kotlin_lsp", "vtsls", "emmet_language_server", "ltex", "basedpyright"})
 end
 return {{"neovim/nvim-lspconfig", ft = {"clojure", "go", "dart", "markdown", "md", "fennel"}, cmd = {"LspInfo", "LspInstall", "LspUninstall", "LspStart"}, dependencies = {"mason-org/mason.nvim", "barreiroleo/ltex-extra.nvim", "RRethy/vim-illuminate", "nvim-lua/plenary.nvim"}, init = _4_, config = _5_, lazy = false}}
