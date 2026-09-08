@@ -75,6 +75,7 @@ set notimeout
 
 "NAVIGATION
     set path+=**
+    nmap gf <Action>(Diff.OpenInEditor)
 
 
     "SPACEMACS-LIKE
