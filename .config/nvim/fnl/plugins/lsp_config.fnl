@@ -1,6 +1,5 @@
 (local {: autoload} (require :nfnl.module))
 (local {:on-attach on-attach-util : highlight-line-symbol} (autoload :config.util))
-(local {: merge} (autoload :nfnl.core))
 
 (local diagnostics
   {:severity_sort true
@@ -36,13 +35,8 @@
                   capabilities
                   (cmplsp.default_capabilities)
 
-                  before-init
-                  (fn [params]
-                    (set params.workDoneToken :1))
-
                   default-map
                   {:on_attach on-attach
-                   :before_init before-init
                    :capabilities capabilities}]
 
               (vim.diagnostic.config diagnostics)
@@ -55,9 +49,9 @@
 
               (illuminate.configure)
 
+              (lsp "*" default-map)
+
               (lsp :fennel_language_server
-                (merge 
-                  default-map
                   {:settings
                    {:fennel
                     {:workspace {:library (vim.api.nvim_list_runtime_paths)}
@@ -68,25 +62,16 @@
                    :root_markers [:.git :fnl :lua]
                    :on_attach (fn [client b]
                                 (on-attach client b)
-                                (highlight-line-symbol))}))
+                                (highlight-line-symbol))})
 
-              (lsp :clojure_lsp default-map)
-              (lsp :jdtls default-map)
-              (lsp :gopls default-map)
-              (lsp :basedpyright default-map)
-              (lsp :kotlin_lsp
-                (merge default-map {:autostart true}))
-              (lsp :vtsls default-map)
+              (lsp :kotlin_lsp {:autostart true})
               
               ;; div completions
               (lsp :emmet_language_server
-                (merge
-                  
                   {:filetypes [:css :html :javascript :typescript :typescriptreact :javascriptreact
-                               :svelte :vue :vue-html :less :scss :sass :sas]}))
+                               :svelte :vue :vue-html :less :scss :sass :sas]})
 
               (lsp :ltex
-                (merge default-map
                        {:on_attach (fn [client b]
                                      (on-attach client b)
                                      (ltex.setup
@@ -96,7 +81,7 @@
                                         :log_level :debug})
                                      (highlight-line-symbol))
                         :filetypes ["markdown" "NeogitCommitMessage" "gitcommit"]
-                        :settings {:ltex {}}}))
+                        :settings {:ltex {}}})
 
               (vim.lsp.enable [:fennel_language_server
                                :clojure_lsp

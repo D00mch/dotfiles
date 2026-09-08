@@ -1,7 +1,6 @@
 ;; fnl/plugins/rust.fnl
 (local {: autoload} (require :nfnl.module))
-(local {: bkset : vis-op+ : on-attach} (autoload :config.util))
-(local cmplsp (autoload "cmp_nvim_lsp"))
+(local {: on-attach} (autoload :config.util))
 
 [{1 :mrcjkb/rustaceanvim
   :version :^7
@@ -9,6 +8,6 @@
   :tag :v7.0.6
   :cond true
   :init (fn []
-          (set vim.g.rustaceanvim
-               {:server {:on_attach on-attach
-                         :capabilities (cmplsp.default_capabilities)}}))}]
+          ;; Keep Rust semantic tokens.
+          (vim.lsp.config :rust-analyzer
+                          {:on_attach on-attach}))}]
