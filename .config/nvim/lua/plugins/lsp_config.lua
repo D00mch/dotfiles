@@ -30,7 +30,7 @@ local function _5_()
     return nil
   end
   before_init = _7_
-  local default_map = {on_attach = on_attach, before_init = before_init, capabilities = cmplsp.default_capabilities()}
+  local default_map = {on_attach = on_attach, before_init = before_init, capabilities = capabilities}
   vim.diagnostic.config(diagnostics)
   capabilities.textDocument.foldingRange = {lineFoldingOnly = true, dynamicRegistration = false}
   mason.setup()

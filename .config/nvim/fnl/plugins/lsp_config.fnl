@@ -43,7 +43,7 @@
                   default-map
                   {:on_attach on-attach
                    :before_init before-init
-                   :capabilities (cmplsp.default_capabilities)}]
+                   :capabilities capabilities}]
 
               (vim.diagnostic.config diagnostics)
 
