@@ -121,7 +121,7 @@ end
 local function on_attach(c, b)
   highlight_symbols(c, b)
   local function _15_()
-    return vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({0}), {0})
+    return vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({bufnr = b}), {bufnr = b})
   end
   bkset("n", "<space>th", _15_, {buffer = b, desc = "Inlay hints"})
   local function _16_()

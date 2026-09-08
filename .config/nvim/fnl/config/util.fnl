@@ -109,7 +109,7 @@
   (bkset :n :<space>th
          (fn []
            (vim.lsp.inlay_hint.enable 
-             (not (vim.lsp.inlay_hint.is_enabled [0])) [0]))
+             (not (vim.lsp.inlay_hint.is_enabled {:bufnr b})) {:bufnr b}))
          {:buffer b :desc "Inlay hints"})	
 
   (bkset :n :<leader>h (fn [] (vim.lsp.buf.hover {:border :single}) (vim.lsp.buf.hover {:border :single})) {:buffer b :desc "Show docs"})
