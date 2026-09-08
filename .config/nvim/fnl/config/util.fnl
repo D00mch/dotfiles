@@ -112,13 +112,13 @@
              (not (vim.lsp.inlay_hint.is_enabled [0])) [0]))
          {:buffer b :desc "Inlay hints"})	
 
-  (bkset :n :<leader>h (fn [] (vim.lsp.buf.hover) (vim.lsp.buf.hover)) {:buffer b :desc "Show docs"})
+  (bkset :n :<leader>h (fn [] (vim.lsp.buf.hover {:border :single}) (vim.lsp.buf.hover {:border :single})) {:buffer b :desc "Show docs"})
   (bkset :n :gd #(lsp_definitions {:initial_mode :normal}) {:buffer b :desc "Go definition"})
 
   (bkset :n :gD "<c-w><c-]><c-w>T" {:buffer b :desc "Go definition new tab"})
   (bkset :n :<leader>tD vim.lsp.buf.type_definition {:buffer b :desc "Type definition"})
-  (bkset [:i :n] "<M-;>" vim.lsp.buf.signature_help {:buffer b :desc "Signiture help"})
-  (bkset [:i :n] "<D-p>" vim.lsp.buf.signature_help {:buffer b :desc "Signiture help"})
+  (bkset [:i :n] "<M-;>" #(vim.lsp.buf.signature_help {:border :single}) {:buffer b :desc "Signiture help"})
+  (bkset [:i :n] "<D-p>" #(vim.lsp.buf.signature_help {:border :single}) {:buffer b :desc "Signiture help"})
   (bkset :n :<leader>rr vim.lsp.buf.rename {:buffer b :desc "Rename"})
   (bkset :n :<leader>p vim.diagnostic.open_float {:buffer b :desc "Preview diagnostics"})
   ;(bkset :n :<leader>re vim.diagnostic.setloclist {:buffer b :desc "List diagnostics"})

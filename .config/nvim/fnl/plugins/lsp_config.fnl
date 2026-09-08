@@ -11,14 +11,6 @@
    :virtual_lines false ; {:current_line true}
    })
 
-(local handlers
-  {"textDocument/hover"
-   (vim.lsp.buf.hover
-     {:border "single"})
-   "textDocument/signatureHelp"
-   (vim.lsp.buf.signature_help
-     {:border "single"})})
-
 [{1 :neovim/nvim-lspconfig
   :lazy false
   :ft [:clojure :go :dart :markdown :md :fennel]
@@ -51,7 +43,6 @@
                   default-map
                   {:on_attach on-attach
                    :before_init before-init
-                   :handlers handlers
                    :capabilities (cmplsp.default_capabilities)}]
 
               (vim.diagnostic.config diagnostics)
