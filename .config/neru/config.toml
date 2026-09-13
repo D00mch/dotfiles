@@ -190,17 +190,16 @@ enable_gc = false                                           # Periodic memory cl
 # "`" = "toggle-cursor-follow-selection"
 "`" = "__disabled__"
 # "Space" = "action reset"
-"s" = "scroll"
 "Backspace" = "action backspace"
 "Space" = ["action left_click", "idle"]
 "Shift+Space" = "action right_click"
 "Shift+M" = "action middle_click"
 "Shift+A" = "action left_click --state down"
 "Shift+U" = "action left_click --state up"
-"Up" = "action move_mouse_relative --dx=0 --dy=-5"
-"Down" = "action move_mouse_relative --dx=0 --dy=5"
-"Left" = "action move_mouse_relative --dx=-5 --dy=0"
-"Right" = "action move_mouse_relative --dx=5 --dy=0"
+"Up" = "action move_mouse_relative --dx=0 --dy=-3"
+"Down" = "action move_mouse_relative --dx=0 --dy=3"
+"Left" = "action move_mouse_relative --dx=-3 --dy=0"
+"Right" = "action move_mouse_relative --dx=3 --dy=0"
 
 [grid.ui]
 font_size = 12
@@ -362,10 +361,10 @@ invert_scroll = false                       # Invert scroll direction (for tools
 "Shift+M" = "action middle_click"
 "Shift+A" = "action left_click --state down"
 "Shift+U" = "action left_click --state up"
-"Up" = "action move_mouse_relative --dx=0 --dy=-10"
-"Down" = "action move_mouse_relative --dx=0 --dy=10"
-"Left" = "action move_mouse_relative --dx=-10 --dy=0"
-"Right" = "action move_mouse_relative --dx=10 --dy=0"
+"Up" = "action move_mouse_relative --dx=0 --dy=-3"
+"Down" = "action move_mouse_relative --dx=0 --dy=3"
+"Left" = "action move_mouse_relative --dx=-3 --dy=0"
+"Right" = "action move_mouse_relative --dx=3 --dy=0"
 
 # Mode indicator
 # See https://github.com/y3owk1n/neru/blob/main/docs/CONFIGURATION.md#mode_indicator
@@ -428,7 +427,7 @@ duration_per_pixel = 0.1                    # Ms per pixel for adaptive duration
 # Smooth scroll (animates scroll actions with eased chunking)
 # See https://github.com/y3owk1n/neru/blob/main/docs/CONFIGURATION.md#smooth_scroll
 [smooth_scroll]
-enabled = false                             # Enable smooth scrolling
+enabled = true                             # Enable smooth scrolling
 steps = 20                                  # Number of animation steps
 max_duration = 180                          # Maximum animation duration in ms
 duration_per_pixel = 1.00                   # Ms per pixel for adaptive duration
@@ -438,10 +437,10 @@ duration_per_pixel = 1.00                   # Ms per pixel for adaptive duration
 [held_repeat]
 enabled = true                          # Master toggle for held-key repeat
 initial_delay_ms = 40                   # Delay before first repeat fires (ms)
-interval_ms = 40                        # Interval between subsequent repeats (ms)
+interval_ms = 20                        # Interval between subsequent repeats (ms)
 accel_enabled = true                    # Ramp step distance up the longer the key is held
-accel_ramp_ms = 500                     # Hold time to reach accel_max_multiplier (ms)
-accel_max_multiplier = 5.0              # Step distance multiplier at full ramp
+accel_ramp_ms = 1200                     # Hold time to reach accel_max_multiplier (ms)
+accel_max_multiplier = 12.0              # Step distance multiplier at full ramp
 accel_targets = ["move_mouse_relative"] # Action names eligible for acceleration
 
 # Systray
