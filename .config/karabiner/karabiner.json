@@ -1764,6 +1764,7 @@
                     "ignore": false
                 },
                 {
+                    "disable_built_in_keyboard_if_exists": true,
                     "identifiers": {
                         "is_keyboard": true,
                         "is_pointing_device": true,
@@ -1778,6 +1779,23 @@
                         "is_keyboard": true,
                         "product_id": 9479,
                         "vendor_id": 40283
+                    }
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": true,
+                    "identifiers": {
+                        "device_address": "e3-40-d6-93-2e-5b",
+                        "is_keyboard": true,
+                        "is_pointing_device": true
+                    },
+                    "ignore": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": true,
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 23342,
+                        "vendor_id": 9354
                     }
                 }
             ],
