@@ -51,7 +51,7 @@ If you are not sure about something, leave a note for other developers to review
 │   └── clj_scripts/                      # Standalone Clojure utilities/projects
 ├── resources/
 │   ├── gpt/prompts.csv                   # Prompt-related data
-│   ├── keyboard_data/                    # Keyboard layout image and JSON metadata
+│   ├── keyboard_data/                    # Keyboard SVG, annotated KLE JSON, renderer, and firmware layouts
 │   └── Alien_Ship_bg_vert_images/        # Bundled image assets
 ├── sioyek/                               # Sioyek PDF reader config
 ├── vimium-c/                             # Exported Vimium C browser config

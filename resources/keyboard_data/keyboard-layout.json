@@ -1,162 +1,59 @@
 [
   [
+    {"a":0,"c":"#202833","t":"#edf2f7\n\n#82b7ff\n#efbc68\n\n#a6b0bd\n#8bd5a5\n\n#ff92a5"},
     "Tab",
-    {
-      "t": "#000000\n#c2b12e\n#3065e8\n\n\n\n#47e01f\n\n#e30e0e",
-      "a": 0
-    },
-    "Q\nWS1\n✖\n\n\nй\nCmd+1\n\n@",
-    {
-      "t": "#000000\n#c2b12e\n#3065e8\n\n\n\n#47e01f\n\n#e60e0e"
-    },
-    "W\nWS2\n×\n\n\nц\nCmd+2\n\n+",
-    {
-      "t": "#000000\n#c2b12e\n#3065e8\n\n\n\n#47e01f\n\n#e30e0e"
-    },
-    "E\nWS3\n⬆\n\n\nу\nCmd+3\n\n-",
-    {
-      "t": "#000000\n#c2b12e\n#3065e8\n\n\n\n#47e01f\n\n#e80e42"
-    },
-    "R\nWS4\n🔄\n\n\nк\nCmd+4\n\n*",
-    {
-      "t": "#000000\n#c2b12e\n#3065e8\n\n\n\n#47e01f\n\n#e3053a"
-    },
-    "T\nWS5\n\n\n\nе\nCmd+5\n\n_",
-    {
-      "t": "#000000\n#c2b12e\n#3065e8\n\n\n\n#47e01f\n\n#f00c42"
-    },
-    "Y\nWS6\n$\n\n\nн\nCmd+6\n\n📝",
-    {
-      "t": "#000000\n#c2b12e\n#3065e8\n#ea9417\n\n\n#47e01f\n\n#eb0e42"
-    },
-    "U\nWS7\n!\n7\n\nг\nCmd+7\n\n|",
-    {
-      "t": "#000000\n#c2b12e\n#3065e8\n#ea9417\n\n\n#47e01f\n\n#f50a41"
-    },
-    "I\nWS8\n[\n8\n\nш\nCmd+8\n\n⬆",
-    {
-      "t": "#000000\n#c2b12e\n#3065e8\n#ea9417\n\n\n#47e01f\n\n#e80c3f"
-    },
-    "O\nWS9\n]\n9\n\nщ\nCmd+9\n\n⌫",
-    {
-      "t": "#000000\n\n#3065e8\n\n\n\n\n\n#e6093c"
-    },
-    "P\n\n\n\n\nз\n\n\n=",
-    {
-      "t": "#000000",
-      "a": 3
-    },
-    "\n\n\n\n\nх"
+    "Q\n\n\n⌃Q\n\nй\n⌘1\n\n@",
+    "W\n\n\n⌥⇧=\n\nц\n⌘2\n\n+",
+    "E\n\nL⇧\n⌥⇧−\n\nу\n⌘3\n\n−",
+    "R\n\n\n⌃R\n\nк\n⌘4\n\n*",
+    "T\n\n\n\n\nе\n⌘5\n\n_",
+    "Y\n\n$\n\n\nн\n⌘6",
+    "U\n\n!\n7\n\nг\n⌘7\n\n|",
+    "I\n\n[\n8\n\nш\n⌘8\n\nR⇧",
+    "O\n\n]\n9\n\nщ\n⌘9\n\n⌫",
+    "P\n\n\n0\n\nз\n⌘0\n\n=",
+    "[\n\n\n\n\nх"
   ],
   [
-    {
-      "t": "#000000\n\n#3065e8",
-      "a": 4,
-      "w": 1.25
-    },
+    {"w":1.25},
     "Esc",
-    {
-      "t": "#000000\n\n#3065e8\n\n\n\n#2fb52b\n\n#e80e40",
-      "a": 0
-    },
-    "A\n\nAll\n\n\nф\nfloAt\n\n(",
-    {
-      "t": "#e8ea17\n\n#3065e8\n\n\n\n#2fb52b\n\n#e80e40"
-    },
-    "S\n\n💾\n\n📕\nы\nreSize\n\n{",
-    {
-      "t": "#000000\n\n#3065e8\n\n\n\n#2fb52b\n\n#e80e40"
-    },
-    "D\n\n⏎\n\n\nв\nDivert\n\n}",
-    "F\n\n🔍\n\n\nа\nFull\n\n)",
-    "G\n\nVi\n\n\nп\nGlobal",
-    {
-      "t": "#000000\n#c6d322\n#3065e8\n\n\n\n#2fb52b\n\n#e80e40"
-    },
-    "H\n←\n💨\n\n🌐\nр\nleft\n\n←",
-    {
-      "t": "#000000\n#c6d322\n#3065e8\n#ea9417\n\n\n#2fb52b\n\n#e80e40"
-    },
-    "J\n←\n&\n4\n\nо\ndown\n\n↓",
-    "K\n↑\n\n5\n\nл\nup\n\n↑",
-    "L\n→\n\n6\n\nд\nleft\n\n→",
-    {
-      "t": "#47d622\n\n#3065e8\n\n\n\n\n\n#ef1a42",
-      "w": 1.75
-    },
-    ";\n\n`\n\n\nж\n\n\n\""
+    "A\n\n\n⌃A\n\nф\nFloat+mode\n\n(",
+    "S\n\n\n\n\nы\nResize mode\n\n{",
+    "D\n\nEnter\n\n\nв\nTiles\n\n}",
+    "F\n\n\n\n\nа\nAccordion\n\n)",
+    "G\n\nNeovide\n\n\nп\nWindow mode",
+    "H\n\n\n\n\nр\nFocus ←\n\n←",
+    "J\n\n\n4\n\nо\nFocus ↓\n\n↓",
+    "K\n\n\n5\n\nл\nFocus ↑\n\n↑",
+    "L\n\n\n6\n\nд\nFocus →\n\n→",
+    {"w":1.75},
+    ";\n\n' / э\n⌥\\\n\nж\nHold for layer\n\n\" / Э"
   ],
   [
-    {
-      "t": "#000000\n\n#3065e8\n\n\n\n#aeb025",
-      "a": 4,
-      "w": 1.75
-    },
-    "Shift\n\n\n\n\n\n+Moves",
-    {
-      "t": "#000000\n\n#3065e8\n\n\n\n\n\n#ea042f",
-      "a": 0
-    },
-    "Z\n\n↩️\n\n\nя\n\n\n~",
-    "X\n\n&\n\n\nч\n\n\n𝗘𝗡╸",
-    "C\n\n✂️\n\n\nс\n\n\n#",
-    {
-      "t": "#000000\n\n#3065e8\n\n#50e519\n\n\n\n#ea042f\n\n\n#4eea15"
-    },
-    "V\n\n📑\n\n\nм\n\n\n♡⃤",
-    {
-      "t": "#000000\n\n#3065e8\n\n\n\n\n\n#ea042f"
-    },
+    {"w":1.75},
+    "Shift",
+    "Z\n\n\n\n\nя\n\n\n~",
+    "X\n\n\n⌃X\n\nч\n\n\n&",
+    "C\n\n\n⌃C\n\nс\nClip shot\n\n#",
+    "V\n\n\n\n\nм\nCapture UI\n\n⌥⇧C",
     "B\n\n\n\n\nи",
-    "N\n\n^\n\n\nт\n\n\n🆕",
-    {
-      "t": "#000000\n\n#3065e8\n#ea9417\n\n\n\n\n#ea042f\n\n\n#4fea17"
-    },
-    "M\n\n%\n1\n\nь\n\n\n🙈\n\n\nъ",
-    {
-      "t": "#000000\n\n#3065e8\n#ea9417\n\n\n\n\n#ea042f"
-    },
-    "<\n,\n\n2\n\nб\n\n\n◀",
-    {
-      "w": 1.25
-    },
-    "\n.\n\n3\n\nю\n\n\n▶",
-    {
-      "t": "#000000\n\n#1721e8\n\n\n\n\n\n#e8173e\n\n\n#1d26e0"
-    },
-    "/\n\n'\n\n\n.\n\n\n\\\n\n\nэ"
+    "N\n\n^\n\n\nт",
+    "M\n\n%\n1\n\nь\n] / ъ",
+    ",\n\n\n2\n\nб\n\n\nTab ←",
+    {"w":1.25},
+    ".\n\n\n3\n\nю\n\n\nTab →",
+    "/\n\n` / ё\n\n\n.\n\n\n\\"
   ],
   [
-    {
-      "t": "#000000",
-      "a": 4,
-      "w": 1.25
-    },
+    {"w":1.25},
     "Ctrl",
-    {
-      "t": "#ea7104"
-    },
-    "Opt",
-    {
-      "t": "#3d4cc7"
-    },
-    "Meta",
-    {
-      "t": "#000000",
-      "a": 7,
-      "w": 6.25
-    },
-    "",
-    {
-      "t": "#ea173e",
-      "a": 4,
-      "w": 1.25
-    },
-    "CMD",
-    {
-      "t": "#000000",
-      "w": 1.25
-    },
+    "L Opt",
+    "L Cmd",
+    {"w":6.25},
+    "Space\n\n\n\n\n\n; / ж",
+    {"w":1.25},
+    "R Cmd",
+    {"w":1.25},
     "Super"
   ]
 ]

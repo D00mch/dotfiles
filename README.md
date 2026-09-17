@@ -30,6 +30,14 @@ cd dotfiles
 bash deinit.sh
 ```
 
-### Keyboard visualization 
+### Keyboard visualization
 
-![layout](resources/keyboard_data/keyboard-layout.jpg)
+[![Current keyboard bindings: Command, Option, semicolon layer, Neru and AeroSpace](resources/keyboard_data/keyboard-layout.svg)](resources/keyboard_data/keyboard-layout.svg)
+
+Based on [Karabiner / Goku](.config/karabiner.edn), [AeroSpace](.config/aerospace/aerospace.toml), and [Neru](.config/neru/config.toml). Click the image to zoom.
+
+To update the key labels, edit the [KLE layout](resources/keyboard_data/keyboard-layout.json); the mode notes live in the renderer. Regenerate the SVG with:
+
+```bash
+python3 resources/keyboard_data/render-layout.py
+```

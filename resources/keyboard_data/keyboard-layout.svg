@@ -1,0 +1,238 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1968" height="1320" viewBox="0 0 1968 1320" xml:space="preserve" role="img" aria-labelledby="title description">
+<title id="title">Custom keyboard bindings</title>
+<desc id="description">Compact keyboard with left Command, right Command, Option and held-semicolon layers, plus Neru, app launchers and AeroSpace modes.</desc>
+<style>text { font-family: "DejaVu Sans", "Helvetica Neue", sans-serif; }</style>
+<rect width="1968" height="1320" rx="24" fill="#111820"/>
+<text x="48" y="65" font-size="38" fill="#edf2f7" text-anchor="start" font-weight="600">Keyboard bindings</text>
+<text x="48" y="103" font-size="21" fill="#a6b0bd" text-anchor="start" font-weight="400">Custom global remaps · ABC symbols / Russian legends · app-specific overrides omitted</text>
+<rect x="48" y="137" width="7" height="24" rx="3" fill="#82b7ff" stroke="#82b7ff"/>
+<text x="68" y="157" font-size="23" fill="#82b7ff" text-anchor="start" font-weight="500">L Cmd  ·  left Command</text>
+<rect x="492" y="137" width="7" height="24" rx="3" fill="#ff92a5" stroke="#ff92a5"/>
+<text x="512" y="157" font-size="23" fill="#ff92a5" text-anchor="start" font-weight="500">R Cmd  ·  right Command</text>
+<rect x="960" y="137" width="7" height="24" rx="3" fill="#8bd5a5" stroke="#8bd5a5"/>
+<text x="980" y="157" font-size="23" fill="#8bd5a5" text-anchor="start" font-weight="500">Hold ;  ·  semicolon layer</text>
+<rect x="1484" y="137" width="7" height="24" rx="3" fill="#efbc68" stroke="#efbc68"/>
+<text x="1504" y="157" font-size="23" fill="#efbc68" text-anchor="start" font-weight="500">L Opt  ·  left Option</text>
+<rect x="48" y="200" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="62" y="237" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">Tab</text>
+<rect x="204" y="200" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="218" y="237" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">Q</text>
+<text x="338" y="237" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">@</text>
+<text x="218" y="303" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">⌘1</text>
+<text x="218" y="333" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">й</text>
+<text x="338" y="333" font-size="21" fill="#efbc68" text-anchor="end" font-weight="400">⌃Q</text>
+<rect x="360" y="200" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="374" y="237" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">W</text>
+<text x="494" y="237" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">+</text>
+<text x="374" y="303" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">⌘2</text>
+<text x="374" y="333" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">ц</text>
+<text x="494" y="333" font-size="21" fill="#efbc68" text-anchor="end" font-weight="400">⌥⇧=</text>
+<rect x="516" y="200" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="530" y="237" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">E</text>
+<text x="650" y="237" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">−</text>
+<text x="530" y="270" font-size="21" fill="#82b7ff" text-anchor="start" font-weight="400">L⇧</text>
+<text x="530" y="303" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">⌘3</text>
+<text x="530" y="333" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">у</text>
+<text x="650" y="333" font-size="21" fill="#efbc68" text-anchor="end" font-weight="400">⌥⇧−</text>
+<rect x="672" y="200" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="686" y="237" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">R</text>
+<text x="806" y="237" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">*</text>
+<text x="686" y="303" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">⌘4</text>
+<text x="686" y="333" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">к</text>
+<text x="806" y="333" font-size="21" fill="#efbc68" text-anchor="end" font-weight="400">⌃R</text>
+<rect x="828" y="200" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="842" y="237" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">T</text>
+<text x="962" y="237" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">_</text>
+<text x="842" y="303" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">⌘5</text>
+<text x="842" y="333" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">е</text>
+<rect x="984" y="200" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="998" y="237" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">Y</text>
+<text x="998" y="270" font-size="21" fill="#82b7ff" text-anchor="start" font-weight="400">$</text>
+<text x="998" y="303" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">⌘6</text>
+<text x="998" y="333" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">н</text>
+<rect x="1140" y="200" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="1154" y="237" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">U</text>
+<text x="1274" y="237" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">|</text>
+<text x="1154" y="270" font-size="21" fill="#82b7ff" text-anchor="start" font-weight="400">!</text>
+<text x="1154" y="303" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">⌘7</text>
+<text x="1154" y="333" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">г</text>
+<text x="1274" y="333" font-size="21" fill="#efbc68" text-anchor="end" font-weight="400">7</text>
+<rect x="1296" y="200" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="1310" y="237" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">I</text>
+<text x="1430" y="237" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">R⇧</text>
+<text x="1310" y="270" font-size="21" fill="#82b7ff" text-anchor="start" font-weight="400">[</text>
+<text x="1310" y="303" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">⌘8</text>
+<text x="1310" y="333" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">ш</text>
+<text x="1430" y="333" font-size="21" fill="#efbc68" text-anchor="end" font-weight="400">8</text>
+<rect x="1452" y="200" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="1466" y="237" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">O</text>
+<text x="1586" y="237" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">⌫</text>
+<text x="1466" y="270" font-size="21" fill="#82b7ff" text-anchor="start" font-weight="400">]</text>
+<text x="1466" y="303" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">⌘9</text>
+<text x="1466" y="333" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">щ</text>
+<text x="1586" y="333" font-size="21" fill="#efbc68" text-anchor="end" font-weight="400">9</text>
+<rect x="1608" y="200" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="1622" y="237" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">P</text>
+<text x="1742" y="237" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">=</text>
+<text x="1622" y="303" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">⌘0</text>
+<text x="1622" y="333" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">з</text>
+<text x="1742" y="333" font-size="21" fill="#efbc68" text-anchor="end" font-weight="400">0</text>
+<rect x="1764" y="200" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="1778" y="237" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">[</text>
+<text x="1778" y="333" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">х</text>
+<rect x="48" y="356" width="187" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="62" y="393" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">Esc</text>
+<rect x="243" y="356" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="257" y="393" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">A</text>
+<text x="377" y="393" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">(</text>
+<text x="257" y="459" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">Float+mode</text>
+<text x="257" y="489" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">ф</text>
+<text x="377" y="489" font-size="21" fill="#efbc68" text-anchor="end" font-weight="400">⌃A</text>
+<rect x="399" y="356" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="413" y="393" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">S</text>
+<text x="533" y="393" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">{</text>
+<text x="413" y="459" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">Resize mode</text>
+<text x="413" y="489" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">ы</text>
+<rect x="555" y="356" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="569" y="393" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">D</text>
+<text x="689" y="393" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">}</text>
+<text x="569" y="426" font-size="21" fill="#82b7ff" text-anchor="start" font-weight="400">Enter</text>
+<text x="569" y="459" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">Tiles</text>
+<text x="569" y="489" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">в</text>
+<rect x="711" y="356" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="725" y="393" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">F</text>
+<text x="845" y="393" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">)</text>
+<text x="725" y="459" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">Accordion</text>
+<text x="725" y="489" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">а</text>
+<rect x="867" y="356" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="881" y="393" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">G</text>
+<text x="881" y="426" font-size="21" fill="#82b7ff" text-anchor="start" font-weight="400">Neovide</text>
+<text x="881" y="459" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">Window mode</text>
+<text x="881" y="489" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">п</text>
+<rect x="1023" y="356" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="1037" y="393" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">H</text>
+<text x="1157" y="393" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">←</text>
+<text x="1037" y="459" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">Focus ←</text>
+<text x="1037" y="489" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">р</text>
+<rect x="1179" y="356" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="1193" y="393" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">J</text>
+<text x="1313" y="393" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">↓</text>
+<text x="1193" y="459" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">Focus ↓</text>
+<text x="1193" y="489" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">о</text>
+<text x="1313" y="489" font-size="21" fill="#efbc68" text-anchor="end" font-weight="400">4</text>
+<rect x="1335" y="356" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="1349" y="393" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">K</text>
+<text x="1469" y="393" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">↑</text>
+<text x="1349" y="459" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">Focus ↑</text>
+<text x="1349" y="489" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">л</text>
+<text x="1469" y="489" font-size="21" fill="#efbc68" text-anchor="end" font-weight="400">5</text>
+<rect x="1491" y="356" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="1505" y="393" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">L</text>
+<text x="1625" y="393" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">→</text>
+<text x="1505" y="459" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">Focus →</text>
+<text x="1505" y="489" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">д</text>
+<text x="1625" y="489" font-size="21" fill="#efbc68" text-anchor="end" font-weight="400">6</text>
+<rect x="1647" y="356" width="265" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="1661" y="393" font-size="29" fill="#8bd5a5" text-anchor="start" font-weight="600">;</text>
+<text x="1898" y="393" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">&quot; / Э</text>
+<text x="1661" y="426" font-size="21" fill="#82b7ff" text-anchor="start" font-weight="400">&#x27; / э</text>
+<text x="1661" y="459" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">Hold for layer</text>
+<text x="1661" y="489" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">ж</text>
+<text x="1898" y="489" font-size="21" fill="#efbc68" text-anchor="end" font-weight="400">⌥\</text>
+<rect x="48" y="512" width="265" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="62" y="549" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">Shift</text>
+<rect x="321" y="512" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="335" y="549" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">Z</text>
+<text x="455" y="549" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">~</text>
+<text x="335" y="645" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">я</text>
+<rect x="477" y="512" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="491" y="549" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">X</text>
+<text x="611" y="549" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">&amp;</text>
+<text x="491" y="645" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">ч</text>
+<text x="611" y="645" font-size="21" fill="#efbc68" text-anchor="end" font-weight="400">⌃X</text>
+<rect x="633" y="512" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="647" y="549" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">C</text>
+<text x="767" y="549" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">#</text>
+<text x="647" y="615" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">Clip shot</text>
+<text x="647" y="645" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">с</text>
+<text x="767" y="645" font-size="21" fill="#efbc68" text-anchor="end" font-weight="400">⌃C</text>
+<rect x="789" y="512" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="803" y="549" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">V</text>
+<text x="923" y="549" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">⌥⇧C</text>
+<text x="803" y="615" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">Capture UI</text>
+<text x="803" y="645" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">м</text>
+<rect x="945" y="512" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="959" y="549" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">B</text>
+<text x="959" y="645" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">и</text>
+<rect x="1101" y="512" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="1115" y="549" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">N</text>
+<text x="1115" y="582" font-size="21" fill="#82b7ff" text-anchor="start" font-weight="400">^</text>
+<text x="1115" y="645" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">т</text>
+<rect x="1257" y="512" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="1271" y="549" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">M</text>
+<text x="1271" y="582" font-size="21" fill="#82b7ff" text-anchor="start" font-weight="400">%</text>
+<text x="1271" y="615" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">] / ъ</text>
+<text x="1271" y="645" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">ь</text>
+<text x="1391" y="645" font-size="21" fill="#efbc68" text-anchor="end" font-weight="400">1</text>
+<rect x="1413" y="512" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="1427" y="549" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">,</text>
+<text x="1547" y="549" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">Tab ←</text>
+<text x="1427" y="645" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">б</text>
+<text x="1547" y="645" font-size="21" fill="#efbc68" text-anchor="end" font-weight="400">2</text>
+<rect x="1569" y="512" width="187" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="1583" y="549" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">.</text>
+<text x="1742" y="549" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">Tab →</text>
+<text x="1583" y="645" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">ю</text>
+<text x="1742" y="645" font-size="21" fill="#efbc68" text-anchor="end" font-weight="400">3</text>
+<rect x="1764" y="512" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="1778" y="549" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">/</text>
+<text x="1898" y="549" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">\</text>
+<text x="1778" y="582" font-size="21" fill="#82b7ff" text-anchor="start" font-weight="400">` / ё</text>
+<text x="1778" y="645" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">.</text>
+<rect x="48" y="668" width="187" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="62" y="705" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">Ctrl</text>
+<rect x="243" y="668" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="257" y="705" font-size="29" fill="#efbc68" text-anchor="start" font-weight="600">L Opt</text>
+<rect x="399" y="668" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="413" y="705" font-size="29" fill="#82b7ff" text-anchor="start" font-weight="600">L Cmd</text>
+<rect x="555" y="668" width="967" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="569" y="705" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">Space</text>
+<text x="569" y="771" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">; / ж</text>
+<rect x="1530" y="668" width="187" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="1544" y="705" font-size="29" fill="#ff92a5" text-anchor="start" font-weight="600">R Cmd</text>
+<rect x="1725" y="668" width="187" height="148" rx="12" fill="#202833" stroke="#374250"/>
+<text x="1739" y="705" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">Super</text>
+<text x="48" y="854" font-size="21" fill="#8bd5a5" text-anchor="start" font-weight="400">Hold ; + H J K L to focus; add Shift to move.  ; + A floats, centers and enters window mode.</text>
+<text x="48" y="884" font-size="19" fill="#a6b0bd" text-anchor="start" font-weight="400">Clip shot = selection to clipboard.  Capture UI = screenshot controls.  Tab shortcuts exclude Neovide.  ⌃ = Ctrl  ·  ⌥ = Opt  ·  ⇧ = Shift</text>
+<rect x="48" y="920" width="600" height="330" rx="12" fill="#19222c" stroke="#374250"/>
+<text x="70" y="957" font-size="23" fill="#82b7ff" text-anchor="start" font-weight="600">Both Cmd keys + …</text>
+<text x="70" y="995" font-size="16" fill="#a6b0bd" text-anchor="start" font-weight="600">NERU</text>
+<text x="70" y="1027" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">F  click hints     P  right-click hints</text>
+<text x="70" y="1059" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">A  grid               S  scroll</text>
+<text x="70" y="1091" font-size="16" fill="#a6b0bd" text-anchor="start" font-weight="600">OPEN APPS</text>
+<text x="70" y="1123" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">C  Codex            G  Chrome</text>
+<text x="70" y="1155" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">I   IntelliJ IDEA    T  Telegram</text>
+<text x="70" y="1187" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">N  Neovide         M  WezTerm</text>
+<text x="70" y="1219" font-size="19" fill="#a6b0bd" text-anchor="start" font-weight="400">L Cmd + G opens a new Neovide window.</text>
+<rect x="680" y="920" width="600" height="330" rx="12" fill="#19222c" stroke="#374250"/>
+<text x="702" y="957" font-size="23" fill="#8bd5a5" text-anchor="start" font-weight="600">Resize mode · enter with ; + S</text>
+<text x="702" y="995" font-size="16" fill="#a6b0bd" text-anchor="start" font-weight="600">RELEASE THE CHORD, THEN PRESS</text>
+<text x="702" y="1027" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">H / L  width − / +     J / K  height + / −</text>
+<text x="702" y="1059" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">Q W E R T Y U I O  →  workspaces 1–9</text>
+<text x="702" y="1091" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">; + Q … O  →  send window to workspace 1–9</text>
+<text x="702" y="1123" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">Arrow keys  →  join with neighbor, then exit</text>
+<text x="702" y="1155" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">M  →  move workspace to next monitor</text>
+<text x="702" y="1187" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">Esc / Enter  →  exit resize mode</text>
+<text x="702" y="1219" font-size="19" fill="#a6b0bd" text-anchor="start" font-weight="400">Workspace switches also exit resize mode.</text>
+<rect x="1312" y="920" width="600" height="330" rx="12" fill="#19222c" stroke="#374250"/>
+<text x="1334" y="957" font-size="23" fill="#8bd5a5" text-anchor="start" font-weight="600">Window mode · enter with ; + G</text>
+<text x="1334" y="995" font-size="16" fill="#a6b0bd" text-anchor="start" font-weight="600">RELEASE THE CHORD, THEN PRESS</text>
+<text x="1334" y="1027" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">F  →  toggle floating / tiling</text>
+<text x="1334" y="1059" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">C  →  float and center</text>
+<text x="1334" y="1091" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">H J K L  →  move floating window</text>
+<text x="1334" y="1123" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">← / →  width − / +     ↓ / ↑  height − / +</text>
+<text x="1334" y="1155" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">R  →  flatten layout and exit</text>
+<text x="1334" y="1187" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">Shift + R  →  reload config and exit</text>
+<text x="1334" y="1219" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">Esc  →  exit window mode</text>
+<text x="48" y="1292" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">Sources: Karabiner / Goku · AeroSpace · Neru     |     Diagram shows the compact layout; firmware layers are separate.</text>
+</svg>
