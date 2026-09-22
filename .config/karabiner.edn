@@ -1,6 +1,5 @@
 {:main [{:des "semicolon-mode"
-         :rules [[:semicolon ["semicolon-mode" 1] nil {:afterup ["semicolon-mode" 0]
-                                                       :alone   :semicolon}]
+         :rules [[:semicolon ["semicolon-mode" 1] nil {:afterup ["semicolon-mode" 0]}]
                  ;; cmd+number
                  [:q :!Q1 ["semicolon-mode" 1]]
                  [:w :!Q2 ["semicolon-mode" 1]]
@@ -35,7 +34,6 @@
                  [:g :!OSsemicolon ["semicolon-mode" 1]]
 
                  ;; Russian
-                 [:spacebar :semicolon ["semicolon-mode" 1]]
                  [:m :close_bracket ["semicolon-mode" 1]]]}
 
         ; {:des "escape-mode"
@@ -112,6 +110,7 @@
                  [:!Cn :!S6]                              ; ^
                  [:!Cu :!S1]                              ; !
                  [:!C##slash :grave_accent_and_tilde]     ; ` ё
+                 [:!C#SRj :semicolon]                    ; ; ж (Shift: : Ж)
                  [:!Csemicolon :quote]                    ; ' э
                  [:!Qsemicolon :!Rquote]                  ; " Э
 
