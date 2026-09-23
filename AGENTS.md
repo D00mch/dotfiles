@@ -8,7 +8,7 @@ This is a personal macOS dotfiles and bootstrap repository, not an application o
 
 Important entry points:
 
-- `first_init.sh` performs first-machine setup. It accepts the dotfiles repo path as its first argument, defaults to `~/dotfiles`, installs Homebrew packages and casks, removes existing `~/.zshenv` and `~/.zshrc`, then delegates symlink setup to `init.sh`.
+- `./first_init.sh` performs first-machine setup. It accepts the dotfiles repo path as its first argument, defaults to its own directory, installs Homebrew packages and casks, removes existing `~/.zshenv` and `~/.zshrc`, then delegates home-directory symlink setup to `init.sh`.
 - `init.sh` symlinks most dotfiles into `$HOME` and `~/.config`, copies `.config/zathura`, and links Neovim spell data into `.config/nvim/spell`.
 - `deinit.sh` removes known symlinks created by `init.sh`; keep it in sync when adding new symlinked config directories.
 - `README.md` is the short human-facing overview.

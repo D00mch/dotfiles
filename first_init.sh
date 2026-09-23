@@ -1,22 +1,16 @@
-# install oh my zsh
+#!/usr/bin/env bash
 
-# Set dotfiles path (first arg or ~/dotfiles by default)
-DOTFILES_PATH="${1:-$HOME/dotfiles}"
+# Use this script's directory unless a repository path is supplied.
+DOTFILES_PATH="$(cd "${1:-$(dirname "${BASH_SOURCE[0]}")}" && pwd -P)" || exit 1
 
-# Check if dotfiles directory exists
-if [ ! -d "$DOTFILES_PATH" ]; then
-    echo "Error: Dotfiles directory not found at $DOTFILES_PATH" >&2
-    exit 1
-fi
-
-cd ~
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# install oh my zsh without opening an interactive shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # prepare dotfiles (after installing zsh) 
 rm -rf ~/.zshenv
 rm -rf ~/.zshrc
 
-bash init.sh "$DOTFILES_PATH"
+bash "$DOTFILES_PATH/init.sh" "$DOTFILES_PATH"
 
 # installing brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -60,5 +54,4 @@ cargo install --locked tree-sitter-cli
 brew tap y3owk1n/tap
 brew install --cask y3owk1n/tap/neru
 
-source ~/.zshrc
-source ~/.zshenv
+echo "Setup finished. Open a new terminal to load your shell configuration."

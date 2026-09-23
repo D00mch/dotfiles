@@ -12,7 +12,7 @@ If you are not sure about something, leave a note for other developers to review
 - This is a config-and-bootstrap repository, not an application or library.
 - Prefer narrow, tool-specific edits over broad cleanup. Personal keybindings and workflow choices are intentional.
 - Preserve machine-specific assumptions unless the requested change is explicitly about setup portability.
-- `first_init.sh` is invasive: it accepts the dotfiles repo path as its first argument, defaults to `~/dotfiles`, installs packages, removes existing `~/.zshenv` and `~/.zshrc`, then delegates to `init.sh`.
+- `./first_init.sh` uses its own directory as the dotfiles repo path (or accepts an explicit first argument), installs packages, removes existing `~/.zshenv` and `~/.zshrc`, then delegates home-directory symlink setup to `init.sh`. Oh My Zsh installation is unattended; open a new terminal afterward.
 - `init.sh` symlinks most files into `$HOME` and `~/.config`, but copies `~/.config/zathura`.
 - Neovide and WezTerm expect `Terminess Nerd Font`; `first_init.sh` installs the Homebrew cask for it.
 - `deinit.sh` removes known symlink paths created by `init.sh`; it does not remove copied config directories.

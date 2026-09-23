@@ -12,10 +12,11 @@
 ### Installation
 
 ```bash
-## needs an update and some manual work
 cd dotfiles
-bash first_init.sh ~/dotfiles
+./first_init.sh
 ```
+
+The script uses its own directory as the repository path and creates config symlinks in your home directory. Run it as your normal user; open a new terminal when setup finishes.
 
 ### Default text app
 
