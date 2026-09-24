@@ -107,7 +107,7 @@
                  [:!Qslash :backslash]                    ; \
                  [:!Cy :!S4]                              ; $
                  [:!Cm :!S5]                              ; %
-                 [:!Cn :!S6]                              ; ^
+                 [:!C#SRn :b]                             ; b / и (Shift: B / И)
                  [:!Cu :!S1]                              ; !
                  [:!C##slash :grave_accent_and_tilde]     ; ` ё
                  [:!C#SRj :semicolon]                    ; ; ж (Shift: : Ж)
