@@ -17,6 +17,7 @@
             (let [term (require :toggleterm)]
               (term.setup
                 {:size 20
+                 :shell "/bin/zsh -l"
                  :on_open (fn [t]
                             (if (= (vim.fn.mode) "n")
                               (vim.cmd "startinsert!")))
