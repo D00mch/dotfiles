@@ -129,6 +129,7 @@
 
   (bkset :n "[s" vim.diagnostic.goto_prev {:buffer b :desc "Goto prev erro"}) ;]
   (bkset :n "]s" vim.diagnostic.goto_next {:buffer b :desc "Goto next erro"}) ;]
+  (bkset :n :<C-q> #(vim.lsp.buf.references {:includeDeclaration false}) {:buffer b :desc "Find usages in quickfix"})
   ;; TELESCOPE
   (bkset :n :<leader>gr #(lsp_references {:jump_type :never}) {:buffer b :desc "Go to references"})
   (bkset :n :<leader>gi lsp_implementations {:buffer b :desc "Go to implementations"})

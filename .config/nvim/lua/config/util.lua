@@ -153,14 +153,18 @@ local function on_attach(c, b)
   bkset("n", "[s", vim.diagnostic.goto_prev, {buffer = b, desc = "Goto prev erro"})
   bkset("n", "]s", vim.diagnostic.goto_next, {buffer = b, desc = "Goto next erro"})
   local function _21_()
+    return vim.lsp.buf.references({includeDeclaration = false})
+  end
+  bkset("n", "<C-q>", _21_, {buffer = b, desc = "Find usages in quickfix"})
+  local function _22_()
     return lsp_references({jump_type = "never"})
   end
-  bkset("n", "<leader>gr", _21_, {buffer = b, desc = "Go to references"})
+  bkset("n", "<leader>gr", _22_, {buffer = b, desc = "Go to references"})
   bkset("n", "<leader>gi", lsp_implementations, {buffer = b, desc = "Go to implementations"})
   bkset({"i", "n", "x"}, "<C-r>", vim.lsp.buf.code_action, {buffer = b, desc = "Code actions"})
   return bkset({"n", "x"}, "<leader>ra", vim.lsp.buf.code_action, {buffer = b, desc = "Code actions"})
 end
-local function _22_()
+local function _23_()
   if vim.w.lsp_floating_bufnr then
     vim.wo.conceallevel = 1
     return nil
@@ -168,5 +172,5 @@ local function _22_()
     return nil
   end
 end
-vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", group = vim.api.nvim_create_augroup("LspPreviewConceal", {clear = true}), callback = _22_})
+vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", group = vim.api.nvim_create_augroup("LspPreviewConceal", {clear = true}), callback = _23_})
 return {["config-path"] = config_path, ["lua-file"] = lua_file, println = println, ["exists?"] = exists_3f, kset = kset, bkset = bkset, bkdel = bkdel, ["vis-op"] = vis_op, ["vis-op+"] = vis_op_2b, ["get-word-under-cursor"] = get_word_under_cursor, ["get-word-under-selection"] = get_word_under_selection, ["on-attach"] = on_attach, ["highlight-line-symbol"] = highlight_line_symbol}
