@@ -160,4 +160,13 @@ local function on_attach(c, b)
   bkset({"i", "n", "x"}, "<C-r>", vim.lsp.buf.code_action, {buffer = b, desc = "Code actions"})
   return bkset({"n", "x"}, "<leader>ra", vim.lsp.buf.code_action, {buffer = b, desc = "Code actions"})
 end
+local function _22_()
+  if vim.w.lsp_floating_bufnr then
+    vim.wo.conceallevel = 1
+    return nil
+  else
+    return nil
+  end
+end
+vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", group = vim.api.nvim_create_augroup("LspPreviewConceal", {clear = true}), callback = _22_})
 return {["config-path"] = config_path, ["lua-file"] = lua_file, println = println, ["exists?"] = exists_3f, kset = kset, bkset = bkset, bkdel = bkdel, ["vis-op"] = vis_op, ["vis-op+"] = vis_op_2b, ["get-word-under-cursor"] = get_word_under_cursor, ["get-word-under-selection"] = get_word_under_selection, ["on-attach"] = on_attach, ["highlight-line-symbol"] = highlight_line_symbol}

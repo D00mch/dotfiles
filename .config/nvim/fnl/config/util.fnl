@@ -135,6 +135,15 @@
   (bkset [:i :n :x] :<C-r> vim.lsp.buf.code_action {:buffer b :desc "Code actions"})
   (bkset [:n :x] :<leader>ra vim.lsp.buf.code_action {:buffer b :desc "Code actions"}))
 
+;; Keep code-fence lines present when LSP previews calculate their height.
+;; TODO: replace this workaround with upstream hover concealment options:
+;; https://github.com/neovim/neovim/issues/41595
+(vim.api.nvim_create_autocmd :FileType
+  {:pattern :markdown
+   :group (vim.api.nvim_create_augroup :LspPreviewConceal {:clear true})
+   :callback #(when vim.w.lsp_floating_bufnr
+                (set vim.wo.conceallevel 1))})
+
 {: config-path
  : lua-file
  : println
