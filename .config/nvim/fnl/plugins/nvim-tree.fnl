@@ -80,7 +80,15 @@
                               (bkset :n :gx        api.node.run.system          {:buffer b :desc "Open system default"})
                               (bkset :n :<Space>sd api.tree.change_root_to_node {:buffer b :desc "Set root"})
                               (bkset :n :gf api.node.run.system b)
-                              (bkset :n :i api.node.show_info_popup b))
+                              (bkset :n :i api.node.show_info_popup b)
+
+                              ;; Remember native window resizing until Neovim exits.
+                              (vim.api.nvim_create_autocmd :BufWinLeave
+                                {:buffer b
+                                 :callback (fn []
+                                             (let [win (vim.fn.bufwinid b)]
+                                               (when (not= win -1)
+                                                 (api.tree.resize {:absolute (vim.api.nvim_win_get_width win)}))))}))
 
                  :renderer {:symlink_destination false
                             :indent_markers {:enable true}}

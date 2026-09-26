@@ -1,8 +1,8 @@
 -- [nfnl] fnl/plugins/nvim-tree.fnl
 local _local_1_ = require("config.util")
-local kset = _local_1_["kset"]
-local bkset = _local_1_["bkset"]
-local bkdel = _local_1_["bkdel"]
+local kset = _local_1_.kset
+local bkset = _local_1_.bkset
+local bkdel = _local_1_.bkdel
 local function _2_()
   kset("n", "<space>pt", ":NvimTreeOpen<cr>")
   return kset("n", "<space>m", ":NvimTreeOpen<cr>")
@@ -88,7 +88,16 @@ local function _3_()
     bkset("n", "gx", api.node.run.system, {buffer = b, desc = "Open system default"})
     bkset("n", "<Space>sd", api.tree.change_root_to_node, {buffer = b, desc = "Set root"})
     bkset("n", "gf", api.node.run.system, b)
-    return bkset("n", "i", api.node.show_info_popup, b)
+    bkset("n", "i", api.node.show_info_popup, b)
+    local function _18_()
+      local win = vim.fn.bufwinid(b)
+      if (win ~= -1) then
+        return api.tree.resize({absolute = vim.api.nvim_win_get_width(win)})
+      else
+        return nil
+      end
+    end
+    return vim.api.nvim_create_autocmd("BufWinLeave", {buffer = b, callback = _18_})
   end
   return tree.setup({sync_root_with_cwd = true, update_focused_file = {enable = true, update_root = true}, git = {enable = false}, actions = {open_file = {resize_window = false}}, on_attach = _11_, renderer = {indent_markers = {enable = true}, symlink_destination = false}, filters = {custom = {"^.git$"}}, respect_buf_cwd = false})
 end
