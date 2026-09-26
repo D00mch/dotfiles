@@ -57,10 +57,17 @@ errors are in `~/.local/share/karabiner-stats/receiver.log`.
 
 [![Current keyboard bindings: Command, Option, semicolon layer, Neru and AeroSpace](resources/keyboard_data/keyboard-layout.svg)](resources/keyboard_data/keyboard-layout.svg)
 
-Based on [Karabiner / Goku](.config/karabiner.edn), [AeroSpace](.config/aerospace/aerospace.toml), and [Neru](.config/neru/config.toml). Click the image to zoom.
+Based on [Karabiner / Goku](.config/karabiner.edn), [AeroSpace](.config/aerospace/aerospace.toml), and [Neru](.config/neru/config.toml). Click the image to zoom, or use the [JPG version](resources/keyboard_data/keyboard-layout.jpg).
 
 To update the key labels, edit the [KLE layout](resources/keyboard_data/keyboard-layout.json); the mode notes live in the renderer. Regenerate the SVG with:
 
 ```bash
 python3 resources/keyboard_data/render-layout.py
+```
+
+Refresh the JPG from the same SVG with `rsvg-convert` (Homebrew `librsvg`) and macOS `sips`:
+
+```bash
+rsvg-convert --background-color '#111820' --output /tmp/dotfiles-keyboard-layout.png resources/keyboard_data/keyboard-layout.svg
+sips -s format jpeg -s formatOptions 95 /tmp/dotfiles-keyboard-layout.png --out resources/keyboard_data/keyboard-layout.jpg
 ```

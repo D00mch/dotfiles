@@ -14,13 +14,13 @@ INK, MUTED = "#edf2f7", "#a6b0bd"
 BLUE, ROSE, GREEN, AMBER = "#82b7ff", "#ff92a5", "#8bd5a5", "#efbc68"
 UNIT, MARGIN = 156, 48
 svg = [
-    '<svg xmlns="http://www.w3.org/2000/svg" width="1968" height="1320" '
-    'viewBox="0 0 1968 1320" xml:space="preserve" role="img" aria-labelledby="title description">',
+    '<svg xmlns="http://www.w3.org/2000/svg" width="1968" height="1350" '
+    'viewBox="0 0 1968 1350" xml:space="preserve" role="img" aria-labelledby="title description">',
     '<title id="title">Custom keyboard bindings</title>',
     '<desc id="description">Compact keyboard with left Command, right Command, '
     'Option and held-semicolon layers, plus Neru, app launchers and AeroSpace modes.</desc>',
     '<style>text { font-family: "DejaVu Sans", "Helvetica Neue", sans-serif; }</style>',
-    '<rect width="1968" height="1320" rx="24" fill="#111820"/>',
+    '<rect width="1968" height="1350" rx="24" fill="#111820"/>',
 ]
 
 
@@ -73,8 +73,9 @@ for row_number, row in enumerate(json.loads((HERE / "keyboard-layout.json").read
         x += width * UNIT
         width = 1
 
-text(48, 854, "Hold ; + H J K L to focus; add Shift to move.  ; + A floats, centers and enters window mode.", 21, GREEN)
-text(48, 884, "Clip shot = selection to clipboard.  Capture UI = screenshot controls.  Tab shortcuts exclude Neovide.  ⌃ = Ctrl  ·  ⌥ = Opt  ·  ⇧ = Shift", 19, MUTED)
+text(48, 854, "L Cmd + N → b / и (Shift: B / И).  L Cmd + J → ; / ж (Shift: : / Ж).  Semicolon is hold-only; tapping it types nothing.", 21, BLUE)
+text(48, 884, "Hold ; + H J K L to focus; add Shift to move.  ; + A floats, centers and enters window mode.", 21, GREEN)
+text(48, 914, "Clip shot = selection to clipboard.  Capture UI = screenshot controls.  Tab shortcuts exclude Neovide.  ⌃ = Ctrl  ·  ⌥ = Opt  ·  ⇧ = Shift", 19, MUTED)
 
 panels = [
     (48, "Both Cmd keys + …", BLUE, [
@@ -109,14 +110,14 @@ panels = [
     ]),
 ]
 for x, heading, color, lines in panels:
-    rect(x, 920, 600, 330, "#19222c")
-    text(x + 22, 957, heading, 23, color, weight=600)
+    rect(x, 950, 600, 330, "#19222c")
+    text(x + 22, 987, heading, 23, color, weight=600)
     for number, (line, line_color) in enumerate(lines):
-        text(x + 22, 995 + number * 32, line, 16 if line_color is None else 19,
+        text(x + 22, 1025 + number * 32, line, 16 if line_color is None else 19,
              MUTED if line_color is None else line_color,
              weight=600 if line_color is None else 400)
 
-text(48, 1292, "Sources: Karabiner / Goku · AeroSpace · Neru     |     Diagram shows the compact layout; firmware layers are separate.", 18, MUTED)
+text(48, 1322, "Sources: Karabiner / Goku · AeroSpace · Neru     |     Diagram shows the compact layout; firmware layers are separate.", 18, MUTED)
 svg.append("</svg>")
 output = HERE / "keyboard-layout.svg"
 output.write_text("\n".join(svg) + "\n")

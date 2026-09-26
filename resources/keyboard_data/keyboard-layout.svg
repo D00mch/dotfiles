@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1968" height="1320" viewBox="0 0 1968 1320" xml:space="preserve" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="1968" height="1350" viewBox="0 0 1968 1350" xml:space="preserve" role="img" aria-labelledby="title description">
 <title id="title">Custom keyboard bindings</title>
 <desc id="description">Compact keyboard with left Command, right Command, Option and held-semicolon layers, plus Neru, app launchers and AeroSpace modes.</desc>
 <style>text { font-family: "DejaVu Sans", "Helvetica Neue", sans-serif; }</style>
-<rect width="1968" height="1320" rx="24" fill="#111820"/>
+<rect width="1968" height="1350" rx="24" fill="#111820"/>
 <text x="48" y="65" font-size="38" fill="#edf2f7" text-anchor="start" font-weight="600">Keyboard bindings</text>
 <text x="48" y="103" font-size="21" fill="#a6b0bd" text-anchor="start" font-weight="400">Custom global remaps · ABC symbols / Russian legends · app-specific overrides omitted</text>
 <rect x="48" y="137" width="7" height="24" rx="3" fill="#82b7ff" stroke="#82b7ff"/>
@@ -117,6 +117,7 @@
 <rect x="1179" y="356" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
 <text x="1193" y="393" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">J</text>
 <text x="1313" y="393" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">↓</text>
+<text x="1193" y="426" font-size="21" fill="#82b7ff" text-anchor="start" font-weight="400">; / ж</text>
 <text x="1193" y="459" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">Focus ↓</text>
 <text x="1193" y="489" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">о</text>
 <text x="1313" y="489" font-size="21" fill="#efbc68" text-anchor="end" font-weight="400">4</text>
@@ -136,7 +137,7 @@
 <text x="1661" y="393" font-size="29" fill="#8bd5a5" text-anchor="start" font-weight="600">;</text>
 <text x="1898" y="393" font-size="24" fill="#ff92a5" text-anchor="end" font-weight="400">&quot; / Э</text>
 <text x="1661" y="426" font-size="21" fill="#82b7ff" text-anchor="start" font-weight="400">&#x27; / э</text>
-<text x="1661" y="459" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">Hold for layer</text>
+<text x="1661" y="459" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">Hold only</text>
 <text x="1661" y="489" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">ж</text>
 <text x="1898" y="489" font-size="21" fill="#efbc68" text-anchor="end" font-weight="400">⌥\</text>
 <rect x="48" y="512" width="265" height="148" rx="12" fill="#202833" stroke="#374250"/>
@@ -166,7 +167,7 @@
 <text x="959" y="645" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">и</text>
 <rect x="1101" y="512" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
 <text x="1115" y="549" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">N</text>
-<text x="1115" y="582" font-size="21" fill="#82b7ff" text-anchor="start" font-weight="400">^</text>
+<text x="1115" y="582" font-size="21" fill="#82b7ff" text-anchor="start" font-weight="400">b / и</text>
 <text x="1115" y="645" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">т</text>
 <rect x="1257" y="512" width="148" height="148" rx="12" fill="#202833" stroke="#374250"/>
 <text x="1271" y="549" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">M</text>
@@ -197,42 +198,42 @@
 <text x="413" y="705" font-size="29" fill="#82b7ff" text-anchor="start" font-weight="600">L Cmd</text>
 <rect x="555" y="668" width="967" height="148" rx="12" fill="#202833" stroke="#374250"/>
 <text x="569" y="705" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">Space</text>
-<text x="569" y="771" font-size="18" fill="#8bd5a5" text-anchor="start" font-weight="400">; / ж</text>
 <rect x="1530" y="668" width="187" height="148" rx="12" fill="#202833" stroke="#374250"/>
 <text x="1544" y="705" font-size="29" fill="#ff92a5" text-anchor="start" font-weight="600">R Cmd</text>
 <rect x="1725" y="668" width="187" height="148" rx="12" fill="#202833" stroke="#374250"/>
 <text x="1739" y="705" font-size="29" fill="#edf2f7" text-anchor="start" font-weight="600">Super</text>
-<text x="48" y="854" font-size="21" fill="#8bd5a5" text-anchor="start" font-weight="400">Hold ; + H J K L to focus; add Shift to move.  ; + A floats, centers and enters window mode.</text>
-<text x="48" y="884" font-size="19" fill="#a6b0bd" text-anchor="start" font-weight="400">Clip shot = selection to clipboard.  Capture UI = screenshot controls.  Tab shortcuts exclude Neovide.  ⌃ = Ctrl  ·  ⌥ = Opt  ·  ⇧ = Shift</text>
-<rect x="48" y="920" width="600" height="330" rx="12" fill="#19222c" stroke="#374250"/>
-<text x="70" y="957" font-size="23" fill="#82b7ff" text-anchor="start" font-weight="600">Both Cmd keys + …</text>
-<text x="70" y="995" font-size="16" fill="#a6b0bd" text-anchor="start" font-weight="600">NERU</text>
-<text x="70" y="1027" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">F  click hints     P  right-click hints</text>
-<text x="70" y="1059" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">A  grid               S  scroll</text>
-<text x="70" y="1091" font-size="16" fill="#a6b0bd" text-anchor="start" font-weight="600">OPEN APPS</text>
-<text x="70" y="1123" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">C  Codex            G  Chrome</text>
-<text x="70" y="1155" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">I   IntelliJ IDEA    T  Telegram</text>
-<text x="70" y="1187" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">N  Neovide         M  WezTerm</text>
-<text x="70" y="1219" font-size="19" fill="#a6b0bd" text-anchor="start" font-weight="400">L Cmd + G opens a new Neovide window.</text>
-<rect x="680" y="920" width="600" height="330" rx="12" fill="#19222c" stroke="#374250"/>
-<text x="702" y="957" font-size="23" fill="#8bd5a5" text-anchor="start" font-weight="600">Resize mode · enter with ; + S</text>
-<text x="702" y="995" font-size="16" fill="#a6b0bd" text-anchor="start" font-weight="600">RELEASE THE CHORD, THEN PRESS</text>
-<text x="702" y="1027" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">H / L  width − / +     J / K  height + / −</text>
-<text x="702" y="1059" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">Q W E R T Y U I O  →  workspaces 1–9</text>
-<text x="702" y="1091" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">; + Q … O  →  send window to workspace 1–9</text>
-<text x="702" y="1123" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">Arrow keys  →  join with neighbor, then exit</text>
-<text x="702" y="1155" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">M  →  move workspace to next monitor</text>
-<text x="702" y="1187" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">Esc / Enter  →  exit resize mode</text>
-<text x="702" y="1219" font-size="19" fill="#a6b0bd" text-anchor="start" font-weight="400">Workspace switches also exit resize mode.</text>
-<rect x="1312" y="920" width="600" height="330" rx="12" fill="#19222c" stroke="#374250"/>
-<text x="1334" y="957" font-size="23" fill="#8bd5a5" text-anchor="start" font-weight="600">Window mode · enter with ; + G</text>
-<text x="1334" y="995" font-size="16" fill="#a6b0bd" text-anchor="start" font-weight="600">RELEASE THE CHORD, THEN PRESS</text>
-<text x="1334" y="1027" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">F  →  toggle floating / tiling</text>
-<text x="1334" y="1059" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">C  →  float and center</text>
-<text x="1334" y="1091" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">H J K L  →  move floating window</text>
-<text x="1334" y="1123" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">← / →  width − / +     ↓ / ↑  height − / +</text>
-<text x="1334" y="1155" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">R  →  flatten layout and exit</text>
-<text x="1334" y="1187" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">Shift + R  →  reload config and exit</text>
-<text x="1334" y="1219" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">Esc  →  exit window mode</text>
-<text x="48" y="1292" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">Sources: Karabiner / Goku · AeroSpace · Neru     |     Diagram shows the compact layout; firmware layers are separate.</text>
+<text x="48" y="854" font-size="21" fill="#82b7ff" text-anchor="start" font-weight="400">L Cmd + N → b / и (Shift: B / И).  L Cmd + J → ; / ж (Shift: : / Ж).  Semicolon is hold-only; tapping it types nothing.</text>
+<text x="48" y="884" font-size="21" fill="#8bd5a5" text-anchor="start" font-weight="400">Hold ; + H J K L to focus; add Shift to move.  ; + A floats, centers and enters window mode.</text>
+<text x="48" y="914" font-size="19" fill="#a6b0bd" text-anchor="start" font-weight="400">Clip shot = selection to clipboard.  Capture UI = screenshot controls.  Tab shortcuts exclude Neovide.  ⌃ = Ctrl  ·  ⌥ = Opt  ·  ⇧ = Shift</text>
+<rect x="48" y="950" width="600" height="330" rx="12" fill="#19222c" stroke="#374250"/>
+<text x="70" y="987" font-size="23" fill="#82b7ff" text-anchor="start" font-weight="600">Both Cmd keys + …</text>
+<text x="70" y="1025" font-size="16" fill="#a6b0bd" text-anchor="start" font-weight="600">NERU</text>
+<text x="70" y="1057" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">F  click hints     P  right-click hints</text>
+<text x="70" y="1089" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">A  grid               S  scroll</text>
+<text x="70" y="1121" font-size="16" fill="#a6b0bd" text-anchor="start" font-weight="600">OPEN APPS</text>
+<text x="70" y="1153" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">C  Codex            G  Chrome</text>
+<text x="70" y="1185" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">I   IntelliJ IDEA    T  Telegram</text>
+<text x="70" y="1217" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">N  Neovide         M  WezTerm</text>
+<text x="70" y="1249" font-size="19" fill="#a6b0bd" text-anchor="start" font-weight="400">L Cmd + G opens a new Neovide window.</text>
+<rect x="680" y="950" width="600" height="330" rx="12" fill="#19222c" stroke="#374250"/>
+<text x="702" y="987" font-size="23" fill="#8bd5a5" text-anchor="start" font-weight="600">Resize mode · enter with ; + S</text>
+<text x="702" y="1025" font-size="16" fill="#a6b0bd" text-anchor="start" font-weight="600">RELEASE THE CHORD, THEN PRESS</text>
+<text x="702" y="1057" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">H / L  width − / +     J / K  height + / −</text>
+<text x="702" y="1089" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">Q W E R T Y U I O  →  workspaces 1–9</text>
+<text x="702" y="1121" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">; + Q … O  →  send window to workspace 1–9</text>
+<text x="702" y="1153" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">Arrow keys  →  join with neighbor, then exit</text>
+<text x="702" y="1185" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">M  →  move workspace to next monitor</text>
+<text x="702" y="1217" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">Esc / Enter  →  exit resize mode</text>
+<text x="702" y="1249" font-size="19" fill="#a6b0bd" text-anchor="start" font-weight="400">Workspace switches also exit resize mode.</text>
+<rect x="1312" y="950" width="600" height="330" rx="12" fill="#19222c" stroke="#374250"/>
+<text x="1334" y="987" font-size="23" fill="#8bd5a5" text-anchor="start" font-weight="600">Window mode · enter with ; + G</text>
+<text x="1334" y="1025" font-size="16" fill="#a6b0bd" text-anchor="start" font-weight="600">RELEASE THE CHORD, THEN PRESS</text>
+<text x="1334" y="1057" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">F  →  toggle floating / tiling</text>
+<text x="1334" y="1089" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">C  →  float and center</text>
+<text x="1334" y="1121" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">H J K L  →  move floating window</text>
+<text x="1334" y="1153" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">← / →  width − / +     ↓ / ↑  height − / +</text>
+<text x="1334" y="1185" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">R  →  flatten layout and exit</text>
+<text x="1334" y="1217" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">Shift + R  →  reload config and exit</text>
+<text x="1334" y="1249" font-size="19" fill="#edf2f7" text-anchor="start" font-weight="400">Esc  →  exit window mode</text>
+<text x="48" y="1322" font-size="18" fill="#a6b0bd" text-anchor="start" font-weight="400">Sources: Karabiner / Goku · AeroSpace · Neru     |     Diagram shows the compact layout; firmware layers are separate.</text>
 </svg>

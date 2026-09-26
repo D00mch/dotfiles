@@ -23,11 +23,11 @@
     "F\n\n\n\n\nа\nAccordion\n\n)",
     "G\n\nNeovide\n\n\nп\nWindow mode",
     "H\n\n\n\n\nр\nFocus ←\n\n←",
-    "J\n\n\n4\n\nо\nFocus ↓\n\n↓",
+    "J\n\n; / ж\n4\n\nо\nFocus ↓\n\n↓",
     "K\n\n\n5\n\nл\nFocus ↑\n\n↑",
     "L\n\n\n6\n\nд\nFocus →\n\n→",
     {"w":1.75},
-    ";\n\n' / э\n⌥\\\n\nж\nHold for layer\n\n\" / Э"
+    ";\n\n' / э\n⌥\\\n\nж\nHold only\n\n\" / Э"
   ],
   [
     {"w":1.75},
@@ -37,7 +37,7 @@
     "C\n\n\n⌃C\n\nс\nClip shot\n\n#",
     "V\n\n\n\n\nм\nCapture UI\n\n⌥⇧C",
     "B\n\n\n\n\nи",
-    "N\n\n^\n\n\nт",
+    "N\n\nb / и\n\n\nт",
     "M\n\n%\n1\n\nь\n] / ъ",
     ",\n\n\n2\n\nб\n\n\nTab ←",
     {"w":1.25},
@@ -50,7 +50,7 @@
     "L Opt",
     "L Cmd",
     {"w":6.25},
-    "Space\n\n\n\n\n\n; / ж",
+    "Space",
     {"w":1.25},
     "R Cmd",
     {"w":1.25},
