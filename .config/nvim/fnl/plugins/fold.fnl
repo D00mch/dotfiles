@@ -76,6 +76,7 @@
                   
                   ft-map
                   {:clojure #(with-comment-folds $ :indent)
+                   :kotlin :treesitter
                    :markdown :treesitter
                    :fennel #(with-comment-folds $ :indent)}]
               (kset :n :zR ufo.openAllFolds)

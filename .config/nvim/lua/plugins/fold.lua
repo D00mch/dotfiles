@@ -1,8 +1,8 @@
--- [nfnl] Compiled from fnl/plugins/fold.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/plugins/fold.fnl
 local _local_1_ = require("nfnl.module")
-local autoload = _local_1_["autoload"]
+local autoload = _local_1_.autoload
 local _local_2_ = autoload("config.util")
-local kset = _local_2_["kset"]
+local kset = _local_2_.kset
 local function _3_()
   kset("n", "zr", "zMzv", {remap = true})
   vim.o.foldcolumn = "0"
@@ -84,7 +84,7 @@ local function _4_()
   local function _13_(_241)
     return with_comment_folds(_241, "indent")
   end
-  ft_map = {clojure = _12_, markdown = "treesitter", fennel = _13_}
+  ft_map = {clojure = _12_, kotlin = "treesitter", markdown = "treesitter", fennel = _13_}
   kset("n", "zR", ufo.openAllFolds)
   kset("n", "zM", ufo.closeAllFolds)
   local function _14_(bufnr, filetype, buftype)
