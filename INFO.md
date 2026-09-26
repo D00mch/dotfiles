@@ -47,6 +47,7 @@ If you are not sure about something, leave a note for other developers to review
 │   ├── darkmode/                         # Small Go utility for toggling macOS/Chrome dark mode
 │   ├── darkmode.sh                       # Shell wrapper for dark mode flow
 │   ├── gpt.bash                          # Wi-Fi-aware shortcut that opens ChatGPT
+│   ├── karabiner-stats.py                # Local daily hotkey counts, login service, and reports
 │   ├── commit_notes.sh                   # Commit helper script
 │   └── clj_scripts/                      # Standalone Clojure utilities/projects
 ├── resources/

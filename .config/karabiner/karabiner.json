@@ -25,6 +25,13 @@
             "key_code" : "semicolon"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "bb517401b54ad46989c0"
+              }
+            }
+          }, {
             "set_variable" : {
               "name" : "semicolon-mode",
               "value" : 1
@@ -36,6 +43,13 @@
             "key_code" : "q"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "952fd63d58fcbcaffa52"
+              }
+            }
+          }, {
             "key_code" : "1",
             "modifiers" : [ "right_command" ]
           } ],
@@ -50,6 +64,13 @@
             "key_code" : "w"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "9a05d3e49556fc66e3ef"
+              }
+            }
+          }, {
             "key_code" : "2",
             "modifiers" : [ "right_command" ]
           } ],
@@ -64,6 +85,13 @@
             "key_code" : "e"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "697927a0a377d5b6f930"
+              }
+            }
+          }, {
             "key_code" : "3",
             "modifiers" : [ "right_command" ]
           } ],
@@ -78,6 +106,13 @@
             "key_code" : "r"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "0c6742ac1ae4c256048f"
+              }
+            }
+          }, {
             "key_code" : "4",
             "modifiers" : [ "right_command" ]
           } ],
@@ -92,6 +127,13 @@
             "key_code" : "t"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "d90c70acab92f2848fba"
+              }
+            }
+          }, {
             "key_code" : "5",
             "modifiers" : [ "right_command" ]
           } ],
@@ -106,6 +148,13 @@
             "key_code" : "y"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "2edf27c2efa94f9f4e84"
+              }
+            }
+          }, {
             "key_code" : "6",
             "modifiers" : [ "right_command" ]
           } ],
@@ -120,6 +169,13 @@
             "key_code" : "u"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "eabcd8edfd319e15ba8d"
+              }
+            }
+          }, {
             "key_code" : "7",
             "modifiers" : [ "right_command" ]
           } ],
@@ -134,6 +190,13 @@
             "key_code" : "i"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "6ccf47a01c48a034d579"
+              }
+            }
+          }, {
             "key_code" : "8",
             "modifiers" : [ "right_command" ]
           } ],
@@ -148,6 +211,13 @@
             "key_code" : "o"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "8853d240687a411a46cb"
+              }
+            }
+          }, {
             "key_code" : "9",
             "modifiers" : [ "right_command" ]
           } ],
@@ -162,6 +232,13 @@
             "key_code" : "p"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "a947508224f7601e8f64"
+              }
+            }
+          }, {
             "key_code" : "0",
             "modifiers" : [ "right_command" ]
           } ],
@@ -176,6 +253,13 @@
             "key_code" : "v"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "48135a0698481e9a6c32"
+              }
+            }
+          }, {
             "key_code" : "5",
             "modifiers" : [ "left_command", "left_shift" ]
           } ],
@@ -190,6 +274,13 @@
             "key_code" : "c"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "73600a8deb07696dee25"
+              }
+            }
+          }, {
             "key_code" : "4",
             "modifiers" : [ "left_command", "left_control", "left_shift" ]
           } ],
@@ -204,6 +295,13 @@
             "key_code" : "h"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "36e3d349045b6d5a14bd"
+              }
+            }
+          }, {
             "key_code" : "h",
             "modifiers" : [ "left_control", "left_option" ]
           } ],
@@ -218,6 +316,13 @@
             "key_code" : "l"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "f8e00487e3d4b6df76d5"
+              }
+            }
+          }, {
             "key_code" : "l",
             "modifiers" : [ "left_control", "left_option" ]
           } ],
@@ -232,6 +337,13 @@
             "key_code" : "j"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "41e3ae86a878bb2a4dd6"
+              }
+            }
+          }, {
             "key_code" : "j",
             "modifiers" : [ "left_control", "left_option" ]
           } ],
@@ -246,6 +358,13 @@
             "key_code" : "k"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "e862c2b933d32fc12db4"
+              }
+            }
+          }, {
             "key_code" : "k",
             "modifiers" : [ "left_control", "left_option" ]
           } ],
@@ -263,6 +382,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "c467c4e887a870ca30fd"
+              }
+            }
+          }, {
             "key_code" : "h",
             "modifiers" : [ "left_control", "left_option", "left_shift" ]
           } ],
@@ -280,6 +406,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "7764cc40e435f006b00c"
+              }
+            }
+          }, {
             "key_code" : "l",
             "modifiers" : [ "left_control", "left_option", "left_shift" ]
           } ],
@@ -297,6 +430,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "069bc7861477a8a61e7f"
+              }
+            }
+          }, {
             "key_code" : "j",
             "modifiers" : [ "left_control", "left_option", "left_shift" ]
           } ],
@@ -314,6 +454,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "69860b058946fd68275f"
+              }
+            }
+          }, {
             "key_code" : "k",
             "modifiers" : [ "left_control", "left_option", "left_shift" ]
           } ],
@@ -328,6 +475,13 @@
             "key_code" : "a"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "3170e1f8cb7e97608b24"
+              }
+            }
+          }, {
             "key_code" : "a",
             "modifiers" : [ "left_control", "left_option" ]
           } ],
@@ -342,6 +496,13 @@
             "key_code" : "d"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "49f9db02af3b52f42fb7"
+              }
+            }
+          }, {
             "key_code" : "d",
             "modifiers" : [ "left_control", "left_option" ]
           } ],
@@ -356,6 +517,13 @@
             "key_code" : "f"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "74e1dd1d5b5b1c2b7896"
+              }
+            }
+          }, {
             "key_code" : "f",
             "modifiers" : [ "left_control", "left_option" ]
           } ],
@@ -370,6 +538,13 @@
             "key_code" : "s"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "78ed8cf8e2b4624f245b"
+              }
+            }
+          }, {
             "key_code" : "s",
             "modifiers" : [ "left_option" ]
           } ],
@@ -384,6 +559,13 @@
             "key_code" : "g"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "0637841c21049e141f2f"
+              }
+            }
+          }, {
             "key_code" : "semicolon",
             "modifiers" : [ "left_option", "left_shift" ]
           } ],
@@ -398,6 +580,13 @@
             "key_code" : "m"
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "fd774f108476c5700d4d"
+              }
+            }
+          }, {
             "key_code" : "close_bracket"
           } ],
           "conditions" : [ {
@@ -417,6 +606,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "6a98c087b73c3b77c301"
+              }
+            }
+          }, {
             "key_code" : "6",
             "modifiers" : [ "left_control" ]
           } ],
@@ -433,6 +629,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "bfdba26b63492e85211b"
+              }
+            }
+          }, {
             "key_code" : "q",
             "modifiers" : [ "left_option" ]
           } ],
@@ -449,6 +652,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "755911d539b06df91865"
+              }
+            }
+          }, {
             "key_code" : "r",
             "modifiers" : [ "left_control" ]
           } ],
@@ -465,6 +675,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "e0851519c3af63ad148b"
+              }
+            }
+          }, {
             "key_code" : "c",
             "modifiers" : [ "left_control" ]
           } ],
@@ -481,6 +698,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "569c9cb2f8c70c8ffb68"
+              }
+            }
+          }, {
             "key_code" : "hyphen",
             "modifiers" : [ "left_command", "left_shift" ]
           } ],
@@ -497,6 +721,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "18ad06e6f7b18cd71919"
+              }
+            }
+          }, {
             "key_code" : "w",
             "modifiers" : [ "left_control" ]
           } ],
@@ -513,6 +744,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "aac0113e4e17bd0102af"
+              }
+            }
+          }, {
             "key_code" : "u",
             "modifiers" : [ "left_control" ]
           } ],
@@ -529,6 +767,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "0aa0042a729767f79269"
+              }
+            }
+          }, {
             "key_code" : "left_arrow",
             "modifiers" : [ "left_shift" ]
           } ],
@@ -545,6 +790,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "cc378310979639b451fa"
+              }
+            }
+          }, {
             "key_code" : "right_arrow",
             "modifiers" : [ "left_shift" ]
           } ],
@@ -561,6 +813,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "091df15d87b428c3b5a2"
+              }
+            }
+          }, {
             "key_code" : "home"
           } ],
           "conditions" : [ {
@@ -576,6 +835,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "f1e5b2f23ea46d45366a"
+              }
+            }
+          }, {
             "key_code" : "end"
           } ],
           "conditions" : [ {
@@ -595,6 +861,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "6cbaf01804d0f69dfdaa"
+              }
+            }
+          }, {
             "key_code" : "down_arrow"
           } ],
           "type" : "basic"
@@ -607,6 +880,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "74be5726bb85dd8a5058"
+              }
+            }
+          }, {
             "key_code" : "up_arrow"
           } ],
           "type" : "basic"
@@ -619,6 +899,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "8d353187b4a7c0b31488"
+              }
+            }
+          }, {
             "key_code" : "left_arrow"
           } ],
           "type" : "basic"
@@ -631,6 +918,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "29d1b7fdc0a6902c83f0"
+              }
+            }
+          }, {
             "key_code" : "right_arrow"
           } ],
           "type" : "basic"
@@ -643,6 +937,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "ffd6075e452255ab13be"
+              }
+            }
+          }, {
             "key_code" : "return_or_enter"
           } ],
           "type" : "basic"
@@ -655,6 +956,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "97a1e0c86023d314d395"
+              }
+            }
+          }, {
             "key_code" : "delete_or_backspace"
           } ],
           "type" : "basic"
@@ -666,6 +974,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "b75c99035d7cda96ccfb"
+              }
+            }
+          }, {
             "key_code" : "right_shift"
           } ],
           "type" : "basic"
@@ -677,6 +992,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "391ff45d5680263226f7"
+              }
+            }
+          }, {
             "key_code" : "left_shift"
           } ],
           "type" : "basic"
@@ -688,6 +1010,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "ffd2cc4a1c4733795d6b"
+              }
+            }
+          }, {
             "key_code" : "grave_accent_and_tilde",
             "modifiers" : [ "left_shift" ]
           } ],
@@ -700,6 +1029,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "6d5f1d9e6a39b5134b2a"
+              }
+            }
+          }, {
             "key_code" : "spacebar",
             "modifiers" : [ "left_command", "left_shift" ]
           } ],
@@ -712,6 +1048,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "39b8413c485b332f0e5e"
+              }
+            }
+          }, {
             "key_code" : "p",
             "modifiers" : [ "left_command", "left_shift" ]
           } ],
@@ -724,6 +1067,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "68fc5763db8cb7eee741"
+              }
+            }
+          }, {
             "key_code" : "g",
             "modifiers" : [ "left_command", "left_shift" ]
           } ],
@@ -736,6 +1086,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "cf5f5ed0a56da6f3c6a9"
+              }
+            }
+          }, {
             "key_code" : "s",
             "modifiers" : [ "left_command", "left_shift" ]
           } ],
@@ -748,6 +1105,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "f5525e9172410c34ed5e"
+              }
+            }
+          }, {
             "key_code" : "open_bracket",
             "modifiers" : [ "left_command", "left_shift" ]
           } ],
@@ -764,6 +1128,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "28f03271dcf1d0bfcc04"
+              }
+            }
+          }, {
             "key_code" : "close_bracket",
             "modifiers" : [ "left_command", "left_shift" ]
           } ],
@@ -780,6 +1151,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "9f1913a88a012c393a0d"
+              }
+            }
+          }, {
             "key_code" : "equal_sign",
             "modifiers" : [ "left_command" ]
           } ],
@@ -796,6 +1174,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "4fedd6125b880be9e102"
+              }
+            }
+          }, {
             "key_code" : "equal_sign"
           } ],
           "type" : "basic"
@@ -808,6 +1193,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "5bf55a35f40143b6014d"
+              }
+            }
+          }, {
             "key_code" : "equal_sign",
             "modifiers" : [ "right_shift" ]
           } ],
@@ -821,6 +1213,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "2bd5b085b4aaa5340f03"
+              }
+            }
+          }, {
             "key_code" : "hyphen"
           } ],
           "type" : "basic"
@@ -832,6 +1231,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "9c219903055faa3bc7b9"
+              }
+            }
+          }, {
             "key_code" : "hyphen",
             "modifiers" : [ "left_shift" ]
           } ],
@@ -844,6 +1250,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "764b2d4ede64a0a6c9f0"
+              }
+            }
+          }, {
             "key_code" : "8",
             "modifiers" : [ "left_shift" ]
           } ],
@@ -856,6 +1269,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "8f9532b9a171392c2ead"
+              }
+            }
+          }, {
             "key_code" : "3",
             "modifiers" : [ "left_shift" ]
           } ],
@@ -868,6 +1288,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "22a59018372e7777eb3a"
+              }
+            }
+          }, {
             "key_code" : "2",
             "modifiers" : [ "left_shift" ]
           } ],
@@ -880,6 +1307,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "99c409f4fdbcfbd788b5"
+              }
+            }
+          }, {
             "key_code" : "backslash",
             "modifiers" : [ "left_shift" ]
           } ],
@@ -892,6 +1326,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "01b4d7e08d22ad96110c"
+              }
+            }
+          }, {
             "key_code" : "7",
             "modifiers" : [ "left_shift" ]
           } ],
@@ -904,6 +1345,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "14ce7eb4a021137675a4"
+              }
+            }
+          }, {
             "key_code" : "backslash"
           } ],
           "type" : "basic"
@@ -915,6 +1363,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "51b4ea5323ce3b080cd4"
+              }
+            }
+          }, {
             "key_code" : "4",
             "modifiers" : [ "left_shift" ]
           } ],
@@ -927,6 +1382,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "6d830736309380c18a93"
+              }
+            }
+          }, {
             "key_code" : "5",
             "modifiers" : [ "left_shift" ]
           } ],
@@ -940,6 +1402,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "05445ff92d7ef123d103"
+              }
+            }
+          }, {
             "key_code" : "b"
           } ],
           "type" : "basic"
@@ -951,6 +1420,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "8716c98fc002a7719add"
+              }
+            }
+          }, {
             "key_code" : "1",
             "modifiers" : [ "left_shift" ]
           } ],
@@ -964,6 +1440,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "16f6e5719e7405410eeb"
+              }
+            }
+          }, {
             "key_code" : "grave_accent_and_tilde"
           } ],
           "type" : "basic"
@@ -976,6 +1459,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "6a12141d695744c03007"
+              }
+            }
+          }, {
             "key_code" : "semicolon"
           } ],
           "type" : "basic"
@@ -987,6 +1477,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "8d71da4a0b35560b7b20"
+              }
+            }
+          }, {
             "key_code" : "quote"
           } ],
           "type" : "basic"
@@ -998,6 +1495,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "d6774bc9980b25def2ef"
+              }
+            }
+          }, {
             "key_code" : "quote",
             "modifiers" : [ "right_shift" ]
           } ],
@@ -1010,6 +1514,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "7794ec55a2a0cc0590c1"
+              }
+            }
+          }, {
             "key_code" : "9",
             "modifiers" : [ "left_shift" ]
           } ],
@@ -1022,6 +1533,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "f11cea4bb9f596d09d87"
+              }
+            }
+          }, {
             "key_code" : "0",
             "modifiers" : [ "left_shift" ]
           } ],
@@ -1034,6 +1552,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "baa493fa1fa2c0b84d29"
+              }
+            }
+          }, {
             "key_code" : "open_bracket",
             "modifiers" : [ "left_shift" ]
           } ],
@@ -1046,6 +1571,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "6bf06ae9b656108834d9"
+              }
+            }
+          }, {
             "key_code" : "close_bracket",
             "modifiers" : [ "left_shift" ]
           } ],
@@ -1058,6 +1590,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "81ea86fc306fb6bd795b"
+              }
+            }
+          }, {
             "key_code" : "open_bracket"
           } ],
           "type" : "basic"
@@ -1069,6 +1608,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "63d27400b255cfc7581e"
+              }
+            }
+          }, {
             "key_code" : "close_bracket"
           } ],
           "type" : "basic"
@@ -1084,6 +1630,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "35637c01a0b3f7c46bc1"
+              }
+            }
+          }, {
             "key_code" : "hyphen",
             "modifiers" : [ "left_option", "left_shift" ]
           } ],
@@ -1097,6 +1650,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "ceb6102c1b19e9eef5db"
+              }
+            }
+          }, {
             "key_code" : "equal_sign",
             "modifiers" : [ "left_option", "left_shift" ]
           } ],
@@ -1110,6 +1670,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "8c0648bc2105c22360d0"
+              }
+            }
+          }, {
             "key_code" : "q",
             "modifiers" : [ "left_control" ]
           } ],
@@ -1123,6 +1690,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "f58cf0c2468f18aace86"
+              }
+            }
+          }, {
             "key_code" : "c",
             "modifiers" : [ "left_control" ]
           } ],
@@ -1136,6 +1710,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "18f387199657e183f482"
+              }
+            }
+          }, {
             "key_code" : "r",
             "modifiers" : [ "left_control" ]
           } ],
@@ -1149,6 +1730,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "d91af60135c78064157c"
+              }
+            }
+          }, {
             "key_code" : "a",
             "modifiers" : [ "left_control" ]
           } ],
@@ -1162,6 +1750,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "767de3816ca390d9b838"
+              }
+            }
+          }, {
             "key_code" : "x",
             "modifiers" : [ "left_control" ]
           } ],
@@ -1175,6 +1770,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "cc9cefc0e45ae9f9f662"
+              }
+            }
+          }, {
             "key_code" : "backslash",
             "modifiers" : [ "left_option" ]
           } ],
@@ -1188,6 +1790,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "2f8eac9bf17c224988eb"
+              }
+            }
+          }, {
             "key_code" : "7"
           } ],
           "type" : "basic"
@@ -1200,6 +1809,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "4f6ebd4e0971b0bb2ae1"
+              }
+            }
+          }, {
             "key_code" : "8"
           } ],
           "type" : "basic"
@@ -1212,6 +1828,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "11961cbfb876faf7f998"
+              }
+            }
+          }, {
             "key_code" : "9"
           } ],
           "type" : "basic"
@@ -1224,6 +1847,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "0688d673fcaefb3c3b75"
+              }
+            }
+          }, {
             "key_code" : "4"
           } ],
           "type" : "basic"
@@ -1236,6 +1866,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "04b2e0c66ca6320315aa"
+              }
+            }
+          }, {
             "key_code" : "5"
           } ],
           "type" : "basic"
@@ -1248,6 +1885,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "ec72536d7cf469f37081"
+              }
+            }
+          }, {
             "key_code" : "6"
           } ],
           "type" : "basic"
@@ -1260,6 +1904,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "428b9d8d7bc2ae326dff"
+              }
+            }
+          }, {
             "key_code" : "1"
           } ],
           "type" : "basic"
@@ -1272,6 +1923,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "d78118958f5c04d245da"
+              }
+            }
+          }, {
             "key_code" : "2"
           } ],
           "type" : "basic"
@@ -1284,6 +1942,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "2d062261328842782952"
+              }
+            }
+          }, {
             "key_code" : "3"
           } ],
           "type" : "basic"
@@ -1296,6 +1961,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "fdfc84c5270346f81f55"
+              }
+            }
+          }, {
             "key_code" : "0"
           } ],
           "type" : "basic"
@@ -1310,6 +1982,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "36e6391fcd3e925218cb"
+              }
+            }
+          }, {
             "shell_command" : "/bin/zsh `open /Applications/Neovide.app -n --args --frame transparent`"
           }, {
             "select_input_source" : {
@@ -1326,6 +2005,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "7e44c0271a49165db26f"
+              }
+            }
+          }, {
             "shell_command" : "open /Applications/Google\\ Chrome.app"
           } ],
           "type" : "basic"
@@ -1337,6 +2023,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "f9626f36fb1fdea743f5"
+              }
+            }
+          }, {
             "shell_command" : "/bin/zsh `open /Applications/IntelliJ\\ IDEA.app`"
           } ],
           "type" : "basic"
@@ -1348,6 +2041,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "f7405b50e9403a395c78"
+              }
+            }
+          }, {
             "shell_command" : "open -b com.openai.codex"
           }, {
             "select_input_source" : {
@@ -1364,6 +2064,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "509b82e7d6cdfbab175b"
+              }
+            }
+          }, {
             "shell_command" : "open /Applications/Telegram.app"
           } ],
           "type" : "basic"
@@ -1375,6 +2082,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "7b9a5db7acf21e510e2c"
+              }
+            }
+          }, {
             "shell_command" : "/bin/zsh `open /Applications/Neovide.app`"
           }, {
             "select_input_source" : {
@@ -1391,6 +2105,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "724015a251ed1e189174"
+              }
+            }
+          }, {
             "shell_command" : "/bin/zsh `open /Applications/WezTerm.app`"
           }, {
             "select_input_source" : {
@@ -1407,6 +2128,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "f0f05cbd2b760588cf00"
+              }
+            }
+          }, {
             "shell_command" : "/bin/zsh `open /Applications/Neovide.app -n --args --frame transparent`"
           }, {
             "select_input_source" : {
@@ -1426,6 +2154,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "178834554ecc95f6870c"
+              }
+            }
+          }, {
             "shell_command" : "~/dotfiles/scripts/darkmode.sh w"
           } ],
           "type" : "basic"
@@ -1437,6 +2172,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "93beff08c39a39f07331"
+              }
+            }
+          }, {
             "shell_command" : "~/dotfiles/scripts/darkmode.sh b"
           } ],
           "type" : "basic"
@@ -1448,6 +2190,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "66ddd06bf5fdc49870ea"
+              }
+            }
+          }, {
             "key_code" : "c",
             "modifiers" : [ "left_option", "left_shift" ]
           } ],
@@ -1460,6 +2209,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "07eb0108e068cae95c59"
+              }
+            }
+          }, {
             "select_input_source" : {
               "input_source_id" : "^com\\.apple\\.keylayout\\.ABC$",
               "language" : "en"
@@ -1476,6 +2232,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "6573fe68af43a1eae6a9"
+              }
+            }
+          }, {
             "select_input_source" : {
               "input_source_id" : "^com\\.apple\\.keylayout\\.ABC$",
               "language" : "en"
@@ -1492,6 +2255,13 @@
             }
           },
           "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "8dde84640e715a710ae7"
+              }
+            }
+          }, {
             "select_input_source" : {
               "input_source_id" : "^com\\.apple\\.keylayout\\.ABC$",
               "language" : "en"

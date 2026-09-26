@@ -1,3 +1,5 @@
+;; scripts/karabiner-stats.py adds counting hooks to the generated JSON.
+;; The installed receiver reapplies them after goku; keep editing bindings here.
 {:main [{:des "semicolon-mode"
          :rules [[:semicolon ["semicolon-mode" 1] nil {:afterup ["semicolon-mode" 0]}]
                  ;; cmd+number
