@@ -19,13 +19,20 @@
                   openfile (require :nvim-tree.actions.node.open-file)
 
                   view-selection
-                  (fn  [prompt-funr _]
+                  (fn [prompt-bufnr _]
                     (actions.select_default:replace
                       (fn []
-                        (actions.close prompt-funr)
-                        (let [selection (action-state.get_selected_entry)
-                              filename  (or selection.filename (. selection 1))]
-                          (openfile.fn :preview filename))))
+                        (let [selection (action-state.get_selected_entry)]
+                          (when selection
+                            (actions.close prompt-bufnr)
+                            ;; Wait for Telescope to leave insert mode before placing the cursor.
+                            (vim.schedule
+                              (fn []
+                                (let [filename (or selection.path selection.filename (. selection 1))]
+                                  (openfile.fn :edit filename)
+                                  (when (and selection.lnum (= filename (vim.api.nvim_buf_get_name 0)))
+                                    (vim.api.nvim_win_set_cursor 0
+                                      [selection.lnum (math.max 0 (- (or selection.col 1) 1))])))))))))
                     true)
 
                   launch-telescope 
