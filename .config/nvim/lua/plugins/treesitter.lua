@@ -26,8 +26,6 @@ local function _3_()
   tskset("ir", "@parameter.inner")
   tskset("ak", "@block.inner")
   tskset("ik", "@block.inner")
-  nvim.o.foldmethod = "expr"
-  nvim.o.foldexpr = "nvim_treesitter#foldexpr()"
   do
     local treesitter = require("nvim-treesitter")
     treesitter.install(parsers)

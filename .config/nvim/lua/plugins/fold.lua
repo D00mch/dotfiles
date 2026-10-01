@@ -77,19 +77,37 @@ local function _4_()
     return default_folds
   end
   with_comment_folds = _11_
+  local treesitter_with_injections
+  local function _12_(bufnr)
+    local function _13_(resolve, reject)
+      local function _14_(err)
+        if err then
+          return reject(err)
+        else
+          return resolve()
+        end
+      end
+      return vim.treesitter.get_parser(bufnr):parse(true, _14_)
+    end
+    local function _16_()
+      return ufo.getFolds(bufnr, "treesitter")
+    end
+    return require("promise")(_13_):thenCall(_16_)
+  end
+  treesitter_with_injections = _12_
   local ft_map
-  local function _12_(_241)
+  local function _17_(_241)
     return with_comment_folds(_241, "indent")
   end
-  local function _13_(_241)
+  local function _18_(_241)
     return with_comment_folds(_241, "indent")
   end
-  ft_map = {clojure = _12_, kotlin = "treesitter", markdown = "treesitter", fennel = _13_}
+  ft_map = {clojure = _17_, json = "treesitter", kotlin = "treesitter", markdown = treesitter_with_injections, fennel = _18_}
   kset("n", "zR", ufo.openAllFolds)
   kset("n", "zM", ufo.closeAllFolds)
-  local function _14_(bufnr, filetype, buftype)
+  local function _19_(bufnr, filetype, buftype)
     return ft_map[filetype]
   end
-  return ufo.setup({fold_virt_text_handler = handler, provider_selector = _14_})
+  return ufo.setup({fold_virt_text_handler = handler, provider_selector = _19_})
 end
 return {{"kevinhwang91/nvim-ufo", lazy = true, event = "VeryLazy", dependencies = {"kevinhwang91/promise-async"}, init = _3_, config = _4_}}

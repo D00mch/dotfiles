@@ -73,11 +73,21 @@
                       (each [_ fold (ipairs comment-folds)]
                         (table.insert default-folds fold))
                       default-folds))
-                  
+
+                  treesitter-with-injections
+                  (fn [bufnr]
+                    ;; Parse fenced languages too, without blocking on large code blocks.
+                    (: ((require :promise)
+                         (fn [resolve reject]
+                           (: (vim.treesitter.get_parser bufnr) :parse true
+                              (fn [err] (if err (reject err) (resolve))))))
+                       :thenCall #(ufo.getFolds bufnr :treesitter)))
+
                   ft-map
                   {:clojure #(with-comment-folds $ :indent)
+                   :json :treesitter
                    :kotlin :treesitter
-                   :markdown :treesitter
+                   :markdown treesitter-with-injections
                    :fennel #(with-comment-folds $ :indent)}]
               (kset :n :zR ufo.openAllFolds)
               (kset :n :zM ufo.closeAllFolds)

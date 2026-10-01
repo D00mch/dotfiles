@@ -38,8 +38,6 @@
 
             ;; Treesitter setup
 
-            (set nvim.o.foldmethod :expr)
-            (set nvim.o.foldexpr "nvim_treesitter#foldexpr()")
             (let [treesitter (require :nvim-treesitter)]
               (treesitter.install parsers)
               (treesitter.setup))
