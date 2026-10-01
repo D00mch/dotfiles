@@ -6,6 +6,21 @@
 (require :config.markdown)
 (require :config.misc)
 
+;; Column guide for source and configuration files.
+(local code-filetypes
+  [:c :cpp :clojure :css :dart :dockerfile :fennel :go :groovy :html :http
+   :java :javascript :javascriptreact :json :jsonc :kotlin :lua :make :nix
+   :objc :objcpp :python :racket :ruby :rust :scheme :sh :sql :swift
+   :terraform :toml :typescript :typescriptreact :vim :xml :yaml :zsh])
+
+(vim.api.nvim_create_autocmd
+  [:BufEnter :FileType :TermOpen]
+  {:group (vim.api.nvim_create_augroup :CodeColumnGuide {:clear true})
+   :callback #(set vim.wo.colorcolumn
+                   (if (and (= vim.bo.buftype "")
+                            (vim.tbl_contains code-filetypes vim.bo.filetype))
+                     "120" ""))})
+
 ;; open Help in full window
 (vim.api.nvim_command "command! -nargs=1 -complete=help H help <args> | silent only")
 

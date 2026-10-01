@@ -7,12 +7,22 @@ local kset = _local_2_.kset
 require("config.which")
 require("config.markdown")
 require("config.misc")
-vim.api.nvim_command("command! -nargs=1 -complete=help H help <args> | silent only")
+local code_filetypes = {"c", "cpp", "clojure", "css", "dart", "dockerfile", "fennel", "go", "groovy", "html", "http", "java", "javascript", "javascriptreact", "json", "jsonc", "kotlin", "lua", "make", "nix", "objc", "objcpp", "python", "racket", "ruby", "rust", "scheme", "sh", "sql", "swift", "terraform", "toml", "typescript", "typescriptreact", "vim", "xml", "yaml", "zsh"}
 local function _3_()
+  if ((vim.bo.buftype == "") and vim.tbl_contains(code_filetypes, vim.bo.filetype)) then
+    vim.wo.colorcolumn = "120"
+  else
+    vim.wo.colorcolumn = ""
+  end
+  return nil
+end
+vim.api.nvim_create_autocmd({"BufEnter", "FileType", "TermOpen"}, {group = vim.api.nvim_create_augroup("CodeColumnGuide", {clear = true}), callback = _3_})
+vim.api.nvim_command("command! -nargs=1 -complete=help H help <args> | silent only")
+local function _5_()
   local bd = require("bufdelete")
   return bd.bufdelete(0, true)
 end
-kset("n", "<Space>d", _3_)
+kset("n", "<Space>d", _5_)
 do
   kset("x", "<D-c>", "y")
   kset({"n", "x"}, "<D-v>", "p")
@@ -43,10 +53,10 @@ do
   kset({"n", "x"}, "<D-f>", "/")
   kset({"i", "t"}, "<D-f>", "<Esc><D-f>", {remap = true})
 end
-local function _5_()
+local function _7_()
   return vim.cmd("if line(\"'\\\"\") > 1 && line(\"'\\\"\") <= line(\"$\") | exe \"normal! g'\\\"\" | endif")
 end
-vim.api.nvim_create_autocmd("BufReadPost", {pattern = "*", group = vim.api.nvim_create_augroup("LastPosition", {clear = true}), callback = _5_})
+vim.api.nvim_create_autocmd("BufReadPost", {pattern = "*", group = vim.api.nvim_create_augroup("LastPosition", {clear = true}), callback = _7_})
 vim.o.autoread = true
 nvim.o.mouse = "a"
 local function compare_to_clipboard()
@@ -54,9 +64,9 @@ local function compare_to_clipboard()
   return vim.cmd(string.format("execute 'normal! \"xy'\n      tabnew\n      vsplit\n      enew\n      normal! P\n      setlocal buftype=nowrite\n      set filetype=%s\n      diffthis\n      execute \"normal! \\<C-w>\\<C-w>\"\n      enew\n      set filetype=%s\n      normal! \"xP\n      diffthis", ftype, ftype))
 end
 kset({"x"}, "<Space>cc", compare_to_clipboard, {desc = "Clipboard Compare"})
-local function _6_()
+local function _8_()
   return vim.hl.on_yank({higroup = "IncSearch", timeout = 300})
 end
-vim.api.nvim_create_autocmd("TextYankPost", {group = vim.api.nvim_create_augroup("yank_highlight", {}), pattern = "*", callback = _6_})
+vim.api.nvim_create_autocmd("TextYankPost", {group = vim.api.nvim_create_augroup("yank_highlight", {}), pattern = "*", callback = _8_})
 kset("n", "<Leader>dm", ":let @*=trim(execute('messages'))<bar>echo 'copied' <cr>")
 return {}
