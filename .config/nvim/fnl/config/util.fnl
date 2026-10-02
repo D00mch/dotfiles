@@ -50,13 +50,6 @@
      [(vim.fn.line ".") (vim.fn.line "v")]
      args))
 
-;; maps operation to visual
-(fn vis-op+ [op args]
-  #(op
-     [(vim.api.nvim_buf_get_mark 0 "<")
-      (vim.api.nvim_buf_get_mark 0 ">")]
-     args))
-
 ;; words near cursor
 
 ;; returns: word, start-row, start-column
@@ -105,6 +98,9 @@
     (vim.cmd "hi! link LspReferenceWrite TSConstMacro")))
 
 (fn on-attach [c b]
+  ;; Kotlin LSP handles range formatting but doesn't advertise it.
+  (when (= c.name :kotlin_lsp)
+    (set c.server_capabilities.documentRangeFormattingProvider true))
   (highlight-symbols c b)
   (bkset :n :<space>th
          (fn []
@@ -124,8 +120,7 @@
   ;(bkset :n :<leader>re vim.diagnostic.setloclist {:buffer b :desc "List diagnostics"})
 
   (when (not (string.find (vim.api.nvim_buf_get_name b) ".*.fnl$"))
-    (bkset :n := ":lua vim.lsp.buf.format({async = true})<Cr>" {:buffer b :desc "Apply formatting"}) ;[
-    (bkset :x := (vis-op+ vim.lsp.buf.format {:async true}) {:buffer b :desc "Apply formatting"}))
+    (bkset [:n :x] := #(vim.lsp.buf.format {:async true}) {:buffer b :desc "Apply formatting"}))
 
   (bkset :n "[s" vim.diagnostic.goto_prev {:buffer b :desc "Goto prev erro"}) ;]
   (bkset :n "]s" vim.diagnostic.goto_next {:buffer b :desc "Goto next erro"}) ;]
@@ -154,7 +149,6 @@
  : bkset
  : bkdel
  : vis-op
- : vis-op+
  : get-word-under-cursor
  : get-word-under-selection
 
