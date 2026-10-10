@@ -216,7 +216,7 @@ cd $HOME
 
     "TABS
         set smartindent
-        set smarttab expandtab "shiftwidth=4  "don't see why I need shiftwidth 
+        set smarttab expandtab shiftwidth=4 softtabstop=-1
         set tags=./tags,tags;$HOME
 
     "MARKDOWN
