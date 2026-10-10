@@ -15,6 +15,9 @@
       "rules" : [ {
         "description" : "semicolon-mode",
         "manipulators" : [ {
+          "to_if_alone" : [ {
+            "key_code" : "semicolon"
+          } ],
           "to_after_key_up" : [ {
             "set_variable" : {
               "name" : "semicolon-mode",
@@ -28,7 +31,7 @@
             "send_user_command" : {
               "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
               "payload" : {
-                "dotfiles_karabiner_stats" : "bb517401b54ad46989c0"
+                "dotfiles_karabiner_stats" : "5f801153049a94679a10"
               }
             }
           }, {
@@ -1703,6 +1706,26 @@
           "type" : "basic"
         }, {
           "from" : {
+            "key_code" : "d",
+            "modifiers" : {
+              "mandatory" : [ "left_option" ],
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "send_user_command" : {
+              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
+              "payload" : {
+                "dotfiles_karabiner_stats" : "fafdeaf49786d7ec70eb"
+              }
+            }
+          }, {
+            "key_code" : "d",
+            "modifiers" : [ "left_control" ]
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
             "key_code" : "r",
             "modifiers" : {
               "mandatory" : [ "left_option" ],
@@ -2148,24 +2171,6 @@
         "description" : "system scripts",
         "manipulators" : [ {
           "from" : {
-            "key_code" : "w",
-            "modifiers" : {
-              "mandatory" : [ "left_option", "left_shift" ]
-            }
-          },
-          "to" : [ {
-            "send_user_command" : {
-              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
-              "payload" : {
-                "dotfiles_karabiner_stats" : "178834554ecc95f6870c"
-              }
-            }
-          }, {
-            "shell_command" : "~/dotfiles/scripts/darkmode.sh w"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
             "key_code" : "b",
             "modifiers" : {
               "mandatory" : [ "left_option", "left_shift" ]
@@ -2199,75 +2204,6 @@
           }, {
             "key_code" : "c",
             "modifiers" : [ "left_option", "left_shift" ]
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "1",
-            "modifiers" : {
-              "mandatory" : [ "left_control", "left_option" ]
-            }
-          },
-          "to" : [ {
-            "send_user_command" : {
-              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
-              "payload" : {
-                "dotfiles_karabiner_stats" : "07eb0108e068cae95c59"
-              }
-            }
-          }, {
-            "select_input_source" : {
-              "input_source_id" : "^com\\.apple\\.keylayout\\.ABC$",
-              "language" : "en"
-            }
-          }, {
-            "shell_command" : "~/docker_and_repl.sh 1"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "2",
-            "modifiers" : {
-              "mandatory" : [ "left_control", "left_option" ]
-            }
-          },
-          "to" : [ {
-            "send_user_command" : {
-              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
-              "payload" : {
-                "dotfiles_karabiner_stats" : "6573fe68af43a1eae6a9"
-              }
-            }
-          }, {
-            "select_input_source" : {
-              "input_source_id" : "^com\\.apple\\.keylayout\\.ABC$",
-              "language" : "en"
-            }
-          }, {
-            "shell_command" : "~/docker_and_repl.sh 2"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "3",
-            "modifiers" : {
-              "mandatory" : [ "left_control", "left_option" ]
-            }
-          },
-          "to" : [ {
-            "send_user_command" : {
-              "endpoint" : "/Users/dumch/.local/share/karabiner-stats/events.sock",
-              "payload" : {
-                "dotfiles_karabiner_stats" : "8dde84640e715a710ae7"
-              }
-            }
-          }, {
-            "select_input_source" : {
-              "input_source_id" : "^com\\.apple\\.keylayout\\.ABC$",
-              "language" : "en"
-            }
-          }, {
-            "shell_command" : "~/docker_and_repl.sh 3"
           } ],
           "type" : "basic"
         } ]
