@@ -1,6 +1,11 @@
 ;; scripts/karabiner-stats.py adds counting hooks to the generated JSON.
 ;; The installed receiver reapplies them after goku; keep editing bindings here.
-{:main [{:des "semicolon-mode"
+{:main [{:des "Disable macOS logout shortcuts"
+         ;; Cmd+Shift+Q, with or without Option; either side of each modifier.
+         :rules [[{:key :q :modi {:mandatory [:command :shift]
+                                 :optional [:option :caps_lock]}} :vk_none]]}
+
+        {:des "semicolon-mode"
          :rules [[:semicolon ["semicolon-mode" 1] nil {:afterup ["semicolon-mode" 0]
                                                        :alone   :semicolon}]
                  ;; cmd+number
