@@ -47,7 +47,7 @@ source $ZSH/oh-my-zsh.sh
 
 PROMPT='
 %{$fg[yellow]%}%m%{$reset_color%} %{$fg_bold[green]%}%~%{$reset_color%}$(git_prompt_info)
-$(virtualenv_info)$(prompt_char) '
+$(virtualenv_info)$ '
 
 source ~/.ssh-aliases.sh
 
