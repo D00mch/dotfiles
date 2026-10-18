@@ -166,8 +166,6 @@
                  [:!CQt "open /Applications/Telegram.app"]
                  [:!CQn ["/bin/zsh `open /Applications/Neovide.app`" :select_abc]]
                  [:!CQm ["/bin/zsh `open /Applications/WezTerm.app`" :select_abc]]
-                 [:!CQg ["/bin/zsh `open /Applications/Neovide.app -n --args --frame transparent`" :select_abc]]
-
                  #_[:!Cg ["open /Applications/Neovide.app -n --args --multigrid" :select_abc]]
                  ]}
 
