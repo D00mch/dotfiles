@@ -72,8 +72,8 @@
         [word]  (vim.api.nvim_buf_get_text 0 sr sc er ec {})]
     [word sr sc er ec]))
 
-;; to share slp with mrcjkb/rustaceanvim
-(local {: lsp_references : lsp_implementations : lsp_definitions} (autoload :telescope.builtin)) 
+;; Resolve Telescope functions only when a mapping is used.
+(local telescope (autoload :telescope.builtin))
 
 (fn highlight-line-symbol []
   ;; highlight line number instead of having icons in sigh column
@@ -109,7 +109,7 @@
          {:buffer b :desc "Inlay hints"})	
 
   (bkset :n :<leader>h (fn [] (vim.lsp.buf.hover {:border :single}) (vim.lsp.buf.hover {:border :single})) {:buffer b :desc "Show docs"})
-  (bkset :n :gd #(lsp_definitions {:initial_mode :normal}) {:buffer b :desc "Go definition"})
+  (bkset :n :gd #(telescope.lsp_definitions {:initial_mode :normal}) {:buffer b :desc "Go definition"})
 
   (bkset :n :gD "<c-w><c-]><c-w>T" {:buffer b :desc "Go definition new tab"})
   (bkset :n :<leader>tD vim.lsp.buf.type_definition {:buffer b :desc "Type definition"})
@@ -126,8 +126,8 @@
   (bkset :n "]s" vim.diagnostic.goto_next {:buffer b :desc "Goto next erro"}) ;]
   (bkset :n :<C-q> #(vim.lsp.buf.references {:includeDeclaration false}) {:buffer b :desc "Find usages in quickfix"})
   ;; TELESCOPE
-  (bkset :n :<leader>gr #(lsp_references {:jump_type :never}) {:buffer b :desc "Go to references"})
-  (bkset :n :<leader>gi lsp_implementations {:buffer b :desc "Go to implementations"})
+  (bkset :n :<leader>gr #(telescope.lsp_references {:jump_type :never}) {:buffer b :desc "Go to references"})
+  (bkset :n :<leader>gi #(telescope.lsp_implementations) {:buffer b :desc "Go to implementations"})
   (bkset [:i :n :x] :<C-r> vim.lsp.buf.code_action {:buffer b :desc "Code actions"})
   (bkset [:n :x] :<leader>ra vim.lsp.buf.code_action {:buffer b :desc "Code actions"}))
 

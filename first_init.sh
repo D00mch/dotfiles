@@ -26,6 +26,7 @@ echo 'fi' >> ~/.zprofile
 
 # installing utilities 
 brew install neovim
+brew install node python tree-sitter-cli
 brew install --cask neovide
 bash "$DOTFILES_PATH/scripts/set-default-text-app.sh"
 brew install --cask font-terminess-ttf-nerd-font
@@ -50,8 +51,9 @@ brew install --cask vlc
 brew install rust
 brew install pandoc
 cargo install --locked evcxr_repl # repl
-cargo install --locked tree-sitter-cli
 brew tap y3owk1n/tap
 brew install --cask y3owk1n/tap/neru
+
+nvim --headless -u NONE -l "$DOTFILES_PATH/scripts/setup-nvim.lua" || exit 1
 
 echo "Setup finished. Open a new terminal to load your shell configuration."

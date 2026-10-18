@@ -18,6 +18,16 @@ cd dotfiles
 
 The script uses its own directory as the repository path and creates config symlinks in your home directory. Run it as your normal user; open a new terminal when setup finishes.
 
+### Neovim setup
+
+`first_init.sh` installs Node, Python, and the Tree-sitter CLI, then restores Neovim's pinned plugins, parsers, and Mason language/debug tools. To rerun only the editor setup after linking this checkout with `init.sh`:
+
+```bash
+nvim --headless -u NONE -l "$HOME/dotfiles/scripts/setup-nvim.lua"
+```
+
+This command skips installed Mason tools and exits with an error if setup fails. Installed binaries and editor state stay outside the repository.
+
 ### Default text app
 
 ```bash

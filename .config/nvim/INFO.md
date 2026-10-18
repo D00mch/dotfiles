@@ -26,6 +26,9 @@ If you are not sure about something, leave a note for other developers to review
 - After the legacy Vim config is sourced, Neovim plugin setup is delegated to `require("lazy").setup("plugins")`.
 - `lua/plugins.lua` is a small hand-authored bootstrap file that registers `lazy.nvim` itself and the `Olical/nfnl` plugin.
 - The `nfnl` plugin loads `require("config")`, which comes from the compiled `lua/config/init.lua` generated from `fnl/config/init.fnl`.
+- Keep Telescope function lookups inside key callbacks in `config.util`. Resolving them while Lazy imports plugin specs prevents a fresh installation from discovering the plugins it needs.
+- `scripts/setup-nvim.lua` at the repository root seeds the pinned bootstrap plugins before loading this config, prepares LuaRocks for REST, restores plugins and parsers, and installs the configured Mason tools. `first_init.sh` runs it after installing system dependencies.
+- LuaRocks uses the isolated Hererocks runtime, including when another LuaRocks installation is on the system. Editor setup trusts this checkout's `.nfnl.fnl` for future Fennel compilation.
 
 ## Directory Structure
 
@@ -90,12 +93,15 @@ If you are not sure about something, leave a note for other developers to review
 - Search/navigation is centered on Telescope with recent-files, file-browser, undo, live grep, and git pickers.
 - LSP setup includes at least Fennel, Clojure, Java, Go, Kotlin, TypeScript, Emmet, and LTEX wiring.
 - Theme handling is dynamic and includes auto dark-mode switching plus Neovide font/transparency settings.
+- Treesitter uses the `main` branch and configures after its dependencies load. Folding is managed by `nvim-ufo`.
+- HTTP mappings use the current `:Rest open` and `:Rest run` commands; the REST module name is explicitly `rest-nvim`.
 
 ## Language-Specific Notes
 
 - Clojure config detects `pubspec.yaml`, `project.clj`, or `deps.edn` to choose a REPL startup command.
 - Clojure mappings also include Conjure/shadow-cljs helpers and uncommenting utilities.
 - LTEX stores its custom dictionary in `data/ltex/ltex.dictionary.en-US.txt`.
+- LTEX increases its own JVM XML entity size limit so LanguageTool's bundled grammar loads on newer system JDKs. This is scoped to the LTEX process.
 - `data/plenary/filetypes/ext.lua` maps `.cljd` files to the `clojure` filetype.
 - `basic.fnl` conditionally enables `codeium.nvim` only when `OPENAI_API_KEY` is present in the environment.
 
@@ -103,4 +109,6 @@ If you are not sure about something, leave a note for other developers to review
 
 - There is no standalone test suite for this config.
 - Reasonable validation is to open Neovim, let lazy.nvim load, and check representative workflows with `:Lazy`, `:checkhealth`, and the relevant filetypes.
+- Check plugin and parser health with `:checkhealth lazy nvim-treesitter`; use `:checkhealth vim.lsp` for language server executables. Mason installations are separate from Lazy's plugin lockfile.
+- Parser installation requires `tree-sitter` CLI and a C compiler. The configured npm language servers require Node/npm; BasedPyright's Mason package requires Python 3.10 or newer.
 - After changing Fennel sources, verify that the compiled Lua mirrors are still in sync before considering the edit complete.

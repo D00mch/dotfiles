@@ -28,12 +28,12 @@ local function _3_()
   tskset("ik", "@block.inner")
   do
     local treesitter = require("nvim-treesitter")
-    treesitter.install(parsers)
     treesitter.setup()
+    treesitter.install(parsers)
   end
   local function _6_()
     return vim.treesitter.start()
   end
   return vim.api.nvim_create_autocmd("FileType", {callback = _6_, pattern = langs})
 end
-return {{"nvim-treesitter/nvim-treesitter", dependencies = {{"nvim-treesitter/nvim-treesitter-textobjects", branch = "main"}}, branch = "main", build = ":TSUpdate", ft = langs, init = _3_, config = true, lazy = false}}
+return {{"nvim-treesitter/nvim-treesitter", dependencies = {{"nvim-treesitter/nvim-treesitter-textobjects", branch = "main"}}, branch = "main", build = ":TSUpdate", ft = langs, config = _3_, lazy = false}}

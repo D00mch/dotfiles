@@ -13,7 +13,7 @@
   :branch :main
   :build ":TSUpdate"
   :ft langs
-  :init (fn []
+  :config (fn []
           (let [ts-objects (require :nvim-treesitter-textobjects)
                 ts-select  (require :nvim-treesitter-textobjects.select)
                 tskset     (fn [ks obj]
@@ -39,11 +39,10 @@
             ;; Treesitter setup
 
             (let [treesitter (require :nvim-treesitter)]
-              (treesitter.install parsers)
-              (treesitter.setup))
+              (treesitter.setup)
+              (treesitter.install parsers))
 
            (vim.api.nvim_create_autocmd :FileType
                                         {:callback (fn [] (vim.treesitter.start))
                                          :pattern langs})
-            ))
-  :config true}]
+            ))}]

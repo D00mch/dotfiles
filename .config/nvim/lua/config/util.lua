@@ -96,10 +96,7 @@ local function get_word_under_selection()
   local word = _let_11_[1]
   return {word, sr0, sc0, er0, ec0}
 end
-local _local_12_ = autoload("telescope.builtin")
-local lsp_references = _local_12_.lsp_references
-local lsp_implementations = _local_12_.lsp_implementations
-local lsp_definitions = _local_12_.lsp_definitions
+local telescope = autoload("telescope.builtin")
 local function highlight_line_symbol()
   return vim.cmd("highlight! DiagnosticLineNrError guibg=#51202A guifg=#FF0000 gui=bold\n    highlight! DiagnosticLineNrWarn guibg=#51412A guifg=#FFA500 gui=bold\n    highlight! DiagnosticLineNrInfo guibg=#1E535D guifg=#00FFFF gui=bold\n    highlight! DiagnosticLineNrHint guibg=#1E205D guifg=#0000FF gui=bold\n    sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError\n    sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn\n    sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo\n    sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint")
 end
@@ -118,49 +115,52 @@ local function on_attach(c, b)
   else
   end
   highlight_symbols(c, b)
-  local function _15_()
+  local function _14_()
     return vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({bufnr = b}), {bufnr = b})
   end
-  bkset("n", "<space>th", _15_, {buffer = b, desc = "Inlay hints"})
-  local function _16_()
+  bkset("n", "<space>th", _14_, {buffer = b, desc = "Inlay hints"})
+  local function _15_()
     vim.lsp.buf.hover({border = "single"})
     return vim.lsp.buf.hover({border = "single"})
   end
-  bkset("n", "<leader>h", _16_, {buffer = b, desc = "Show docs"})
-  local function _17_()
-    return lsp_definitions({initial_mode = "normal"})
+  bkset("n", "<leader>h", _15_, {buffer = b, desc = "Show docs"})
+  local function _16_()
+    return telescope.lsp_definitions({initial_mode = "normal"})
   end
-  bkset("n", "gd", _17_, {buffer = b, desc = "Go definition"})
+  bkset("n", "gd", _16_, {buffer = b, desc = "Go definition"})
   bkset("n", "gD", "<c-w><c-]><c-w>T", {buffer = b, desc = "Go definition new tab"})
   bkset("n", "<leader>tD", vim.lsp.buf.type_definition, {buffer = b, desc = "Type definition"})
+  local function _17_()
+    return vim.lsp.buf.signature_help({border = "single"})
+  end
+  bkset({"i", "n"}, "<M-;>", _17_, {buffer = b, desc = "Signiture help"})
   local function _18_()
     return vim.lsp.buf.signature_help({border = "single"})
   end
-  bkset({"i", "n"}, "<M-;>", _18_, {buffer = b, desc = "Signiture help"})
-  local function _19_()
-    return vim.lsp.buf.signature_help({border = "single"})
-  end
-  bkset({"i", "n"}, "<D-p>", _19_, {buffer = b, desc = "Signiture help"})
+  bkset({"i", "n"}, "<D-p>", _18_, {buffer = b, desc = "Signiture help"})
   bkset("n", "<leader>rr", vim.lsp.buf.rename, {buffer = b, desc = "Rename"})
   bkset("n", "<leader>p", vim.diagnostic.open_float, {buffer = b, desc = "Preview diagnostics"})
   if not string.find(vim.api.nvim_buf_get_name(b), ".*.fnl$") then
-    local function _20_()
+    local function _19_()
       return vim.lsp.buf.format({async = true})
     end
-    bkset({"n", "x"}, "=", _20_, {buffer = b, desc = "Apply formatting"})
+    bkset({"n", "x"}, "=", _19_, {buffer = b, desc = "Apply formatting"})
   else
   end
   bkset("n", "[s", vim.diagnostic.goto_prev, {buffer = b, desc = "Goto prev erro"})
   bkset("n", "]s", vim.diagnostic.goto_next, {buffer = b, desc = "Goto next erro"})
-  local function _22_()
+  local function _21_()
     return vim.lsp.buf.references({includeDeclaration = false})
   end
-  bkset("n", "<C-q>", _22_, {buffer = b, desc = "Find usages in quickfix"})
-  local function _23_()
-    return lsp_references({jump_type = "never"})
+  bkset("n", "<C-q>", _21_, {buffer = b, desc = "Find usages in quickfix"})
+  local function _22_()
+    return telescope.lsp_references({jump_type = "never"})
   end
-  bkset("n", "<leader>gr", _23_, {buffer = b, desc = "Go to references"})
-  bkset("n", "<leader>gi", lsp_implementations, {buffer = b, desc = "Go to implementations"})
+  bkset("n", "<leader>gr", _22_, {buffer = b, desc = "Go to references"})
+  local function _23_()
+    return telescope.lsp_implementations()
+  end
+  bkset("n", "<leader>gi", _23_, {buffer = b, desc = "Go to implementations"})
   bkset({"i", "n", "x"}, "<C-r>", vim.lsp.buf.code_action, {buffer = b, desc = "Code actions"})
   return bkset({"n", "x"}, "<leader>ra", vim.lsp.buf.code_action, {buffer = b, desc = "Code actions"})
 end

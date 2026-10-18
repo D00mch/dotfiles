@@ -72,13 +72,23 @@
                                :svelte :vue :vue-html :less :scss :sass :sas]})
 
               (lsp :ltex
-                       {:on_attach (fn [client b]
+                       {;; LanguageTool's bundled grammar needs the older XML entity size limit.
+                        :cmd_env {:JAVA_OPTS (.. (or (os.getenv :JAVA_OPTS) "")
+                                                " -Djdk.xml.totalEntitySizeLimit=50000000")}
+                        :on_attach (fn [client b]
                                      (on-attach client b)
                                      (ltex.setup
                                        {:load_langs [:en-US]
-                                        :init_check true
+                                        :init_check false
                                         :path (.. (vim.fn.expand "~") "/.config/nvim/data/ltex")
                                         :log_level :debug})
+                                     ;; Load dictionaries in the attached buffer before switching files.
+                                     (vim.api.nvim_buf_call
+                                       b
+                                       (fn []
+                                         (let [commands (require :ltex_extra.commands-lsp)]
+                                           (each [_ kind (ipairs [:dictionary :disabledRules :hiddenFalsePositives])]
+                                             (commands.updateConfig kind :en-US)))))
                                      (highlight-line-symbol))
                         :filetypes ["markdown" "NeogitCommitMessage" "gitcommit"]
                         :settings {:ltex {}}})

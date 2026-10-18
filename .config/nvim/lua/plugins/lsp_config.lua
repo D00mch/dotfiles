@@ -37,10 +37,18 @@ local function _4_()
   lsp("emmet_language_server", {filetypes = {"css", "html", "javascript", "typescript", "typescriptreact", "javascriptreact", "svelte", "vue", "vue-html", "less", "scss", "sass", "sas"}})
   local function _7_(client, b)
     on_attach(client, b)
-    ltex.setup({load_langs = {"en-US"}, init_check = true, path = (vim.fn.expand("~") .. "/.config/nvim/data/ltex"), log_level = "debug"})
+    ltex.setup({load_langs = {"en-US"}, path = (vim.fn.expand("~") .. "/.config/nvim/data/ltex"), log_level = "debug", init_check = false})
+    local function _8_()
+      local commands = require("ltex_extra.commands-lsp")
+      for _, kind in ipairs({"dictionary", "disabledRules", "hiddenFalsePositives"}) do
+        commands.updateConfig(kind, "en-US")
+      end
+      return nil
+    end
+    vim.api.nvim_buf_call(b, _8_)
     return highlight_line_symbol()
   end
-  lsp("ltex", {on_attach = _7_, filetypes = {"markdown", "NeogitCommitMessage", "gitcommit"}, settings = {ltex = {}}})
+  lsp("ltex", {cmd_env = {JAVA_OPTS = ((os.getenv("JAVA_OPTS") or "") .. " -Djdk.xml.totalEntitySizeLimit=50000000")}, on_attach = _7_, filetypes = {"markdown", "NeogitCommitMessage", "gitcommit"}, settings = {ltex = {}}})
   return vim.lsp.enable({"fennel_language_server", "clojure_lsp", "jdtls", "gopls", "kotlin_lsp", "vtsls", "emmet_language_server", "ltex", "basedpyright"})
 end
 return {{"neovim/nvim-lspconfig", ft = {"clojure", "go", "dart", "markdown", "md", "fennel"}, cmd = {"LspInfo", "LspInstall", "LspUninstall", "LspStart"}, dependencies = {"mason-org/mason.nvim", "barreiroleo/ltex-extra.nvim", "RRethy/vim-illuminate", "nvim-lua/plenary.nvim"}, init = _3_, config = _4_, lazy = false}}

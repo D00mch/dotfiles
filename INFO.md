@@ -15,6 +15,7 @@ If you are not sure about something, leave a note for other developers to review
 - `./first_init.sh` uses its own directory as the dotfiles repo path (or accepts an explicit first argument), installs packages, removes existing `~/.zshenv` and `~/.zshrc`, then delegates home-directory symlink setup to `init.sh`. Oh My Zsh installation is unattended; open a new terminal afterward.
 - `init.sh` symlinks most files into `$HOME` and `~/.config`, but copies `~/.config/zathura`.
 - Neovide and WezTerm expect `Terminess Nerd Font`; `first_init.sh` installs the Homebrew cask for it.
+- `first_init.sh` installs Node, Python, and Homebrew's Tree-sitter CLI, then runs `scripts/setup-nvim.lua` to restore pinned plugins, parsers, and Mason tools. The editor setup can be rerun independently after linking the checkout with `init.sh`.
 - `deinit.sh` removes known symlink paths created by `init.sh`; it does not remove copied config directories.
 - Treat generated or stateful directories carefully, especially `.config/nvim/data/` and `.config/karabiner/automatic_backups/`.
 
@@ -44,6 +45,7 @@ If you are not sure about something, leave a note for other developers to review
 │   ├── nvim/                             # Neovim config in Lua/Fennel, snippets, ftplugins, lockfile
 │   └── zathura/                          # Zathura PDF reader config
 ├── scripts/
+│   ├── setup-nvim.lua                    # Restore Neovim plugins, parsers, and language/debug tools
 │   ├── darkmode/                         # Small Go utility for toggling macOS/Chrome dark mode
 │   ├── darkmode.sh                       # Shell wrapper for dark mode flow
 │   ├── gpt.bash                          # Wi-Fi-aware shortcut that opens ChatGPT

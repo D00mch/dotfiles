@@ -6,4 +6,4 @@
  :lazy true
  :init (fn []
          (kset [:n :x] :<space>ga ::BlameToggle<Cr>))
- :config {}}
+ :opts {}}

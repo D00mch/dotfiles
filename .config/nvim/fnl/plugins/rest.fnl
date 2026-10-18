@@ -2,11 +2,12 @@
 (local {: bkset} (autoload :config.util))
 
 (fn setup-rest []
-  (bkset :n :<Leader>a :<Plug>RestNvimPreview)
-  (bkset :n :<Leader>e :<Plug>RestNvim)
-  (bkset :n :<Leader>q :<Plug>RestNvim))
+  (bkset :n :<Leader>a "<Cmd>Rest open<CR>" "Open HTTP results")
+  (bkset :n :<Leader>e "<Cmd>Rest run<CR>" "Run HTTP request")
+  (bkset :n :<Leader>q "<Cmd>Rest run<CR>" "Run HTTP request"))
 
 [{1 :rest-nvim/rest.nvim
+  :main :rest-nvim
   :lazy true
   :ft [:http]
   :init (fn []
@@ -15,6 +16,4 @@
             {:pattern :*.http
              :group    (vim.api.nvim_create_augroup :HttpMappings {:clear true})
              :callback setup-rest}))
-  :opts {:result_split_in_place true
-         :jump_to_request true}
-  :config true}]
+  :opts {}}]
