@@ -46,6 +46,7 @@ If you are not sure about something, leave a note for other developers to review
 │   └── zathura/                          # Zathura PDF reader config
 ├── scripts/
 │   ├── setup-nvim.lua                    # Restore Neovim plugins, parsers, and language/debug tools
+│   ├── neovide-ssh.sh                     # Local Neovide connected to remote Neovim over SSH
 │   ├── darkmode/                         # Small Go utility for toggling macOS/Chrome dark mode
 │   ├── darkmode.sh                       # Shell wrapper for dark mode flow
 │   ├── gpt.bash                          # Wi-Fi-aware shortcut that opens ChatGPT
