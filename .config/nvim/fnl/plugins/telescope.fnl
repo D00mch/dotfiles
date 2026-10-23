@@ -18,7 +18,6 @@
 
 (fn load-extensions []
   (let [telescope (require :telescope)]
-    (telescope.load_extension "ui-select")
     (telescope.load_extension :ui-select)
     (telescope.load_extension :file_browser)
     (telescope.load_extension :recent-files)
@@ -35,14 +34,10 @@
   :keys [[:<Space>b :n]]
   :cmd [:Telescope]
   :init (fn []
-          ; (let [hmark (require :harpoon.mark)]
-          ;   (kset :n :<Space>am hmark.add_file "Add mark"))
-
           (kset :n :<space>pf ":Telescope find_files hidden=true no_ignore=false<cr>")
           (kset :n :<space>pr ":Telescope pickers<cr>")
           (kset :n :<space>pb ":Telescope buffers sort_lastused=true show_all_buffers=false<cr>")
           (kset :n :<space>pa ":Telescope live_grep<cr>")
-          (kset :n :<space>ph ":Telescope harpoon marks<cr>" "Harpoon")
           (kset :n :<space>pu ":Telescope undo<Cr>" "Undo")
           ;(kset :n :<space>pq ":Telescope quickfix<cr>" "QuickFix")
 

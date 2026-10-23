@@ -56,7 +56,6 @@ vim.g.maplocalleader = ","
 vim.cmd([[
 set runtimepath^=~/.vim
 source ~/.vimrc
-au TextYankPost * silent! lua vim.highlight.on_yank()
 ]])
 
 require("lazy").setup("plugins", { rocks = { hererocks = true } })
