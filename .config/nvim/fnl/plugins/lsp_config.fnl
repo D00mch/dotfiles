@@ -1,11 +1,13 @@
 (local {: autoload} (require :nfnl.module))
-(local {:on-attach on-attach-util : highlight-line-symbol} (autoload :config.util))
+(local {:on-attach on-attach-util} (autoload :config.util))
 
 (local diagnostics
   {:severity_sort true
    :update_in_insert false
    :underline true
-   :signs true
+   :signs {:text ["" "" "" ""]
+           :numhl [:DiagnosticLineNrError :DiagnosticLineNrWarn
+                   :DiagnosticLineNrInfo :DiagnosticLineNrHint]}
    :virtual_text false
    :virtual_lines false ; {:current_line true}
    })
@@ -60,9 +62,7 @@
                    :cmd [(.. (vim.fn.stdpath "data") "/mason/bin/fennel-language-server")]
                    :single_file_support true
                    :root_markers [:.git :fnl :lua]
-                   :on_attach (fn [client b]
-                                (on-attach client b)
-                                (highlight-line-symbol))})
+                   :on_attach on-attach})
 
               (lsp :kotlin_lsp {:autostart true})
               
@@ -88,8 +88,7 @@
                                        (fn []
                                          (let [commands (require :ltex_extra.commands-lsp)]
                                            (each [_ kind (ipairs [:dictionary :disabledRules :hiddenFalsePositives])]
-                                             (commands.updateConfig kind :en-US)))))
-                                     (highlight-line-symbol))
+                                             (commands.updateConfig kind :en-US))))))
                         :filetypes ["markdown" "NeogitCommitMessage" "gitcommit"]
                         :settings {:ltex {}}})
 

@@ -76,32 +76,24 @@
 (local telescope (autoload :telescope.builtin))
 
 (fn highlight-line-symbol []
-  ;; highlight line number instead of having icons in sigh column
+  ;; Highlight line numbers instead of showing sign-column icons.
   (vim.cmd 
     "highlight! DiagnosticLineNrError guibg=#51202A guifg=#FF0000 gui=bold
     highlight! DiagnosticLineNrWarn guibg=#51412A guifg=#FFA500 gui=bold
     highlight! DiagnosticLineNrInfo guibg=#1E535D guifg=#00FFFF gui=bold
-    highlight! DiagnosticLineNrHint guibg=#1E205D guifg=#0000FF gui=bold
-    sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError
-    sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn
-    sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
-    sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint"))
+    highlight! DiagnosticLineNrHint guibg=#1E205D guifg=#0000FF gui=bold"))
 
-(fn highlight-symbols [client bufnr]
-  (when client.server_capabilities.documentHighlightProvider
-    (highlight-line-symbol)
-    (vim.api.nvim_create_autocmd
-      :ColorScheme
-      {:buffer   bufnr
-       :group    (vim.api.nvim_create_augroup :HighlightColors {:clear true})
-       :callback highlight-line-symbol})
-    (vim.cmd "hi! link LspReferenceWrite TSConstMacro")))
+(highlight-line-symbol)
+(vim.api.nvim_create_autocmd :ColorScheme
+  {:group (vim.api.nvim_create_augroup :DiagnosticNumberHighlights {:clear true})
+   :callback (fn [] (highlight-line-symbol) nil)})
 
 (fn on-attach [c b]
   ;; Kotlin LSP handles range formatting but doesn't advertise it.
   (when (= c.name :kotlin_lsp)
     (set c.server_capabilities.documentRangeFormattingProvider true))
-  (highlight-symbols c b)
+  (when c.server_capabilities.documentHighlightProvider
+    (vim.cmd "hi! link LspReferenceWrite TSConstMacro"))
   (bkset :n :<space>th
          (fn []
            (vim.lsp.inlay_hint.enable 
@@ -154,5 +146,4 @@
 
  ;; for lsp and mrcjkb/rustaceanvim
  : on-attach
- : highlight-line-symbol
  }

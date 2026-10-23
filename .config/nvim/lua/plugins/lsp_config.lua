@@ -3,8 +3,7 @@ local _local_1_ = require("nfnl.module")
 local autoload = _local_1_.autoload
 local _local_2_ = autoload("config.util")
 local on_attach_util = _local_2_["on-attach"]
-local highlight_line_symbol = _local_2_["highlight-line-symbol"]
-local diagnostics = {severity_sort = true, underline = true, signs = true, update_in_insert = false, virtual_lines = false, virtual_text = false}
+local diagnostics = {severity_sort = true, underline = true, signs = {text = {"", "", "", ""}, numhl = {"DiagnosticLineNrError", "DiagnosticLineNrWarn", "DiagnosticLineNrInfo", "DiagnosticLineNrHint"}}, update_in_insert = false, virtual_lines = false, virtual_text = false}
 local function _3_()
   vim.o.updatetime = 250
   return nil
@@ -28,27 +27,22 @@ local function _4_()
   mason.setup()
   illuminate.configure()
   lsp("*", default_map)
-  local function _6_(client, b)
-    on_attach(client, b)
-    return highlight_line_symbol()
-  end
-  lsp("fennel_language_server", {settings = {fennel = {workspace = {library = vim.api.nvim_list_runtime_paths()}, diagnostics = {globals = {"vim", "jit", "comment"}}}}, filetypes = {"fennel"}, cmd = {(vim.fn.stdpath("data") .. "/mason/bin/fennel-language-server")}, single_file_support = true, root_markers = {".git", "fnl", "lua"}, on_attach = _6_})
+  lsp("fennel_language_server", {settings = {fennel = {workspace = {library = vim.api.nvim_list_runtime_paths()}, diagnostics = {globals = {"vim", "jit", "comment"}}}}, filetypes = {"fennel"}, cmd = {(vim.fn.stdpath("data") .. "/mason/bin/fennel-language-server")}, single_file_support = true, root_markers = {".git", "fnl", "lua"}, on_attach = on_attach})
   lsp("kotlin_lsp", {autostart = true})
   lsp("emmet_language_server", {filetypes = {"css", "html", "javascript", "typescript", "typescriptreact", "javascriptreact", "svelte", "vue", "vue-html", "less", "scss", "sass", "sas"}})
-  local function _7_(client, b)
+  local function _6_(client, b)
     on_attach(client, b)
     ltex.setup({load_langs = {"en-US"}, path = (vim.fn.expand("~") .. "/.config/nvim/data/ltex"), log_level = "debug", init_check = false})
-    local function _8_()
+    local function _7_()
       local commands = require("ltex_extra.commands-lsp")
       for _, kind in ipairs({"dictionary", "disabledRules", "hiddenFalsePositives"}) do
         commands.updateConfig(kind, "en-US")
       end
       return nil
     end
-    vim.api.nvim_buf_call(b, _8_)
-    return highlight_line_symbol()
+    return vim.api.nvim_buf_call(b, _7_)
   end
-  lsp("ltex", {cmd_env = {JAVA_OPTS = ((os.getenv("JAVA_OPTS") or "") .. " -Djdk.xml.totalEntitySizeLimit=50000000")}, on_attach = _7_, filetypes = {"markdown", "NeogitCommitMessage", "gitcommit"}, settings = {ltex = {}}})
+  lsp("ltex", {cmd_env = {JAVA_OPTS = ((os.getenv("JAVA_OPTS") or "") .. " -Djdk.xml.totalEntitySizeLimit=50000000")}, on_attach = _6_, filetypes = {"markdown", "NeogitCommitMessage", "gitcommit"}, settings = {ltex = {}}})
   return vim.lsp.enable({"fennel_language_server", "clojure_lsp", "jdtls", "gopls", "kotlin_lsp", "vtsls", "emmet_language_server", "ltex", "basedpyright"})
 end
 return {{"neovim/nvim-lspconfig", ft = {"clojure", "go", "dart", "markdown", "md", "fennel"}, cmd = {"LspInfo", "LspInstall", "LspUninstall", "LspStart"}, dependencies = {"mason-org/mason.nvim", "barreiroleo/ltex-extra.nvim", "RRethy/vim-illuminate", "nvim-lua/plenary.nvim"}, init = _3_, config = _4_, lazy = false}}

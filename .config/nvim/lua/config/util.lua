@@ -98,73 +98,73 @@ local function get_word_under_selection()
 end
 local telescope = autoload("telescope.builtin")
 local function highlight_line_symbol()
-  return vim.cmd("highlight! DiagnosticLineNrError guibg=#51202A guifg=#FF0000 gui=bold\n    highlight! DiagnosticLineNrWarn guibg=#51412A guifg=#FFA500 gui=bold\n    highlight! DiagnosticLineNrInfo guibg=#1E535D guifg=#00FFFF gui=bold\n    highlight! DiagnosticLineNrHint guibg=#1E205D guifg=#0000FF gui=bold\n    sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError\n    sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn\n    sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo\n    sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint")
+  return vim.cmd("highlight! DiagnosticLineNrError guibg=#51202A guifg=#FF0000 gui=bold\n    highlight! DiagnosticLineNrWarn guibg=#51412A guifg=#FFA500 gui=bold\n    highlight! DiagnosticLineNrInfo guibg=#1E535D guifg=#00FFFF gui=bold\n    highlight! DiagnosticLineNrHint guibg=#1E205D guifg=#0000FF gui=bold")
 end
-local function highlight_symbols(client, bufnr)
-  if client.server_capabilities.documentHighlightProvider then
-    highlight_line_symbol()
-    vim.api.nvim_create_autocmd("ColorScheme", {buffer = bufnr, group = vim.api.nvim_create_augroup("HighlightColors", {clear = true}), callback = highlight_line_symbol})
-    return vim.cmd("hi! link LspReferenceWrite TSConstMacro")
-  else
-    return nil
-  end
+highlight_line_symbol()
+local function _12_()
+  highlight_line_symbol()
+  return nil
 end
+vim.api.nvim_create_autocmd("ColorScheme", {group = vim.api.nvim_create_augroup("DiagnosticNumberHighlights", {clear = true}), callback = _12_})
 local function on_attach(c, b)
   if (c.name == "kotlin_lsp") then
     c.server_capabilities.documentRangeFormattingProvider = true
   else
   end
-  highlight_symbols(c, b)
-  local function _14_()
+  if c.server_capabilities.documentHighlightProvider then
+    vim.cmd("hi! link LspReferenceWrite TSConstMacro")
+  else
+  end
+  local function _15_()
     return vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({bufnr = b}), {bufnr = b})
   end
-  bkset("n", "<space>th", _14_, {buffer = b, desc = "Inlay hints"})
-  local function _15_()
+  bkset("n", "<space>th", _15_, {buffer = b, desc = "Inlay hints"})
+  local function _16_()
     vim.lsp.buf.hover({border = "single"})
     return vim.lsp.buf.hover({border = "single"})
   end
-  bkset("n", "<leader>h", _15_, {buffer = b, desc = "Show docs"})
-  local function _16_()
+  bkset("n", "<leader>h", _16_, {buffer = b, desc = "Show docs"})
+  local function _17_()
     return telescope.lsp_definitions({initial_mode = "normal"})
   end
-  bkset("n", "gd", _16_, {buffer = b, desc = "Go definition"})
+  bkset("n", "gd", _17_, {buffer = b, desc = "Go definition"})
   bkset("n", "gD", "<c-w><c-]><c-w>T", {buffer = b, desc = "Go definition new tab"})
   bkset("n", "<leader>tD", vim.lsp.buf.type_definition, {buffer = b, desc = "Type definition"})
-  local function _17_()
-    return vim.lsp.buf.signature_help({border = "single"})
-  end
-  bkset({"i", "n"}, "<M-;>", _17_, {buffer = b, desc = "Signiture help"})
   local function _18_()
     return vim.lsp.buf.signature_help({border = "single"})
   end
-  bkset({"i", "n"}, "<D-p>", _18_, {buffer = b, desc = "Signiture help"})
+  bkset({"i", "n"}, "<M-;>", _18_, {buffer = b, desc = "Signiture help"})
+  local function _19_()
+    return vim.lsp.buf.signature_help({border = "single"})
+  end
+  bkset({"i", "n"}, "<D-p>", _19_, {buffer = b, desc = "Signiture help"})
   bkset("n", "<leader>rr", vim.lsp.buf.rename, {buffer = b, desc = "Rename"})
   bkset("n", "<leader>p", vim.diagnostic.open_float, {buffer = b, desc = "Preview diagnostics"})
   if not string.find(vim.api.nvim_buf_get_name(b), ".*.fnl$") then
-    local function _19_()
+    local function _20_()
       return vim.lsp.buf.format({async = true})
     end
-    bkset({"n", "x"}, "=", _19_, {buffer = b, desc = "Apply formatting"})
+    bkset({"n", "x"}, "=", _20_, {buffer = b, desc = "Apply formatting"})
   else
   end
   bkset("n", "[s", vim.diagnostic.goto_prev, {buffer = b, desc = "Goto prev erro"})
   bkset("n", "]s", vim.diagnostic.goto_next, {buffer = b, desc = "Goto next erro"})
-  local function _21_()
+  local function _22_()
     return vim.lsp.buf.references({includeDeclaration = false})
   end
-  bkset("n", "<C-q>", _21_, {buffer = b, desc = "Find usages in quickfix"})
-  local function _22_()
+  bkset("n", "<C-q>", _22_, {buffer = b, desc = "Find usages in quickfix"})
+  local function _23_()
     return telescope.lsp_references({jump_type = "never"})
   end
-  bkset("n", "<leader>gr", _22_, {buffer = b, desc = "Go to references"})
-  local function _23_()
+  bkset("n", "<leader>gr", _23_, {buffer = b, desc = "Go to references"})
+  local function _24_()
     return telescope.lsp_implementations()
   end
-  bkset("n", "<leader>gi", _23_, {buffer = b, desc = "Go to implementations"})
+  bkset("n", "<leader>gi", _24_, {buffer = b, desc = "Go to implementations"})
   bkset({"i", "n", "x"}, "<C-r>", vim.lsp.buf.code_action, {buffer = b, desc = "Code actions"})
   return bkset({"n", "x"}, "<leader>ra", vim.lsp.buf.code_action, {buffer = b, desc = "Code actions"})
 end
-local function _24_()
+local function _25_()
   if vim.w.lsp_floating_bufnr then
     vim.wo.conceallevel = 1
     return nil
@@ -172,5 +172,5 @@ local function _24_()
     return nil
   end
 end
-vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", group = vim.api.nvim_create_augroup("LspPreviewConceal", {clear = true}), callback = _24_})
-return {["config-path"] = config_path, ["lua-file"] = lua_file, println = println, ["exists?"] = exists_3f, kset = kset, bkset = bkset, bkdel = bkdel, ["vis-op"] = vis_op, ["get-word-under-cursor"] = get_word_under_cursor, ["get-word-under-selection"] = get_word_under_selection, ["on-attach"] = on_attach, ["highlight-line-symbol"] = highlight_line_symbol}
+vim.api.nvim_create_autocmd("FileType", {pattern = "markdown", group = vim.api.nvim_create_augroup("LspPreviewConceal", {clear = true}), callback = _25_})
+return {["config-path"] = config_path, ["lua-file"] = lua_file, println = println, ["exists?"] = exists_3f, kset = kset, bkset = bkset, bkdel = bkdel, ["vis-op"] = vis_op, ["get-word-under-cursor"] = get_word_under_cursor, ["get-word-under-selection"] = get_word_under_selection, ["on-attach"] = on_attach}
