@@ -5,8 +5,7 @@
 
 
 [{1 :akinsho/bufferline.nvim
-  :lazy true
-  :cmd [:Tabnew]
+  :lazy false
   :init
   (fn []
     (kset [:n :x] "<D-.>" ":BufferLineCycleNext<Cr>") ;; karabiner: cmd <

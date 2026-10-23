@@ -1,12 +1,12 @@
--- [nfnl] Compiled from fnl/plugins/tabs.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/plugins/tabs.fnl
 local _local_1_ = require("nfnl.module")
-local autoload = _local_1_["autoload"]
+local autoload = _local_1_.autoload
 local _local_2_ = autoload("config.util")
-local kset = _local_2_["kset"]
+local kset = _local_2_.kset
 local _local_3_ = autoload("nfnl.core")
-local map = _local_3_["map"]
+local map = _local_3_.map
 local _local_4_ = autoload("nfnl.string")
-local join = _local_4_["join"]
+local join = _local_4_.join
 local function _5_()
   kset({"n", "x"}, "<D-.>", ":BufferLineCycleNext<Cr>")
   kset({"i", "c"}, "<D-.>", "<Esc><D-.>", {remap = true})
@@ -80,4 +80,4 @@ local function _6_()
   end
   return bufferline.setup({options = {mode = "tabs", numbers = "ordinal", separator_style = "slant", show_duplicate_prefix = true, tab_size = 12, name_formatter = _14_, always_show_bufferline = false}, highlights = {numbers_selected = {italic = false}, buffer_selected = {bold = true, italic = false}}})
 end
-return {{"akinsho/bufferline.nvim", lazy = true, cmd = {"Tabnew"}, init = _5_, config = _6_}}
+return {{"akinsho/bufferline.nvim", init = _5_, config = _6_, lazy = false}}
