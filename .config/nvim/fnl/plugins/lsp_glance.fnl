@@ -17,8 +17,7 @@
                  :<left> (glance.actions.preview_scroll_win 5)
                  :<right> (glance.actions.preview_scroll_win -5)}
           :preview {:gl (glance.actions.enter_win :list)
-                    ;:<D-t> glance.actions.jump_tab
-                    }}
+                    :gf glance.actions.jump}}
          :border {:enable true}})
       (resize-preview)
       (vim.api.nvim_create_autocmd :VimResized

@@ -13,7 +13,7 @@ local function _3_()
     return nil
   end
   resize_preview = _4_
-  glance.setup({mappings = {list = {gh = glance.actions.enter_win("preview"), ["<left>"] = glance.actions.preview_scroll_win(5), ["<right>"] = glance.actions.preview_scroll_win(-5)}, preview = {gl = glance.actions.enter_win("list")}}, border = {enable = true}})
+  glance.setup({mappings = {list = {gh = glance.actions.enter_win("preview"), ["<left>"] = glance.actions.preview_scroll_win(5), ["<right>"] = glance.actions.preview_scroll_win(-5)}, preview = {gl = glance.actions.enter_win("list"), gf = glance.actions.jump}}, border = {enable = true}})
   resize_preview()
   return vim.api.nvim_create_autocmd("VimResized", {group = vim.api.nvim_create_augroup("GlancePreviewHeight", {clear = true}), callback = resize_preview})
 end
