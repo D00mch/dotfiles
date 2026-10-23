@@ -93,7 +93,7 @@ If you are not sure about something, leave a note for other developers to review
 - Search/navigation is centered on Telescope with recent-files, file-browser, undo, live grep, and git pickers.
 - LSP setup includes at least Fennel, Clojure, Java, Go, Kotlin, TypeScript, Emmet, and LTEX wiring.
 - Theme handling is dynamic and includes auto dark-mode switching plus Neovide font/transparency settings.
-- Treesitter uses the `main` branch and configures after its dependencies load. Folding is managed by `nvim-ufo`.
+- Treesitter uses the `main` branch and configures after its dependencies load. Its `opts.parsers` list is shared with the setup script; highlighting resolves each filetype to a parser, including `sh` -> `bash`, `help` -> `vimdoc`, and `typescriptreact` -> `tsx`. Folding is managed by `nvim-ufo`.
 - HTTP mappings use the current `:Rest open` and `:Rest run` commands; the REST module name is explicitly `rest-nvim`.
 
 ## Language-Specific Notes

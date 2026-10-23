@@ -57,7 +57,7 @@ end
 
 print("Installing configured Treesitter parsers")
 local treesitter = require("nvim-treesitter")
-local languages = lazy_config.plugins["nvim-treesitter"].ft
+local languages = lazy_config.plugins["nvim-treesitter"].opts.parsers
 assert(treesitter.install(languages):wait(300000), "Treesitter parser installation failed")
 
 local registry = require("mason-registry")

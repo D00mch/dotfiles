@@ -1,10 +1,9 @@
 (local {: autoload} (require :nfnl.module))
-(local nvim (autoload :nvim))
 (local {: kset} (autoload :config.util))
 
-(local langs 
+(local parsers
   [:java :yaml :bash :kotlin :clojure :fennel :scheme :racket :lua :luadoc :vimdoc :vim 
-   :markdown :markdown_inline :http :json :sql :dart :go :typescript :css :rust :python])
+   :markdown :markdown_inline :http :json :sql :dart :go :typescript :tsx :css :rust :python])
 
 [{1 :nvim-treesitter/nvim-treesitter
   :lazy false ;; does not support lazy loading
@@ -12,28 +11,23 @@
                   :branch :main}]
   :branch :main
   :build ":TSUpdate"
-  :ft langs
-  :config (fn []
+  :opts {: parsers}
+  :config (fn [_ {: parsers}]
           (let [ts-objects (require :nvim-treesitter-textobjects)
                 ts-select  (require :nvim-treesitter-textobjects.select)
                 tskset     (fn [ks obj]
-                             (kset
-                               [:x :o] 
-                               ks
-                               (fn []
-                                 ((. ts-select :select_textobject) obj
-                                  :textobjects))))
-                parsers     langs]
+                             (kset [:x :o] ks
+                                   #(ts-select.select_textobject obj :textobjects)))]
 
             ;; Objects setup
             (ts-objects.setup {:select {:lookahead true}})
             (tskset :am "@function.outer")
-            (tskset :im "@inner")
-            (tskset :ac "@class.inner")
+            (tskset :im "@function.inner")
+            (tskset :ac "@class.outer")
             (tskset :ic "@class.inner")
-            (tskset :ar "@parameter.inner")
+            (tskset :ar "@parameter.outer")
             (tskset :ir "@parameter.inner")
-            (tskset :ak "@block.inner")
+            (tskset :ak "@block.outer")
             (tskset :ik "@block.inner")
 
             ;; Treesitter setup
@@ -42,7 +36,8 @@
               (treesitter.setup)
               (treesitter.install parsers))
 
-           (vim.api.nvim_create_autocmd :FileType
-                                        {:callback (fn [] (vim.treesitter.start))
-                                         :pattern langs})
+            (vim.api.nvim_create_autocmd :FileType
+              {:group (vim.api.nvim_create_augroup :TreesitterHighlight {:clear true})
+               :callback #(when (vim.tbl_contains parsers (vim.treesitter.language.get_lang vim.bo.filetype))
+                            (vim.treesitter.start))})
             ))}]
