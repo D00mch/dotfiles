@@ -8,16 +8,18 @@ local function dark_3f()
   return (nvim.o.background == "dark")
 end
 local function transparent_3f()
-  return (1 ~= vim.g.neovide_opacity)
+  return ((vim.g.neovide_opacity or 1) < 1)
 end
-vim.g.neovide_floating_blur_amount_x = 8
-vim.g.neovide_floating_blur_amount_y = 8
+vim.g.neovide_floating_blur_amount_x = 2
+vim.g.neovide_floating_blur_amount_y = 2
 local function make_transparent()
-  vim.g.neovide_opacity = 0.93
+  vim.g.neovide_opacity = 0.85
+  vim.g.neovide_window_blurred = true
   return nil
 end
 local function make_non_transparent()
   vim.g.neovide_opacity = 1
+  vim.g.neovide_window_blurred = false
   return nil
 end
 local function set_theme(dark_3f0)
@@ -44,6 +46,7 @@ local function font_size_21(diff)
 end
 local function _6_()
   if vim.g.neovide then
+    make_transparent()
     nvim.g.neovide_cursor_vfx_mode = "pixiedust"
     nvim.g.neovide_input_macos_option_key_is_meta = "none"
     local function _7_()

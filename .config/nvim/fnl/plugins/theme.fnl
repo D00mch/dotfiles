@@ -3,16 +3,18 @@
 (local {: kset} (autoload :config.util))
 
 (fn dark? [] (= nvim.o.background "dark"))
-(fn transparent? [] (not= 1 vim.g.neovide_opacity))
+(fn transparent? [] (< (or vim.g.neovide_opacity 1) 1))
 
-(set vim.g.neovide_floating_blur_amount_x 8.0)
-(set vim.g.neovide_floating_blur_amount_y 8.0)
+(set vim.g.neovide_floating_blur_amount_x 2.0)
+(set vim.g.neovide_floating_blur_amount_y 2.0)
 
 (fn make-transparent []
-  (set vim.g.neovide_opacity 0.93))
+  (set vim.g.neovide_opacity 0.85)
+  (set vim.g.neovide_window_blurred true))
 
 (fn make-non-transparent []
-  (set vim.g.neovide_opacity 1))
+  (set vim.g.neovide_opacity 1)
+  (set vim.g.neovide_window_blurred false))
 
 (fn set-theme [dark?]
   ;(make-transparent dark?)
@@ -48,6 +50,7 @@
                  :EdenEast/nightfox.nvim]
   :init (fn []
           (when vim.g.neovide
+            (make-transparent)
             (set nvim.g.neovide_cursor_vfx_mode "pixiedust")
             (set nvim.g.neovide_input_macos_option_key_is_meta "none")
             (kset :n :<Space>tt
