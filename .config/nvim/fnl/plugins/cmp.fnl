@@ -5,7 +5,6 @@
 (local cmp-src-menu-items
   {:buffer "buff"
    :conjure "conj"
-   ; :copilot "copilot"
    :path "path"
    :nvim_lsp "lsp"})
 
@@ -16,9 +15,7 @@
     :option {:keyword_pattern "\\k\\+"}}
    {:name :path}
    {:name :spell}
-   ; {:name :copilot}
    {:name :cmp-dbee}
-   {:name :codeium}
    {:name :snippy}])
 
 (local kind-icons
@@ -48,8 +45,7 @@
    :Value "󰎠"
    :Variable "󰂡"
    :Text "󰭷"
-   :Conj ""
-   :Codeium ""})	
+   :Conj ""})
 
 (fn has-words-before []
   (let [[line col] (vim.api.nvim_win_get_cursor 0)]
@@ -94,9 +90,6 @@
                                  (string.format "%s %s" (. kind-icons item.kind) item.kind))
                             (set item.menu (or (. cmp-src-menu-items entry.source.name) ""))
                             item)}
-                 ; :formatters 
-                 ; {:insert_text copilot-format.remove_existing}
-
                  :preselect
                  cmp.PreselectMode.None
 

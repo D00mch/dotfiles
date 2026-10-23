@@ -63,7 +63,6 @@ If you are not sure about something, leave a note for other developers to review
 │   │   ├── conjure.fnl                   # Clojure REPL integration
 │   │   ├── go.fnl                        # Go tooling
 │   │   ├── rust.fnl                      # Rust tooling
-│   │   ├── gp.fnl                        # AI/chat helper plugin setup
 │   │   └── ...                           # Additional git/UI/textobject/tool plugins
 │   └── init.fnl                          # Present but currently empty
 ├── lua/
@@ -89,7 +88,7 @@ If you are not sure about something, leave a note for other developers to review
 - `fnl/config/util.fnl` is the main helper module for keymaps, buffer-local mappings, visual-range helpers, word extraction, and common LSP attach behavior.
 - `fnl/plugins/*.fnl` defines lazy.nvim plugin specs one plugin or feature area at a time.
 - Filetype-specific behavior lives under `ftplugin/`, with Clojure receiving the heaviest custom treatment.
-- Completion is centered on `nvim-cmp`, `snippy`, LSP, Conjure, buffer/path/spell sources, and optional Codeium.
+- Completion is centered on `nvim-cmp`, `snippy`, LSP, Conjure, and buffer/path/spell sources.
 - Search/navigation is centered on Telescope with recent-files, file-browser, undo, live grep, and git pickers.
 - LSP setup includes at least Fennel, Clojure, Java, Go, Kotlin, TypeScript, Emmet, and LTEX wiring.
 - Theme handling is dynamic and includes auto dark-mode switching plus Neovide font/transparency settings.
@@ -103,7 +102,6 @@ If you are not sure about something, leave a note for other developers to review
 - LTEX stores its custom dictionary in `data/ltex/ltex.dictionary.en-US.txt`.
 - LTEX increases its own JVM XML entity size limit so LanguageTool's bundled grammar loads on newer system JDKs. This is scoped to the LTEX process.
 - `data/plenary/filetypes/ext.lua` maps `.cljd` files to the `clojure` filetype.
-- `basic.fnl` conditionally enables `codeium.nvim` only when `OPENAI_API_KEY` is present in the environment.
 
 ## Validation Notes
 

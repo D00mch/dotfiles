@@ -1,5 +1,3 @@
-(local pc-with-rights? (os.getenv :OPENAI_API_KEY))
-
 [{1 :bakpakin/fennel.vim
   :lazy true
   :ft [:fennel]}
@@ -46,10 +44,6 @@
          :keys {:scroll_down :<right>
                 :scroll_up   :<left>}}
   :config true}
- {1 :Exafunction/codeium.nvim
-  :cond pc-with-rights? 
-  :event :VeryLazy
-  :config false}
  {1 :dstein64/vim-startuptime
   :lazy true
   :cmd :StartupTime}
