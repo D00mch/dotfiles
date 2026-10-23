@@ -67,7 +67,7 @@
 (fn setup-md []
 
   ;; setup lines
-  (vim.cmd "set wrap linebreak nolist") ;; wrap without bracking a word
+  (vim.cmd "setlocal wrap linebreak nolist") ;; wrap without bracking a word
   (bkset :x := :gq)
 
   ; (setup-pensil)

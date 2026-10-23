@@ -79,7 +79,7 @@ local function setup_pensil()
   return bkset("x", "=", "gq")
 end
 local function setup_md()
-  vim.cmd("set wrap linebreak nolist")
+  vim.cmd("setlocal wrap linebreak nolist")
   bkset("x", "=", "gq")
   kset("n", "<Leader>ef", "vic:ToggleTermSendVisualSelection<cr>", {noremap = false})
   bkset("n", "<leader>h", insert_header, {buffer = true})
