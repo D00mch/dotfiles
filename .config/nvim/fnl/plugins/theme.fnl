@@ -20,7 +20,7 @@
   ;(make-transparent dark?)
   (set nvim.o.background (if dark? "dark" "light"))
   (vim.api.nvim_command
-    (.. "colorscheme " (if dark? "kanagawa-paper" "dawnfox"))))
+    (.. "colorscheme " (if dark? "kanagawa-paper" "suannhai-shironeri"))))
 
 
 ;;; font

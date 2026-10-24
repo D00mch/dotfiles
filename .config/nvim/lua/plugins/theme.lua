@@ -32,7 +32,7 @@ local function set_theme(dark_3f0)
   if dark_3f0 then
     _4_ = "kanagawa-paper"
   else
-    _4_ = "dawnfox"
+    _4_ = "suannhai-shironeri"
   end
   return vim.api.nvim_command(("colorscheme " .. _4_))
 end

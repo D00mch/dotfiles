@@ -55,6 +55,10 @@
                          :upper 15}}}
 
  ;;colorschemes
+ {1 :WeiTing1991/suannhai.nvim
+  :lazy false
+  :priority 1000
+  :build "python3 scripts/sync-palettes.py"}
  {1 :rebelot/kanagawa.nvim
   :lazy true
   :keys [[:<Space>vc :n]]}]
