@@ -60,5 +60,4 @@
   :priority 1000
   :build "python3 scripts/sync-palettes.py"}
  {1 :rebelot/kanagawa.nvim
-  :lazy true
-  :keys [[:<Space>vc :n]]}]
+  :lazy true}]
