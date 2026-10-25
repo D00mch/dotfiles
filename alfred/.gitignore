@@ -1,0 +1,5 @@
+.DS_Store
+Alfred.alfredpreferences/preferences/local/
+Alfred.alfredpreferences/workflows/*/prefs.plist
+__pycache__/
+*.py[cod]

@@ -7,6 +7,7 @@
 - Karabiner (key remap)
 - Aerospace (vm)
 - Neru (keyboard-driven mouse control)
+- Alfred (shared preferences and workflows)
 - Neovide as the default app for text and source files
 
 ### Installation
@@ -27,6 +28,27 @@ nvim --headless -u NONE -l "$HOME/dotfiles/scripts/setup-nvim.lua"
 ```
 
 This command skips installed Mason tools and exits with an error if setup fails. Installed binaries and editor state stay outside the repository.
+
+### Alfred
+
+The `alfred/Alfred.alfredpreferences` bundle contains shared preferences and four workflows.
+After cloning, activate Alfred Powerpack, then open **Alfred Preferences → Advanced →
+Set preferences folder…** and select this checkout's **`alfred/` directory**, which contains
+the bundle. Choose **Set folder and restart Alfred** to load it. Existing settings on
+the destination Mac are replaced, so back them up first if needed.
+
+Once connected, Alfred saves shared changes directly into this checkout; use Git to
+transfer them between Macs. `init.sh` does not switch the running Alfred installation.
+Set the main hotkey, Clipboard History and other machine-specific options on each Mac.
+See [Alfred's sync guide](https://www.alfredapp.com/help/advanced/sync/) for details.
+
+`minivnc` resolves the `mini` host from your local SSH config, keeping its address out
+of Git. `minineovide` also requires the `mini` SSH alias and expects this checkout at
+`~/dotfiles` for `scripts/neovide-ssh.sh`.
+
+The export excludes the license, history databases, machine preferences and Python
+cache. Personal workflow `prefs.plist` files are ignored. Review workflow scripts,
+variables and snippets for secrets before committing future changes.
 
 ### Default text app
 

@@ -18,6 +18,7 @@ If you are not sure about something, leave a note for other developers to review
 - `first_init.sh` installs Node, Python, and Homebrew's Tree-sitter CLI, then runs `scripts/setup-nvim.lua` to restore pinned plugins, parsers, and Mason tools. The editor setup can be rerun independently after linking the checkout with `init.sh`.
 - `deinit.sh` removes known symlink paths created by `init.sh`; it does not remove copied config directories.
 - Treat generated or stateful directories carefully, especially `.config/nvim/data/` and `.config/karabiner/automatic_backups/`.
+- Alfred's shared preferences live in `alfred/Alfred.alfredpreferences`. Connect them through Alfred's Advanced preferences by selecting `alfred/`; `init.sh` does not switch Alfred's active bundle. Machine preferences, personal workflow configuration and Python cache are ignored. Licenses and history databases are not exported. The `minivnc` workflow resolves its address from the local `mini` SSH alias.
 
 ## Project Structure
 
@@ -57,6 +58,7 @@ If you are not sure about something, leave a note for other developers to review
 │   ├── gpt/prompts.csv                   # Prompt-related data
 │   ├── keyboard_data/                    # Keyboard SVG, annotated KLE JSON, renderer, and firmware layouts
 │   └── Alien_Ship_bg_vert_images/        # Bundled image assets
+├── alfred/                               # Shared Alfred preferences and workflows; select as preferences folder
 ├── sioyek/                               # Sioyek PDF reader config
 ├── vimium-c/                             # Exported Vimium C browser config
 ├── idea/settings.zip                     # IntelliJ IDEA exported settings
