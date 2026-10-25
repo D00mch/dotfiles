@@ -59,5 +59,6 @@
   :lazy false
   :priority 1000
   :build "python3 scripts/sync-palettes.py"}
+ {1 :sho-87/kanagawa-paper.nvim}
  {1 :rebelot/kanagawa.nvim
   :lazy true}]

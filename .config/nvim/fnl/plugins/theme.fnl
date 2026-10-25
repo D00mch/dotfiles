@@ -45,9 +45,7 @@
 [{1 :f-person/auto-dark-mode.nvim
   :lazy false
   :priority 1000
-  :dependencies [:nvim-tree/nvim-web-devicons
-                 :sho-87/kanagawa-paper.nvim
-                 :EdenEast/nightfox.nvim]
+  :dependencies [:nvim-tree/nvim-web-devicons]
   :init (fn []
           (when vim.g.neovide
             (make-transparent)
@@ -58,14 +56,6 @@
                        (make-non-transparent)
                        (make-transparent))
                     "transparency"))
-
-          (let [nightfox (require :nightfox)]
-            (nightfox.setup
-              {:options
-               {:styles {:comments :italic
-                         :types :italic
-                         :functions :bold}}}))
-
 
           (kset :n :<D-+> #(font-size! 1))
           (kset :n :<D--> #(font-size! -1))

@@ -67,10 +67,6 @@ local function _8_()
     kset("n", "<Space>tt", _9_, "transparency")
   else
   end
-  do
-    local nightfox = require("nightfox")
-    nightfox.setup({options = {styles = {comments = "italic", types = "italic", functions = "bold"}}})
-  end
   local function _12_()
     return font_size_21(1)
   end
@@ -98,4 +94,4 @@ local function _15_()
   auto.setup({update_interval = 2000, set_dark_mode = _16_, set_light_mode = _17_})
   return auto.init()
 end
-return {{"f-person/auto-dark-mode.nvim", priority = 1000, dependencies = {"nvim-tree/nvim-web-devicons", "sho-87/kanagawa-paper.nvim", "EdenEast/nightfox.nvim"}, init = _8_, config = _15_, lazy = false}}
+return {{"f-person/auto-dark-mode.nvim", priority = 1000, dependencies = {"nvim-tree/nvim-web-devicons"}, init = _8_, config = _15_, lazy = false}}
