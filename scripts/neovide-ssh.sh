@@ -33,6 +33,6 @@ remote_dir=${remote_dir//\'/\'\\\'\'}
 
 # --wsl enables Neovide's local clipboard integration for this remote Neovim.
 # Neovide appends --embed to the SSH command, carrying RPC directly over stdio.
-exec neovide --fork --wsl --neovim-bin=ssh -- \
+exec /usr/bin/open -n -a Neovide --args --no-fork --wsl --neovim-bin=/usr/bin/ssh -- \
   -T -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -- "$1" \
   "cd -- '$remote_dir' && exec /opt/homebrew/bin/nvim"
