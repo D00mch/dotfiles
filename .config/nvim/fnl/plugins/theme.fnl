@@ -9,7 +9,7 @@
 (set vim.g.neovide_floating_blur_amount_y 2.0)
 
 (fn make-transparent []
-  (set vim.g.neovide_opacity 0.85)
+  (set vim.g.neovide_opacity (if (dark?) 0.85 0.75))
   (set vim.g.neovide_window_blurred true))
 
 (fn make-non-transparent []
@@ -17,8 +17,8 @@
   (set vim.g.neovide_window_blurred false))
 
 (fn set-theme [dark?]
-  ;(make-transparent dark?)
   (set nvim.o.background (if dark? "dark" "light"))
+  (when (transparent?) (make-transparent))
   (vim.api.nvim_command
     (.. "colorscheme " (if dark? "kanagawa-paper" "suannhai-shironeri"))))
 
@@ -58,14 +58,6 @@
                        (make-non-transparent)
                        (make-transparent))
                     "transparency"))
-
-          ; (vim.api.nvim_create_autocmd
-          ;   :ColorScheme
-          ;   {:buffer   bufnr
-          ;    :group    (vim.api.nvim_create_augroup :HighlightColors {:clear true})
-          ;    :callback #(if (transparent?)
-          ;                 (make-transparent (dark?))
-          ;                 (make-non-transparent (dark?)))})
 
           (let [nightfox (require :nightfox)]
             (nightfox.setup
