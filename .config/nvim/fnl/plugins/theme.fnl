@@ -29,7 +29,8 @@
 ;; fc-list : family | sort -u | rg -i "nerd|mono|term|iosevka|jetbrains|hack"
 ;; update from: https://github.com/ryanoasis/nerd-fonts/releases
 ;; and https://github.com/StefanPeev/Terminalia/tree/main/fonts/Terminalia_v.1.020/autohinted/instance_ttf
-(local default-font "Terminalia,Terminess_Nerd_Font:h19")
+(local default-font "VictorMono Nerd Font Mono:h16")
+; (local default-font "Terminalia,Terminess_Nerd_Font:h19")
 ; (local default-font "Hack Nerd Font Mono:h15")
 ; (local default-font "JetBrainsMonoNL Nerd Font Mono:h15")
 ; (local default-font "Iosevka Nerd Font Mono:h17")
