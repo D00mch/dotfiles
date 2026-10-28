@@ -38,7 +38,7 @@ local function set_theme(dark_3f0)
   end
   local _6_
   if dark_3f0 then
-    _6_ = "kanagawa-paper"
+    _6_ = "suannhai-lam-ni"
   else
     _6_ = "suannhai-shironeri"
   end
