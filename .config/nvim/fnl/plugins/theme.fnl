@@ -9,7 +9,7 @@
 (set vim.g.neovide_floating_blur_amount_y 2.0)
 
 (fn make-transparent []
-  (set vim.g.neovide_opacity (if (dark?) 0.85 0.75))
+  (set vim.g.neovide_opacity (if (dark?) 0.87 0.77))
   (set vim.g.neovide_window_blurred true))
 
 (fn make-non-transparent []
