@@ -3,6 +3,6 @@
 [font]
 normal = ["VictorMono Nerd Font Mono"]
 bold = ["VictorMono Nerd Font Mono"]
-italic = ["VictorMono Nerd Font Mono"]
-bold_italic = ["VictorMono Nerd Font Mono"]
+italic = [{ family = "VictorMono Nerd Font Mono", style = "Oblique" }]
+bold_italic = [{ family = "VictorMono Nerd Font Mono", style = "Bold Oblique" }]
 size = 19.0
