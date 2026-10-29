@@ -14,7 +14,8 @@ If you are not sure about something, leave a note for other developers to review
 - Preserve machine-specific assumptions unless the requested change is explicitly about setup portability.
 - `./first_init.sh` uses its own directory as the dotfiles repo path (or accepts an explicit first argument), installs packages, removes existing `~/.zshenv` and `~/.zshrc`, then delegates home-directory symlink setup to `init.sh`. Oh My Zsh installation is unattended; open a new terminal afterward.
 - `init.sh` symlinks most files into `$HOME` and `~/.config`, but copies `~/.config/zathura`.
-- Neovide and WezTerm expect `Terminess Nerd Font`; `first_init.sh` installs the Homebrew cask for it.
+- WezTerm expects `Terminess Nerd Font`; `first_init.sh` installs the Homebrew cask for it.
+- In local Neovide, `Space vf` or `:Font` opens the font picker next to the `Space vc` theme picker. Font and size are saved in `.config/neovide/config.toml` and hot-reloaded by all Neovide windows; leave Neovim's `guifont` unset to retain VictorMono's Oblique styles. `Cmd +` / `Cmd -` resize, and `,sd` restores the selected font's preset size. Maple Mono NF, VictorMono, Hack, JetBrainsMonoNL, Iosevka Mono/Propo, and Terminalia with Terminess fallback are presets; their additional fonts are installed separately from bootstrap for now.
 - `first_init.sh` installs Node, Python, and Homebrew's Tree-sitter CLI, then runs `scripts/setup-nvim.lua` to restore pinned plugins, parsers, and Mason tools. The editor setup can be rerun independently after linking the checkout with `init.sh`.
 - `deinit.sh` removes known symlink paths created by `init.sh`; it does not remove copied config directories.
 - Treat generated or stateful directories carefully, especially `.config/nvim/data/` and `.config/karabiner/automatic_backups/`.

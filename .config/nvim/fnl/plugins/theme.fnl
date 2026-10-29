@@ -25,23 +25,61 @@
 
 ;;; font
 
-;; show fonts: 
-;; fc-list : family | sort -u | rg -i "nerd|mono|term|iosevka|jetbrains|hack"
-;; update from: https://github.com/ryanoasis/nerd-fonts/releases
-;; and https://github.com/StefanPeev/Terminalia/tree/main/fonts/Terminalia_v.1.020/autohinted/instance_ttf
-(local default-font "VictorMono Nerd Font Mono:h16")
-; (local default-font "Terminalia,Terminess_Nerd_Font:h19")
-; (local default-font "Hack Nerd Font Mono:h15")
-; (local default-font "JetBrainsMonoNL Nerd Font Mono:h15")
-; (local default-font "Iosevka Nerd Font Mono:h17")
-; (local default-font "Iosevka Nerd Font Propo:h17")
-; (local default-font "Hack NF:h15")
-(set nvim.o.guifont default-font)
+;; Neovide hot-reloads this file and remembers the selection across restarts.
+;; Keep guifont unset: setting it discards the custom Oblique faces.
+(local font-config (or vim.env.NEOVIDE_CONFIG
+                       (vim.fn.expand "~/.config/neovide/config.toml")))
+(local fonts [{:name "Maple Mono NF" :size 16}
+              {:name "VictorMono Nerd Font Mono" :size 16 :italic "Oblique"}
+              {:name "Terminalia" :size 19 :fallback "Terminess Nerd Font"}
+              {:name "Hack Nerd Font Mono" :size 15}
+              {:name "JetBrainsMonoNL Nerd Font Mono" :size 15}
+              {:name "Iosevka Nerd Font Mono" :size 17}
+              {:name "Iosevka Nerd Font Propo" :size 17}])
+
+(fn current-font []
+  (let [text (.. (table.concat (vim.fn.readfile font-config) "\n") "\n[")
+        config (or (text:match "%[font%]%s*\n(.-)\n%[") "")
+        family (config:match "normal%s*=%s*%[%s*\"([^\"]+)\"")]
+    (var font (. fonts 1))
+    (each [_ candidate (ipairs fonts)]
+      (when (= candidate.name family) (set font candidate)))
+    (values font (or (tonumber (config:match "\nsize%s*=%s*([%d.]+)")) font.size))))
+
+(fn set-font! [font size]
+  (if (not vim.g.neovide)
+    (vim.notify "Font switching requires Neovide" vim.log.levels.INFO)
+    (let [families (vim.json.encode [font.name font.fallback])
+          face (fn [style]
+                 (if font.italic
+                   (string.format "[{ family = \"%s\", style = \"%s\" }]" font.name style)
+                   families))
+          settings {:normal families :bold families
+                    :italic (face font.italic)
+                    :bold_italic (face (.. "Bold " (or font.italic "Italic")))
+                    :size (tostring (or size font.size))}
+          lines []]
+      (var in-font? false)
+      ;; Update only the picker-managed keys, preserving other configuration.
+      (each [_ line (ipairs (vim.fn.readfile font-config))]
+        (when (line:match "^%[") (set in-font? (= line "[font]")))
+        (when (not (and in-font? (. settings (or (line:match "^([%w_]+)%s*=") ""))))
+          (table.insert lines line))
+        (when (= line "[font]")
+          (each [_ key (ipairs [:normal :bold :italic :bold_italic :size])]
+            (table.insert lines (.. key " = " (. settings key))))))
+      (vim.fn.writefile lines font-config))))
+
+(fn select-font []
+  (require :telescope)
+  (vim.ui.select fonts
+                 {:prompt "Font"
+                  :format_item #(string.format "%s (%d pt)" $.name $.size)}
+                 #(when $ (set-font! $))))
 
 (fn font-size! [diff]
-  (let [font nvim.o.guifont
-        size (-> (nvim.o.guifont:match "h(%d+)$") tonumber (+ diff))]
-    (set nvim.o.guifont (font:gsub "%d+$" size))))
+  (let [(font size) (current-font)]
+    (set-font! font (math.max 1 (+ size diff)))))
 
 [{1 :f-person/auto-dark-mode.nvim
   :lazy false
@@ -60,7 +98,9 @@
 
           (kset :n :<D-+> #(font-size! 1))
           (kset :n :<D--> #(font-size! -1))
-          (kset :n :<leader>sd #(set nvim.o.guifont default-font) "Default font size")
+          (kset :n :<leader>sd #(let [font (current-font)] (set-font! font)) "Default font size")
+          (kset :n :<Space>vf select-font "Select font")
+          (vim.api.nvim_create_user_command :Font select-font {:desc "Select font"})
 
           ;;; removing `~` shit in empty files
           (set vim.opt.fillchars { :eob " "}))
