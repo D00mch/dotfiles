@@ -16,11 +16,44 @@
   (set vim.g.neovide_opacity 1)
   (set vim.g.neovide_window_blurred false))
 
-(fn set-theme [dark?]
-  (set nvim.o.background (if dark? "dark" "light"))
-  (when (transparent?) (make-transparent))
-  (vim.api.nvim_command
-    (.. "colorscheme " (if dark? "suannhai-lam-ni" "suannhai-shironeri"))))
+(local theme-defaults {:dark "suannhai-lam-ni" :light "suannhai-shironeri"})
+(var appearance vim.o.background)
+
+(fn theme-file [] (.. (vim.fn.stdpath :state) "/theme-" appearance))
+
+(fn set-theme [mode]
+  (set appearance mode)
+  (let [path (theme-file)
+        saved (if (= 1 (vim.fn.filereadable path)) (vim.fn.readfile path) [])
+        name (or (. saved 1) (. theme-defaults mode))
+        background (if (. theme-defaults (. saved 2)) (. saved 2) mode)]
+    (when (or (not= vim.g.colors_name name) (not= vim.o.background background))
+      (set vim.o.background background)
+      (when (not (pcall vim.cmd.colorscheme name))
+        (set vim.o.background mode)
+        (vim.cmd.colorscheme (. theme-defaults mode)))))
+  (when (transparent?) (make-transparent)))
+
+(fn select-theme []
+  (let [builtin (require :telescope.builtin)
+        actions (require :telescope.actions)
+        state (require :telescope.actions.state)
+        path (theme-file)]
+    (builtin.colorscheme
+      {;; Only confirmed selections are saved; cancellation leaves the theme alone.
+       :enable_preview false
+       :attach_mappings
+       (fn [prompt]
+         (actions.select_default:replace
+           (fn []
+             (let [selection (state.get_selected_entry)]
+               (when selection
+                 (actions.close prompt)
+                 (vim.cmd.colorscheme selection.value)
+                 (when (transparent?) (make-transparent))
+                 (vim.fn.mkdir (vim.fn.stdpath :state) "p")
+                 (vim.fn.writefile [selection.value vim.o.background] path)))))
+         true)})))
 
 
 ;;; font
@@ -28,7 +61,8 @@
 ;; Neovide hot-reloads this file and remembers the selection across restarts.
 ;; Keep guifont unset: setting it discards the custom Oblique faces.
 (local font-config (or vim.env.NEOVIDE_CONFIG
-                       (vim.fn.expand "~/.config/neovide/config.toml")))
+                       (.. (or vim.env.XDG_CONFIG_HOME (vim.fn.expand "~/.config"))
+                           "/neovide/config.toml")))
 (local fonts [{:name "Maple Mono NF" :size 16}
               {:name "VictorMono Nerd Font Mono" :size 16 :italic "Oblique"}
               {:name "Terminalia" :size 19 :fallback "Terminess Nerd Font"}
@@ -101,13 +135,17 @@
           (kset :n :<leader>sd #(let [font (current-font)] (set-font! font)) "Default font size")
           (kset :n :<Space>vf select-font "Select font")
           (vim.api.nvim_create_user_command :Font select-font {:desc "Select font"})
+          (kset :n :<Space>vc select-theme "Select theme")
+          (vim.api.nvim_create_user_command :Theme select-theme {:desc "Select theme"})
 
           ;;; removing `~` shit in empty files
           (set vim.opt.fillchars { :eob " "}))
   :config (fn []
+            (vim.api.nvim_create_autocmd :FocusGained
+              {:group (vim.api.nvim_create_augroup :SavedTheme {:clear true})
+               :callback (fn [] (set-theme appearance))})
             (let [auto (require :auto-dark-mode)]
               (auto.setup
                 {:update_interval 2000
-                 :set_dark_mode #(set-theme true)
-                 :set_light_mode #(set-theme false)})
-              (auto.init)))}]
+                 :set_dark_mode #(set-theme :dark)
+                 :set_light_mode #(set-theme :light)})))}]

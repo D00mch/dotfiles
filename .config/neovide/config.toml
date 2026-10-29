@@ -1,5 +1,5 @@
-# Neovide reads this before Neovim starts, so keep a known-good font here
-# instead of relying on Neovide's platform default fallback list.
+# Initial template copied by scripts/setup-neovide.sh to ~/.local/state/neovide/.
+# Font selections and resizing update that local copy, not this template.
 [font]
 normal = ["VictorMono Nerd Font Mono"]
 bold = ["VictorMono Nerd Font Mono"]

@@ -12,12 +12,14 @@ If you are not sure about something, leave a note for other developers to review
 - This is a config-and-bootstrap repository, not an application or library.
 - Prefer narrow, tool-specific edits over broad cleanup. Personal keybindings and workflow choices are intentional.
 - Preserve machine-specific assumptions unless the requested change is explicitly about setup portability.
-- `./first_init.sh` uses its own directory as the dotfiles repo path (or accepts an explicit first argument), installs packages, removes existing `~/.zshenv` and `~/.zshrc`, then delegates home-directory symlink setup to `init.sh`. Oh My Zsh installation is unattended; open a new terminal afterward.
-- `init.sh` symlinks most files into `$HOME` and `~/.config`, but copies `~/.config/zathura`.
+- `./first_init.sh` uses its own directory as the dotfiles repo path (or accepts an explicit first argument), installs packages, removes existing `~/.zshenv` and `~/.zshrc`, then delegates home-directory symlink setup to `init.sh` and stops if it fails. Oh My Zsh installation is unattended; open a new terminal afterward.
+- `init.sh` symlinks most files into `$HOME` and `~/.config`, but copies `~/.config/zathura`. Repeated runs reuse correct links and stop at conflicting paths without replacing them. Repository paths may be relative or contain spaces.
 - WezTerm expects `Terminess Nerd Font`; `first_init.sh` installs the Homebrew cask for it.
-- In local Neovide, `Space vf` or `:Font` opens the font picker next to the `Space vc` theme picker. Font and size are saved in `.config/neovide/config.toml` and hot-reloaded by all Neovide windows; leave Neovim's `guifont` unset to retain VictorMono's Oblique styles. `Cmd +` / `Cmd -` resize, and `,sd` restores the selected font's preset size. Maple Mono NF, VictorMono, Hack, JetBrainsMonoNL, Iosevka Mono/Propo, and Terminalia with Terminess fallback are presets; their additional fonts are installed separately from bootstrap for now.
+- In local Neovide, `Space vf` or `:Font` opens the font picker next to the `Space vc` theme picker. Font and size are saved in `~/.local/state/neovide/config.toml`, through the `~/.config/neovide` symlink, and hot-reloaded by all Neovide windows; leave Neovim's `guifont` unset to retain VictorMono's Oblique styles. `Cmd +` / `Cmd -` resize, and `,sd` restores the selected font's preset size. Maple Mono NF, VictorMono, Hack, JetBrainsMonoNL, Iosevka Mono/Propo, and Terminalia with Terminess fallback are presets; their additional fonts are installed separately from bootstrap for now.
+- `scripts/setup-neovide.sh` (called by `init.sh`) seeds the local Neovide config from the repository template and links the config directory to local state. It preserves existing state, restores a missing config file, and migrates the old repository symlink. `XDG_CONFIG_HOME` and `XDG_STATE_HOME` override the respective roots; `NEOVIDE_CONFIG` still overrides the config file. `deinit.sh` removes the symlink and keeps the saved preferences.
+- In Neovim and Neovide, `Space vc` or `:Theme` saves the selected theme and background separately for system light/dark mode under Neovim's state directory (`theme-light` / `theme-dark`). Choices survive restarts and other windows pick them up on focus. Automatic mode switching remains enabled; missing themes fall back to the Suannhai defaults.
 - `first_init.sh` installs Node, Python, and Homebrew's Tree-sitter CLI, then runs `scripts/setup-nvim.lua` to restore pinned plugins, parsers, and Mason tools. The editor setup can be rerun independently after linking the checkout with `init.sh`.
-- `deinit.sh` removes known symlink paths created by `init.sh`; it does not remove copied config directories.
+- `deinit.sh` removes links only when their targets match this checkout or Neovide's local state directory (including the legacy Neovide link to this checkout). It preserves other links, regular files, copied config directories, and saved preferences.
 - Treat generated or stateful directories carefully, especially `.config/nvim/data/` and `.config/karabiner/automatic_backups/`.
 - Alfred's shared preferences live in `alfred/Alfred.alfredpreferences`. Connect them through Alfred's Advanced preferences by selecting `alfred/`; `init.sh` does not switch Alfred's active bundle. Machine preferences, personal workflow configuration and Python cache are ignored. Licenses and history databases are not exported. The `minivnc` workflow resolves its address from the local `mini` SSH alias.
 
@@ -43,11 +45,12 @@ If you are not sure about something, leave a note for other developers to review
 │   ├── karabiner/                        # Karabiner assets, docs, backups, and JSON config
 │   ├── karabiner.edn                     # Goku source config for Karabiner generation
 │   ├── neru/                             # Neru keyboard-driven mouse control config
-│   ├── neovide/                          # Neovide GUI config, including startup font selection
+│   ├── neovide/                          # Initial Neovide config template; active settings live in local state
 │   ├── nvim/                             # Neovim config in Lua/Fennel, snippets, ftplugins, lockfile
 │   └── zathura/                          # Zathura PDF reader config
 ├── scripts/
 │   ├── setup-nvim.lua                    # Restore Neovim plugins, parsers, and language/debug tools
+│   ├── setup-neovide.sh                  # Seed local font settings and link Neovide's config directory
 │   ├── neovide-ssh.sh                     # Local Neovide connected to remote Neovim over SSH
 │   ├── darkmode/                         # Small Go utility for toggling macOS/Chrome dark mode
 │   ├── darkmode.sh                       # Shell wrapper for dark mode flow

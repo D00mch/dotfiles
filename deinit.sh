@@ -1,34 +1,29 @@
 #!/usr/bin/env bash
 
-set -u
+set -euo pipefail
 
-DOTFILES_PATH="${1:-$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)}"
+DOTFILES_PATH="$(cd "${1:-$(dirname "${BASH_SOURCE[0]}")}" && pwd -P)"
 
 rm_symlink() {
-    local path="$1"
-
-    if [ -L "$path" ]; then
-        rm "$path"
-        echo "removed: $path"
-    else
-        echo "skip: $path is not a symlink"
-    fi
+    local path="$1" target
+    shift
+    for target; do
+        if [[ -L "$path" && ( "$path" -ef "$target" || "$(readlink "$path")" == "$target" ) ]]; then
+            rm "$path"
+            echo "removed: $path"
+            return
+        fi
+    done
 }
 
-rm_symlink "$HOME/.vim"
-rm_symlink "$HOME/.vimrc"
-rm_symlink "$HOME/.zshenv"
-rm_symlink "$HOME/.zshrc"
-rm_symlink "$HOME/.ideavimrc"
-rm_symlink "$HOME/.clojure"
-rm_symlink "$HOME/.wezterm.lua"
+for name in .vim .vimrc .zshenv .zshrc .ideavimrc .clojure .wezterm.lua; do
+    rm_symlink "$HOME/$name" "$DOTFILES_PATH/$name"
+done
 
-rm_symlink "$HOME/.config/nvim"
-rm_symlink "$HOME/.config/neovide"
-rm_symlink "$HOME/.config/clj-kondo"
-rm_symlink "$HOME/.config/karabiner.edn"
-rm_symlink "$HOME/.config/aerospace"
-rm_symlink "$HOME/.config/neru"
-rm_symlink "$HOME/.config/karabiner/assets"
+for name in nvim clj-kondo karabiner.edn aerospace neru karabiner/assets; do
+    rm_symlink "$HOME/.config/$name" "$DOTFILES_PATH/.config/$name"
+done
+rm_symlink "${XDG_CONFIG_HOME:-$HOME/.config}/neovide" \
+    "${XDG_STATE_HOME:-$HOME/.local/state}/neovide" "$DOTFILES_PATH/.config/neovide"
 
-rm_symlink "$DOTFILES_PATH/.config/nvim/spell"
+rm_symlink "$DOTFILES_PATH/.config/nvim/spell" "$DOTFILES_PATH/.vim/spell"

@@ -10,7 +10,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 rm -rf ~/.zshenv
 rm -rf ~/.zshrc
 
-bash "$DOTFILES_PATH/init.sh" "$DOTFILES_PATH"
+bash "$DOTFILES_PATH/init.sh" "$DOTFILES_PATH" || exit 1
 
 # installing brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

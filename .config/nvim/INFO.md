@@ -22,7 +22,7 @@ If you are not sure about something, leave a note for other developers to review
 
 ## Startup Flow
 
-- `init.lua` disables several builtin Vim plugins, enables truecolor, sets the GUI font early for Neovide, bootstraps `lazy.nvim` if needed, enables the Lua loader, sets leader keys, then sources repo-root `~/.vimrc`.
+- `init.lua` disables several builtin Vim plugins, enables truecolor, bootstraps `lazy.nvim` if needed, enables the Lua loader, sets leader keys, then sources repo-root `~/.vimrc`. Neovide reads its font from its own config before Neovim starts; `guifont` stays unset.
 - After the legacy Vim config is sourced, Neovim plugin setup is delegated to `require("lazy").setup("plugins")`.
 - `lua/plugins.lua` is a small hand-authored bootstrap file that registers `lazy.nvim` itself and the `Olical/nfnl` plugin.
 - The `nfnl` plugin loads `require("config")`, which comes from the compiled `lua/config/init.lua` generated from `fnl/config/init.fnl`.
@@ -91,7 +91,8 @@ If you are not sure about something, leave a note for other developers to review
 - Completion is centered on `nvim-cmp`, `snippy`, LSP, Conjure, and buffer/path/spell sources.
 - Search/navigation is centered on Telescope with recent-files, file-browser, undo, live grep, and git pickers.
 - LSP setup includes at least Fennel, Clojure, Java, Go, Kotlin, TypeScript, Emmet, and LTEX wiring.
-- Theme handling is dynamic and includes auto dark-mode switching plus Neovide font/transparency settings.
+- `Space vc` / `:Theme` remembers a theme and background for each system light/dark mode in `stdpath("state")/theme-light` and `theme-dark`. Automatic mode switching restores those choices, with Suannhai defaults when unset or unavailable; other instances reload them on focus. Font/transparency settings remain Neovide-specific.
+- `Space vf` / `:Font` and font resizing write through `~/.config/neovide` to `~/.local/state/neovide/config.toml`, so font choices stay outside Git. `init.sh` sets up this link and seeds defaults once; XDG directory overrides and `NEOVIDE_CONFIG` are respected.
 - Treesitter uses the `main` branch and configures after its dependencies load. Its `opts.parsers` list is shared with the setup script; highlighting resolves each filetype to a parser, including `sh` -> `bash`, `help` -> `vimdoc`, and `typescriptreact` -> `tsx`. Folding is managed by `nvim-ufo`.
 - HTTP mappings use the current `:Rest open` and `:Rest run` commands; the REST module name is explicitly `rest-nvim`.
 

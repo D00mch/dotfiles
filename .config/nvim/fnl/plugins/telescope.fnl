@@ -42,7 +42,6 @@
           ;(kset :n :<space>pq ":Telescope quickfix<cr>" "QuickFix")
 
           (kset :n :<space>vk ":Telescope keymaps<cr>")
-          (kset :n :<space>vc ":Telescope colorscheme<cr>")
           (kset :n :<space>v: ":Telescope commands<cr>")
           (kset :n :<space>vo ":Telescope vim_options<cr>")
           (kset :n :<space>vm ":Telescope marks<cr>")
