@@ -16,7 +16,7 @@ local function make_transparent()
   if dark_3f() then
     vim.g.neovide_opacity = 0.87
   else
-    vim.g.neovide_opacity = 0.77
+    vim.g.neovide_opacity = 0.85
   end
   vim.g.neovide_window_blurred = true
   return nil
