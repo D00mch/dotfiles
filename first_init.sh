@@ -14,22 +14,19 @@ bash "$DOTFILES_PATH/init.sh" "$DOTFILES_PATH" || exit 1
 
 # installing brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> ~/.zprofile
-eval $(/opt/homebrew/bin/brew shellenv)
-# brew autocompletion https://docs.brew.sh/Shell-Completion
-echo 'if type brew &>/dev/null' >> ~/.zprofile 
-echo 'then' >> ~/.zprofile 
-echo '  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"' >> ~/.zprofile 
-echo '  autoload -Uz compinit' >> ~/.zprofile 
-echo '  compinit' >> ~/.zprofile 
-echo 'fi' >> ~/.zprofile 
+grep -qF '/opt/homebrew/bin/brew shellenv' "$HOME/.zprofile" 2>/dev/null ||
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.zprofile"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+# Oh My Zsh initializes completion once, from .zshrc.
 
 # installing utilities 
 brew install neovim
 brew install node python tree-sitter-cli
 brew install --cask neovide
 bash "$DOTFILES_PATH/scripts/set-default-text-app.sh"
-brew install --cask font-terminess-ttf-nerd-font
+brew install --cask font-terminess-ttf-nerd-font font-victor-mono-nerd-font \
+    font-maple-mono-nf font-hack-nerd-font \
+    font-jetbrains-mono-nerd-font font-iosevka-nerd-font
 brew install yqrashawn/goku/goku
 brew install --cask nikitabobko/tap/aerospace
 brew install --cask karabiner-elements
