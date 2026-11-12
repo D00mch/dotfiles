@@ -8,6 +8,7 @@
 - Aerospace (vm)
 - Neru (keyboard-driven mouse control)
 - Alfred (shared preferences and workflows)
+- Happ (`.ru` split routing)
 - Neovide as the default app for text and source files
 
 ### Installation
@@ -49,6 +50,16 @@ of Git. `minineovide` also requires the `mini` SSH alias and expects this checko
 The export excludes the license, history databases, machine preferences and Python
 cache. Personal workflow `prefs.plist` files are ignored. Review workflow scripts,
 variables and snippets for secrets before committing future changes.
+
+### Happ
+
+The [ru Direct profile](happ/ru-direct.json) sends `.ru` domains directly and uses the VPN by default. From this checkout, copy its import link to the macOS clipboard:
+
+```bash
+printf 'happ://routing/add/%s' "$(base64 < happ/ru-direct.json | tr -d '\n')" | pbcopy
+```
+
+In Happ, open **Server List → ⋯ → Routing → ⋯ → Import from Clipboard**. Turn on **Enable Routing**, select **ru Direct**, and reconnect if already connected. Importing again updates the profile with the same name. JSON server configs such as `OKVPN-MYW` use their own routing. [Happ routing docs](https://www.happ.su/main/dev-docs/routing)
 
 ### Default text app
 

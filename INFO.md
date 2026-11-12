@@ -23,6 +23,7 @@ If you are not sure about something, leave a note for other developers to review
 - `deinit.sh` removes links only when their targets match this checkout or Neovide's local state directory (including the legacy Neovide link to this checkout). It preserves other links, regular files, copied config directories, and saved preferences.
 - Treat generated or stateful directories carefully, especially `.config/nvim/data/` and `.config/karabiner/automatic_backups/`.
 - Alfred's shared preferences live in `alfred/Alfred.alfredpreferences`. Connect them through Alfred's Advanced preferences by selecting `alfred/`; `init.sh` does not switch Alfred's active bundle. Machine preferences, personal workflow configuration and Python cache are ignored. Licenses and history databases are not exported. The `minivnc` workflow resolves its address from the local `mini` SSH alias.
+- `happ/ru-direct.json` is a portable Happ routing profile. Import it through the Server List routing menu using the command in `README.md`. Keep VPN server configs and subscription URLs in Happ's local storage.
 
 ## Project Structure
 
@@ -64,6 +65,7 @@ If you are not sure about something, leave a note for other developers to review
 │   ├── keyboard_data/                    # Keyboard SVG, annotated KLE JSON, renderer, and firmware layouts
 │   └── Alien_Ship_bg_vert_images/        # Bundled image assets
 ├── alfred/                               # Shared Alfred preferences and workflows; select as preferences folder
+├── happ/                                 # Importable .ru routing profile
 ├── sioyek/                               # Sioyek PDF reader config
 ├── vimium-c/                             # Exported Vimium C browser config
 ├── idea/settings.zip                     # IntelliJ IDEA exported settings
