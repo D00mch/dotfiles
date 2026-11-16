@@ -10,7 +10,7 @@ local home = wezterm.home_dir .. '/dotfiles/resources/'
 
 function scheme_for_appearance(appearance)
   if appearance:find("Dark") then
-    return "kanagawabones" --Kimber (base16)
+    return "Green Screen (base16)"
   else
     return "Edge Light (base16)"
   end
